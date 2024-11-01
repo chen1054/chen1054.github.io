@@ -1,0 +1,235 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: sans-serif;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: #aad4cf;
+	
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ===== My Css ===== */
+
+
+
+.wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px
+}
+
+.bg-image {
+	width: 100%;
+	display: block;	
+}
+
+
+h1 {
+	font-weight: bold;
+	margin: 0 20px;
+}
+
+h2, h3 {
+	font-weight: bold;
+	margin: 20px;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3, h4 {
+	font-size: 1.2rem;
+}
+
+section {
+	margin: 40px 0 50px;
+}
+
+header {
+	position: relative;
+	width:70%;
+	margin: 0 auto;
+}
+
+header h1 {
+	position: absolute;
+	top: 58%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white
+}
+
+nav {
+	width: 100%;
+	padding: 10px 0;
+	background-color:#d4e9e7 ;
+
+}
+
+nav ul {
+	display:flex;
+	justify-content: space-between;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	list-style:none;
+	
+}
+
+nav ul li {
+	flex: 1;
+	text-align: center;
+	position: relative;
+	font-size: 1.5rem;
+	color: black;
+	padding: 5px 0;
+	
+}
+
+nav ul li:not(:last-child)::after {
+	content: "|";
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 2px;
+	color: grey;
+
+}
+
+article p {
+    font-size: 16px;
+    line-height: 1.5;
+	padding: 20px;
+}
+
+article {
+	width: 70%;
+	margin: auto;
+	background-color:#d4e9e7;
+	padding: 10px 0;
+}
+
+.lone-starfish {
+	width: 300px;
+	float: left;
+	margin: 20px;
+}
+
+.facts-section {
+	width: 70%;
+	margin: auto;
+	padding: 10px 0;
+	background-color:#d4e9e7;
+}
+
+.facts-list {
+	list-style-type: disc;
+	margin-left: 40px;
+	
+}
+
+.fact-list li {
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+
+.contact-section {
+	width: 70%;
+	margin: auto;
+	padding: 20px 0;
+	background-color:#d4e9e7;
+	clear: right;
+}
+
+.contact-form {
+	margin: 20px;
+	padding: 30px 10px;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black
+}
+
+.contact-form label,.contact-form p {
+        line-height: 2;
+}
+
+.contact-form div {
+    margin-bottom: 20px;
+}
+
+.contact-form .yname input,
+.contact-form .yemail input {
+    width:100%;
+    padding: 10px 0;
+}
+
+.contact-form .ymessage textarea {
+    width: 100%;
+    padding: 10px 0;
+    height: 200px;
+    resize: vertical;
+}
+
+.contact-form .submit {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+	background-color:#d4e9e7;
+	width: 70%;
+	margin: auto;
+	padding: 0 0 20px 0;
+	text-align: right;
+}
