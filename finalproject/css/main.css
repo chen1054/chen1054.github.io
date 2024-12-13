@@ -1,0 +1,647 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ===== My CSS ===== */
+
+*{
+    box-sizing : border-box;
+}
+
+body {
+    
+    font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+img {
+    width: 100%;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+section {
+    padding: 10px 0;
+}
+
+/* ----- Header Section ------ */
+
+
+
+header {
+    background: #222;
+    color: #c78c06;
+    padding: 10px 20px;
+}
+
+
+nav {
+    display: flex;
+    flex-wrap: wrap; /* 允许子项换行 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    margin-bottom: 10px; /* 默认 Logo 单独一行 */
+}
+
+nav .logo img {
+    height: 80px; /* 设置 Logo 图片的高度 */
+}
+
+nav .nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav .nav-menu li {
+    margin-right: 20px;
+}
+
+nav .nav-menu a {
+    text-decoration: none;
+    color:  #c78c06;
+    font-size: 16px;
+}
+
+/* 搜索栏 */
+nav .search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* 默认下方显示 */
+}
+
+nav .search-bar input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+nav .search-bar button {
+    padding: 5px 10px;
+    background-color: #c78c06;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* 小屏幕（小于 760px） */
+@media (max-width: 760px) {
+    nav {
+        flex-direction: column; /* 导航栏纵向排列 */
+        align-items: flex-start; /* 左对齐 */
+    }
+
+    nav .logo {
+        margin-bottom: 20px; /* 增加 Logo 和导航之间的间隔 */
+    }
+
+    nav .nav-menu {
+        flex-direction: column; /* 导航项纵向排列 */
+        width: 100%; /* 占满宽度 */
+		align-items: center; /* 居中对齐导航项 */
+        text-align: center; /* 使文字居中 */
+    }
+
+    nav .nav-menu li {
+        margin: 10px 0; /* 导航项之间的垂直间距 */
+		width: 100%;
+    }
+
+	nav .nav-menu a {
+        display: block; /* 让链接成为块级元素 */
+        text-align: center; /* 居中对齐链接文字 */
+    }
+
+    nav .search-bar {
+        margin-top: 20px; /* 增加搜索栏与其他部分的间隔 */
+        width: 100%; /* 搜索栏占满整个宽度 */
+        justify-content: space-between; /* 输入框和按钮分开 */
+    }
+
+    nav .search-bar input {
+        width: 80%; /* 输入框宽度 */
+    }
+
+    nav .search-bar button {
+        width: 18%; /* 按钮宽度 */
+    }
+}
+
+/* 大屏幕（大于 1200px） */
+@media (min-width: 1200px) {
+    nav {
+        flex-direction: row; /* 导航栏横向排列 */
+    }
+
+    nav .logo {
+        margin-bottom: 0; /* Logo 和导航项在同一行 */
+        margin-right: 20px; /* Logo 和导航项之间的间隔 */
+    }
+
+    nav .nav-menu {
+        flex-direction: row; /* 导航项横向排列 */
+    }
+
+    nav .search-bar {
+        margin-top: 0;
+        width: auto; /* 搜索栏宽度自适应 */
+    }
+
+    nav .search-bar input {
+        width: 200px; /* 输入框宽度 */
+    }
+
+}
+
+/* ----- banner-section ------ */
+
+.banner {
+    background-color: #333;
+    color: white;
+    padding: 80px 0px;
+	background-image: url("../images/main-banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ .banner .banner-info {
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: left;
+}
+
+.banner-info h1 {
+    font-size: 4rem;
+	line-height: 1.3;
+    margin-bottom: 30px;
+}
+
+.banner-info .content {
+    margin-bottom: 20px;
+}
+
+.connect-with-section {
+	font-size: 1.2rem;
+    background-color:  #c78c06;
+    color: black;
+    text-decoration: none;
+	text-align: center;
+    padding: 30px 10px;
+	width:200px
+}
+
+/* ----- about-section ------ */
+
+.about-section {
+	background-color:#ffe6ac;
+	padding: 20px 10px;
+    text-align: left;
+	margin-bottom: 30px; 
+}
+
+.about-section .content {
+	margin: 0 auto; 
+	padding: 0 10px;
+	margin-bottom: 10px; 
+}
+
+.about-section img {
+	width: 100%; 
+    display: block; 
+    margin-bottom: 10px; 
+}
+
+.about-section h2 {
+    margin-bottom: 10px; 
+}
+
+.about-section p {
+    margin-bottom: 10px; 
+}
+
+/* ----- service-section ------ */
+
+.service-section {
+    text-align: left;
+	background-color:white;
+	padding: 0 10px;
+}
+
+/* ----- digital-transform ------ */
+.digital-transform  {
+    text-align: left;	
+}
+
+.digital-transform img {
+	background-color:white;
+	width: 100%; 
+    display: block;     
+}
+
+.digital-transform .content {
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.digital-transform h3 {
+    margin-bottom:20px; 
+}
+
+.digital-transform p {
+    margin-bottom: 20px; 
+}
+
+.digital-plans {
+	font-size: 1.3rem;
+    background-color:  #333;
+    color:white;
+	text-align: center;
+    text-decoration: none;
+    padding: 40px 20px;
+	width:200px	 
+}
+
+/* ----- marketing ------ */
+
+.marketing  {
+    text-align: left;	
+}
+
+.marketing img {
+	background-color:white;
+	width: 100%; 
+    display: block;    
+}
+
+.marketing .content {
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.marketing h3 {
+    margin-bottom:20px; 
+}
+
+.marketing p {
+    margin-bottom: 20px; 
+}
+
+.marketing-plans {
+	font-size: 1.3rem;
+    background-color:  #333;
+    color:white;
+	text-align: center;
+    text-decoration: none;
+    padding: 40px 20px;
+	width:200px	 
+}
+
+/* ----- video-production ------ */
+
+.video-production  {
+    text-align: left;	
+}
+
+.video-production img {
+	background-color:white;
+	width: 100%; 
+    display: block;    
+}
+
+.video-production .content {
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.video-production h3 {
+    margin-bottom:20px; 
+}
+
+.video-production p {
+    margin-bottom: 20px; 
+}
+
+.video-plans {
+	font-size: 1.3rem;
+    background-color:  #333;
+    color:white;
+	text-align: center;
+    text-decoration: none;
+    padding: 40px 20px;
+	width:200px	 
+}
+
+/* ----- web-development ------ */
+
+.web-development  {
+    text-align: left;	
+}
+
+.web-development img {
+	background-color:white;
+	width: 100%; 
+    display: block;    
+}
+
+.web-development .content {
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.web-development h3 {
+    margin-bottom:20px; 
+}
+
+.web-development p {
+    margin-bottom: 20px; 
+}
+
+.web-plans {
+	font-size: 1.3rem;
+    background-color:  #333;
+    color:white;
+	text-align: center;
+    text-decoration: none;
+    padding: 40px 20px;
+	width:200px	 
+}
+
+/* ----- print ------ */
+
+.print  {
+    text-align: left;	
+}
+
+.print img {
+	background-color:white;
+	width: 100%; 
+    display: block;    
+}
+
+.print .content {
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.print h3 {
+    margin-bottom:20px; 
+}
+
+.print p {
+    margin-bottom: 20px; 
+}
+
+.print-plans {
+	font-size: 1.3rem;
+    background-color:  #333;
+    color:white;
+	text-align: center;
+    text-decoration: none;
+    padding: 40px 20px;
+	width:200px	 
+}
+
+
+/* ----- vision-section ------ */
+
+.vision-section {
+    color: white;
+    padding: 30px 5px 5px 10px;
+	background-image: url("../images/vision.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	margin-bottom: 40px;
+}
+
+ .vision-section .vision-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.vision-info h3 {
+    margin-bottom: 20px;
+}
+
+.vision-info p {
+    margin-bottom: 10px;
+}
+.vision-info .content {
+    margin-bottom: 20px;
+}
+
+.learn-more {
+	font-size: 1.3rem;
+    background-color:  #11253d;
+    color: white;
+	border: 1px solid #c78c06;
+    text-decoration: none;
+	text-align: center;
+    padding: 40px 10px;
+	width:200px
+}
+
+/* ----- team-section ------ */
+
+.team-section {
+    text-align: left;
+	background-color:white;
+	padding: 0 10px;	
+}
+
+.team-section img {
+	background-color:white;
+	width: 100%; 
+    display: block;    
+}
+/* ----- John ------ */
+.team-section .john{
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.john h3 {
+    margin-bottom:10px; 
+}
+
+.john h4 {
+    margin-bottom:10px; 
+	font-weight: bold;
+}
+
+.john p {
+    margin-bottom: 20px; 
+}
+
+.john hr {
+    border: none; 
+    border-top: 2px solid #c78c06; 
+    width: 100%; 
+    margin: 10px 0; 
+}
+
+/* ----- Bob ------ */
+
+.team-section .bob{
+	background-color:#ffe6ac;
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px;
+	margin-bottom: 10px; 
+}
+
+.bob h3 {
+    margin-bottom:10px; 
+}
+
+.bob h4 {
+    margin-bottom:10px; 
+	font-weight: bold;
+}
+
+.bob p {
+    margin-bottom: 20px; 
+}
+
+.bob hr {
+    border: none; 
+    border-top: 2px solid #c78c06; 
+    width: 100%; 
+    margin: 10px 0; 
+}
+
+/* ----- contact section ------ */
+/* ----- message ------ */
+.contact-section {
+	padding: 0 10px;
+	margin-bottom: 20px;
+}
+
+.message {
+	margin-bottom: 20px;
+}
+.contact-form {
+    margin: 10px 0px 0px 0px;
+    padding: 30px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.contact-form label {
+    margin-bottom: 10px; 
+}
+
+.contact-form div {
+    margin-bottom: 10px; 
+    width: 100%; 
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+	border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical; 
+}
+
+.submit {
+	width: 50px;
+	text-align: center;
+    padding: 5px 5px;
+    color: #c78c06;;
+    background-color: #333 
+}
+
+/* ----- hours of operation ------ */

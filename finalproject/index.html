@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chen1054-Final Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="An image of logo">
-        </div>
-
         <nav>
-            <ul>
-                <li><a href="#home-section">Home</a></li>
-                <li><a href="#about-us-section">About Us</a></li>
-                <li><a href="#service-section">Service</a></li>
-                <li><a href="#team-section">Team</a></li>
-                <li><a href="#contact-section">Contact</a></li>
+            <div class="logo">
+                <img src="images/logo.png" alt="An image of logo">
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Service</a></li>
+                <li><a href="">Team</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
 
             <div class="search-bar">
@@ -29,8 +31,8 @@
     </header>
 
     <main>
-        <div class="wrapper">
-            <section class="main-banner-section" id="main-banner-section">
+        <div class="banner">
+            <div class="banner-info" >
                 <h1>Welcome to Three Stars Media</h1>
                     <div class="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
@@ -38,20 +40,19 @@
                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                                     nisi ut aliquip ex ea commodo consequat. </p>
                     </div>
-                    <div class="contact-with-section">Contact With Us</div>
-                <img src="images/main-banner.jpg" alt="An image of main-banner">
-            </section>
-
+                    <div class="connect-with-section">Connect With Us</div> 
+            </div>
+        </div>
             <section class="about-section" id="about-section">
-                <img src="images/about-us.jpg" alt="An image of about us">
+                <div class="content">
+                    <img src="images/about-us.jpg" alt="An image of about us">
                     <h2>About Us</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                    </p>
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                </div>
             </section>       
 
             <section class="service-section" id="service-section">
@@ -59,13 +60,14 @@
 
                     <div class="digital-transform">
                         <img src="images/digital.jpg" alt="An image of digital transformation">
-                            <div class="content">
-                                <h3>Digital Transformation</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
+                        <div class="content">
+                            <h3>Digital Transformation</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                                 tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                                 mi tincidunt. Donec eleifend sed diam nec facilisis. </p>
-                            </div>
-                            <div class="digital-plans">Digital Plans</div> 
+                            <div class="digital-plans">Digital Plans</div>
+                        </div>
+                        
                     </div>
 
                     <div class="marketing">
@@ -75,8 +77,8 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                                 tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                                 mi tincidunt. Donec eleifend sed diam nec facilisis. </p>
-                            </div>
-                            <div class="marketing-plans">Marketing Plans</div> 
+                                <div class="marketing-plans">Marketing Plans</div> 
+                            </div>  
                     </div>
 
                     <div class="video-production">
@@ -86,8 +88,8 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                                 tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                                 mi tincidunt. Donec eleifend sed diam nec facilisis. </p>
-                            </div>
-                            <div class="video-plans">Video Plans</div> 
+                                <div class="video-plans">Video Plans</div> 
+                            </div>    
                     </div>
 
                     <div class="web-development">
@@ -97,8 +99,8 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                                 tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                                 mi tincidunt. Donec eleifend sed diam nec facilisis. </p>
+                                <div class="web-plans">Web Plans</div> 
                             </div>
-                            <div class="web-plans">Web Plans</div> 
                     </div>
 
                     <div class="print">
@@ -108,26 +110,26 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                                 tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                                 mi tincidunt. Donec eleifend sed diam nec facilisis. </p>
+                                <div class="print-plans">Print Plans</div> 
                             </div>
-                            <div class="print-plans">Print Plans</div> 
                     </div>
             </section> 
 
-            <section class="vision-section" id="vision-section">
-                <h4>Our Vision</h4>
+            <div class="vision-section" >
+                <div class="vision-info" >
+                <h3>Our Vision</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut cursus 
                             tellus, et maximus risus. Integer accumsan est vel sapien posuere, quis dapibus 
                             mi tincidunt. Donec eleifend sed diam nec facilisis.</p>
-
                 <div class="learn-more">Learn more</div>  
-                <img src="images/vision.jpg" alt="An image of vision">  
-            </section>
+                </div>
+            </div>
 
             <section class="team-section" id="team-section">
                 <h2>Our Team</h2>
 
+                <img src="images/john.jpg" alt="An image of John">
                 <div class="john">
-                    <img src="images/john.jpg" alt="An image of John">
                     <h3>John Doe</h3>
                         <h4>CEO and Co-owner</h4>
                             <hr>
@@ -137,7 +139,7 @@
                                 lectus eget luctus.</p>
                 </div>
 
-
+                <img src="images/bob.jpg" alt="An image of Bob">
                 <div class="bob">
                     <h3>Bob Rite</h3>
                         <h4>CFO and Co-owner</h4>
@@ -146,7 +148,6 @@
                                 sollicitudin tellus eu, pulvinar justo. Nunc ac tempus magna. Pellentesque vitae 
                                 congue sapien. Integer eu pellentesque magna, eu vehicula erat. Morbi congue cursus 
                                 lectus eget luctus.</p>
-                    <img src="images/bob.jpg" alt="An image of Bob">
                 </div>
             </section> 
 
@@ -172,9 +173,9 @@
                             <label for="message">Message</label>
                             <textarea name="message" id="message" cols="30" rows="10"></textarea>
                         </div>
-        
-                        <input type="submit" value="Send">
                     </form>
+
+                    <div class="submit">Send</div>  
                 </div>
 
                 <div class="location">
@@ -214,7 +215,6 @@
                     </tbody>
                 </table>
             </section>
-        </div>
     </main>
 
     <footer>
