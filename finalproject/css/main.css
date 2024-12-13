@@ -108,17 +108,17 @@ header {
 
 nav {
     display: flex;
-    flex-wrap: wrap; /* 允许子项换行 */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
 }
 
 nav .logo {
-    margin-bottom: 10px; /* 默认 Logo 单独一行 */
+    margin-bottom: 10px; 
 }
 
 nav .logo img {
-    height: 80px; /* 设置 Logo 图片的高度 */
+    height: 80px; 
 }
 
 nav .nav-menu {
@@ -138,11 +138,10 @@ nav .nav-menu a {
     font-size: 16px;
 }
 
-/* 搜索栏 */
 nav .search-bar {
     display: flex;
     align-items: center;
-    margin-top: 10px; /* 默认下方显示 */
+    margin-top: 10px; 
 }
 
 nav .search-bar input {
@@ -158,71 +157,70 @@ nav .search-bar button {
     cursor: pointer;
 }
 
-/* 小屏幕（小于 760px） */
+/* screen<760px */
 @media (max-width: 760px) {
     nav {
-        flex-direction: column; /* 导航栏纵向排列 */
-        align-items: flex-start; /* 左对齐 */
+        flex-direction: column; 
+        align-items: flex-start;
     }
 
     nav .logo {
-        margin-bottom: 20px; /* 增加 Logo 和导航之间的间隔 */
+        margin-bottom: 20px; 
     }
 
     nav .nav-menu {
-        flex-direction: column; /* 导航项纵向排列 */
-        width: 100%; /* 占满宽度 */
-		align-items: center; /* 居中对齐导航项 */
-        text-align: center; /* 使文字居中 */
+        flex-direction: column; 
+        width: 100%; 
+		align-items: center; 
+        text-align: center; 
     }
 
     nav .nav-menu li {
-        margin: 10px 0; /* 导航项之间的垂直间距 */
+        margin: 10px 0; 
 		width: 100%;
     }
 
 	nav .nav-menu a {
-        display: block; /* 让链接成为块级元素 */
-        text-align: center; /* 居中对齐链接文字 */
+        display: block; 
+        text-align: center;
     }
 
     nav .search-bar {
-        margin-top: 20px; /* 增加搜索栏与其他部分的间隔 */
-        width: 100%; /* 搜索栏占满整个宽度 */
-        justify-content: space-between; /* 输入框和按钮分开 */
+        margin-top: 20px; 
+        width: 100%; 
+        justify-content: space-between;
     }
 
     nav .search-bar input {
-        width: 80%; /* 输入框宽度 */
+        width: 80%; 
     }
 
     nav .search-bar button {
-        width: 18%; /* 按钮宽度 */
+        width: 18%; 
     }
 }
 
-/* 大屏幕（大于 1200px） */
+/* screen>1200px */
 @media (min-width: 1200px) {
     nav {
-        flex-direction: row; /* 导航栏横向排列 */
+        flex-direction: row; 
     }
 
     nav .logo {
-        margin-bottom: 0; /* Logo 和导航项在同一行 */
-        margin-right: 20px; /* Logo 和导航项之间的间隔 */
+        margin-bottom: 0; 
+        margin-right: 20px; 
     }
 
     nav .nav-menu {
-        flex-direction: row; /* 导航项横向排列 */
-    }
-
+        flex-direction: row; 
+	}
     nav .search-bar {
         margin-top: 0;
-        width: auto; /* 搜索栏宽度自适应 */
+        width: auto; 
     }
 
     nav .search-bar input {
-        width: 200px; /* 输入框宽度 */
+        width: 200px; 
     }
 
 }
