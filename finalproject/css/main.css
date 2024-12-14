@@ -101,8 +101,24 @@ section {
 
 header {
     background: #222;
-    color: #c78c06;
     padding: 10px 20px;
+}
+
+nav .nav-menu .about
+.service
+.team
+.contact {
+	color: #c78c06;
+}
+
+nav .nav-menu .home {
+	padding: 10px 20px;
+	background-color: #c78c06;
+	color:  #222;
+}
+
+.nav-menu .home:hover {
+	background-color: #a97405; 
 }
 
 
@@ -114,7 +130,7 @@ nav {
 }
 
 nav .logo {
-    margin-bottom: 10px; 
+    margin: 10px; 
 }
 
 nav .logo img {
@@ -157,15 +173,13 @@ nav .search-bar button {
     cursor: pointer;
 }
 
+
+
 /* screen<760px */
 @media (max-width: 760px) {
     nav {
         flex-direction: column; 
         align-items: flex-start;
-    }
-
-    nav .logo {
-        margin-bottom: 20px; 
     }
 
     nav .nav-menu {
@@ -198,22 +212,34 @@ nav .search-bar button {
     nav .search-bar button {
         width: 18%; 
     }
+
+	
 }
 
-/* screen>1200px */
-@media (min-width: 1200px) {
+/* 76opx < screen< 1200px */
+@media (min-width: 760px) and (max-width: 1200px)  {
     nav {
-        flex-direction: row; 
+		display: flex;
+        flex-direction: row;
+		justify-content: space-between;  
     }
 
     nav .logo {
         margin-bottom: 0; 
-        margin-right: 20px; 
+        margin: 50px; 
     }
 
     nav .nav-menu {
         flex-direction: row; 
+		display: flex; 
+    	justify-content: space-evenly; 
+    	flex-grow: 1; 
 	}
+	
+	nav .nav-menu li {
+		margin: 0 15px; 
+	}
+
     nav .search-bar {
         margin-top: 0;
         width: auto; 
