@@ -221,34 +221,61 @@ nav .search-bar button {
     nav {
 		display: flex;
         flex-direction: row;
-		justify-content: space-between;  
+        align-items: center;
+        justify-content: space-between; 
+        padding: 10px 20px; 
     }
 
     nav .logo {
-        margin-bottom: 0; 
-        margin: 50px; 
+        margin: 0; 
+        flex-shrink: 0; 
+    }
+
+    nav .logo img {
+        height: 80px; 
     }
 
     nav .nav-menu {
+        display: flex; 
         flex-direction: row; 
-		display: flex; 
-    	justify-content: space-evenly; 
-    	flex-grow: 1; 
+        justify-content: space-evenly; 
+        align-items: center; 
+        flex-grow: 1; 
+        margin: 0 20px; 
+        padding: 0;
+    }
+
+    nav .nav-menu li {
+        margin: 0 15px; 
 	}
-	
-	nav .nav-menu li {
-		margin: 0 15px; 
-	}
+    nav .nav-menu a {
+        text-decoration: none;
+        color: #c78c06;
+        font-size: 16px;
+    }
 
     nav .search-bar {
-        margin-top: 0;
+        display: flex; 
+        align-items: center; 
+        justify-content: flex-end;
+        flex-shrink: 0;
+        margin: 0; 
         width: auto; 
     }
 
     nav .search-bar input {
-        width: 200px; 
+        width: 200px;
+        padding: 5px; 
+        margin-right: 10px; 
     }
 
+    nav .search-bar button {
+        padding: 5px 10px;
+        background-color: #c78c06;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 /* ----- banner-section ------ */
@@ -289,6 +316,17 @@ nav .search-bar button {
 	width:200px
 }
 
+/* 76opx < screen< 1200px */
+@media (min-width: 760px) and (max-width: 1200px)  {
+	.banner .banner-info {
+		background-color: rgb(0, 0, 0, 0.5);
+		padding: 20px;
+		text-align: left;
+		margin: 0px 80px;
+	}
+
+}
+
 /* ----- about-section ------ */
 
 .about-section {
@@ -297,6 +335,15 @@ nav .search-bar button {
     text-align: left;
 	margin-bottom: 30px; 
 }
+
+
+@media (max-width: 760px) {
+
+	.about-section .content {
+		margin: 0 auto; 
+		padding: 0 10px;
+		margin-bottom: 10px; 
+	}
 
 .about-section .content {
 	margin: 0 auto; 
@@ -316,6 +363,26 @@ nav .search-bar button {
 
 .about-section p {
     margin-bottom: 10px; 
+}
+}
+
+/* 76opx < screen< 1200px */
+@media (min-width: 760px) and (max-width: 1200px)  {
+
+	.about-section {
+		display:flex;
+		text-align: center;
+	}
+
+	.about-section img {
+		width: 400px;
+		float: left;
+        margin: 20px;
+	}
+	.about-section .content {
+        text-align: justify;
+    }
+
 }
 
 /* ----- service-section ------ */
@@ -508,6 +575,12 @@ nav .search-bar button {
     text-decoration: none;
     padding: 40px 20px;
 	width:200px	 
+}
+
+/* 76opx < screen< 1200px */
+@media (min-width: 760px) and (max-width: 1200px)  {
+
+	
 }
 
 
