@@ -37,6 +37,8 @@
   Keep whole rem values as integers.
   A surrounding calculation may contain the division directly,
   such as `calc(100% - 40rem / 16)`.
+- Use native CSS nesting for child selectors and pseudo-classes.
+  Write selectors without spaces, including `&>img` and `&:focus-visible`.
 - Explain whitespace entities such as `&#32;` in an HTML comment
   at their first use within each parent block.
 - The user identified the exported leading and trailing spaces as probable Figma artifacts.
