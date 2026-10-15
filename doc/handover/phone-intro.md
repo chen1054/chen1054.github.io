@@ -36,6 +36,9 @@
   such as `calc(100% - 40rem / 16)`.
 - Explain whitespace entities such as `&#32;` in an HTML comment
   at their first use within each parent block.
+- The user identified the exported leading and trailing spaces as probable Figma artifacts.
+  Remove those spaces rather than preserving them as content.
+  There are now no whitespace entities or space-preservation styles in the page.
 - Use a simple static file server for this project.
   Python currently serves `http://localhost:4173/`.
   The user opens that URL themselves.
@@ -70,9 +73,10 @@
   Image dimensions now scale proportionally at narrower widths.
 - Headed verification caught horizontal overflow from the greeting's one-pixel offset.
   Padding now provides the same text alignment within the layout box.
-- PDF text extraction confirms trailing spaces on wrapped paragraph lines.
-  Those spaces are preserved for the reference's centering.
-  Measured text baselines are aligned with the exported design.
+- PDF text extraction found leading and trailing spaces on wrapped paragraph lines.
+  They were initially preserved for centering.
+  The user subsequently identified them as probable export artifacts,
+  so the implementation now uses normal centered text without those spaces.
 
 ## Work remaining
 

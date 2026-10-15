@@ -86,9 +86,6 @@ p span {
   font-weight: 700;
   line-height: 2rem;
 }
-p span {
-  white-space: break-spaces;
-}
 .home-introduction-about-page-preview-button,
 .home-page-project-case-study-link {
   position: relative;
