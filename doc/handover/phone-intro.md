@@ -65,3 +65,19 @@
   check phone widths and browser errors.
 - Record verification and commits here, then present the intro for review.
 - Wait for review and further supplied material before extending the page.
+
+## Artwork review correction
+
+The user supplied `Screenshot_20261015_191521.png` showing artwork ending inside a 414-pixel phone view.
+Headed-browser measurement reproduced artwork fixed at 390 pixels.
+The cause was `main`'s `max-inline-size: 24.375rem` in `styles.css`.
+That cap is removed so artwork fills the phone viewport.
+
+The PDF contains clipping rectangles at its exported phone frame,
+but the extracted vector paths retain coordinates outside those rectangles.
+For example, the gold wave path extends from x -381.464844 to 491.886719.
+No replacement or invented artwork is needed for the viewport-width correction.
+Cropping at the outer frame remains part of the supplied composition.
+
+Future phone checks must compare artwork bounds with viewport bounds,
+including a phone wider than the 390-pixel reference.
