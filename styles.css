@@ -11,25 +11,25 @@
   font-display: swap;
 }
 :root {
-  --color-paper: #fff;
-  --color-purple: #685587;
-  --color-ink: #463267;
-  --color-gold: #c27f36;
+  --color-page-background: #fff;
+  --color-portfolio-purple: #685587;
+  --color-body-text-purple: #463267;
+  --color-heading-and-case-study-gold: #c27f36;
   color-scheme: light;
 }
 body {
   margin-block: 0;
   margin-inline: 0;
-  background-color: var(--color-paper);
+  background-color: var(--color-page-background);
 }
 main {
   position: relative;
   margin-inline: auto;
   padding-block-start: calc(169rem / 16);
-  color: var(--color-ink);
+  color: var(--color-body-text-purple);
   text-align: center;
 }
-.header-art {
+.home-introduction-top-corner-decorations {
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
@@ -42,7 +42,7 @@ button {
   border-width: 0;
   background-color: transparent;
 }
-.menu {
+.home-navigation-menu-preview-button {
   position: absolute;
   inset-block-start: calc(73rem / 16);
   inset-inline-start: calc(14rem / 16);
@@ -50,7 +50,7 @@ button {
   min-block-size: 3rem;
 }
 h1,
-.project h2 {
+.home-page-featured-project-summary h2 {
   margin-block: 0;
   font-family: "Abril Fatface", serif;
   font-weight: 400;
@@ -59,21 +59,21 @@ h1 span,
 p span {
   display: block;
 }
-.hello {
+.home-introduction-greeting {
   position: relative;
   inset-block-start: calc(1rem / 16);
   padding-inline-start: calc(2rem / 16);
-  color: var(--color-purple);
+  color: var(--color-portfolio-purple);
   font-size: calc(24rem / 16);
   line-height: 2rem;
 }
-.name {
+.home-introduction-designer-name {
   margin-block-start: calc(11rem / 16);
-  color: var(--color-gold);
+  color: var(--color-heading-and-case-study-gold);
   font-size: 2rem;
   line-height: calc(42rem / 16);
 }
-.intro-copy {
+.home-introduction-designer-summary {
   position: relative;
   inset-block-start: calc(1rem / 16);
   inset-inline-start: calc(1rem / 16);
@@ -89,8 +89,8 @@ p span {
 p span {
   white-space: break-spaces;
 }
-.about,
-.case-study {
+.home-introduction-about-page-preview-button,
+.home-page-project-case-study-link {
   position: relative;
   inset-inline-start: calc(1rem / 16);
   display: grid;
@@ -100,66 +100,66 @@ p span {
   min-block-size: 3rem;
   margin-block-start: calc(70rem / 16);
   margin-inline: auto;
-  background-image: url("assets/about-background.svg");
+  background-image: url("assets/home-introduction-about-button-background-and-shadow.svg");
   background-size: 9rem calc(42rem / 16);
   background-repeat: no-repeat;
-  color: var(--color-paper);
+  color: var(--color-page-background);
   font-family: "Abril Fatface", serif;
   font-size: calc(14rem / 16);
   font-weight: 400;
   line-height: calc(34rem / 16);
 }
-.wave {
+.home-page-full-width-decorative-wave {
   display: block;
   inline-size: 100%;
   block-size: auto;
   margin-block-start: -3rem;
 }
-.project {
+.home-page-featured-project-summary {
   margin-block-start: calc(99rem / 16);
   font-family: "Playfair Display", serif;
   font-size: calc(14rem / 16);
   font-weight: 700;
   line-height: calc(21rem / 16);
 }
-.project-art {
+.home-page-project-overview-illustration {
   display: block;
   inline-size: 100%;
   block-size: auto;
 }
-.project h2 {
+.home-page-featured-project-summary h2 {
   margin-block-start: calc(18rem / 16);
-  color: var(--color-gold);
+  color: var(--color-heading-and-case-study-gold);
   font-size: calc(28rem / 16);
   line-height: calc(38rem / 16);
 }
-.project h3 {
+.home-page-featured-project-summary h3 {
   margin-block: calc(4rem / 16) 0;
   font-size: calc(18rem / 16);
   line-height: calc(24rem / 16);
 }
-.project p {
+.home-page-featured-project-summary p {
   margin-block: calc(11rem / 16) 0;
 }
-.project .project-meta {
+.home-page-featured-project-summary .home-page-project-type-and-designer-role {
   margin-block-start: calc(12rem / 16);
   line-height: calc(19rem / 16);
 }
-.case-study {
+.home-page-project-case-study-link {
   inset-inline-start: 0;
   inline-size: calc(162rem / 16);
   margin-block-start: calc(27rem / 16);
-  background-image: url("assets/case-study-background.svg");
+  background-image: url("assets/home-project-case-study-link-background-and-shadow.svg");
   background-size: calc(162rem / 16) calc(42rem / 16);
   text-decoration: none;
 }
-.case-study:focus-visible {
+.home-page-project-case-study-link:focus-visible {
   outline-width: calc(2rem / 16);
   outline-style: solid;
-  outline-color: var(--color-purple);
+  outline-color: var(--color-portfolio-purple);
   outline-offset: calc(4rem / 16);
 }
-.project-wave {
+.home-page-project-side-and-bottom-decorative-waves {
   margin-block-start: calc(-249rem / 16);
   pointer-events: none;
 }

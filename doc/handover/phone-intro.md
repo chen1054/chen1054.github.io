@@ -16,6 +16,11 @@
 - The finished site must make no third-party requests, except for the future form.
   The user explicitly permits locally hosted original fonts and artwork.
 - All pages share a separate `styles.css`.
+- Names must identify the page, content, and role.
+  Use descriptive class names, IDs, color tokens, and artwork filenames;
+  clarity takes priority over brevity.
+  Shared project styles name their shared role;
+  project-specific assets name the full project.
 - No npm dependencies are approved.
   Skip linting and formatting for this project;
   follow conventions specified by the user manually.

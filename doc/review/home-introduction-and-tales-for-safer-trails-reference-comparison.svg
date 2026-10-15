@@ -7,20 +7,20 @@
   <title>Supplied reference and implemented phone intro with Tales section</title>
   <rect width="780" height="1616" fill="white" />
   <defs>
-    <clipPath id="implementation">
+    <clipPath id="implemented-home-content-without-desktop-scrollbar">
       <rect x="390" y="32" width="390" height="1584" />
     </clipPath>
   </defs>
   <text x="12" y="22" font-family="sans-serif" font-size="16">Supplied reference</text>
   <text x="402" y="22" font-family="sans-serif" font-size="16">Implementation</text>
-  <image href="../reference/phone-intro.svg" y="32" width="390" height="844" />
-  <image href="../reference/tales.svg" y="876" width="390" height="740" />
+  <image href="../reference/home-introduction-through-first-decorative-wave.svg" y="32" width="390" height="844" />
+  <image href="../reference/tales-for-safer-trails-home-section.svg" y="876" width="390" height="740" />
   <image
-    href="phone-tales.png"
+    href="home-introduction-and-tales-for-safer-trails-implementation.png"
     x="390"
     y="32"
-    width="405"
+    width="390"
     height="1584"
-    clip-path="url(#implementation)"
+    clip-path="url(#implemented-home-content-without-desktop-scrollbar)"
   />
 </svg>

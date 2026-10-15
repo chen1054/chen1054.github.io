@@ -16,4 +16,5 @@ Menu and About controls are disabled for this agreed visual preview.
 Project sections and navigation will follow after review and further supplied material.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
-and [the extracted intro reference](doc/reference/phone-intro.svg) for the original layout.
+and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)
+for the original layout.
