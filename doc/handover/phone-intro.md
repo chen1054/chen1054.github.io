@@ -24,6 +24,11 @@
   split HTML attributes across lines for longer tags.
   Minimum code means avoiding unnecessary implementation,
   not compressing source formatting.
+- Write fractional rem values as pixel-based calculations:
+  `calc(10rem / 16)`, never `.625rem`.
+  Keep whole rem values as integers.
+  A surrounding calculation may contain the division directly,
+  such as `calc(100% - 40rem / 16)`.
 - Explain whitespace entities such as `&#32;` in an HTML comment
   at their first use within each parent block.
 - Use a simple static file server for this project.
@@ -101,3 +106,5 @@ including a phone wider than the 390-pixel reference.
 - `agent-browser close` completed successfully after that timeout.
 - The latest manual formatting change expands CSS declarations and HTML attributes.
   It adds no dependency or page behavior.
+- `a5532b0` records expanded source line breaks.
+  Fractional rem values now use the user's explicit division convention.
