@@ -106,10 +106,18 @@ p span {
   font-weight: 400;
   line-height: calc(34rem / 16);
 }
-.home-page-full-width-decorative-wave {
+.home-page-decorative-wave-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  pointer-events: none;
+}
+.home-page-decorative-wave-composition > img {
+  grid-area: 1 / 1;
   display: block;
   inline-size: 100%;
   block-size: auto;
+}
+.home-introduction-bottom-wave-composition {
   margin-block-start: -3rem;
 }
 .home-page-featured-project-summary {
@@ -156,7 +164,6 @@ p span {
   outline-color: var(--color-portfolio-purple);
   outline-offset: calc(4rem / 16);
 }
-.home-page-project-side-and-bottom-decorative-waves {
+.home-page-project-side-and-bottom-wave-composition {
   margin-block-start: calc(-249rem / 16);
-  pointer-events: none;
 }
