@@ -21,6 +21,9 @@
   clarity takes priority over brevity.
   Shared project styles name their shared role;
   project-specific assets name the full project.
+- Each wave component must be a separate HTML element with its own SVG asset.
+  Keep original positions and layer order;
+  do not bundle the whole composition into a single SVG image.
 - No npm dependencies are approved.
   Skip linting and formatting for this project;
   follow conventions specified by the user manually.
