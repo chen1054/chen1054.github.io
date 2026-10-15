@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Xinyan Chen, product designer bridging spatial and aesthetic expertise with digital experiences.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Xinyan Chen | Product Designer</title>
+  <link rel="icon" href="data:,">
+  <style>
+    @font-face {
+      font-family: "Abril Fatface";
+      src: url("assets/fonts/AbrilFatface-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Playfair Display";
+      src: url("assets/fonts/PlayfairDisplay[wght].ttf") format("truetype");
+      font-weight: 400 900;
+      font-display: swap;
+    }
+    :root {
+      --color-paper: #fff;
+      --color-purple: #685587;
+      --color-ink: #463267;
+      --color-gold: #c27f36;
+      color-scheme: light;
+    }
+    body { margin-block: 0; margin-inline: 0; background-color: var(--color-paper); }
+    main {
+      position: relative;
+      max-inline-size: 24.375rem;
+      margin-inline: auto;
+      padding-block-start: 10.5625rem;
+      color: var(--color-ink);
+      text-align: center;
+    }
+    .header-art { position: absolute; inset-block-start: 0; inset-inline-start: 0; inline-size: 100%; }
+    button { padding-block: 0; padding-inline: 0; border-width: 0; background-color: transparent; }
+    .menu { position: absolute; inset-block-start: 4.5625rem; inset-inline-start: .875rem; min-inline-size: 3rem; min-block-size: 3rem; }
+    h1 { margin-block: 0; font-family: "Abril Fatface", serif; font-weight: 400; }
+    h1 span, p span { display: block; }
+    .hello { position: relative; inset-inline-start: .0625rem; color: var(--color-purple); font-size: 1.5rem; line-height: 2rem; }
+    .name { margin-block-start: .5625rem; color: var(--color-gold); font-size: 2rem; line-height: 2.625rem; }
+    p {
+      position: relative;
+      inset-inline-start: .0625rem;
+      max-inline-size: calc(100% - 2.5rem);
+      margin-block-start: 3.875rem;
+      margin-block-end: 0;
+      margin-inline: auto;
+      font-family: "Playfair Display", serif;
+      font-size: .9375rem;
+      font-weight: 700;
+      line-height: 2rem;
+    }
+    .about {
+      position: relative;
+      inset-inline-start: .0625rem;
+      display: grid;
+      place-items: start center;
+      inline-size: 9rem;
+      min-inline-size: 3rem;
+      min-block-size: 3rem;
+      margin-block-start: 4.375rem;
+      margin-inline: auto;
+      background-image: url("assets/about-background.svg");
+      background-size: 9rem 2.625rem;
+      background-repeat: no-repeat;
+      color: var(--color-paper);
+      font-family: "Abril Fatface", serif;
+      font-size: .875rem;
+      line-height: 2.125rem;
+    }
+    .wave { display: block; inline-size: 100%; margin-block-start: -3rem; }
+  </style>
+</head>
+<body>
+  <main aria-labelledby="intro-name">
+    <img class="header-art" src="assets/header.svg" alt="" width="390" height="120">
+    <button class="menu" type="button" aria-label="Menu" disabled></button>
+    <h1 id="intro-name">
+      <span class="hello">Hello, I’m</span>
+      <span class="name">Xinyan Chen</span>
+    </h1>
+    <p>
+      <span>A Product Designer bridging 5 years of</span>
+      <span>spatial and aesthetic expertise</span>
+      <span>with North American product design—</span>
+      <span>merging pop culture and East</span>
+      <span>Asian aesthetics with rigorous</span>
+      <span>logic to create culturally resonant</span>
+      <span>digital experiences.</span>
+    </p>
+    <button class="about" type="button" disabled>More About Me</button>
+    <img class="wave" src="assets/wave.svg" alt="" width="390" height="236">
+  </main>
+</body>
+</html>

@@ -12,6 +12,8 @@
 - Minimum code is the highest priority for this portfolio.
   Ask before introducing a substantial amount of code.
 - Keep this handover updated in the portfolio repository.
+- The finished site must make no third-party requests, except for the future form.
+  The user explicitly permits locally hosted original fonts and artwork.
 
 ## Source evidence
 
@@ -22,9 +24,17 @@
 - Initial Git state was clean; the repository had a README and supplied PDFs,
   with no website code or build tasks.
 
+## Implementation
+
+- `1e6a161` records the agreed scope.
+- `389e10b` adds artwork extracted directly from the PDF and locally hosted fonts.
+- `index.html` contains the intro markup and CSS, with no JavaScript or dependencies.
+- `mise run preview` serves the static files at `http://localhost:4173`.
+- The supplied white design is retained in either system color preference.
+  No alternate theme has been supplied or invented.
+
 ## Work remaining
 
-- Extract the supplied intro artwork and implement the page with minimal HTML and CSS.
 - Compare the running intro with the reference at 390 pixels wide;
   check phone widths and browser errors.
 - Record verification and commits here, then present the intro for review.
