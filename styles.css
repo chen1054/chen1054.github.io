@@ -25,7 +25,7 @@ body {
 main {
   position: relative;
   margin-inline: auto;
-  padding-block-start: 10.5625rem;
+  padding-block-start: calc(169rem / 16);
   color: var(--color-ink);
   text-align: center;
 }
@@ -44,8 +44,8 @@ button {
 }
 .menu {
   position: absolute;
-  inset-block-start: 4.5625rem;
-  inset-inline-start: .875rem;
+  inset-block-start: calc(73rem / 16);
+  inset-inline-start: calc(14rem / 16);
   min-inline-size: 3rem;
   min-block-size: 3rem;
 }
@@ -60,28 +60,28 @@ p span {
 }
 .hello {
   position: relative;
-  inset-block-start: .0625rem;
-  padding-inline-start: .125rem;
+  inset-block-start: calc(1rem / 16);
+  padding-inline-start: calc(2rem / 16);
   color: var(--color-purple);
-  font-size: 1.5rem;
+  font-size: calc(24rem / 16);
   line-height: 2rem;
 }
 .name {
-  margin-block-start: .6875rem;
+  margin-block-start: calc(11rem / 16);
   color: var(--color-gold);
   font-size: 2rem;
-  line-height: 2.625rem;
+  line-height: calc(42rem / 16);
 }
 p {
   position: relative;
-  inset-block-start: .0625rem;
-  inset-inline-start: .0625rem;
-  max-inline-size: calc(100% - 2.5rem);
-  margin-block-start: 3.75rem;
+  inset-block-start: calc(1rem / 16);
+  inset-inline-start: calc(1rem / 16);
+  max-inline-size: calc(100% - 40rem / 16);
+  margin-block-start: calc(60rem / 16);
   margin-block-end: 0;
   margin-inline: auto;
   font-family: "Playfair Display", serif;
-  font-size: .9375rem;
+  font-size: calc(15rem / 16);
   font-weight: 700;
   line-height: 2rem;
 }
@@ -90,21 +90,21 @@ p span {
 }
 .about {
   position: relative;
-  inset-inline-start: .0625rem;
+  inset-inline-start: calc(1rem / 16);
   display: grid;
   place-items: start center;
   inline-size: 9rem;
   min-inline-size: 3rem;
   min-block-size: 3rem;
-  margin-block-start: 4.375rem;
+  margin-block-start: calc(70rem / 16);
   margin-inline: auto;
   background-image: url("assets/about-background.svg");
-  background-size: 9rem 2.625rem;
+  background-size: 9rem calc(42rem / 16);
   background-repeat: no-repeat;
   color: var(--color-paper);
   font-family: "Abril Fatface", serif;
-  font-size: .875rem;
-  line-height: 2.125rem;
+  font-size: calc(14rem / 16);
+  line-height: calc(34rem / 16);
 }
 .wave {
   display: block;
