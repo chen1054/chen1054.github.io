@@ -107,4 +107,9 @@ including a phone wider than the 390-pixel reference.
 - The latest manual formatting change expands CSS declarations and HTML attributes.
   It adds no dependency or page behavior.
 - `a5532b0` records expanded source line breaks.
-  Fractional rem values now use the user's explicit division convention.
+- `d8ea7fc` converts fractional rem values to the user's explicit division convention.
+  An arithmetic comparison against `db85d14` confirms equal CSS values;
+  normalized HTML comparison confirms only whitespace changes.
+  No decimal rem literals remain in `styles.css`.
+- `c26d01f` records the incomplete automated checks in
+  [the browser troubleshooting note](../troubleshooting/agent-browser-preview.md).
