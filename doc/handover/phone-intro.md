@@ -2,9 +2,11 @@
 
 ## Agreed scope
 
-- Implement only the intro from `../Phone/Home.png`,
+- The first step implemented the intro from `../Phone/Home.png`,
   through “More About Me” and the first decorative wave.
-- Present it for review before implementing project sections.
+  The user accepted the artwork correction and then authorized the Tales section.
+- The current preview includes Tales and its following decorative wave.
+  Present that section for review before implementing further project sections.
 - Hamburger and About button remain visual previews;
   their behavior belongs to later steps.
 - The user will supply more material as work proceeds.
@@ -70,7 +72,8 @@
 - `389e10b` adds artwork extracted directly from the PDF and locally hosted fonts.
 - `6b3f4ea` implements the intro with HTML and CSS.
 - `f87e7c3` replaces downloaded fonts with the supplied ZIP contents.
-- `index.html` contains the intro markup; `styles.css` holds shared page styles.
+- `index.html` contains the intro and Tales markup;
+  `styles.css` holds shared page styles.
   There is no JavaScript or npm dependency.
 - `mise run preview` serves the static files at `http://localhost:4173`.
 - The supplied white design is retained in either system color preference.
@@ -127,7 +130,7 @@ including a phone wider than the 390-pixel reference.
   `agent-browser` reported `CDP command timed out: Runtime.evaluate`.
   Do not describe that attempted check as passing.
 - `agent-browser close` completed successfully after that timeout.
-- The latest manual formatting change expands CSS declarations and HTML attributes.
+- The manual formatting change expanded CSS declarations and HTML attributes.
   It adds no dependency or page behavior.
 - `a5532b0` records expanded source line breaks.
 - `d8ea7fc` converts fractional rem values to the user's explicit division convention.
@@ -164,6 +167,11 @@ including a phone wider than the 390-pixel reference.
 - `c536af9` refreshes the implementation capture after the component and nesting changes.
   The reference comparison uses matching 390-pixel content widths.
   The untouched reference still contains its exported spacing artifacts.
+- The final comparison was opened in headed Chromium and visually inspected
+  after the last source and asset changes.
+  The extracted artwork keeps its original positions and alignment.
+  [Compare the supplied reference and implementation](../review/home-introduction-and-tales-for-safer-trails-reference-comparison.svg).
+  Review Tales text, spacing, and wave composition before proceeding to MenuMe.
 
 ## Shell-noise stopgap
 
