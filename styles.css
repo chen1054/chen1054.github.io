@@ -49,7 +49,8 @@ button {
   min-inline-size: 3rem;
   min-block-size: 3rem;
 }
-h1 {
+h1,
+.project h2 {
   margin-block: 0;
   font-family: "Abril Fatface", serif;
   font-weight: 400;
@@ -72,7 +73,7 @@ p span {
   font-size: 2rem;
   line-height: calc(42rem / 16);
 }
-p {
+.intro-copy {
   position: relative;
   inset-block-start: calc(1rem / 16);
   inset-inline-start: calc(1rem / 16);
@@ -88,7 +89,8 @@ p {
 p span {
   white-space: break-spaces;
 }
-.about {
+.about,
+.case-study {
   position: relative;
   inset-inline-start: calc(1rem / 16);
   display: grid;
@@ -111,4 +113,52 @@ p span {
   inline-size: 100%;
   block-size: auto;
   margin-block-start: -3rem;
+}
+.project {
+  margin-block-start: calc(99rem / 16);
+  font-family: "Playfair Display", serif;
+  font-size: calc(14rem / 16);
+  font-weight: 700;
+  line-height: calc(21rem / 16);
+}
+.project-art {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+.project h2 {
+  margin-block-start: calc(18rem / 16);
+  color: var(--color-gold);
+  font-size: calc(28rem / 16);
+  line-height: calc(38rem / 16);
+}
+.project h3 {
+  margin-block: calc(4rem / 16) 0;
+  font-size: calc(18rem / 16);
+  line-height: calc(24rem / 16);
+}
+.project p {
+  margin-block: calc(11rem / 16) 0;
+}
+.project .project-meta {
+  margin-block-start: calc(12rem / 16);
+  line-height: calc(19rem / 16);
+}
+.case-study {
+  inset-inline-start: 0;
+  inline-size: calc(162rem / 16);
+  margin-block-start: calc(27rem / 16);
+  background-image: url("assets/case-study-background.svg");
+  background-size: calc(162rem / 16) calc(42rem / 16);
+  text-decoration: none;
+}
+.case-study:focus-visible {
+  outline-width: calc(2rem / 16);
+  outline-style: solid;
+  outline-color: var(--color-purple);
+  outline-offset: calc(4rem / 16);
+}
+.project-wave {
+  margin-block-start: calc(-249rem / 16);
+  pointer-events: none;
 }
