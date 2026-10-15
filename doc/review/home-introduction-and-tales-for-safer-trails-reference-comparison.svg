@@ -13,8 +13,18 @@
   </defs>
   <text x="12" y="22" font-family="sans-serif" font-size="16">Supplied reference</text>
   <text x="402" y="22" font-family="sans-serif" font-size="16">Implementation</text>
-  <image href="../reference/home-introduction-through-first-decorative-wave.svg" y="32" width="390" height="844" />
-  <image href="../reference/tales-for-safer-trails-home-section.svg" y="876" width="390" height="740" />
+  <image
+    href="../reference/home-introduction-through-first-decorative-wave.svg"
+    y="32"
+    width="390"
+    height="844"
+  />
+  <image
+    href="../reference/tales-for-safer-trails-home-section.svg"
+    y="876"
+    width="390"
+    height="740"
+  />
   <image
     href="home-introduction-and-tales-for-safer-trails-implementation.png"
     x="390"

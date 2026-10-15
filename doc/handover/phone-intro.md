@@ -1,4 +1,4 @@
-# Phone intro handover
+# Phone Home implementation handover
 
 ## Agreed scope
 
@@ -13,6 +13,8 @@
   Ask before introducing a substantial amount of code.
 - Keep this handover updated in the portfolio repository.
 - Use `agent-browser` in headed mode for this project for the rest of this session.
+- Command invocations no longer need `TOKIO_WORKER_THREADS`.
+  Prefer non-login shells for agent commands.
 - The finished site must make no third-party requests, except for the future form.
   The user explicitly permits locally hosted original fonts and artwork.
 - All pages share a separate `styles.css`.
@@ -90,7 +92,10 @@
   from the supplied Home reference,
   followed by another section review.
   The user authorized implementation with “Do it.”
-  Build only that project section and its following decorative wave for this step.
+  That section and its following decorative wave are now implemented.
+- Pause at this section's review checkpoint.
+  The next project in the reference is MenuMe;
+  do not implement it before the user continues the step-by-step review.
 - The Tales “View case study” link opens `https://example.com` for now,
   as explicitly requested by the user.
   This is a navigation destination, not an externally loaded page asset.
@@ -131,3 +136,41 @@ including a phone wider than the 390-pixel reference.
   No decimal rem literals remain in `styles.css`.
 - `c26d01f` records the incomplete automated checks in
   [the browser troubleshooting note](../troubleshooting/agent-browser-preview.md).
+
+## Tales implementation and verification
+
+- `7a848bb` extracts original campaign artwork and button graphics.
+- `760f6df` adds the project text and the temporary `https://example.com` destination.
+- `ca0148d` replaces vague names with explicit page, content, and role names.
+- `3e795de` removes exported leading and trailing text spaces.
+- `f8c454c` separates the intro wave into 7 HTML images
+  and the project waves into 2 HTML images.
+  Their original SVG paths and raster accent remain unchanged.
+- `24d4e0d` nests child selectors and `:focus-visible`,
+  with no spaces inside selector text.
+- Headed Chromium verified content widths of 320, 390, and 414 pixels.
+  Artwork loaded at the full content width without horizontal overflow.
+  These are measured CSS content widths, not physical iPhone tests.
+- At 390 pixels, the intro wave occupies y 608 through 844;
+  the project waves occupy y 1247 through 1584.
+  The case-study link starts at y 1448 and has a 162 by 48 pixel hit area.
+- Tab focuses the case-study link with a visible 2-pixel purple outline.
+  Hover and hit testing confirmed the wave layers do not intercept the link.
+  Enter and pointer click both navigated to `https://example.com/`.
+- The initial portfolio document loaded only same-origin resources.
+  Browser error and console-message collections were empty.
+- Light and dark preferences were exercised.
+  Both retain the supplied white design, as agreed.
+- `c536af9` refreshes the implementation capture after the component and nesting changes.
+  The reference comparison uses matching 390-pixel content widths.
+  The untouched reference still contains its exported spacing artifacts.
+
+## Shell-noise stopgap
+
+Starship 1.26.0 repeatedly printed a `TERM=dumb` error in login-shell commands.
+`STARSHIP_LOG=off` did not silence the installed binary.
+At the user's request, the local Bash integration temporarily discards Starship stderr.
+A fresh login-shell command was quiet after that change.
+The durable replacement is tracked in
+[Monochromatic issue #994](https://github.com/Aquaticats/Monochromatic/issues/994).
+Do not resume shell investigation as part of the portfolio work.
