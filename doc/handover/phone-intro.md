@@ -75,7 +75,8 @@
 - Next discussed step is the “Tales For Safer Trails” project section
   from the supplied Home reference,
   followed by another section review.
-  No project implementation has started.
+  The user authorized implementation with “Do it.”
+  Build only that project section and its following decorative wave for this step.
 - Menu behavior and the About destination remain deferred.
 - Ask for missing original materials instead of inventing replacements.
 
