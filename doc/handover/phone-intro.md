@@ -21,6 +21,10 @@
 - The PDF preserves exact artwork and measurable text positions.
 - `../Website (Copy).fig` identifies Abril Fatface Regular for intro headings
   and Playfair Display Bold for the paragraph.
+- The user subsequently supplied `../Phone/Abril_Fatface,Playfair_Display.zip`.
+  Its font files differ from the initial Google Fonts downloads.
+  The supplied Abril Regular and static Playfair Bold now replace those downloads,
+  along with their supplied licenses; unused weights are omitted.
 - Initial Git state was clean; the repository had a README and supplied PDFs,
   with no website code or build tasks.
 
@@ -28,6 +32,7 @@
 
 - `1e6a161` records the agreed scope.
 - `389e10b` adds artwork extracted directly from the PDF and locally hosted fonts.
+- `6b3f4ea` implements the intro with HTML and CSS.
 - `index.html` contains the intro markup and CSS, with no JavaScript or dependencies.
 - `mise run preview` serves the static files at `http://localhost:4173`.
 - The supplied white design is retained in either system color preference.
