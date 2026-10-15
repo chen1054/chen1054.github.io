@@ -19,6 +19,12 @@
 - No npm dependencies are approved.
   Skip linting and formatting for this project;
   follow conventions specified by the user manually.
+- Explain whitespace entities such as `&#32;` in an HTML comment
+  at their first use within each parent block.
+- Use a simple static file server for this project.
+  Python currently serves `http://localhost:4173/`.
+  The user could not see the nested browser window;
+  open the served page in a regular visible headed browser.
 
 ## Source evidence
 
