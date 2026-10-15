@@ -106,6 +106,7 @@ p span {
   color: var(--color-paper);
   font-family: "Abril Fatface", serif;
   font-size: calc(14rem / 16);
+  font-weight: 400;
   line-height: calc(34rem / 16);
 }
 .wave {
