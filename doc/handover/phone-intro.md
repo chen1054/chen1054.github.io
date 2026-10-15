@@ -42,6 +42,8 @@
 - Initial headed-browser inspection confirms live text, loaded assets,
   and disabled preview controls.
   Image dimensions now scale proportionally at narrower widths.
+- Headed verification caught horizontal overflow from the greeting's one-pixel offset.
+  Padding now provides the same text alignment within the layout box.
 
 ## Work remaining
 
