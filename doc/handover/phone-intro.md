@@ -77,6 +77,9 @@
   followed by another section review.
   The user authorized implementation with “Do it.”
   Build only that project section and its following decorative wave for this step.
+- The Tales “View case study” link opens `https://example.com` for now,
+  as explicitly requested by the user.
+  This is a navigation destination, not an externally loaded page asset.
 - Menu behavior and the About destination remain deferred.
 - Ask for missing original materials instead of inventing replacements.
 
