@@ -19,12 +19,17 @@
 - No npm dependencies are approved.
   Skip linting and formatting for this project;
   follow conventions specified by the user manually.
+- Use aggressive source line breaks manually:
+  each CSS declaration gets its own line;
+  split HTML attributes across lines for longer tags.
+  Minimum code means avoiding unnecessary implementation,
+  not compressing source formatting.
 - Explain whitespace entities such as `&#32;` in an HTML comment
   at their first use within each parent block.
 - Use a simple static file server for this project.
   Python currently serves `http://localhost:4173/`.
-  The user could not see the nested browser window;
-  open the served page in a regular visible headed browser.
+  The user opens that URL themselves.
+  They could not see the agent's nested headed browser window.
 
 ## Source evidence
 
@@ -61,10 +66,13 @@
 
 ## Work remaining
 
-- Compare the running intro with the reference at 390 pixels wide;
-  check phone widths and browser errors.
-- Record verification and commits here, then present the intro for review.
-- Wait for review and further supplied material before extending the page.
+- The user accepted the artwork correction: “Yeah that works.”
+- Next discussed step is the “Tales For Safer Trails” project section
+  from the supplied Home reference,
+  followed by another section review.
+  No project implementation has started.
+- Menu behavior and the About destination remain deferred.
+- Ask for missing original materials instead of inventing replacements.
 
 ## Artwork review correction
 
@@ -81,3 +89,15 @@ Cropping at the outer frame remains part of the supplied composition.
 
 Future phone checks must compare artwork bounds with viewport bounds,
 including a phone wider than the 390-pixel reference.
+
+## Verification status
+
+- `db85d14` removes the 390-pixel width cap.
+  The user confirmed that correction works in their preview.
+- The Python server returned HTTP 200 after the interrupted tooling session.
+- A subsequent automated headed-browser check did not complete:
+  `agent-browser` reported `CDP command timed out: Runtime.evaluate`.
+  Do not describe that attempted check as passing.
+- `agent-browser close` completed successfully after that timeout.
+- The latest manual formatting change expands CSS declarations and HTML attributes.
+  It adds no dependency or page behavior.
