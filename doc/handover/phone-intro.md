@@ -15,6 +15,10 @@
 - Use `agent-browser` in headed mode for this project for the rest of this session.
 - The finished site must make no third-party requests, except for the future form.
   The user explicitly permits locally hosted original fonts and artwork.
+- All pages share a separate `styles.css`.
+- No npm dependencies are approved.
+  Skip linting and formatting for this project;
+  follow conventions specified by the user manually.
 
 ## Source evidence
 
@@ -35,7 +39,8 @@
 - `389e10b` adds artwork extracted directly from the PDF and locally hosted fonts.
 - `6b3f4ea` implements the intro with HTML and CSS.
 - `f87e7c3` replaces downloaded fonts with the supplied ZIP contents.
-- `index.html` contains the intro markup and CSS, with no JavaScript or dependencies.
+- `index.html` contains the intro markup; `styles.css` holds shared page styles.
+  There is no JavaScript or npm dependency.
 - `mise run preview` serves the static files at `http://localhost:4173`.
 - The supplied white design is retained in either system color preference.
   No alternate theme has been supplied or invented.
@@ -44,6 +49,9 @@
   Image dimensions now scale proportionally at narrower widths.
 - Headed verification caught horizontal overflow from the greeting's one-pixel offset.
   Padding now provides the same text alignment within the layout box.
+- PDF text extraction confirms trailing spaces on wrapped paragraph lines.
+  Those spaces are preserved for the reference's centering.
+  Measured text baselines are aligned with the exported design.
 
 ## Work remaining
 
