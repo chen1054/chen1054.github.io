@@ -17,7 +17,11 @@
   --color-gold: #c27f36;
   color-scheme: light;
 }
-body { margin-block: 0; margin-inline: 0; background-color: var(--color-paper); }
+body {
+  margin-block: 0;
+  margin-inline: 0;
+  background-color: var(--color-paper);
+}
 main {
   position: relative;
   margin-inline: auto;
@@ -25,13 +29,49 @@ main {
   color: var(--color-ink);
   text-align: center;
 }
-.header-art { position: absolute; inset-block-start: 0; inset-inline-start: 0; inline-size: 100%; block-size: auto; }
-button { padding-block: 0; padding-inline: 0; border-width: 0; background-color: transparent; }
-.menu { position: absolute; inset-block-start: 4.5625rem; inset-inline-start: .875rem; min-inline-size: 3rem; min-block-size: 3rem; }
-h1 { margin-block: 0; font-family: "Abril Fatface", serif; font-weight: 400; }
-h1 span, p span { display: block; }
-.hello { position: relative; inset-block-start: .0625rem; padding-inline-start: .125rem; color: var(--color-purple); font-size: 1.5rem; line-height: 2rem; }
-.name { margin-block-start: .6875rem; color: var(--color-gold); font-size: 2rem; line-height: 2.625rem; }
+.header-art {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: auto;
+}
+button {
+  padding-block: 0;
+  padding-inline: 0;
+  border-width: 0;
+  background-color: transparent;
+}
+.menu {
+  position: absolute;
+  inset-block-start: 4.5625rem;
+  inset-inline-start: .875rem;
+  min-inline-size: 3rem;
+  min-block-size: 3rem;
+}
+h1 {
+  margin-block: 0;
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+}
+h1 span,
+p span {
+  display: block;
+}
+.hello {
+  position: relative;
+  inset-block-start: .0625rem;
+  padding-inline-start: .125rem;
+  color: var(--color-purple);
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.name {
+  margin-block-start: .6875rem;
+  color: var(--color-gold);
+  font-size: 2rem;
+  line-height: 2.625rem;
+}
 p {
   position: relative;
   inset-block-start: .0625rem;
@@ -45,7 +85,9 @@ p {
   font-weight: 700;
   line-height: 2rem;
 }
-p span { white-space: break-spaces; }
+p span {
+  white-space: break-spaces;
+}
 .about {
   position: relative;
   inset-inline-start: .0625rem;
@@ -64,4 +106,9 @@ p span { white-space: break-spaces; }
   font-size: .875rem;
   line-height: 2.125rem;
 }
-.wave { display: block; inline-size: 100%; block-size: auto; margin-block-start: -3rem; }
+.wave {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  margin-block-start: -3rem;
+}
