@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 2913 390 186"><defs><mask id="mask-33">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 2913 390 186">
+<view id="project-artwork-without-blank-export-margins" viewBox="28 2912 289 165" />
+<defs><mask id="mask-33">
 <g filter="url(#filter-remove-color)">
 <use xlink:href="#source-201" filter="url(#filter-color-to-alpha)" transform="matrix(0.211185, 0, 0, 0.211185, 96.95578, 2945.542237)" />
 </g>
