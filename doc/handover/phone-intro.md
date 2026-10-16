@@ -435,12 +435,24 @@ Do not resume shell investigation as part of the portfolio work.
 - The current page still has phone-specific forced text lines,
   full-width artwork frames, project-side waves, and per-project vertical offsets.
   Inspect which assets and markup can be reused before adding responsive rules or extracting replacements.
-- No breakpoint count or new implementation approach has been committed to yet.
-  Prefer shared fluid sizing and intrinsic layout.
-  If a breakpoint keeps the implementation shorter, minimum code takes precedence over zero breakpoints.
-- Next action: finish measuring the wide references and choose the smallest shared implementation.
-  Ask before introducing a substantial amount of code,
-  and ask for missing materials instead of approximating artwork.
+- The user explicitly approved the shared implementation scope:
+  wrap each project's description for alternating columns,
+  add one shared responsive CSS block,
+  extract the original wide decorations as separate SVG components,
+  and reuse the existing content, navigation, and project illustrations.
+  Use one phone-to-wide breakpoint and fluid sizing for Tablet and Desktop.
+- A headed-browser probe confirmed that the existing popover navigation can become visible inline
+  through wide-screen CSS while retaining its native phone behavior.
+  Calling `hidePopover()` when it is already closed is harmless in the verified browser.
+  No extra navigation markup or responsive script is needed.
+- The proposed shared wide layout starts at 40rem.
+  Sizes and spacing interpolate between the 744-pixel and 1440-pixel references.
+  Use the original Desktop wide decoration paths as the shared wide artwork,
+  preserving separate elements for wave components.
+- Next action: extract the shared wide decorations,
+  wrap the existing project text without duplication,
+  and implement the single responsive CSS block.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
-- No browser or nested compositor is currently running for this task.
-  The existing Python preview remains the site server at `http://localhost:4173/`.
+- A private headed Chromium and nested compositor are running for this task,
+  attached through CDP port 9237 using the existing scratch tasks.
+  The Python preview remains the site server at `http://localhost:4173/`.
