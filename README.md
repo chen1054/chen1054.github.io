@@ -10,7 +10,11 @@ All pages share `styles.css`.
 Artwork and button backgrounds are extracted from the supplied PDF.
 Each decorative wave component is its own SVG asset and HTML image.
 Picture sources select the supplied phone or wide artwork.
-One 40rem breakpoint switches to inline navigation and alternating project columns.
+One 40rem breakpoint switches to inline navigation and alternating flexbox project columns.
+CSS grids are prohibited.
+Named SVG views trim blank export margins on wide screens without duplicating artwork.
+Their boxes align with the outer column edges while text remains left-aligned.
+Explicit phone aspect ratios preserve the original frames when resizing back to phone widths.
 Typography, spacing, and illustrations resize fluidly between the Tablet and Desktop reference widths.
 The content and navigation are shared, and responsive behavior adds no JavaScript.
 The original Abril Fatface and Playfair Display fonts are served locally;

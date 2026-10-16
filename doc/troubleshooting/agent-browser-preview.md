@@ -157,3 +157,28 @@ The initial comparison SVGs declared the outer viewport widths for those PNGs,
 which scaled the implementation images before clipping them.
 The corrected comparisons declare each PNG's native width and height.
 Read actual capture dimensions before embedding screenshots in comparisons.
+
+## Named SVG views during responsive image switching
+
+The outside-alignment correction selects a trimmed named SVG view through a picture source.
+The same SVG's unfragmented URL retains its original phone frame.
+In headed Chromium, switching from a wide viewport back to phone
+changed the selected image URL and natural dimensions,
+but retained the cropped view's layout ratio.
+The 390-pixel phone page consequently measured 5566 pixels tall instead of 5077.
+
+Waiting for image decoding, network idle, and the expected layout ratio did not restore it.
+The ratio wait reported `Wait timed out after 25000ms` from agent-browser.
+Removing picture-source dimensions, giving views separate query URLs,
+and explicitly naming the original phone view did not resolve the repeated resize case.
+Those temporary query URLs and extra views are absent from the final page.
+
+Shared CSS now gives each phone illustration its original exported aspect ratio,
+and returns to `aspect-ratio: auto` within the existing wide breakpoint.
+Repeated 390 to 1920 to 390 to 744 to 390-pixel content-width checks
+returned the phone page to 5077 pixels every time,
+with the original six image heights restored.
+The wide views and alignment continued to work.
+
+The native layout behavior was observed, but its deciding upstream source was not investigated.
+No upstream root cause or fileable browser defect has been established.

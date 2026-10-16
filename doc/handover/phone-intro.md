@@ -19,7 +19,12 @@ The user approved trimming the SVG export margins,
 aligning the actual artwork boxes to the outer column edges,
 and retaining left-aligned text.
 The user also banned CSS grids and requested flexbox where it reduces code.
-Replace all existing grid use, including buttons and wave overlays.
+All grid use has been replaced: flexbox for projects and buttons,
+positioned layers for decorative waves.
+Wide illustrations select named SVG views with blank export margins removed.
+Their boxes align to the outer column edges while text remains left-aligned.
+The original phone viewBoxes remain intact;
+explicit phone aspect ratios preserve the original image frames after wide-to-phone resizing.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -446,7 +451,7 @@ Do not resume shell investigation as part of the portfolio work.
 - The wider references use inline navigation and alternating image/text project columns.
   Their intro and footer wave compositions differ from Phone.
   Tablet and Desktop share the overall layout pattern but differ in sizes and spacing.
-- The current page still has phone-specific forced text lines,
+- Before adaptation, the page had phone-specific forced text lines,
   full-width artwork frames, project-side waves, and per-project vertical offsets.
   Inspect which assets and markup can be reused before adding responsive rules or extracting replacements.
 - The user explicitly approved the shared implementation scope:
@@ -475,14 +480,15 @@ Do not resume shell investigation as part of the portfolio work.
   inline navigation, alternating project columns, and fluid typography and spacing.
   A body inline-size container supplies the actual content width for interpolation,
   avoiding the scrollbar width included in viewport units.
-  The existing project illustrations retain their complete SVG frames.
+  The initial adaptation retained the complete project SVG frames.
+  The later outside-alignment correction selects trimmed wide views from the same SVG files.
 - Measured the accepted phone layout at 390 pixels after the markup changes:
   page height remains 5077 pixels.
   Measured the shared Tablet layout at 744 pixels after spacing calibration:
   page height is 3302 pixels, matching the supplied reference height.
   The completed Desktop layout measures 5685 pixels tall at 1440 pixels wide.
   Its live text wraps naturally, so it is 25 pixels taller than the supplied 5660-pixel reference.
-- The first 640-pixel viewport capture exposed Scotties and Matcha artwork overlapping text.
+- The initial 640-pixel viewport capture exposed Scotties and Matcha artwork overlapping text.
   Capped illustration frames according to their measured internal margins and the fluid column gap.
   This keeps original artwork inside the available image area without another breakpoint.
 - Completed headed-browser checks at content widths of
@@ -491,7 +497,7 @@ Do not resume shell investigation as part of the portfolio work.
   The overflow probe passed its positive control at every width.
   The 639-pixel outer viewport retained the phone layout;
   the 640-pixel outer viewport selected the wide layout.
-- Project artwork clearance was measured from the original SVG paint bounds
+- Before the outside-alignment correction, project artwork clearance was measured from the original SVG paint bounds
   at outer widths of 640, 759, 1039, 1455, and 1935 pixels.
   Every illustration remained clear of the adjacent description.
   The smallest measured clearance was approximately 2.76 pixels at the breakpoint.
@@ -531,12 +537,36 @@ Do not resume shell investigation as part of the portfolio work.
 - The Home responsive scope is implemented and verified.
   No additional Home review is required by the user's instruction.
   Future page work still needs its supplied materials and destinations.
-- Next action: trim the wide SVG views while preserving the accepted phone frames,
-  replace all grid styling with flexbox or positioned wave layers,
-  verify the columns across wide widths,
-  refresh the affected comparison captures,
-  render the updated documentation, and close the private verification browser.
-  Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
+- The outside-alignment correction is implemented.
+  Final width checks, refreshed comparison captures, rendered documentation,
+  and private-browser cleanup are in progress.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
   The Python preview remains the site server at `http://localhost:4173/`.
+
+## Outside alignment and flexbox correction
+
+- `2b1d1c2` backs out the rejected per-image translations and right-aligned text.
+- `d2a0eff` adds a descriptive named view to each original project SVG.
+  The wide view removes blank export margins with one source pixel of antialiasing clearance.
+  Root phone viewBoxes, original paths, and embedded images remain unchanged.
+  No duplicate project assets are needed.
+- `f5fa91e` replaces every CSS grid with flexbox or positioned wave layers.
+  Project rows alternate direction using the existing section order.
+  Space between the artwork and description aligns each outer box with its column edge.
+  Text remains left-aligned on wide screens.
+- `d18dbaa` removes redundant source dimension attributes.
+  `5f0b2cd` explicitly retains each original phone frame aspect ratio.
+  During verification, the browser kept the wide layout ratio after switching back to phone;
+  waiting for image decoding and network idle did not restore the frame.
+  Explicit phone ratios fixed the measured layout without responsive JavaScript.
+  Wide images use the selected SVG view's natural ratio.
+- Measured repeated 390 to 1920 to 390 to 744 to 390-pixel content-width switches.
+  The phone page returned to 5077 pixels tall after every switch.
+  At 744 and 1920 pixels, every artwork and description outside box aligned exactly
+  with its section's outer edge.
+  All wide descriptions computed to `text-align: start`.
+  Tablet remained 3302 pixels tall and Desktop remained 5685 pixels tall.
+- Queries and additional original-frame SVG views were tried locally while diagnosing resize behavior.
+  Neither resolved the issue and neither is present in production.
+  No new JavaScript, breakpoint, dependency, or third-party resource was added.
