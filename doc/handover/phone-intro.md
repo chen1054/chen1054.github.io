@@ -603,4 +603,9 @@ so the shared project rows now have `max-inline-size: calc(1086rem / 16)`.
 Automatic inline margins center each row beyond that size.
 The existing fluid inline size preserves the Tablet and narrower wide-screen gutters.
 This adds no wrapper, breakpoint, grid, or JavaScript.
-Headed-browser width verification is pending.
+`a8259be` implements the cap with shared CSS only.
+Headed Chromium verified content widths of 320, 390, 625, 744, 1024, 1440, 1920, and 2560 pixels.
+All six rows measured 1086 pixels at Desktop and wider sizes,
+with equal inline margins of 177, 417, and 737 pixels respectively.
+Phone and Tablet dimensions remained unchanged, with no horizontal overflow or undersized visible targets.
+Images decoded successfully; browser page-error and console collections were empty.
