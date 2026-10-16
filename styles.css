@@ -204,6 +204,7 @@ p {
   margin-block-start: -3rem;
 }
 .home-page-featured-project-summary {
+  --home-phone-illustration-aspect-ratio: 390 / 211;
   --home-wide-illustration-base-width: calc(258rem / 16);
   --home-wide-illustration-width-growth: 151;
   margin-block-start: calc(99rem / 16);
@@ -253,6 +254,7 @@ p {
     }
   }
   &:where(#menume-meal-planning-app-project) {
+    --home-phone-illustration-aspect-ratio: 390 / 179;
     --home-wide-illustration-base-width: calc(267rem / 16);
     --home-wide-illustration-width-growth: 209;
     margin-block-start: 3rem;
@@ -270,6 +272,7 @@ p {
     }
   }
   &:where(#scotties-skating-and-skiing-shop-project) {
+    --home-phone-illustration-aspect-ratio: 390 / 218;
     --home-wide-illustration-base-width: calc(302rem / 16);
     --home-wide-illustration-width-growth: 231;
     margin-block-start: calc(-12rem / 16);
@@ -278,6 +281,7 @@ p {
     }
   }
   &:where(#matcha-delight-japanese-bakery-project) {
+    --home-phone-illustration-aspect-ratio: 390 / 186;
     --home-wide-role-margin: calc(30rem / 16 - 12 * var(--home-wide-reference-growth));
     --home-wide-illustration-base-width: calc(289rem / 16);
     --home-wide-illustration-width-growth: 221;
@@ -287,6 +291,7 @@ p {
     }
   }
   &:where(#echoes-of-tradition-surrealist-poster-project) {
+    --home-phone-illustration-aspect-ratio: 390 / 234;
     --home-wide-illustration-base-width: calc(236rem / 16);
     --home-wide-illustration-width-growth: 117;
     margin-block-start: calc(38rem / 16);
@@ -298,6 +303,7 @@ p {
     }
   }
   &:where(#youth-in-limbo-photography-project) {
+    --home-phone-illustration-aspect-ratio: 390 / 210;
     --home-wide-illustration-base-width: calc(252rem / 16);
     --home-wide-illustration-width-growth: 189;
     margin-block-start: calc(43rem / 16);
@@ -311,6 +317,7 @@ p {
   inline-size: 100%;
   block-size: auto;
   &>img {
+    aspect-ratio: var(--home-phone-illustration-aspect-ratio);
     display: block;
     inline-size: 100%;
     block-size: auto;
@@ -459,6 +466,9 @@ p {
         ),
         var(--home-wide-project-column-available-width)
       );
+      &>img {
+        aspect-ratio: auto;
+      }
     }
     &>.home-page-project-side-and-bottom-wave-composition {
       display: none;
