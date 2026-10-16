@@ -91,10 +91,10 @@ p {
 .home-introduction-about-page-link,
 .home-page-project-case-study-link {
   --home-page-link-background-image: url(
-    "assets/home-introduction-about-link-background-and-shadow-maximum-chroma-hover.svg"
+    "assets/home-introduction-about-link-background-and-shadow-maximum-srgb-chroma-hover.svg"
   );
   --home-page-link-hover-background-image: url(
-    "assets/home-introduction-about-link-background-and-shadow-maximum-chroma-hover.svg#button-background"
+    "assets/home-introduction-about-link-background-and-shadow-maximum-srgb-chroma-hover.svg#button-background"
   );
   position: relative;
   inset-inline-start: calc(1rem / 16);
@@ -171,13 +171,13 @@ p {
     }
     &>.home-page-project-case-study-link {
       --home-page-link-hover-background-image: url(
-        "assets/home-project-standard-width-case-study-link-background-and-shadow-maximum-chroma-hover.svg#button-background"
+        "assets/home-project-standard-width-case-study-link-background-and-shadow-maximum-srgb-chroma-hover.svg#button-background"
       );
       inset-inline-start: calc(1rem / 16);
       inline-size: 9rem;
       margin-block-start: calc(28rem / 16);
       --home-page-link-background-image: url(
-        "assets/home-project-standard-width-case-study-link-background-and-shadow-maximum-chroma-hover.svg"
+        "assets/home-project-standard-width-case-study-link-background-and-shadow-maximum-srgb-chroma-hover.svg"
       );
       background-size: 9rem calc(42rem / 16);
     }
@@ -232,13 +232,13 @@ p {
 }
 .home-page-project-case-study-link {
   --home-page-link-hover-background-image: url(
-    "assets/home-project-case-study-link-background-and-shadow-maximum-chroma-hover.svg#button-background"
+    "assets/home-project-case-study-link-background-and-shadow-maximum-srgb-chroma-hover.svg#button-background"
   );
   inset-inline-start: 0;
   inline-size: calc(162rem / 16);
   margin-block-start: calc(27rem / 16);
   --home-page-link-background-image: url(
-    "assets/home-project-case-study-link-background-and-shadow-maximum-chroma-hover.svg"
+    "assets/home-project-case-study-link-background-and-shadow-maximum-srgb-chroma-hover.svg"
   );
   background-size: calc(162rem / 16) calc(42rem / 16);
 }
