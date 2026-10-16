@@ -24,6 +24,12 @@ Hover selects the saturated purple SVG fragment; both color preferences retain t
 Browser error and console collections were empty after interaction checks.
 The [phone capture](../review/phone-about-back-to-top.png) records the initial filled control beside the About footer.
 It predates the user's transparent-background correction.
+`2819683` implements the transparent background and purple arrow.
+Native SVG raster probes confirmed background alpha 0 in both normal and hover states,
+with an opaque-paint positive control proving the alpha probe detects filled pixels.
+The hovered arrow changes color while remaining opaque.
+The actual link selects the updated hover fragment and still returns to the top and hides.
+Browser errors remained empty.
 
 The user approved the completed responsive Home and its Desktop works width cap.
 The responsive About page is now implemented at `about.html`.
