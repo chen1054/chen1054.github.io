@@ -4,8 +4,13 @@
 
 The user requested connecting all available destinations.
 All implemented pages are already connected through navigation and Home's implemented-project links.
-Current work: audit remaining `example.com` links against the supplied PDFs and local project documents,
-connect exact supplied destinations, and ask only for destinations still absent from the materials.
+The supplied local Matcha Delight and Echoes of Tradition PDFs are now connected from Home.
+`pdfinfo -url` inspected every Phone, Tablet, Desktop, and root project PDF;
+only Contact and the resume contained email links, with no prototype or demo destinations.
+The user has been asked for Youth in Limbo, MenuMe mobile/tablet,
+Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations.
+Keep their previously approved placeholders until exact destinations are supplied.
+Next: browser-check the new local PDF links and finish the documentation update.
 
 Contact and the Home button-alignment correction are implemented and verified.
 The user additionally requested fixing text centering in Home's buttons.

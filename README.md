@@ -26,7 +26,8 @@ Home, About, and the case studies load no third-party resources.
 Contact loads the approved Web3Forms and hCaptcha scripts and submits a native HTML POST form.
 These form resources are the approved third-party exception.
 Home links to `tales-for-safer-trails.html`, `menume.html`, and `scotties.html`.
-The remaining Home case-study links temporarily navigate to `https://example.com`, as requested.
+Matcha Delight and Echoes of Tradition open their supplied local project PDFs.
+Youth in Limbo retains its approved `https://example.com` placeholder pending a supplied destination.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
 retaining the original lightness and hue components and shadows.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.
