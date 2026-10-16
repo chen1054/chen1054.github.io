@@ -16,7 +16,7 @@
 <style>
   :target {
     /* Maximum sRGB chroma at the original lightness and hue, rounded down to six decimal places. */
-    fill: oklch(from currentColor l 0.146647 h);
+    fill: oklch(from currentColor l 0.146646 h);
   }
 </style>
 <g mask="url(#mask-6)">
