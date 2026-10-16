@@ -754,6 +754,7 @@ h4.case-study-subheading {
 .case-study-play-speech-bubble,
 .case-study-trust-speech-bubble {
   container-type: inline-size;
+  /* Scale copy with the bubble's 322px phone layout width. */
   padding-block: 0;
   padding-inline: 0;
   text-align: center;
