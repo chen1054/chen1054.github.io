@@ -90,6 +90,9 @@ p {
 }
 .home-introduction-about-page-link,
 .home-page-project-case-study-link {
+  --home-page-link-background-image: url(
+    "assets/home-introduction-about-link-background-and-shadow-oklch-hover.svg"
+  );
   --home-page-link-hover-background-image: url(
     "assets/home-introduction-about-link-background-and-shadow-oklch-hover.svg#button-background"
   );
@@ -102,7 +105,7 @@ p {
   min-block-size: 3rem;
   margin-block-start: calc(70rem / 16);
   margin-inline: auto;
-  background-image: url("assets/home-introduction-about-link-background-and-shadow-oklch-hover.svg");
+  background-image: var(--home-page-link-background-image);
   background-size: 9rem calc(42rem / 16);
   background-repeat: no-repeat;
   color: var(--color-page-background);
@@ -173,7 +176,9 @@ p {
       inset-inline-start: calc(1rem / 16);
       inline-size: 9rem;
       margin-block-start: calc(28rem / 16);
-      background-image: url("assets/home-project-standard-width-case-study-link-background-and-shadow-oklch-hover.svg");
+      --home-page-link-background-image: url(
+        "assets/home-project-standard-width-case-study-link-background-and-shadow-oklch-hover.svg"
+      );
       background-size: 9rem calc(42rem / 16);
     }
   }
@@ -232,7 +237,9 @@ p {
   inset-inline-start: 0;
   inline-size: calc(162rem / 16);
   margin-block-start: calc(27rem / 16);
-  background-image: url("assets/home-project-case-study-link-background-and-shadow-oklch-hover.svg");
+  --home-page-link-background-image: url(
+    "assets/home-project-case-study-link-background-and-shadow-oklch-hover.svg"
+  );
   background-size: calc(162rem / 16) calc(42rem / 16);
 }
 .home-page-project-side-and-bottom-wave-composition {
