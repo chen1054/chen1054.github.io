@@ -248,7 +248,7 @@ p {
   .home-introduction-about-page-link,
   .home-introduction-wave-purple-accent,
   .home-introduction-wave-floral-accent {
-    animation: home-introduction-layer-fade-in 450ms ease-out both;
+    animation: home-introduction-layer-fade-in 450ms ease-out backwards;
   }
   .home-introduction-designer-name {
     animation-delay: 450ms;
@@ -261,7 +261,7 @@ p {
     animation-delay: 1350ms;
   }
   .home-introduction-wave-left-to-right-reveal {
-    animation: home-introduction-river-reveal-from-left 900ms ease-in-out 1800ms both;
+    animation: home-introduction-river-reveal-from-left 900ms ease-in-out 1800ms backwards;
   }
   .home-introduction-wave-floral-accent {
     animation-delay: 2700ms;

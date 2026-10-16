@@ -14,6 +14,13 @@ The six stages start at 0, 450, 900, 1350, 1800, and 2700 milliseconds;
 the river reveal lasts 900 milliseconds and each fade lasts 450 milliseconds.
 The sequence runs once on page load and completes at 3150 milliseconds.
 Reduced-motion visitors receive the complete static introduction immediately.
+Initial stage probes at 390, 744, and 1440 pixels confirmed the requested order
+and unchanged bounds for every animated element at ten timeline positions.
+An intentional position change proved the bounds probe detects movement.
+The five river pieces all measured a half-width reveal at 2250 milliseconds.
+The first finished-frame comparison retained animation fill styles and differed from static captures.
+Use `backwards` fill instead: it holds the starting state during delays,
+then releases animation styles at completion so the original rendering takes over.
 Next: verify the stage order, unchanged element bounds, completed artwork,
 reduced-motion behavior, and About link in the headed browser at phone and wide widths.
 
