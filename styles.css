@@ -147,8 +147,9 @@ p {
   );
   position: relative;
   inset-inline-start: calc(1rem / 16);
-  display: grid;
-  place-items: start center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
   inline-size: 9rem;
   min-inline-size: 3rem;
   min-block-size: 3rem;
@@ -179,15 +180,19 @@ p {
   }
 }
 .home-page-decorative-wave-composition {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  position: relative;
   pointer-events: none;
   &>img,
   &>picture {
-    grid-area: 1 / 1;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     display: block;
     inline-size: 100%;
     block-size: auto;
+    &:first-child {
+      position: relative;
+    }
   }
   &>picture>img {
     display: block;
@@ -199,8 +204,8 @@ p {
   margin-block-start: -3rem;
 }
 .home-page-featured-project-summary {
-  --home-wide-illustration-base-width: calc(390rem / 16);
-  --home-wide-illustration-width-growth: 229;
+  --home-wide-illustration-base-width: calc(258rem / 16);
+  --home-wide-illustration-width-growth: 151;
   margin-block-start: calc(99rem / 16);
   font-family: "Playfair Display", serif;
   font-size: calc(14rem / 16);
@@ -248,8 +253,8 @@ p {
     }
   }
   &:where(#menume-meal-planning-app-project) {
-    --home-wide-illustration-base-width: calc(396rem / 16);
-    --home-wide-illustration-width-growth: 299;
+    --home-wide-illustration-base-width: calc(267rem / 16);
+    --home-wide-illustration-width-growth: 209;
     margin-block-start: 3rem;
     &>.home-page-project-description>h2 {
       margin-block-start: calc(10rem / 16);
@@ -265,7 +270,8 @@ p {
     }
   }
   &:where(#scotties-skating-and-skiing-shop-project) {
-    --home-wide-illustration-width-growth: 298;
+    --home-wide-illustration-base-width: calc(302rem / 16);
+    --home-wide-illustration-width-growth: 231;
     margin-block-start: calc(-12rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-75rem / 16);
@@ -273,15 +279,16 @@ p {
   }
   &:where(#matcha-delight-japanese-bakery-project) {
     --home-wide-role-margin: calc(30rem / 16 - 12 * var(--home-wide-reference-growth));
-    --home-wide-illustration-base-width: calc(408rem / 16);
-    --home-wide-illustration-width-growth: 280;
+    --home-wide-illustration-base-width: calc(289rem / 16);
+    --home-wide-illustration-width-growth: 221;
     margin-block-start: calc(49rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-167rem / 16);
     }
   }
   &:where(#echoes-of-tradition-surrealist-poster-project) {
-    --home-wide-illustration-width-growth: 193;
+    --home-wide-illustration-base-width: calc(236rem / 16);
+    --home-wide-illustration-width-growth: 117;
     margin-block-start: calc(38rem / 16);
     &>.home-page-project-description>h2 {
       margin-block-start: calc(17rem / 16);
@@ -291,7 +298,8 @@ p {
     }
   }
   &:where(#youth-in-limbo-photography-project) {
-    --home-wide-illustration-width-growth: 293;
+    --home-wide-illustration-base-width: calc(252rem / 16);
+    --home-wide-illustration-width-growth: 189;
     margin-block-start: calc(43rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-373rem / 16);
@@ -302,6 +310,11 @@ p {
   display: block;
   inline-size: 100%;
   block-size: auto;
+  &>img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+  }
 }
 .home-page-project-case-study-link {
   --home-page-link-hover-background-image: url(
@@ -420,11 +433,10 @@ p {
     }
   }
   .home-page-featured-project-summary {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "illustration description";
+    --home-wide-project-column-available-width: calc(50% - 36 * var(--home-wide-reference-growth));
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    column-gap: calc(72 * var(--home-wide-reference-growth));
     margin-block-start: calc(80rem / 16 + 110 * var(--home-wide-reference-growth));
     margin-inline: calc(50rem / 16 + 127 * var(--home-wide-reference-growth));
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
@@ -437,25 +449,26 @@ p {
       }
     }
     &:nth-of-type(even) {
-      grid-template-areas: "description illustration";
+      flex-direction: row-reverse;
     }
     &>.home-page-project-overview-illustration {
-      grid-area: illustration;
-      justify-self: center;
       inline-size: min(
         calc(
           var(--home-wide-illustration-base-width)
           + var(--home-wide-illustration-width-growth) * var(--home-wide-reference-growth)
         ),
-        calc(115% + 144 * var(--home-wide-reference-growth))
+        var(--home-wide-project-column-available-width)
       );
     }
     &>.home-page-project-side-and-bottom-wave-composition {
       display: none;
     }
     &>.home-page-project-description {
-      grid-area: description;
       display: block;
+      inline-size: min(
+        var(--home-wide-project-column-available-width),
+        calc(310rem / 16 + 200 * var(--home-wide-reference-growth))
+      );
       &>h2 {
         margin-block: 0;
         font-size: calc(28rem / 16 + 20 * var(--home-wide-reference-growth));
