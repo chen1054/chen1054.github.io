@@ -272,6 +272,7 @@ p {
     }
   }
   &:where(#matcha-delight-japanese-bakery-project) {
+    --home-wide-role-margin: calc(30rem / 16 - 12 * var(--home-wide-reference-growth));
     --home-wide-illustration-base-width: calc(408rem / 16);
     --home-wide-illustration-width-growth: 280;
     margin-block-start: calc(49rem / 16);
@@ -426,6 +427,9 @@ p {
     text-align: start;
     &:where(#tales-for-safer-trails-project) {
       margin-block-start: calc(120rem / 16 + 124 * var(--home-wide-reference-growth));
+      &>.home-page-project-description>.home-page-project-type-and-designer-role {
+        max-inline-size: calc(310rem / 16 + 170 * var(--home-wide-reference-growth));
+      }
     }
     &:nth-of-type(even) {
       grid-template-areas: "description illustration";
@@ -453,7 +457,7 @@ p {
       line-height: calc(24rem / 16 + 16 * var(--home-wide-reference-growth));
     }
     &>.home-page-project-description>p {
-      max-inline-size: calc(310rem / 16 + 170 * var(--home-wide-reference-growth));
+      max-inline-size: calc(310rem / 16 + 194 * var(--home-wide-reference-growth));
       margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
       line-height: inherit;
       &>span {
@@ -465,7 +469,7 @@ p {
       }
     }
     &>.home-page-project-description>.home-page-project-type-and-designer-role {
-      margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
+      margin-block-start: var(--home-wide-role-margin, calc(12rem / 16 + 6 * var(--home-wide-reference-growth)));
       line-height: inherit;
     }
     &>.home-page-project-description>.home-page-project-case-study-link {
