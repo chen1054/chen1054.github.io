@@ -88,8 +88,11 @@ p {
   font-weight: 700;
   line-height: 2rem;
 }
-.home-introduction-about-page-preview-button,
+.home-introduction-about-page-link,
 .home-page-project-case-study-link {
+  --home-page-link-hover-background-image: url(
+    "assets/home-introduction-about-button-background-and-shadow.svg#button-background"
+  );
   position: relative;
   inset-inline-start: calc(1rem / 16);
   display: grid;
@@ -107,6 +110,16 @@ p {
   font-size: calc(14rem / 16);
   font-weight: 400;
   line-height: calc(34rem / 16);
+  text-decoration: none;
+  &:hover {
+    background-image: var(--home-page-link-hover-background-image);
+  }
+  &:focus-visible {
+    outline-width: calc(2rem / 16);
+    outline-style: solid;
+    outline-color: var(--color-portfolio-purple);
+    outline-offset: calc(4rem / 16);
+  }
 }
 .home-page-decorative-wave-composition {
   display: grid;
@@ -154,6 +167,9 @@ p {
       margin-block-start: calc(15rem / 16);
     }
     &>.home-page-project-case-study-link {
+      --home-page-link-hover-background-image: url(
+        "assets/home-project-standard-width-case-study-link-background-and-shadow.svg#button-background"
+      );
       inset-inline-start: calc(1rem / 16);
       inline-size: 9rem;
       margin-block-start: calc(28rem / 16);
@@ -210,18 +226,14 @@ p {
   block-size: auto;
 }
 .home-page-project-case-study-link {
+  --home-page-link-hover-background-image: url(
+    "assets/home-project-case-study-link-background-and-shadow.svg#button-background"
+  );
   inset-inline-start: 0;
   inline-size: calc(162rem / 16);
   margin-block-start: calc(27rem / 16);
   background-image: url("assets/home-project-case-study-link-background-and-shadow.svg");
   background-size: calc(162rem / 16) calc(42rem / 16);
-  text-decoration: none;
-  &:focus-visible {
-    outline-width: calc(2rem / 16);
-    outline-style: solid;
-    outline-color: var(--color-portfolio-purple);
-    outline-offset: calc(4rem / 16);
-  }
 }
 .home-page-project-side-and-bottom-wave-composition {
   margin-block-start: calc(-249rem / 16);

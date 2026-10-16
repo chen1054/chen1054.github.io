@@ -12,8 +12,21 @@
 <filter id="filter-color-to-alpha" x="0%" y="0%" width="100%" height="100%">
 <feColorMatrix color-interpolation-filters="sRGB" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.2126 0.7152 0.0722 0 0" />
 </filter>
-</defs><g mask="url(#mask-6)">
+</defs>
+<style>
+  :target {
+    fill: oklch(from currentColor l calc(c * 1.1) h);
+  }
+</style>
+<g mask="url(#mask-6)">
 <use xlink:href="#source-38" transform="matrix(0.50015, 0, 0, 0.5, 115, 1448)" />
 </g>
-<path fill-rule="nonzero" fill="rgb(76.078796%, 49.803162%, 21.176147%)" fill-opacity="1" d="M 119 1465 C 119 1455.609375 126.609375 1448 136 1448 L 255.546875 1448 C 264.9375 1448 272.546875 1455.609375 272.546875 1465 C 272.546875 1474.390625 264.9375 1482 255.546875 1482 L 136 1482 C 126.609375 1482 119 1474.390625 119 1465 Z M 119 1465 " />
+<path
+  id="button-background"
+  color="rgb(76.078796%, 49.803162%, 21.176147%)"
+  fill-rule="nonzero"
+  fill="currentColor"
+  fill-opacity="1"
+  d="M 119 1465 C 119 1455.609375 126.609375 1448 136 1448 L 255.546875 1448 C 264.9375 1448 272.546875 1455.609375 272.546875 1465 C 272.546875 1474.390625 264.9375 1482 255.546875 1482 L 136 1482 C 126.609375 1482 119 1474.390625 119 1465 Z M 119 1465 "
+/>
 </svg>
