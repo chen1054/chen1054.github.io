@@ -199,6 +199,7 @@ p {
   margin-block-start: -3rem;
 }
 .home-page-featured-project-summary {
+  --home-wide-illustration-outside-margin-correction: calc(-63% / 390);
   --home-wide-illustration-base-width: calc(390rem / 16);
   --home-wide-illustration-width-growth: 229;
   margin-block-start: calc(99rem / 16);
@@ -248,6 +249,7 @@ p {
     }
   }
   &:where(#menume-meal-planning-app-project) {
+    --home-wide-illustration-outside-margin-correction: calc(47% / 390);
     --home-wide-illustration-base-width: calc(396rem / 16);
     --home-wide-illustration-width-growth: 299;
     margin-block-start: 3rem;
@@ -265,6 +267,7 @@ p {
     }
   }
   &:where(#scotties-skating-and-skiing-shop-project) {
+    --home-wide-illustration-outside-margin-correction: calc(-54% / 390);
     --home-wide-illustration-width-growth: 298;
     margin-block-start: calc(-12rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
@@ -272,6 +275,7 @@ p {
     }
   }
   &:where(#matcha-delight-japanese-bakery-project) {
+    --home-wide-illustration-outside-margin-correction: calc(74% / 390);
     --home-wide-role-margin: calc(30rem / 16 - 12 * var(--home-wide-reference-growth));
     --home-wide-illustration-base-width: calc(408rem / 16);
     --home-wide-illustration-width-growth: 280;
@@ -281,6 +285,7 @@ p {
     }
   }
   &:where(#echoes-of-tradition-surrealist-poster-project) {
+    --home-wide-illustration-outside-margin-correction: calc(-80% / 390);
     --home-wide-illustration-width-growth: 193;
     margin-block-start: calc(38rem / 16);
     &>.home-page-project-description>h2 {
@@ -291,6 +296,7 @@ p {
     }
   }
   &:where(#youth-in-limbo-photography-project) {
+    --home-wide-illustration-outside-margin-correction: calc(69% / 390);
     --home-wide-illustration-width-growth: 293;
     margin-block-start: calc(43rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
@@ -349,6 +355,7 @@ p {
   }
   main {
     padding-block-start: calc(118rem / 16 + 90 * var(--home-wide-reference-growth));
+    overflow-x: clip;
   }
   .home-introduction-top-corner-decorations>img {
     block-size: calc(154rem / 16 + 140 * var(--home-wide-reference-growth));
@@ -438,10 +445,23 @@ p {
     }
     &:nth-of-type(even) {
       grid-template-areas: "description illustration";
+      &>.home-page-project-overview-illustration {
+        justify-self: end;
+      }
+    }
+    &:nth-of-type(odd)>.home-page-project-description {
+      text-align: end;
+      &>:is(p,a) {
+        margin-inline-start: auto;
+      }
+      &>.home-page-project-case-study-link {
+        inset-inline-start: calc(4rem / 16 + 2 * var(--home-wide-reference-growth));
+      }
     }
     &>.home-page-project-overview-illustration {
       grid-area: illustration;
-      justify-self: center;
+      justify-self: start;
+      translate: var(--home-wide-illustration-outside-margin-correction);
       inline-size: min(
         calc(
           var(--home-wide-illustration-base-width)
