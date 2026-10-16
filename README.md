@@ -27,7 +27,7 @@ Contact loads the approved Web3Forms and hCaptcha scripts and submits a native H
 These form resources are the approved third-party exception.
 Home links to `tales-for-safer-trails.html`, `menume.html`, and `scotties.html`.
 Matcha Delight and Echoes of Tradition open their supplied local project PDFs.
-Youth in Limbo retains its approved `https://example.com` placeholder pending a supplied destination.
+Youth in Limbo opens the user's supplied photography portfolio page.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
 retaining the original lightness and hue components and shadows.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.

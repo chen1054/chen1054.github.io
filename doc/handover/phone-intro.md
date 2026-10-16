@@ -10,7 +10,8 @@ only Contact and the resume contained email links, with no prototype or demo des
 The first destination question incorrectly bundled separate questions into one field;
 the user rejected that format.
 Ask each missing destination separately.
-The current pending question asks only where Youth in Limbo's case-study button should open.
+The user supplied `https://chen1054.myportfolio.com/session-3` for Youth in Limbo;
+Home's button now uses that exact URL.
 MenuMe mobile/tablet, Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations
 also remain missing; ask them separately after resolving the current item.
 Keep previously approved placeholders until exact destinations are supplied.
@@ -43,7 +44,7 @@ The Contact email link uses the confirmed three-`c` address.
 Light and dark preferences preserve readable original form colors.
 `40e1c98` adds hCaptcha and the local validation module;
 `aadb9eb` records the user's completed manual test send.
-No implementation item remains queued.
+Contact and the Home button-centering correction have no remaining implementation items.
 Keep the Python preview available at `http://localhost:4173/`;
 use `http://portfolio.localhost:4173/contact.html` for the captcha preview.
 Proposed verification guidance for `AGENTS.md`:
