@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 3578 390 234"><defs><clipPath id="clip-41">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 3578 390 234">
+<view id="project-artwork-without-blank-export-margins" viewBox="79 3577 236 236" />
+<defs><clipPath id="clip-41">
 <path clip-rule="nonzero" d="M 94.203125 3594 L 300.457031 3594 L 300.457031 3797.140625 L 94.203125 3797.140625 Z M 94.203125 3594 " />
 </clipPath>
 <mask id="mask-24">
