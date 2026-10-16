@@ -16,7 +16,7 @@
       style-src 'self';
       img-src 'self' data:;
       font-src 'self';
-      script-src 'none';
+      script-src 'self';
       connect-src 'none';
       object-src 'none';
       base-uri 'self';
@@ -31,6 +31,10 @@
     rel="stylesheet"
     href="styles.css"
   >
+  <script
+    src="phone-navigation-menu.js"
+    defer
+  ></script>
 </head>
 <body>
   <main aria-labelledby="home-introduction-heading">
