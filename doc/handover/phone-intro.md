@@ -8,8 +8,11 @@ The user also requested the client's logo as the favicon and supplied the Evil M
 Reuse the original navigation floral logo in a square SVG viewport,
 with a local 32-pixel ICO and a 180-pixel Apple touch PNG using the page's white background.
 Connect the three icons on every page, without a package dependency or site-layout change.
-The animation and favicon are separate items;
-finish the remaining animation accessibility/interaction checks and verify the favicon resources.
+The animation and favicon are separate completed items.
+All six pages' icon links decoded successfully in the headed browser,
+and native canvas checks found the colored logo artwork in every icon.
+The ICO is 32 pixels square, the Apple icon is 180 pixels square,
+and the SVG has a square viewport preserving the original supplied logo.
 Interpretation: sequential fades for greeting, name, summary and About link together,
 then the purple river accent; reveal the gold band, gray ribbon, and three gray lines
 together from left to right; fade the river's flower last.
@@ -27,7 +30,8 @@ The initial hard wipe measured a half-width reveal at 2250 milliseconds.
 The user then clarified that river pixels must fade gradually instead of appearing at a hard edge.
 The user explicitly rejected the attempted moving feathered edge.
 The user confirmed the artwork must stay at its final position throughout the entrance.
-The user then provided opacity examples and authorized a provisional implementation to inspect in motion.
+The user provided opacity examples, authorized a provisional implementation to inspect in motion,
+then explicitly accepted it: “Okay this is perfect.”
 Treat the numbers as percentages: progress zero has left 1% and right 0.5%;
 progress one has left 4%, middle 2%, and right 1%;
 progress two has left 16%, first third 8%, second third 4%, and right 2%.
@@ -35,7 +39,7 @@ One registered numeric CSS property interpolates progress from zero to eight acr
 A stationary mask uses five gradient stops whose alpha follows those exponential examples,
 clamped at full opacity by the browser.
 There is no traveling mask edge, translation, or new JavaScript.
-This is a trial for the user to evaluate, not an accepted animation design.
+Keep this accepted fixed-position opacity progression.
 The first browser probe found that defining the gradient in keyframes froze its alpha values
 even though the registered progress value advanced.
 The dependent gradient now belongs to the picture rule so it recalculates with animated progress.
@@ -44,10 +48,21 @@ visibility keeps the river hidden during its initial delay.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.
-Finished screenshots now compare byte-for-byte equal to the static reduced-motion baseline
-at 390, 744, and 1440 pixels.
-Next: verify the stage order, unchanged element bounds, completed artwork,
-reduced-motion behavior, and About link in the headed browser at phone and wide widths.
+Before the spatial-opacity implementation, finished screenshots compared byte-for-byte equal
+to the static reduced-motion baseline at 390, 744, and 1440 pixels.
+The accepted implementation retains a fully opaque mask after completion;
+its final captures differ from the unmasked reduced-motion captures,
+so do not claim byte or pixel identity for this version.
+Headed-browser probes at those same widths verified every animated element's unchanged bounds
+at fourteen timeline positions, with an intentional translation proving the geometry probe detects movement.
+The mask's computed alpha stops match the user's percentage examples,
+and all stops reach full opacity at completion.
+No horizontal overflow was found.
+Reduced-motion emulation produced no animations and no hidden introduction elements at all three widths.
+Home loaded no third-party resources or browser errors in the final dark-system-mode check.
+Its keyboard-focused About link retained focus visibility, responded to hover,
+and opened the local About page with Enter.
+No animation or favicon implementation work remains queued.
 
 The user requested connecting all available destinations.
 All implemented pages are already connected through navigation and Home's implemented-project links.

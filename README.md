@@ -13,6 +13,13 @@ All pages share `styles.css`.
 Artwork and button backgrounds are extracted from the supplied PDF.
 Each decorative wave component is its own SVG asset and HTML image.
 Picture sources select the supplied phone or wide artwork.
+Home's introduction appears in the client's requested order.
+The river remains fixed while its opacity grows faster on the left than on the right;
+the flower appears after the river finishes.
+The user reviewed and approved this animation.
+Reduced-motion visitors see the complete static introduction immediately.
+The client's original floral logo supplies the local SVG favicon,
+32-pixel ICO fallback, and 180-pixel Apple touch icon on every page.
 One 40rem breakpoint switches to inline navigation and alternating flexbox project columns.
 CSS grids are prohibited.
 Named SVG views trim blank export margins on wide screens without duplicating artwork.
