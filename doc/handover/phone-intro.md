@@ -21,11 +21,23 @@ The original Figma archive also provides intact text and font metadata.
 Private `read-figma-text-records` recovers these without approximating broken PDF words.
 The case-study body uses Playfair Display Medium;
 its original static font is present in the supplied archive and has been extracted locally.
+`1b696ff` adds the original artwork and shared recolorable masks.
+`14fed4c` adds all three pages, shared styles, and their Home links.
+Initial Desktop checks measured no horizontal overflow at 1440 pixels;
+all image elements decoded and each page uses only the existing navigation module.
+Visual verification is still in progress and those checks are not a visual pass.
+The Scotties high-fidelity screenshot in the PDF-derived SVG shows a broken-image placeholder;
+the supplied PNG contains the correct screenshot and must guide recovery.
+Tales callout backgrounds need their native proportions preserved around live text.
+MenuMe decorative icon selections and prototype hover colors also need correction.
+Long full-page captures repeated page-top pixels near their bottom;
+a real scrolled Tales footer viewport renders correctly, so this is a capture issue,
+not duplicated page markup.
 Next actions are independently verifiable:
-- Implement and verify Tales for Safer Trails.
-- Implement and verify MenuMe.
-- Implement and verify Scotties.
-- Verify shared responsive behavior, navigation, reused recolors, and update comparison artifacts.
+- Correct and verify Tales artwork, callouts, and image viewers.
+- Correct and verify MenuMe artwork, colors, and image viewers.
+- Recover and verify Scotties artwork and image viewers.
+- Verify responsive behavior, navigation, reused recolors, and update comparison artifacts.
 
 Home and About now include a shared back-to-top link.
 It is 3rem square, fixed 1rem from the bottom and right viewport edges,
