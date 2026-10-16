@@ -6,11 +6,21 @@ The user requested Tales for Safer Trails, MenuMe, and Scotties case-study pages
 They approved three new HTML pages, shared case-study CSS, local asset extraction,
 and replacing their Home placeholder links with the implemented pages.
 Reuse the existing breakpoint, navigation, footer, and back-to-top control.
+All case-study pictures and graphs must be zoomable.
+The user chose an in-page viewer and corrected the claim that it needs JavaScript.
+Use native popover buttons and shared CSS; add no zoom JavaScript.
+A headed-browser fixture confirmed that an image viewer can be opened by its invoker
+and closed by a popover button targeting itself.
+Check native HTML behavior before proposing script for such interactions.
 All prototype and Tales demo buttons may temporarily open `https://example.com`.
 The user specifically noted that some artwork is only recolored;
 reuse original geometry and apply page colors instead of duplicating it.
 All nine supplied Phone, Tablet, and Desktop PNGs were inspected;
 their PDFs were extracted into private SVG and text working files.
+The original Figma archive also provides intact text and font metadata.
+Private `read-figma-text-records` recovers these without approximating broken PDF words.
+The case-study body uses Playfair Display Medium;
+its original static font is present in the supplied archive and has been extracted locally.
 Next actions are independently verifiable:
 - Implement and verify Tales for Safer Trails.
 - Implement and verify MenuMe.
