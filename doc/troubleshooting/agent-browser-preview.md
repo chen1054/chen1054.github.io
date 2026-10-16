@@ -182,3 +182,23 @@ The wide views and alignment continued to work.
 
 The native layout behavior was observed, but its deciding upstream source was not investigated.
 No upstream root cause or fileable browser defect has been established.
+
+## Isolated About gallery SVG shadows
+
+The first About build used isolated photo groups and their reachable SVG definitions
+from the supplied PDF exports.
+In headed Chromium, the skating and beach frames lacked the visible gold shadows
+shown in the original PNG references.
+The reading frame retained its gold shadow.
+The extracted skating SVG still contained the original full-page mask,
+its image references, and both color-to-alpha filters.
+The deciding rendering or export cause was not established.
+
+The final gallery uses unscaled, rectangular crops of the supplied Phone and Desktop PNGs.
+These retain the original photograph, corner shape, and gold-shadow pixels together.
+Native canvas copied the reference pixels into locally hosted PNG files;
+no replacement shadow was invented.
+The private `preserve-about-reference-photo-frames` task reproduces those crops.
+Portrait and separate decorative wave components remain original SVG artwork.
+
+No upstream defect has been established or reported.

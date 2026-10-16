@@ -712,7 +712,7 @@ p {
     }
   }
   .portfolio-about-page>.portfolio-page-thank-you-and-copyright-footer {
-    margin-block-start: calc(157rem / 16 + 28 * var(--home-wide-reference-growth));
+    margin-block-start: calc(157rem / 16 + 30 * var(--home-wide-reference-growth));
   }
   .about-page-footer-bottom-wave-composition {
     margin-block-start: calc(-67rem / 16 - 64 * var(--home-wide-reference-growth));

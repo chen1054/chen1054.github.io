@@ -641,5 +641,26 @@ Images decoded successfully; browser page-error and console collections were emp
   are extracted from the supplied PDFs with the private `extract-about-artwork` task.
   SVG paths, image masks, embedded photographs, and shadows are retained.
   The existing sRGB-safe gold hover limit is reused for the new CV background.
-- Next action: implement the authorized About page and verify it against the supplied references,
-  including the confirmed phone portrait correction.
+- `46fbe14` records the approved scope and initial extracted artwork.
+  `d5e8f79` implements `about.html`, shares header/footer styling,
+  and wires Home's About links to the new page.
+  About's Work link returns to the Home projects; its CV link opens the existing local résumé.
+  Contact retains its approved temporary destination.
+- The supplied font archive contains the biography's semibold and extra-bold weights.
+  Native font measurement matched the PDF's regular biography word widths to weight 600;
+  emphasized Phone and Tablet phrases use weight 800.
+  Those original static font files are now hosted locally alongside the existing fonts and license.
+- `1f4338a` replaces the isolated gallery SVGs with exact reference PNG crops.
+  The isolated SVG exports did not retain the visible skating and beach gold shadows in Chromium.
+  Original pixels preserve each photograph, frame, and shadow without recreating the effect.
+  Phone and Desktop use their respective supplied crops.
+  The raw reference PNGs are retained in `doc/reference/`.
+- Initial measurements match the Phone biography paragraph positions and gallery rhythm,
+  with the confirmed portrait added in the empty exported region.
+  Phone and Tablet page heights measure 3601 and 2774 pixels respectively.
+  The shared wide layout uses the existing 40rem breakpoint;
+  the interests gallery wraps naturally where a single row does not fit.
+  No new JavaScript, npm dependency, grid, or third-party request is introduced.
+- Next action: verify About and Home across phone, intermediate, Tablet, and Desktop widths;
+  exercise navigation and CV links, hover/focus, both color preferences,
+  and prepare matching-scale reference comparisons before closing the private browser.

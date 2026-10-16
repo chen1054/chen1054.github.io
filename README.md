@@ -32,7 +32,14 @@ The approved local `phone-navigation-menu.mjs` module closes it when a link is s
 Home returns to the homepage; Work jumps to the first project.
 About and Contact temporarily open `https://example.com`.
 The phone menu has been reviewed and accepted.
-The final About destination and case-study pages belong to later work.
+The About page is available at `about.html`,
+and Home's About links now open it.
+It reuses the navigation, shared stylesheet, fonts, and existing responsive breakpoint.
+The original portrait appears on phone too, as confirmed by the user.
+Biography text remains live HTML;
+gallery photographs and gold shadows are preserved directly from the supplied reference PNGs.
+“View My CV” opens the locally hosted résumé PDF.
+Contact and case-study pages belong to later work.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
 and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)
