@@ -4,6 +4,12 @@
 
 The client requested a landing introduction animation;
 the user clarified that the layout must not change.
+The user also requested the client's logo as the favicon and supplied the Evil Martians favicon guide.
+Reuse the original navigation floral logo in a square SVG viewport,
+with a local 32-pixel ICO and a 180-pixel Apple touch PNG using the page's white background.
+Connect the three icons on every page, without a package dependency or site-layout change.
+The animation and favicon are separate items;
+finish the remaining animation accessibility/interaction checks and verify the favicon resources.
 Interpretation: sequential fades for greeting, name, summary and About link together,
 then the purple river accent; reveal the gold band, gray ribbon, and three gray lines
 together from left to right; fade the river's flower last.
@@ -21,6 +27,8 @@ The five river pieces all measured a half-width reveal at 2250 milliseconds.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.
+Finished screenshots now compare byte-for-byte equal to the static reduced-motion baseline
+at 390, 744, and 1440 pixels.
 Next: verify the stage order, unchanged element bounds, completed artwork,
 reduced-motion behavior, and About link in the headed browser at phone and wide widths.
 
