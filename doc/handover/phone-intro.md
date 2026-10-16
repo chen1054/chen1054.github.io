@@ -6,7 +6,7 @@ The full phone Home page is implemented,
 including all six projects and the footer.
 The user waived further Home section reviews.
 The user accepted the sRGB-safe hover state and requested the phone menu.
-Menu implementation is now in progress for its separate review.
+The phone menu is implemented and ready for its separate review.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -29,8 +29,8 @@ records the supplied design and implementation at matching 390-pixel widths.
   The menu still requires a separate review.
 - All six case-study links temporarily open `https://example.com`,
   explicitly confirmed by the user for the remaining five buttons.
-- The hamburger remains a visual preview;
-  its behavior belongs to a later step.
+- The initial hamburger preview has been replaced with the requested functional menu.
+  The menu still requires its separate user review.
 - The About link temporarily opens `https://example.com`,
   explicitly confirmed by the user after requesting a link styled as a button.
 - The initial hover request increased OKLCH chroma by 10%.
@@ -128,19 +128,10 @@ records the supplied design and implementation at matching 390-pixel widths.
 
 ## Work remaining
 
-- The user accepted the artwork correction: “Yeah that works.”
-- Next discussed step is the “Tales For Safer Trails” project section
-  from the supplied Home reference,
-  followed by another section review.
-  The user authorized implementation with “Do it.”
-  That section and its following decorative wave are now implemented.
-- Home content is complete.
-  The remaining phone navigation work is the menu,
-  which requires a separate review using `../Phone/Side menu.png` and its PDF.
-- The Tales “View case study” link opens `https://example.com` for now,
-  as explicitly requested by the user.
-  This is a navigation destination, not an externally loaded page asset.
-- Menu behavior and the final About destination remain deferred.
+- Home content is complete and the user accepted its hover behavior.
+- The menu is implemented and awaits its separate user review.
+- About and Contact pages and their final destinations remain deferred.
+  Case studies still use the approved temporary `https://example.com` destination.
 - Ask for missing original materials instead of inventing replacements.
 
 ## Artwork review correction
@@ -371,7 +362,7 @@ Do not resume shell investigation as part of the portfolio work.
   Light and dark preferences were exercised; browser error and console collections were empty,
   and Home loaded no external resources.
 
-## Phone menu implementation in progress
+## Phone menu implementation and verification
 
 - The supplied `../Phone/Side menu.png` is 97 by 887 pixels.
   Its PDF page is 101 by 887 points, with an original white panel spanning x 0 through 97.
@@ -393,5 +384,29 @@ Do not resume shell investigation as part of the portfolio work.
   It was initially named `phone-navigation-menu.js`,
   then renamed on 2026-10-15 to follow the user's `.mjs` and `type="module"` convention.
   Native opening, Escape dismissal, and outside-click dismissal need no script.
-- Next action: extract the original icon, implement the shared menu markup and styles,
-  then verify geometry and interactions in the headed browser and present the menu review.
+- `43b73aa` extracts the original icon paths and copies the supplied reference.
+  `f568070` implements the popover in HTML and shared CSS.
+  `aa56403` uses a regular homepage link.
+  `5d62b48` adds the approved close-on-selection handler;
+  `741f3db` loads it as a local `.mjs` module.
+  CSP permits same-origin scripts without enabling inline scripts or third-party resources.
+- `c3899ca` aligns the live text's baselines with the PDF using 128-pixel top padding.
+  The panel is 97 pixels wide and fills the viewport height.
+  Menu links have 97 by 48 pixel targets;
+  the close and open controls have 48 by 48 pixel targets.
+- Headed Chromium verified opening, the close button, Escape with focus restoration,
+  and outside-click dismissal.
+  Work scrolled to the Tales project and closed the menu through the module.
+  Keyboard activation of Home returned to the homepage top with the menu closed.
+  About and Contact both navigated to `https://example.com/`.
+  Link hover underlining and visible keyboard focus rings were exercised.
+- Content widths of 320, 390, and 414 pixels had no horizontal overflow.
+  Both color preferences retained the supplied white panel.
+  Browser page-error and console collections were empty;
+  Home loaded no external resources.
+- The [menu comparison](../review/phone-navigation-menu-reference-comparison.svg)
+  pairs the supplied image with the captured 97-pixel panel at matching scale.
+  The [full viewport capture](../review/phone-navigation-menu-implementation.png)
+  shows how the white panel overlays Home.
+- Next action: user reviews the menu's layout and behavior at `http://localhost:4173/`.
+  Menu approval has not yet been given.

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 915">
+  <title>Supplied phone menu and implemented menu at matching scale</title>
+  <defs>
+    <clipPath id="implemented-menu-panel-crop">
+      <rect x="97" y="28" width="97" height="887"/>
+    </clipPath>
+  </defs>
+  <rect width="194" height="915" fill="white"/>
+  <g font-family="sans-serif" font-size="12" fill="black">
+    <text x="4" y="18">Reference</text>
+    <text x="101" y="18">Implemented</text>
+  </g>
+  <image
+    href="../reference/phone-navigation-side-menu.png"
+    x="0"
+    y="28"
+    width="97"
+    height="887"
+  />
+  <image
+    href="phone-navigation-menu-implementation.png"
+    x="97"
+    y="28"
+    width="405"
+    height="887"
+    clip-path="url(#implemented-menu-panel-crop)"
+  />
+</svg>
