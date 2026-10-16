@@ -23,7 +23,10 @@ MenuMe's tablet buttons passed exact DOM comparisons and native navigation.
 The user supplied Scotties' desktop Figma URL,
 with file key `8uo5VBV3BsWXgYe647JxmM`, starting node `2124:352`, and page `3:5`.
 Both desktop prototype buttons now use it with escaped query separators.
-Next missing destination: Scotties mobile, then Tales' Doodle Demo.
+Scotties' desktop buttons passed exact DOM comparisons and native navigation.
+The user supplied its mobile URL with starting node `3:2` and page `0:1`;
+both mobile buttons now use that exact address with escaped query separators.
+The only missing destination is Tales' Launch Doodle Demo.
 Ask each separately.
 Keep previously approved placeholders until exact destinations are supplied.
 Both new Home PDF links passed native clicks in headed `agent-browser`;
