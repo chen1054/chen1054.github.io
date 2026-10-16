@@ -602,11 +602,12 @@ p {
   }
 }
 .contact-page-send-message-button {
+  inset-inline-start: calc(13rem / 32);
   margin-block-start: calc(17rem / 16);
   cursor: pointer;
 }
 .contact-page-footer-bottom-wave-composition {
-  margin-block-start: calc(-66rem / 16);
+  margin-block-start: calc(-72rem / 16);
 }
 @font-face {
   font-family: "Playfair Display";
