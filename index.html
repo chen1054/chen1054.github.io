@@ -33,7 +33,10 @@
   >
 </head>
 <body>
-  <main aria-labelledby="home-introduction-heading">
+  <main
+    id="home-page-top"
+    aria-labelledby="home-introduction-heading"
+  >
     <img
       class="home-introduction-top-corner-decorations"
       src="assets/home-introduction-top-corner-decorations.svg"
@@ -42,11 +45,39 @@
       height="120"
     >
     <button
-      class="home-navigation-menu-preview-button"
+      class="phone-navigation-menu-toggle-button"
       type="button"
-      aria-label="Menu"
-      disabled
+      aria-label="Open navigation menu"
+      popovertarget="phone-navigation-menu"
     ></button>
+    <nav
+      id="phone-navigation-menu"
+      aria-label="Primary navigation"
+      popover
+    >
+      <button
+        class="phone-navigation-menu-toggle-button"
+        type="button"
+        aria-label="Close navigation menu"
+        popovertarget="phone-navigation-menu"
+        popovertargetaction="hide"
+        autofocus
+      >
+        <img
+          src="assets/phone-navigation-menu-hamburger-icon.svg"
+          alt=""
+          width="48"
+          height="48"
+        >
+      </button>
+      <a
+        href="#home-page-top"
+        aria-current="page"
+      >Home</a>
+      <a href="https://example.com">About</a>
+      <a href="#tales-for-safer-trails-project">Work</a>
+      <a href="https://example.com">Contact</a>
+    </nav>
     <h1 id="home-introduction-heading">
       <span class="home-introduction-greeting">Hello, I’m</span>
       <span class="home-introduction-designer-name">Xinyan Chen</span>

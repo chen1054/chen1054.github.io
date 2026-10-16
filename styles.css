@@ -42,12 +42,53 @@ button {
   border-width: 0;
   background-color: transparent;
 }
-.home-navigation-menu-preview-button {
+.phone-navigation-menu-toggle-button {
   position: absolute;
   inset-block-start: calc(73rem / 16);
   inset-inline-start: calc(14rem / 16);
   min-inline-size: 3rem;
   min-block-size: 3rem;
+  cursor: pointer;
+  &>img {
+    display: block;
+    inline-size: 3rem;
+    block-size: 3rem;
+  }
+}
+#phone-navigation-menu {
+  position: fixed;
+  inset-block-start: 0;
+  inset-block-end: auto;
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  box-sizing: border-box;
+  inline-size: calc(97rem / 16);
+  block-size: 100dvh;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: calc(130rem / 16) 0;
+  padding-inline: 0;
+  border-width: 0;
+  background-color: var(--color-page-background);
+  color: var(--color-body-text-purple);
+  font-family: "Abril Fatface", serif;
+  font-size: calc(15rem / 16);
+  line-height: calc(20rem / 16);
+  text-align: start;
+  &>a {
+    display: flex;
+    align-items: center;
+    min-inline-size: 3rem;
+    min-block-size: 3rem;
+    margin-block-end: calc(3rem / 16);
+    padding-inline-start: calc(20rem / 16);
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: var(--color-portfolio-purple);
+      text-decoration: underline;
+    }
+  }
 }
 h1 {
   margin-block: 0;
@@ -117,6 +158,11 @@ p {
   &:hover {
     background-image: var(--home-page-link-hover-background-image);
   }
+}
+.home-introduction-about-page-link,
+.home-page-project-case-study-link,
+.phone-navigation-menu-toggle-button,
+#phone-navigation-menu>a {
   &:focus-visible {
     outline-width: calc(2rem / 16);
     outline-style: solid;
