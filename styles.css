@@ -35,6 +35,14 @@ main {
   inset-inline-start: 0;
   inline-size: 100%;
   block-size: auto;
+  &>img {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+  }
+}
+.home-wide-navigation-floral-logo {
+  display: none;
 }
 button {
   padding-block: 0;
@@ -55,7 +63,7 @@ button {
     block-size: 3rem;
   }
 }
-#phone-navigation-menu {
+#portfolio-primary-navigation {
   position: fixed;
   inset-block-start: 0;
   inset-block-end: auto;
@@ -162,7 +170,7 @@ p {
 .home-introduction-about-page-link,
 .home-page-project-case-study-link,
 .phone-navigation-menu-toggle-button,
-#phone-navigation-menu>a {
+#portfolio-primary-navigation>a {
   &:focus-visible {
     outline-width: calc(2rem / 16);
     outline-style: solid;
@@ -174,8 +182,14 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   pointer-events: none;
-  &>img {
+  &>img,
+  &>picture {
     grid-area: 1 / 1;
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+  }
+  &>picture>img {
     display: block;
     inline-size: 100%;
     block-size: auto;
@@ -184,13 +198,16 @@ p {
 .home-introduction-bottom-wave-composition {
   margin-block-start: -3rem;
 }
+.home-page-project-description {
+  display: contents;
+}
 .home-page-featured-project-summary {
   margin-block-start: calc(99rem / 16);
   font-family: "Playfair Display", serif;
   font-size: calc(14rem / 16);
   font-weight: 700;
   line-height: calc(21rem / 16);
-  &>h2 {
+  &>.home-page-project-description>h2 {
     margin-block: calc(18rem / 16) 0;
     color: var(--color-heading-and-case-study-gold);
     font-family: "Abril Fatface", serif;
@@ -198,24 +215,24 @@ p {
     font-weight: 400;
     line-height: calc(38rem / 16);
   }
-  &>h3 {
+  &>.home-page-project-description>h3 {
     margin-block: calc(4rem / 16) 0;
     font-size: calc(18rem / 16);
     line-height: calc(24rem / 16);
   }
-  &>p {
+  &>.home-page-project-description>p {
     margin-block: calc(11rem / 16) 0;
   }
-  &>.home-page-project-type-and-designer-role {
+  &>.home-page-project-description>.home-page-project-type-and-designer-role {
     margin-block-start: calc(12rem / 16);
     line-height: calc(19rem / 16);
   }
-  &:not(#tales-for-safer-trails-project) {
+  &:not(:where(#tales-for-safer-trails-project)) {
     line-height: calc(19rem / 16);
-    &>h3 {
+    &>.home-page-project-description>h3 {
       margin-block-start: calc(15rem / 16);
     }
-    &>.home-page-project-case-study-link {
+    &>.home-page-project-description>.home-page-project-case-study-link {
       --home-page-link-hover-background-image: url(
         "assets/home-project-standard-width-case-study-link-background-and-shadow-srgb-gamut-boundary-hover.svg#button-background"
       );
@@ -228,43 +245,43 @@ p {
       background-size: 9rem calc(42rem / 16);
     }
   }
-  &#menume-meal-planning-app-project {
+  &:where(#menume-meal-planning-app-project) {
     margin-block-start: 3rem;
-    &>h2 {
+    &>.home-page-project-description>h2 {
       margin-block-start: calc(10rem / 16);
     }
-    &>h3 {
+    &>.home-page-project-description>h3 {
       margin-block-start: calc(5rem / 16);
     }
-    &>.home-page-project-case-study-link {
+    &>.home-page-project-description>.home-page-project-case-study-link {
       margin-block-start: calc(27rem / 16);
     }
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-312rem / 16);
     }
   }
-  &#scotties-skating-and-skiing-shop-project {
+  &:where(#scotties-skating-and-skiing-shop-project) {
     margin-block-start: calc(-12rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-75rem / 16);
     }
   }
-  &#matcha-delight-japanese-bakery-project {
+  &:where(#matcha-delight-japanese-bakery-project) {
     margin-block-start: calc(49rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-167rem / 16);
     }
   }
-  &#echoes-of-tradition-surrealist-poster-project {
+  &:where(#echoes-of-tradition-surrealist-poster-project) {
     margin-block-start: calc(38rem / 16);
-    &>h2 {
+    &>.home-page-project-description>h2 {
       margin-block-start: calc(17rem / 16);
     }
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-36rem / 16);
     }
   }
-  &#youth-in-limbo-photography-project {
+  &:where(#youth-in-limbo-photography-project) {
     margin-block-start: calc(43rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
       margin-block-start: calc(-373rem / 16);

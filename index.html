@@ -38,29 +38,41 @@
 </head>
 <body>
   <main aria-labelledby="home-introduction-heading">
-    <img
-      class="home-introduction-top-corner-decorations"
-      src="assets/home-introduction-top-corner-decorations.svg"
-      alt=""
-      width="390"
-      height="120"
-    >
+    <picture class="home-introduction-top-corner-decorations">
+      <source
+        media="(width>=40rem)"
+        srcset="assets/home-wide-top-corner-decorations.svg"
+      >
+      <img
+        src="assets/home-introduction-top-corner-decorations.svg"
+        alt=""
+        width="390"
+        height="120"
+        >
+    </picture>
     <button
       class="phone-navigation-menu-toggle-button"
       type="button"
       aria-label="Open navigation menu"
-      popovertarget="phone-navigation-menu"
+      popovertarget="portfolio-primary-navigation"
     ></button>
     <nav
-      id="phone-navigation-menu"
+      id="portfolio-primary-navigation"
       aria-label="Primary navigation"
       popover
     >
+      <img
+        class="home-wide-navigation-floral-logo"
+        src="assets/home-wide-navigation-floral-logo.svg"
+        alt=""
+        width="48"
+        height="63"
+      >
       <button
         class="phone-navigation-menu-toggle-button"
         type="button"
         aria-label="Close navigation menu"
-        popovertarget="phone-navigation-menu"
+        popovertarget="portfolio-primary-navigation"
         popovertargetaction="hide"
         autofocus
       >
@@ -101,48 +113,90 @@
         home-introduction-bottom-wave-composition"
       aria-hidden="true"
     >
-      <img
-        src="assets/home-introduction-wave-purple-accent.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-gold-band.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-gray-bottom-ribbon.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-top-gray-stripe.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-bottom-gray-stripe.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-middle-gray-stripe.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
-      <img
-        src="assets/home-introduction-wave-floral-accent.svg"
-        alt=""
-        width="390"
-        height="236"
-      >
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-purple-accent.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-purple-accent.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-gold-band.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-gold-band.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-gray-bottom-ribbon.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-gray-bottom-ribbon.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-top-gray-stripe.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-top-gray-stripe.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-bottom-gray-stripe.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-bottom-gray-stripe.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-middle-gray-stripe.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-middle-gray-stripe.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-introduction-wave-floral-accent.svg"
+        >
+        <img
+          src="assets/home-introduction-wave-floral-accent.svg"
+          alt=""
+          width="390"
+          height="236"
+          >
+      </picture>
     </div>
     <section
       class="home-page-featured-project-summary"
@@ -156,25 +210,27 @@
         width="390"
         height="211"
       >
-      <h2 id="tales-for-safer-trails-project-heading">Tales For Safer Trails</h2>
-      <h3>Substance Use Health Campaign</h3>
-      <p>
-        <span>Collaborating with Ottawa Public</span>
-        <span>Health (OPH) to develop educational</span>
-        <span>tools for parenting young children</span>
-        <span>under 12-year-old.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: UX Research</span>
-        <span>&amp; Visual Storytelling</span>
-        <span>Role: Team Lead &amp;</span>
-        <span>Creative Strategist</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: Tales For Safer Trails"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="tales-for-safer-trails-project-heading">Tales For Safer Trails</h2>
+        <h3>Substance Use Health Campaign</h3>
+        <p>
+          <span>Collaborating with Ottawa Public</span>
+          <span>Health (OPH) to develop educational</span>
+          <span>tools for parenting young children</span>
+          <span>under 12-year-old.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: UX Research</span>
+          <span>&amp; Visual Storytelling</span>
+          <span class="home-page-project-designer-role-start">Role: Team Lead &amp;</span>
+          <span>Creative Strategist</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: Tales For Safer Trails"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -206,24 +262,26 @@
         width="390"
         height="179"
       >
-      <h2 id="menume-meal-planning-app-project-heading">MenuMe</h2>
-      <h3>UX / App Design Project</h3>
-      <p>
-        <span>MenuMe is a meal planning app that helps</span>
-        <span>busy individuals and families quickly create</span>
-        <span>personalized weekly menus.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: UX/UI Design</span>
-        <span>Role: UX/UI Designer (Research,</span>
-        <span>Wireframing,Prototyping,</span>
-        <span>Usability Testing)</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: MenuMe"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="menume-meal-planning-app-project-heading">MenuMe</h2>
+        <h3>UX / App Design Project</h3>
+        <p>
+          <span>MenuMe is a meal planning app that helps</span>
+          <span>busy individuals and families quickly create</span>
+          <span>personalized weekly menus.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: UX/UI Design</span>
+          <span class="home-page-project-designer-role-start">Role: UX/UI Designer (Research,</span>
+          <span>Wireframing,Prototyping,</span>
+          <span>Usability Testing)</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: MenuMe"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -255,25 +313,27 @@
         width="390"
         height="218"
       >
-      <h2 id="scotties-skating-and-skiing-shop-project-heading">Scotties</h2>
-      <h3>Skating and Skiing Shop Redesign</h3>
-      <p>
-        <span>A local ski, snowboard, and skate shop in</span>
-        <span>Whitby, Ontario,where I redesigned the website</span>
-        <span>to highlight its community spirit and passion for</span>
-        <span>snow and skate culture.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: Media Planning /</span>
-        <span>Web Redesign</span>
-        <span>Role: Project Administrator &amp;</span>
-        <span>UX/UI Designer</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: Scotties"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="scotties-skating-and-skiing-shop-project-heading">Scotties</h2>
+        <h3>Skating and Skiing Shop Redesign</h3>
+        <p>
+          <span>A local ski, snowboard, and skate shop in</span>
+          <span>Whitby, Ontario,where I redesigned the website</span>
+          <span>to highlight its community spirit and passion for</span>
+          <span>snow and skate culture.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: Media Planning /</span>
+          <span>Web Redesign</span>
+          <span class="home-page-project-designer-role-start">Role: Project Administrator &amp;</span>
+          <span>UX/UI Designer</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: Scotties"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -299,25 +359,27 @@
         width="390"
         height="186"
       >
-      <h2 id="matcha-delight-japanese-bakery-project-heading">Matcha Delight</h2>
-      <h3>A Japanese Bakery Design</h3>
-      <p>
-        <span>Specializing in matcha-flavored pastries,</span>
-        <span>where I designed the brand identity</span>
-        <span>and website to create a fun and</span>
-        <span>user-friendly experience.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: Branding &amp;</span>
-        <span>Web Design</span>
-        <span>Role: UX/UI Designer &amp;</span>
-        <span>Brand Designer</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: Matcha Delight"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="matcha-delight-japanese-bakery-project-heading">Matcha Delight</h2>
+        <h3>A Japanese Bakery Design</h3>
+        <p>
+          <span>Specializing in matcha-flavored pastries,</span>
+          <span>where I designed the brand identity</span>
+          <span>and website to create a fun and</span>
+          <span>user-friendly experience.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: Branding &amp;</span>
+          <span>Web Design</span>
+          <span class="home-page-project-designer-role-start">Role: UX/UI Designer &amp;</span>
+          <span>Brand Designer</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: Matcha Delight"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -349,27 +411,29 @@
         width="390"
         height="234"
       >
-      <h2 id="echoes-of-tradition-surrealist-poster-project-heading">
-        <span>Echoes of Tradition,</span>
-        <span>Faces of the Future</span>
-      </h2>
-      <h3>DesignSurrealist Poster Design</h3>
-      <p>
-        <span>A surrealist poster envisioning a future</span>
-        <span>where cultural heritage, like Suzhou’s</span>
-        <span>Humble Administrator’s Garden,</span>
-        <span>survives in virtual worlds.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: Visual Storytelling</span>
-        <span>&amp; Poster Design</span>
-        <span>Role: Graphic Designer</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: Echoes of Tradition, Faces of the Future"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="echoes-of-tradition-surrealist-poster-project-heading">
+          <span>Echoes of Tradition,</span>
+          <span>Faces of the Future</span>
+        </h2>
+        <h3>DesignSurrealist Poster Design</h3>
+        <p>
+          <span>A surrealist poster envisioning a future</span>
+          <span>where cultural heritage, like Suzhou’s</span>
+          <span>Humble Administrator’s Garden,</span>
+          <span>survives in virtual worlds.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: Visual Storytelling</span>
+          <span>&amp; Poster Design</span>
+          <span class="home-page-project-designer-role-start">Role: Graphic Designer</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: Echoes of Tradition, Faces of the Future"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -395,24 +459,26 @@
         width="390"
         height="210"
       >
-      <h2 id="youth-in-limbo-photography-project-heading">Youth in Limbo</h2>
-      <h3>Photography Story</h3>
-      <p>
-        <span>A visual story of a young man caught between</span>
-        <span>dreams and reality after graduation,</span>
-        <span>exploring themes of uncertainty,</span>
-        <span>solitude, and the search</span>
-        <span>for self-discovery.</span>
-      </p>
-      <p class="home-page-project-type-and-designer-role">
-        <span>Project Type: Photography Series</span>
-        <span>Role: Photographer</span>
-      </p>
-      <a
-        class="home-page-project-case-study-link"
-        href="https://example.com"
-        aria-label="View case study: Youth in Limbo"
-      >View case study</a>
+      <div class="home-page-project-description">
+        <h2 id="youth-in-limbo-photography-project-heading">Youth in Limbo</h2>
+        <h3>Photography Story</h3>
+        <p>
+          <span>A visual story of a young man caught between</span>
+          <span>dreams and reality after graduation,</span>
+          <span>exploring themes of uncertainty,</span>
+          <span>solitude, and the search</span>
+          <span>for self-discovery.</span>
+        </p>
+        <p class="home-page-project-type-and-designer-role">
+          <span>Project Type: Photography Series</span>
+          <span class="home-page-project-designer-role-start">Role: Photographer</span>
+        </p>
+        <a
+          class="home-page-project-case-study-link"
+          href="https://example.com"
+          aria-label="View case study: Youth in Limbo"
+        >View case study</a>
+      </div>
       <div
         class="home-page-decorative-wave-composition
           home-page-project-side-and-bottom-wave-composition"
@@ -438,24 +504,42 @@
         home-page-footer-bottom-wave-composition"
       aria-hidden="true"
     >
-      <img
-        src="assets/home-page-footer-gold-wave.svg"
-        alt=""
-        width="390"
-        height="170"
-      >
-      <img
-        src="assets/home-page-footer-upper-gray-wave.svg"
-        alt=""
-        width="390"
-        height="170"
-      >
-      <img
-        src="assets/home-page-footer-lower-gray-wave.svg"
-        alt=""
-        width="390"
-        height="170"
-      >
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-gold-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-gold-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-upper-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-upper-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+          >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-lower-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-lower-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+          >
+      </picture>
     </div>
   </footer>
 </body>
