@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 915">
   <title>Supplied phone menu and implemented menu at matching scale</title>
   <defs>
+    <clipPath id="supplied-menu-panel-crop">
+      <rect x="0" y="28" width="97" height="887"/>
+    </clipPath>
     <clipPath id="implemented-menu-panel-crop">
       <rect x="97" y="28" width="97" height="887"/>
     </clipPath>
@@ -14,8 +17,9 @@
     href="../reference/phone-navigation-side-menu.png"
     x="0"
     y="28"
-    width="97"
+    width="101"
     height="887"
+    clip-path="url(#supplied-menu-panel-crop)"
   />
   <image
     href="phone-navigation-menu-implementation.png"

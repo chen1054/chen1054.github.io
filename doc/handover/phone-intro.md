@@ -364,7 +364,7 @@ Do not resume shell investigation as part of the portfolio work.
 
 ## Phone menu implementation and verification
 
-- The supplied `../Phone/Side menu.png` is 97 by 887 pixels.
+- The supplied `../Phone/Side menu.png` is 101 by 887 pixels.
   Its PDF page is 101 by 887 points, with an original white panel spanning x 0 through 97.
   Original text starts at x 20; baselines are 158, 209, 260, and 311.
   Text size is 15; the supplied glyph outlines match the existing Abril Fatface lettering.
@@ -408,5 +408,7 @@ Do not resume shell investigation as part of the portfolio work.
   pairs the supplied image with the captured 97-pixel panel at matching scale.
   The [full viewport capture](../review/phone-navigation-menu-implementation.png)
   shows how the white panel overlays Home.
+- The comparison crops the supplied image's 97-pixel white panel from its full 101-pixel export;
+  it does not resize the reference into a narrower image box.
 - Next action: user reviews the menu's layout and behavior at `http://localhost:4173/`.
   Menu approval has not yet been given.
