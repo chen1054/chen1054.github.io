@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+  <meta
+    name="description"
+    content="Tales for Safer Trails: a product design case study by Xinyan Chen."
+  >
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      style-src 'self';
+      img-src 'self' data:;
+      font-src 'self';
+      script-src 'self';
+      connect-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'none'"
+  >
+  <title>Tales for Safer Trails | Xinyan Chen</title>
+  <link
+    rel="icon"
+    href="data:,"
+  >
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+  <script
+    type="module"
+    src="portfolio-navigation.mjs"
+  ></script>
+</head>
+<body
+  class="portfolio-case-study-page"
+  data-case-study="tales"
+>
+  <main class="case-study-content">
+    <div
+      class="case-study-top-corner-decorations"
+      aria-hidden="true"
+    >
+      <span></span>
+      <span></span>
+      <img
+        src="assets/case-study-phone-navigation-and-floral-decoration.svg"
+        alt=""
+        width="390"
+        height="123"
+      >
+    </div>
+    <button
+      class="phone-navigation-menu-toggle-button"
+      type="button"
+      aria-label="Open navigation menu"
+      popovertarget="portfolio-primary-navigation"
+    ></button>
+    <nav
+      id="portfolio-primary-navigation"
+      aria-label="Primary navigation"
+      popover
+    >
+      <img
+        class="portfolio-wide-navigation-floral-logo"
+        src="assets/home-wide-navigation-floral-logo.svg"
+        alt=""
+        width="48"
+        height="63"
+      >
+      <button
+        class="phone-navigation-menu-toggle-button"
+        type="button"
+        aria-label="Close navigation menu"
+        popovertarget="portfolio-primary-navigation"
+        popovertargetaction="hide"
+        autofocus
+      >
+        <img
+          src="assets/phone-navigation-menu-hamburger-icon.svg"
+          alt=""
+          width="48"
+          height="48"
+        >
+      </button>
+      <a
+        href="./"
+      >Home</a>
+      <a
+        href="about.html"
+      >About</a>
+      <a href="./#tales-for-safer-trails-project">Work</a>
+      <a href="https://example.com">Contact</a>
+    </nav>
+    <header class="case-study-project-introduction">
+      <figure class="case-study-zoomable-artwork case-study-project-preview">
+        <button
+          type="button"
+          popovertarget="tales-case-study-project-preview-enlarged"
+          aria-label="Enlarge: Tales for Safer Trails project preview."
+        >
+          <img
+            src="assets/tales-for-safer-trails-campaign-logo-and-speech-bubble.svg#project-artwork-without-blank-export-margins"
+            alt="Tales for Safer Trails project preview."
+            width="258"
+            height="204"
+            loading="eager"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-case-study-project-preview-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-case-study-project-preview-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-for-safer-trails-campaign-logo-and-speech-bubble.svg#project-artwork-without-blank-export-margins"
+            alt="Tales for Safer Trails project preview."
+            width="258"
+            height="204"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-project-summary">
+      <h1 class="case-study-subheading">
+        Tales for Safer Trails
+      </h1>
+      <h2 class="case-study-subheading">
+        Normalizing Substance Use Health through Storytelling &amp; Play
+      </h2>
+      <p class="case-study-paragraph">
+        Project Type: Multi-Channel Public Health Campaign &amp; Digital Experience
+      </p>
+      <p class="case-study-paragraph">
+        Strategic Alignment: Ottawa’s Community Safety and Well-Being Plan
+      </p>
+      <p class="case-study-paragraph">
+        Client &amp; Partners: Ottawa Public Health (OPH), CityStudio Ottawa &amp; Algonquin College Human-Centred
+        Design Lab
+      </p>
+      <p class="case-study-paragraph">
+        Team &amp; My Role: Strong Start Studio (5 Members) | Concept Originator | Hi-Fi Phase Team Lead
+      </p>
+      <p class="case-study-paragraph">
+        Timeline: 14 Weeks (Winter 2026 Term)| Applied Project , Algonquin College
+      </p>
+      </div>
+    </header>
+    <div
+      class="case-study-project-divider"
+      aria-hidden="true"
+    ></div>
+    <nav
+      class="case-study-section-navigation"
+      aria-labelledby="case-study-section-navigation-heading"
+    >
+      <h2 id="case-study-section-navigation-heading">Jump To Section</h2>
+      <ul>
+        <li>
+          <a href="#tales-introduction">Introduction</a>
+        </li>
+        <li>
+          <a href="#tales-how-might-we">How might we...</a>
+        </li>
+        <li>
+          <a href="#tales-core-solution">Core Solution &amp; Strategic Alignment</a>
+        </li>
+        <li>
+          <a href="#tales-digital-touchpoint">Digital Touchpoint: OPH Resource Hub &amp; Online Tool</a>
+        </li>
+        <li>
+          <a href="#tales-campaign-and-impact">Multi-Channel Campaign &amp; Impact</a>
+        </li>
+      </ul>
+    </nav>
+    <section
+      class="case-study-section"
+      id="tales-introduction"
+      aria-labelledby="tales-introduction-heading"
+    >
+      <h2 id="tales-introduction-heading">Introduction</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        The Challenge
+      </h3>
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="tales-challenge-guardian-illustration-enlarged"
+          aria-label="Enlarge: Guardian character introducing the substance use health challenge."
+        >
+          <img
+            src="assets/tales-challenge-guardian-illustration.svg"
+            alt="Guardian character introducing the substance use health challenge."
+            width="274"
+            height="274"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-challenge-guardian-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-challenge-guardian-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-challenge-guardian-illustration.svg"
+            alt="Guardian character introducing the substance use health challenge."
+            width="274"
+            height="274"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note case-study-spiral-notepad">
+      <p class="case-study-paragraph">
+        Substance use health carries heavy social stigma, creating fear and uncertainty that prevent individuals
+        from seeking help early. Parents often feel unprepared or worry that bringing up these topics too soon
+        might spark unwanted curiosity in young children.
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Dual-Persona Framing
+      </h3>
+<div class="case-study-flex-row ">
+<article class="case-study-persona">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="tales-sarah-parent-persona-photograph-enlarged"
+          aria-label="Enlarge: Sarah with her child, representing a busy parent."
+        >
+          <img
+            src="assets/tales-sarah-parent-persona-photograph.png"
+            alt="Sarah with her child, representing a busy parent."
+            width="845"
+            height="722"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-sarah-parent-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-sarah-parent-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-sarah-parent-persona-photograph.png"
+            alt="Sarah with her child, representing a busy parent."
+            width="845"
+            height="722"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Sarah, 28, Nurse &amp; Mom
+      </h4>
+      <p class="case-study-paragraph">
+        Needs simple, quick &quot;scripts&quot; and non-judgmental guidance to educate her kids without adding
+        stress to her busy daily routine.
+      </p>
+      </article>
+<article class="case-study-persona">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="tales-emma-child-persona-photograph-enlarged"
+          aria-label="Enlarge: Emma, representing a curious school-age child."
+        >
+          <img
+            src="assets/tales-emma-child-persona-photograph.png"
+            alt="Emma, representing a curious school-age child."
+            width="841"
+            height="718"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-emma-child-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-emma-child-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-emma-child-persona-photograph.png"
+            alt="Emma, representing a curious school-age child."
+            width="841"
+            height="718"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Emma, 7, Grade 2
+      </h4>
+      <p class="case-study-paragraph">
+        Needs clear, relatable rules and a safe space to ask questions without fear or confusion caused by complex
+        medical terms.
+      </p>
+      </article>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="tales-how-might-we"
+      aria-labelledby="tales-how-might-we-heading"
+    >
+      <h2 id="tales-how-might-we-heading">&quot;How might we normalize substance use health conversations as a routine part of daily parenting for children under 12 years old?&quot;</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Key Insights
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note case-study-play-speech-bubble">
+      <h4 class="case-study-subheading">
+        Bridging the Gap via Play
+      </h4>
+      <p class="case-study-paragraph">
+        Traditional warnings alienate children; anthropomorphic characters (personified objects) transform
+        abstract risks into engaging, non-threatening stories.
+      </p>
+      </aside>
+<aside class="case-study-note case-study-trust-speech-bubble">
+      <h4 class="case-study-subheading">
+        Institutional Trust
+      </h4>
+      <p class="case-study-paragraph">
+        Public health materials must align with provincial educational standards to earn trust from parents,
+        schools, and health professionals.
+      </p>
+      </aside>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="tales-core-solution"
+      aria-labelledby="tales-core-solution-heading"
+    >
+      <h2 id="tales-core-solution-heading">Core Solution &amp; Strategic Alignment</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Scalable Story World
+      </h3>
+      <p class="case-study-paragraph">
+        To solve the engagement gap, I conceived and designed the Scalable Story World
+      </p>
+<div class="case-study-flex-row case-study-story-pillars">
+<article class="">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="tales-progressive-story-framework-illustration-enlarged"
+          aria-label="Enlarge: A progressive narrative framework."
+        >
+          <img
+            src="assets/tales-progressive-story-framework-illustration.svg"
+            alt="A progressive narrative framework."
+            width="194"
+            height="189"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-progressive-story-framework-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-progressive-story-framework-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-progressive-story-framework-illustration.svg"
+            alt="A progressive narrative framework."
+            width="194"
+            height="189"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        A progressive narrative framework
+      </h4>
+      <p class="case-study-paragraph">
+        Bridges parent-child communication across different child developmental stage.
+      </p>
+      </article>
+<article class="">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="tales-persistent-character-arc-illustration-enlarged"
+          aria-label="Enlarge: Milo, Mia, and Patchy grow together."
+        >
+          <img
+            src="assets/tales-persistent-character-arc-illustration.svg"
+            alt="Milo, Mia, and Patchy grow together."
+            width="228"
+            height="232"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-persistent-character-arc-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-persistent-character-arc-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-persistent-character-arc-illustration.svg"
+            alt="Milo, Mia, and Patchy grow together."
+            width="228"
+            height="232"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Persistent Character Arc
+      </h4>
+      <p class="case-study-paragraph">
+        Features Milo and Mia growing up alongside Patchy the Guardian (a superhero band-aid), giving children
+        familiar companions throughout their early childhood.
+      </p>
+      </article>
+<article class="">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="tales-progressive-complexity-illustration-enlarged"
+          aria-label="Enlarge: Increasing complexity across child development stages."
+        >
+          <img
+            src="assets/tales-progressive-complexity-illustration.svg"
+            alt="Increasing complexity across child development stages."
+            width="190"
+            height="183"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-progressive-complexity-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-progressive-complexity-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-progressive-complexity-illustration.svg"
+            alt="Increasing complexity across child development stages."
+            width="190"
+            height="183"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Progressive Complexity Engine
+      </h4>
+      <p class="case-study-paragraph">
+        As the story world scales, language, themes, and interactive difficulty evolve across three age tiers
+      </p>
+      </article>
+      </div>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-age-tier-progression-diagram-enlarged"
+          aria-label="Enlarge: Age progression: safe helpers and permission at ages four to five; body and brain literacy at six to eight; substance reality and social pressure at nine to twelve."
+        >
+          <img
+            src="assets/tales-age-tier-progression-diagram.svg"
+            alt="Age progression: safe helpers and permission at ages four to five; body and brain literacy at six to eight; substance reality and social pressure at nine to twelve."
+            width="989"
+            height="489"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-age-tier-progression-diagram-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-age-tier-progression-diagram-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-age-tier-progression-diagram.svg"
+            alt="Age progression: safe helpers and permission at ages four to five; body and brain literacy at six to eight; substance reality and social pressure at nine to twelve."
+            width="989"
+            height="489"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <p class="case-study-paragraph">
+        To reflect this evolving framework, the project was titled “Tales for Safer Trails.” The logo features a
+        playful, winding dashed line connecting “TALES FOR” and “SAFER TRAILS”—visually representing a trail that
+        symbolizes a child’s journey of growth, exploration, and learning to navigate the world safely.
+      </p>
+      <figure class="case-study-zoomable-artwork case-study-wordmark">
+        <button
+          type="button"
+          popovertarget="tales-trail-story-world-wordmark-enlarged"
+          aria-label="Enlarge: Tales for Safer Trails wordmark with a winding dashed trail."
+        >
+          <img
+            src="assets/tales-trail-story-world-wordmark.svg"
+            alt="Tales for Safer Trails wordmark with a winding dashed trail."
+            width="658"
+            height="191"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-trail-story-world-wordmark-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-trail-story-world-wordmark-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-trail-story-world-wordmark.svg"
+            alt="Tales for Safer Trails wordmark with a winding dashed trail."
+            width="658"
+            height="191"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        The Core Product: Double-Sided One-Pager System
+      </h3>
+      <p class="case-study-paragraph">
+        Front Side (Parent Story): Guided storytelling scripts for parents to facilitate open conversations.
+      </p>
+      <p class="case-study-paragraph">
+        Back Side (Child Activity): Interactive puzzles, coloring, and games to reinforce safety concepts through
+        play.
+      </p>
+      <p class="case-study-paragraph">
+        All modules strictly align with the Ontario HPE Curriculum (2019) and Ottawa Public Health Prevention
+        Guidelines.
+      </p>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Main Characters- Milo &amp; Mia
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-milo-and-mia-character-age-studies-enlarged"
+          aria-label="Enlarge: Milo and Mia character designs at ages four to five, nine to ten, and eleven to twelve."
+        >
+          <img
+            src="assets/tales-milo-and-mia-character-age-studies.svg"
+            alt="Milo and Mia character designs at ages four to five, nine to ten, and eleven to twelve."
+            width="1002"
+            height="472"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-milo-and-mia-character-age-studies-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-milo-and-mia-character-age-studies-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-milo-and-mia-character-age-studies.svg"
+            alt="Milo and Mia character designs at ages four to five, nine to ten, and eleven to twelve."
+            width="1002"
+            height="472"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Guardian - Patchy
+      </h3>
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="tales-patchy-guardian-character-design-enlarged"
+          aria-label="Enlarge: Patchy, the superhero band-aid guardian."
+        >
+          <img
+            src="assets/tales-patchy-guardian-character-design.svg"
+            alt="Patchy, the superhero band-aid guardian."
+            width="376"
+            height="446"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-patchy-guardian-character-design-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-patchy-guardian-character-design-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-patchy-guardian-character-design.svg"
+            alt="Patchy, the superhero band-aid guardian."
+            width="376"
+            height="446"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Ages 4-5 - The &quot;Ask First&quot; Rule
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-ask-first-parent-story-and-child-activity-enlarged"
+          aria-label="Enlarge: The Ask First Rule: parent story and matching child activity sheet."
+        >
+          <img
+            src="assets/tales-ask-first-parent-story-and-child-activity.png"
+            alt="The Ask First Rule: parent story and matching child activity sheet."
+            width="1960"
+            height="1202"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-ask-first-parent-story-and-child-activity-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-ask-first-parent-story-and-child-activity-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-ask-first-parent-story-and-child-activity.png"
+            alt="The Ask First Rule: parent story and matching child activity sheet."
+            width="1960"
+            height="1202"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        When Milo and Mia find a bottle and their curiosity lead them to open the medicine​ bottle, Patchy the
+        Guardian appears to help them understand the situation.​*
+      </p>
+      <p class="case-study-paragraph">
+        * Ontario HPE Curriculum (2019):
+      </p>
+      <p class="case-study-paragraph">
+        •Page 81 (Safety and Well-Being 24.1): &quot;Demonstrate an understanding of essential safety procedures
+        and why they are important.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        •Page 84 (Self-Regulation 2.2): &quot;Demonstrate an ability to use a decision-making process to assess
+        risks and make safe choices.”
+      </p>
+      <p class="case-study-paragraph">
+        OPH Substance Use and Harm Prevention:
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Encouraging children to identify and rely on a 'Safe Helper' before interacting with unknown
+        items.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Teaching basic refusal skills and effective communication strategies for children when faced with
+        curiosity or peer influence involving unknown substances.&quot;
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Ages 6-8 - Mighty Brains
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-mighty-brains-parent-story-and-child-activity-enlarged"
+          aria-label="Enlarge: Mighty Brains: parent story and brain-health activity sheet."
+        >
+          <img
+            src="assets/tales-mighty-brains-parent-story-and-child-activity.png"
+            alt="Mighty Brains: parent story and brain-health activity sheet."
+            width="1960"
+            height="1204"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-mighty-brains-parent-story-and-child-activity-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-mighty-brains-parent-story-and-child-activity-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-mighty-brains-parent-story-and-child-activity.png"
+            alt="Mighty Brains: parent story and brain-health activity sheet."
+            width="1960"
+            height="1204"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        When Milo and Mila see their mother drinking a glass of wine, they become curious about the beverage and
+        why adults can have it while children cannot. Their mother teaches them about the effects of alcohol on
+        the body and brain.*
+      </p>
+      <p class="case-study-paragraph">
+        * Ontario HPE Curriculum (2019):
+      </p>
+      <p class="case-study-paragraph">
+        •Page 161 (Grade 2 - C1.2 Substance Use): &quot;Demonstrate an understanding of how drugs and other
+        substances can affect the way the body works
+      </p>
+      <p class="case-study-paragraph">
+        •Page 181 (Grade 3 - C1.1 Substances): &quot;Describe the effects of different types of legal and illegal
+        substances... on the mind and body.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        •Page 139 (Grade 1 - C3.2 Decision-Making): &quot;Explain how to apply a decision-making process to make
+        safe choices regarding their own health.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        OPH Substance Use and Harm Prevention:
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Encouraging open, age-appropriate dialogue between parents and children to build a foundation of
+        trust regarding substance use before the onset of peer pressure.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Educating youth on the vulnerability of the developing brain to psychoactive substances to delay
+        the age of first use.&quot;
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Ages 9-12 - Don't be fooled!
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-dont-be-fooled-parent-story-and-child-activity-enlarged"
+          aria-label="Enlarge: Do not be fooled: story and activity addressing peer influence and vaping."
+        >
+          <img
+            src="assets/tales-dont-be-fooled-parent-story-and-child-activity.png"
+            alt="Do not be fooled: story and activity addressing peer influence and vaping."
+            width="1960"
+            height="1204"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-dont-be-fooled-parent-story-and-child-activity-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-dont-be-fooled-parent-story-and-child-activity-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-dont-be-fooled-parent-story-and-child-activity.png"
+            alt="Do not be fooled: story and activity addressing peer influence and vaping."
+            width="1960"
+            height="1204"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Milo and Mila meet with their friend Sam when they see him taking a hit from his vape. Sam tells them it's
+        harmless and they should try it too, but the kids think that something is not quite right. *
+      </p>
+      <p class="case-study-paragraph">
+        Ontario HPE Curriculum (2019):
+      </p>
+      <p class="case-study-paragraph">
+        •Page 156 (C3.1 Grade 4): &quot;Identify key nutrients... and substances that can affect health (vaping,
+        tobacco).&quot;
+      </p>
+      <p class="case-study-paragraph">
+        •Page 173 (C1.1 Grade 5): &quot;Identify factors that could affect a person’s decision to use or not use
+        substances (peer pressure, media influence).&quot;
+      </p>
+      <p class="case-study-paragraph">
+        OPH Substance Use and Harm Prevention:
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Empowering pre-teens to critically analyze social and media influences, specifically focusing on
+        debunking myths surrounding vaping and nicotine.&quot;
+      </p>
+      <p class="case-study-paragraph">
+        OPH School Health Online (Vaping Prevention):
+      </p>
+      <p class="case-study-paragraph">
+        •&quot;Providing evidence-based information on the long-term health consequences of vaping on the
+        developing adolescent brain and respiratory system.&quot;
+      </p>
+      </aside>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="tales-digital-touchpoint"
+      aria-labelledby="tales-digital-touchpoint-heading"
+    >
+      <h2 id="tales-digital-touchpoint-heading">Digital Touchpoint: OPH Resource Hub &amp; Online Tool</h2>
+      <div class="case-study-section-content">
+      <p class="case-study-paragraph">
+        To make these materials accessible across Ottawa without economic barriers, we designed a digital
+        experience integrated into the OPH ecosystem:
+      </p>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        OPH Dedicated Sub-site (Web UX/UI)
+      </h3>
+      <p class="case-study-paragraph">
+        A responsive web resource center where parents can easily filter, preview, and download age-appropriate
+        One-Pagers.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-oph-desktop-and-phone-resource-hub-enlarged"
+          aria-label="Enlarge: Responsive Ottawa Public Health resource hub on desktop and phone."
+        >
+          <img
+            src="assets/tales-oph-desktop-and-phone-resource-hub.png"
+            alt="Responsive Ottawa Public Health resource hub on desktop and phone."
+            width="1768"
+            height="777"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-oph-desktop-and-phone-resource-hub-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-oph-desktop-and-phone-resource-hub-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-oph-desktop-and-phone-resource-hub.png"
+            alt="Responsive Ottawa Public Health resource hub on desktop and phone."
+            width="1768"
+            height="777"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        In-Browser Doodle Editor (Web Tool PoC)
+      </h3>
+      <p class="case-study-paragraph">
+        Built a React/TypeScript drawing widget directly on the site. Households without a physical printer can
+        color, complete activities, and save completed One-Pagers digitally on their devices.
+      </p>
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="tales-browser-doodle-editor-tablet-preview-enlarged"
+          aria-label="Enlarge: Tablet browser demonstration of the digital one-pager drawing editor."
+        >
+          <img
+            src="assets/tales-browser-doodle-editor-tablet-preview.png"
+            alt="Tablet browser demonstration of the digital one-pager drawing editor."
+            width="769"
+            height="1004"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-browser-doodle-editor-tablet-preview-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-browser-doodle-editor-tablet-preview-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-browser-doodle-editor-tablet-preview.png"
+            alt="Tablet browser demonstration of the digital one-pager drawing editor."
+            width="769"
+            height="1004"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <a
+        class="case-study-prototype-link "
+        href="https://example.com"
+      >Launch Doodle Demo</a>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="tales-campaign-and-impact"
+      aria-labelledby="tales-campaign-and-impact-heading"
+    >
+      <h2 id="tales-campaign-and-impact-heading">Multi-Channel Campaign &amp; Impact</h2>
+      <div class="case-study-section-content">
+      <p class="case-study-paragraph">
+        We deployed a integrated offline and online strategy to drive traffic to the digital hub:
+      </p>
+      <p class="case-study-paragraph">
+        Offline Channels:
+      </p>
+      <p class="case-study-paragraph">
+        Community Posters: QR-enabled posters displayed in public spaces (libraries, schools, community centers)
+        for direct scanning.
+      </p>
+      <p class="case-study-paragraph">
+        School Distribution: Distributed printable One-Pagers directly through local schools for students to
+        complete with parents at home.
+      </p>
+      <p class="case-study-paragraph">
+        Online Channels:
+      </p>
+      <p class="case-study-paragraph">
+        Social Media Campaigns: Targeted Instagram and Facebook ad units running on official OPH channels.
+      </p>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Ecosystem Map
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-school-poster-and-social-distribution-ecosystem-enlarged"
+          aria-label="Enlarge: Campaign ecosystem connecting posters, schools, social media, the OPH website, printed one-pagers, and online one-pagers."
+        >
+          <img
+            src="assets/tales-school-poster-and-social-distribution-ecosystem.svg"
+            alt="Campaign ecosystem connecting posters, schools, social media, the OPH website, printed one-pagers, and online one-pagers."
+            width="767"
+            height="515"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-school-poster-and-social-distribution-ecosystem-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-school-poster-and-social-distribution-ecosystem-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-school-poster-and-social-distribution-ecosystem.svg"
+            alt="Campaign ecosystem connecting posters, schools, social media, the OPH website, printed one-pagers, and online one-pagers."
+            width="767"
+            height="515"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Poster
+      </h3>
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="tales-one-page-poster-campaign-enlarged"
+          aria-label="Enlarge: One Page. Big Change. campaign poster featuring Patchy."
+        >
+          <img
+            src="assets/tales-one-page-poster-campaign.png"
+            alt="One Page. Big Change. campaign poster featuring Patchy."
+            width="794"
+            height="1058"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-one-page-poster-campaign-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-one-page-poster-campaign-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-one-page-poster-campaign.png"
+            alt="One Page. Big Change. campaign poster featuring Patchy."
+            width="794"
+            height="1058"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Social Media Ads
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-social-media-desktop-and-phone-campaign-enlarged"
+          aria-label="Enlarge: Social media campaign shown on desktop and phone."
+        >
+          <img
+            src="assets/tales-social-media-desktop-and-phone-campaign.png"
+            alt="Social media campaign shown on desktop and phone."
+            width="1430"
+            height="890"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-social-media-desktop-and-phone-campaign-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-social-media-desktop-and-phone-campaign-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-social-media-desktop-and-phone-campaign.png"
+            alt="Social media campaign shown on desktop and phone."
+            width="1430"
+            height="890"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Performance Metrics
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="tales-campaign-performance-metrics-diagram-enlarged"
+          aria-label="Enlarge: Campaign metrics: QR scan rate, one-pager downloads, browser editor duration, and classroom follow-up."
+        >
+          <img
+            src="assets/tales-campaign-performance-metrics-diagram.svg"
+            alt="Campaign metrics: QR scan rate, one-pager downloads, browser editor duration, and classroom follow-up."
+            width="951"
+            height="515"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="tales-campaign-performance-metrics-diagram-enlarged"
+          type="button"
+          popover
+          popovertarget="tales-campaign-performance-metrics-diagram-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/tales-campaign-performance-metrics-diagram.svg"
+            alt="Campaign metrics: QR scan rate, one-pager downloads, browser editor duration, and classroom follow-up."
+            width="951"
+            height="515"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Potential for Impact
+      </h3>
+<div class="case-study-flex-row case-study-impact-cards">
+<article class="">
+      <h4 class="case-study-subheading">
+        Behavioral Normalization
+      </h4>
+      <p class="case-study-paragraph">
+        Transformed a historically taboo public health subject into an approachable, routine parenting habit
+        through an ongoing, progressive narrative world.
+      </p>
+      </article>
+<article class="">
+      <h4 class="case-study-subheading">
+        Scalable Community Reach
+      </h4>
+      <p class="case-study-paragraph">
+        Bridged the communication gap between classrooms and households via an omni-channel ecosystem—connecting
+        digital discovery with physical, in-backpack school distribution.
+      </p>
+      </article>
+<article class="">
+      <h4 class="case-study-subheading">
+        Long-term Health Literacy
+      </h4>
+      <p class="case-study-paragraph">
+        Scaffolded age-appropriate health education across ages 4 to 12, building a preventative foundation of
+        trust and decision-making skills well before children encounter adolescent peer pressures.
+      </p>
+      </article>
+<article class="">
+      <h4 class="case-study-subheading">
+        Sustained Digital Growth
+      </h4>
+      <p class="case-study-paragraph">
+        Positioned the One-Pager tool as an organic entry point, steadily funneling families into Ottawa Public
+        Health’s broader support networks and institutional resources.
+      </p>
+      </article>
+      </div>
+      </div>
+<blockquote class="case-study-closing-reflection">
+      <p class="case-study-paragraph">
+        &quot;Ultimately, our solution moves beyond static educational collateral—it provides parents with a
+        sustainable, adaptive framework that evolves alongside their children’s development.&quot;
+      </p>
+      </blockquote>
+      </div>
+    </section>
+  </main>
+  <footer class="portfolio-page-thank-you-and-copyright-footer">
+    <p>Thank you for your interest in my work!</p>
+    <p class="portfolio-page-copyright-and-creation-tool">
+      <span>Made with VS Code</span>
+      <span>© 2026 Xinyan Chen</span>
+    </p>
+    <div
+      class="portfolio-page-decorative-wave-composition
+        home-page-footer-bottom-wave-composition"
+      aria-hidden="true"
+    >
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-gold-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-gold-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-upper-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-upper-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-lower-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-lower-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+    </div>
+  </footer>
+  <a
+    class="portfolio-back-to-top-link"
+    href="#"
+    aria-label="Back to top"
+    hidden
+  ></a>
+</body>
+</html>

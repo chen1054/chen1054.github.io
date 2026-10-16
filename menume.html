@@ -1,0 +1,1251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+  <meta
+    name="description"
+    content="MenuMe: a product design case study by Xinyan Chen."
+  >
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      style-src 'self';
+      img-src 'self' data:;
+      font-src 'self';
+      script-src 'self';
+      connect-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'none'"
+  >
+  <title>MenuMe | Xinyan Chen</title>
+  <link
+    rel="icon"
+    href="data:,"
+  >
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+  <script
+    type="module"
+    src="portfolio-navigation.mjs"
+  ></script>
+</head>
+<body
+  class="portfolio-case-study-page"
+  data-case-study="menume"
+>
+  <main class="case-study-content">
+    <div
+      class="case-study-top-corner-decorations"
+      aria-hidden="true"
+    >
+      <span></span>
+      <span></span>
+      <img
+        src="assets/case-study-phone-navigation-and-floral-decoration.svg"
+        alt=""
+        width="390"
+        height="123"
+      >
+    </div>
+    <button
+      class="phone-navigation-menu-toggle-button"
+      type="button"
+      aria-label="Open navigation menu"
+      popovertarget="portfolio-primary-navigation"
+    ></button>
+    <nav
+      id="portfolio-primary-navigation"
+      aria-label="Primary navigation"
+      popover
+    >
+      <img
+        class="portfolio-wide-navigation-floral-logo"
+        src="assets/home-wide-navigation-floral-logo.svg"
+        alt=""
+        width="48"
+        height="63"
+      >
+      <button
+        class="phone-navigation-menu-toggle-button"
+        type="button"
+        aria-label="Close navigation menu"
+        popovertarget="portfolio-primary-navigation"
+        popovertargetaction="hide"
+        autofocus
+      >
+        <img
+          src="assets/phone-navigation-menu-hamburger-icon.svg"
+          alt=""
+          width="48"
+          height="48"
+        >
+      </button>
+      <a
+        href="./"
+      >Home</a>
+      <a
+        href="about.html"
+      >About</a>
+      <a href="./#tales-for-safer-trails-project">Work</a>
+      <a href="https://example.com">Contact</a>
+    </nav>
+    <header class="case-study-project-introduction">
+      <figure class="case-study-zoomable-artwork case-study-project-preview">
+        <button
+          type="button"
+          popovertarget="menume-case-study-project-preview-enlarged"
+          aria-label="Enlarge: MenuMe project preview."
+        >
+          <img
+            src="assets/menume-meal-planning-desktop-and-phone-preview.svg#project-artwork-without-blank-export-margins"
+            alt="MenuMe project preview."
+            width="267"
+            height="178"
+            loading="eager"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-case-study-project-preview-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-case-study-project-preview-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-meal-planning-desktop-and-phone-preview.svg#project-artwork-without-blank-export-margins"
+            alt="MenuMe project preview."
+            width="267"
+            height="178"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-project-summary">
+      <h1 class="case-study-subheading">
+        MenuMe
+      </h1>
+      <h2 class="case-study-subheading">
+        Smart Meal Planning &amp; Connected Grocery Ecosystem
+      </h2>
+      <p class="case-study-paragraph">
+        Project Type: End-to-End Product Design (UX/UI Case Study)
+      </p>
+      <p class="case-study-paragraph">
+        Platform: iOS Mobile &amp; iPadOS Tablet
+      </p>
+      <p class="case-study-paragraph">
+        Team &amp; My Role: 4 Members | UX/UI Designer (Visual &amp; Interaction Design Lead on Personalization)
+      </p>
+      <p class="case-study-paragraph">
+        Timeline : 11 Weeks (Fall 2025) | User Experience Project Development, Algonquin College
+      </p>
+<div class="case-study-flex-row ">
+      <a
+        class="case-study-prototype-link "
+        href="https://example.com"
+      >View Mobile Hi-fi Prototype</a>
+      <a
+        class="case-study-prototype-link case-study-secondary-prototype-link"
+        href="https://example.com"
+      >View Tablet Hi-fi Prototype</a>
+      </div>
+      </div>
+    </header>
+    <div
+      class="case-study-project-divider"
+      aria-hidden="true"
+    ></div>
+    <nav
+      class="case-study-section-navigation"
+      aria-labelledby="case-study-section-navigation-heading"
+    >
+      <h2 id="case-study-section-navigation-heading">Jump To Section</h2>
+      <ul>
+        <li>
+          <a href="#menume-overview">Overview &amp; Strategic Context</a>
+        </li>
+        <li>
+          <a href="#menume-research">Research &amp; Audience Insights</a>
+        </li>
+        <li>
+          <a href="#menume-information-architecture">Information Architecture &amp; Core User Flows</a>
+        </li>
+        <li>
+          <a href="#menume-usability">Usability Testing &amp; Iterative Design</a>
+        </li>
+        <li>
+          <a href="#menume-design-system">Design System &amp; Cross-Device UI Showcase</a>
+        </li>
+        <li>
+          <a href="#menume-contributions">Individual Contributions &amp; Strategic Reflection</a>
+        </li>
+      </ul>
+    </nav>
+    <section
+      class="case-study-section"
+      id="menume-overview"
+      aria-labelledby="menume-overview-heading"
+    >
+      <h2 id="menume-overview-heading">Overview &amp; Strategic Context</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        The Inspiration
+      </h3>
+      <p class="case-study-paragraph">
+        Every household shares a familiar, everyday frustration: standing in front of an open refrigerator at the
+        end of a busy day, wondering,
+      </p>
+      <h3 class="case-study-subheading">
+        &quot;What should I cook tonight?&quot;
+      </h3>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        While cooking at home is meant to be nourishing, the daily chore of meal planning often turns into
+        exhaustion. Fresh groceries are forgotten and left to spoil, grocery bills climb, and families find
+        themselves stuck in a repetitive loop of takeout or monotonous meals.We created MenuMe to transform
+        everyday cooking from a daily source of stress into an effortless, budget-friendly ritual.
+      </p>
+      </aside>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        The Problem &amp; Solution
+      </h3>
+      <p class="case-study-paragraph">
+        Without intuitive, structured support, home cooks constantly juggle two opposing pressures:
+      </p>
+<div class="case-study-flex-row ">
+<article class="">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="menume-mental-overload-cooking-pot-illustration-enlarged"
+          aria-label="Enlarge: Cooking pot representing daily meal-planning overload."
+        >
+          <img
+            src="assets/menume-mental-overload-cooking-pot-illustration.svg"
+            alt="Cooking pot representing daily meal-planning overload."
+            width="152"
+            height="55"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-mental-overload-cooking-pot-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-mental-overload-cooking-pot-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-mental-overload-cooking-pot-illustration.svg"
+            alt="Cooking pot representing daily meal-planning overload."
+            width="152"
+            height="55"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Mental Overload
+      </h4>
+      <p class="case-study-paragraph">
+        Daily decision fatigue leads to repetitive, nutritionally imbalanced meals.
+      </p>
+      </article>
+<article class="">
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="menume-household-budget-grocery-illustration-enlarged"
+          aria-label="Enlarge: Groceries representing household food waste and costs."
+        >
+          <img
+            src="assets/menume-household-budget-grocery-illustration.svg"
+            alt="Groceries representing household food waste and costs."
+            width="71"
+            height="69"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-household-budget-grocery-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-household-budget-grocery-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-household-budget-grocery-illustration.svg"
+            alt="Groceries representing household food waste and costs."
+            width="71"
+            height="69"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Household Waste &amp; Rising Costs
+      </h4>
+      <p class="case-study-paragraph">
+        Disconnected grocery planning causes unused ingredients to go bad, driving up both environmental impact
+        and grocery expenses.
+      </p>
+      </article>
+      </div>
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="menume-dual-loop-idea-illustration-enlarged"
+          aria-label="Enlarge: A lightbulb introducing MenuMe's dual-loop culinary framework."
+        >
+          <img
+            src="assets/menume-dual-loop-idea-illustration.svg"
+            alt="A lightbulb introducing MenuMe's dual-loop culinary framework."
+            width="52"
+            height="52"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-dual-loop-idea-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-dual-loop-idea-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-dual-loop-idea-illustration.svg"
+            alt="A lightbulb introducing MenuMe's dual-loop culinary framework."
+            width="52"
+            height="52"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h3 class="case-study-subheading">
+        A Dual-Loop Culinary Framework
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        Fridge-to-Recipe (Waste Prevention)
+      </h4>
+      <p class="case-study-paragraph">
+        Scans and inventories existing ingredients to instantly suggest practical, healthy recipes, cutting food
+        waste right at the source.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        Specials-to-Pantry (Budget Optimization)
+      </h4>
+      <p class="case-study-paragraph">
+        Aggregates local grocery store promotions, turning weekly discounts into curated meal plans and smart
+        shopping lists ready for pickup or delivery.
+      </p>
+      </aside>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="menume-research"
+      aria-labelledby="menume-research-heading"
+    >
+      <h2 id="menume-research-heading">Research &amp; Audience Insights</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Focus Group Key Findings
+      </h3>
+      <p class="case-study-paragraph">
+        Our team conducted user focus groups to validate assumptions and gather qualitative requirements:
+      </p>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        1
+      </h4>
+      <p class="case-study-paragraph">
+        100% of participants reported standing paralyzed before open refrigerator doors and expressed deep
+        frustration over throwing away spoiled produce and bakery items.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        2
+      </h4>
+      <p class="case-study-paragraph">
+        Users emphasized cost management and requested direct integrations with supermarket promotions and
+        one-click delivery services.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        3
+      </h4>
+      <p class="case-study-paragraph">
+        Participants rejected invasive pop-ups, spam communications, and tedious onboarding, demanding meal
+        recommendations achievable within five minutes.
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Multi-Tier Audience Personas
+      </h3>
+      <p class="case-study-paragraph">
+        We translated research data into three focused personas to direct UI prioritization:
+      </p>
+<div class="case-study-alternating-personas">
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="menume-alicia-family-nutrition-persona-photograph-enlarged"
+          aria-label="Enlarge: Alicia, a parent planning balanced family meals."
+        >
+          <img
+            src="assets/menume-alicia-family-nutrition-persona-photograph.png"
+            alt="Alicia, a parent planning balanced family meals."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-alicia-family-nutrition-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-alicia-family-nutrition-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-alicia-family-nutrition-persona-photograph.png"
+            alt="Alicia, a parent planning balanced family meals."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<article class="">
+      <h4 class="case-study-subheading">
+        Alicia
+      </h4>
+      <p class="case-study-paragraph">
+        43, Stay-at-Home Mom
+      </p>
+      <p class="case-study-paragraph">
+        Prioritizes balanced family nutrition and strict budgeting; requires automated multi-portion shopping
+        lists and waste-reduction tools.
+      </p>
+      </article>
+      </div>
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="menume-daniel-busy-professional-persona-photograph-enlarged"
+          aria-label="Enlarge: Daniel, a professional seeking quick meals after work."
+        >
+          <img
+            src="assets/menume-daniel-busy-professional-persona-photograph.png"
+            alt="Daniel, a professional seeking quick meals after work."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-daniel-busy-professional-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-daniel-busy-professional-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-daniel-busy-professional-persona-photograph.png"
+            alt="Daniel, a professional seeking quick meals after work."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<article class="">
+      <h4 class="case-study-subheading">
+        Daniel
+      </h4>
+      <p class="case-study-paragraph">
+        32, Agency Professional
+      </p>
+      <p class="case-study-paragraph">
+        Experiences post-work mental exhaustion; seeks 15-minute quick-prep dishes that utilize on-hand
+        ingredients without overthinking.
+      </p>
+      </article>
+      </div>
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="menume-matthew-fitness-persona-photograph-enlarged"
+          aria-label="Enlarge: Matthew, a fitness enthusiast tracking nutrition."
+        >
+          <img
+            src="assets/menume-matthew-fitness-persona-photograph.png"
+            alt="Matthew, a fitness enthusiast tracking nutrition."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-matthew-fitness-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-matthew-fitness-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-matthew-fitness-persona-photograph.png"
+            alt="Matthew, a fitness enthusiast tracking nutrition."
+            width="586"
+            height="748"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<article class="">
+      <h4 class="case-study-subheading">
+        Matthew
+      </h4>
+      <p class="case-study-paragraph">
+        28, Marketing Specialist &amp; Fitness Enthusiast
+      </p>
+      <p class="case-study-paragraph">
+        Focuses strictly on macronutrient splits and calorie tracking; needs fast, personalized recipes aligned
+        with training regimens.
+      </p>
+      </article>
+      </div>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="menume-information-architecture"
+      aria-labelledby="menume-information-architecture-heading"
+    >
+      <h2 id="menume-information-architecture-heading">Information Architecture &amp; Core User Flows</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        App Sitemap &amp; Structural Hierarchy
+      </h3>
+      <p class="case-study-paragraph">
+        To establish a clear mental model before wireframing, we architected the system navigation around four
+        core functional pillars: Menu Planner, Fridge Inventory, Recipe Sharing, and Profile &amp; Settings. This
+        structure ensures that users can toggle seamlessly between daily cooking decisions and weekly grocery
+        logistics.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-app-sitemap-and-structural-hierarchy-enlarged"
+          aria-label="Enlarge: MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
+        >
+          <img
+            src="assets/menume-app-sitemap-and-structural-hierarchy.png"
+            alt="MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
+            width="1958"
+            height="780"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-app-sitemap-and-structural-hierarchy-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-app-sitemap-and-structural-hierarchy-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-app-sitemap-and-structural-hierarchy.png"
+            alt="MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
+            width="1958"
+            height="780"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Core Task Flows (Logic &amp; Decision Frameworks)
+      </h3>
+      <p class="case-study-paragraph">
+        We designed three primary user flows to validate end-to-end task completion from initial discovery to
+        kitchen execution:
+      </p>
+      <h4 class="case-study-subheading">
+        Personalized Menu by Preferences
+      </h4>
+      <p class="case-study-paragraph">
+        Guides users through structured preference inputs (household size, dining frequency, cuisine tastes, and
+        dietary limits) to generate customized weekly meal plans.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-personalized-menu-preferences-task-flow-enlarged"
+          aria-label="Enlarge: Decision flow for personalized weekly menus based on household preferences."
+        >
+          <img
+            src="assets/menume-personalized-menu-preferences-task-flow.png"
+            alt="Decision flow for personalized weekly menus based on household preferences."
+            width="1960"
+            height="678"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-personalized-menu-preferences-task-flow-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-personalized-menu-preferences-task-flow-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-personalized-menu-preferences-task-flow.png"
+            alt="Decision flow for personalized weekly menus based on household preferences."
+            width="1960"
+            height="678"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Weekly Specials to Doorstep
+      </h3>
+      <p class="case-study-paragraph">
+        Connects local supermarket discount items with matching recipes, automatically generating curated shopping
+        lists ready for in-store pickup or home delivery.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-weekly-specials-to-doorstep-task-flow-enlarged"
+          aria-label="Enlarge: Weekly-specials flow connecting discounted groceries, matched recipes, shopping lists, and delivery."
+        >
+          <img
+            src="assets/menume-weekly-specials-to-doorstep-task-flow.png"
+            alt="Weekly-specials flow connecting discounted groceries, matched recipes, shopping lists, and delivery."
+            width="1960"
+            height="778"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-weekly-specials-to-doorstep-task-flow-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-weekly-specials-to-doorstep-task-flow-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-weekly-specials-to-doorstep-task-flow.png"
+            alt="Weekly-specials flow connecting discounted groceries, matched recipes, shopping lists, and delivery."
+            width="1960"
+            height="778"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        What's in My Fridge
+      </h3>
+      <p class="case-study-paragraph">
+        Allows users to log or scan on-hand ingredients to dynamically produce viable recipes, supported by an
+        integrated cooking mode.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-fridge-inventory-to-cooking-task-flow-enlarged"
+          aria-label="Enlarge: Fridge inventory flow from scanning ingredients to recipe selection and cooking."
+        >
+          <img
+            src="assets/menume-fridge-inventory-to-cooking-task-flow.png"
+            alt="Fridge inventory flow from scanning ingredients to recipe selection and cooking."
+            width="1960"
+            height="662"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-fridge-inventory-to-cooking-task-flow-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-fridge-inventory-to-cooking-task-flow-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-fridge-inventory-to-cooking-task-flow.png"
+            alt="Fridge inventory flow from scanning ingredients to recipe selection and cooking."
+            width="1960"
+            height="662"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="menume-usability"
+      aria-labelledby="menume-usability-heading"
+    >
+      <h2 id="menume-usability-heading">Usability Testing &amp; Iterative Design</h2>
+      <div class="case-study-section-content">
+      <p class="case-study-paragraph">
+        We conducted unmoderated usability tests on Maze across 5 participants to identify navigation bottlenecks
+        and refine the interface using quantitative metrics and qualitative feedback. The findings directly drove
+        our transition from low-fidelity wireframes into polished high-fidelity interfaces:
+      </p>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Personalized Menu Flow: Expanding Preference Customization
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Usability Finding: The task registered a 40% drop-off rate and a 41.6% misclick rate. Participants noted
+        that broad, binary lifestyle presets failed to accommodate real-world dietary restrictions.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Design Iteration: In the high-fidelity UI, we broke the single preference screen into granular,
+        multi-select categories covering Allergies, Dislikes, Prep Time Constraints (&lt;15 mins), and Global
+        Cuisines.
+      </p>
+      </aside>
+      </div>
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="menume-personalization-low-fidelity-wireframe-enlarged"
+          aria-label="Enlarge: Initial low-fidelity meal-preference wireframe."
+        >
+          <img
+            src="assets/menume-personalization-low-fidelity-wireframe.png"
+            alt="Initial low-fidelity meal-preference wireframe."
+            width="424"
+            height="914"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-personalization-low-fidelity-wireframe-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-personalization-low-fidelity-wireframe-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-personalization-low-fidelity-wireframe.png"
+            alt="Initial low-fidelity meal-preference wireframe."
+            width="424"
+            height="914"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-personalization-high-fidelity-screens-enlarged"
+          aria-label="Enlarge: Refined high-fidelity allergy, preparation-time, dislike, and cuisine preferences."
+        >
+          <img
+            src="assets/menume-personalization-high-fidelity-screens.png"
+            alt="Refined high-fidelity allergy, preparation-time, dislike, and cuisine preferences."
+            width="878"
+            height="914"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-personalization-high-fidelity-screens-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-personalization-high-fidelity-screens-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-personalization-high-fidelity-screens.png"
+            alt="Refined high-fidelity allergy, preparation-time, dislike, and cuisine preferences."
+            width="878"
+            height="914"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Weekly Specials Flow- Balancing Information Density
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Usability Finding: A 33.3% drop-off rate highlighted cognitive overload caused by repetitive cards and
+        ambiguous visual hierarchies.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Design Iteration: We enlarged recipe cards, added breathing room, and introduced high-contrast metadata
+        badges (Top Rated, Quick Meal, Budget-Friendly) paired with immediate nutritional parameters (15 min / 380
+        kcal).
+      </p>
+      </aside>
+      </div>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-weekly-specials-low-fidelity-wireframes-enlarged"
+          aria-label="Enlarge: Initial weekly-specials wireframes before usability improvements."
+        >
+          <img
+            src="assets/menume-weekly-specials-low-fidelity-wireframes.png"
+            alt="Initial weekly-specials wireframes before usability improvements."
+            width="1328"
+            height="972"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-weekly-specials-low-fidelity-wireframes-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-weekly-specials-low-fidelity-wireframes-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-weekly-specials-low-fidelity-wireframes.png"
+            alt="Initial weekly-specials wireframes before usability improvements."
+            width="1328"
+            height="972"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-weekly-specials-high-fidelity-screens-enlarged"
+          aria-label="Enlarge: Refined weekly-specials screens with clearer recipe cards and nutritional metadata."
+        >
+          <img
+            src="assets/menume-weekly-specials-high-fidelity-screens.png"
+            alt="Refined weekly-specials screens with clearer recipe cards and nutritional metadata."
+            width="1330"
+            height="932"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-weekly-specials-high-fidelity-screens-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-weekly-specials-high-fidelity-screens-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-weekly-specials-high-fidelity-screens.png"
+            alt="Refined weekly-specials screens with clearer recipe cards and nutritional metadata."
+            width="1330"
+            height="932"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="menume-design-system"
+      aria-labelledby="menume-design-system-heading"
+    >
+      <h2 id="menume-design-system-heading">Design System &amp; Cross-Device UI Showcase</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Visual Strategy &amp; Design System Tokens
+      </h3>
+      <p class="case-study-paragraph">
+        Inspired by our moodboard concept—&quot;Your Menu, Your Rules&quot;—the visual identity balances vibrant
+        culinary energy with calm, organic wellness:
+      </p>
+      <p class="case-study-paragraph">
+        Bright Gold (#F89E3F): Stimulates appetite and optimism, serving as the primary accent for CTAs (Generate
+        Recipes, Order) and active selection states.
+      </p>
+      <p class="case-study-paragraph">
+        Loch Blue(#60B5BF): Represents fresh ingredients, balance, and dietary well-being, grounding the interface
+        with the feel of a trustworthy utility.
+      </p>
+      <p class="case-study-paragraph">
+        Grounded Grey (#E5E5E5): Provides a clean, accessible foundation that keeps rich food photography and
+        nutritional metrics legible and clutter-free.
+      </p>
+      <p class="case-study-paragraph">
+        Component Library: Standardized rounded pill selectors, stepper steppers (+ / -), segmented controls, and
+        minimalist iconography.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-your-menu-your-rules-visual-moodboard-enlarged"
+          aria-label="Enlarge: Your Menu, Your Rules moodboard with food imagery, warm gold, loch blue, and interface inspiration."
+        >
+          <img
+            src="assets/menume-your-menu-your-rules-visual-moodboard.png"
+            alt="Your Menu, Your Rules moodboard with food imagery, warm gold, loch blue, and interface inspiration."
+            width="1960"
+            height="1104"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-your-menu-your-rules-visual-moodboard-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-your-menu-your-rules-visual-moodboard-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-your-menu-your-rules-visual-moodboard.png"
+            alt="Your Menu, Your Rules moodboard with food imagery, warm gold, loch blue, and interface inspiration."
+            width="1960"
+            height="1104"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        End-to-End User Experience Delivery
+      </h3>
+      <p class="case-study-paragraph">
+        End-to-End User Experience Delivery
+      </p>
+      <p class="case-study-paragraph">
+        The Waste-Free Fridge Loop: Users photograph or select remaining groceries, browse instant recipe matches,
+        and enter an unobstructed, step-by-step full-screen cooking mode tailored for busy kitchen environments.
+      </p>
+      <p class="case-study-paragraph">
+        The Weekly Specials Fulfillment Loop: Bridges digital planning with real-world logistics through grocery
+        delivery scheduling, store pickup toggles, and integrated payment flows.
+      </p>
+      <p class="case-study-paragraph">
+        Cross-Platform Responsiveness (Mobile &amp; Tablet Ecosystem)
+      </p>
+      <p class="case-study-paragraph">
+        iOS Mobile: Optimized for one-handed operation on the go, utilizing bottom tab bars, stacked card views,
+        and thumb-friendly shopping list toggles.
+      </p>
+      <p class="case-study-paragraph">
+        iPadOS Tablet: Utilizes a persistent split-screen sidebar layout designed for countertop use while
+        prepping meals, allowing users to view ingredients alongside step-by-step instructions simultaneously.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="menume-mobile-and-tablet-user-experience-showcase-enlarged"
+          aria-label="Enlarge: Final MenuMe mobile and tablet interfaces demonstrating responsive meal planning."
+        >
+          <img
+            src="assets/menume-mobile-and-tablet-user-experience-showcase.png"
+            alt="Final MenuMe mobile and tablet interfaces demonstrating responsive meal planning."
+            width="1664"
+            height="805"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="menume-mobile-and-tablet-user-experience-showcase-enlarged"
+          type="button"
+          popover
+          popovertarget="menume-mobile-and-tablet-user-experience-showcase-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/menume-mobile-and-tablet-user-experience-showcase.png"
+            alt="Final MenuMe mobile and tablet interfaces demonstrating responsive meal planning."
+            width="1664"
+            height="805"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-flex-row ">
+      <a
+        class="case-study-prototype-link "
+        href="https://example.com"
+      >View Mobile Hi-fi Prototype</a>
+      <a
+        class="case-study-prototype-link case-study-secondary-prototype-link"
+        href="https://example.com"
+      >View Tablet Hi-fi Prototype</a>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="menume-contributions"
+      aria-labelledby="menume-contributions-heading"
+    >
+      <h2 id="menume-contributions-heading">Individual Contributions &amp; Strategic Reflection</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        My Core Contributions
+      </h3>
+<div class="case-study-flex-row case-study-contribution-cards">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Audience Research &amp; Journey Mapping
+      </p>
+      <p class="case-study-paragraph">
+        Authored the comprehensive persona profile and user journey map for Matthew Johnson (Fitness Enthusiast),
+        translating his need for macronutrient transparency into dedicated calorie counts and 15-minute quick-meal
+        presets.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Task Flow Logic
+      </p>
+      <p class="case-study-paragraph">
+        Architected the complete system decision flowchart for &quot;Generate Menus based on Weekly
+        Specials,&quot; establishing the branching logic for dietary validation, missing ingredient generation,
+        and multi-tier delivery options.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Visual Strategy &amp; Moodboard Direction
+      </p>
+      <p class="case-study-paragraph">
+        Curated the project’s visual moodboard and established the core aesthetic foundation—translating fresh
+        culinary energy and organic balance into our primary color tokens and lightweight component styles.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Lo-Fi to Hi-Fi Interface Design
+      </p>
+      <p class="case-study-paragraph">
+        Owned the design execution for the Onboarding/Login experience (including the friction-free &quot;Explore
+        as Guest&quot; path) and the core 4-Screen Meal Plan Personalization flow across both mobile and tablet
+        breakpoints.
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Key Learnings &amp; Takeaways
+      </h3>
+      <h4 class="case-study-subheading">
+        Flow Architecture, Empathy, and the Power of Peer Critique
+      </h4>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Mapping user flows pushed me to dissect every decision branch and anticipate user mental models,
+        sharpening both my structural logic and user empathy. It also reinforced that UX design cannot happen in a
+        vacuum—independent drafting only goes so far, and cross-checking edge cases through team critique was
+        essential to uncover blind spots and build a cohesive journey.
+      </p>
+      </aside>
+      <h4 class="case-study-subheading">
+        Validating Beyond Internal Logic with Usability Data
+      </h4>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        While team reviews aligned our internal logic, testing our prototypes on Maze demonstrated that even
+        well-debated assumptions must be validated against real user behavior. Analyzing quantitative metrics
+        proved that packing comprehensive features into early wireframes often introduced unnecessary friction.
+        Letting real misclick and drop-off data guide our simplifications ultimately created a far more focused
+        and effective experience.
+      </p>
+      </aside>
+      </div>
+<blockquote class="case-study-closing-reflection">
+      <p class="case-study-paragraph">
+        &quot;Ultimately, MenuMe moves beyond a simple recipe index—it provides everyday home cooks with a
+        sustainable, preference-driven ecosystem that bridges pantry inventory with local affordability to
+        permanently simplify mealtime decisions.&quot;
+      </p>
+      </blockquote>
+      </div>
+    </section>
+  </main>
+  <footer class="portfolio-page-thank-you-and-copyright-footer">
+    <p>Thank you for your interest in my work!</p>
+    <p class="portfolio-page-copyright-and-creation-tool">
+      <span>Made with VS Code</span>
+      <span>© 2026 Xinyan Chen</span>
+    </p>
+    <div
+      class="portfolio-page-decorative-wave-composition
+        home-page-footer-bottom-wave-composition"
+      aria-hidden="true"
+    >
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-gold-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-gold-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-upper-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-upper-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-lower-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-lower-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+    </div>
+  </footer>
+  <a
+    class="portfolio-back-to-top-link"
+    href="#"
+    aria-label="Back to top"
+    hidden
+  ></a>
+</body>
+</html>

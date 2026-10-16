@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+  <meta
+    name="description"
+    content="Scotties: a product design case study by Xinyan Chen."
+  >
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      style-src 'self';
+      img-src 'self' data:;
+      font-src 'self';
+      script-src 'self';
+      connect-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'none'"
+  >
+  <title>Scotties | Xinyan Chen</title>
+  <link
+    rel="icon"
+    href="data:,"
+  >
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+  <script
+    type="module"
+    src="portfolio-navigation.mjs"
+  ></script>
+</head>
+<body
+  class="portfolio-case-study-page"
+  data-case-study="scotties"
+>
+  <main class="case-study-content">
+    <div
+      class="case-study-top-corner-decorations"
+      aria-hidden="true"
+    >
+      <span></span>
+      <span></span>
+      <img
+        src="assets/case-study-phone-navigation-and-floral-decoration.svg"
+        alt=""
+        width="390"
+        height="123"
+      >
+    </div>
+    <button
+      class="phone-navigation-menu-toggle-button"
+      type="button"
+      aria-label="Open navigation menu"
+      popovertarget="portfolio-primary-navigation"
+    ></button>
+    <nav
+      id="portfolio-primary-navigation"
+      aria-label="Primary navigation"
+      popover
+    >
+      <img
+        class="portfolio-wide-navigation-floral-logo"
+        src="assets/home-wide-navigation-floral-logo.svg"
+        alt=""
+        width="48"
+        height="63"
+      >
+      <button
+        class="phone-navigation-menu-toggle-button"
+        type="button"
+        aria-label="Close navigation menu"
+        popovertarget="portfolio-primary-navigation"
+        popovertargetaction="hide"
+        autofocus
+      >
+        <img
+          src="assets/phone-navigation-menu-hamburger-icon.svg"
+          alt=""
+          width="48"
+          height="48"
+        >
+      </button>
+      <a
+        href="./"
+      >Home</a>
+      <a
+        href="about.html"
+      >About</a>
+      <a href="./#tales-for-safer-trails-project">Work</a>
+      <a href="https://example.com">Contact</a>
+    </nav>
+    <header class="case-study-project-introduction">
+      <figure class="case-study-zoomable-artwork case-study-project-preview">
+        <button
+          type="button"
+          popovertarget="scotties-case-study-project-preview-enlarged"
+          aria-label="Enlarge: Scotties project preview."
+        >
+          <img
+            src="assets/scotties-skating-and-skiing-desktop-and-phone-preview.svg#project-artwork-without-blank-export-margins"
+            alt="Scotties project preview."
+            width="281"
+            height="199"
+            loading="eager"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-case-study-project-preview-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-case-study-project-preview-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-skating-and-skiing-desktop-and-phone-preview.svg#project-artwork-without-blank-export-margins"
+            alt="Scotties project preview."
+            width="281"
+            height="199"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-project-summary">
+      <h1 class="case-study-subheading">
+        Scotties
+      </h1>
+      <h2 class="case-study-subheading">
+        Digital Rebranding &amp; E-Commerce UX Redesign
+      </h2>
+      <p class="case-study-paragraph">
+        Project Type: Brand Identity &amp; E-Commerce Web Redesign (Desktop &amp; Mobile)
+      </p>
+      <p class="case-study-paragraph">
+        Client &amp; Context: Scotties (Whitby, ON) | Prepared for Adam Jarvis
+      </p>
+      <p class="case-study-paragraph">
+        Team &amp; My Role: The Correctors (6 Members) | Lead UX/UI Designer &amp; Visual Strategist (Owned
+        Moodboard, Design System, Lo-Fi &amp; Hi-Fi Wireframes)
+      </p>
+      <p class="case-study-paragraph">
+        Timeline: 7 Weeks (Fall 2025) | Media Project Planning, Algonquin College
+      </p>
+<div class="case-study-flex-row ">
+      <a
+        class="case-study-prototype-link "
+        href="https://example.com"
+      >View Desktop Hi-fi Prototype</a>
+      <a
+        class="case-study-prototype-link case-study-secondary-prototype-link"
+        href="https://example.com"
+      >View Mobile Hi-fi Prototype</a>
+      </div>
+      </div>
+    </header>
+    <div
+      class="case-study-project-divider"
+      aria-hidden="true"
+    ></div>
+    <nav
+      class="case-study-section-navigation"
+      aria-labelledby="case-study-section-navigation-heading"
+    >
+      <h2 id="case-study-section-navigation-heading">Jump To Section</h2>
+      <ul>
+        <li>
+          <a href="#scotties-overview">Overview &amp; Strategic Context</a>
+        </li>
+        <li>
+          <a href="#scotties-research">Research &amp; User Personas</a>
+        </li>
+        <li>
+          <a href="#scotties-visual-strategy">Visual Strategy</a>
+        </li>
+        <li>
+          <a href="#scotties-wireframing">Wireframing Execution</a>
+        </li>
+        <li>
+          <a href="#scotties-reflection">Key Learnings &amp; Strategic Reflection</a>
+        </li>
+      </ul>
+    </nav>
+    <section
+      class="case-study-section"
+      id="scotties-overview"
+      aria-labelledby="scotties-overview-heading"
+    >
+      <h2 id="scotties-overview-heading">Overview &amp; Strategic Context</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        About Scotties
+      </h3>
+      <p class="case-study-paragraph">
+        Scotties' has been a community staple for snowboard and skateboard enthusiasts in Whitby/Durham since
+        1993, built on passion, technical tuning expertise, and grassroots culture.
+      </p>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        The Core Challenge
+      </h3>
+<aside class="case-study-note case-study-scotties-challenge-bubble">
+      <p class="case-study-paragraph">
+        Despite strong local loyalty, Scotties' relied on an outdated single-page website with no e-commerce
+        capability. Out-of-town customers could not browse or buy gear, and the store struggled to compete
+        digitally against big-box sporting chains without losing its authentic street-culture identity.
+      </p>
+      </aside>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Brand Message &amp; Positioning
+      </h3>
+<aside class="case-study-note case-study-scotties-positioning-note">
+      <p class="case-study-paragraph">
+        &quot;Scotties': Ride Local, Dream Big.&quot; Making extreme sports accessible through trusted expertise,
+        affordable options, and a community-first experience that large chain stores cannot replicate.
+      </p>
+      </aside>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="scotties-research"
+      aria-labelledby="scotties-research-heading"
+    >
+      <h2 id="scotties-research-heading">Research &amp; User Personas</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        User Personas
+      </h3>
+<div class="case-study-flex-row ">
+<article class="case-study-persona">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="scotties-jake-boarder-persona-photograph-enlarged"
+          aria-label="Enlarge: Jake representing a young boarder and snowboarder."
+        >
+          <img
+            src="assets/scotties-jake-boarder-persona-photograph.png"
+            alt="Jake representing a young boarder and snowboarder."
+            width="490"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-jake-boarder-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-jake-boarder-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-jake-boarder-persona-photograph.png"
+            alt="Jake representing a young boarder and snowboarder."
+            width="490"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Jake Alice, Teen Boarder &amp; Snowboarder
+      </h4>
+      <p class="case-study-paragraph">
+        Needs easy access to high-quality, affordable complete boards, parts, and hardware without overwhelming
+        jargon.
+      </p>
+      </article>
+<article class="case-study-persona">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="scotties-gwen-winter-enthusiast-persona-photograph-enlarged"
+          aria-label="Enlarge: Gwen representing a local winter enthusiast and parent."
+        >
+          <img
+            src="assets/scotties-gwen-winter-enthusiast-persona-photograph.png"
+            alt="Gwen representing a local winter enthusiast and parent."
+            width="490"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-gwen-winter-enthusiast-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-gwen-winter-enthusiast-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-gwen-winter-enthusiast-persona-photograph.png"
+            alt="Gwen representing a local winter enthusiast and parent."
+            width="490"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Gwen Parker, Local Winter Enthusiast &amp; Mom
+      </h4>
+      <p class="case-study-paragraph">
+        Seeks premium ski gear and clear guidance tailored to her skill level and style.
+      </p>
+      </article>
+<article class="case-study-persona">
+      <figure class="case-study-zoomable-artwork case-study-persona-photograph">
+        <button
+          type="button"
+          popovertarget="scotties-jonathan-collector-persona-photograph-enlarged"
+          aria-label="Enlarge: Jonathan representing an adult collector of authentic board culture."
+        >
+          <img
+            src="assets/scotties-jonathan-collector-persona-photograph.png"
+            alt="Jonathan representing an adult collector of authentic board culture."
+            width="492"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-jonathan-collector-persona-photograph-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-jonathan-collector-persona-photograph-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-jonathan-collector-persona-photograph.png"
+            alt="Jonathan representing an adult collector of authentic board culture."
+            width="492"
+            height="616"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      <h4 class="case-study-subheading">
+        Jonathan Miller, Adult Collector
+      </h4>
+      <p class="case-study-paragraph">
+        Looks for rare, authentic niche brands, verified inventory, and vintage board culture history.
+      </p>
+      </article>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Core Value Proposition &amp; Emotional Benefits
+      </h3>
+      <p class="case-study-paragraph">
+        To differentiate Scotties' from generic mass-market chains, our UX/UI system was designed around three
+        central emotional pillars:
+      </p>
+      <figure class="case-study-zoomable-artwork case-study-small-illustration">
+        <button
+          type="button"
+          popovertarget="scotties-emotional-benefits-mountain-illustration-enlarged"
+          aria-label="Enlarge: Mountain and board-sports illustration connecting Scotties' emotional benefits."
+        >
+          <img
+            src="assets/scotties-emotional-benefits-mountain-illustration.svg"
+            alt="Mountain and board-sports illustration connecting Scotties' emotional benefits."
+            width="247"
+            height="245"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-emotional-benefits-mountain-illustration-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-emotional-benefits-mountain-illustration-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-emotional-benefits-mountain-illustration.svg"
+            alt="Mountain and board-sports illustration connecting Scotties' emotional benefits."
+            width="247"
+            height="245"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-flex-row ">
+<article class="">
+      <p class="case-study-paragraph">
+        Confidence (Expert Guidance): Replicating the in-store staff's trusted advice digitally so customers feel
+        assured they are investing in the right setup.
+      </p>
+      </article>
+<article class="">
+      <p class="case-study-paragraph">
+        Belonging (Community Hub): Welcoming newcomers and veterans alike into a passionate, tight-knit culture
+        through integrated local event feeds and rider stories.
+      </p>
+      </article>
+<article class="">
+      <p class="case-study-paragraph">
+        Excitement (Subculture Discovery): Celebrating the thrill of discovering unique local partnerships and
+        niche gear through high-energy visual layouts.
+      </p>
+      </article>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="scotties-visual-strategy"
+      aria-labelledby="scotties-visual-strategy-heading"
+    >
+      <h2 id="scotties-visual-strategy-heading">Visual Strategy</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Tactile Street-Culture Moodboard
+      </h3>
+      <p class="case-study-paragraph">
+        For the moodboard, we curated visuals that capture the raw energy, passion, and movement inherent to skate
+        and snow culture. By contrasting vibrant action photography with outdoor trail elements, the visual board
+        sets an approachable yet high-spirited tone for the entire e-commerce experience.
+      </p>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="scotties-street-culture-visual-moodboard-enlarged"
+          aria-label="Enlarge: Scotties street-culture moodboard with skate and snow photography, logo references, and natural color tokens."
+        >
+          <img
+            src="assets/scotties-street-culture-visual-moodboard.png"
+            alt="Scotties street-culture moodboard with skate and snow photography, logo references, and natural color tokens."
+            width="1962"
+            height="1386"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-street-culture-visual-moodboard-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-street-culture-visual-moodboard-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-street-culture-visual-moodboard.png"
+            alt="Scotties street-culture moodboard with skate and snow photography, logo references, and natural color tokens."
+            width="1962"
+            height="1386"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Typography &amp; Color Palette
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="scotties-type-specimens-and-brand-color-palette-enlarged"
+          aria-label="Enlarge: Scotties typography specimens for CCThatsAllFolks and Nimbus Sans, and orange, green, charcoal, and warm-neutral brand colors."
+        >
+          <img
+            src="assets/scotties-type-specimens-and-brand-color-palette.svg"
+            alt="Scotties typography specimens for CCThatsAllFolks and Nimbus Sans, and orange, green, charcoal, and warm-neutral brand colors."
+            width="1088"
+            height="502"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-type-specimens-and-brand-color-palette-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-type-specimens-and-brand-color-palette-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-type-specimens-and-brand-color-palette.svg"
+            alt="Scotties typography specimens for CCThatsAllFolks and Nimbus Sans, and orange, green, charcoal, and warm-neutral brand colors."
+            width="1088"
+            height="502"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Brand Identity: Logo Concept
+      </h3>
+      <p class="case-study-paragraph">
+        The redesigned logo anchors Scotties' identity by synthesizing kinetic motion, outdoor context, and youth
+        vitality into a unified mark. The fluid, elongated initial &quot;S&quot; doubles as a kinetic trail carved
+        by skateboards on pavement and snowboards down slopes, set beneath a sharp alpine silhouette that directly
+        contextualizes the store's outdoor performance roots. Crisp, angular lines convey extreme speed,
+        adrenaline, and youthful energy, while the solid, uppercase Nimbus Sans Bold wordmark grounds the dynamic
+        geometry with geometric stability and cross-platform clarity. Rendered in signature vibrant orange
+        (#FC702F) and deep olive green (#515839), the mark strikes an intentional balance between action-sports
+        intensity and rugged alpine heritage.
+      </p>
+      <figure class="case-study-zoomable-artwork case-study-wordmark">
+        <button
+          type="button"
+          popovertarget="scotties-kinetic-mountain-trail-brand-wordmark-enlarged"
+          aria-label="Enlarge: Scotties brand mark combining a kinetic trail-shaped S, mountain silhouette, orange lettering, and deep olive green."
+        >
+          <img
+            src="assets/scotties-kinetic-mountain-trail-brand-wordmark.svg"
+            alt="Scotties brand mark combining a kinetic trail-shaped S, mountain silhouette, orange lettering, and deep olive green."
+            width="648"
+            height="461"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-kinetic-mountain-trail-brand-wordmark-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-kinetic-mountain-trail-brand-wordmark-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-kinetic-mountain-trail-brand-wordmark.svg"
+            alt="Scotties brand mark combining a kinetic trail-shaped S, mountain silhouette, orange lettering, and deep olive green."
+            width="648"
+            height="461"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="scotties-wireframing"
+      aria-labelledby="scotties-wireframing-heading"
+    >
+      <h2 id="scotties-wireframing-heading">Wireframing Execution</h2>
+      <div class="case-study-section-content">
+      <h3 class="case-study-subheading">
+        Sitemap
+      </h3>
+      <figure class="case-study-zoomable-artwork ">
+        <button
+          type="button"
+          popovertarget="scotties-ecommerce-sitemap-and-navigation-enlarged"
+          aria-label="Enlarge: Scotties sitemap connecting the shop, brand story, community, profile, and sport-specific product categories."
+        >
+          <img
+            src="assets/scotties-ecommerce-sitemap-and-navigation.png"
+            alt="Scotties sitemap connecting the shop, brand story, community, profile, and sport-specific product categories."
+            width="2158"
+            height="1364"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-ecommerce-sitemap-and-navigation-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-ecommerce-sitemap-and-navigation-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-ecommerce-sitemap-and-navigation.png"
+            alt="Scotties sitemap connecting the shop, brand story, community, profile, and sport-specific product categories."
+            width="2158"
+            height="1364"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Lo-fi Homepage
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Initially, our priority was driving online conversions, so we framed the homepage after traditional
+        athletic retail layouts to emphasize products and seasonal sales.
+      </p>
+      </aside>
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="scotties-low-fidelity-homepage-wireframe-enlarged"
+          aria-label="Enlarge: Scotties low-fidelity homepage wireframe."
+        >
+          <img
+            src="assets/scotties-low-fidelity-homepage-wireframe.png"
+            alt="Scotties low-fidelity homepage wireframe."
+            width="574"
+            height="906"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-low-fidelity-homepage-wireframe-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-low-fidelity-homepage-wireframe-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-low-fidelity-homepage-wireframe.png"
+            alt="Scotties low-fidelity homepage wireframe."
+            width="574"
+            height="906"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        The primary navigation directly mirrored our core sport divisions—Skateboarding, Snowboarding, and
+        Skiing—allowing visitors to jump straight into product browsing.
+      </p>
+      </aside>
+      </div>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Lo-fi Product Listing Page
+      </h3>
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Placed key equipment categories at the top-left for riders seeking exact specs.
+      </p>
+      <p class="case-study-paragraph">
+        Added secondary filters below for gender, price range, active sales/offers, and deck colorway to support
+        targeted browsing.
+      </p>
+      </aside>
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="scotties-low-fidelity-product-listing-wireframe-enlarged"
+          aria-label="Enlarge: Scotties low-fidelity product listing page with category navigation and filtering."
+        >
+          <img
+            src="assets/scotties-low-fidelity-product-listing-wireframe.png"
+            alt="Scotties low-fidelity product listing page with category navigation and filtering."
+            width="572"
+            height="810"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-low-fidelity-product-listing-wireframe-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-low-fidelity-product-listing-wireframe-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-low-fidelity-product-listing-wireframe.png"
+            alt="Scotties low-fidelity product listing page with category navigation and filtering."
+            width="572"
+            height="810"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Centered clean card modules featuring high-contrast product imagery alongside essential gear
+        specifications and pricing.
+      </p>
+      </aside>
+      </div>
+      </div>
+<div class="case-study-subsection">
+      <h3 class="case-study-subheading">
+        Hi-fi Homepage
+      </h3>
+      <p class="case-study-paragraph">
+        Following client discussions, we evolved the homepage strategy beyond a standard transactional layout.
+        Because Scotties' true value lies in local stickiness—providing gear, expert repairs, and organizing rider
+        events—the high-fidelity design was restructured to heavily emphasize its grassroots, community-first
+        identity.
+      </p>
+<div class="case-study-flex-row ">
+      <figure class="case-study-zoomable-artwork case-study-portrait-artwork">
+        <button
+          type="button"
+          popovertarget="scotties-high-fidelity-community-homepage-enlarged"
+          aria-label="Enlarge: Final Scotties homepage showcasing action photography, flagship gear, shop expertise, and community events."
+        >
+          <img
+            src="assets/scotties-high-fidelity-community-homepage.png"
+            alt="Final Scotties homepage showcasing action photography, flagship gear, shop expertise, and community events."
+            width="574"
+            height="1844"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+        <button
+          class="case-study-enlarged-artwork"
+          id="scotties-high-fidelity-community-homepage-enlarged"
+          type="button"
+          popover
+          popovertarget="scotties-high-fidelity-community-homepage-enlarged"
+          aria-label="Close enlarged image"
+          title="Click the image or press Escape to close"
+          autofocus
+        >
+          <img
+            src="assets/scotties-high-fidelity-community-homepage.png"
+            alt="Final Scotties homepage showcasing action photography, flagship gear, shop expertise, and community events."
+            width="574"
+            height="1844"
+            loading="lazy"
+            decoding="async"
+          >
+        </button>
+      </figure>
+<article class="">
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Opens with high-energy action sports photography anchored by the core tagline, &quot;Ride Local, Dream
+        Big,&quot; immediately immersing visitors in an authentic subculture vibe.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Positioned strategically just below the fold, this section highlights top-tier flagship items across all
+        three core categories (Skate, Snow, Ski) with clear pricing to capture high-intent buyers and drive
+        immediate sales.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        Transitions gracefully from commerce to storytelling by introducing the shop's roots and specialized
+        tuning services. This guides users toward the About page to build brand trust through expert staff
+        profiles and 24-hour maintenance offerings.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <p class="case-study-paragraph">
+        The final layout block acts as a cultural anchor, featuring dynamic photo galleries of past meetups and
+        teasers for upcoming skate/snow jams. This section actively funnels enthusiasts into the Community page,
+        fostering long-term brand loyalty and offline engagement.
+      </p>
+      </aside>
+      </article>
+      </div>
+<div class="case-study-flex-row ">
+      <a
+        class="case-study-prototype-link "
+        href="https://example.com"
+      >View Desktop Hi-fi Prototype</a>
+      <a
+        class="case-study-prototype-link case-study-secondary-prototype-link"
+        href="https://example.com"
+      >View Mobile Hi-fi Prototype</a>
+      </div>
+      </div>
+      </div>
+    </section>
+    <section
+      class="case-study-section"
+      id="scotties-reflection"
+      aria-labelledby="scotties-reflection-heading"
+    >
+      <h2 id="scotties-reflection-heading">Key Learnings &amp; Strategic Reflection</h2>
+      <div class="case-study-section-content">
+<div class="case-study-flex-row ">
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        Community as a Moat
+      </h4>
+      <p class="case-study-paragraph">
+        Unlike big-box sporting goods chains, a local independent shop's competitive advantage lies in building
+        lasting, grassroots relationships rather than merely pushing products. Our design strategy needed to
+        reflect this distinct positioning by shifting away from a purely transactional e-commerce layout. By
+        integrating dedicated modules for specialized repair services, staff tuning expertise, and upcoming local
+        events, we transformed the website into an active community hub that drives local engagement and customer
+        retention.
+      </p>
+      </aside>
+<aside class="case-study-note ">
+      <h4 class="case-study-subheading">
+        Visualizing Subculture Energy
+      </h4>
+      <p class="case-study-paragraph">
+        Catering to skateboarders and snowboarders means speaking directly to an active, young-at-heart, and
+        passion-driven demographic. Every visual touchpoint—from high-energy color tokens (#FC702F Orange) and
+        kinetic typography (Nimbus Sans &amp; CCThatsAllFolks) to organic lifestyle photography—had to
+        authentically channel the raw adrenaline, youthfulness, and dynamism of extreme board sports without
+        compromising digital usability.
+      </p>
+      </aside>
+      </div>
+<blockquote class="case-study-closing-reflection">
+      <p class="case-study-paragraph">
+        &quot;By harmonizing e-commerce functionality with grassroots board culture, this project demonstrated how
+        digital design can protect a local shop’s authentic community soul while empowering it to grow as a
+        competitive modern brand.&quot;
+      </p>
+      </blockquote>
+      </div>
+    </section>
+  </main>
+  <footer class="portfolio-page-thank-you-and-copyright-footer">
+    <p>Thank you for your interest in my work!</p>
+    <p class="portfolio-page-copyright-and-creation-tool">
+      <span>Made with VS Code</span>
+      <span>© 2026 Xinyan Chen</span>
+    </p>
+    <div
+      class="portfolio-page-decorative-wave-composition
+        home-page-footer-bottom-wave-composition"
+      aria-hidden="true"
+    >
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-gold-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-gold-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-upper-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-upper-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+      <picture>
+        <source
+          media="(width>=40rem)"
+          srcset="assets/home-wide-footer-lower-gray-wave.svg"
+        >
+        <img
+          src="assets/home-page-footer-lower-gray-wave.svg"
+          alt=""
+          width="390"
+          height="170"
+        >
+      </picture>
+    </div>
+  </footer>
+  <a
+    class="portfolio-back-to-top-link"
+    href="#"
+    aria-label="Back to top"
+    hidden
+  ></a>
+</body>
+</html>
