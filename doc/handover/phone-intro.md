@@ -539,9 +539,8 @@ Do not resume shell investigation as part of the portfolio work.
   Future page work still needs its supplied materials and destinations.
 - The outside-alignment correction passed the final width and interaction checks.
   Matching-scale comparison captures are refreshed.
-  Rendered documentation and private-browser cleanup are the final verification steps.
-- A private headed Chromium and nested compositor are running for this task,
-  attached through CDP port 9237 using the existing scratch tasks.
+  Documentation was rendered and checked in headed Chromium.
+- The private agent-browser connection, owned Chromium, and nested compositor are closed.
   The Python preview remains the site server at `http://localhost:4173/`.
 
 ## Outside alignment and flexbox correction
@@ -589,3 +588,9 @@ Do not resume shell investigation as part of the portfolio work.
   No differences occurred after y 1489.
   These are raster comparisons, not a claim of a diagnosed rendering cause.
   Phone section positions and original artwork frame dimensions remain intact.
+- The Tablet and Desktop comparisons were reopened in headed Chromium.
+  Their declared image sizes match the actual PNG dimensions without scaling the captures.
+  Rendered README, handover, and browser notes contained the grid prohibition,
+  the final verification results, and no exposed Markdown emphasis delimiters.
+- Home's current scope is complete.
+  Further About, Contact, or case-study work needs the user's next supplied materials and destinations.
