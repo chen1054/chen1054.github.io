@@ -598,7 +598,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: calc(18rem / 16 + 99 * var(--home-wide-reference-growth));
   &>.case-study-project-preview {
     flex: 0 1 calc(438rem / 16);

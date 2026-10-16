@@ -63,6 +63,11 @@ A case-study-only 64rem container query preserves centered Phone/Tablet headings
 and left-aligned Desktop headings.
 This is an additional alignment condition; Home and About retain their original 40rem breakpoint.
 The column layout itself still wraps with flexbox rather than another layout breakpoint.
+The hero artwork and text align at their outer top edges on Desktop.
+After the final hero corrections, 45 checks across the previous widths plus 1023 and 1025 pixels
+found no horizontal overflow or third-party requests.
+All three heroes stack with centered headings at 390 and 744 pixels,
+and form columns with left-aligned headings at 1440 pixels.
 Next actions are independently verifiable:
 - Recheck the corrected MenuMe diagram dimensions and renamed illustration viewers.
 - Finish navigation, back-to-top, reference-width captures, and Home/About regression checks.
