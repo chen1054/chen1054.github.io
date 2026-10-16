@@ -241,6 +241,50 @@ p {
 .home-introduction-bottom-wave-composition {
   margin-block-start: -3rem;
 }
+@media(prefers-reduced-motion:no-preference) {
+  .home-introduction-greeting,
+  .home-introduction-designer-name,
+  .home-introduction-designer-summary,
+  .home-introduction-about-page-link,
+  .home-introduction-wave-purple-accent,
+  .home-introduction-wave-floral-accent {
+    animation: home-introduction-layer-fade-in 450ms ease-out both;
+  }
+  .home-introduction-designer-name {
+    animation-delay: 450ms;
+  }
+  .home-introduction-designer-summary,
+  .home-introduction-about-page-link {
+    animation-delay: 900ms;
+  }
+  .home-introduction-wave-purple-accent {
+    animation-delay: 1350ms;
+  }
+  .home-introduction-wave-left-to-right-reveal {
+    animation: home-introduction-river-reveal-from-left 900ms ease-in-out 1800ms both;
+  }
+  .home-introduction-wave-floral-accent {
+    animation-delay: 2700ms;
+  }
+}
+@keyframes home-introduction-layer-fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes home-introduction-river-reveal-from-left {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
 .home-page-featured-project-summary {
   --home-phone-illustration-aspect-ratio: 390 / 211;
   --home-wide-illustration-base-width: calc(258rem / 16);

@@ -2,6 +2,21 @@
 
 ## Current state
 
+The client requested a landing introduction animation;
+the user clarified that the layout must not change.
+Interpretation: sequential fades for greeting, name, summary and About link together,
+then the purple river accent; reveal the gold band, gray ribbon, and three gray lines
+together from left to right; fade the river's flower last.
+The existing top-corner decoration and navigation remain static.
+CSS animates opacity/visibility and `clip-path` on the existing separate layers,
+with no translation, sizing, spacing, asset, script, dependency, or viewport-breakpoint change.
+The six stages start at 0, 450, 900, 1350, 1800, and 2700 milliseconds;
+the river reveal lasts 900 milliseconds and each fade lasts 450 milliseconds.
+The sequence runs once on page load and completes at 3150 milliseconds.
+Reduced-motion visitors receive the complete static introduction immediately.
+Next: verify the stage order, unchanged element bounds, completed artwork,
+reduced-motion behavior, and About link in the headed browser at phone and wide widths.
+
 The user requested connecting all available destinations.
 All implemented pages are already connected through navigation and Home's implemented-project links.
 The supplied local Matcha Delight and Echoes of Tradition PDFs are now connected from Home.
