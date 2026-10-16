@@ -11,8 +11,16 @@ keyboard focus reuses the shared outline.
 `portfolio-navigation.mjs` now owns both menu dismissal and scroll visibility,
 renamed from `phone-navigation-menu.mjs` on 2026-10-15.
 Native `href="#"` handles returning to the top without a click handler.
-Next action: verify scroll visibility, dimensions, viewport offsets, pointer and keyboard behavior,
-menu behavior after the module rename, and browser errors across both pages and responsive widths.
+`a4cbf6f` implements the shared control without another breakpoint or JavaScript request.
+Headed-browser checks passed on both pages at 390, 744, and 1440 pixel content widths.
+The target measured 48 by 48 pixels with 16-pixel bottom and right offsets in every case.
+It is hidden and removed from layout at the top, appears after one pixel of scrolling,
+and hides again after native pointer or keyboard activation returns to the top.
+Keyboard focus shows the shared 2-pixel outline.
+The module rename preserved phone menu opening and Escape dismissal.
+Hover selects the saturated purple SVG fragment; both color preferences retain the supplied page styling.
+Browser error and console collections were empty after interaction checks.
+The [phone capture](../review/phone-about-back-to-top.png) records the visible control beside the About footer.
 
 The user approved the completed responsive Home and its Desktop works width cap.
 The responsive About page is now implemented at `about.html`.
@@ -432,6 +440,7 @@ Do not resume shell investigation as part of the portfolio work.
 - Home now links normally to `./`.
   Work jumps to projects within Home, as explicitly selected by the user.
   The approved `phone-navigation-menu.mjs` closes the popover when a menu link is chosen;
+  it was renamed to `portfolio-navigation.mjs` on 2026-10-15 when shared back-to-top behavior was added.
   the browser still handles navigation normally.
   It was initially named `phone-navigation-menu.js`,
   then renamed on 2026-10-15 to follow the user's `.mjs` and `type="module"` convention.
