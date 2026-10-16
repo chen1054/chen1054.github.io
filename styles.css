@@ -449,11 +449,19 @@ p {
     inline-size: calc(180rem / 16);
     margin-block: 0;
     margin-inline: 0;
-    &>picture>img {
+    &>picture {
       display: block;
-      inline-size: 100%;
-      block-size: auto;
       aspect-ratio: 3 / 4;
+      &>img {
+        position: relative;
+        inset-block-start: calc(5rem / 16);
+        display: block;
+        inline-size: calc(100% - 14rem / 16);
+        block-size: auto;
+        margin-inline: auto;
+        border-radius: calc(50rem / 16);
+        box-shadow: 0 calc(6rem / 16) calc(5rem / 16) #d9a150;
+      }
     }
     &>figcaption {
       margin-block-start: calc(10rem / 16);
@@ -701,8 +709,11 @@ p {
     margin-block-start: calc(74rem / 16 + 31 * var(--home-wide-reference-growth));
     &>figure {
       inline-size: calc(180rem / 16 + 92 * var(--home-wide-reference-growth));
-      &>picture>img {
+      &>picture {
         aspect-ratio: 34 / 45;
+        &>img {
+          inset-block-start: calc(5rem / 16 - 3 * var(--home-wide-reference-growth));
+        }
       }
       &>figcaption {
         margin-block-start: calc(19rem / 16 + 24 * var(--home-wide-reference-growth));
