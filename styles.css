@@ -510,6 +510,12 @@ p {
   --color-case-study-note: #f3e499;
   --color-case-study-corner-base: #d8d8d7;
   --color-case-study-header-text: var(--color-page-background);
+  --color-case-study-prototype-background: var(--color-case-study-secondary);
+  --color-case-study-prototype-text: var(--color-case-study-accent);
+  --case-study-prototype-hover-chroma: 0.185372;
+  --color-case-study-secondary-prototype-background: var(--color-case-study-secondary);
+  --color-case-study-secondary-prototype-text: var(--color-case-study-accent);
+  --case-study-secondary-prototype-hover-chroma: 0.185372;
   --case-study-corner-accent-mask: url("assets/case-study-phone-corner-accent-mask.svg");
   --case-study-corner-base-mask: url("assets/case-study-phone-corner-base-mask.svg");
   --case-study-preview-aspect-ratio: 258 / 204;
@@ -521,6 +527,12 @@ p {
     --color-case-study-note: var(--color-page-background);
     --color-case-study-corner-base: #ebe4d9;
     --case-study-preview-aspect-ratio: 267 / 178;
+    --color-case-study-prototype-background: var(--color-case-study-accent);
+    --color-case-study-prototype-text: var(--color-page-background);
+    --case-study-prototype-hover-chroma: 0.123646;
+    --color-case-study-secondary-prototype-background: var(--color-case-study-heading);
+    --color-case-study-secondary-prototype-text: var(--color-page-background);
+    --case-study-secondary-prototype-hover-chroma: 0.168313;
   }
   &[data-case-study="scotties"] {
     --color-case-study-accent: #bdca9d;
@@ -532,6 +544,10 @@ p {
     --color-case-study-corner-base: #ebe4d9;
     --color-case-study-header-text: var(--color-case-study-heading);
     --case-study-preview-aspect-ratio: 281 / 199;
+    --color-case-study-prototype-text: var(--color-case-study-heading);
+    --case-study-prototype-hover-chroma: 0.079444;
+    --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
+    --case-study-secondary-prototype-hover-chroma: 0.079444;
   }
 }
 .case-study-content {
@@ -718,28 +734,39 @@ h4.case-study-subheading {
 .case-study-trust-speech-bubble,
 .case-study-scotties-challenge-bubble,
 .case-study-scotties-positioning-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-width: 0;
   border-radius: 0;
   background-color: transparent;
   background-size: 100% 100%;
-  padding-block: calc(50rem / 16);
-  padding-inline: calc(45rem / 16);
+  padding-block: calc(32rem / 16 + 18 * var(--home-wide-reference-growth));
+  padding-inline: calc(24rem / 16 + 21 * var(--home-wide-reference-growth));
 }
 .case-study-spiral-notepad {
+  aspect-ratio: 486 / 347;
+  padding-block-start: calc(60rem / 16);
   background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
 }
 .case-study-play-speech-bubble {
+  aspect-ratio: 411 / 392;
+  text-align: center;
   background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
 }
 .case-study-trust-speech-bubble {
+  aspect-ratio: 413 / 415;
+  text-align: center;
   background-image: url("assets/tales-trust-insight-speech-bubble-background.svg");
 }
 .case-study-scotties-challenge-bubble {
+  aspect-ratio: 552 / 451;
   max-inline-size: calc(552rem / 16);
   margin-inline: auto;
   background-image: url("assets/scotties-core-challenge-speech-bubble.svg");
 }
 .case-study-scotties-positioning-note {
+  aspect-ratio: 451 / 290;
   max-inline-size: calc(451rem / 16);
   margin-inline: auto;
   background-image: url("assets/scotties-community-positioning-note-background.svg");
@@ -836,21 +863,23 @@ h4.case-study-subheading {
   padding-block: calc(8rem / 16);
   padding-inline: calc(24rem / 16);
   border-radius: 3rem;
-  background-color: var(--color-case-study-heading);
-  color: var(--color-page-background);
+  background-color: var(--color-case-study-prototype-background);
+  color: var(--color-case-study-prototype-text);
   font-family: "Abril Fatface", serif;
   font-size: calc(16rem / 16);
   text-align: center;
   text-decoration: none;
   &:hover {
-    background-color: var(--color-case-study-accent);
+    background-color: oklch(
+      from var(--color-case-study-prototype-background)
+      l var(--case-study-prototype-hover-chroma) h
+    );
   }
 }
 .case-study-secondary-prototype-link {
-  background-color: var(--color-case-study-accent);
-  &:hover {
-    background-color: var(--color-case-study-heading);
-  }
+  --color-case-study-prototype-background: var(--color-case-study-secondary-prototype-background);
+  --color-case-study-prototype-text: var(--color-case-study-secondary-prototype-text);
+  --case-study-prototype-hover-chroma: var(--case-study-secondary-prototype-hover-chroma);
 }
 .case-study-content>header>.case-study-project-summary>.case-study-flex-row {
   gap: calc(12rem / 16);
@@ -934,6 +963,12 @@ h4.case-study-subheading {
   }
 }
 @media(width>=40rem) {
+  .case-study-project-summary {
+    &>h1,
+    &>h2 {
+      text-align: start;
+    }
+  }
   :root {
     /* One reference pixel of growth between the supplied 744px and 1440px layouts. */
     --home-wide-reference-growth: clamp(0rem, calc((100cqw - 744rem / 16) / 696), calc(1rem / 16));
