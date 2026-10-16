@@ -194,11 +194,14 @@ The extracted skating SVG still contained the original full-page mask,
 its image references, and both color-to-alpha filters.
 The deciding rendering or export cause was not established.
 
-The final gallery uses unscaled, rectangular crops of the supplied Phone and Desktop PNGs.
+The intermediate gallery used unscaled, rectangular crops of the supplied Phone and Desktop PNGs.
 These retain the original photograph, corner shape, and gold-shadow pixels together.
 Native canvas copied the reference pixels into locally hosted PNG files;
 no replacement shadow was invented.
 The private `preserve-about-reference-photo-frames` task reproduces those crops.
-Portrait and separate decorative wave components remain original SVG artwork.
+The user subsequently required PNG photographs and CSS `box-shadow` for the gallery gold effect.
+The final implementation rasterizes photo-only source groups into PNGs,
+and applies one shared CSS rule for corners and the gold shadow.
+The portrait is also PNG; decorative wave components remain separate SVGs.
 
 No upstream defect has been established or reported.

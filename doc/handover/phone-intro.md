@@ -661,6 +661,18 @@ Images decoded successfully; browser page-error and console collections were emp
   The shared wide layout uses the existing 40rem breakpoint;
   the interests gallery wraps naturally where a single row does not fit.
   No new JavaScript, npm dependency, grid, or third-party request is introduced.
-- Next action: verify About and Home across phone, intermediate, Tablet, and Desktop widths;
+- The user clarified that all About photographs must be PNG files,
+  and gallery gold shadows must use CSS `box-shadow`.
+  This supersedes the intermediate SVG-photo and shared-shadow-SVG proposals.
+  Photo-only PNGs now come from the original PDF image groups without gold shadows.
+  The shared gallery rule supplies the original gold tone, rounded corners, and `box-shadow`.
+  The garden portrait is also PNG, retaining its supplied gray frame.
+  The private `rasterize-about-photographs` task reproduces these PNGs from source-only SVG intermediates.
+- The completed width matrix covered 320, 390, 414, 600, 624, 625, 640, 744, 1024, 1440, 1920, and 2560 pixels.
+  Before the CSS-shadow correction, no overflow, image decode failure, external resource, or undersized target occurred.
+  The overflow probe passed its injected-overflow positive control.
+  Phone, Tablet, and Desktop heights were 3601, 2774, and 3254 pixels.
+  Home also passed the 390, 744, 1440, and 1920 pixel regression checks.
+- Next action: reverify the corrected PNG photos and CSS shadows at representative widths;
   exercise navigation and CV links, hover/focus, both color preferences,
   and prepare matching-scale reference comparisons before closing the private browser.

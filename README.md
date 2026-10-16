@@ -20,7 +20,7 @@ The content and navigation are shared, and responsive behavior adds no JavaScrip
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
 The portfolio loads no third-party resources.
-The About link and all six case-study links temporarily navigate to `https://example.com`,
+All six case-study links temporarily navigate to `https://example.com`,
 as requested.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
 retaining the original lightness and hue components and shadows.
@@ -30,14 +30,15 @@ The hamburger opens the supplied phone navigation menu using a native popover.
 Its close button, Escape, and outside clicks dismiss it.
 The approved local `phone-navigation-menu.mjs` module closes it when a link is selected.
 Home returns to the homepage; Work jumps to the first project.
-About and Contact temporarily open `https://example.com`.
+About opens `about.html`; Contact temporarily opens `https://example.com`.
 The phone menu has been reviewed and accepted.
 The About page is available at `about.html`,
 and Home's About links now open it.
 It reuses the navigation, shared stylesheet, fonts, and existing responsive breakpoint.
 The original portrait appears on phone too, as confirmed by the user.
 Biography text remains live HTML;
-gallery photographs and gold shadows are preserved directly from the supplied reference PNGs.
+photographs are local PNG files extracted from the supplied artwork.
+One shared CSS rule gives gallery photographs their rounded corners and gold `box-shadow`.
 “View My CV” opens the locally hosted résumé PDF.
 Contact and case-study pages belong to later work.
 
