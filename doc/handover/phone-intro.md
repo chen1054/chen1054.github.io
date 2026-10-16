@@ -30,11 +30,23 @@ Scotties' mobile buttons passed exact DOM comparisons and native navigation.
 The user supplied `https://capable-fudge-8eb7a9.netlify.app/` for Tales' Launch Doodle Demo;
 the button now uses that exact address.
 Every requested destination has been supplied and connected.
-Ask each separately.
-Keep previously approved placeholders until exact destinations are supplied.
+The Doodle Demo native click reached the supplied URL with title `Doodle Widget`.
+The final headed-browser audit covered all 64 anchors across the six HTML pages.
+It found no placeholder URL, missing local page, or missing fragment target.
+Injected nonexistent page and fragment URLs were detected by the audit's positive controls.
+All eight Figma prototype anchors matched the supplied URLs exactly;
+native clicks exercised each distinct prototype destination.
+`rg` also found no `example.com` URL in production HTML.
+Browser page errors were empty on the local pages.
+These changes only replace destinations; no CSS, JavaScript, dependency, or external embed was added.
+The destination work is complete, with nothing queued.
 Both new Home PDF links passed native clicks in headed `agent-browser`;
 their final local URLs and `application/pdf` document types were confirmed.
 `36e44c9` connects the PDFs and updates the README.
+`ca09c8d` connects Youth in Limbo;
+`1a0e06e` and `d17e942` connect MenuMe's prototypes;
+`19f4ae0` and `9e1eb30` connect Scotties' prototypes;
+`a4e465d` connects Tales' Doodle Demo.
 Proposed clarification of the existing question-batching guidance in `AGENTS.md`:
 put independently answerable questions in separate question items, never one combined answer field.
 
