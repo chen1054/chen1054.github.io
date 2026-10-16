@@ -28,9 +28,9 @@ The user then clarified that river pixels must fade gradually instead of appeari
 The attempted moving alpha gradient remains in the preview,
 but the user explicitly rejected a feathered edge.
 Pause animation implementation and discuss the intended effect fully before making another change.
-The pending question asks whether the artwork itself travels from the left
-or stays at its final position throughout the entrance.
-Discuss opacity separately after settling that movement question.
+The user confirmed the artwork must stay at its final position throughout the entrance.
+The pending opacity question asks whether each piece fades uniformly as a whole
+or its left side begins appearing before its right side.
 The intended replacement effect is unresolved; do not infer it from the rejection.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
