@@ -2,6 +2,11 @@
 
 ## Current state
 
+The user requested connecting all available destinations.
+All implemented pages are already connected through navigation and Home's implemented-project links.
+Current work: audit remaining `example.com` links against the supplied PDFs and local project documents,
+connect exact supplied destinations, and ask only for destinations still absent from the materials.
+
 Contact and the Home button-alignment correction are implemented and verified.
 The user additionally requested fixing text centering in Home's buttons.
 Headed-browser font-ink measurements against the SVG's actual painted bounds
