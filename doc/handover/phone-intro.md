@@ -699,5 +699,10 @@ Images decoded successfully; browser page-error and console collections were emp
   [Tablet](../review/tablet-about-responsive-reference-comparison.svg),
   and [Desktop](../review/desktop-about-responsive-reference-comparison.svg).
   The Phone implementation includes the explicitly requested portrait absent from its export.
-- Next action: render and inspect updated documentation, close the owned browser/compositor,
-  and leave the Python preview available for the user's About review.
+- `46518f9` records the final browser evidence and matching-scale About comparisons.
+  Updated README, handover, and troubleshooting documentation passed a rendered browser check.
+  The owned headed browser was closed with `agent-browser close`;
+  its Chromium process and nested compositor then exited successfully.
+  The Python preview remains available at `http://localhost:4173/about.html`.
+- About is ready for the user's review.
+  Contact and case-study pages await later instructions and supplied materials.
