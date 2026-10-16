@@ -7,10 +7,18 @@ All implemented pages are already connected through navigation and Home's implem
 The supplied local Matcha Delight and Echoes of Tradition PDFs are now connected from Home.
 `pdfinfo -url` inspected every Phone, Tablet, Desktop, and root project PDF;
 only Contact and the resume contained email links, with no prototype or demo destinations.
-The user has been asked for Youth in Limbo, MenuMe mobile/tablet,
-Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations.
-Keep their previously approved placeholders until exact destinations are supplied.
-Next: browser-check the new local PDF links and finish the documentation update.
+The first destination question incorrectly bundled separate questions into one field;
+the user rejected that format.
+Ask each missing destination separately.
+The current pending question asks only where Youth in Limbo's case-study button should open.
+MenuMe mobile/tablet, Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations
+also remain missing; ask them separately after resolving the current item.
+Keep previously approved placeholders until exact destinations are supplied.
+Both new Home PDF links passed native clicks in headed `agent-browser`;
+their final local URLs and `application/pdf` document types were confirmed.
+`36e44c9` connects the PDFs and updates the README.
+Proposed clarification of the existing question-batching guidance in `AGENTS.md`:
+put independently answerable questions in separate question items, never one combined answer field.
 
 Contact and the Home button-alignment correction are implemented and verified.
 The user additionally requested fixing text centering in Home's buttons.
