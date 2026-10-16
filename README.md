@@ -40,4 +40,5 @@ shows the supplied and implemented 97-pixel panels beside each other.
 The [Tablet comparison](doc/review/tablet-home-responsive-reference-comparison.svg)
 and [Desktop comparison](doc/review/desktop-home-responsive-reference-comparison.svg)
 show the supplied references beside the responsive implementation at matching scale.
-These comparisons crop the implementation's scrollbar without resizing the content.
+The full-page captures already omit the scrollbar;
+the comparisons retain their native pixel dimensions.

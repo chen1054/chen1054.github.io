@@ -7,8 +7,9 @@ including all six projects and the footer.
 The user waived further Home section reviews.
 The user accepted the sRGB-safe hover state and requested the phone menu.
 The user accepted the phone menu: “Okay, it works great.”
-The active task is adapting Home to the supplied Tablet and Desktop designs.
-Reference inspection has started; responsive implementation has not yet changed the site.
+Home now adapts to the supplied Tablet and Desktop designs
+with one 40rem breakpoint and shared fluid sizing.
+The responsive implementation and headed-browser checks are complete.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -138,7 +139,8 @@ records the supplied design and implementation at matching 390-pixel widths.
 
 - Home content is complete and the user accepted its hover behavior.
 - The menu is implemented and accepted by the user.
-- Adapt Home to Tablet and Desktop with minimum code first and minimum breakpoints second.
+- Home adaptation to Tablet and Desktop is complete.
+  Minimum code remains the first priority and minimum breakpoints the second.
 - About and Contact pages and their final destinations remain deferred.
   Case studies still use the approved temporary `https://example.com` destination.
 - Ask for missing original materials instead of inventing replacements.
@@ -423,7 +425,7 @@ Do not resume shell investigation as part of the portfolio work.
   `e564216` corrects the comparison crop without scaling the source.
   The user accepted the menu and authorized Tablet and Desktop adaptation.
 
-## Tablet and Desktop adaptation in progress
+## Tablet and Desktop adaptation and verification
 
 - Both supplied PNGs have been opened and inspected.
   Both PDFs have been converted to SVG and positional text in the existing private scratch directory,
@@ -497,9 +499,18 @@ Do not resume shell investigation as part of the portfolio work.
   Browser errors and console messages were empty after the interaction checks.
 - Saved fresh Phone, Tablet, and Desktop captures in `doc/review/responsive-*-home-implementation.png`.
   The original wide PNG references are preserved in `doc/reference/`.
-  The Tablet and Desktop responsive comparison SVGs show reference and implementation at matching scale,
-  cropping only the implementation's 15-pixel scrollbar.
+  The Tablet and Desktop responsive comparison SVGs show reference and implementation at matching scale.
+  Full-page browser captures already omit the scrollbar:
+  their native dimensions are 744 by 3302 and 1440 by 5685 pixels.
+  An initial comparison incorrectly declared the outer viewport widths;
+  the corrected image dimensions preserve the native capture scale.
   Reference is on the left; implementation is on the right.
+- Compared the fresh Phone capture with the historical accepted capture over 1980030 pixels.
+  There were 499 changed pixels, all within the header floral artwork
+  at x 171 to 210 and y 55 to 108.
+  Every other compared pixel was identical.
+  The cause of that localized raster difference was not investigated;
+  the source phone SVG and its dimensions remain unchanged.
 - Implementation commits include `f881ac5` for original wide artwork,
   `2a1da60` for shared markup,
   `fdfe88f` for the responsive layout,

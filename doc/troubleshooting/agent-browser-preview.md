@@ -143,3 +143,17 @@ The overflow check was validated by temporarily inserting a block
 100 pixels wider than the document and observing horizontal overflow,
 then removing it before the real measurements.
 No upstream defect is established by these measurements.
+
+## Full-page capture dimensions
+
+In the responsive run,
+`agent-browser screenshot --full` produced a 744 by 3302 PNG
+from the 759 by 1024 outer viewport,
+and a 1440 by 5685 PNG from the 1455 by 1080 outer viewport.
+Both the `file` command and browser image decoding confirmed those dimensions.
+These full-page captures already omit the measured 15-pixel scrollbar.
+
+The initial comparison SVGs declared the outer viewport widths for those PNGs,
+which scaled the implementation images before clipping them.
+The corrected comparisons declare each PNG's native width and height.
+Read actual capture dimensions before embedding screenshots in comparisons.
