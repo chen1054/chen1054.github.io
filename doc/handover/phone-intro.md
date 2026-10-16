@@ -449,8 +449,10 @@ Do not resume shell investigation as part of the portfolio work.
   Sizes and spacing interpolate between the 744-pixel and 1440-pixel references.
   Use the original Desktop wide decoration paths as the shared wide artwork,
   preserving separate elements for wave components.
-- Next action: extract the shared wide decorations,
-  wrap the existing project text without duplication,
+- Extracted the original Desktop corner art, floral logo,
+  introduction wave components, and footer wave components into separate `assets/home-wide-*.svg` files.
+  Original paths, embedded images, masks, and clipping definitions are retained.
+- Next action: wrap the existing project text without duplication,
   and implement the single responsive CSS block.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
