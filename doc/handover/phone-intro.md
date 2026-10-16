@@ -467,6 +467,9 @@ Do not resume shell investigation as part of the portfolio work.
   Measured the shared Tablet layout at 744 pixels after spacing calibration:
   page height is 3302 pixels, matching the supplied reference height.
   Desktop calibration and cross-width interaction checks are still in progress.
+- The first 640-pixel viewport capture exposed Scotties and Matcha artwork overlapping text.
+  Capped illustration frames according to their measured internal margins and the fluid column gap.
+  This keeps original artwork inside the available image area without another breakpoint.
 - Next action: finish the headed-browser width and interaction checks,
   save matching-scale reference comparisons,
   and update this handover with the final evidence.
