@@ -1,0 +1,47 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="780"
+  height="5109"
+  viewBox="0 0 780 5109"
+  role="img"
+  aria-labelledby="phone-home-reference-comparison-title"
+>
+  <title id="phone-home-reference-comparison-title">Supplied phone Home reference and implemented page</title>
+  <rect
+    width="780"
+    height="5109"
+    fill="white"
+  />
+  <g
+    font-family="sans-serif"
+    font-size="16"
+  >
+    <text
+      x="12"
+      y="22"
+    >Supplied reference</text>
+    <text
+      x="402"
+      y="22"
+    >Implementation</text>
+  </g>
+  <image
+    href="../reference/phone-home.png"
+    y="32"
+    width="390"
+    height="5077"
+  />
+  <svg
+    x="390"
+    y="32"
+    width="390"
+    height="5077"
+    viewBox="0 0 390 5077"
+  >
+    <image
+      href="phone-home-implementation.png"
+      width="390"
+      height="5200"
+    />
+  </svg>
+</svg>
