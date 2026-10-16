@@ -1,4 +1,4 @@
-# Phone Home implementation handover
+# Responsive Home implementation handover
 
 ## Current state
 
@@ -6,7 +6,9 @@ The full phone Home page is implemented,
 including all six projects and the footer.
 The user waived further Home section reviews.
 The user accepted the sRGB-safe hover state and requested the phone menu.
-The phone menu is implemented and ready for its separate review.
+The user accepted the phone menu: “Okay, it works great.”
+The active task is adapting Home to the supplied Tablet and Desktop designs.
+Reference inspection has started; responsive implementation has not yet changed the site.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -26,11 +28,11 @@ records the supplied design and implementation at matching 390-pixel widths.
   The user accepted the artwork correction and then authorized the Tales section.
 - The user accepted Tales and authorized the complete Home page.
   Implement the remaining project sections and footer without section review checkpoints.
-  The menu still requires a separate review.
+  The menu subsequently passed its separate user review.
 - All six case-study links temporarily open `https://example.com`,
   explicitly confirmed by the user for the remaining five buttons.
 - The initial hamburger preview has been replaced with the requested functional menu.
-  The menu still requires its separate user review.
+  The user accepted that menu implementation.
 - The About link temporarily opens `https://example.com`,
   explicitly confirmed by the user after requesting a link styled as a button.
 - The initial hover request increased OKLCH chroma by 10%.
@@ -49,6 +51,9 @@ records the supplied design and implementation at matching 390-pixel widths.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
   Ask before introducing a substantial amount of code.
+- The next priority is the minimum number of responsive breakpoints.
+  Aim for zero if possible, but do not add more code merely to eliminate a breakpoint.
+  Adapt Home to the original Tablet and Desktop references while preserving the accepted phone version.
 - Keep this handover updated in the portfolio repository.
 - Use `agent-browser` in headed mode for this project for the rest of this session.
 - Command invocations no longer need `TOKIO_WORKER_THREADS`.
@@ -93,6 +98,9 @@ records the supplied design and implementation at matching 390-pixel widths.
 ## Source evidence
 
 - `../Phone/Home.png` and `../Phone/Home.pdf` measure 390 by 5077.
+- `../Tablet/Home.png` measures 744 by 3302 pixels.
+  `../Desktop/Home.png` measures 1440 by 5660 pixels.
+  Both have matching supplied PDFs.
 - The PDF preserves exact artwork and measurable text positions.
 - `../Website (Copy).fig` identifies Abril Fatface Regular for intro headings
   and Playfair Display Bold for the paragraph.
@@ -129,7 +137,8 @@ records the supplied design and implementation at matching 390-pixel widths.
 ## Work remaining
 
 - Home content is complete and the user accepted its hover behavior.
-- The menu is implemented and awaits its separate user review.
+- The menu is implemented and accepted by the user.
+- Adapt Home to Tablet and Desktop with minimum code first and minimum breakpoints second.
 - About and Contact pages and their final destinations remain deferred.
   Case studies still use the approved temporary `https://example.com` destination.
 - Ask for missing original materials instead of inventing replacements.
@@ -410,5 +419,28 @@ Do not resume shell investigation as part of the portfolio work.
   shows how the white panel overlays Home.
 - The comparison crops the supplied image's 97-pixel white panel from its full 101-pixel export;
   it does not resize the reference into a narrower image box.
-- Next action: user reviews the menu's layout and behavior at `http://localhost:4173/`.
-  Menu approval has not yet been given.
+- `3d308f0` records the review artifacts and browser verification.
+  `e564216` corrects the comparison crop without scaling the source.
+  The user accepted the menu and authorized Tablet and Desktop adaptation.
+
+## Tablet and Desktop adaptation in progress
+
+- Both supplied PNGs have been opened and inspected.
+  Both PDFs have been converted to SVG and positional text in the existing private scratch directory,
+  `~/temp/agent/portfolio-intro/`.
+  Its `inspect-wide-home-designs` task reproduces that extraction.
+- The wider references use inline navigation and alternating image/text project columns.
+  Their intro and footer wave compositions differ from Phone.
+  Tablet and Desktop share the overall layout pattern but differ in sizes and spacing.
+- The current page still has phone-specific forced text lines,
+  full-width artwork frames, project-side waves, and per-project vertical offsets.
+  Inspect which assets and markup can be reused before adding responsive rules or extracting replacements.
+- No breakpoint count or new implementation approach has been committed to yet.
+  Prefer shared fluid sizing and intrinsic layout.
+  If a breakpoint keeps the implementation shorter, minimum code takes precedence over zero breakpoints.
+- Next action: finish measuring the wide references and choose the smallest shared implementation.
+  Ask before introducing a substantial amount of code,
+  and ask for missing materials instead of approximating artwork.
+  Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
+- No browser or nested compositor is currently running for this task.
+  The existing Python preview remains the site server at `http://localhost:4173/`.
