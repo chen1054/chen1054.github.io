@@ -2,7 +2,10 @@
 
 ## Current state
 
-Contact is now authorized and in progress.
+Contact is implemented; final documentation and browser cleanup remain.
+The user additionally requested fixing text centering in Home's buttons.
+Next after Contact verification: measure text against the actual painted button backgrounds,
+correct the shared alignment with minimum CSS, and verify Home at Phone and wide widths.
 Use Phone/Contactphone, Tablet/Contracttablet, and Desktop/Contactdesktop PNG/PDF designs.
 The user supplied the Tablet files during implementation; the `Contracttablet` spelling is intentional here.
 The user approved `contact.html`, shared form CSS, separate original wave components,
@@ -31,18 +34,18 @@ The form reuses the existing gold button artwork and sRGB-safe hover behavior.
 The initial implementation added no script;
 hCaptcha now requires the approved provider scripts and a local validation module.
 No npm dependency or breakpoint was added.
-Phone and Tablet page heights measure 1467 and 1056 pixels at their reference widths;
+Before adding hCaptcha, Phone and Tablet page heights measured 1467 and 1056 pixels;
 Desktop measures 2118 pixels against a 2114-pixel reference.
 Local validation passed: empty submission focuses Name;
 invalid email focuses Email and prevents navigation; blank Phone is valid.
 The Send button has a visible 2-pixel keyboard focus outline and its approved gold hover state.
 All five existing phone menus opened the new Contact page through native clicks.
-The form fits the tested 320 to 2560 pixel widths, with decoded images,
-no horizontal overflow, 48-pixel minimum form targets, and no third-party resource requests.
+Before hCaptcha, the form fit tested 320 to 2560 pixel widths, with decoded images,
+no horizontal overflow, 48-pixel minimum form targets, and no third-party requests.
 Phone fields remain stacked through the existing navigation breakpoint;
 wide flexbox columns appear when the supplied field widths fit.
 Both color preferences preserve the original light design and readable field colors.
-Browser error and console collections were empty after local checks.
+Browser error and console collections were empty before provider scripts were added.
 Matched-scale reference comparisons are private `contact-{phone,tablet,desktop}-comparison.svg/png`
 files in `${HOME}/temp/agent/portfolio-intro/`.
 Live test status: the native Send click reached Web3Forms,
@@ -50,11 +53,25 @@ which returned HTTP 400 and `hCaptcha Token is mandatory for this form`.
 No successful delivery is claimed.
 The subject is `[TEST] Portfolio contact form verification`,
 the email is `rainbowchen.ccc@gmail.com`, and Phone is empty to exercise its optional status.
-The provider explicitly rejected the attempt, so the authorized successful test remains outstanding.
-On continuation, inspect current browser evidence before retrying;
-an interrupted response must not produce a duplicate email.
-Next: verify the approved hCaptcha integration and missing-captcha validation,
-then finish the authorized test if a valid human challenge response is available.
+The compact hCaptcha widget now renders at 158 by 138 pixels.
+The plain `localhost` preview displays the provider's invalid-host warning;
+`http://portfolio.localhost:4173/contact.html` loads without that warning
+and opens a real challenge when its checkbox is selected.
+The user was asked to send the authorized test there and replied `Sent`.
+Treat that send as completed; do not send another test.
+The agent did not inspect the user's confirmation page or inbox.
+After hCaptcha, checks at 320, 390, 414, 624, 625, 640, 744,
+1024, 1440, 1920, and 2560 pixel content widths found no horizontal overflow,
+undecoded images, or form controls smaller than 48 pixels.
+Post-widget heights are 1647, 1218, and 2336 pixels at 390, 744, and 1440 pixels.
+The widget adds form content absent from the supplied references.
+The local validation module blocked an empty captcha response.
+A disposable form fixture exercised both empty and nonempty response branches,
+with a final submit-event sink preventing every fixture submission.
+No synthetic token was submitted to Web3Forms.
+The live form was untouched by that fixture.
+Browser errors remained empty; the provider logged `recaptchacompat disabled` informational messages.
+See `doc/troubleshooting/web3forms-hcaptcha.md` for the rejection and local-host evidence.
 
 The user reported text crossing the Trust speech bubble's inner edge on Desktop.
 The previous rectangular overflow checks missed text crossing a painted curved boundary.

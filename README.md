@@ -5,6 +5,8 @@ based on the supplied Phone, Tablet, and Desktop designs.
 Home includes all six projects and the footer.
 Run `mise run preview` and visit `http://localhost:4173`.
 There is no install or build step.
+For Contact's captcha, use `http://portfolio.localhost:4173/contact.html`;
+hCaptcha warns on the plain `localhost` hostname.
 
 The text is HTML.
 All pages share `styles.css`.
@@ -67,6 +69,8 @@ Successful submissions use Web3Forms' hosted confirmation page.
 The supplied key requires hCaptcha.
 The user approved its vendor `.js` scripts as an exception to the module/`.mjs` rule.
 A local `contact-form-captcha-validation.mjs` module prevents submission without a captcha response.
+The user reported sending the authorized test after hCaptcha was added.
+See [the hCaptcha integration notes](doc/troubleshooting/web3forms-hcaptcha.md) for verification boundaries.
 No npm dependencies or new breakpoints are needed.
 The email address and its link both use `rainbowchen.ccc@gmail.com`, as confirmed by the user.
 See [Web3Forms' native form documentation](https://docs.web3forms.com/getting-started/examples/basic-html-contact-form)
