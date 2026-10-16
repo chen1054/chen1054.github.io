@@ -16,8 +16,11 @@ Its native Home click reached `Xinyan Chen - Youth in Limbo` at the supplied add
 The user also supplied MenuMe's mobile Figma prototype URL,
 with file key `Oh9hv42a7JEVUvOaI8bIx5` and starting node `1168:21146`.
 Both mobile prototype buttons now use that exact URL, with HTML-escaped query separators.
-MenuMe mobile/tablet, Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations
-also remain missing; ask them separately after resolving the current item.
+MenuMe's mobile URL passed exact DOM comparisons on both buttons and a native navigation.
+The user supplied its tablet URL with starting node `393:4957` and page `393:4524`;
+both tablet buttons now use that exact address too.
+Next missing destination: Scotties desktop prototype, then Scotties mobile and Tales' Doodle Demo.
+Ask each separately.
 Keep previously approved placeholders until exact destinations are supplied.
 Both new Home PDF links passed native clicks in headed `agent-browser`;
 their final local URLs and `application/pdf` document types were confirmed.
