@@ -495,9 +495,20 @@ Do not resume shell investigation as part of the portfolio work.
 - Both light and dark preferences retained the accepted white reference presentation.
   The Home resource list contained no third-party requests.
   Browser errors and console messages were empty after the interaction checks.
-- Next action: save matching-scale reference comparisons,
-  render the updated documentation,
-  and close the private verification browser.
+- Saved fresh Phone, Tablet, and Desktop captures in `doc/review/responsive-*-home-implementation.png`.
+  The original wide PNG references are preserved in `doc/reference/`.
+  The Tablet and Desktop responsive comparison SVGs show reference and implementation at matching scale,
+  cropping only the implementation's 15-pixel scrollbar.
+  Reference is on the left; implementation is on the right.
+- Implementation commits include `f881ac5` for original wide artwork,
+  `2a1da60` for shared markup,
+  `fdfe88f` for the responsive layout,
+  `ad6351b` for narrow-wide artwork clearance,
+  and `0272584` for the matching-scale captures.
+- The Home responsive scope is implemented and verified.
+  No additional Home review is required by the user's instruction.
+  Future page work still needs its supplied materials and destinations.
+- Next action: render the updated documentation and close the private verification browser.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
