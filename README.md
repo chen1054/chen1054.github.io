@@ -1,6 +1,6 @@
 # Xinyan Chen portfolio
 
-Phone Home preview through “Tales For Safer Trails”,
+Phone Home implementation with all six projects and the footer,
 based on the supplied `Phone/Home` design.
 Open `index.html` directly or run `mise run preview` and visit `http://localhost:4173`.
 There is no install or build step.
@@ -12,15 +12,16 @@ Each decorative wave component is its own SVG asset and HTML image.
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
 The portfolio loads no third-party resources.
-The Tales case-study link temporarily navigates to `https://example.com`,
+All six case-study links temporarily navigate to `https://example.com`,
 as requested.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.
 
 Menu and About controls are disabled for this agreed visual preview.
-Further project sections and navigation will follow after review and further supplied material.
+The menu has its own review step.
+The About destination and case-study pages belong to later work.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
 and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)
 for the original layout.
-The [reference comparison](doc/review/home-introduction-and-tales-for-safer-trails-reference-comparison.svg)
-shows the implemented section beside the supplied design at matching scale.
+The [full Home comparison](doc/review/phone-home-reference-comparison.svg)
+shows the implemented page beside the supplied design at matching scale.

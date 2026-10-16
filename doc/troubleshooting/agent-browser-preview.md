@@ -63,3 +63,24 @@ Nothing fileable is established.
 No upstream issue or comment was drafted or sent.
 Codex integration investigation is also excluded by the workspace's
 `Monochromatic/.out-of-scope/codex-harness.md` policy.
+
+## Later successful verification
+
+A fresh headed Chromium process subsequently completed the intro,
+Tales, and full Home checks through the same CDP port and private profile.
+This is evidence from a new run;
+it does not identify the cause of the earlier unresponsive session.
+
+The full Home capture uses a 390 by 5200 viewport,
+which fits its 5077-pixel page height without a vertical scrollbar.
+Shorter Linux Chromium viewports had a measured 15-pixel scrollbar.
+For 320 and 414-pixel content-width checks,
+the outer viewport widths were 335 and 429 pixels respectively.
+Read `document.documentElement.clientWidth` before reporting the tested width.
+
+The fresh run verified all images,
+scrolling, pointer and keyboard navigation,
+focus outlines, both color preferences,
+and the absence of page errors and external Home resource loads.
+The durable results are recorded in the
+[Home handover](../handover/phone-intro.md).

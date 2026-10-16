@@ -1,5 +1,18 @@
 # Phone Home implementation handover
 
+## Current state
+
+The full phone Home page is implemented,
+including all six projects and the footer.
+The user waived further Home section reviews.
+The menu remains a separate implementation and review step;
+the hamburger and About control retain their agreed disabled preview state.
+
+Python serves the preview at `http://localhost:4173/`.
+The user opens it themselves.
+The [full reference comparison](../review/phone-home-reference-comparison.svg)
+records the supplied design and implementation at matching 390-pixel widths.
+
 ## Agreed scope
 
 - The first step implemented the intro from `../Phone/Home.png`,
@@ -99,9 +112,9 @@
   followed by another section review.
   The user authorized implementation with “Do it.”
   That section and its following decorative wave are now implemented.
-- Complete MenuMe, Scotties, Matcha Delight,
-  Echoes of Tradition, Faces of the Future,
-  Youth in Limbo, and the footer from the supplied Home reference.
+- Home content is complete.
+  The remaining phone navigation work is the menu,
+  which requires a separate review using `../Phone/Side menu.png` and its PDF.
 - The Tales “View case study” link opens `https://example.com` for now,
   as explicitly requested by the user.
   This is a navigation destination, not an externally loaded page asset.
@@ -124,7 +137,7 @@ Cropping at the outer frame remains part of the supplied composition.
 Future phone checks must compare artwork bounds with viewport bounds,
 including a phone wider than the 390-pixel reference.
 
-## Verification status
+## Earlier intro verification
 
 - `db85d14` removes the 390-pixel width cap.
   The user confirmed that correction works in their preview.
@@ -185,3 +198,51 @@ A fresh login-shell command was quiet after that change.
 The durable replacement is tracked in
 [Monochromatic issue #994](https://github.com/Aquaticats/Monochromatic/issues/994).
 Do not resume shell investigation as part of the portfolio work.
+
+## Full Home implementation and verification
+
+- `5428c4b` records the full Home authorization and placeholder destinations.
+- `1b5b03e` extracts the remaining original project illustrations,
+  each separate wave component,
+  and the standard-width case-study button background.
+- `3a379cf` completes MenuMe, Scotties, Matcha Delight,
+  Echoes of Tradition, Faces of the Future,
+  Youth in Limbo, and the footer.
+  It adds 341 HTML and CSS lines using the existing shared section pattern.
+  There is no JavaScript, new font, dependency, or component framework.
+- Source wording remains intact,
+  including `DesignSurrealist Poster Design`,
+  `Ontario,where`, and `Wireframing,Prototyping,`.
+  Leading and trailing export spaces are omitted.
+- The footer preserves the supplied 2026 copyright.
+  CSS spacing separates the creation-tool and copyright text;
+  no whitespace entities are needed.
+- At a measured 390-pixel content width,
+  the page is exactly 5077 pixels tall.
+  Case-study link top positions are 1448, 2071, 2729, 3397, 4128, and 4800 pixels,
+  matching the original PDF.
+- Headed Chromium verified 320, 390, and 414-pixel content widths.
+  All 26 HTML images loaded and filled the content width.
+  The page had no horizontal overflow at those widths.
+- All six links have distinct accessible names,
+  a 48-pixel minimum height,
+  and at least a 144-pixel width.
+  Tab visited every link in document order with a visible 2-pixel outline.
+  Hit testing confirmed decorative layers do not intercept the links.
+- Hover and pointer activation were exercised for every case-study link.
+  Every activation navigated to `https://example.com/`.
+  Enter also activated the final link successfully.
+- Both light and dark preferences retained the supplied white design.
+  The initial Home document recorded 32 same-origin resource loads
+  and no external resource loads.
+  Both supplied local font faces loaded.
+  Browser page-error and console-message collections were empty.
+- `5da1d6e` commits the full capture,
+  an unchanged copy of the supplied Home PNG,
+  and their comparison.
+  The project artwork, spacing, and footer were inspected in the running comparison
+  at matching scale.
+- Linting and formatting tools were not run,
+  as the user instructed.
+  Source line breaks, fractional rem calculations,
+  descriptive names, and selector nesting were followed manually.
