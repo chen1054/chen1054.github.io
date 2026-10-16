@@ -326,7 +326,40 @@ Do not resume shell investigation as part of the portfolio work.
   Tab still visited all seven anchors with visible 2-pixel focus rings.
   Light and dark preferences retained the supplied white layout.
   Browser error and console collections were empty, with no external Home resource loads.
-- Current captures show the [About hover](../review/home-about-link-maximum-chroma-hover.png),
+- The 100% preview captures show the [About hover](../review/home-about-link-maximum-chroma-hover.png),
   [Tales hover](../review/home-tales-case-study-maximum-chroma-hover.png),
   and [standard-width hover](../review/home-standard-case-study-maximum-chroma-hover.png).
   The initial 10% captures remain historical evidence.
+
+## Maximum sRGB-safe hover chroma
+
+- The user requested the maximum chroma safe for sRGB,
+  then explicitly waived image inspection for this deterministic adjustment.
+  No screenshots were captured or viewed for this change.
+- `b4f45ef` replaces the 100% setting with measured chroma limits.
+  `39949d8` corrects the gold limit using the actual SVG `currentColor` conversion.
+  The final fill rules are `oklch(from currentColor l 0.259833 h)` for purple
+  and `oklch(from currentColor l 0.146646 h)` for both gold widths.
+  There is no runtime calculation, JavaScript, or added dependency.
+- Measurement used a 64-step binary search between chroma 0 and 0.4,
+  converting through native CSS into sRGB and requiring all channels to stay between 0 and 1.
+  Values are rounded down to six decimal places.
+  Increasing either final value by `0.000001` produces a negative RGB channel.
+  This establishes the maximum at the chosen precision in the verified browser.
+  See [CSS Color's sRGB definition](https://www.w3.org/TR/css-color-4/#predefined-sRGB).
+- Verification used the actual SVG stylesheet fill and original `color` attribute,
+  preserving the `currentColor` conversion rather than reconstructing rounded CSSOM output.
+  Purple computed as `oklch(0.489316 0.259833 300.955)` and converted to
+  sRGB `0.493081, 0.00000373013, 0.844494`.
+  Gold computed as `oklch(0.652854 0.146646 64.8586)` and converted to
+  sRGB `0.799143, 0.477302, 0.00000784531`.
+  Both retain the original computed lightness and hue; opacity remains 1.
+- Decoded fill samples changed from RGB `104,85,135` to `126,0,215` for purple
+  and from `194,127,54` to `204,122,0` for both gold variants.
+  Shadow-only rows had zero changed channels in all three variants.
+- Native pointer hover exercised every link with the new production asset URLs,
+  which end in `background-and-shadow-srgb-gamut-boundary-hover.svg`.
+  Moving away restored all normal fills.
+  The About link retained its visible keyboard focus ring.
+  Light and dark preferences were exercised; browser error and console collections were empty,
+  and Home loaded no external resources.

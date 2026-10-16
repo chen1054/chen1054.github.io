@@ -97,6 +97,8 @@ The changed button backgrounds initially received fresh, descriptive filenames e
 `background-and-shadow-oklch-hover.svg`.
 On 2026-10-15, the maximum-chroma preview renamed them again to end in
 `background-and-shadow-maximum-chroma-hover.svg`.
+The subsequent sRGB-safe adjustment on 2026-10-15 replaced that suffix with
+`background-and-shadow-srgb-gamut-boundary-hover.svg`.
 The page stylesheet uses those URLs for normal and fragment-targeted hover states.
 With the final production URLs, decoded raster samples changed fill color on hover
 while the shadow-only pixels remained equal for all three variants.
@@ -105,3 +107,18 @@ Pointer hover selected the correct fragment for every link.
 This records observed cache reuse and the verified asset-URL change.
 It does not establish an upstream browser or agent-browser defect,
 or the cause of the earlier unresponsive session.
+
+## Color-probe precision
+
+The initial literal-color gamut probe accepted gold chroma `0.146647`.
+Verification through the actual SVG's `currentColor` conversion rejected that value:
+its converted blue channel was `-0.0000093855`.
+The final gold chroma `0.146646` converted to positive blue `0.00000784531`.
+The underlying difference between the conversion paths was not investigated.
+
+Use the actual SVG stylesheet fill and original `color` attribute when checking gamut limits.
+Do not rebuild probe inputs from serialized computed RGB or OKLCH strings,
+which can round their components.
+The final probe kept original lightness and hue,
+confirmed every sRGB channel was in range,
+and proved that the next six-decimal chroma value was outside the gamut.
