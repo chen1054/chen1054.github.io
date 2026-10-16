@@ -184,6 +184,7 @@ p {
 .home-introduction-about-page-link,
 .home-page-project-case-study-link,
 .about-page-curriculum-vitae-link,
+.portfolio-back-to-top-link,
 .phone-navigation-menu-toggle-button,
 #portfolio-primary-navigation>a {
   &:focus-visible {
@@ -191,6 +192,22 @@ p {
     outline-style: solid;
     outline-color: var(--color-portfolio-purple);
     outline-offset: calc(4rem / 16);
+  }
+}
+.portfolio-back-to-top-link {
+  position: fixed;
+  inset-block-end: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 1;
+  inline-size: 3rem;
+  block-size: 3rem;
+  min-inline-size: 3rem;
+  min-block-size: 3rem;
+  border-radius: 50%;
+  background-image: url("assets/portfolio-back-to-top-arrow.svg");
+  background-size: 100% 100%;
+  &:hover {
+    background-image: url("assets/portfolio-back-to-top-arrow.svg#back-to-top-circle");
   }
 }
 .portfolio-page-decorative-wave-composition {
