@@ -28,6 +28,7 @@
   --color-portfolio-purple: #685587;
   --color-body-text-purple: #463267;
   --color-heading-and-case-study-gold: #c27f36;
+  --color-contact-required-marker: #d9a150;
   color-scheme: light;
 }
 body {
@@ -152,7 +153,8 @@ p {
 }
 .home-introduction-about-page-link,
 .home-page-project-case-study-link,
-.about-page-curriculum-vitae-link {
+.about-page-curriculum-vitae-link,
+.contact-page-send-message-button {
   --home-page-link-background-image: url(
     "assets/home-introduction-about-link-background-and-shadow-srgb-gamut-boundary-hover.svg"
   );
@@ -185,6 +187,10 @@ p {
 .home-introduction-about-page-link,
 .home-page-project-case-study-link,
 .about-page-curriculum-vitae-link,
+.contact-page-send-message-button,
+.contact-page-email-link,
+.contact-page-form-field>input,
+.contact-page-form-field>textarea,
 .portfolio-back-to-top-link,
 .phone-navigation-menu-toggle-button,
 #portfolio-primary-navigation>a {
@@ -433,7 +439,8 @@ p {
     }
   }
 }
-.about-page-curriculum-vitae-link {
+.about-page-curriculum-vitae-link,
+.contact-page-send-message-button {
   --home-page-link-background-image: url(
     "assets/home-project-standard-width-case-study-link-background-and-shadow-srgb-gamut-boundary-hover.svg"
   );
@@ -493,6 +500,113 @@ p {
 }
 .about-page-footer-bottom-wave-composition {
   margin-block-start: calc(-60rem / 16);
+}
+.contact-page-content {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  text-align: start;
+  &>h1 {
+    color: var(--color-heading-and-case-study-gold);
+    font-family: inherit;
+    font-size: calc(24rem / 16);
+    font-weight: 700;
+    line-height: 2rem;
+    text-align: center;
+  }
+}
+.contact-page-details-and-message-form {
+  inline-size: calc(100% - 42rem / 16);
+  max-inline-size: calc(1086rem / 16);
+  margin-inline: auto;
+  font-size: calc(15rem / 16 + 7 * var(--home-wide-reference-growth));
+  line-height: calc(30rem / 16 + 5 * var(--home-wide-reference-growth));
+}
+.contact-page-invitation {
+  margin-block: calc(36rem / 16) 0;
+}
+.contact-page-email-and-decorative-wave {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(28rem / 16) calc(34rem / 16 + 30 * var(--home-wide-reference-growth));
+  margin-block-start: 2rem;
+  &>div>h2 {
+    margin-block: 0;
+    font-size: calc(20rem / 16 + 10 * var(--home-wide-reference-growth));
+    line-height: calc(28rem / 16 + 14 * var(--home-wide-reference-growth));
+  }
+}
+.contact-page-email-link {
+  display: inline-flex;
+  align-items: center;
+  min-inline-size: 3rem;
+  min-block-size: 3rem;
+  margin-block-start: calc(7rem / 16);
+  color: inherit;
+}
+.contact-page-email-divider-wave-composition {
+  flex: 1 1 calc(250rem / 16);
+}
+.contact-page-message-form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(33rem / 16);
+  inline-size: calc(100% - 13rem / 16);
+  margin-block-start: calc(44rem / 16);
+}
+.contact-page-name-and-phone-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: inherit;
+  &>label {
+    flex: 1 1 calc(237rem / 16 + 142 * var(--home-wide-reference-growth));
+    &:last-child {
+      flex-basis: calc(280rem / 16 + 248 * var(--home-wide-reference-growth));
+    }
+  }
+}
+.contact-page-form-field {
+  display: block;
+  min-inline-size: 0;
+  font-size: calc(20rem / 16 + 10 * var(--home-wide-reference-growth));
+  font-weight: 700;
+  line-height: calc(28rem / 16 + 14 * var(--home-wide-reference-growth));
+  &>span {
+    color: var(--color-contact-required-marker);
+  }
+  &>input,
+  &>textarea {
+    display: block;
+    box-sizing: border-box;
+    inline-size: 100%;
+    block-size: calc(48rem / 16 + 9 * var(--home-wide-reference-growth));
+    min-inline-size: 3rem;
+    min-block-size: 3rem;
+    margin-block-start: calc(18rem / 16);
+    padding-block: calc(8rem / 16);
+    padding-inline: calc(12rem / 16);
+    border-width: calc(1rem / 16);
+    border-style: solid;
+    border-color: var(--color-body-text-purple);
+    border-radius: calc(5rem / 16 + 5 * var(--home-wide-reference-growth));
+    background-color: var(--color-page-background);
+    color: inherit;
+    font-family: inherit;
+    font-size: calc(15rem / 16 + 7 * var(--home-wide-reference-growth));
+    font-weight: 600;
+  }
+  &>textarea {
+    block-size: calc(155rem / 16 + 127 * var(--home-wide-reference-growth));
+    margin-block-start: calc(22rem / 16);
+    resize: block;
+  }
+}
+.contact-page-send-message-button {
+  margin-block-start: calc(17rem / 16);
+  cursor: pointer;
+}
+.contact-page-footer-bottom-wave-composition {
+  margin-block-start: calc(-66rem / 16);
 }
 @font-face {
   font-family: "Playfair Display";
@@ -1056,7 +1170,8 @@ h4.case-study-subheading {
   }
   .home-introduction-about-page-link,
   .home-page-featured-project-summary>.home-page-project-description>.home-page-project-case-study-link,
-  .about-page-curriculum-vitae-link {
+  .about-page-curriculum-vitae-link,
+  .contact-page-send-message-button {
     --home-wide-button-width-growth: 86;
     --home-wide-button-height-growth: 20;
     inset-inline-start: 0;
@@ -1073,6 +1188,55 @@ h4.case-study-subheading {
   }
   .home-introduction-about-page-link {
     margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
+  }
+  .contact-page-content {
+    padding-block-start: calc(150rem / 16 + 114 * var(--home-wide-reference-growth));
+    &>h1 {
+      font-size: calc(28rem / 16 + 20 * var(--home-wide-reference-growth));
+      line-height: calc(38rem / 16 + 26 * var(--home-wide-reference-growth));
+    }
+  }
+  .contact-page-details-and-message-form {
+    inline-size: 75.3%;
+    font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
+    line-height: calc(35rem / 16);
+  }
+  .contact-page-invitation {
+    margin-block-start: calc(24rem / 16 + 69 * var(--home-wide-reference-growth));
+  }
+  .contact-page-email-and-decorative-wave {
+    margin-block-start: calc(10rem / 16 + 54 * var(--home-wide-reference-growth));
+  }
+  .contact-page-email-link {
+    margin-block-start: 0;
+  }
+  .contact-page-message-form {
+    gap: calc(12rem / 16 + 59 * var(--home-wide-reference-growth));
+    inline-size: calc(100% - 13 * var(--home-wide-reference-growth));
+    margin-block-start: calc(24rem / 16 + 79 * var(--home-wide-reference-growth));
+  }
+  .contact-page-name-and-phone-fields {
+    column-gap: calc(43rem / 16 + 120 * var(--home-wide-reference-growth));
+  }
+  .contact-page-form-field {
+    &>input,
+    &>textarea {
+      margin-block-start: calc(13rem / 16 + 8 * var(--home-wide-reference-growth));
+    }
+  }
+  .contact-page-send-message-button {
+    --home-wide-button-width-growth: 74;
+    --home-wide-button-height-growth: 29;
+    margin-block-start: calc(38rem / 16 - 29 * var(--home-wide-reference-growth));
+    margin-inline-end: 0;
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+  }
+  .portfolio-contact-page>.portfolio-page-thank-you-and-copyright-footer {
+    margin-block-start: calc(24rem / 16 + 168 * var(--home-wide-reference-growth));
+  }
+  .contact-page-footer-bottom-wave-composition {
+    margin-block-start: calc(-80rem / 16 - 60 * var(--home-wide-reference-growth));
   }
   .home-introduction-bottom-wave-composition {
     margin-block-start: calc(-76rem / 16 - 28 * var(--home-wide-reference-growth));

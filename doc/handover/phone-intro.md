@@ -3,8 +3,8 @@
 ## Current state
 
 Contact is now authorized and in progress.
-Use the supplied Phone/Contactphone and Desktop/Contactdesktop PNG/PDF designs;
-no Tablet Contact reference was supplied, so adapt their shared layout fluidly.
+Use Phone/Contactphone, Tablet/Contracttablet, and Desktop/Contactdesktop PNG/PDF designs.
+The user supplied the Tablet files during implementation; the `Contracttablet` spelling is intentional here.
 The user approved `contact.html`, shared form CSS, separate original wave components,
 and connecting Contact in every existing navigation menu.
 Use a native POST to `https://api.web3forms.com/submit` with the supplied access key.
