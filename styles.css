@@ -244,7 +244,7 @@ p {
 @property --home-introduction-river-fade-progress {
   syntax: "<number>";
   inherits: false;
-  initial-value: 0;
+  initial-value: 8;
 }
 @media(prefers-reduced-motion:no-preference) {
   .home-introduction-greeting,
@@ -267,23 +267,6 @@ p {
   }
   .home-introduction-wave-left-to-right-reveal {
     animation: home-introduction-river-reveal-from-left 1800ms linear 1800ms backwards;
-  }
-  .home-introduction-wave-floral-accent {
-    animation-delay: 3600ms;
-  }
-}
-@keyframes home-introduction-layer-fade-in {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@keyframes home-introduction-river-reveal-from-left {
-  0%,100% {
     mask-image: linear-gradient(
       to right,
       rgb(from var(--color-page-background)
@@ -300,11 +283,28 @@ p {
         r g b / calc(pow(2, var(--home-introduction-river-fade-progress) - 1) / 100)) 100%
     );
   }
+  .home-introduction-wave-floral-accent {
+    animation-delay: 3600ms;
+  }
+}
+@keyframes home-introduction-layer-fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes home-introduction-river-reveal-from-left {
   from {
     --home-introduction-river-fade-progress: 0;
+    visibility: hidden;
   }
   to {
     --home-introduction-river-fade-progress: 8;
+    visibility: visible;
   }
 }
 .home-page-featured-project-summary {

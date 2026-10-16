@@ -36,6 +36,11 @@ A stationary mask uses five gradient stops whose alpha follows those exponential
 clamped at full opacity by the browser.
 There is no traveling mask edge, translation, or new JavaScript.
 This is a trial for the user to evaluate, not an accepted animation design.
+The first browser probe found that defining the gradient in keyframes froze its alpha values
+even though the registered progress value advanced.
+The dependent gradient now belongs to the picture rule so it recalculates with animated progress.
+Default progress eight leaves the final mask fully opaque;
+visibility keeps the river hidden during its initial delay.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.
