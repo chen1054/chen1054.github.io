@@ -2,6 +2,21 @@
 
 ## Current state
 
+Contact is now authorized and in progress.
+Use the supplied Phone/Contactphone and Desktop/Contactdesktop PNG/PDF designs;
+no Tablet Contact reference was supplied, so adapt their shared layout fluidly.
+The user approved `contact.html`, shared form CSS, separate original wave components,
+and connecting Contact in every existing navigation menu.
+Use a native POST to `https://api.web3forms.com/submit` with the supplied access key.
+The form is the permitted third-party exception; add no provider script or new JavaScript.
+Required fields are Name, Email, and Message; Phone is optional.
+Both PDFs have a conflicting email target with two `c` characters.
+The user confirmed three: display and link `rainbowchen.ccc@gmail.com`.
+They also authorized one clearly marked real test submission.
+Do not repeat it if a response is uncertain without first checking whether it was accepted.
+Next: extract the Contact artwork, build the shared responsive form,
+verify locally, and send the single authorized test.
+
 The user reported text crossing the Trust speech bubble's inner edge on Desktop.
 The previous rectangular overflow checks missed text crossing a painted curved boundary.
 A headed-browser reproduction found the first letters of `educational` outside the yellow fill.
