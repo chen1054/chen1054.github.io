@@ -1,0 +1,48 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1504"
+  height="3334"
+  viewBox="0 0 1504 3334"
+  role="img"
+  aria-labelledby="tablet-home-responsive-comparison-title"
+>
+  <title id="tablet-home-responsive-comparison-title">Supplied tablet Home reference and responsive implementation at matching scale</title>
+  <rect
+    width="100%"
+    height="100%"
+    fill="white"
+  />
+  <g
+    font-family="sans-serif"
+    font-size="16"
+    fill="black"
+  >
+    <text
+      x="12"
+      y="22"
+    >Supplied reference</text>
+    <text
+      x="772"
+      y="22"
+    >Responsive implementation</text>
+  </g>
+  <image
+    href="../reference/tablet-home.png"
+    y="32"
+    width="744"
+    height="3302"
+  />
+  <svg
+    x="760"
+    y="32"
+    width="744"
+    height="3302"
+    viewBox="0 0 744 3302"
+  >
+    <image
+      href="responsive-tablet-home-implementation.png"
+      width="759"
+      height="3302"
+    />
+  </svg>
+</svg>
