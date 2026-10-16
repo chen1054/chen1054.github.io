@@ -25,8 +25,13 @@ and unchanged bounds for every animated element at ten timeline positions.
 An intentional position change proved the bounds probe detects movement.
 The initial hard wipe measured a half-width reveal at 2250 milliseconds.
 The user then clarified that river pixels must fade gradually instead of appearing at a hard edge.
-The river now uses a moving alpha gradient with a feather spanning half its frame width;
-the original direction, stage timing, text fades, and layout remain intact.
+The attempted moving alpha gradient remains in the preview,
+but the user explicitly rejected a feathered edge.
+Pause animation implementation and discuss the intended effect fully before making another change.
+The pending question asks whether the artwork itself travels from the left
+or stays at its final position throughout the entrance.
+Discuss opacity separately after settling that movement question.
+The intended replacement effect is unresolved; do not infer it from the rejection.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.
