@@ -1,4 +1,4 @@
-document.getElementById("phone-navigation-menu").addEventListener(
+document.getElementById("portfolio-primary-navigation").addEventListener(
   "click",
   (event) => {
     if (event.target.closest("a")) {

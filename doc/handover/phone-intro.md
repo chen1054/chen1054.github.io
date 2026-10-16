@@ -452,8 +452,12 @@ Do not resume shell investigation as part of the portfolio work.
 - Extracted the original Desktop corner art, floral logo,
   introduction wave components, and footer wave components into separate `assets/home-wide-*.svg` files.
   Original paths, embedded images, masks, and clipping definitions are retained.
-- Next action: wrap the existing project text without duplication,
-  and implement the single responsive CSS block.
+- Wrapped each existing project description once for the shared column layout.
+  Picture sources select the original phone or wide wave components at the same 40rem boundary.
+  The shared navigation now uses the descriptive `portfolio-primary-navigation` ID.
+  The existing phone close handler targets the renamed element.
+  Phone layout rules still apply; responsive CSS and browser verification are next.
+- Next action: implement the single responsive CSS block.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
