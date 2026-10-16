@@ -62,7 +62,7 @@ Click the enlarged viewer, press Escape, or click outside it to close.
 Zooming adds no JavaScript or dependencies.
 MenuMe's mobile and tablet prototype buttons open the supplied Figma URLs.
 Scotties' desktop and mobile prototype buttons open their supplied Figma URLs.
-Tales' demo retains its approved placeholder pending a supplied destination.
+Tales' Doodle Demo opens the supplied Netlify application.
 Their hover fills also maximize sRGB-safe chroma while retaining lightness and hue.
 Contact uses the supplied Phone, Tablet, and Desktop designs,
 including the Tablet files named `Contracttablet`.

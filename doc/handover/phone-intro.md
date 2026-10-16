@@ -26,7 +26,10 @@ Both desktop prototype buttons now use it with escaped query separators.
 Scotties' desktop buttons passed exact DOM comparisons and native navigation.
 The user supplied its mobile URL with starting node `3:2` and page `0:1`;
 both mobile buttons now use that exact address with escaped query separators.
-The only missing destination is Tales' Launch Doodle Demo.
+Scotties' mobile buttons passed exact DOM comparisons and native navigation.
+The user supplied `https://capable-fudge-8eb7a9.netlify.app/` for Tales' Launch Doodle Demo;
+the button now uses that exact address.
+Every requested destination has been supplied and connected.
 Ask each separately.
 Keep previously approved placeholders until exact destinations are supplied.
 Both new Home PDF links passed native clicks in headed `agent-browser`;
