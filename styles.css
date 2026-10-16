@@ -445,7 +445,9 @@ p {
     justify-content: space-between;
     align-items: center;
     margin-block-start: calc(80rem / 16 + 110 * var(--home-wide-reference-growth));
-    margin-inline: calc(50rem / 16 + 127 * var(--home-wide-reference-growth));
+    inline-size: calc(100% - 100rem / 16 - 254 * var(--home-wide-reference-growth));
+    max-inline-size: calc(1086rem / 16);
+    margin-inline: auto;
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
     line-height: calc(19rem / 16 + 10 * var(--home-wide-reference-growth));
     text-align: start;

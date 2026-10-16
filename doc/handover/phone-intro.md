@@ -594,3 +594,13 @@ Do not resume shell investigation as part of the portfolio work.
   the final verification results, and no exposed Markdown emphasis delimiters.
 - Home's current scope is complete.
   Further About, Contact, or case-study work needs the user's next supplied materials and destinations.
+
+## Desktop works width cap
+
+The user requested that works stop growing at the supplied Desktop layout width.
+The Desktop reference is 1440 pixels wide with 177-pixel project gutters,
+so the shared project rows now have `max-inline-size: calc(1086rem / 16)`.
+Automatic inline margins center each row beyond that size.
+The existing fluid inline size preserves the Tablet and narrower wide-screen gutters.
+This adds no wrapper, breakpoint, grid, or JavaScript.
+Headed-browser width verification is pending.
