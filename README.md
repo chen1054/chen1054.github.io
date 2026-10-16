@@ -14,8 +14,8 @@ their licenses accompany the font files in `assets/fonts/`.
 The portfolio loads no third-party resources.
 The About link and all six case-study links temporarily navigate to `https://example.com`,
 as requested.
-Their hover fills increase OKLCH chroma by 10%,
-preserving lightness, hue, and the original shadows.
+Their hover fills use 100% OKLCH chroma,
+retaining the original lightness and hue components and shadows.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.
 
 The menu control remains disabled for this agreed visual preview.

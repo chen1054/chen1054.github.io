@@ -15,7 +15,7 @@
 </defs>
 <style>
   :target {
-    fill: oklch(from currentColor l calc(c * 1.1) h);
+    fill: oklch(from currentColor l 100% h);
   }
 </style>
 <g mask="url(#mask-6)">

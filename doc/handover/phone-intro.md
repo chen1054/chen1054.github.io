@@ -9,7 +9,8 @@ The menu remains a separate implementation and review step;
 the hamburger retains its agreed disabled preview state.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
-All seven links have an OKLCH hover fill with chroma multiplied by 1.1.
+All seven links now use 100% OKLCH chroma on hover.
+This supersedes the initial 10% increase, which the user could not see in their preview.
 
 Python serves the preview at `http://localhost:4173/`.
 The user opens it themselves.
@@ -30,8 +31,9 @@ records the supplied design and implementation at matching 390-pixel widths.
   its behavior belongs to a later step.
 - The About link temporarily opens `https://example.com`,
   explicitly confirmed by the user after requesting a link styled as a button.
-- Hover increases button-background saturation by 10% in OKLCH:
-  multiply chroma by 1.1 while retaining lightness and hue.
+- The initial hover request increased OKLCH chroma by 10%.
+  The user subsequently requested maximum hover chroma.
+  The current preview sets chroma to 100%, retaining the original lightness and hue components.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
@@ -254,7 +256,7 @@ Do not resume shell investigation as part of the portfolio work.
   Source line breaks, fractional rem calculations,
   descriptive names, and selector nesting were followed manually.
 
-## Link hover implementation and verification
+## Initial 10% link hover implementation and verification
 
 - `5af8104` changes the About control to an anchor with the confirmed temporary destination
   and adds hover fills to the original button artwork.
