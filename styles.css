@@ -447,7 +447,7 @@ p {
           var(--home-wide-illustration-base-width)
           + var(--home-wide-illustration-width-growth) * var(--home-wide-reference-growth)
         ),
-        150%
+        calc(115% + 144 * var(--home-wide-reference-growth))
       );
     }
     &>.home-page-project-side-and-bottom-wave-composition {
