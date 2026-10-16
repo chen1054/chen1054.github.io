@@ -19,7 +19,11 @@ Both mobile prototype buttons now use that exact URL, with HTML-escaped query se
 MenuMe's mobile URL passed exact DOM comparisons on both buttons and a native navigation.
 The user supplied its tablet URL with starting node `393:4957` and page `393:4524`;
 both tablet buttons now use that exact address too.
-Next missing destination: Scotties desktop prototype, then Scotties mobile and Tales' Doodle Demo.
+MenuMe's tablet buttons passed exact DOM comparisons and native navigation.
+The user supplied Scotties' desktop Figma URL,
+with file key `8uo5VBV3BsWXgYe647JxmM`, starting node `2124:352`, and page `3:5`.
+Both desktop prototype buttons now use it with escaped query separators.
+Next missing destination: Scotties mobile, then Tales' Doodle Demo.
 Ask each separately.
 Keep previously approved placeholders until exact destinations are supplied.
 Both new Home PDF links passed native clicks in headed `agent-browser`;

@@ -61,7 +61,8 @@ Shared CSS enlarges the image and permits scrolling in both directions.
 Click the enlarged viewer, press Escape, or click outside it to close.
 Zooming adds no JavaScript or dependencies.
 MenuMe's mobile and tablet prototype buttons open the supplied Figma URLs.
-Scotties prototype and Tales demo links retain their approved placeholders pending supplied destinations.
+Scotties' desktop prototype opens its supplied Figma URL.
+Its mobile prototype and Tales' demo retain approved placeholders pending supplied destinations.
 Their hover fills also maximize sRGB-safe chroma while retaining lightness and hue.
 Contact uses the supplied Phone, Tablet, and Desktop designs,
 including the Tablet files named `Contracttablet`.
