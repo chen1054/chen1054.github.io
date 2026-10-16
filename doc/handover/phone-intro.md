@@ -2,6 +2,19 @@
 
 ## Current state
 
+The user reported text crossing the Trust speech bubble's inner edge on Desktop.
+The previous rectangular overflow checks missed text crossing a painted curved boundary.
+A headed-browser reproduction found the first letters of `educational` outside the yellow fill.
+Narrower-width checks also exposed text crossing the Play bubble's edge.
+Both bubbles now use shape-specific proportional text insets,
+balanced wrapping, and typography scaled to their own inline-size containers.
+Their original SVG geometry and aspect ratios are preserved.
+This correction adds no script, markup, assets, dependencies, or breakpoints.
+Final verification of the committed CSS is pending.
+Proposed `AGENTS.md` verification tightening:
+when text overlays artwork, check glyph bounds against the painted interior at supported widths;
+rectangular element overflow checks do not establish that the text fits the artwork.
+
 The user requested Tales for Safer Trails, MenuMe, and Scotties case-study pages.
 They approved three new HTML pages, shared case-study CSS, local asset extraction,
 and replacing their Home placeholder links with the implemented pages.
@@ -84,7 +97,8 @@ Browser error and console collections were empty after those checks.
 Both color preferences preserve the supplied light portfolio artwork and readable text colors.
 Final hero viewport captures for all nine case-study/reference-width combinations are in
 `${HOME}/temp/agent/portfolio-intro/`, named `<page>-<width>-hero-final.png`.
-The approved case-study scope is implemented and verified.
+The approved case-study scope is implemented;
+the interaction checks passed, but the bubble text fit needed the correction recorded in this handover.
 README, handover, and troubleshooting documentation were rendered with Pandoc and checked in the headed browser.
 The remaining Home placeholders and Contact are outside this completed request.
 

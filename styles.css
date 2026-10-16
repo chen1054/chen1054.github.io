@@ -751,15 +751,40 @@ h4.case-study-subheading {
   padding-block-start: calc(60rem / 16);
   background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
 }
+.case-study-play-speech-bubble,
+.case-study-trust-speech-bubble {
+  container-type: inline-size;
+  padding-block: 0;
+  padding-inline: 0;
+  text-align: center;
+  text-wrap: balance;
+  &>* {
+    margin-inline: 13% 21%;
+    line-height: 1.6;
+  }
+  &>h4 {
+    margin-block: 0;
+    font-size: min(
+      calc(1em + 2rem / 16),
+      calc(16 * 100cqi / 322)
+    );
+  }
+  &>p {
+    margin-block-start: 1em;
+    margin-block-end: 0;
+    font-size: min(1em, calc(14 * 100cqi / 322));
+  }
+}
 .case-study-play-speech-bubble {
   aspect-ratio: 411 / 392;
-  text-align: center;
   background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
 }
 .case-study-trust-speech-bubble {
   aspect-ratio: 413 / 415;
-  text-align: center;
   background-image: url("assets/tales-trust-insight-speech-bubble-background.svg");
+  &>* {
+    margin-inline: 23% 11%;
+  }
 }
 .case-study-scotties-challenge-bubble {
   aspect-ratio: 552 / 451;
