@@ -24,9 +24,24 @@ The form reuses the existing gold button artwork and sRGB-safe hover behavior.
 No script, dependency, or breakpoint was added.
 Phone and Tablet page heights measure 1467 and 1056 pixels at their reference widths;
 Desktop measures 2118 pixels against a 2114-pixel reference.
-Live test status: not yet sent.
-Next: finish native validation, responsive, navigation, and focus checks;
-then send the single authorized test and record its response.
+Local validation passed: empty submission focuses Name;
+invalid email focuses Email and prevents navigation; blank Phone is valid.
+The Send button has a visible 2-pixel keyboard focus outline and its approved gold hover state.
+All five existing phone menus opened the new Contact page through native clicks.
+The form fits the tested 320 to 2560 pixel widths, with decoded images,
+no horizontal overflow, 48-pixel minimum form targets, and no third-party resource requests.
+Phone fields remain stacked through the existing navigation breakpoint;
+wide flexbox columns appear when the supplied field widths fit.
+Both color preferences preserve the original light design and readable field colors.
+Browser error and console collections were empty after local checks.
+Matched-scale reference comparisons are private `contact-{phone,tablet,desktop}-comparison.svg/png`
+files in `${HOME}/temp/agent/portfolio-intro/`.
+Live test status: a single attempt is now prepared and about to be submitted.
+The subject is `[TEST] Portfolio contact form verification`,
+the email is `rainbowchen.ccc@gmail.com`, and Phone is empty to exercise its optional status.
+On continuation, inspect the current browser response before attempting any submission;
+an interrupted response must not produce a duplicate email.
+Next: submit once, record the response, and finalize documentation.
 
 The user reported text crossing the Trust speech bubble's inner edge on Desktop.
 The previous rectangular overflow checks missed text crossing a painted curved boundary.
