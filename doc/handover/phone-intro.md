@@ -5,7 +5,7 @@
 The user requested Tales for Safer Trails, MenuMe, and Scotties case-study pages.
 They approved three new HTML pages, shared case-study CSS, local asset extraction,
 and replacing their Home placeholder links with the implemented pages.
-Reuse the existing breakpoint, navigation, footer, and back-to-top control.
+The pages reuse the shared navigation breakpoint, navigation, footer, and back-to-top control.
 All case-study pictures and graphs must be zoomable.
 The user chose an in-page viewer and corrected the claim that it needs JavaScript.
 Use native popover buttons and shared CSS; add no zoom JavaScript.
@@ -19,7 +19,7 @@ All nine supplied Phone, Tablet, and Desktop PNGs were inspected;
 their PDFs were extracted into private SVG and text working files.
 The original Figma archive also provides intact text and font metadata.
 Private `read-figma-text-records` recovers these without approximating broken PDF words.
-The case-study body uses Playfair Display Medium;
+Tales and MenuMe body text uses Playfair Display Medium; Scotties uses the supplied Bold weight.
 its original static font is present in the supplied archive and has been extracted locally.
 `1b696ff` adds the original artwork and shared recolorable masks.
 `14fed4c` adds all three pages, shared styles, and their Home links.
@@ -68,10 +68,25 @@ After the final hero corrections, 45 checks across the previous widths plus 1023
 found no horizontal overflow or third-party requests.
 All three heroes stack with centered headings at 390 and 744 pixels,
 and form columns with left-aligned headings at 1440 pixels.
-Next actions are independently verifiable:
-- Recheck the corrected MenuMe diagram dimensions and renamed illustration viewers.
-- Finish navigation, back-to-top, reference-width captures, and Home/About regression checks.
-- Render the updated documentation, commit verification, and close the owned browser.
+`446ba33` records the corrected flow diagrams, descriptive illustration names,
+and the native-viewer verification.
+`5cb520f` restores the supplied stacked Tablet hero arrangement;
+`61db98b` aligns Desktop hero artwork and text at their outer top edges.
+The corrected diagrams and renamed illustration viewers passed ten additional open/dismiss checks.
+All sixteen section-navigation links scroll their target section to within one pixel of the viewport top.
+Home's three case-study links open their local pages;
+Work from each phone menu returns to the first Home project.
+Back-to-top behavior passed on Home, About, and all case studies at 390, 744, and 1440 pixels.
+Every control measures 48 pixels square and sits 16 pixels from the content viewport's right and bottom edges.
+It appears after scrolling and hides after returning to the top.
+All images decoded on those fifteen page/width combinations, with no horizontal overflow.
+Browser error and console collections were empty after those checks.
+Both color preferences preserve the supplied light portfolio artwork and readable text colors.
+Final hero viewport captures for all nine case-study/reference-width combinations are in
+`${HOME}/temp/agent/portfolio-intro/`, named `<page>-<width>-hero-final.png`.
+The approved case-study scope is implemented and verified.
+README, handover, and troubleshooting documentation were rendered with Pandoc and checked in the headed browser.
+The remaining Home placeholders and Contact are outside this completed request.
 
 Home and About now include a shared back-to-top link.
 It is 3rem square, fixed 1rem from the bottom and right viewport edges,
