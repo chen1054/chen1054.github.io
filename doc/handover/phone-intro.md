@@ -25,19 +25,39 @@ its original static font is present in the supplied archive and has been extract
 `14fed4c` adds all three pages, shared styles, and their Home links.
 Initial Desktop checks measured no horizontal overflow at 1440 pixels;
 all image elements decoded and each page uses only the existing navigation module.
-Visual verification is still in progress and those checks are not a visual pass.
-The Scotties high-fidelity screenshot in the PDF-derived SVG shows a broken-image placeholder;
-the supplied PNG contains the correct screenshot and must guide recovery.
-Tales callout backgrounds need their native proportions preserved around live text.
-MenuMe decorative icon selections and prototype hover colors also need correction.
-Long full-page captures repeated page-top pixels near their bottom;
-a real scrolled Tales footer viewport renders correctly, so this is a capture issue,
-not duplicated page markup.
+`d09a601` corrects the original artwork, trims blank SVG paint margins,
+and restores the supplied prototype colors with saturation-only hover states.
+The PDF-derived Scotties SVG contains an undecodable embedded homepage PNG.
+The original 1272 by 4096 screenshot was recovered directly from the Figma archive;
+the final asset is that original PNG, without page annotations or a screenshot crop.
+Native alpha-bound measurements trim clipped export margins on content SVGs.
+The corner masks and decorative divider frames retain their supplied positioning frames.
+Visual catalogs also exposed swapped MenuMe flow diagrams;
+their assets now match the preferences, weekly-specials, and fridge-inventory sections.
+Illustration filenames describe their actual content, including the concern figure and skateboard.
+The original artwork and all content pictures were inspected in headed-browser catalogs.
+Responsive checks passed across 320, 390, 414, 600, 624, 625, 639, 640,
+744, 1024, 1440, 1920, and 2560 pixel content widths on all case-study pages.
+They found no horizontal overflow, image controls smaller than 48 pixels,
+or requests to other origins.
+All 49 viewers passed opening, enlargement, loaded-image, dismissal,
+and focus checks at 390 and 1440 pixels, for 98 checks.
+Escape and clicking the viewer restore focus to its invoker.
+Outside-click dismissal and Enter activation also passed.
+The Scotties tall screenshot scrolls with Page Down and the browser's element-scroll command.
+The nine prototype/demo links retain their text colors, lightness, and hue on hover.
+Their safe chroma limits are 0.185372 for Tales yellow, 0.123646 for MenuMe cyan,
+0.168313 for MenuMe orange, and 0.079444 for Scotties beige.
+Increasing each limit by 0.000001 produced a measured sRGB channel outside zero to one.
+Long full-page PNG captures repeated page-top pixels near their bottom;
+a native crop of the captured PNG confirmed those pixels are in the capture itself.
+A real scrolled Tales footer viewport renders correctly.
+Use viewport captures and artwork catalogs for verification;
+the troubleshooting document records this capture issue and browser input quirks.
 Next actions are independently verifiable:
-- Correct and verify Tales artwork, callouts, and image viewers.
-- Correct and verify MenuMe artwork, colors, and image viewers.
-- Recover and verify Scotties artwork and image viewers.
-- Verify responsive behavior, navigation, reused recolors, and update comparison artifacts.
+- Recheck the corrected MenuMe diagram dimensions and renamed illustration viewers.
+- Finish navigation, back-to-top, reference-width captures, and Home/About regression checks.
+- Render the updated documentation, commit verification, and close the owned browser.
 
 Home and About now include a shared back-to-top link.
 It is 3rem square, fixed 1rem from the bottom and right viewport edges,

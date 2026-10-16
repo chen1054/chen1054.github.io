@@ -158,6 +158,54 @@ which scaled the implementation images before clipping them.
 The corrected comparisons declare each PNG's native width and height.
 Read actual capture dimensions before embedding screenshots in comparisons.
 
+## Long case-study captures
+
+The initial 1440 by 18251 Tales full-page PNG repeated the hero and section navigation near its bottom.
+A native canvas crop of its final 1080 pixels reproduced those incorrect pixels.
+This rules out the image-preview presentation as the sole source of the repetition.
+At the actual page's bottom, the headed browser showed the correct impact text and footer.
+The DOM reported scroll position 17171, document height 18251,
+and the footer beginning 833 pixels into that viewport.
+The generated HTML contains only one header and footer.
+
+The cause inside the capture path remains unresolved.
+Use viewport captures at section anchors and shorter artwork catalogs for these pages.
+Do not ship the initial long captures as layout comparisons.
+
+## Case-study image-control verification
+
+With `agent-browser` 0.39.1, a partially visible Tales thumbnail had top 765.4,
+height 484.4, and center 1007.6 in a 900-pixel-high viewport.
+The click command returned without opening its native popover.
+Explicitly centering that thumbnail with `scrollIntoView({block:"center"})`
+before the native click opened it and allowed normal click-to-close verification.
+The full viewer run used this centering step and passed every image at phone and Desktop widths.
+
+During the Scotties scroll check, `mouse move 180 300` followed by `mouse wheel 160 120`
+produced a wheel event with client coordinates zero, zero.
+Its target was an underlying section, outside the popover.
+The page scrolled 160 pixels while the viewer remained at zero.
+This observation concerns the dispatched event, not the viewer's ability to scroll.
+With the viewer focused, Page Down scrolled it 746 pixels.
+The verified `scroll down 160 --selector` and `scroll right 120 --selector` commands
+then changed its offsets to 906 and 120.
+Use an explicit scroll selector when measuring these popovers through this CLI.
+
+## Original Scotties screenshot recovery
+
+The Desktop Scotties SVG derived from the supplied PDF displayed a broken-image placeholder
+inside the high-fidelity homepage frame.
+Its embedded `source-74` PNG declares 1272 by 4096 pixels;
+the local image viewer rejected the extracted bitmap as invalid or unsupported.
+The supplied Desktop PNG shows the intended screenshot.
+
+The original Figma archive contains a valid bitmap with the same dimensions at
+`images/94bf46f05cefc0cf1b00f5b6b4a9b20d281b2c8f`.
+It was decoded, visually verified, and copied unchanged to
+`assets/scotties-high-fidelity-community-homepage.png`.
+The final page therefore uses the original full-resolution image,
+without retaining annotation lines from a cropped reference page.
+
 ## Named SVG views during responsive image switching
 
 The outside-alignment correction selects a trimmed named SVG view through a picture source.

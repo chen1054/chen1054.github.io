@@ -1,6 +1,6 @@
 # Xinyan Chen portfolio
 
-Responsive Home and About pages,
+Responsive Home, About, Tales for Safer Trails, MenuMe, and Scotties pages,
 based on the supplied Phone, Tablet, and Desktop designs.
 Home includes all six projects and the footer.
 Run `mise run preview` and visit `http://localhost:4173`.
@@ -21,8 +21,8 @@ The content and navigation are shared, and responsive behavior adds no JavaScrip
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
 The portfolio loads no third-party resources.
-All six case-study links temporarily navigate to `https://example.com`,
-as requested.
+Home links to `tales-for-safer-trails.html`, `menume.html`, and `scotties.html`.
+The remaining Home case-study links temporarily navigate to `https://example.com`, as requested.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
 retaining the original lightness and hue components and shadows.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.
@@ -43,7 +43,19 @@ Biography text remains live HTML;
 photographs are local PNG files extracted from the supplied artwork.
 One shared CSS rule gives gallery photographs their rounded corners and gold `box-shadow`.
 “View My CV” opens the locally hosted résumé PDF.
-Contact and case-study pages belong to later work.
+The case studies reuse the navigation, footer, back-to-top link, and existing breakpoint.
+Their text remains live HTML and their photographs and interface screenshots are local PNGs.
+Original vector artwork retains its SVG geometry;
+shared masks recolor the matching corner decorations.
+Blank SVG export margins are trimmed to the actual painted bounds.
+The original full-resolution Scotties homepage screenshot comes directly from the Figma archive.
+Every case-study picture and graph opens an in-page native popover.
+Shared CSS enlarges the image and permits scrolling in both directions.
+Click the enlarged viewer, press Escape, or click outside it to close.
+Zooming adds no JavaScript or dependencies.
+Prototype and Tales demo links temporarily open `https://example.com`.
+Their hover fills also maximize sRGB-safe chroma while retaining lightness and hue.
+Contact belongs to later work.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
 and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)
