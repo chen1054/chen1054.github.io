@@ -5,8 +5,11 @@
 - The first step implemented the intro from `../Phone/Home.png`,
   through “More About Me” and the first decorative wave.
   The user accepted the artwork correction and then authorized the Tales section.
-- The current preview includes Tales and its following decorative wave.
-  Present that section for review before implementing further project sections.
+- The user accepted Tales and authorized the complete Home page.
+  Implement the remaining project sections and footer without section review checkpoints.
+  The menu still requires a separate review.
+- All six case-study links temporarily open `https://example.com`,
+  explicitly confirmed by the user for the remaining five buttons.
 - Hamburger and About button remain visual previews;
   their behavior belongs to later steps.
 - The user will supply more material as work proceeds.
@@ -96,9 +99,9 @@
   followed by another section review.
   The user authorized implementation with “Do it.”
   That section and its following decorative wave are now implemented.
-- Pause at this section's review checkpoint.
-  The next project in the reference is MenuMe;
-  do not implement it before the user continues the step-by-step review.
+- Complete MenuMe, Scotties, Matcha Delight,
+  Echoes of Tradition, Faces of the Future,
+  Youth in Limbo, and the footer from the supplied Home reference.
 - The Tales “View case study” link opens `https://example.com` for now,
   as explicitly requested by the user.
   This is a navigation destination, not an externally loaded page asset.
@@ -171,7 +174,7 @@ including a phone wider than the 390-pixel reference.
   after the last source and asset changes.
   The extracted artwork keeps its original positions and alignment.
   [Compare the supplied reference and implementation](../review/home-introduction-and-tales-for-safer-trails-reference-comparison.svg).
-  Review Tales text, spacing, and wave composition before proceeding to MenuMe.
+  The user accepted this checkpoint and authorized the complete Home page.
 
 ## Shell-noise stopgap
 
