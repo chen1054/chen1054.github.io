@@ -295,3 +295,32 @@ Do not resume shell investigation as part of the portfolio work.
   and [standard-width case-study link](../review/home-standard-case-study-oklch-hover.png).
   These record the verified interaction states;
   no additional Home review is required.
+
+## Maximum-chroma hover preview
+
+- The user could not see the initial effect and requested maximum chroma on hover.
+  `a5fbdd8` sets each SVG target fill to `oklch(from currentColor l 100% h)`.
+  This changes the existing rule rather than adding another implementation.
+- Maximum is interpreted as CSS chroma 100%, equivalent to `C = 0.4`.
+  Chroma has no mathematical upper bound;
+  see [MDN's OKLCH channel definitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch#values).
+  This value exceeds the display gamut for these fills.
+  The declared lightness and hue components remain the original values,
+  but display clipping changes their rendered appearance.
+- Headed Chromium computed `oklch(0.489316 0.4 300.955)` for purple
+  and `oklch(0.652854 0.4 64.8586)` for gold.
+  Actual raster samples changed from RGB `104,85,135` to `146,0,255` for purple
+  and from `194,127,54` to `255,0,0` for both gold variants.
+  The case-study hover therefore renders red in this browser.
+  Shadow-only pixel rows stayed identical for all three variants.
+- The changed SVG filenames now end in `background-and-shadow-maximum-chroma-hover.svg`.
+  Shared CSS references these fresh URLs so older decoded SVGs cannot hide the change.
+- Native hover selected the new fragment on every link;
+  moving away restored all normal backgrounds.
+  Tab still visited all seven anchors with visible 2-pixel focus rings.
+  Light and dark preferences retained the supplied white layout.
+  Browser error and console collections were empty, with no external Home resource loads.
+- Current captures show the [About hover](../review/home-about-link-maximum-chroma-hover.png),
+  [Tales hover](../review/home-tales-case-study-maximum-chroma-hover.png),
+  and [standard-width hover](../review/home-standard-case-study-maximum-chroma-hover.png).
+  The initial 10% captures remain historical evidence.

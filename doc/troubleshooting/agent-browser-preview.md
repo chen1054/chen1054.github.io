@@ -93,8 +93,10 @@ reloading loaded the new anchor.
 A directly opened button SVG likewise lacked its newly added path ID and style until reloaded.
 Image decoding also reused older SVG content for existing asset URLs.
 
-The changed button backgrounds now have fresh, descriptive filenames ending in
+The changed button backgrounds initially received fresh, descriptive filenames ending in
 `background-and-shadow-oklch-hover.svg`.
+On 2026-10-15, the maximum-chroma preview renamed them again to end in
+`background-and-shadow-maximum-chroma-hover.svg`.
 The page stylesheet uses those URLs for normal and fragment-targeted hover states.
 With the final production URLs, decoded raster samples changed fill color on hover
 while the shadow-only pixels remained equal for all three variants.
