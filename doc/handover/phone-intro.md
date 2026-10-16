@@ -456,8 +456,20 @@ Do not resume shell investigation as part of the portfolio work.
   Picture sources select the original phone or wide wave components at the same 40rem boundary.
   The shared navigation now uses the descriptive `portfolio-primary-navigation` ID.
   The existing phone close handler targets the renamed element.
-  Phone layout rules still apply; responsive CSS and browser verification are next.
-- Next action: implement the single responsive CSS block.
+  Phone layout rules still apply.
+- The responsive CSS uses one 40rem breakpoint,
+  inline navigation, alternating project columns, and fluid typography and spacing.
+  A body inline-size container supplies the actual content width for interpolation,
+  avoiding the scrollbar width included in viewport units.
+  The existing project illustrations retain their complete SVG frames.
+- Measured the accepted phone layout at 390 pixels after the markup changes:
+  page height remains 5077 pixels.
+  Measured the shared Tablet layout at 744 pixels after spacing calibration:
+  page height is 3302 pixels, matching the supplied reference height.
+  Desktop calibration and cross-width interaction checks are still in progress.
+- Next action: finish the headed-browser width and interaction checks,
+  save matching-scale reference comparisons,
+  and update this handover with the final evidence.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.

@@ -404,6 +404,8 @@ p {
     background-size: 100% calc(42rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth));
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
     line-height: calc(34rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth));
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
   }
   .home-introduction-about-page-link {
     margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
@@ -420,7 +422,7 @@ p {
     grid-template-areas: "illustration description";
     align-items: center;
     column-gap: calc(72 * var(--home-wide-reference-growth));
-    margin-block-start: calc(80rem / 16 + 120 * var(--home-wide-reference-growth));
+    margin-block-start: calc(80rem / 16 + 110 * var(--home-wide-reference-growth));
     margin-inline: calc(50rem / 16 + 127 * var(--home-wide-reference-growth));
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
     line-height: calc(19rem / 16 + 10 * var(--home-wide-reference-growth));
@@ -457,7 +459,7 @@ p {
       line-height: calc(24rem / 16 + 16 * var(--home-wide-reference-growth));
     }
     &>.home-page-project-description>p {
-      max-inline-size: calc(310rem / 16 + 194 * var(--home-wide-reference-growth));
+      max-inline-size: calc(310rem / 16 + 200 * var(--home-wide-reference-growth));
       margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
       line-height: inherit;
       &>span {
@@ -475,6 +477,7 @@ p {
     &>.home-page-project-description>.home-page-project-case-study-link {
       --home-wide-button-width-growth: 120;
       --home-wide-button-height-growth: 29;
+      inset-inline-start: calc(-4rem / 16 - 2 * var(--home-wide-reference-growth));
       margin-block-start: calc(28rem / 16 + 25 * var(--home-wide-reference-growth));
       margin-inline: 0;
     }
