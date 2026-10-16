@@ -41,8 +41,9 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The user says image inspection is unnecessary for deterministic changes such as this color adjustment.
   Verify the color conversion and rendered state numerically without viewing screenshots.
 - The menu's Contact link temporarily opens `https://example.com`, explicitly confirmed by the user.
-  Home links to the page top, About reuses its approved placeholder,
-  and Work links to the first Home project.
+  About reuses its approved placeholder.
+  Home is a regular homepage link.
+  Work's destination is awaiting clarification.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
@@ -376,8 +377,15 @@ Do not resume shell investigation as part of the portfolio work.
 - Preserve the white 97-pixel panel, original hamburger paths, link order,
   typography, and vertical spacing.
   Use a native popover without introducing a dependency.
-- Pending user preference: a short local script to close the menu after Home or Work navigation,
-  or script-free navigation with manual dismissal after those links.
-  Opening, Escape dismissal, and outside-click dismissal work natively in either approach.
+- The user questioned why plain navigation links would need a script.
+  The initial implementation had used same-document fragment links for Home and Work.
+  A headed-browser click on Work reached the Tales fragment while leaving the popover open.
+  That was the reason for proposing a close-on-navigation handler,
+  rather than a requirement for regular page links.
+  No script has been added.
+- Home now links normally to `./`.
+  Pending user clarification: Work links to the temporary `https://example.com` destination
+  or jumps to projects within Home.
+  Native opening, Escape dismissal, and outside-click dismissal need no script.
 - Next action: extract the original icon, implement the shared menu markup and styles,
   then verify geometry and interactions in the headed browser and present the menu review.
