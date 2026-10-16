@@ -20,9 +20,9 @@ Typography, spacing, and illustrations resize fluidly between the Tablet and Des
 The content and navigation are shared, and responsive behavior adds no JavaScript.
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
-The portfolio loads no third-party resources while browsing.
-Contact submits directly to Web3Forms using a native HTML POST form;
-the form service is the approved third-party exception.
+Home, About, and the case studies load no third-party resources.
+Contact loads the approved Web3Forms and hCaptcha scripts and submits a native HTML POST form.
+These form resources are the approved third-party exception.
 Home links to `tales-for-safer-trails.html`, `menume.html`, and `scotties.html`.
 The remaining Home case-study links temporarily navigate to `https://example.com`, as requested.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
@@ -64,7 +64,10 @@ including the Tablet files named `Contracttablet`.
 The form requires Name, Email, and Message; Phone is optional.
 Native browser validation checks required fields and email syntax.
 Successful submissions use Web3Forms' hosted confirmation page.
-No new JavaScript, dependencies, or breakpoints are needed.
+The supplied key requires hCaptcha.
+The user approved its vendor `.js` scripts as an exception to the module/`.mjs` rule.
+A local `contact-form-captcha-validation.mjs` module prevents submission without a captcha response.
+No npm dependencies or new breakpoints are needed.
 The email address and its link both use `rainbowchen.ccc@gmail.com`, as confirmed by the user.
 See [Web3Forms' native form documentation](https://docs.web3forms.com/getting-started/examples/basic-html-contact-form)
 for the provider's POST fields and confirmation behavior.

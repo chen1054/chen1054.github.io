@@ -8,7 +8,14 @@ The user supplied the Tablet files during implementation; the `Contracttablet` s
 The user approved `contact.html`, shared form CSS, separate original wave components,
 and connecting Contact in every existing navigation menu.
 Use a native POST to `https://api.web3forms.com/submit` with the supplied access key.
-The form is the permitted third-party exception; add no provider script or new JavaScript.
+The form is the permitted third-party exception.
+The initial native-only integration was rejected because this key requires hCaptcha.
+The user approved adding hCaptcha and allowing the provider's vendor `.js` scripts,
+explicitly overriding the module/`.mjs` rule for those external scripts.
+The user also supplied the matching Web3Forms native HTML/hCaptcha documentation.
+Our validation remains in the local module `contact-form-captcha-validation.mjs`.
+Contact's CSP permits the provider script and hCaptcha script/frame/style/connection origins;
+other pages retain their local-only policy.
 Required fields are Name, Email, and Message; Phone is optional.
 Both PDFs have a conflicting email target with two `c` characters.
 The user confirmed three: display and link `rainbowchen.ccc@gmail.com`.
@@ -21,7 +28,9 @@ The approved shared footer reuses About's original three wave assets.
 `f8092b6` gives its wide picture sources explicit dimensions,
 preserving the correct aspect ratio even though those SVGs use `preserveAspectRatio="none"`.
 The form reuses the existing gold button artwork and sRGB-safe hover behavior.
-No script, dependency, or breakpoint was added.
+The initial implementation added no script;
+hCaptcha now requires the approved provider scripts and a local validation module.
+No npm dependency or breakpoint was added.
 Phone and Tablet page heights measure 1467 and 1056 pixels at their reference widths;
 Desktop measures 2118 pixels against a 2114-pixel reference.
 Local validation passed: empty submission focuses Name;
@@ -36,12 +45,16 @@ Both color preferences preserve the original light design and readable field col
 Browser error and console collections were empty after local checks.
 Matched-scale reference comparisons are private `contact-{phone,tablet,desktop}-comparison.svg/png`
 files in `${HOME}/temp/agent/portfolio-intro/`.
-Live test status: a single attempt is now prepared and about to be submitted.
+Live test status: the native Send click reached Web3Forms,
+which returned HTTP 400 and `hCaptcha Token is mandatory for this form`.
+No successful delivery is claimed.
 The subject is `[TEST] Portfolio contact form verification`,
 the email is `rainbowchen.ccc@gmail.com`, and Phone is empty to exercise its optional status.
-On continuation, inspect the current browser response before attempting any submission;
+The provider explicitly rejected the attempt, so the authorized successful test remains outstanding.
+On continuation, inspect current browser evidence before retrying;
 an interrupted response must not produce a duplicate email.
-Next: submit once, record the response, and finalize documentation.
+Next: verify the approved hCaptcha integration and missing-captcha validation,
+then finish the authorized test if a valid human challenge response is available.
 
 The user reported text crossing the Trust speech bubble's inner edge on Desktop.
 The previous rectangular overflow checks missed text crossing a painted curved boundary.
