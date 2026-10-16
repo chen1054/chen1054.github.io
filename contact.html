@@ -13,11 +13,12 @@
   <meta
     http-equiv="Content-Security-Policy"
     content="default-src 'self';
-      style-src 'self';
+      style-src 'self' https://hcaptcha.com https://*.hcaptcha.com;
       img-src 'self' data:;
       font-src 'self';
-      script-src 'self';
-      connect-src 'none';
+      script-src 'self' https://web3forms.com/client/script.js https://hcaptcha.com https://*.hcaptcha.com;
+      connect-src https://hcaptcha.com https://*.hcaptcha.com;
+      frame-src https://hcaptcha.com https://*.hcaptcha.com;
       object-src 'none';
       base-uri 'self';
       form-action https://api.web3forms.com https://web3forms.com"
@@ -34,6 +35,10 @@
   <script
     type="module"
     src="portfolio-navigation.mjs"
+  ></script>
+  <script
+    type="module"
+    src="contact-form-captcha-validation.mjs"
   ></script>
 </head>
 <body class="portfolio-contact-page">
@@ -259,6 +264,14 @@
             required
           ></textarea>
         </label>
+        <div
+          class="h-captcha"
+          data-captcha="true"
+          data-size="compact"
+        ></div>
+        <noscript>
+          Enable JavaScript to complete the captcha, or use the email link.
+        </noscript>
         <button
           class="contact-page-send-message-button"
           type="submit"
@@ -327,5 +340,11 @@
     aria-label="Back to top"
     hidden
   ></a>
+  <!-- The form's vendor scripts are an approved exception to local module/.mjs scripts. -->
+  <script
+    src="https://web3forms.com/client/script.js"
+    async
+    defer
+  ></script>
 </body>
 </html>
