@@ -6,7 +6,10 @@ The full phone Home page is implemented,
 including all six projects and the footer.
 The user waived further Home section reviews.
 The menu remains a separate implementation and review step;
-the hamburger and About control retain their agreed disabled preview state.
+the hamburger retains its agreed disabled preview state.
+“More About Me” is now a link styled as a button,
+temporarily opening `https://example.com`, as explicitly confirmed by the user.
+All seven links have an OKLCH hover fill with chroma multiplied by 1.1.
 
 Python serves the preview at `http://localhost:4173/`.
 The user opens it themselves.
@@ -23,8 +26,12 @@ records the supplied design and implementation at matching 390-pixel widths.
   The menu still requires a separate review.
 - All six case-study links temporarily open `https://example.com`,
   explicitly confirmed by the user for the remaining five buttons.
-- Hamburger and About button remain visual previews;
-  their behavior belongs to later steps.
+- The hamburger remains a visual preview;
+  its behavior belongs to a later step.
+- The About link temporarily opens `https://example.com`,
+  explicitly confirmed by the user after requesting a link styled as a button.
+- Hover increases button-background saturation by 10% in OKLCH:
+  multiply chroma by 1.1 while retaining lightness and hue.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
@@ -88,7 +95,7 @@ records the supplied design and implementation at matching 390-pixel widths.
 - `389e10b` adds artwork extracted directly from the PDF and locally hosted fonts.
 - `6b3f4ea` implements the intro with HTML and CSS.
 - `f87e7c3` replaces downloaded fonts with the supplied ZIP contents.
-- `index.html` contains the intro and Tales markup;
+- `index.html` contains the full Home markup;
   `styles.css` holds shared page styles.
   There is no JavaScript or npm dependency.
 - `mise run preview` serves the static files at `http://localhost:4173`.
@@ -118,7 +125,7 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The Tales “View case study” link opens `https://example.com` for now,
   as explicitly requested by the user.
   This is a navigation destination, not an externally loaded page asset.
-- Menu behavior and the About destination remain deferred.
+- Menu behavior and the final About destination remain deferred.
 - Ask for missing original materials instead of inventing replacements.
 
 ## Artwork review correction
@@ -246,3 +253,43 @@ Do not resume shell investigation as part of the portfolio work.
   as the user instructed.
   Source line breaks, fractional rem calculations,
   descriptive names, and selector nesting were followed manually.
+
+## Link hover implementation and verification
+
+- `5af8104` changes the About control to an anchor with the confirmed temporary destination
+  and adds hover fills to the original button artwork.
+- `666dcfe` gives the changed SVG backgrounds fresh asset URLs
+  after the browser reused older decoded SVG documents.
+  See [the cache observation](../troubleshooting/agent-browser-preview.md#svg-background-cache-observation).
+- `d16c1a4` shares background-image selection across all project links.
+  Each variant supplies normal and hover image variables;
+  nested hover styling selects the active image without a competing variant declaration.
+- Shared `styles.css` selects the SVG fragment `#button-background` on hover.
+  An asset-local `:target` rule paints only that original fill path with
+  `oklch(from currentColor l calc(c * 1.1) h)`.
+  The extracted paths and shadows are retained.
+  There is no JavaScript, dependency, generated artwork, or external resource request.
+- Headed Chromium computed the purple fill as
+  `oklch(0.489316 0.0810174 300.955)` normally and
+  `oklch(0.489316 0.0891192 300.955)` on hover.
+  Both gold widths changed from `oklch(0.652854 0.120467 64.8586)` to
+  `oklch(0.652854 0.132514 64.8586)`.
+  Lightness and hue stayed equal; chroma increased by the requested factor.
+- Raster samples from the final production asset URLs changed from RGB `104,85,135`
+  to `105,84,139` for purple and from `194,127,54` to `198,125,38` for gold.
+  A pixel comparison of the shadow-only rows found no changed channels
+  in any of the three background variants.
+- Native pointer hover selected the correct fragment on all seven links.
+  Moving away restored every normal background.
+  White text and 48-pixel hit-area heights were retained.
+- Tab visited all seven anchors with their visible 2-pixel focus outline.
+  Both Enter and pointer click on “More About Me” reached `https://example.com/`.
+- Content widths of 320, 390, and 414 pixels were rechecked without horizontal overflow.
+  Light and dark preferences retained the white design and hover background.
+  Page-error and console collections were empty;
+  Home recorded no external resource loads.
+- Hover captures show the [About link](../review/home-about-link-oklch-hover.png),
+  [Tales link](../review/home-tales-case-study-oklch-hover.png),
+  and [standard-width case-study link](../review/home-standard-case-study-oklch-hover.png).
+  These record the verified interaction states;
+  no additional Home review is required.

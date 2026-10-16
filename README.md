@@ -12,13 +12,15 @@ Each decorative wave component is its own SVG asset and HTML image.
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
 The portfolio loads no third-party resources.
-All six case-study links temporarily navigate to `https://example.com`,
+The About link and all six case-study links temporarily navigate to `https://example.com`,
 as requested.
+Their hover fills increase OKLCH chroma by 10%,
+preserving lightness, hue, and the original shadows.
 No npm dependencies are approved; linting and formatting are skipped by project instruction.
 
-Menu and About controls are disabled for this agreed visual preview.
+The menu control remains disabled for this agreed visual preview.
 The menu has its own review step.
-The About destination and case-study pages belong to later work.
+The final About destination and case-study pages belong to later work.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
 and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)

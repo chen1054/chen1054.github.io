@@ -84,3 +84,22 @@ focus outlines, both color preferences,
 and the absence of page errors and external Home resource loads.
 The durable results are recorded in the
 [Home handover](../handover/phone-intro.md).
+
+## SVG background cache observation
+
+During hover implementation, opening an existing URL reused older page or SVG state.
+The page initially retained its former disabled About button;
+reloading loaded the new anchor.
+A directly opened button SVG likewise lacked its newly added path ID and style until reloaded.
+Image decoding also reused older SVG content for existing asset URLs.
+
+The changed button backgrounds now have fresh, descriptive filenames ending in
+`background-and-shadow-oklch-hover.svg`.
+The page stylesheet uses those URLs for normal and fragment-targeted hover states.
+With the final production URLs, decoded raster samples changed fill color on hover
+while the shadow-only pixels remained equal for all three variants.
+Pointer hover selected the correct fragment for every link.
+
+This records observed cache reuse and the verified asset-URL change.
+It does not establish an upstream browser or agent-browser defect,
+or the cause of the earlier unresponsive session.
