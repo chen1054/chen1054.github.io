@@ -559,10 +559,7 @@ p {
   flex-wrap: wrap;
   gap: inherit;
   &>label {
-    flex: 1 1 calc(237rem / 16 + 142 * var(--home-wide-reference-growth));
-    &:last-child {
-      flex-basis: calc(280rem / 16 + 248 * var(--home-wide-reference-growth));
-    }
+    flex: 1 1 100%;
   }
 }
 .contact-page-form-field {
@@ -1222,6 +1219,12 @@ h4.case-study-subheading {
   }
   .contact-page-name-and-phone-fields {
     column-gap: calc(43rem / 16 + 120 * var(--home-wide-reference-growth));
+    &>label {
+      flex-basis: calc(237rem / 16 + 142 * var(--home-wide-reference-growth));
+      &:last-child {
+        flex-basis: calc(280rem / 16 + 248 * var(--home-wide-reference-growth));
+      }
+    }
   }
   .contact-page-form-field {
     &>input,
