@@ -2,7 +2,7 @@
 
 ## Current state
 
-Contact is implemented; final documentation and browser cleanup remain.
+Contact and the Home button-alignment correction are implemented and verified.
 The user additionally requested fixing text centering in Home's buttons.
 Headed-browser font-ink measurements against the SVG's actual painted bounds
 found the Desktop intro label 1.9 pixels low and project labels 3.52 to 3.76 pixels low.
@@ -13,7 +13,21 @@ Home now derives its text-line growth from the filled fraction,
 with a font-descender correction for the case-study label.
 Other pages retain their existing line-height growth through the shared fallback.
 This changes only CSS; no asset, markup, script, or breakpoint is needed.
-Next: verify Home labels across fluid widths and complete Contact's remaining navigation/doc checks.
+`e70f2cd` commits the Home correction.
+After it, vertical ink-center offsets stay within 1 pixel at 320, 390, 624, 625,
+744, 900, 1024, 1200, 1440, 1920, and 2560 pixel content widths.
+No horizontal overflow was found.
+At Desktop, the intro offset is now -0.10 pixels and project offsets are -0.48 to -0.24 pixels.
+The matching before/after Desktop project-button screenshots were inspected.
+Contact's native Home, About, and Work links and Escape dismissal passed;
+Work reaches the first Home project, and back-to-top returns to zero scroll and hides itself.
+The Contact email link uses the confirmed three-`c` address.
+Light and dark preferences preserve readable original form colors.
+`40e1c98` adds hCaptcha and the local validation module;
+`aadb9eb` records the user's completed manual test send.
+No implementation item remains queued.
+Keep the Python preview available at `http://localhost:4173/`;
+use `http://portfolio.localhost:4173/contact.html` for the captcha preview.
 Proposed verification guidance for `AGENTS.md`:
 for SVG-backed buttons, compare label ink centers against the painted fill,
 not the export frame that includes shadow.
@@ -59,6 +73,7 @@ Both color preferences preserve the original light design and readable field col
 Browser error and console collections were empty before provider scripts were added.
 Matched-scale reference comparisons are private `contact-{phone,tablet,desktop}-comparison.svg/png`
 files in `${HOME}/temp/agent/portfolio-intro/`.
+Those reference comparisons predate the approved captcha addition.
 Live test status: the native Send click reached Web3Forms,
 which returned HTTP 400 and `hCaptcha Token is mandatory for this form`.
 No successful delivery is claimed.
