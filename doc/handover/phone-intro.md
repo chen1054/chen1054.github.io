@@ -10,7 +10,7 @@ the hamburger retains its agreed disabled preview state.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
-`0.259833` for purple and `0.146647` for gold.
+`0.259833` for purple and `0.146646` for gold.
 Original lightness and hue are retained.
 This supersedes both the initial 10% increase and the out-of-gamut 100% preview.
 
