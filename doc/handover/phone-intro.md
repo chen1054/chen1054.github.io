@@ -1,6 +1,13 @@
-# Responsive Home implementation handover
+# Portfolio implementation handover
 
 ## Current state
+
+The user approved the completed responsive Home and its Desktop works width cap.
+They requested About next.
+Phone, Tablet, and Desktop About PNG/PDF references are present.
+Implementation scope approval is pending under the user's instruction to ask before substantial code additions.
+The Phone reference omits the main portrait visible in the other references;
+clarification is pending before implementing that area.
 
 The full phone Home page is implemented,
 including all six projects and the footer.
@@ -609,3 +616,26 @@ All six rows measured 1086 pixels at Desktop and wider sizes,
 with equal inline margins of 177, 417, and 737 pixels respectively.
 Phone and Tablet dimensions remained unchanged, with no horizontal overflow or undersized visible targets.
 Images decoded successfully; browser page-error and console collections were empty.
+
+## About page preparation
+
+- The user approved Home and requested About.
+- Supplied references are `../Phone/About.png` and `About.pdf`,
+  `../Tablet/About.png` and `About.pdf`,
+  and `../Desktop/About.png` and `About.pdf`.
+  PDF page sizes are 390 by 3601, 744 by 2774, and 1440 by 3254 points respectively.
+  All three PNGs have been visually inspected.
+- Original text positions and SVG artwork were extracted into the existing private scratch directory
+  with its `inspect-about-designs` task.
+- The page contains an introduction, biography, View My CV link,
+  skating/beach/reading photographs with captions, and the existing footer pattern.
+  The local `resume_Xinyan Chen.pdf` is available for the CV link.
+- Proposed scope: one About HTML page, shared CSS additions,
+  original photo and separate decorative wave assets,
+  reuse of navigation, footer, local fonts, hover behavior, and the current breakpoint,
+  plus wiring Home's About links and About's CV link.
+  The user has been asked to approve this larger code addition.
+- Open material question: whether the main portrait's absence from Phone/About.png is intentional.
+  Tablet and Desktop include the portrait.
+  Do not invent or approximate a missing phone portrait treatment.
+- Next action: incorporate the scope and portrait answers, then implement and verify the authorized About page.
