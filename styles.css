@@ -25,7 +25,6 @@
 :root {
   --home-wide-reference-growth: 0rem;
   --color-page-background: #fff;
-  --color-transparent: transparent;
   --color-portfolio-purple: #685587;
   --color-body-text-purple: #463267;
   --color-heading-and-case-study-gold: #c27f36;
@@ -242,6 +241,11 @@ p {
 .home-introduction-bottom-wave-composition {
   margin-block-start: -3rem;
 }
+@property --home-introduction-river-fade-progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
 @media(prefers-reduced-motion:no-preference) {
   .home-introduction-greeting,
   .home-introduction-designer-name,
@@ -262,10 +266,10 @@ p {
     animation-delay: 1350ms;
   }
   .home-introduction-wave-left-to-right-reveal {
-    animation: home-introduction-river-reveal-from-left 900ms ease-in-out 1800ms backwards;
+    animation: home-introduction-river-reveal-from-left 1800ms linear 1800ms backwards;
   }
   .home-introduction-wave-floral-accent {
-    animation-delay: 2700ms;
+    animation-delay: 3600ms;
   }
 }
 @keyframes home-introduction-layer-fade-in {
@@ -282,16 +286,25 @@ p {
   0%,100% {
     mask-image: linear-gradient(
       to right,
-      var(--color-page-background) 40%,
-      var(--color-transparent) 60%
+      rgb(from var(--color-page-background)
+        r g b / calc(pow(4, var(--home-introduction-river-fade-progress)) / 100)) 0%,
+      rgb(from var(--color-page-background)
+        r g b / calc(pow(2, (5 * var(--home-introduction-river-fade-progress) - 1) / 3) / 100))
+        calc(100% / 3),
+      rgb(from var(--color-page-background)
+        r g b / calc(pow(2, (3 * var(--home-introduction-river-fade-progress) - 1) / 2) / 100)) 50%,
+      rgb(from var(--color-page-background)
+        r g b / calc(pow(2, (4 * var(--home-introduction-river-fade-progress) - 2) / 3) / 100))
+        calc(200% / 3),
+      rgb(from var(--color-page-background)
+        r g b / calc(pow(2, var(--home-introduction-river-fade-progress) - 1) / 100)) 100%
     );
-    mask-size: 250% 100%;
   }
   from {
-    mask-position: 100% 0;
+    --home-introduction-river-fade-progress: 0;
   }
   to {
-    mask-position: 0 0;
+    --home-introduction-river-fade-progress: 8;
   }
 }
 .home-page-featured-project-summary {
