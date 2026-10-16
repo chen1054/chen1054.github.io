@@ -2,6 +2,21 @@
 
 ## Current state
 
+The user requested Tales for Safer Trails, MenuMe, and Scotties case-study pages.
+They approved three new HTML pages, shared case-study CSS, local asset extraction,
+and replacing their Home placeholder links with the implemented pages.
+Reuse the existing breakpoint, navigation, footer, and back-to-top control.
+All prototype and Tales demo buttons may temporarily open `https://example.com`.
+The user specifically noted that some artwork is only recolored;
+reuse original geometry and apply page colors instead of duplicating it.
+All nine supplied Phone, Tablet, and Desktop PNGs were inspected;
+their PDFs were extracted into private SVG and text working files.
+Next actions are independently verifiable:
+- Implement and verify Tales for Safer Trails.
+- Implement and verify MenuMe.
+- Implement and verify Scotties.
+- Verify shared responsive behavior, navigation, reused recolors, and update comparison artifacts.
+
 Home and About now include a shared back-to-top link.
 It is 3rem square, fixed 1rem from the bottom and right viewport edges,
 and hidden at the page top.
