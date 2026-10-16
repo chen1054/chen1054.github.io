@@ -207,7 +207,7 @@ p {
   background-image: url("assets/portfolio-back-to-top-arrow.svg");
   background-size: 100% 100%;
   &:hover {
-    background-image: url("assets/portfolio-back-to-top-arrow.svg#back-to-top-circle");
+    background-image: url("assets/portfolio-back-to-top-arrow.svg#back-to-top-arrow");
   }
 }
 .portfolio-page-decorative-wave-composition {

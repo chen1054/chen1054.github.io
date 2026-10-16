@@ -5,8 +5,10 @@
 Home and About now include a shared back-to-top link.
 It is 3rem square, fixed 1rem from the bottom and right viewport edges,
 and hidden at the page top.
-The new original SVG uses the existing purple, a gold ring, and a white upward arrow.
-Hover uses the existing purple sRGB-safe chroma limit;
+The original SVG now has a transparent circular background, a gold ring, and a purple upward arrow.
+The user requested transparency after the first filled version.
+The arrow changed from white to purple to remain visible on the white page.
+Hover saturates only the arrow using the existing purple sRGB-safe chroma limit;
 keyboard focus reuses the shared outline.
 `portfolio-navigation.mjs` now owns both menu dismissal and scroll visibility,
 renamed from `phone-navigation-menu.mjs` on 2026-10-15.
@@ -20,7 +22,8 @@ Keyboard focus shows the shared 2-pixel outline.
 The module rename preserved phone menu opening and Escape dismissal.
 Hover selects the saturated purple SVG fragment; both color preferences retain the supplied page styling.
 Browser error and console collections were empty after interaction checks.
-The [phone capture](../review/phone-about-back-to-top.png) records the visible control beside the About footer.
+The [phone capture](../review/phone-about-back-to-top.png) records the initial filled control beside the About footer.
+It predates the user's transparent-background correction.
 
 The user approved the completed responsive Home and its Desktop works width cap.
 The responsive About page is now implemented at `about.html`.
