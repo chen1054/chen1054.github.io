@@ -14,24 +14,28 @@ Interpretation: sequential fades for greeting, name, summary and About link toge
 then the purple river accent; reveal the gold band, gray ribbon, and three gray lines
 together from left to right; fade the river's flower last.
 The existing top-corner decoration and navigation remain static.
-CSS animates opacity/visibility and a moving gradient mask on the existing separate layers,
+CSS animates opacity/visibility and a fixed gradient mask on the existing separate layers,
 with no translation, sizing, spacing, asset, script, dependency, or viewport-breakpoint change.
-The six stages start at 0, 450, 900, 1350, 1800, and 2700 milliseconds;
-the river reveal lasts 900 milliseconds and each fade lasts 450 milliseconds.
-The sequence runs once on page load and completes at 3150 milliseconds.
+The six stages start at 0, 450, 900, 1350, 1800, and 3600 milliseconds;
+the river reveal lasts 1800 milliseconds and each other fade lasts 450 milliseconds.
+The sequence runs once on page load and completes at 4050 milliseconds.
 Reduced-motion visitors receive the complete static introduction immediately.
 Initial stage probes at 390, 744, and 1440 pixels confirmed the requested order
 and unchanged bounds for every animated element at ten timeline positions.
 An intentional position change proved the bounds probe detects movement.
 The initial hard wipe measured a half-width reveal at 2250 milliseconds.
 The user then clarified that river pixels must fade gradually instead of appearing at a hard edge.
-The attempted moving alpha gradient remains in the preview,
-but the user explicitly rejected a feathered edge.
-Pause animation implementation and discuss the intended effect fully before making another change.
+The user explicitly rejected the attempted moving feathered edge.
 The user confirmed the artwork must stay at its final position throughout the entrance.
-The pending opacity question asks whether each piece fades uniformly as a whole
-or its left side begins appearing before its right side.
-The intended replacement effect is unresolved; do not infer it from the rejection.
+The user then provided opacity examples and authorized a provisional implementation to inspect in motion.
+Treat the numbers as percentages: progress zero has left 1% and right 0.5%;
+progress one has left 4%, middle 2%, and right 1%;
+progress two has left 16%, first third 8%, second third 4%, and right 2%.
+One registered numeric CSS property interpolates progress from zero to eight across 1800 milliseconds.
+A stationary mask uses five gradient stops whose alpha follows those exponential examples,
+clamped at full opacity by the browser.
+There is no traveling mask edge, translation, or new JavaScript.
+This is a trial for the user to evaluate, not an accepted animation design.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.
