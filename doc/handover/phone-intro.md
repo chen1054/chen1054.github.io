@@ -14,7 +14,7 @@ Interpretation: sequential fades for greeting, name, summary and About link toge
 then the purple river accent; reveal the gold band, gray ribbon, and three gray lines
 together from left to right; fade the river's flower last.
 The existing top-corner decoration and navigation remain static.
-CSS animates opacity/visibility and `clip-path` on the existing separate layers,
+CSS animates opacity/visibility and a moving gradient mask on the existing separate layers,
 with no translation, sizing, spacing, asset, script, dependency, or viewport-breakpoint change.
 The six stages start at 0, 450, 900, 1350, 1800, and 2700 milliseconds;
 the river reveal lasts 900 milliseconds and each fade lasts 450 milliseconds.
@@ -23,7 +23,10 @@ Reduced-motion visitors receive the complete static introduction immediately.
 Initial stage probes at 390, 744, and 1440 pixels confirmed the requested order
 and unchanged bounds for every animated element at ten timeline positions.
 An intentional position change proved the bounds probe detects movement.
-The five river pieces all measured a half-width reveal at 2250 milliseconds.
+The initial hard wipe measured a half-width reveal at 2250 milliseconds.
+The user then clarified that river pixels must fade gradually instead of appearing at a hard edge.
+The river now uses a moving alpha gradient with a feather spanning half its frame width;
+the original direction, stage timing, text fades, and layout remain intact.
 The first finished-frame comparison retained animation fill styles and differed from static captures.
 Use `backwards` fill instead: it holds the starting state during delays,
 then releases animation styles at completion so the original rendering takes over.

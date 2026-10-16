@@ -25,6 +25,7 @@
 :root {
   --home-wide-reference-growth: 0rem;
   --color-page-background: #fff;
+  --color-transparent: transparent;
   --color-portfolio-purple: #685587;
   --color-body-text-purple: #463267;
   --color-heading-and-case-study-gold: #c27f36;
@@ -278,11 +279,19 @@ p {
   }
 }
 @keyframes home-introduction-river-reveal-from-left {
+  0%,100% {
+    mask-image: linear-gradient(
+      to right,
+      var(--color-page-background) 40%,
+      var(--color-transparent) 60%
+    );
+    mask-size: 250% 100%;
+  }
   from {
-    clip-path: inset(0 100% 0 0);
+    mask-position: 100% 0;
   }
   to {
-    clip-path: inset(0 0 0 0);
+    mask-position: 0 0;
   }
 }
 .home-page-featured-project-summary {
