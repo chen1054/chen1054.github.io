@@ -56,6 +56,7 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The finished site must make no third-party requests, except for the future form.
   The user explicitly permits locally hosted original fonts and artwork.
 - All pages share a separate `styles.css`.
+- All scripts use the `.mjs` extension and are loaded with `type="module"`.
 - Names must identify the page, content, and role.
   Use descriptive class names, IDs, color tokens, and artwork filenames;
   clarity takes priority over brevity.
@@ -110,7 +111,8 @@ records the supplied design and implementation at matching 390-pixel widths.
 - `f87e7c3` replaces downloaded fonts with the supplied ZIP contents.
 - `index.html` contains the full Home markup;
   `styles.css` holds shared page styles.
-  There is no JavaScript or npm dependency.
+  The original Home implementation needed no JavaScript.
+  The menu now uses an approved local ES module; there is no npm dependency.
 - `mise run preview` serves the static files at `http://localhost:4173`.
 - The supplied white design is retained in either system color preference.
   No alternate theme has been supplied or invented.
@@ -386,8 +388,10 @@ Do not resume shell investigation as part of the portfolio work.
   The user subsequently approved writing the JavaScript.
 - Home now links normally to `./`.
   Work jumps to projects within Home, as explicitly selected by the user.
-  The approved `phone-navigation-menu.js` closes the popover when a menu link is chosen;
+  The approved `phone-navigation-menu.mjs` closes the popover when a menu link is chosen;
   the browser still handles navigation normally.
+  It was initially named `phone-navigation-menu.js`,
+  then renamed on 2026-10-15 to follow the user's `.mjs` and `type="module"` convention.
   Native opening, Escape dismissal, and outside-click dismissal need no script.
 - Next action: extract the original icon, implement the shared menu markup and styles,
   then verify geometry and interactions in the headed browser and present the menu review.
