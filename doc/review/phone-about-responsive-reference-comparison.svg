@@ -1,0 +1,29 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="796"
+  height="3633"
+  viewBox="0 0 796 3633"
+  role="img"
+  aria-labelledby="phone-about-comparison-title"
+>
+  <title id="phone-about-comparison-title">Supplied phone About reference and implementation at matching scale</title>
+  <rect width="100%" height="100%" fill="white"/>
+  <g font-family="sans-serif" font-size="16" fill="black">
+    <text x="12" y="22">Supplied reference</text>
+    <text x="418" y="22">Responsive implementation</text>
+  </g>
+  <image
+    href="../reference/phone-about.png"
+    x="0"
+    y="32"
+    width="390"
+    height="3601"
+  />
+  <image
+    href="phone-about-responsive-implementation.png"
+    x="406"
+    y="32"
+    width="390"
+    height="3601"
+  />
+</svg>

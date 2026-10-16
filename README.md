@@ -1,7 +1,8 @@
 # Xinyan Chen portfolio
 
-Responsive Home implementation with all six projects and the footer,
-based on the supplied Phone, Tablet, and Desktop Home designs.
+Responsive Home and About pages,
+based on the supplied Phone, Tablet, and Desktop designs.
+Home includes all six projects and the footer.
 Run `mise run preview` and visit `http://localhost:4173`.
 There is no install or build step.
 
@@ -54,3 +55,10 @@ and [Desktop comparison](doc/review/desktop-home-responsive-reference-comparison
 show the supplied references beside the responsive implementation at matching scale.
 The full-page captures already omit the scrollbar;
 the comparisons retain their native pixel dimensions.
+
+About comparisons show the supplied reference and implementation for
+[Phone](doc/review/phone-about-responsive-reference-comparison.svg),
+[Tablet](doc/review/tablet-about-responsive-reference-comparison.svg),
+and [Desktop](doc/review/desktop-about-responsive-reference-comparison.svg).
+The Phone implementation includes the original portrait as requested,
+although that reference export leaves its portrait area blank.

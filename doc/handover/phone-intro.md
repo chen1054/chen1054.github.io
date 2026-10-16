@@ -3,11 +3,14 @@
 ## Current state
 
 The user approved the completed responsive Home and its Desktop works width cap.
-They requested About next.
+The responsive About page is now implemented at `about.html`.
 Phone, Tablet, and Desktop About PNG/PDF references are present.
 The user approved implementing About across Phone, Tablet, and Desktop with shared code and original assets.
 The Phone reference omits the main portrait visible in the other references.
 The user confirmed showing the same supplied portrait on phone and described the omission as a probable Figma bug.
+All About photographs are PNG files.
+Gallery corners and gold shadows use one shared CSS rule with `border-radius` and `box-shadow`.
+The user explicitly rejected SVG photographs and SVG gold-shadow assets.
 
 The full phone Home page is implemented,
 including all six projects and the footer.
@@ -32,8 +35,8 @@ Wide illustrations select named SVG views with blank export margins removed.
 Their boxes align to the outer column edges while text remains left-aligned.
 The original phone viewBoxes remain intact;
 explicit phone aspect ratios preserve the original image frames after wide-to-phone resizing.
-“More About Me” is now a link styled as a button,
-temporarily opening `https://example.com`, as explicitly confirmed by the user.
+“More About Me” is a link styled as a button and now opens `about.html`.
+Its approved temporary `https://example.com` destination was replaced when About was implemented.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
 `0.259833` for purple and `0.146646` for gold.
 Original lightness and hue are retained.
@@ -56,8 +59,8 @@ records the supplied design and implementation at matching 390-pixel widths.
   explicitly confirmed by the user for the remaining five buttons.
 - The initial hamburger preview has been replaced with the requested functional menu.
   The user accepted that menu implementation.
-- The About link temporarily opens `https://example.com`,
-  explicitly confirmed by the user after requesting a link styled as a button.
+- The About link opens the implemented local `about.html` page.
+  It previously used the explicitly approved `https://example.com` placeholder.
 - The initial hover request increased OKLCH chroma by 10%.
   The user subsequently requested maximum hover chroma.
   After asking whether other components changed,
@@ -66,7 +69,7 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The user says image inspection is unnecessary for deterministic changes such as this color adjustment.
   Verify the color conversion and rendered state numerically without viewing screenshots.
 - The menu's Contact link temporarily opens `https://example.com`, explicitly confirmed by the user.
-  About reuses its approved placeholder.
+  About opens the implemented local About page.
   Home is a regular homepage link.
   Work jumps to the first Home project, explicitly confirmed by the user.
   The user explicitly approved the short local script for closing the menu after navigation.
@@ -93,6 +96,7 @@ records the supplied design and implementation at matching 390-pixel widths.
 - Each wave component must be a separate HTML element with its own SVG asset.
   Keep original positions and layer order;
   do not bundle the whole composition into a single SVG image.
+- About photographs must be PNG files; gallery gold shadows must use CSS `box-shadow`.
 - No npm dependencies are approved.
   Skip linting and formatting for this project;
   follow conventions specified by the user manually.
@@ -165,7 +169,8 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The menu is implemented and accepted by the user.
 - Home adaptation to Tablet and Desktop is complete.
   Minimum code remains the first priority and minimum breakpoints the second.
-- About and Contact pages and their final destinations remain deferred.
+- About is implemented and browser-verified across Phone, Tablet, and Desktop.
+  Contact and case-study pages remain deferred.
   Case studies still use the approved temporary `https://example.com` destination.
 - Ask for missing original materials instead of inventing replacements.
 
@@ -673,6 +678,26 @@ Images decoded successfully; browser page-error and console collections were emp
   The overflow probe passed its injected-overflow positive control.
   Phone, Tablet, and Desktop heights were 3601, 2774, and 3254 pixels.
   Home also passed the 390, 744, 1440, and 1920 pixel regression checks.
-- Next action: reverify the corrected PNG photos and CSS shadows at representative widths;
-  exercise navigation and CV links, hover/focus, both color preferences,
-  and prepare matching-scale reference comparisons before closing the private browser.
+- `0e3ebc6` replaces all About photograph SVGs and baked-shadow crops with photo-only PNG files,
+  using shared CSS for gallery corners and the gold shadow.
+  The corrected page passed 390, 640, 744, and 1440 pixel checks,
+  including wide-to-phone resizing, image decoding, target sizes, external resources, and overflow positive control.
+  Original reference page heights remain 3601, 2774, and 3254 pixels.
+  Computed gallery shadows are `rgb(217, 161, 80) 0px 6px 5px 0px` with 50-pixel corner radii.
+- Actual pointer and keyboard checks exercised the menu opener, close button, Escape, outside dismissal,
+  Home, About, Work, Contact, Home's About CTA, and the local CV PDF.
+  Work reaches the first Home project at viewport top on both phone and wide navigation.
+  Keyboard focus returns to the opener on Escape; the CV link shows a 2-pixel focus outline.
+  Contact reaches the approved `https://example.com/` placeholder.
+- CV hover selects the proper phone and wide SVG fragments.
+  Native wide-button rasterization changes fill RGB from `194,127,54` to `204,122,0`;
+  shadow rows remain identical.
+  Both system color preferences retain the supplied white design.
+  Browser error and console collections were empty after the final checks.
+- Matching-scale reference comparisons and current full-page captures are retained for
+  [Phone](../review/phone-about-responsive-reference-comparison.svg),
+  [Tablet](../review/tablet-about-responsive-reference-comparison.svg),
+  and [Desktop](../review/desktop-about-responsive-reference-comparison.svg).
+  The Phone implementation includes the explicitly requested portrait absent from its export.
+- Next action: render and inspect updated documentation, close the owned browser/compositor,
+  and leave the Python preview available for the user's About review.
