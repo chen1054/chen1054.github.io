@@ -4,8 +4,19 @@
 
 Contact is implemented; final documentation and browser cleanup remain.
 The user additionally requested fixing text centering in Home's buttons.
-Next after Contact verification: measure text against the actual painted button backgrounds,
-correct the shared alignment with minimum CSS, and verify Home at Phone and wide widths.
+Headed-browser font-ink measurements against the SVG's actual painted bounds
+found the Desktop intro label 1.9 pixels low and project labels 3.52 to 3.76 pixels low.
+Phone labels were within 1 pixel vertically; Tablet project labels were within 0.44 pixels.
+The SVG's fill occupies 34 of its 42 vertical units, with shadow in the remaining frame.
+The wide line height previously grew by the entire background-height increase.
+Home now derives its text-line growth from the filled fraction,
+with a font-descender correction for the case-study label.
+Other pages retain their existing line-height growth through the shared fallback.
+This changes only CSS; no asset, markup, script, or breakpoint is needed.
+Next: verify Home labels across fluid widths and complete Contact's remaining navigation/doc checks.
+Proposed verification guidance for `AGENTS.md`:
+for SVG-backed buttons, compare label ink centers against the painted fill,
+not the export frame that includes shadow.
 Use Phone/Contactphone, Tablet/Contracttablet, and Desktop/Contactdesktop PNG/PDF designs.
 The user supplied the Tablet files during implementation; the `Contracttablet` spelling is intentional here.
 The user approved `contact.html`, shared form CSS, separate original wave components,

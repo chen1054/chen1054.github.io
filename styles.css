@@ -1180,11 +1180,17 @@ h4.case-study-subheading {
     );
     background-size: 100% calc(42rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth));
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
-    line-height: calc(34rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth));
+    line-height: calc(
+      34rem / 16 +
+      var(--home-wide-button-text-line-height-growth,var(--home-wide-button-height-growth)) *
+      var(--home-wide-reference-growth)
+    );
     font-family: "Playfair Display", serif;
     font-weight: 700;
   }
   .home-introduction-about-page-link {
+    /* The SVG's filled pill occupies 34 of its 42 vertical units; the rest contains its shadow. */
+    --home-wide-button-text-line-height-growth: calc(var(--home-wide-button-height-growth) * 34 / 42);
     margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
   }
   .contact-page-content {
@@ -1326,6 +1332,7 @@ h4.case-study-subheading {
       &>.home-page-project-case-study-link {
         --home-wide-button-width-growth: 120;
         --home-wide-button-height-growth: 29;
+        --home-wide-button-text-line-height-growth: calc(var(--home-wide-button-height-growth) * 34 / 42 - 2);
         inset-inline-start: calc(-4rem / 16 - 2 * var(--home-wide-reference-growth));
         margin-block-start: calc(28rem / 16 + 25 * var(--home-wide-reference-growth));
         margin-inline: 0;
