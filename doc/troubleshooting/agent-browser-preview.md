@@ -122,3 +122,24 @@ which can round their components.
 The final probe kept original lightness and hue,
 confirmed every sRGB channel was in range,
 and proved that the next six-decimal chroma value was outside the gamut.
+
+## Responsive reference measurement with a scrollbar
+
+The responsive verification run measured a 759-pixel outer viewport
+and a 744-pixel document content width.
+An interpolation based on `100vw` had already started growing at that size,
+so its fonts and horizontal offsets missed the supplied 744-pixel Tablet reference.
+
+The verified replacement gives `body` an inline-size container
+and uses `100cqw` in the shared interpolation variable.
+At a measured 744-pixel content width,
+the Tablet project gutter returned to 50 pixels,
+body text returned to 14 pixels,
+and the complete page measured 3302 pixels tall.
+The same implementation was exercised at 1440 pixels with and without a vertical scrollbar.
+
+Report the measured content width separately from the outer viewport width.
+The overflow check was validated by temporarily inserting a block
+100 pixels wider than the document and observing horizontal overflow,
+then removing it before the real measurements.
+No upstream defect is established by these measurements.

@@ -466,13 +466,38 @@ Do not resume shell investigation as part of the portfolio work.
   page height remains 5077 pixels.
   Measured the shared Tablet layout at 744 pixels after spacing calibration:
   page height is 3302 pixels, matching the supplied reference height.
-  Desktop calibration and cross-width interaction checks are still in progress.
+  The completed Desktop layout measures 5685 pixels tall at 1440 pixels wide.
+  Its live text wraps naturally, so it is 25 pixels taller than the supplied 5660-pixel reference.
 - The first 640-pixel viewport capture exposed Scotties and Matcha artwork overlapping text.
   Capped illustration frames according to their measured internal margins and the fluid column gap.
   This keeps original artwork inside the available image area without another breakpoint.
-- Next action: finish the headed-browser width and interaction checks,
-  save matching-scale reference comparisons,
-  and update this handover with the final evidence.
+- Completed headed-browser checks at content widths of
+  320, 390, 414, 600, 624, 625, 640, 744, 1024, 1440, and 1920 pixels.
+  No horizontal overflow, failed image decodes, or visible targets smaller than 48 pixels were found.
+  The overflow probe passed its positive control at every width.
+  The 639-pixel outer viewport retained the phone layout;
+  the 640-pixel outer viewport selected the wide layout.
+- Project artwork clearance was measured from the original SVG paint bounds
+  at outer widths of 640, 759, 1039, 1455, and 1935 pixels.
+  Every illustration remained clear of the adjacent description.
+  The smallest measured clearance was approximately 2.76 pixels at the breakpoint.
+- Verified phone opening, autofocus, close button, Escape, outside-click dismissal,
+  Work closing and scrolling to the first project,
+  and resizing an open menu to wide navigation and back.
+  Wide navigation remained visible after Escape closed the native popover state.
+  Keyboard Tab showed the Home focus outline;
+  keyboard Enter activated Work;
+  Home performed regular navigation back to the page top.
+- Actually opened every outgoing link:
+  About CTA, all six case-study links, and navigation About and Contact.
+  Each reached the approved `https://example.com/` placeholder.
+  Every CTA selected its existing maximum-sRGB-chroma SVG fragment on hover.
+- Both light and dark preferences retained the accepted white reference presentation.
+  The Home resource list contained no third-party requests.
+  Browser errors and console messages were empty after the interaction checks.
+- Next action: save matching-scale reference comparisons,
+  render the updated documentation,
+  and close the private verification browser.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
