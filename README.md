@@ -1,6 +1,6 @@
 # Xinyan Chen portfolio
 
-Responsive Home, About, Tales for Safer Trails, MenuMe, and Scotties pages,
+Responsive Home, About, Contact, Tales for Safer Trails, MenuMe, and Scotties pages,
 based on the supplied Phone, Tablet, and Desktop designs.
 Home includes all six projects and the footer.
 Run `mise run preview` and visit `http://localhost:4173`.
@@ -20,7 +20,9 @@ Typography, spacing, and illustrations resize fluidly between the Tablet and Des
 The content and navigation are shared, and responsive behavior adds no JavaScript.
 The original Abril Fatface and Playfair Display fonts are served locally;
 their licenses accompany the font files in `assets/fonts/`.
-The portfolio loads no third-party resources.
+The portfolio loads no third-party resources while browsing.
+Contact submits directly to Web3Forms using a native HTML POST form;
+the form service is the approved third-party exception.
 Home links to `tales-for-safer-trails.html`, `menume.html`, and `scotties.html`.
 The remaining Home case-study links temporarily navigate to `https://example.com`, as requested.
 Their hover fills use the maximum sRGB-safe OKLCH chroma at six decimal places,
@@ -33,7 +35,7 @@ The local `portfolio-navigation.mjs` module closes it when a link is selected.
 It also shows the shared back-to-top link after scrolling.
 The link sits 1rem from the bottom and right edges and measures 3rem square.
 Home returns to the homepage; Work jumps to the first project.
-About opens `about.html`; Contact temporarily opens `https://example.com`.
+About opens `about.html`; Contact opens `contact.html`.
 The phone menu has been reviewed and accepted.
 The About page is available at `about.html`,
 and Home's About links now open it.
@@ -57,7 +59,15 @@ Click the enlarged viewer, press Escape, or click outside it to close.
 Zooming adds no JavaScript or dependencies.
 Prototype and Tales demo links temporarily open `https://example.com`.
 Their hover fills also maximize sRGB-safe chroma while retaining lightness and hue.
-Contact belongs to later work.
+Contact uses the supplied Phone, Tablet, and Desktop designs,
+including the Tablet files named `Contracttablet`.
+The form requires Name, Email, and Message; Phone is optional.
+Native browser validation checks required fields and email syntax.
+Successful submissions use Web3Forms' hosted confirmation page.
+No new JavaScript, dependencies, or breakpoints are needed.
+The email address and its link both use `rainbowchen.ccc@gmail.com`, as confirmed by the user.
+See [Web3Forms' native form documentation](https://docs.web3forms.com/getting-started/examples/basic-html-contact-form)
+for the provider's POST fields and confirmation behavior.
 
 See [the handover](doc/handover/phone-intro.md) for scope and verification,
 and [the extracted intro reference](doc/reference/home-introduction-through-first-decorative-wave.svg)

@@ -14,8 +14,19 @@ Both PDFs have a conflicting email target with two `c` characters.
 The user confirmed three: display and link `rainbowchen.ccc@gmail.com`.
 They also authorized one clearly marked real test submission.
 Do not repeat it if a response is uncertain without first checking whether it was accepted.
-Next: extract the Contact artwork, build the shared responsive form,
-verify locally, and send the single authorized test.
+`ea19d10` implements Contact and connects every existing menu.
+The original divider has separate Phone and wide SVG components;
+the wide artwork also matches the supplied Tablet divider's scale.
+The approved shared footer reuses About's original three wave assets.
+`f8092b6` gives its wide picture sources explicit dimensions,
+preserving the correct aspect ratio even though those SVGs use `preserveAspectRatio="none"`.
+The form reuses the existing gold button artwork and sRGB-safe hover behavior.
+No script, dependency, or breakpoint was added.
+Phone and Tablet page heights measure 1467 and 1056 pixels at their reference widths;
+Desktop measures 2118 pixels against a 2114-pixel reference.
+Live test status: not yet sent.
+Next: finish native validation, responsive, navigation, and focus checks;
+then send the single authorized test and record its response.
 
 The user reported text crossing the Trust speech bubble's inner edge on Desktop.
 The previous rectangular overflow checks missed text crossing a painted curved boundary.
