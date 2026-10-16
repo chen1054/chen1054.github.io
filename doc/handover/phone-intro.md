@@ -12,8 +12,12 @@ with one 40rem breakpoint and shared fluid sizing.
 The responsive implementation passed its initial headed-browser checks.
 The user subsequently reported misaligned illustration and text edges at Desktop width.
 They prefer aligning outside edges with outside edges.
-The active correction aligns left-column content left and right-column content right,
-including the visible artwork inside each SVG's blank export margins.
+An attempted correction used per-image CSS offsets and right-aligned the right-column text.
+The user rejected that approach: “That's the wrong way to do it...”
+Those changes have been backed out.
+Clarification is pending on trimming the SVG export margins,
+aligning the actual artwork boxes to the outer column edges,
+and retaining left-aligned text.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -523,7 +527,7 @@ Do not resume shell investigation as part of the portfolio work.
 - The Home responsive scope is implemented and verified.
   No additional Home review is required by the user's instruction.
   Future page work still needs its supplied materials and destinations.
-- Next action: correct the reported outside-edge alignment,
+- Next action: resolve the pending alignment clarification before implementing another correction,
   verify the columns across wide widths,
   refresh the affected comparison captures,
   render the updated documentation, and close the private verification browser.
