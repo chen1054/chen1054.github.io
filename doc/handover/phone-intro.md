@@ -5,8 +5,8 @@
 The full phone Home page is implemented,
 including all six projects and the footer.
 The user waived further Home section reviews.
-The menu remains a separate implementation and review step;
-the hamburger retains its agreed disabled preview state.
+The user accepted the sRGB-safe hover state and requested the phone menu.
+Menu implementation is now in progress for its separate review.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -40,6 +40,9 @@ records the supplied design and implementation at matching 390-pixel widths.
   Retain the original lightness and hue and keep all sRGB channels in range.
 - The user says image inspection is unnecessary for deterministic changes such as this color adjustment.
   Verify the color conversion and rendered state numerically without viewing screenshots.
+- The menu's Contact link temporarily opens `https://example.com`, explicitly confirmed by the user.
+  Home links to the page top, About reuses its approved placeholder,
+  and Work links to the first Home project.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
@@ -363,3 +366,18 @@ Do not resume shell investigation as part of the portfolio work.
   The About link retained its visible keyboard focus ring.
   Light and dark preferences were exercised; browser error and console collections were empty,
   and Home loaded no external resources.
+
+## Phone menu implementation in progress
+
+- The supplied `../Phone/Side menu.png` is 97 by 887 pixels.
+  Its PDF page is 101 by 887 points, with an original white panel spanning x 0 through 97.
+  Original text starts at x 20; baselines are 158, 209, 260, and 311.
+  Text size is 15; the supplied glyph outlines match the existing Abril Fatface lettering.
+- Preserve the white 97-pixel panel, original hamburger paths, link order,
+  typography, and vertical spacing.
+  Use a native popover without introducing a dependency.
+- Pending user preference: a short local script to close the menu after Home or Work navigation,
+  or script-free navigation with manual dismissal after those links.
+  Opening, Escape dismissal, and outside-click dismissal work natively in either approach.
+- Next action: extract the original icon, implement the shared menu markup and styles,
+  then verify geometry and interactions in the headed browser and present the menu review.
