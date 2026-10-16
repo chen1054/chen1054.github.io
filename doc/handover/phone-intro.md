@@ -5,9 +5,9 @@
 The user approved the completed responsive Home and its Desktop works width cap.
 They requested About next.
 Phone, Tablet, and Desktop About PNG/PDF references are present.
-Implementation scope approval is pending under the user's instruction to ask before substantial code additions.
-The Phone reference omits the main portrait visible in the other references;
-clarification is pending before implementing that area.
+The user approved implementing About across Phone, Tablet, and Desktop with shared code and original assets.
+The Phone reference omits the main portrait visible in the other references.
+The user confirmed showing the same supplied portrait on phone and described the omission as a probable Figma bug.
 
 The full phone Home page is implemented,
 including all six projects and the footer.
@@ -634,8 +634,12 @@ Images decoded successfully; browser page-error and console collections were emp
   original photo and separate decorative wave assets,
   reuse of navigation, footer, local fonts, hover behavior, and the current breakpoint,
   plus wiring Home's About links and About's CV link.
-  The user has been asked to approve this larger code addition.
-- Open material question: whether the main portrait's absence from Phone/About.png is intentional.
-  Tablet and Desktop include the portrait.
-  Do not invent or approximate a missing phone portrait treatment.
-- Next action: incorporate the scope and portrait answers, then implement and verify the authorized About page.
+  The user approved this larger code addition.
+- The user confirmed including the original garden portrait on phone as well as wider screens.
+  Its absence in the phone export is not an instruction to omit it.
+- Original portrait, gallery frames, separate wave components, and wide CV button artwork
+  are extracted from the supplied PDFs with the private `extract-about-artwork` task.
+  SVG paths, image masks, embedded photographs, and shadows are retained.
+  The existing sRGB-safe gold hover limit is reused for the new CV background.
+- Next action: implement the authorized About page and verify it against the supplied references,
+  including the confirmed phone portrait correction.
