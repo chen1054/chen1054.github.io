@@ -537,9 +537,9 @@ Do not resume shell investigation as part of the portfolio work.
 - The Home responsive scope is implemented and verified.
   No additional Home review is required by the user's instruction.
   Future page work still needs its supplied materials and destinations.
-- The outside-alignment correction is implemented.
-  Final width checks, refreshed comparison captures, rendered documentation,
-  and private-browser cleanup are in progress.
+- The outside-alignment correction passed the final width and interaction checks.
+  Matching-scale comparison captures are refreshed.
+  Rendered documentation and private-browser cleanup are the final verification steps.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
   The Python preview remains the site server at `http://localhost:4173/`.
@@ -570,3 +570,22 @@ Do not resume shell investigation as part of the portfolio work.
 - Queries and additional original-frame SVG views were tried locally while diagnosing resize behavior.
   Neither resolved the issue and neither is present in production.
   No new JavaScript, breakpoint, dependency, or third-party resource was added.
+- Rechecked content widths of 320, 390, 414, 600, 624, 625, 640, 744, 1024, 1440, and 1920 pixels.
+  Every overflow positive control succeeded, and the page itself had no horizontal overflow.
+  All images decoded, visible targets met the 48-pixel minimum, and Home loaded no external resources.
+  Every wide artwork and description outside edge aligned at the measured breakpoint,
+  Tablet, intermediate, Desktop, and 1920-pixel widths.
+- Rechecked keyboard opening, the close button's autofocus, Escape with opener focus restoration,
+  and Work closing the phone popover and scrolling to the project.
+  All seven CTA hover backgrounds selected the existing sRGB-safe fragment.
+  Both color preferences retained the white design.
+  Browser page-error and console collections were empty after these checks.
+- `7cd03c5` refreshes the Phone, Tablet, and Desktop implementation PNGs.
+  Their native sizes remain 390 by 5200, 744 by 3302, and 1440 by 5685.
+  Existing comparison SVG dimensions remain valid.
+  The final Desktop and Phone captures were visually inspected.
+- The new Phone capture differs from the historical accepted capture in 5776 of 1980030 pixels,
+  within the header, first wave, Tales illustration, and Tales button regions.
+  No differences occurred after y 1489.
+  These are raster comparisons, not a claim of a diagnosed rendering cause.
+  Phone section positions and original artwork frame dimensions remain intact.
