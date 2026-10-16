@@ -43,7 +43,8 @@ records the supplied design and implementation at matching 390-pixel widths.
 - The menu's Contact link temporarily opens `https://example.com`, explicitly confirmed by the user.
   About reuses its approved placeholder.
   Home is a regular homepage link.
-  Work's destination is awaiting clarification.
+  Work jumps to the first Home project, explicitly confirmed by the user.
+  The user explicitly approved the short local script for closing the menu after navigation.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
@@ -382,10 +383,11 @@ Do not resume shell investigation as part of the portfolio work.
   A headed-browser click on Work reached the Tales fragment while leaving the popover open.
   That was the reason for proposing a close-on-navigation handler,
   rather than a requirement for regular page links.
-  No script has been added.
+  The user subsequently approved writing the JavaScript.
 - Home now links normally to `./`.
-  Pending user clarification: Work links to the temporary `https://example.com` destination
-  or jumps to projects within Home.
+  Work jumps to projects within Home, as explicitly selected by the user.
+  The approved `phone-navigation-menu.js` closes the popover when a menu link is chosen;
+  the browser still handles navigation normally.
   Native opening, Escape dismissal, and outside-click dismissal need no script.
 - Next action: extract the original icon, implement the shared menu markup and styles,
   then verify geometry and interactions in the headed browser and present the menu review.
