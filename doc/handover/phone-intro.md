@@ -9,7 +9,11 @@ The user accepted the sRGB-safe hover state and requested the phone menu.
 The user accepted the phone menu: “Okay, it works great.”
 Home now adapts to the supplied Tablet and Desktop designs
 with one 40rem breakpoint and shared fluid sizing.
-The responsive implementation and headed-browser checks are complete.
+The responsive implementation passed its initial headed-browser checks.
+The user subsequently reported misaligned illustration and text edges at Desktop width.
+They prefer aligning outside edges with outside edges.
+The active correction aligns left-column content left and right-column content right,
+including the visible artwork inside each SVG's blank export margins.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -519,7 +523,10 @@ Do not resume shell investigation as part of the portfolio work.
 - The Home responsive scope is implemented and verified.
   No additional Home review is required by the user's instruction.
   Future page work still needs its supplied materials and destinations.
-- Next action: render the updated documentation and close the private verification browser.
+- Next action: correct the reported outside-edge alignment,
+  verify the columns across wide widths,
+  refresh the affected comparison captures,
+  render the updated documentation, and close the private verification browser.
   Verify Phone, Tablet, Desktop, and intermediate widths in headed `agent-browser`.
 - A private headed Chromium and nested compositor are running for this task,
   attached through CDP port 9237 using the existing scratch tasks.
