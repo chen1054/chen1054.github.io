@@ -44,6 +44,8 @@ photographs are local PNG files extracted from the supplied artwork.
 One shared CSS rule gives gallery photographs their rounded corners and gold `box-shadow`.
 “View My CV” opens the locally hosted résumé PDF.
 The case studies reuse the navigation, footer, back-to-top link, and existing breakpoint.
+Their hero columns wrap naturally with flexbox.
+A 64rem container query switches their centered headings to left alignment on Desktop.
 Their text remains live HTML and their photographs and interface screenshots are local PNGs.
 Original vector artwork retains its SVG geometry;
 shared masks recolor the matching corner decorations.

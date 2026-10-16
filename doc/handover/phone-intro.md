@@ -54,6 +54,15 @@ a native crop of the captured PNG confirmed those pixels are in the capture itse
 A real scrolled Tales footer viewport renders correctly.
 Use viewport captures and artwork catalogs for verification;
 the troubleshooting document records this capture issue and browser input quirks.
+The Tablet source places hero artwork over its text;
+the final flex basis is 400 pixels, preventing premature columns at 744 pixels.
+An 18-pixel starting gap places the Tablet MenuMe title box at y356,
+close to the supplied title glyph at y361.
+Hero subtitles use a 260-pixel starting width that grows to 540 pixels on Desktop.
+A case-study-only 64rem container query preserves centered Phone/Tablet headings
+and left-aligned Desktop headings.
+This is an additional alignment condition; Home and About retain their original 40rem breakpoint.
+The column layout itself still wraps with flexbox rather than another layout breakpoint.
 Next actions are independently verifiable:
 - Recheck the corrected MenuMe diagram dimensions and renamed illustration viewers.
 - Finish navigation, back-to-top, reference-width captures, and Home/About regression checks.
