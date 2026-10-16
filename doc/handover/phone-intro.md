@@ -10,7 +10,18 @@ Both bubbles now use shape-specific proportional text insets,
 balanced wrapping, and typography scaled to their own inline-size containers.
 Their original SVG geometry and aspect ratios are preserved.
 This correction adds no script, markup, assets, dependencies, or breakpoints.
-Final verification of the committed CSS is pending.
+`a2f653c` commits the correction.
+The committed CSS passed painted-fill checks in 54 viewport configurations,
+including 320, 390, 744, 1440, 1920, and 2560 pixel content widths.
+The browser rasterized each original SVG with its centered, aspect-preserving fit
+and sampled positions across each non-whitespace character's rectangle against the yellow fill.
+Removing the Trust text insets made this check fail;
+restoring the committed CSS made it pass.
+Matched-scale Desktop before/after captures and Phone/Tablet viewport captures were also inspected.
+The browser's error and console collections were empty after reloading the committed CSS.
+Private evidence is in `${HOME}/temp/agent/portfolio-intro/`:
+`tales-trust-text-before-fix.png`, `tales-trust-text-after-fix.png`,
+`tales-phone-bubbles-before-fix.png`, and `tales-{390,744}-bubbles-after-fix.png`.
 Proposed `AGENTS.md` verification tightening:
 when text overlays artwork, check glyph bounds against the painted interior at supported widths;
 rectangular element overflow checks do not establish that the text fits the artwork.
