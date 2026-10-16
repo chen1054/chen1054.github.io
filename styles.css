@@ -55,6 +55,7 @@ h1 {
   font-weight: 400;
 }
 h1,
+h2,
 p {
   &>span {
     display: block;
@@ -147,6 +148,61 @@ p {
     margin-block-start: calc(12rem / 16);
     line-height: calc(19rem / 16);
   }
+  &:not(#tales-for-safer-trails-project) {
+    line-height: calc(19rem / 16);
+    &>h3 {
+      margin-block-start: calc(15rem / 16);
+    }
+    &>.home-page-project-case-study-link {
+      inset-inline-start: calc(1rem / 16);
+      inline-size: 9rem;
+      margin-block-start: calc(28rem / 16);
+      background-image: url("assets/home-project-standard-width-case-study-link-background-and-shadow.svg");
+      background-size: 9rem calc(42rem / 16);
+    }
+  }
+  &#menume-meal-planning-app-project {
+    margin-block-start: 3rem;
+    &>h2 {
+      margin-block-start: calc(10rem / 16);
+    }
+    &>h3 {
+      margin-block-start: calc(5rem / 16);
+    }
+    &>.home-page-project-case-study-link {
+      margin-block-start: calc(27rem / 16);
+    }
+    &>.home-page-project-side-and-bottom-wave-composition {
+      margin-block-start: calc(-312rem / 16);
+    }
+  }
+  &#scotties-skating-and-skiing-shop-project {
+    margin-block-start: calc(-12rem / 16);
+    &>.home-page-project-side-and-bottom-wave-composition {
+      margin-block-start: calc(-75rem / 16);
+    }
+  }
+  &#matcha-delight-japanese-bakery-project {
+    margin-block-start: calc(49rem / 16);
+    &>.home-page-project-side-and-bottom-wave-composition {
+      margin-block-start: calc(-167rem / 16);
+    }
+  }
+  &#echoes-of-tradition-surrealist-poster-project {
+    margin-block-start: calc(38rem / 16);
+    &>h2 {
+      margin-block-start: calc(17rem / 16);
+    }
+    &>.home-page-project-side-and-bottom-wave-composition {
+      margin-block-start: calc(-36rem / 16);
+    }
+  }
+  &#youth-in-limbo-photography-project {
+    margin-block-start: calc(43rem / 16);
+    &>.home-page-project-side-and-bottom-wave-composition {
+      margin-block-start: calc(-373rem / 16);
+    }
+  }
 }
 .home-page-project-overview-illustration {
   display: block;
@@ -169,4 +225,25 @@ p {
 }
 .home-page-project-side-and-bottom-wave-composition {
   margin-block-start: calc(-249rem / 16);
+}
+.home-page-thank-you-and-copyright-footer {
+  margin-block-start: calc(86rem / 16);
+  color: var(--color-body-text-purple);
+  font-family: "Playfair Display", serif;
+  font-size: calc(11rem / 16);
+  font-weight: 700;
+  line-height: calc(15rem / 16);
+  text-align: center;
+  &>p {
+    margin-block: 0;
+  }
+  &>.home-page-copyright-and-creation-tool {
+    display: flex;
+    justify-content: center;
+    column-gap: calc(13rem / 16);
+    margin-block-start: calc(8rem / 16);
+  }
+}
+.home-page-footer-bottom-wave-composition {
+  margin-block-start: calc(-65rem / 16);
 }
