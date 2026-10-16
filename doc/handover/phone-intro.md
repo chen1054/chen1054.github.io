@@ -2,6 +2,18 @@
 
 ## Current state
 
+Home and About now include a shared back-to-top link.
+It is 3rem square, fixed 1rem from the bottom and right viewport edges,
+and hidden at the page top.
+The new original SVG uses the existing purple, a gold ring, and a white upward arrow.
+Hover uses the existing purple sRGB-safe chroma limit;
+keyboard focus reuses the shared outline.
+`portfolio-navigation.mjs` now owns both menu dismissal and scroll visibility,
+renamed from `phone-navigation-menu.mjs` on 2026-10-15.
+Native `href="#"` handles returning to the top without a click handler.
+Next action: verify scroll visibility, dimensions, viewport offsets, pointer and keyboard behavior,
+menu behavior after the module rename, and browser errors across both pages and responsive widths.
+
 The user approved the completed responsive Home and its Desktop works width cap.
 The responsive About page is now implemented at `about.html`.
 Phone, Tablet, and Desktop About PNG/PDF references are present.

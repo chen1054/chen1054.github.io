@@ -1,0 +1,30 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 48 48"
+  width="48"
+  height="48"
+  color="rgb(40.783691%, 33.332825%, 52.941895%)"
+>
+  <style>
+    #back-to-top-circle:target {
+      fill: oklch(from currentColor l 0.259833 h);
+    }
+  </style>
+  <circle
+    id="back-to-top-circle"
+    cx="24"
+    cy="24"
+    r="23"
+    fill="currentColor"
+    stroke="#d9a150"
+    stroke-width="2"
+  />
+  <path
+    d="M16 25L24 17L32 25M24 17V33"
+    fill="none"
+    stroke="white"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

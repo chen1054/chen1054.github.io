@@ -29,7 +29,9 @@ No npm dependencies are approved; linting and formatting are skipped by project 
 
 The hamburger opens the supplied phone navigation menu using a native popover.
 Its close button, Escape, and outside clicks dismiss it.
-The approved local `phone-navigation-menu.mjs` module closes it when a link is selected.
+The local `portfolio-navigation.mjs` module closes it when a link is selected.
+It also shows the shared back-to-top link after scrolling.
+The link sits 1rem from the bottom and right edges and measures 3rem square.
 Home returns to the homepage; Work jumps to the first project.
 About opens `about.html`; Contact temporarily opens `https://example.com`.
 The phone menu has been reviewed and accepted.
