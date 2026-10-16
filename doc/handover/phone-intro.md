@@ -12,6 +12,10 @@ the user rejected that format.
 Ask each missing destination separately.
 The user supplied `https://chen1054.myportfolio.com/session-3` for Youth in Limbo;
 Home's button now uses that exact URL.
+Its native Home click reached `Xinyan Chen - Youth in Limbo` at the supplied address.
+The user also supplied MenuMe's mobile Figma prototype URL,
+with file key `Oh9hv42a7JEVUvOaI8bIx5` and starting node `1168:21146`.
+Both mobile prototype buttons now use that exact URL, with HTML-escaped query separators.
 MenuMe mobile/tablet, Scotties desktop/mobile, and Tales' Launch Doodle Demo destinations
 also remain missing; ask them separately after resolving the current item.
 Keep previously approved placeholders until exact destinations are supplied.
