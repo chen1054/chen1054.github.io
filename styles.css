@@ -341,7 +341,10 @@ p {
 @media(width>=40rem) {
   :root {
     /* One reference pixel of growth between the supplied 744px and 1440px layouts. */
-    --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+    --home-wide-reference-growth: clamp(0rem, calc((100cqw - 744rem / 16) / 696), calc(1rem / 16));
+  }
+  body {
+    container-type: inline-size;
   }
   main {
     padding-block-start: calc(118rem / 16 + 90 * var(--home-wide-reference-growth));
@@ -386,7 +389,7 @@ p {
     line-height: calc(48rem / 16 + 16 * var(--home-wide-reference-growth));
   }
   .home-introduction-designer-summary {
-    margin-block-start: calc(40rem / 16 + 40 * var(--home-wide-reference-growth));
+    margin-block-start: calc(33rem / 16 + 41 * var(--home-wide-reference-growth));
     font-size: calc(16rem / 16 + 6 * var(--home-wide-reference-growth));
     line-height: calc(32rem / 16 + 8 * var(--home-wide-reference-growth));
   }
@@ -402,7 +405,7 @@ p {
     line-height: calc(34rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth));
   }
   .home-introduction-about-page-link {
-    margin-block-start: calc(80rem / 16 + 90 * var(--home-wide-reference-growth));
+    margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
   }
   .home-introduction-bottom-wave-composition {
     margin-block-start: calc(-76rem / 16 - 28 * var(--home-wide-reference-growth));
@@ -445,12 +448,13 @@ p {
       line-height: calc(38rem / 16 + 26 * var(--home-wide-reference-growth));
     }
     &>.home-page-project-description>h3 {
-      margin-block-start: calc(10rem / 16);
+      margin-block-start: calc(7rem / 16 + 3 * var(--home-wide-reference-growth));
       font-size: calc(18rem / 16 + 12 * var(--home-wide-reference-growth));
       line-height: calc(24rem / 16 + 16 * var(--home-wide-reference-growth));
     }
     &>.home-page-project-description>p {
-      margin-block-start: calc(12rem / 16);
+      max-inline-size: calc(310rem / 16 + 170 * var(--home-wide-reference-growth));
+      margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
       line-height: inherit;
       &>span {
         display: inline;
@@ -459,6 +463,10 @@ p {
         display: block;
         content: "";
       }
+    }
+    &>.home-page-project-description>.home-page-project-type-and-designer-role {
+      margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
+      line-height: inherit;
     }
     &>.home-page-project-description>.home-page-project-case-study-link {
       --home-wide-button-width-growth: 120;
