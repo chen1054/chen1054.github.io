@@ -1211,10 +1211,14 @@ h4.case-study-subheading {
   .contact-page-email-link {
     margin-block-start: 0;
   }
+  .contact-page-email-divider-wave-composition {
+    align-self: start;
+    margin-block-start: calc(7rem / 16 - 12 * var(--home-wide-reference-growth));
+  }
   .contact-page-message-form {
     gap: calc(12rem / 16 + 59 * var(--home-wide-reference-growth));
     inline-size: calc(100% - 13 * var(--home-wide-reference-growth));
-    margin-block-start: calc(24rem / 16 + 79 * var(--home-wide-reference-growth));
+    margin-block-start: calc(24rem / 16 + 84 * var(--home-wide-reference-growth));
   }
   .contact-page-name-and-phone-fields {
     column-gap: calc(43rem / 16 + 120 * var(--home-wide-reference-growth));
