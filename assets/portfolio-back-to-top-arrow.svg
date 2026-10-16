@@ -6,23 +6,23 @@
   color="rgb(40.783691%, 33.332825%, 52.941895%)"
 >
   <style>
-    #back-to-top-circle:target {
-      fill: oklch(from currentColor l 0.259833 h);
+    #back-to-top-arrow:target {
+      stroke: oklch(from currentColor l 0.259833 h);
     }
   </style>
   <circle
-    id="back-to-top-circle"
     cx="24"
     cy="24"
     r="23"
-    fill="currentColor"
+    fill="none"
     stroke="#d9a150"
     stroke-width="2"
   />
   <path
+    id="back-to-top-arrow"
     d="M16 25L24 17L32 25M24 17V33"
     fill="none"
-    stroke="white"
+    stroke="currentColor"
     stroke-width="3"
     stroke-linecap="round"
     stroke-linejoin="round"
