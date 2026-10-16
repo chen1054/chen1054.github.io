@@ -15,9 +15,11 @@ They prefer aligning outside edges with outside edges.
 An attempted correction used per-image CSS offsets and right-aligned the right-column text.
 The user rejected that approach: “That's the wrong way to do it...”
 Those changes have been backed out.
-Clarification is pending on trimming the SVG export margins,
+The user approved trimming the SVG export margins,
 aligning the actual artwork boxes to the outer column edges,
 and retaining left-aligned text.
+The user also banned CSS grids and requested flexbox where it reduces code.
+Replace all existing grid use, including buttons and wave overlays.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
 All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
@@ -94,6 +96,8 @@ records the supplied design and implementation at matching 390-pixel widths.
   such as `calc(100% - 40rem / 16)`.
 - Use native CSS nesting for child selectors and pseudo-classes.
   Write selectors without spaces, including `&>img` and `&:focus-visible`.
+- CSS grids are prohibited.
+  Prefer flexbox when it reduces implementation code.
 - Explain whitespace entities such as `&#32;` in an HTML comment
   at their first use within each parent block.
 - The user identified the exported leading and trailing spaces as probable Figma artifacts.
@@ -527,7 +531,8 @@ Do not resume shell investigation as part of the portfolio work.
 - The Home responsive scope is implemented and verified.
   No additional Home review is required by the user's instruction.
   Future page work still needs its supplied materials and destinations.
-- Next action: resolve the pending alignment clarification before implementing another correction,
+- Next action: trim the wide SVG views while preserving the accepted phone frames,
+  replace all grid styling with flexbox or positioned wave layers,
   verify the columns across wide widths,
   refresh the affected comparison captures,
   render the updated documentation, and close the private verification browser.
