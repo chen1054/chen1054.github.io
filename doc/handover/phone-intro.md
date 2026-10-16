@@ -9,8 +9,10 @@ The menu remains a separate implementation and review step;
 the hamburger retains its agreed disabled preview state.
 “More About Me” is now a link styled as a button,
 temporarily opening `https://example.com`, as explicitly confirmed by the user.
-All seven links now use 100% OKLCH chroma on hover.
-This supersedes the initial 10% increase, which the user could not see in their preview.
+All seven links now use the maximum sRGB-safe OKLCH chroma at six decimal places:
+`0.259833` for purple and `0.146647` for gold.
+Original lightness and hue are retained.
+This supersedes both the initial 10% increase and the out-of-gamut 100% preview.
 
 Python serves the preview at `http://localhost:4173/`.
 The user opens it themselves.
@@ -33,7 +35,11 @@ records the supplied design and implementation at matching 390-pixel widths.
   explicitly confirmed by the user after requesting a link styled as a button.
 - The initial hover request increased OKLCH chroma by 10%.
   The user subsequently requested maximum hover chroma.
-  The current preview sets chroma to 100%, retaining the original lightness and hue components.
+  After asking whether other components changed,
+  the user requested the maximum chroma safe for sRGB.
+  Retain the original lightness and hue and keep all sRGB channels in range.
+- The user says image inspection is unnecessary for deterministic changes such as this color adjustment.
+  Verify the color conversion and rendered state numerically without viewing screenshots.
 - The user will supply more material as work proceeds.
   Ask for missing material instead of approximating it.
 - Minimum code is the highest priority for this portfolio.
