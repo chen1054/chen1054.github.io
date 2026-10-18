@@ -1208,3 +1208,9 @@ pill on phones and tablets (Tales 153 by 34 on phones) and, at 1440, 222 by 54 (
 View case study), 333 by 63 (CV), and 210 by 63 (Send). The existing growth constants are exactly those deltas,
 so the pill is now sized directly (136 by 34 plus delta times growth) inside a box 8 pixels larger for the shadow.
 Measured: every pill matches its design at 390, 744 and 1440, labels center within 0.5 pixel, page heights unchanged.
+
+Copy decisions by the user, 2026-10-18: the Home Echoes card heading is "Surrealist Poster Design" (was
+"DesignSurrealist Poster Design"); Scotties is written without an apostrophe where it is the shop's name (four uses
+fixed, the five true possessives keep "Scotties'"); the Contact intro no longer offers a phone, since none is listed.
+Kept as written: "Jake Alice" is a first and last name like "Gwen Parker"; the Scotties copy's #FC702F and #515839 are
+the brand colors of the client's Scotties design project and need not match this portfolio page's own accents.
