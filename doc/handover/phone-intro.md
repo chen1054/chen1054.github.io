@@ -1171,3 +1171,13 @@ at 3x in Chromium (edge-only differences) and on the Tales page in macOS Safari.
 Held back: the six SVGs that embed photographs or screenshots. A WebP rebake made them visibly softer (Youth in
 Limbo and Matcha lost 12 to 15 percent of their Laplacian sharpness at display size), and the client's goal is that
 every photo looks crisp, so they are being redone at native resolution before landing.
+
+About portrait, the client's commit `d5e6250` ("Please update this portraits on about page.", adding
+`about me portrait.png`): the file is the same Desktop About composition at exactly 4x (normalized cross-correlation
+0.998 at scale 4.000, the old 656 by 502 asset at offset 744, 304), so the request is a sharper source, not a new crop;
+the user confirmed the intent is only that every photo be crisp. The asset is re-cut from that region, keeping the
+file's own alpha edges inside a slightly dilated copy of the old silhouette so the waves baked into the export drop out
+(the page keeps its own vector waves), then served as `-760w` (3x phones to 414 pixels wide) and `-1312w` (2x desktop)
+PNGs via `srcset` with `sizes="(width >= 40rem) 656px, 61vw"`. Page heights are unchanged at 390 to 1920;
+Laplacian sharpness at 2x desktop rises from 62 to 210 and at 3x phone from 150 to 204; 1x is unchanged.
+The client's raw 6.1 MB file stays at the repository root where they committed it.
