@@ -1132,3 +1132,9 @@ The bar paths are removed from both corner SVGs and the separate hamburger icon 
 This supersedes the earlier instruction to preserve the original hamburger paths.
 Verified in Chromium on all six pages at 320 to 639 pixels (hit testing, open and close paths, focus outline)
 and visually in iPhone 15 Simulator Safari; the open state on a real tap is part of the Apple gate.
+
+Non-breaking hyphens: Scotties wrote "E-Commerce" and "e-commerce" with ordinary hyphens,
+so phones broke the hero subtitle as "E-" over "Commerce".
+All six uses are `E&#8209;Commerce` or `e&#8209;commerce`; every one is set in Playfair Display,
+whose fonts map U+2011 to their own hyphen glyph (Abril Fatface lacks it, so do not use it there).
+Simulator Safari now breaks the subtitle as "Digital Rebranding &" over "E‑Commerce UX Redesign".
