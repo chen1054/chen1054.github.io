@@ -1,28 +1,9 @@
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 48 48"
-  width="48"
-  height="48"
-  color="rgb(40.783691%, 33.332825%, 52.941895%)"
->
-  <style>
-    #back-to-top-arrow:target {
-      stroke: oklch(from currentColor l 0.259833 h);
-    }
-  </style>
-  <circle
-    cx="24"
-    cy="24"
-    r="23"
-    fill="none"
-    stroke="#d9a150"
-    stroke-width="2"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Arrow shape only; CSS uses it as a mask and paints it, so hover is a color change. -->
   <path
-    id="back-to-top-arrow"
     d="M16 25L24 17L32 25M24 17V33"
     fill="none"
-    stroke="currentColor"
+    stroke="#000"
     stroke-width="3"
     stroke-linecap="round"
     stroke-linejoin="round"
