@@ -1234,6 +1234,8 @@ h4.case-study-subheading {
   max-block-size: none;
   padding-block: 1rem;
   padding-inline: 1rem;
+  /* Browsers give every popover a solid canvas-text border. */
+  border-width: 0;
   overflow: auto;
   overscroll-behavior: contain;
   background-color: var(--color-page-background);
