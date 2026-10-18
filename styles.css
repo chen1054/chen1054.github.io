@@ -30,6 +30,7 @@
   --color-heading-and-case-study-gold: #c27f36;
   --color-home-river-gold: #d8a150;
   --color-contact-required-marker: #d9a150;
+  --color-back-to-top-ring: #d9a150;
   color-scheme: light;
 }
 body {
@@ -243,15 +244,22 @@ p {
   inset-block-end: 1rem;
   inset-inline-end: 1rem;
   z-index: 1;
+  box-sizing: border-box;
   inline-size: 3rem;
   block-size: 3rem;
-  min-inline-size: 3rem;
-  min-block-size: 3rem;
+  border: calc(2rem / 16) solid var(--color-back-to-top-ring);
   border-radius: 50%;
-  background-image: url("assets/portfolio-back-to-top-arrow.svg");
-  background-size: 100% 100%;
-  &:hover {
-    background-image: url("assets/portfolio-back-to-top-arrow.svg#back-to-top-arrow");
+  &::before {
+    /* The arrow artwork is a mask painted in the link's color, so hover only changes a color. */
+    content: "";
+    position: absolute;
+    inset: calc(-2rem / 16);
+    background-color: var(--color-portfolio-purple);
+    mask-image: url("assets/portfolio-back-to-top-arrow.svg");
+    mask-size: 100% 100%;
+  }
+  &:hover::before {
+    background-color: oklch(from var(--color-portfolio-purple) l 0.259833 h);
   }
 }
 .portfolio-page-decorative-wave-composition {

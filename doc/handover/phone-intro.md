@@ -1218,3 +1218,10 @@ the brand colors of the client's Scotties design project and need not match this
 Preview caching: `mise run preview` still serves on `http://localhost:4173/` with Python, but now sends
 `Cache-Control: no-store`. The plain `http.server` sent no cache header, so Safari (macOS and the iPhone Simulator)
 cached files heuristically and kept showing old artwork after it changed on disk.
+
+Back-to-top: the ring is now a CSS border (`--color-back-to-top-ring`, #d9a150) and the arrow a vector mask painted
+in the portfolio purple, so hover is a background-color change (`oklch(from purple l 0.259833 h)`), replacing the
+`url(arrow.svg#id)` plus in-SVG `:target` trick. Chromium renders rest and hover identically to before (19 differing
+antialiasing pixels of 10,816); macOS Safari 27 resolves the hover color to the same value. Also checked in Safari 27:
+`body { container-type: inline-size }` does not re-anchor the fixed link (it stays 16 pixels from the viewport corner
+at scroll 3000), so audit finding 5.5 does not reproduce there.
