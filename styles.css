@@ -69,13 +69,26 @@ button {
   position: absolute;
   inset-block-start: calc(73rem / 16);
   inset-inline-start: calc(14rem / 16);
-  min-inline-size: 3rem;
-  min-block-size: 3rem;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: calc(8rem / 16);
   cursor: pointer;
-  &>img {
-    display: block;
-    inline-size: 3rem;
-    block-size: 3rem;
+  &::before {
+    /*
+      The top bar is drawn at the supplied artwork's geometry (35 by 2 pixels, 14 and 6 pixels inside the target);
+      two shadow copies draw the middle and bottom bars 9 and 19 pixels lower.
+    */
+    content: "";
+    position: absolute;
+    inset-block-start: calc(14rem / 16);
+    inset-inline-start: calc(6rem / 16);
+    inline-size: calc(35rem / 16);
+    block-size: calc(2rem / 16);
+    border-radius: calc(1rem / 16);
+    background-color: var(--color-portfolio-purple);
+    box-shadow:
+      0 calc(9rem / 16) var(--color-portfolio-purple),
+      0 calc(19rem / 16) var(--color-portfolio-purple);
   }
 }
 #portfolio-primary-navigation {
