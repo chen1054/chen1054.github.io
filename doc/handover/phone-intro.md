@@ -1109,3 +1109,10 @@ Contact layout shift: the empty hCaptcha container had no reserved size, so Send
 when the third-party frame arrived after first paint, and the inline frame added a 9 to 12 pixel baseline gap.
 The container now reserves the compact frame's 138 pixels and the frame is a block;
 emptying the container in the loaded page moves Send by 0 pixels at 390, 744, and 1440.
+
+Copy pass, 2026-10-18: 39 unambiguous fixes on five pages (spacing around punctuation, articles,
+plural agreement, unclosed quotes, fake-bullet spacing, `behavior` matching the pages' American spelling,
+"Tales for Safer Trails" capitalized as on its own page), and story headings use a colon
+(`Main Characters: Milo & Mia`, `Ages 6-8: Mighty Brains`).
+Every change and every deliberately unchanged candidate is listed in
+`/home/user/temp/agent/xinyanchen-build/copy-report.md`; open owner questions are in the client folder's `README.md`.
