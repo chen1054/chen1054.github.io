@@ -908,6 +908,16 @@ p {
 .case-study-paragraph {
   margin-block: 1rem;
 }
+/* A string marker keeps the bullet inline like the paragraphs it replaced;
+   list-style: none would make WebKit drop the list role for VoiceOver. */
+.case-study-note-list {
+  margin-block: 1rem;
+  padding-inline-start: 0;
+  list-style: "• " inside;
+  &>li {
+    margin-block: 1rem;
+  }
+}
 h3.case-study-subheading {
   margin-block-start: 0;
   margin-block-end: 2rem;
@@ -1761,7 +1771,7 @@ h4.case-study-subheading {
     border-color: transparent;
     border-radius: 0;
     background-color: color-mix(in srgb, var(--color-case-study-note) 80%, transparent);
-    &>p:first-of-type~p {
+    &>p:first-of-type~:is(p, ul) {
       color: var(--color-case-study-accent);
     }
   }
