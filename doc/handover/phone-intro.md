@@ -1116,3 +1116,9 @@ plural agreement, unclosed quotes, fake-bullet spacing, `behavior` matching the 
 (`Main Characters: Milo & Mia`, `Ages 6-8: Mighty Brains`).
 Every change and every deliberately unchanged candidate is listed in
 `/home/user/temp/agent/xinyanchen-build/copy-report.md`; open owner questions are in the client folder's `README.md`.
+
+Jagged artwork: the client reported jagged edges, for example the "Bridging the Gap via Play" bubbles.
+Both Tales insight bubbles were low-resolution rotated rasters behind soft masks.
+They are now true vectors: each colour layer was separated from a 4x render, the yellow plate closed under the stroke,
+lightly smoothed, and traced with `potrace` (script: `/home/user/temp/agent/xinyanchen-build/bubbles/trace.mjs`),
+filled with `#f3e499` and `#994198`; 0.2 percent of pixels differ from the old render, all on edges.
