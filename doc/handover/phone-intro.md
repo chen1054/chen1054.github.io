@@ -1122,3 +1122,13 @@ Both Tales insight bubbles were low-resolution rotated rasters behind soft masks
 They are now true vectors: each colour layer was separated from a 4x render, the yellow plate closed under the stroke,
 lightly smoothed, and traced with `potrace` (script: `/home/user/temp/agent/xinyanchen-build/bubbles/trace.mjs`),
 filled with `#f3e499` and `#994198`; 0.2 percent of pixels differ from the old render, all on edges.
+
+Hamburger, the client's request of 2026-10-18 ("如果必须有外框，这个外框需要有点圆角。还有，这个导航汉堡包比点击前的小一样，能做成一样大吗？"):
+the visible bars were painted into the corner artwork while the real button was an empty overlay at fixed pixels,
+so above about 440 pixels tapping the bars missed it, and the open-state icon was a separate, differently sized image.
+Both the open and close buttons now draw the same three CSS bars (35 by 2 pixels, matching `Home.png` exactly at 390)
+inside one 48-pixel button with rounded corners, so the focus frame is rounded and both states are identical.
+The bar paths are removed from both corner SVGs and the separate hamburger icon file is deleted.
+This supersedes the earlier instruction to preserve the original hamburger paths.
+Verified in Chromium on all six pages at 320 to 639 pixels (hit testing, open and close paths, focus outline)
+and visually in iPhone 15 Simulator Safari; the open state on a real tap is part of the Apple gate.
