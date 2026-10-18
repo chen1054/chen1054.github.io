@@ -1200,3 +1200,11 @@ Zoom viewer: `.case-study-enlarged-artwork>img` had `min-inline-size: 100%`, so 
 (a 490-pixel persona photo opened at 1376 pixels, blurred). PNGs now open at their natural size (centered when
 smaller than the viewer, scrolling when larger, as on phones); SVGs keep filling the viewer. Measured on all 47
 viewers of the three case studies at 1440 and 390: every PNG shows at exactly its natural width.
+
+Button sizes: the pills emulated an SVG view box fitted into an artwork box, which squashed the CV pill to 141 by
+26.6 and the Tales link to 136 by 30.2 at 744, and drew desktop pills smaller than the Desktop designs
+(for example "View case study" 230 by 57.5 instead of 256 by 63). The supplied designs measure 136 by 34 for every
+pill on phones and tablets (Tales 153 by 34 on phones) and, at 1440, 222 by 54 (More About Me), 256 by 63 (every
+View case study), 333 by 63 (CV), and 210 by 63 (Send). The existing growth constants are exactly those deltas,
+so the pill is now sized directly (136 by 34 plus delta times growth) inside a box 8 pixels larger for the shadow.
+Measured: every pill matches its design at 390, 744 and 1440, labels center within 0.5 pixel, page heights unchanged.

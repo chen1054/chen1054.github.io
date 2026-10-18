@@ -170,33 +170,15 @@ p {
 .about-page-curriculum-vitae-link,
 .contact-page-send-message-button {
   /*
-    The pill and its shadow are drawn by CSS at the geometry of the supplied artwork:
-    a pill inset within a view box whose lower part holds the drop shadow.
-    The view box is fitted into the button's inline size by the art block size,
-    keeping its aspect ratio and centering it, as an SVG background would.
-    The content box is exactly the pill, so the trimmed label centers on it;
-    block padding keeps the original 48-pixel minimum target and layout height.
+    The pill is drawn at the supplied designs' size: 136 by 34 on phones and tablets,
+    growing to each button's desktop size; the button box is 8 pixels larger each way,
+    leaving room for the drop shadow, and its block padding keeps the 48-pixel minimum target.
+    The content box is exactly the pill, so the trimmed label centers on it.
   */
   --button-color: var(--color-portfolio-purple);
   --button-hover-color: var(--color-home-river-gold);
-  --button-inline-size: 9rem;
-  --button-art-block-size: calc(42rem / 16);
-  --button-view-inline-size: 144;
-  --button-view-block-size: 42;
-  --button-pill-start: 4;
-  --button-pill-end: 4;
-  --button-pill-block-size: 34;
-  --button-fitted-inline-size: min(
-    var(--button-inline-size),
-    var(--button-art-block-size) * var(--button-view-inline-size) / var(--button-view-block-size)
-  );
-  --button-fitted-block-size: min(
-    var(--button-art-block-size),
-    var(--button-inline-size) * var(--button-view-block-size) / var(--button-view-inline-size)
-  );
-  --button-view-unit: calc(var(--button-fitted-block-size) / var(--button-view-block-size));
-  --button-pill-offset: calc((var(--button-art-block-size) - var(--button-fitted-block-size)) / 2);
-  --button-pill-height: calc(var(--button-pill-block-size) * var(--button-view-unit));
+  --button-pill-inline-size: calc(136rem / 16);
+  --button-pill-block-size: calc(34rem / 16);
   position: relative;
   isolation: isolate;
   inset-inline-start: calc(1rem / 16);
@@ -204,14 +186,14 @@ p {
   align-items: center;
   justify-content: center;
   box-sizing: content-box;
-  inline-size: var(--button-inline-size);
+  inline-size: calc(var(--button-pill-inline-size) + 8rem / 16);
   min-inline-size: 3rem;
-  block-size: var(--button-pill-height);
+  block-size: var(--button-pill-block-size);
   margin-block-start: calc(70rem / 16);
   margin-inline: auto;
-  padding-block-start: var(--button-pill-offset);
+  padding-block-start: 0;
   padding-block-end: calc(
-    max(3rem, var(--button-art-block-size)) - var(--button-pill-offset) - var(--button-pill-height)
+    max(3rem, var(--button-pill-block-size) + 8rem / 16) - var(--button-pill-block-size)
   );
   padding-inline: 0;
   color: var(--color-page-background);
@@ -225,19 +207,15 @@ p {
     content: "";
     position: absolute;
     z-index: -1;
-    inset-block-start: var(--button-pill-offset);
-    inset-inline-start: calc(
-      (var(--button-inline-size) - var(--button-fitted-inline-size)) / 2 +
-      var(--button-pill-start) * var(--button-view-unit)
-    );
-    inline-size: calc(
-      (var(--button-view-inline-size) - var(--button-pill-start) - var(--button-pill-end)) *
-      var(--button-view-unit)
-    );
-    block-size: var(--button-pill-height);
+    inset-block-start: 0;
+    inset-inline-start: calc(4rem / 16);
+    inline-size: var(--button-pill-inline-size);
+    block-size: var(--button-pill-block-size);
     border-radius: 100vmax;
     background-color: var(--button-color);
-    box-shadow: 0 calc(4 * var(--button-view-unit)) calc(4 * var(--button-view-unit)) rgb(0 0 0 / 25%);
+    /* The supplied shadow is 4 pixels down and 4 blurred on a 34-pixel pill, scaled with the pill. */
+    box-shadow:
+      0 calc(var(--button-pill-block-size) * 4 / 34) calc(var(--button-pill-block-size) * 4 / 34) rgb(0 0 0 / 25%);
   }
   &:hover::before {
     background-color: var(--button-hover-color);
@@ -404,11 +382,8 @@ p {
       margin-block-start: calc(15rem / 16);
     }
     &>.home-page-project-description>.home-page-project-case-study-link {
-      --button-view-inline-size: 144;
-      --button-pill-start: 4;
-      --button-pill-end: 4;
+      --button-pill-inline-size: calc(136rem / 16);
       inset-inline-start: calc(1rem / 16);
-      --button-inline-size: 9rem;
       margin-block-start: calc(28rem / 16);
     }
   }
@@ -485,11 +460,8 @@ p {
 .home-page-project-case-study-link {
   --button-color: var(--color-heading-and-case-study-gold);
   --button-hover-color: var(--color-portfolio-purple);
-  --button-view-inline-size: 162;
-  --button-pill-start: 5;
-  --button-pill-end: 3.453125;
+  --button-pill-inline-size: calc(153rem / 16);
   inset-inline-start: 0;
-  --button-inline-size: calc(162rem / 16);
   margin-block-start: calc(27rem / 16);
 }
 .home-page-project-side-and-bottom-wave-composition {
@@ -1458,9 +1430,11 @@ h4.case-study-subheading {
     --home-wide-button-width-growth: 86;
     --home-wide-button-height-growth: 20;
     inset-inline-start: 0;
-    --button-inline-size: calc(144rem / 16 + var(--home-wide-button-width-growth) * var(--home-wide-reference-growth));
-    --button-art-block-size: calc(
-      42rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth)
+    --button-pill-inline-size: calc(
+      136rem / 16 + var(--home-wide-button-width-growth) * var(--home-wide-reference-growth)
+    );
+    --button-pill-block-size: calc(
+      34rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth)
     );
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
     font-family: "Playfair Display", serif;
@@ -1662,9 +1636,6 @@ h4.case-study-subheading {
   .about-page-curriculum-vitae-link {
     --home-wide-button-width-growth: 197;
     --home-wide-button-height-growth: 29;
-    --button-view-inline-size: 341;
-    --button-view-block-size: 71;
-    --button-pill-block-size: 63;
     margin-block-start: calc(68rem / 16 + 10 * var(--home-wide-reference-growth));
   }
   .about-page-personal-interests {
