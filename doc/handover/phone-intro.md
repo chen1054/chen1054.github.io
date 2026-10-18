@@ -1163,3 +1163,11 @@ Fonts: the five TTFs (833 KB) are now lossless WOFF2 (284 KB), converted with `f
 (no subsetting, so every glyph, including U+2011, is kept). All 12 full-page captures (six pages at 390 and 1440)
 are pixel-identical to the TTF captures, apart from Tales at 1440, whose run-to-run noise is the same amount;
 macOS Safari reports all five faces loaded from the WOFF2 files.
+
+Soft-mask removal, vector batch: 23 more PDF-export SVGs whose masked rasters were flat one- or two-colour shapes
+(floral accents, sprout logos, Scotties wordmark, Tales illustrations and diagrams, composite logo layers) are now
+potrace vectors or clip paths, with no `<mask>`, filter, or embedded raster left in them. Checked old against new
+at 3x in Chromium (edge-only differences) and on the Tales page in macOS Safari.
+Held back: the six SVGs that embed photographs or screenshots. A WebP rebake made them visibly softer (Youth in
+Limbo and Matcha lost 12 to 15 percent of their Laplacian sharpness at display size), and the client's goal is that
+every photo looks crisp, so they are being redone at native resolution before landing.
