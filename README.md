@@ -10,7 +10,7 @@ hCaptcha warns on the plain `localhost` hostname.
 
 The text is HTML.
 All pages share `styles.css`.
-Artwork and button backgrounds are extracted from the supplied PDF.
+Artwork is extracted from the supplied PDF; buttons are CSS pills drawn at the supplied geometry.
 Each decorative wave component is its own SVG asset and HTML image.
 Picture sources select the supplied phone or wide artwork.
 Home's introduction appears in the client's requested order.

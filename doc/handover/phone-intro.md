@@ -1080,3 +1080,18 @@ The Scotties sitemap PNG now reads "Apparel & Accessories";
 the space was inserted by moving the glyph pixels, without redrawing text.
 Figma's exports carry these strings, but Figma may have mangled or exported stale text,
 so never attribute them to the client.
+
+Buttons and chevrons, iPhone black edges:
+the client saw black borders and shadows on iPhone 15 Safari.
+35 SVG assets are PDF soft-mask conversions: an opaque colour PNG cut out by a luminance-mask PNG
+through `feColorMatrix` filters, and WebKit lets the colour layer's black show along mask edges.
+The four button SVGs are gone; one shared `::before` rule in `styles.css` draws each pill and its
+`0 4px 4px` 25% black shadow from per-button view-box custom properties,
+fitted like the old SVG background, and hover keeps the accepted maximum sRGB-safe chroma.
+This supersedes the `#button-background` and `:target` hover mechanism recorded earlier.
+Pills match the old rendering in Chromium except anti-aliased edge pixels, page heights are unchanged,
+and the WebKit shadow box edge is gone.
+The Scotties chevrons are three vector polygons measured from the old mask;
+iPhone 15 Simulator Safari renders them crisp with no dark edges.
+Test Simulator Safari through a server that sends `Cache-Control: no-store`;
+Python's preview server sends no cache headers and Safari kept the replaced SVG.
