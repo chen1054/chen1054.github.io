@@ -2180,3 +2180,279 @@ h4.case-study-subheading {
     mask: url("assets/menume-honey-drip-one-period.svg") 0 0 / auto 100% repeat-x;
   }
 }
+
+/* Scotties decorative vocabulary (census S01 onward). */
+.portfolio-case-study-page[data-case-study="scotties"] {
+  --scotties-growth: var(--home-wide-reference-growth);
+  &>.case-study-content>.case-study-project-divider {
+    background-color: transparent;
+    background-image: url("assets/scotties-hero-divider-chevron-tile.svg");
+  }
+  &>.case-study-content>.case-study-section>h2 {
+    overflow: clip;
+    isolation: isolate;
+    &::after {
+      z-index: -1;
+      inset-inline: auto 0;
+      inline-size: auto;
+      max-inline-size: 26%;
+      aspect-ratio: 664 / 292;
+      background-size: auto 100%;
+      background-position: left;
+      background-repeat: no-repeat;
+      transform: none;
+    }
+  }
+  /* Below 745px every band keeps its chevrons on the right; wider, even bands swap to a mirrored left copy. */
+  &>.case-study-content>.case-study-section:nth-of-type(even)>h2 {
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-block: 0;
+      inset-inline: 0 auto;
+      max-inline-size: clamp(0px, calc(var(--scotties-growth) * 1000000), 26%);
+      aspect-ratio: 664 / 292;
+      background-image: url("assets/scotties-section-directional-chevrons.svg");
+      background-size: auto 100%;
+      background-position: right;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+    }
+    &::after {
+      inset-inline: auto 0;
+      max-inline-size: clamp(0px, calc(26% - var(--scotties-growth) * 1000000), 26%);
+      transform: none;
+    }
+  }
+  &>.case-study-content h3.case-study-subheading::before {
+    content: "";
+    display: inline-block;
+    inline-size: 1.7em;
+    block-size: 0.95em;
+    margin-inline-end: 0.5em;
+    background: url("assets/scotties-subheading-skate-glyph.svg") center / contain no-repeat;
+    vertical-align: -0.1em;
+  }
+  .case-study-subsection:has(>.case-study-scotties-challenge-bubble) {
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &::before {
+      inset-block-start: calc(36rem / 16 + 54 * var(--scotties-growth));
+      inset-inline-start: 0;
+      block-size: calc(28rem / 16 + 35 * var(--scotties-growth));
+      aspect-ratio: 375 / 126;
+      background-image: url("assets/scotties-challenge-dotted-chevron-arrow.svg");
+    }
+    &::after {
+      inset-block-end: calc(-60rem / 16 + 60 * var(--scotties-growth));
+      inset-inline-end: 0;
+      inline-size: calc(73rem / 16 + 28 * var(--scotties-growth));
+      aspect-ratio: 1;
+      background-image: url("assets/scotties-challenge-ice-skate.svg");
+    }
+  }
+  .case-study-scotties-challenge-bubble {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 72%;
+      inline-size: 25.6%;
+      aspect-ratio: 141 / 177;
+      background: url("assets/scotties-challenge-lightning-bolt.svg") center / contain no-repeat;
+    }
+  }
+  .case-study-scotties-positioning-note {
+    position: relative;
+    &>p>span {
+      display: block;
+      color: var(--color-case-study-heading);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: calc(-40rem / 16 - 20 * var(--scotties-growth));
+      inset-inline-start: max(calc(-0.9 * (62rem / 16 + 87 * var(--scotties-growth))), calc((100% - 100cqw) / 2));
+      inline-size: calc(62rem / 16 + 87 * var(--scotties-growth));
+      aspect-ratio: 149 / 158;
+      background: url("assets/scotties-positioning-skater-figure.svg") center / contain no-repeat;
+    }
+  }
+  /* The starburst comes before the positioned note in tree order, so the note paints over it. */
+  .case-study-subsection:has(>.case-study-scotties-positioning-note) {
+    position: relative;
+  }
+  .case-study-subsection:has(>.case-study-scotties-positioning-note)::before {
+    content: "";
+    position: absolute;
+    inset-block-end: calc(-54rem / 16 - 54 * var(--scotties-growth));
+    inset-inline-start: calc(50% + 36rem / 16);
+    inline-size: calc(158rem / 16 + 161 * var(--scotties-growth));
+    max-inline-size: calc(50% - 2rem / 16);
+    aspect-ratio: 319 / 274;
+    background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
+  }
+  .case-study-persona-photograph {
+    position: relative;
+    isolation: isolate;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -5% 6.5% 19% -6.5%;
+      background-color: var(--scotties-persona-plate);
+    }
+  }
+  .case-study-persona {
+    &:nth-child(1) {
+      --scotties-persona-plate: var(--color-case-study-heading);
+    }
+    &:nth-child(2) {
+      --scotties-persona-plate: var(--color-case-study-accent);
+    }
+    &:nth-child(3) {
+      --scotties-persona-plate: var(--color-case-study-subheading);
+    }
+    &>h4>span {
+      display: block;
+      color: var(--color-case-study-heading);
+    }
+  }
+  .case-study-small-illustration~.case-study-flex-row>article {
+    &>p>span {
+      color: var(--color-case-study-heading);
+    }
+    &::before {
+      content: "";
+      display: block;
+      block-size: calc(56rem / 16);
+      background: url("assets/scotties-core-value-pale-chevron-column.svg") left top / 1rem auto repeat-y;
+    }
+  }
+  .case-study-sitemap {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-end: 0;
+      inline-size: calc(190rem / 16 + 286 * var(--scotties-growth));
+      aspect-ratio: 952 / 158;
+      background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
+    }
+  }
+  #scotties-wireframing {
+    & .case-study-note {
+      border-width: calc(3rem / 16);
+      border-color: var(--color-case-study-accent);
+      border-radius: calc(24rem / 16);
+    }
+    & .case-study-subsection:nth-child(3)>.case-study-flex-row>.case-study-note:last-child,
+    & .case-study-subsection:nth-child(5) article>.case-study-note:nth-child(2) {
+      border-width: calc(4rem / 16);
+      border-color: var(--color-case-study-heading);
+    }
+    & .case-study-subsection:nth-child(4)>.case-study-flex-row>.case-study-note:first-child,
+    & .case-study-subsection:nth-child(5) article>.case-study-note:is(:first-child,:last-child) {
+      border-width: calc(4rem / 16);
+      border-color: var(--color-case-study-subheading);
+    }
+    & .case-study-subsection:nth-child(3)>.case-study-flex-row>.case-study-note:first-child,
+    & .case-study-subsection:nth-child(5)>h3+p {
+      position: relative;
+      padding-block: 2.5rem 2rem;
+      padding-inline: 2rem;
+      border: calc(4rem / 16) dashed var(--color-case-study-accent);
+      border-radius: calc(40rem / 16);
+      background-color: color-mix(in srgb, var(--color-case-study-accent) 47%, #fff);
+      &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: calc(-0.6 * (50rem / 16 + 38 * var(--scotties-growth)));
+        inline-size: calc(50rem / 16 + 38 * var(--scotties-growth));
+        background: var(--scotties-note-icon) center / contain no-repeat;
+      }
+    }
+    & .case-study-subsection:nth-child(3)>.case-study-flex-row>.case-study-note:first-child::before {
+      --scotties-note-icon: url("assets/scotties-lo-fi-ice-boot-corner-icon.svg");
+      inset-inline-end: 6%;
+      aspect-ratio: 88 / 71;
+    }
+    & .case-study-subsection:nth-child(5)>h3+p::before {
+      --scotties-note-icon: url("assets/scotties-hi-fi-skater-corner-icon.svg");
+      inset-inline-start: 5%;
+      aspect-ratio: 90 / 87;
+    }
+    & .case-study-portrait-artwork {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline: -4.2%;
+        background: var(--scotties-wireframe-highlights) 0 0 / 100% 100% no-repeat;
+        pointer-events: none;
+      }
+    }
+    & .case-study-subsection:nth-child(3) .case-study-portrait-artwork {
+      --scotties-wireframe-highlights: url("assets/scotties-lo-fi-homepage-highlights.svg");
+    }
+    & .case-study-subsection:nth-child(4) .case-study-portrait-artwork {
+      --scotties-wireframe-highlights: url("assets/scotties-lo-fi-product-listing-highlights.svg");
+    }
+    & .case-study-subsection:nth-child(5) .case-study-portrait-artwork {
+      --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
+    }
+    & .case-study-prototype-link:not(.case-study-secondary-prototype-link) {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-end: calc(100% + 8rem / 16 + 12 * var(--scotties-growth));
+        translate: 0 -50%;
+        inline-size: calc(40rem / 16 + 63 * var(--scotties-growth));
+        aspect-ratio: 206 / 71;
+        background: url("assets/scotties-hi-fi-chevron-trail.svg") center / contain no-repeat;
+      }
+    }
+  }
+  #scotties-reflection .case-study-note {
+    --scotties-badge-size: calc(120rem / 16 + 44 * var(--scotties-growth));
+    position: relative;
+    margin-block-start: calc(var(--scotties-badge-size) - 8rem / 16);
+    border: calc(3rem / 16) solid var(--color-case-study-subheading);
+    border-radius: calc(20rem / 16);
+    box-shadow: calc(-24rem / 16) calc(-15rem / 16) 0 0 var(--color-case-study-subheading);
+    &>h4 {
+      color: var(--color-case-study-heading);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-end: calc(100% - 8rem / 16);
+      inset-inline-start: 15%;
+      box-sizing: border-box;
+      inline-size: var(--scotties-badge-size);
+      aspect-ratio: 1;
+      border: calc(3rem / 16) solid var(--color-case-study-subheading);
+      border-radius: 50%;
+      box-shadow: calc(-10rem / 16) calc(-8rem / 16) 0 0 var(--color-case-study-subheading);
+      background: var(--scotties-badge-icon) center / 52% no-repeat #fff;
+    }
+    &:nth-child(1) {
+      --scotties-badge-icon: url("assets/scotties-key-learning-skateboard-badge-icon.svg");
+    }
+    &:nth-child(2) {
+      --scotties-badge-icon: url("assets/scotties-key-learning-helmet-badge-icon.svg");
+    }
+  }
+}
