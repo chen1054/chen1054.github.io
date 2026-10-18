@@ -512,14 +512,43 @@ records the supplied design and implementation at matching 390-pixel widths.
 
 ## Work remaining
 
-- Home content is complete and the user accepted its hover behavior.
-- The menu is implemented and accepted by the user.
-- Home adaptation to Tablet and Desktop is complete.
-  Minimum code remains the first priority and minimum breakpoints the second.
-- About is implemented and browser-verified across Phone, Tablet, and Desktop.
-  Contact and case-study pages remain deferred.
-  Case studies still use the approved temporary `https://example.com` destination.
-- Ask for missing original materials instead of inventing replacements.
+Updated 2026-10-18 during the client comparison round; the round's own log is the section
+"Client comparison round, 2026-10-18" and the client folder's `README.md`.
+Minimum code remains the first priority and minimum breakpoints the second.
+Ask for missing original materials instead of inventing replacements.
+
+Done this round and pushed: copy fixes, painted containers, hamburger, button pills and hover,
+vector artwork replacing every soft mask, live HTML sitemaps, WOFF2 fonts, the About portrait re-cut,
+image weight, and the decorative vocabulary on all three case studies
+(each verified in Chromium, in real macOS Safari 27 at 1920 wide 1x, and in iPhone 15 Simulator Safari).
+
+Queue, in order:
+
+1. Tales note bullets: the 13 fake "•" paragraphs in seven runs are converted to
+   `<ul class="case-study-note-list">` in `tales-for-safer-trails.html` (uncommitted when this was written;
+   script `/home/user/temp/agent/xinyanchen-build/bullets-to-lists.mjs` checks the word sequence is unchanged).
+   Still to do: the `.case-study-note-list` rule (`list-style: "• " inside`, `1rem` item margins so nothing moves),
+   widen the Tales note colour selector to `&>p:first-of-type~:is(p, ul)`, measure zero page shift, commit.
+2. Zoom viewer: Space must close it, and its duplicated markup must be removed.
+3. Remaining audit items: template residue and header magic numbers; text contrast needs a client decision.
+4. Apple gate: all six pages in iPhone 15 Simulator Safari and in macOS Safari at the client's two screens
+   (1920 wide at 1x and at 2x), including a real tap on the menu's open state.
+5. Check the About garden portrait at 2x: the client also has a 4K screen at 2x, and the image agent measured the
+   portrait at 1.0 device pixels per CSS pixel at 1440 and 1920; confirm Safari picks the `1312w` candidate.
+6. Delete `assets/menume-section-culinary-wave-divider.svg` with the two `url()` declarations the MenuMe block overrides.
+7. Not applied, for the user to decide: lossy WebP (Scotties homepage 4.08 MB as PNG, 0.64 MB at quality 90,
+   40 dB PSNR, files in `/home/user/temp/agent/xinyanchen-build/images-work/lossy/`), and unifying the About skating
+   photo's phone crop with the desktop framing (`images-work/skating-opt/unified-wide-framing-516.png`).
+8. Client side: ask for a re-send of the blank `IMG_0804 1.pdf`, confirm the Page 161 quote is complete,
+   then rewrite `05-client-reply-draft.md` around the built artifacts, including the wide-window options.
+
+Visual capture on Apple browsers no longer depends on `m1` staying unlocked:
+iPhone Simulator screenshots work while locked (`/home/user/temp/agent/xinyanchen-build/sim-shots.mjs`;
+text fragments such as `#:~:text=Potential%20for%20Impact` reach any element),
+and macOS Safari runs in the user's UTM macOS VM
+(`/home/user/temp/agent/xinyanchen-build/vm-safari-shot.mjs out-dir 1920x1080@1 page.html@scrollY`).
+Setup, tunnels and pitfalls: `doc/runbook/macos-safari-capture-while-host-locked.md` in the Monochromatic repo.
+Step scroll offsets by the 1028-pixel viewport height, or stitched frames repeat content.
 
 ## Artwork review correction
 
