@@ -1292,3 +1292,11 @@ orange lead-ins, color plates, name spans, chevron columns, dashed highlight rec
 positioning tagline keeps the user's copy ruling ("Scotties: Ride Local, Dream Big."). Page height grows 392 px at
 1440. Verified in Chromium and in real Safari 27 at 1920 wide, 1x. Not built: the lo-fi and hi-fi connector arrows
 (their targets move with flex wrapping) and a separate orange note for the lo-fi product listing page.
+
+Zoom viewer keys: each viewer was a `<button popover autofocus>`, so opening it focused a button and Space, the usual
+scroll key, closed it. All 47 viewers are now `<div popover role="dialog" aria-label="Enlarged image" tabindex="-1"
+autofocus>` holding one close button that wraps the image (it carries the × and "Close enlarged image"). Opening
+focuses the dialog's scroll area, so Space scrolls (754 px measured on the Scotties homepage screenshot); Tab reaches
+the close button; clicking the image and Escape still close it. Page heights are unchanged. The duplicate `<img>`
+(thumbnail and viewer) is kept on purpose: both share one URL, so the image downloads once, and removing the copy
+without script would mean moving the thumbnail itself into the top layer, which shifts the page.
