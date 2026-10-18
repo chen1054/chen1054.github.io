@@ -1054,3 +1054,29 @@ Images decoded successfully; browser page-error and console collections were emp
   The Python preview remains available at `http://localhost:4173/about.html`.
 - About is ready for the user's review.
   Contact and case-study pages await later instructions and supplied materials.
+
+## Client comparison round, 2026-10-18
+
+The client reviewed the three case studies at about 1920 pixels on a Mac and on an iPhone 15
+and reported many differences from the designs.
+The analysis, measurements, decisions, and fix queue live outside this repository in
+`../Client comparison screenshots 2026OCT170133/`; read its `README.md` first.
+The user treats every earlier implementation choice as suspect,
+asks for defects to be fixed before the client finds them,
+and has fixes pushed to `main` as each one lands, which updates the live site.
+Final acceptance runs in iPhone 15 Simulator Safari and macOS Safari on the `m1` host.
+
+Copy corrections, all approved by the user:
+`meals.We` became `meals. We` and `Timeline : 11 Weeks` became `Timeline: 11 Weeks` in MenuMe;
+Tales uses Mia for the girl everywhere, replacing two Mila mentions,
+and "curiosity leads them" replaces "curiosity lead them";
+two invisible zero-width spaces copied from the PDF text layer are removed.
+The Tales character artwork now labels its cards Ages 4–5, 6–8, and 9–12,
+matching the page's timeline tiers; its alt text matches.
+The new labels are Playfair Display Bold outlines generated with `hb-view`,
+with scale, baseline, and tracking calibrated so a regenerated "Ages 4–5"
+overlays the original path without visible fringes.
+The Scotties sitemap PNG now reads "Apparel & Accessories";
+the space was inserted by moving the glyph pixels, without redrawing text.
+Figma's exports carry these strings, but Figma may have mangled or exported stale text,
+so never attribute them to the client.
