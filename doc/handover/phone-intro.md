@@ -1181,3 +1181,11 @@ file's own alpha edges inside a slightly dilated copy of the old silhouette so t
 PNGs via `srcset` with `sizes="(width >= 40rem) 656px, 61vw"`. Page heights are unchanged at 390 to 1920;
 Laplacian sharpness at 2x desktop rises from 62 to 210 and at 3x phone from 150 to 204; 1x is unchanged.
 The client's raw 6.1 MB file stays at the repository root where they committed it.
+
+Soft-mask removal, photo batch: the six SVGs embedding photographs or screenshots (Echoes, Matcha, MenuMe preview,
+Scotties preview, Tales logo, Youth in Limbo) keep every raster at native resolution, cropped to the visible clip.
+Opaque photos keep their original embedded JPEG bytes (cropped losslessly with `jpegtran`), so their pixels are the
+old ones; rasters with real alpha are lossless WebP with the mask baked in. Sharpness at each largest display size
+is the old value or higher (popover images rise, since the fringe and soft layers are gone), the six files are about
+1.4 MB smaller in total, page heights are unchanged, and macOS Safari shows no fringe. A lossless re-encode would have
+grown them to 9.9 MB for the same sharpness and was rejected. No `<mask>` or `feColorMatrix` remains in `assets/`.
