@@ -1254,3 +1254,12 @@ numbered badges and tape, all as plain-path SVGs or CSS (drips and bubble tails 
 Page height grows 371 px at 1440, all in decorated elements the design also gives space. Verified in Chromium and in
 real Safari 27 at 1920 wide, 1x (the client's 1080p screen). `assets/menume-section-culinary-wave-divider.svg` is now
 overridden everywhere and can be deleted together with its two `url()` declarations.
+
+Scotties decorative vocabulary: the hero divider is an olive chevron tile, section bands carry their pale chevron runs
+(right side on phones and tablets, mirrored to the left on wide layouts through the growth factor, no new breakpoint),
+subheadings the skateboard glyph, and the cloud, positioning note, personas, core values, typography plate, sitemap,
+lo-fi and hi-fi notes and key learnings their dotted arrow, bolt, ice skate, skater, starburst (traced to vector),
+orange lead-ins, color plates, name spans, chevron columns, dashed highlight rectangles and badge icons. The
+positioning tagline keeps the user's copy ruling ("Scotties: Ride Local, Dream Big."). Page height grows 392 px at
+1440. Verified in Chromium and in real Safari 27 at 1920 wide, 1x. Not built: the lo-fi and hi-fi connector arrows
+(their targets move with flex wrapping) and a separate orange note for the lo-fi product listing page.
