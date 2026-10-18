@@ -1104,3 +1104,8 @@ Each button's content box is now exactly its pill, and `text-box: trim-both cap 
 block padding keeps the 48-pixel target and every page height unchanged at 390, 744, 1440, and 1920.
 The GPT line-height adjustments around the old 34-of-42 SVG geometry are removed.
 Label ink sits within half a CSS pixel of the pill center in Chromium, and Simulator Safari shows it centered.
+
+Contact layout shift: the empty hCaptcha container had no reserved size, so Send jumped 147 pixels
+when the third-party frame arrived after first paint, and the inline frame added a 9 to 12 pixel baseline gap.
+The container now reserves the compact frame's 138 pixels and the frame is a block;
+emptying the container in the loaded page moves Send by 0 pixels at 390, 744, and 1440.

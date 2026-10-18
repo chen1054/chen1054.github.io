@@ -700,6 +700,16 @@ p {
     resize: block;
   }
 }
+.h-captcha {
+  /*
+    Reserve the compact hCaptcha frame before its third-party script loads, so the
+    Send button does not jump; the frame is sized in pixels whatever the font size.
+  */
+  min-block-size: 138px;
+  &>iframe {
+    display: block;
+  }
+}
 .contact-page-send-message-button {
   inset-inline-start: calc(13rem / 32);
   margin-block-start: calc(17rem / 16);
