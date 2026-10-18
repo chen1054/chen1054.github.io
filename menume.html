@@ -586,7 +586,10 @@
     >
       <h2 id="menume-information-architecture-heading">Information Architecture &amp; Core User Flows</h2>
       <div class="case-study-section-content">
-      <h3 class="case-study-subheading">
+      <h3
+        class="case-study-subheading"
+        id="menume-sitemap-heading"
+      >
         App Sitemap &amp; Structural Hierarchy
       </h3>
       <p class="case-study-paragraph">
@@ -595,40 +598,58 @@
         structure ensures that users can toggle seamlessly between daily cooking decisions and weekly grocery
         logistics.
       </p>
-      <figure class="case-study-zoomable-artwork ">
-        <button
-          type="button"
-          popovertarget="menume-app-sitemap-and-structural-hierarchy-enlarged"
-          aria-label="Enlarge: MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
-        >
-          <img
-            src="assets/menume-app-sitemap-and-structural-hierarchy.png"
-            alt="MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
-            width="1958"
-            height="780"
-            loading="lazy"
-            decoding="async"
-          >
-        </button>
-        <button
-          class="case-study-enlarged-artwork"
-          id="menume-app-sitemap-and-structural-hierarchy-enlarged"
-          type="button"
-          popover
-          popovertarget="menume-app-sitemap-and-structural-hierarchy-enlarged"
-          aria-label="Close enlarged image"
-          title="Click the image or press Escape to close"
-          autofocus
-        >
-          <img
-            src="assets/menume-app-sitemap-and-structural-hierarchy.png"
-            alt="MenuMe sitemap showing Menu Planner, Fridge Inventory, Recipe Sharing, Profile, and Settings."
-            width="1958"
-            height="780"
-            loading="lazy"
-            decoding="async"
-          >
-        </button>
+      <figure
+        class="case-study-sitemap"
+        aria-labelledby="menume-sitemap-heading"
+      >
+        <ul>
+          <li>
+            <span>Home</span>
+            <ul>
+              <li>
+                <span>Menu Planner</span>
+                <ul>
+                  <li>
+                    <span>Weekly special</span>
+                    <ul>
+                      <li>
+                        <span>Recipes plan</span>
+                        <ul>
+                          <li><span>Delivery</span></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>Diet Preferences</span>
+                    <ul>
+                      <li><span>Recipes plan</span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>What’s in My Fridge</span>
+                <ul>
+                  <li>
+                    <span>Select from fridge</span>
+                    <ul>
+                      <li><span>Recipes plan</span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><span>Recipes &amp; Videos share</span></li>
+              <li>
+                <span>Profile &amp; Settings</span>
+                <ul>
+                  <li><span>Profile</span></li>
+                  <li><span>Settings</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </figure>
 <div class="case-study-subsection">
       <h3 class="case-study-subheading">

@@ -1146,3 +1146,9 @@ art's rendered interior). The notepad and cloud join Play and Trust in one conta
 so its box can grow with the text, with 21 percent inline and 20 percent block margins.
 The positioning note is now a CSS box (5-pixel dashed olive border, 50-pixel radius, beige fill) and its SVG is deleted.
 Trade-off left open: cloud copy is 12 pixels at 390 (14 in the design); 14 fits only with the cloud stretched about 1.58 times.
+
+Sitemaps: the Scotties and MenuMe sitemap PNGs (201 KB together, unreadable thumbnails on phones) are now nested
+`<ul>` trees inside `<figure class="case-study-sitemap">`, labelled by their subheadings, drawn by one CSS block
+with per-page color tokens. Below 40rem each is an indented tree with left connectors and arrowheads, labels at
+least 14 pixels; from 40rem the root sits centered over a row of level-1 boxes on a connector bus.
+MenuMe's side-by-side level-2 boxes stack under their parent. Node lists were checked against the original PNGs.
