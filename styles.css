@@ -1840,3 +1840,343 @@ h4.case-study-subheading {
     }
   }
 }
+
+/* MenuMe decorative vocabulary (census M01 to M15). */
+.portfolio-case-study-page[data-case-study="menume"] {
+  --menume-honey: #f7d781;
+  --menume-drip: calc(48rem / 16 + 24 * var(--home-wide-reference-growth));
+  --menume-disc: calc(56rem / 16 + 34 * var(--home-wide-reference-growth));
+  --menume-arrow: calc(30rem / 16 + 50 * var(--home-wide-reference-growth));
+  &>.case-study-content>.case-study-project-divider {
+    block-size: calc(26rem / 16 + 23 * var(--home-wide-reference-growth));
+    margin-block-start: calc(35rem / 16 + 148 * var(--home-wide-reference-growth));
+    background-image: url("assets/menume-gold-squiggle-one-period.svg");
+    background-size: calc(291rem / 16 + 216 * var(--home-wide-reference-growth)) 100%;
+  }
+  &>.case-study-content>.case-study-section {
+    &>h2::after {
+      inset-block-end: calc(3rem / 16 + 3 * var(--home-wide-reference-growth));
+      block-size: calc(26rem / 16 + 7 * var(--home-wide-reference-growth));
+      background-image: url("assets/menume-gold-squiggle-one-period.svg");
+      background-size: calc(291rem / 16 + 96 * var(--home-wide-reference-growth)) 100%;
+    }
+    &>.case-study-section-content {
+      &>h3:not(.menume-inspiration-quote),
+      &>.case-study-subsection>h3 {
+        &::before {
+          content: "";
+          display: inline-block;
+          inline-size: calc(26rem / 16 + 14 * var(--home-wide-reference-growth));
+          block-size: calc(24rem / 16 + 13 * var(--home-wide-reference-growth));
+          margin-block: -1em;
+          margin-inline-end: calc(8rem / 16 + 4 * var(--home-wide-reference-growth));
+          vertical-align: middle;
+          background: url("assets/menume-orange-steaming-bowl-glyph.svg") center / contain no-repeat;
+        }
+      }
+    }
+    &#menume-overview>.case-study-section-content {
+      &>.menume-inspiration-quote {
+        --menume-drip-color: var(--menume-honey);
+        position: relative;
+        box-sizing: border-box;
+        inline-size: min(calc(100% - var(--menume-disc) / 2), calc(300rem / 16 + 272 * var(--home-wide-reference-growth)));
+        margin-block-end: calc(var(--menume-drip) + 2rem);
+        padding-block: calc(16rem / 16 + 20 * var(--home-wide-reference-growth));
+        padding-inline: 1rem calc(var(--menume-disc) / 2 + 1rem);
+        border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
+        background-color: var(--menume-honey);
+        color: #000;
+        font-family: "Abril Fatface", serif;
+        font-size: calc(20rem / 16 + 8 * var(--home-wide-reference-growth));
+        font-weight: 400;
+        text-align: center;
+        &::before {
+          content: "";
+          position: absolute;
+          inset-block-start: calc(var(--menume-disc) / 5);
+          inset-inline-end: calc(var(--menume-disc) / -2);
+          inline-size: var(--menume-disc);
+          block-size: var(--menume-disc);
+          background: url("assets/menume-teal-question-mark-disc.svg") center / contain no-repeat;
+          filter: drop-shadow(0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%));
+        }
+      }
+      &>aside {
+        position: relative;
+        border-color: var(--menume-honey);
+        border-width: calc(4rem / 16);
+        border-radius: 0;
+        &::before {
+          content: "";
+          position: absolute;
+          inset-block-end: calc(100% - 32rem / 16);
+          inset-inline-start: 10%;
+          inline-size: calc(var(--menume-arrow) * 1.1);
+          block-size: calc(var(--menume-arrow) * 1.7);
+          background: url("assets/menume-orange-squiggle-connector.svg") center / contain no-repeat;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          inset-block-end: calc(12rem / 16);
+          inset-inline-end: calc(16rem / 16);
+          inline-size: calc(40rem / 16 + 25 * var(--home-wide-reference-growth));
+          aspect-ratio: 1;
+          background: url("assets/menume-teal-cooking-pot-icon.svg") center / contain no-repeat;
+        }
+      }
+      &>.case-study-subsection>h3:nth-of-type(2)::before {
+        content: none;
+      }
+      &>.case-study-subsection .case-study-flex-row>aside {
+        --menume-drip-color: var(--color-case-study-heading);
+        --menume-box-border: calc(3rem / 16);
+        position: relative;
+        margin-block-end: calc(var(--menume-drip) - 16rem / 16);
+        border-color: var(--color-case-study-heading);
+        border-width: var(--menume-box-border);
+        border-radius: 0;
+        &>h4 {
+          color: var(--color-case-study-accent);
+        }
+      }
+    }
+    &#menume-research>.case-study-section-content {
+      &>.case-study-flex-row>aside {
+        position: relative;
+        margin-block: calc(var(--menume-disc) / 2) calc(32rem / 16);
+        border-color: var(--menume-tint);
+        border-width: calc(4rem / 16);
+        border-radius: calc(36rem / 16);
+        &:nth-child(1) {
+          --menume-tint: var(--menume-honey);
+        }
+        &:nth-child(2) {
+          --menume-tint: var(--color-case-study-accent);
+        }
+        &:nth-child(3) {
+          --menume-tint: var(--color-case-study-heading);
+        }
+        &>h4 {
+          position: absolute;
+          inset-block-start: calc(var(--menume-disc) / -2);
+          inset-inline-end: 20%;
+          inline-size: var(--menume-disc);
+          margin-block: 0;
+          border-radius: 50%;
+          background-color: var(--menume-tint);
+          box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
+          color: var(--color-page-background);
+          font-family: "Abril Fatface", serif;
+          font-size: calc(24rem / 16 + 12 * var(--home-wide-reference-growth));
+          font-weight: 400;
+          line-height: var(--menume-disc);
+          text-align: center;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          inset-block-start: calc(100% + 2rem / 16);
+          inset-inline-start: 18%;
+          inline-size: calc(77rem / 16);
+          block-size: calc(32rem / 16);
+          background-color: var(--menume-tint);
+          mask: url("assets/menume-speech-bubble-tail.svg") center / 100% 100% no-repeat;
+        }
+      }
+      &>.case-study-subsection .case-study-alternating-personas {
+        isolation: isolate;
+        &>.case-study-flex-row {
+          position: relative;
+          &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset-block-start: 88%;
+            inset-inline-start: 6%;
+            inline-size: 80%;
+            aspect-ratio: 491 / 320;
+            background: url("assets/menume-gold-persona-scribble.svg") center / 100% 100% no-repeat;
+          }
+          &:nth-child(even)::after {
+            scale: -1 1;
+            inset-inline: auto 6%;
+          }
+          @media(width>=40rem) {
+            &:not(:last-child)::after {
+              inset-block-start: 62%;
+              inline-size: 62%;
+            }
+          }
+          &>article {
+            &>h4 {
+              inline-size: fit-content;
+              min-inline-size: calc(120rem / 16 + 48 * var(--home-wide-reference-growth));
+              padding-block: calc(8rem / 16 + 4 * var(--home-wide-reference-growth));
+              padding-inline: calc(24rem / 16);
+              font-size: calc(18rem / 16 + 8 * var(--home-wide-reference-growth));
+              text-align: center;
+              background: url("assets/menume-yellow-brush-name-plate.svg") center / 100% 100% no-repeat;
+              color: var(--color-case-study-accent);
+            }
+            &>p:first-of-type {
+              color: var(--color-case-study-accent);
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+    &#menume-information-architecture>.case-study-section-content>.case-study-subsection {
+      &>h4,
+      &:nth-of-type(n+2)>h3 {
+        color: var(--color-case-study-accent);
+      }
+      &:nth-of-type(n+2)>h3::before {
+        content: none;
+      }
+    }
+    &#menume-usability>.case-study-section-content {
+      &>.case-study-subsection {
+        &>h3::before {
+          content: none;
+        }
+        &>.case-study-flex-row:has(>aside) {
+          margin-block-end: calc(50 * var(--home-wide-reference-growth));
+        }
+        &>.case-study-flex-row>aside {
+          position: relative;
+          border-width: calc(4rem / 16);
+          border-radius: calc(24rem / 16);
+          &::after {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(100% + 2rem / 16);
+            inset-inline-end: 12%;
+            inline-size: calc(var(--menume-arrow) * 0.54);
+            block-size: var(--menume-arrow);
+            background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+          }
+          &:first-child {
+            border-color: var(--color-case-study-accent);
+          }
+          &:last-child {
+            border-color: var(--color-case-study-secondary);
+            &::after {
+              background-image: url("assets/menume-orange-squiggle-arrow-short.svg");
+            }
+          }
+        }
+      }
+      & .case-study-zoomable-artwork {
+        position: relative;
+        &:has(img[src*="high-fidelity"])::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-size: 100% 100%;
+          pointer-events: none;
+        }
+        &:has(img[src*="personalization-high"])::after {
+          background-image: url("assets/menume-personalization-highlight-rectangles.svg");
+        }
+        &:has(img[src*="weekly-specials-high"])::after {
+          background-image: url("assets/menume-weekly-specials-highlight-rectangles.svg");
+        }
+      }
+    }
+    &#menume-contributions>.case-study-section-content {
+      &>.case-study-contribution-cards {
+        counter-reset: menume-card;
+        &>aside {
+          --menume-tint: var(--color-case-study-heading);
+          counter-increment: menume-card;
+          position: relative;
+          border-color: var(--menume-tint);
+          border-width: calc(4rem / 16);
+          border-block-end-width: calc(8rem / 16);
+          border-radius: 0;
+          &:nth-child(2) {
+            --menume-tint: var(--menume-honey);
+          }
+          &:nth-child(3) {
+            --menume-tint: var(--color-case-study-accent);
+          }
+          &>p:first-child {
+            font-weight: 700;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(-30rem / 16);
+            inset-inline-start: calc(-26rem / 16);
+            inline-size: calc(96rem / 16);
+            block-size: calc(51rem / 16);
+            background: url("assets/menume-contribution-brush-tape.svg") center / contain no-repeat;
+          }
+          &::after {
+            content: counter(menume-card);
+            content: counter(menume-card) / "";
+            position: absolute;
+            inset-block-end: calc(var(--menume-disc) / -3);
+            inset-inline-end: calc(var(--menume-disc) / -3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            inline-size: var(--menume-disc);
+            block-size: var(--menume-disc);
+            border-radius: 50%;
+            background-color: var(--menume-tint);
+            box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
+            color: var(--color-page-background);
+            font-family: "Abril Fatface", serif;
+            font-size: calc(28rem / 16 + 12 * var(--home-wide-reference-growth));
+            line-height: 1;
+          }
+        }
+      }
+      &>.case-study-subsection {
+        &>h4 {
+          color: var(--color-case-study-accent);
+          &::before {
+            content: "";
+            display: inline-block;
+            inline-size: calc(20rem / 16 + 8 * var(--home-wide-reference-growth));
+            block-size: calc(20rem / 16 + 8 * var(--home-wide-reference-growth));
+            margin-inline-end: calc(8rem / 16);
+            vertical-align: middle;
+            background: url("assets/menume-teal-lightbulb-icon.svg") center / contain no-repeat;
+          }
+          &:nth-of-type(2)::before {
+            background-image: url("assets/menume-teal-network-icon.svg");
+          }
+        }
+        &>aside {
+          --menume-drip-color: var(--menume-honey);
+          position: relative;
+          margin-block-end: calc(var(--menume-drip) - 16rem / 16);
+          border-width: 0;
+          border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
+          background-color: var(--menume-honey);
+        }
+      }
+      &>.case-study-closing-reflection {
+        color: #000;
+      }
+    }
+  }
+  &>.case-study-content :is(
+    .menume-inspiration-quote,
+    #menume-overview .case-study-flex-row>aside,
+    #menume-contributions .case-study-subsection>aside
+  )::after {
+    content: "";
+    position: absolute;
+    inset-block-start: calc(100% - 16rem / 16 + var(--menume-box-border, 0px));
+    inset-inline: calc(-1 * var(--menume-box-border, 0px));
+    block-size: var(--menume-drip);
+    background-color: var(--menume-drip-color);
+    mask: url("assets/menume-honey-drip-one-period.svg") 0 0 / auto 100% repeat-x;
+  }
+}

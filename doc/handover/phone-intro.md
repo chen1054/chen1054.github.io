@@ -1244,3 +1244,13 @@ their square outline and yellow ground, and Potential for Impact gets numbered r
 on phones, as designed). Page height grows 145 px at 1440, all of it the impact strip. Known differences from the
 design: the Challenge heading uses the two-leaf glyph rather than the lighter outline, the impact tabs do not
 interlock as chevrons, and the 744 layout shows them 2x2 instead of four across.
+
+MenuMe decorative vocabulary: one seamless gold squiggle period (`assets/menume-gold-squiggle-one-period.svg`) tiles
+the hero divider and every section band, sized by the wide-layout growth factor, so the loops no longer jump at the
+tile seams (they jumped 8.5 to 18 px before). Subheadings carry the orange steaming-bowl glyph from the Desktop design,
+the two key-learning headings their lightbulb and network icons, and the notes, quote, focus bubbles, persona names,
+usability callouts and contribution cards their honey drips, outlines, brush plates, arrows, highlight rectangles,
+numbered badges and tape, all as plain-path SVGs or CSS (drips and bubble tails are CSS `mask-image` on a solid color).
+Page height grows 371 px at 1440, all in decorated elements the design also gives space. Verified in Chromium and in
+real Safari 27 at 1920 wide, 1x (the client's 1080p screen). `assets/menume-section-culinary-wave-divider.svg` is now
+overridden everywhere and can be deleted together with its two `url()` declarations.
