@@ -1189,3 +1189,9 @@ old ones; rasters with real alpha are lossless WebP with the mask baked in. Shar
 is the old value or higher (popover images rise, since the fringe and soft layers are gone), the six files are about
 1.4 MB smaller in total, page heights are unchanged, and macOS Safari shows no fringe. A lossless re-encode would have
 grown them to 9.9 MB for the same sharpness and was rejected. No `<mask>` or `feColorMatrix` remains in `assets/`.
+
+Baked-in typo: the Tales campaign metrics diagram read "Brower Editor Duration≥ 5 mins". The label path is replaced
+by HarfBuzz outlines of "Browser Editor Duration ≥ 5 mins" in Playfair Display Bold, the weight whose fitted
+outline matched the original ink best, with scale and tracking calibrated on the original label
+(script: `/home/user/temp/agent/xinyanchen-build/brower/relabel.mjs`); it keeps the left edge and baseline and
+ends about 20 pixels short of the pie outline.
