@@ -1267,6 +1267,11 @@ h4.case-study-subheading {
     min-inline-size: 100%;
     block-size: auto;
   }
+  /* Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. */
+  &>img[src$=".png"] {
+    min-inline-size: 0;
+    margin-inline: auto;
+  }
   &::backdrop {
     background-color: oklch(from var(--color-body-text-purple) l c h / 75%);
   }
