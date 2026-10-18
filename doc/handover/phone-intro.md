@@ -1195,3 +1195,8 @@ by HarfBuzz outlines of "Browser Editor Duration ≥ 5 mins" in Playfair Display
 outline matched the original ink best, with scale and tracking calibrated on the original label
 (script: `/home/user/temp/agent/xinyanchen-build/brower/relabel.mjs`); it keeps the left edge and baseline and
 ends about 20 pixels short of the pie outline.
+
+Zoom viewer: `.case-study-enlarged-artwork>img` had `min-inline-size: 100%`, so bitmaps were stretched to the viewer
+(a 490-pixel persona photo opened at 1376 pixels, blurred). PNGs now open at their natural size (centered when
+smaller than the viewer, scrolling when larger, as on phones); SVGs keep filling the viewer. Measured on all 47
+viewers of the three case studies at 1440 and 390: every PNG shows at exactly its natural width.
