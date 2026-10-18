@@ -1158,3 +1158,8 @@ The Scotties challenge cloud and the Tales spiral notepad are traced vectors too
 the cloud is a white silhouette (shrunk under a pixel so it never peeks past the outline) under a `#ff8655` outline
 and keeps `preserveAspectRatio="none"`; the notepad is one `#994198` path. macOS Safari showed a grey rim around the
 old cloud (the soft-mask fringe the client called black borders); the vector cloud has none. Copy intrusion stays 0.
+
+Fonts: the five TTFs (833 KB) are now lossless WOFF2 (284 KB), converted with `fonttools ttLib.woff2 compress`
+(no subsetting, so every glyph, including U+2011, is kept). All 12 full-page captures (six pages at 390 and 1440)
+are pixel-identical to the TTF captures, apart from Tales at 1440, whose run-to-run noise is the same amount;
+macOS Safari reports all five faces loaded from the WOFF2 files.

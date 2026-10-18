@@ -1,24 +1,24 @@
 @font-face {
   font-family: "Abril Fatface";
-  src: url("assets/fonts/AbrilFatface-Regular.ttf") format("truetype");
+  src: url("assets/fonts/AbrilFatface-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Playfair Display";
-  src: url("assets/fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  src: url("assets/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "Playfair Display";
-  src: url("assets/fonts/PlayfairDisplay-SemiBold.ttf") format("truetype");
+  src: url("assets/fonts/PlayfairDisplay-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: "Playfair Display";
-  src: url("assets/fonts/PlayfairDisplay-ExtraBold.ttf") format("truetype");
+  src: url("assets/fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-display: swap;
 }
@@ -733,7 +733,7 @@ p {
 }
 @font-face {
   font-family: "Playfair Display";
-  src: url("assets/fonts/PlayfairDisplay-Medium.ttf") format("truetype");
+  src: url("assets/fonts/PlayfairDisplay-Medium.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
 }
