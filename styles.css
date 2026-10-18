@@ -28,6 +28,7 @@
   --color-portfolio-purple: #685587;
   --color-body-text-purple: #463267;
   --color-heading-and-case-study-gold: #c27f36;
+  --color-home-river-gold: #d8a150;
   --color-contact-required-marker: #d9a150;
   color-scheme: light;
 }
@@ -160,9 +161,11 @@ p {
     a pill inset within a view box whose lower part holds the drop shadow.
     The view box is fitted into the button's inline size by the art block size,
     keeping its aspect ratio and centering it, as an SVG background would.
+    The content box is exactly the pill, so the trimmed label centers on it;
+    block padding keeps the original 48-pixel minimum target and layout height.
   */
   --button-color: var(--color-portfolio-purple);
-  --button-hover-chroma: 0.259833;
+  --button-hover-color: var(--color-home-river-gold);
   --button-inline-size: 9rem;
   --button-art-block-size: calc(42rem / 16);
   --button-view-inline-size: 144;
@@ -170,37 +173,46 @@ p {
   --button-pill-start: 4;
   --button-pill-end: 4;
   --button-pill-block-size: 34;
+  --button-fitted-inline-size: min(
+    var(--button-inline-size),
+    var(--button-art-block-size) * var(--button-view-inline-size) / var(--button-view-block-size)
+  );
+  --button-fitted-block-size: min(
+    var(--button-art-block-size),
+    var(--button-inline-size) * var(--button-view-block-size) / var(--button-view-inline-size)
+  );
+  --button-view-unit: calc(var(--button-fitted-block-size) / var(--button-view-block-size));
+  --button-pill-offset: calc((var(--button-art-block-size) - var(--button-fitted-block-size)) / 2);
+  --button-pill-height: calc(var(--button-pill-block-size) * var(--button-view-unit));
   position: relative;
   isolation: isolate;
   inset-inline-start: calc(1rem / 16);
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
+  box-sizing: content-box;
   inline-size: var(--button-inline-size);
   min-inline-size: 3rem;
-  min-block-size: 3rem;
+  block-size: var(--button-pill-height);
   margin-block-start: calc(70rem / 16);
   margin-inline: auto;
+  padding-block-start: var(--button-pill-offset);
+  padding-block-end: calc(
+    max(3rem, var(--button-art-block-size)) - var(--button-pill-offset) - var(--button-pill-height)
+  );
+  padding-inline: 0;
   color: var(--color-page-background);
   font-family: "Abril Fatface", serif;
   font-size: calc(14rem / 16);
   font-weight: 400;
-  line-height: calc(34rem / 16);
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
   text-decoration: none;
   &::before {
-    --button-fitted-inline-size: min(
-      var(--button-inline-size),
-      var(--button-art-block-size) * var(--button-view-inline-size) / var(--button-view-block-size)
-    );
-    --button-fitted-block-size: min(
-      var(--button-art-block-size),
-      var(--button-inline-size) * var(--button-view-block-size) / var(--button-view-inline-size)
-    );
-    --button-view-unit: calc(var(--button-fitted-block-size) / var(--button-view-block-size));
     content: "";
     position: absolute;
     z-index: -1;
-    inset-block-start: calc((var(--button-art-block-size) - var(--button-fitted-block-size)) / 2);
+    inset-block-start: var(--button-pill-offset);
     inset-inline-start: calc(
       (var(--button-inline-size) - var(--button-fitted-inline-size)) / 2 +
       var(--button-pill-start) * var(--button-view-unit)
@@ -209,13 +221,13 @@ p {
       (var(--button-view-inline-size) - var(--button-pill-start) - var(--button-pill-end)) *
       var(--button-view-unit)
     );
-    block-size: calc(var(--button-pill-block-size) * var(--button-view-unit));
+    block-size: var(--button-pill-height);
     border-radius: 100vmax;
     background-color: var(--button-color);
     box-shadow: 0 calc(4 * var(--button-view-unit)) calc(4 * var(--button-view-unit)) rgb(0 0 0 / 25%);
   }
   &:hover::before {
-    background-color: oklch(from var(--button-color) l var(--button-hover-chroma) h);
+    background-color: var(--button-hover-color);
   }
 }
 .home-introduction-about-page-link,
@@ -459,7 +471,7 @@ p {
 }
 .home-page-project-case-study-link {
   --button-color: var(--color-heading-and-case-study-gold);
-  --button-hover-chroma: 0.146646;
+  --button-hover-color: var(--color-portfolio-purple);
   --button-view-inline-size: 162;
   --button-pill-start: 5;
   --button-pill-end: 3.453125;
@@ -536,7 +548,7 @@ p {
 .about-page-curriculum-vitae-link,
 .contact-page-send-message-button {
   --button-color: var(--color-heading-and-case-study-gold);
-  --button-hover-chroma: 0.146646;
+  --button-hover-color: var(--color-portfolio-purple);
   inset-inline-start: 0;
 }
 .about-page-personal-interests {
@@ -1264,25 +1276,14 @@ h4.case-study-subheading {
     --home-wide-button-height-growth: 20;
     inset-inline-start: 0;
     --button-inline-size: calc(144rem / 16 + var(--home-wide-button-width-growth) * var(--home-wide-reference-growth));
-    min-block-size: max(
-      3rem,
-      calc(42rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth))
-    );
     --button-art-block-size: calc(
       42rem / 16 + var(--home-wide-button-height-growth) * var(--home-wide-reference-growth)
     );
     font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
-    line-height: calc(
-      34rem / 16 +
-      var(--home-wide-button-text-line-height-growth,var(--home-wide-button-height-growth)) *
-      var(--home-wide-reference-growth)
-    );
     font-family: "Playfair Display", serif;
     font-weight: 700;
   }
   .home-introduction-about-page-link {
-    /* The SVG's filled pill occupies 34 of its 42 vertical units; the rest contains its shadow. */
-    --home-wide-button-text-line-height-growth: calc(var(--home-wide-button-height-growth) * 34 / 42);
     margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
   }
   .contact-page-content {
@@ -1424,7 +1425,6 @@ h4.case-study-subheading {
       &>.home-page-project-case-study-link {
         --home-wide-button-width-growth: 120;
         --home-wide-button-height-growth: 29;
-        --home-wide-button-text-line-height-growth: calc(var(--home-wide-button-height-growth) * 34 / 42 - 2);
         inset-inline-start: calc(-4rem / 16 - 2 * var(--home-wide-reference-growth));
         margin-block-start: calc(28rem / 16 + 25 * var(--home-wide-reference-growth));
         margin-inline: 0;

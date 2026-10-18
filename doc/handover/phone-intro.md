@@ -1095,3 +1095,12 @@ The Scotties chevrons are three vector polygons measured from the old mask;
 iPhone 15 Simulator Safari renders them crisp with no dark edges.
 Test Simulator Safari through a server that sends `Cache-Control: no-store`;
 Python's preview server sends no cache headers and Safari kept the replaced SVG.
+
+Button text and hover, the client's request of 2026-10-18:
+"按钮的文字需要上下居中，按钮的变色变为下面那条河流的黄色。网站其他的黄色的按钮变色就变成这个网站用的紫色。"
+The purple About button now hovers to the river gold `#d8a150` (`--color-home-river-gold`, the gold band's fill);
+gold buttons hover to the site purple, replacing the earlier maximum-chroma hover for these buttons.
+Each button's content box is now exactly its pill, and `text-box: trim-both cap alphabetic` centers the cap height;
+block padding keeps the 48-pixel target and every page height unchanged at 390, 744, 1440, and 1920.
+The GPT line-height adjustments around the old 34-of-42 SVG geometry are removed.
+Label ink sits within half a CSS pixel of the pill center in Chromium, and Simulator Safari shows it centered.
