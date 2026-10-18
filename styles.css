@@ -1700,3 +1700,143 @@ h4.case-study-subheading {
     inline-size: calc(100% - 150rem / 16 - 204 * var(--home-wide-reference-growth));
   }
 }
+/* Tales for Safer Trails decorative vocabulary (census T01 to T18). */
+.portfolio-case-study-page[data-case-study="tales"] {
+  --tales-growth: var(--home-wide-reference-growth);
+  &>.case-study-content>.case-study-project-divider,
+  &>.case-study-content>.case-study-section>h2 {
+    border-block-color: transparent;
+    background-image: url("assets/tales-section-band-gold-dash-row.svg");
+    background-origin: border-box;
+    background-position: center calc(7rem / 16 + 5 * var(--tales-growth));
+    background-repeat: repeat-x;
+    background-size: calc(24rem / 16 + 36 * var(--tales-growth)) calc(5rem / 16 + 5 * var(--tales-growth));
+  }
+  &>.case-study-content>.case-study-project-divider {
+    background-position-y: center;
+  }
+  & :where(h3.case-study-subheading),
+  & [data-glyph] {
+    --glyph: url("assets/tales-subheading-two-leaf-glyph.svg");
+    --glyph-size: calc(24rem / 16 + 11 * var(--tales-growth));
+  }
+  & [data-glyph="leaf"] {
+    --glyph: url("assets/tales-subheading-single-leaf-glyph.svg");
+    --glyph-size: calc(21rem / 16 + 8 * var(--tales-growth));
+  }
+  & [data-glyph="sprout"] {
+    --glyph: url("assets/tales-subheading-sprout-glyph.svg");
+    --glyph-size: calc(21rem / 16 + 3 * var(--tales-growth));
+  }
+  & p[data-glyph] {
+    --glyph-size: calc(18rem / 16);
+  }
+  & :is(h3.case-study-subheading, [data-glyph])::before {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    inline-size: var(--glyph-size);
+    block-size: var(--glyph-size);
+    margin-block: calc((1lh - var(--glyph-size)) / 2);
+    margin-inline-end: calc(var(--glyph-size) / 3);
+    background: var(--glyph) center / contain no-repeat;
+  }
+  & .case-study-persona>h4 {
+    color: var(--color-case-study-accent);
+  }
+  & .case-study-spiral-notepad {
+    background-image:
+      url("assets/tales-challenge-spiral-notepad-background.svg"),
+      linear-gradient(var(--color-case-study-note), var(--color-case-study-note));
+    background-position: 0 0, 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 95.1% 95%, 94.3% 86.5%;
+    /* Keep the copy inside the outline, which is now 5 percent smaller on the right and bottom. */
+    padding-block-end: 7%;
+    &>* {
+      margin-inline: 8% 12%;
+    }
+  }
+  & .case-study-subsection>.case-study-note {
+    border-color: transparent;
+    border-radius: 0;
+    background-color: color-mix(in srgb, var(--color-case-study-note) 80%, transparent);
+    &>p:first-of-type~p {
+      color: var(--color-case-study-accent);
+    }
+  }
+  & .case-study-impact-cards {
+    --tip: calc(24rem / 16 + 10 * var(--tales-growth));
+    --stem: calc(24rem / 16 + 11 * var(--tales-growth));
+    --ring: calc(61rem / 16 + 25 * var(--tales-growth));
+    --mid: calc((100% - var(--tip)) / 2);
+    counter-reset: impact;
+    align-items: flex-start;
+    &>* {
+      flex-basis: calc(130rem / 16);
+      counter-increment: impact;
+      @media(width>=40rem) {
+        flex-basis: calc(240rem / 16);
+      }
+      &:nth-child(1) {
+        --c: var(--color-case-study-accent);
+      }
+      &:nth-child(2) {
+        --c: var(--color-case-study-secondary);
+      }
+      &:nth-child(3) {
+        --c: #6682dd;
+      }
+      &:nth-child(4) {
+        --c: var(--color-case-study-note);
+      }
+      &:nth-child(odd) {
+        --on: #fff;
+        --num: var(--c);
+      }
+      &:nth-child(even) {
+        --on: #263238;
+        --num: var(--on);
+      }
+      &::before {
+        content: counter(impact, decimal-leading-zero);
+        display: block;
+        box-sizing: border-box;
+        inline-size: var(--ring);
+        block-size: var(--ring);
+        margin-inline-start: calc(var(--mid) - var(--ring) / 2);
+        border: calc(3rem / 16) solid var(--c);
+        border-radius: 50%;
+        color: var(--num);
+        font-size: calc(var(--ring) * 0.45);
+        line-height: calc(var(--ring) - 6rem / 16);
+        text-align: center;
+      }
+      &>h4 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        min-block-size: calc(var(--stem) + 72rem / 16);
+        margin-block-start: 0;
+        padding-block-start: var(--stem);
+        padding-inline: calc(4rem / 16) calc(var(--tip) + 4rem / 16);
+        font-size: calc(14rem / 16 + 2 * var(--tales-growth));
+        background-color: var(--c);
+        color: var(--on);
+        text-align: center;
+        clip-path: polygon(
+          calc(var(--mid) - 1.5rem / 16) 0,
+          calc(var(--mid) + 1.5rem / 16) 0,
+          calc(var(--mid) + 1.5rem / 16) var(--stem),
+          calc(100% - var(--tip)) var(--stem),
+          100% calc((100% + var(--stem)) / 2),
+          calc(100% - var(--tip)) 100%,
+          0 100%,
+          0 var(--stem),
+          calc(var(--mid) - 1.5rem / 16) var(--stem)
+        );
+      }
+    }
+  }
+}
