@@ -1234,3 +1234,13 @@ homepage screenshot, now 4.1 MB; it is not resized, since the zoom viewer alread
 images on Home, About and Contact are lazy with async decoding; nothing in the first screen at 390 or 1440 is lazy.
 About now downloads 2.8 MB at 1440 (was 6.1 MB); the case studies drop 1.8 to 3.3 MB each. Proposals not applied:
 lossy WebP (the Scotties screenshot would be 0.64 MB at quality 90, 40 dB PSNR).
+
+Tales decorative vocabulary: the hero strip and the five section bands draw their gold capsule dashes from one SVG
+tile (`assets/tales-section-band-gold-dash-row.svg`) that scales with the wide-layout growth factor; the old dashed
+borders stay as transparent borders so no box height changes. Subheadings carry the Desktop design's two-leaf, single
+leaf or sprout glyph (three plain-path SVGs, chosen per heading with `data-glyph`), sized to the line height so they add
+no height. The notepad gains its offset yellow backing, persona names take the accent color, the curriculum notes get
+their square outline and yellow ground, and Potential for Impact gets numbered rings, stems and arrow tabs (two across
+on phones, as designed). Page height grows 145 px at 1440, all of it the impact strip. Known differences from the
+design: the Challenge heading uses the two-leaf glyph rather than the lighter outline, the impact tabs do not
+interlock as chevrons, and the 744 layout shows them 2x2 instead of four across.
