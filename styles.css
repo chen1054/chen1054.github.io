@@ -1237,30 +1237,36 @@ h4.case-study-subheading {
   overflow: auto;
   overscroll-behavior: contain;
   background-color: var(--color-page-background);
-  cursor: zoom-out;
-  &::before {
-    content: "×";
-    position: sticky;
-    inset-block-start: 0;
-    inset-inline-start: 0;
+  /* The dialog itself takes focus on open, so Space and Page Down scroll it;
+     the image is the close button, so clicking it still closes. */
+  &>button {
     display: block;
-    inline-size: 3rem;
-    block-size: 3rem;
-    background-color: var(--color-page-background);
-    color: var(--color-body-text-purple);
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-  &>img {
-    display: block;
-    inline-size: auto;
-    min-inline-size: 100%;
-    block-size: auto;
-  }
-  /* Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. */
-  &>img[src$=".png"] {
-    min-inline-size: 0;
-    margin-inline: auto;
+    inline-size: 100%;
+    cursor: zoom-out;
+    &::before {
+      content: "×";
+      position: sticky;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      display: block;
+      inline-size: 3rem;
+      block-size: 3rem;
+      background-color: var(--color-page-background);
+      color: var(--color-body-text-purple);
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+    &>img {
+      display: block;
+      inline-size: auto;
+      min-inline-size: 100%;
+      block-size: auto;
+    }
+    /* Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. */
+    &>img[src$=".png"] {
+      min-inline-size: 0;
+      margin-inline: auto;
+    }
   }
   &::backdrop {
     background-color: oklch(from var(--color-body-text-purple) l c h / 75%);
@@ -1369,6 +1375,7 @@ h4.case-study-subheading {
 }
 .case-study-section-navigation>ul>li>a,
 .case-study-zoomable-artwork>button,
+.case-study-enlarged-artwork>button,
 .case-study-prototype-link {
   &:focus-visible {
     outline-width: calc(2rem / 16);
