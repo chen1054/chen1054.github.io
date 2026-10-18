@@ -1214,3 +1214,7 @@ Copy decisions by the user, 2026-10-18: the Home Echoes card heading is "Surreal
 fixed, the five true possessives keep "Scotties'"); the Contact intro no longer offers a phone, since none is listed.
 Kept as written: "Jake Alice" is a first and last name like "Gwen Parker"; the Scotties copy's #FC702F and #515839 are
 the brand colors of the client's Scotties design project and need not match this portfolio page's own accents.
+
+Preview caching: `mise run preview` still serves on `http://localhost:4173/` with Python, but now sends
+`Cache-Control: no-store`. The plain `http.server` sent no cache header, so Safari (macOS and the iPhone Simulator)
+cached files heuristically and kept showing old artwork after it changed on disk.
