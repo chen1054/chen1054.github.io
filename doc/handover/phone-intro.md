@@ -1225,3 +1225,12 @@ in the portfolio purple, so hover is a background-color change (`oklch(from purp
 antialiasing pixels of 10,816); macOS Safari 27 resolves the hover color to the same value. Also checked in Safari 27:
 `body { container-type: inline-size }` does not re-anchor the fixed link (it stays 16 pixels from the viewport corner
 at scroll 3000), so audit finding 5.5 does not reproduce there.
+
+Image weight: About's beach and reading photographs are one 516-pixel PNG each (3.1 device pixels per CSS pixel on
+phones, 2.0 on desktop, the most a 2x screen shows), replacing separate phone and desktop files; the skating photo
+keeps its two files because the phone crop differs, with the desktop one resized to 516. Twenty other PNGs are
+losslessly recompressed (each verified pixel-identical to the original, alpha included), including the 6.3 MB Scotties
+homepage screenshot, now 4.1 MB; it is not resized, since the zoom viewer already shows it below 2x. Below-the-fold
+images on Home, About and Contact are lazy with async decoding; nothing in the first screen at 390 or 1440 is lazy.
+About now downloads 2.8 MB at 1440 (was 6.1 MB); the case studies drop 1.8 to 3.3 MB each. Proposals not applied:
+lossy WebP (the Scotties screenshot would be 0.64 MB at quality 90, 40 dB PSNR).
