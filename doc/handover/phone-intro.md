@@ -1300,3 +1300,6 @@ focuses the dialog's scroll area, so Space scrolls (754 px measured on the Scott
 the close button; clicking the image and Escape still close it. Page heights are unchanged. The duplicate `<img>`
 (thumbnail and viewer) is kept on purpose: both share one URL, so the image downloads once, and removing the copy
 without script would mean moving the thumbnail itself into the top layer, which shifts the page.
+Browsers give every `[popover]` a solid canvas-text border; the old button viewer hid it through the global button
+reset, so the dialog version sets `border-width: 0` (Safari showed a dark frame around the open viewer until then).
+Safari still draws its thin blue focus ring around the autofocused dialog, the browser's standard indicator.
