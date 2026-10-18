@@ -1138,3 +1138,11 @@ so phones broke the hero subtitle as "E-" over "Commerce".
 All six uses are `E&#8209;Commerce` or `e&#8209;commerce`; every one is set in Playfair Display,
 whose fonts map U+2011 to their own hyphen glyph (Abril Fatface lacks it, so do not use it there).
 Simulator Safari now breaks the subtitle as "Digital Rebranding &" over "E‑Commerce UX Redesign".
+
+Painted containers (audit Fix 1): the Tales notepad, the Scotties challenge cloud and the positioning note
+now keep their copy inside the art at 320 to 1920 (worst intrusion 0 pixels, measured per text line against the
+art's rendered interior). The notepad and cloud join Play and Trust in one container-query rule
+(copy sized in `cqi` against the 322-pixel phone layout); the cloud SVG stretches (`preserveAspectRatio="none"`)
+so its box can grow with the text, with 21 percent inline and 20 percent block margins.
+The positioning note is now a CSS box (5-pixel dashed olive border, 50-pixel radius, beige fill) and its SVG is deleted.
+Trade-off left open: cloud copy is 12 pixels at 390 (14 in the design); 14 fits only with the cloud stretched about 1.58 times.

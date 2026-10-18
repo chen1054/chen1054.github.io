@@ -971,8 +971,8 @@ h4.case-study-subheading {
 .case-study-spiral-notepad,
 .case-study-play-speech-bubble,
 .case-study-trust-speech-bubble,
-.case-study-scotties-challenge-bubble,
-.case-study-scotties-positioning-note {
+.case-study-scotties-challenge-bubble {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -980,18 +980,7 @@ h4.case-study-subheading {
   border-radius: 0;
   background-color: transparent;
   background-size: 100% 100%;
-  padding-block: calc(32rem / 16 + 18 * var(--home-wide-reference-growth));
-  padding-inline: calc(24rem / 16 + 21 * var(--home-wide-reference-growth));
-}
-.case-study-spiral-notepad {
-  aspect-ratio: 486 / 347;
-  padding-block-start: calc(60rem / 16);
-  background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
-}
-.case-study-play-speech-bubble,
-.case-study-trust-speech-bubble {
-  container-type: inline-size;
-  /* Scale copy with the bubble's 322px phone layout width. */
+  /* Scale copy with the artwork's 322px phone layout width. */
   padding-block: 0;
   padding-inline: 0;
   text-align: center;
@@ -1013,6 +1002,16 @@ h4.case-study-subheading {
     font-size: min(1em, calc(14 * 100cqi / 322));
   }
 }
+.case-study-spiral-notepad {
+  aspect-ratio: 486 / 346;
+  background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
+  &>* {
+    margin-inline: 10%;
+  }
+  &>p {
+    margin-block-start: 12%;
+  }
+}
 .case-study-play-speech-bubble {
   aspect-ratio: 411 / 392;
   background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
@@ -1025,16 +1024,24 @@ h4.case-study-subheading {
   }
 }
 .case-study-scotties-challenge-bubble {
-  aspect-ratio: 552 / 451;
-  max-inline-size: calc(552rem / 16);
+  aspect-ratio: 551 / 449;
+  max-inline-size: calc(551rem / 16);
   margin-inline: auto;
   background-image: url("assets/scotties-core-challenge-speech-bubble.svg");
+  &>p {
+    margin-block: 20%;
+    margin-inline: 21%;
+    font-size: min(1em, calc(12 * 100cqi / 322));
+  }
 }
 .case-study-scotties-positioning-note {
-  aspect-ratio: 451 / 290;
   max-inline-size: calc(451rem / 16);
   margin-inline: auto;
-  background-image: url("assets/scotties-community-positioning-note-background.svg");
+  border: calc(5rem / 16) dashed var(--color-case-study-subheading);
+  border-radius: calc(50rem / 16);
+  background-color: var(--color-case-study-secondary);
+  text-align: center;
+  text-wrap: balance;
 }
 .case-study-persona {
   max-inline-size: calc(450rem / 16);
