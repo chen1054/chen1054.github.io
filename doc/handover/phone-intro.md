@@ -1152,3 +1152,9 @@ Sitemaps: the Scotties and MenuMe sitemap PNGs (201 KB together, unreadable thum
 with per-page color tokens. Below 40rem each is an indented tree with left connectors and arrowheads, labels at
 least 14 pixels; from 40rem the root sits centered over a row of level-1 boxes on a connector bus.
 MenuMe's side-by-side level-2 boxes stack under their parent. Node lists were checked against the original PNGs.
+
+The Scotties challenge cloud and the Tales spiral notepad are traced vectors too (same method, generalized script
+`/home/user/temp/agent/xinyanchen-build/vec/trace-layers.mjs`, rendering on a magenta page so white fills separate):
+the cloud is a white silhouette (shrunk under a pixel so it never peeks past the outline) under a `#ff8655` outline
+and keeps `preserveAspectRatio="none"`; the notepad is one `#994198` path. macOS Safari showed a grey rim around the
+old cloud (the soft-mask fringe the client called black borders); the vector cloud has none. Copy intrusion stays 0.
