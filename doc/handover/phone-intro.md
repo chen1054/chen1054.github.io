@@ -524,7 +524,7 @@ image weight, and the decorative vocabulary on all three case studies
 
 Queue, in order:
 
-1. Tales note bullets: the 13 fake "•" paragraphs in seven runs are converted to
+1. Done (commit "fix(tales): mark note bullets up as lists"): Tales note bullets, the 13 fake "•" paragraphs in seven runs, are
    `<ul class="case-study-note-list">` in `tales-for-safer-trails.html` (uncommitted when this was written;
    script `/home/user/temp/agent/xinyanchen-build/bullets-to-lists.mjs` checks the word sequence is unchanged).
    Still to do: the `.case-study-note-list` rule (`list-style: "• " inside`, `1rem` item margins so nothing moves),
