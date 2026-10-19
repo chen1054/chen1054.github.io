@@ -557,19 +557,18 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
      `.case-study` in `pages`. Pages set pill inputs (`--pill-color`, `--pill-hover-color`, `--pill-phone-inline-size`,
      `--pill-wide-inline-growth`, `--pill-wide-block-growth`) and `.pill` computes the size. The single wide `@media`
      block is gone: wide values sit in the rule they adjust, phone-only variants in `@media(width<40rem)`.
-   - Running (Sonnet agent): the Safari computed-style gate, `@wt-base` (worktree of `568c81b`) against `main`,
-     tool `/home/user/temp/agent/fig-parse/safari-style-diff.mjs` (base and candidate as same-origin iframes of each
-     width in one Safari page, so 390 works; margins through Typed OM). Its focus probe was being fixed. Any
-     regression it reports gets its own fix commit.
-   - Running (Sonnet agent): why Chromium's `getComputedStyle` reports `0px` for a resolved `margin: auto` on about 1
-     load in 5 (About's portrait wave at 1920; the box is always at 240). Report to
-     `/home/user/temp/agent/chromium-flake/report.md`.
-   - Chromium diff tool: `/home/user/temp/agent/fig-parse/style-diff.mjs`, runbook in Monochromatic
-     `doc/runbook/css-refactor-computed-style-regression.md`.
-4. Running (Sonnet agent): a second Safari WebDriver so automation runs need not queue. Safari Technology Preview
-   (different WebKit version, accepted by the user) in the VM guest on guest port 4448, m1 4449, Linux 4450 (unit
-   `xinyanchen-vm-webdriver-stp`). Until it lands, every WebDriver run on 4446 holds
-   `flock /home/user/temp/agent/vm-safari.lock`.
+   - Done: the Safari computed-style gate, clean for `c7bda33` (see the Safari gate note under item 1).
+   - Done: the Chromium `margin: auto` flake. Blink reports stored fragment margins; about 11% of loads read `0px`
+     when two or more lazy images sit far below the viewport. Report `/home/user/temp/agent/chromium-flake/report.md`;
+     the tools read Typed OM plus geometry instead.
+   - Chromium diff tool: `/home/user/temp/agent/fig-parse/style-diff.mjs`; Safari tool `safari-style-diff.mjs` beside
+     it; runbook in Monochromatic `doc/runbook/css-refactor-computed-style-regression.md`.
+4. Done: a second Safari WebDriver. Safari Technology Preview 27.0 in the VM guest on guest port 4448, m1 4449,
+   Linux 4450 (unit `xinyanchen-vm-webdriver-stp`), lock `flock /home/user/temp/agent/vm-stp.lock`; regular Safari
+   stays on 4446 with `flock /home/user/temp/agent/vm-safari.lock`.
+   `agent-browser` "Resource temporarily unavailable": the user slice's task ceiling (12288 then, 32768 since
+   22:59), plus a separate 30 s read timeout; Monochromatic `doc/troubleshooting/agent-browser-eagain.md`
+   (`a6c28f3746`). Sessions started before 23:07 keep a 12288 nproc limit; close browser sessions promptly.
    Serving: the Linux 4174 server is now `/var/home/user/temp/agent/xinyanchen-build/no-store-server-mux.mjs` (unit
    `xinyanchen-no-store`): `/` is the main repo as before, `/@wt-<name>/` serves `/home/user/temp/agent/wt-<name>`,
    so the guest's single forwarded origin `localhost:4173` reaches every build.
