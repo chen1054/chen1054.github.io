@@ -2485,6 +2485,25 @@
         &>* {
           margin-inline: 11%;
         }
+        /*
+          Tablet and Desktop Tales start the copy 13 percent in at line height 2, its lines breaking where a 290 and a
+          353 px measure break them (279 to 316 and 347 to 359 px fit the drawn breaks). Its first line starts 58.5
+          and 87 px down the 345 and 482 px pads; the copy stays at the tablet's 14 px per 345 px of pad, so it keeps
+          those breaks inside the outline where the body text is still a little larger, just past 640.
+        */
+        @media(width>=40rem) {
+          --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          justify-content: start;
+          padding-block-end: 0;
+          &>p {
+            margin-block-start: calc(20.9% - 13.5rem / 16);
+            font-size: min(1em, calc(14 * 100cqi / 345));
+          }
+          &>* {
+            margin-inline: 13% calc(10rem / 16 + 56 * var(--home-wide-reference-growth));
+            line-height: 2;
+          }
+        }
       }
       & .subsection>.note {
         border-color: transparent;
