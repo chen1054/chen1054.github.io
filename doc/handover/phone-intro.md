@@ -665,6 +665,9 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    is opaque on white, so iOS shows it correctly, and stays. F5 `3489fae`: all 47 viewers named after their image's alt,
    close buttons "Close enlarged image: <alt>"; all 47 opened and closed by button and Escape; 0 style differences.
    Next (maintenance, gated on 0 computed-style differences unless intended): F6, F9, F11 to F14, F18, F19.
+   User direction (2026-10-19): the maintenance agent's approach looked questionable to the user; it runs to the end
+   untouched, and its commits get a lead review before anything builds on them. From the next work item, work that
+   cannot run in parallel is done by the lead directly in this session, not delegated.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
