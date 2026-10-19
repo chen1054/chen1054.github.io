@@ -3385,6 +3385,40 @@
           &:nth-of-type(n+2)>h3::before {
             content: none;
           }
+          /*
+            Every design numbers the three task flows and centres their headings, the first at 18 px and the other
+            two at 16 (18 on the desktop). The tablet gaps are Tablet/MenuMe.png's ink gaps at 744: 51 from the
+            introduction to the first heading, 27 and 29 from a heading to its copy, 48 from the copy to the diagram
+            and about 52 from a diagram to the next heading.
+          */
+          &>h4,
+          &:nth-of-type(n+2)>h3 {
+            text-align: center;
+          }
+          &>h4 {
+            font-size: calc(18rem / 16);
+          }
+          &:nth-of-type(n+2)>h3 {
+            font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
+          }
+          @media(width>=40rem) and (width<80rem) {
+            &:nth-of-type(n+2) {
+              margin-block-start: calc(44rem / 16);
+            }
+            &>h4 {
+              margin-block: calc(34rem / 16) calc(14rem / 16);
+            }
+            &:nth-of-type(n+2)>h3 {
+              margin-block-end: calc(17rem / 16);
+            }
+            &>.zoomable-artwork {
+              margin-block-start: calc(40rem / 16);
+            }
+            /* 83 from the last diagram to the next section's band. */
+            &:last-child>.zoomable-artwork {
+              margin-block-end: calc(18rem / 16);
+            }
+          }
         }
         /*
           From 1024 px, where the row fits our 14 px labels, the sitemap sets each section's pages side by side under
