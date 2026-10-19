@@ -1663,4 +1663,4 @@ over Alicia's text, 549 chevrons over the sitemap, 551 and 552 boxes touching) b
 Client question, 2026-10-19, relayed by the user: "你是不是做了 phone 版本才做 tablet 和 desktop" (did you build
 the phone version first, then tablet and desktop). Facts: Home was built phone first (`6b3f4ea` and following,
 2026-10-15), then adapted to tablet and desktop (`fdfe88f`); the stylesheet is phone-first (wide values under
-`@media(width>=40rem)`). The case-study pages predate this work.
+`@media(width>=40rem)`). The case-study pages were built for all widths at once (`14fed4c`, 2026-10-15).
