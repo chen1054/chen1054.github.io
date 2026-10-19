@@ -1769,3 +1769,12 @@ Fatface (all frames of the newer copy, confirmed on `Phone/Scotties.png`); the p
 moved by 14 to stay put; phone personas centred (222 px photo, plate offset 14, text centred, 285 px measure).
 Scotties weight re-audit (`f20/weights/rerun/`, newer copy): phone mismatches 30 to 6, tablet 34 to 10. Left:
 persona heading runs (Figma mixed-style mapping unclear), the Tablet "Home" breadcrumb in Abril.
+Scotties pillars and lo-fi (`dea6862`, `0fd637a`) and case-study tracking (`ad9e5aa`): phone value pillars loop
+around the skateboard (Excitement first, chevron trails exported from `Phone/Scotties.pdf` as one SVG); the lo-fi
+product listing's merged dark card is split into the designs' dark and orange cards, phone callouts get the
+design's 3 px arrows, tablet (744 to 1092) stacks the callouts beside the screen, desktop stacks the two filter
+cards left of the screen. Found while matching wraps: every case-study text node in all frames tracks at -1.9%
+(only nav, prototype links and footer are 0), the site tracked at 0; now -0.019em on the case-study content.
+Still open on Scotties: wide connectors (lo-fi and hi-fi), tablet note padding (ours 32, design about 20), blob
+colour, info labels bold, "Overview & Strategic Context" banner into the chevron notch, Core Challenge chevrons,
+persona heading weight runs, the Tablet breadcrumb.
