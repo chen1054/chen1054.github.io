@@ -1834,6 +1834,6 @@ MenuMe walk, rest landed 2026-10-19: `ba596be` focus-group bubbles (miss-07) fro
 tail, one over two on tablets; `9cbd3d8` token and delivery lists (miss-12), restoring the numbered heading
 "End-to-End User Experience Delivery" that both designs repeat; `5b2fbab` tablet flow 2 grid (the
 residual). All checked in Chromium at 390, 744, 1000 or 1092, and 1440. Not yet in the iOS 17.0.1 Simulator.
-Known, not changed: the designs set the finding numbers in Apple LiGothic Medium 50 px, a macOS system font with
-no web licence; the site keeps Abril Fatface numerals at 40 px (45 desktop), matching the glyph height.
+Known, not changed: the designs set the finding numbers in Apple LiGothic Medium 50 px, a macOS system font the site
+does not ship (licence not checked); it keeps Abril Fatface numerals at 40 px (45 desktop), matching the glyph height.
 MenuMe walk misses: all addressed.
