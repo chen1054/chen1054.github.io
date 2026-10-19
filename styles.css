@@ -2208,7 +2208,7 @@
             --menume-drip-color: var(--color-case-study-heading);
             --menume-box-border: calc(3rem / 16);
             position: relative;
-            margin-block-end: calc(var(--menume-drip) - 16rem / 16);
+            margin-block-end: calc(var(--menume-drip) * 0.75);
             border-color: var(--color-case-study-heading);
             border-width: var(--menume-box-border);
             border-radius: 0;
@@ -2227,7 +2227,7 @@
               isolation: isolate;
               flex: none;
               inline-size: calc(225 * var(--dual-loop-unit));
-              margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 33 * var(--dual-loop-unit));
+              margin-block-end: calc(33 * var(--dual-loop-unit));
               margin-inline: auto;
               padding: 0;
               border-width: 0;
@@ -2236,6 +2236,12 @@
                 z-index: -1;
                 grid-area: 2 / 1;
                 border: calc(3rem / 16) solid var(--color-case-study-heading);
+              }
+              /* A grid row of its own: Safari placed the absolutely positioned drip 8 px narrower than the box. */
+              &::after {
+                position: static;
+                grid-area: 3 / 1;
+                margin-block-start: calc(var(--menume-drip) / -4);
               }
               /* The design breaks before the parenthesis. */
               &>h4 {
@@ -3036,7 +3042,7 @@
             &>aside {
               --menume-drip-color: var(--menume-honey);
               position: relative;
-              margin-block-end: calc(var(--menume-drip) - 16rem / 16);
+              margin-block-end: calc(var(--menume-drip) * 0.75);
               border-width: 0;
               border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
               background-color: var(--menume-honey);
@@ -3058,7 +3064,7 @@
               }
               /* The drip clears the next heading by 49 px at 744 and 80 at 1440. */
               &>aside {
-                margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 33rem / 16 + 31 * var(--home-wide-reference-growth));
+                margin-block-end: calc(var(--menume-drip) * 0.75 + 33rem / 16 + 31 * var(--home-wide-reference-growth));
               }
             }
             /* The phone design centres the headings over full-width boxes with a 60 px drip (Phone/MenuMe.pdf). */
@@ -3070,7 +3076,7 @@
               }
               &>aside {
                 --menume-drip: calc(60 * var(--learning-unit));
-                margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 100 * var(--learning-unit));
+                margin-block-end: calc(var(--menume-drip) * 0.75 + 100 * var(--learning-unit));
                 padding-block: calc(20 * var(--learning-unit));
                 padding-inline: calc(23 * var(--learning-unit));
               }
@@ -3088,11 +3094,15 @@
       )::after {
         content: "";
         position: absolute;
-        inset-block-start: calc(100% - 16rem / 16 + var(--menume-box-border, 0px));
+        inset-block-start: calc(100% - var(--menume-drip) / 4 + var(--menume-box-border, 0px));
         inset-inline: calc(-1 * var(--menume-box-border, 0px));
         block-size: var(--menume-drip);
         background-color: var(--menume-drip-color);
-        mask: url("assets/menume-honey-drip-one-period.svg") 0 0 / auto 100% repeat-x;
+        /*
+          The designs' own drip path (Phone/MenuMe.pdf), stretched to each box as every design stretches it; the box
+          overlaps only its solid top quarter, so the gaps between drips show the page.
+        */
+        mask: url("assets/menume-honey-drip.svg") 0 0 / 100% 100% no-repeat;
       }
     }
 
