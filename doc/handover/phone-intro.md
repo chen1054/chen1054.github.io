@@ -1795,3 +1795,10 @@ Decided by the user, 2026-10-19: Scotties body copy Medium at every width (Deskt
 weight-switch note on `dd1a12c`.
 Client, 2026-10-19 (relayed by the user): "Scotties' desktop body font uses medium weights. Client made an error in
 Figma." Confirms `0f6dfb8` (Medium at every width); the Bold in `Desktop/Scotties.png` body copy is a Figma slip.
+User report, 2026-10-19 (screenshot, "Bro..."): the Tales insight bubbles' white highlight crossed the purple outline
+at both tails. Cause: the `01f763f` potrace trace drew the page-coloured gap between the design's two offset layers
+(yellow fill, purple outline; `Desktop/Tales for Safer Trails.pdf` rasters 316 px wide) as a white stroke. The
+user asked for a hand drawing with as few characters as possible: `a5102be`, one path per bubble in `<defs>`, drawn
+twice with `<use>` (292 and 270 bytes). Audit of the other 11 potrace assets (`scale(0.100000,-0.100000)`
+signature): rendered large, none shows a stray gap or crossing; the only other layered one, the Scotties Core
+Challenge cloud, matches the design raster (its bump spikes are in the client's artwork).
