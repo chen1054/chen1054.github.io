@@ -593,6 +593,10 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    OPH quotations on Tales: left as written by the user's word that the client worked with OPH directly (likely
    internal OPH material); public-site check found no exact matches and one tension (vaping "long-term health
    consequences" against OPH's public "long-term health effects are unknown"), recorded in the checklist only.
+   `MenuMe.fig` (app source, 3367 nodes, `fig-kiwij`): hi-fi chip row is `Tab` instance `3069:5758` (372 wide,
+   clips, horizontal scroll) of component `3069:5733` (five 72-wide chips, gap 20, 440 wide); wireframe screen is
+   not in this file. Safari Technology Preview driver enabled 2026-10-18 and proven on Linux port 4450 alongside a
+   busy 4446.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
