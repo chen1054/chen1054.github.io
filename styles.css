@@ -4678,7 +4678,7 @@
         }
         /*
           All three designs stack the closing links, Mobile over Desktop, with the chevron trail beside the first on
-          wide layouts and on its own line above them, at the column start, on phones.
+          the desktop and on its own line above them, at the column start, on phones and tablets.
         */
         & .flex-row:has(>.prototype-link) {
           flex-direction: column;
@@ -4691,15 +4691,16 @@
             aspect-ratio: 206 / 71;
             background: url("assets/scotties-hi-fi-chevron-trail.svg") center / contain no-repeat;
           }
-          @media(width<40rem) {
+          @media(width<80rem) {
             &::before {
               content: "";
               align-self: start;
               inline-size: calc(75rem / 16);
-              margin-block-end: calc(16rem / 16);
+              /* The tablet design leaves 31 px between the trail and the first link. */
+              margin-block-end: calc(16rem / 16 + 15 * var(--phone-tablet-reference-growth));
             }
           }
-          @media(width>=40rem) {
+          @media(width>=80rem) {
             &>.prototype-link:first-child {
               position: relative;
               &::before {
