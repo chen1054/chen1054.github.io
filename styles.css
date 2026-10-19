@@ -2436,6 +2436,37 @@
             block-size: calc(154 * var(--pillar-scale));
           }
         }
+        /*
+          Tablet Tales sets the first pillar alone, centred and 292 px wide, over the other two in columns 64 px apart,
+          11 px past each side of the 594 px column; the third pillar's copy wraps at 256 px. From ink to ink: intro to
+          icon 78, icon to title 32 (30 in the second row), title to copy 31, copy to the second row's icons 49.
+        */
+        @media(width>=40rem) and (width<80rem) {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0 calc(64% / 6.16);
+          margin-inline: calc(-11% / 5.94);
+          & .small-illustration {
+            margin-block: calc(20rem / 16) calc(14rem / 16);
+          }
+          & h4 {
+            margin-block: 0;
+          }
+          & p {
+            margin-block: calc(3rem / 16) calc(16rem / 16);
+          }
+          &>:nth-child(1) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            inline-size: calc(292% / 6.16);
+            &>.small-illustration {
+              margin-block: calc(54rem / 16) calc(23rem / 16);
+            }
+          }
+          &>:nth-child(3)>p {
+            margin-inline-end: calc(20% / 2.76);
+          }
+        }
         /* Stacked, the Phone design's gaps from ink to ink: icon to title 31, title to copy 32, copy to icon 47. */
         @media(width<26.25rem) {
           row-gap: 0;
