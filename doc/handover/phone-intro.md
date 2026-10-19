@@ -615,6 +615,11 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Send hold unchanged; still to produce: after captures paired with `evidence/before-d5e6250/` in macOS Safari at
    1920 and the iPhone 15 Simulator, citation and Contact before/after, an `IMG_0804 1` frame crop; also wait for
    the Safari style check of the refactor. Parser fix proven on both copies: 5624 and 5702 nodes (`61c8e2370e`).
+   Safari gate (2026-10-18): refactor `c7bda33` against `568c81b` gives 0 computed-style differences on all six
+   pages at 390, 744, 1440 and 1920, states included (`/home/user/temp/agent/fig-parse/gate-c7bda33-b.log`);
+   `main` against `568c81b` differs only by `16881e4` (Home Medium) and `2c49ce9` (wide nav). The tool now parks
+   the pointer before probes and retries focus; runbook in Monochromatic `bea49e5715`. Worktree and unit cleanup
+   waits until the after-capture job finishes.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
