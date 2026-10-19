@@ -3857,6 +3857,98 @@
             }
           }
           /*
+            The tablet design's first flow (Tablet/MenuMe.pdf at 744, lengths in its 614 px column from x 70): the
+            finding (221 px) and the iteration (234 px) 82 apart with an orange squiggle between them, the lo-fi
+            screen (142 px) and the hi-fi pair (292 px) 58 below with the same squiggle between those, and a yellow
+            elbow from the iteration's end edge into the second hi-fi screen; 34 above the heading and 103 under the
+            screens. The vectors are the design's own.
+          */
+          @media(40rem<=width<68.25rem) {
+            &>.subsection:has(img[src*="personalization-low"]) {
+              --u: calc(100cqw / 614);
+              /* Being a container would make the type growth measure this flow; keep measuring the page. */
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+              container-type: inline-size;
+              /* Its own margin cannot use its own container unit; a share of the column is the same length. */
+              margin-block-start: calc(3400% / 614);
+              &>h3 {
+                margin-block-end: calc(17 * var(--u));
+              }
+              &>.flex-row {
+                justify-content: flex-start;
+                gap: 0;
+                margin-block: 0;
+                &>* {
+                  flex: none;
+                  margin-block: 0;
+                  margin-inline-end: 0;
+                }
+              }
+              &>.flex-row>aside {
+                padding-block: calc(18 * var(--u)) calc(13 * var(--u));
+                &>p {
+                  margin-block: 0;
+                }
+                &::after {
+                  inset-block-start: calc(107 * var(--u));
+                  inset-inline: calc(236 * var(--u)) auto;
+                  inline-size: calc(55 * var(--u));
+                  block-size: calc(77 * var(--u));
+                  background-image: url("assets/menume-usability-tablet-squiggle-across.svg");
+                }
+                &:first-child {
+                  inline-size: calc(221 * var(--u));
+                  margin-inline-start: calc(16 * var(--u));
+                  padding-inline: calc(26 * var(--u)) calc(20 * var(--u));
+                }
+                &:last-child {
+                  inline-size: calc(234 * var(--u));
+                  margin-inline-start: calc(82 * var(--u));
+                  padding-inline: calc(26 * var(--u)) calc(19 * var(--u));
+                  &::after {
+                    content: none;
+                  }
+                }
+              }
+              &>.flex-row:has(>figure) {
+                position: relative;
+                align-items: start;
+                /* The elbow hangs from the screens, so it leaves the iteration 92 px above its foot however tall. */
+                &::after {
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  inset-block-start: calc(-151.8 * var(--u));
+                  inset-inline-start: calc(540.5 * var(--u));
+                  inline-size: calc(60.8 * var(--u));
+                  block-size: calc(240.4 * var(--u));
+                  background: url("assets/menume-usability-tablet-connector-elbow.svg") center / 100% 100% no-repeat;
+                  pointer-events: none;
+                }
+                /* With the next flow's 70 px margin, which this container does not collapse with. */
+                margin-block: calc(58 * var(--u)) calc(33 * var(--u));
+                &>figure:first-child {
+                  inline-size: calc(142 * var(--u));
+                  max-inline-size: none;
+                  margin-inline-start: calc(20 * var(--u));
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    inset-block-start: calc(122 * var(--u));
+                    inset-inline-start: calc(165 * var(--u));
+                    inline-size: calc(55 * var(--u));
+                    block-size: calc(77 * var(--u));
+                    background: url("assets/menume-usability-tablet-squiggle-across.svg") center / 100% 100% no-repeat;
+                  }
+                }
+                &>figure:last-child {
+                  inline-size: calc(292 * var(--u));
+                  margin-inline-start: calc(94 * var(--u));
+                }
+              }
+            }
+          }
+          /*
             The tablet design's second flow (620 px wide at 744, scaled to the column): the finding beside the three
             lo-fi screens, squiggles down from the finding and from the second screen to the hi-fi screens, and the
             iteration under them, joined to the first hi-fi screen by a yellow elbow.
