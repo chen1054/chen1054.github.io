@@ -528,13 +528,17 @@ Figma references are design intent, not pixel specs (the user, citing Erik Kenne
 
 Queue, in order:
 
-1. Done (commit "fix(tales): mark note bullets up as lists"): Tales note bullets, the 13 fake "•" paragraphs in seven runs, are
-   `<ul class="case-study-note-list">` in `tales-for-safer-trails.html` (uncommitted when this was written;
-   script `/home/user/temp/agent/xinyanchen-build/bullets-to-lists.mjs` checks the word sequence is unchanged).
-   Still to do: the `.case-study-note-list` rule (`list-style: "• " inside`, `1rem` item margins so nothing moves),
-   widen the Tales note colour selector to `&>p:first-of-type~:is(p, ul)`, measure zero page shift, commit.
-2. Zoom viewer: Space must close it, and its duplicated markup must be removed.
-3. Remaining audit items: template residue and header magic numbers; text contrast needs a client decision.
+1. Done: Tales note bullets are real lists (`3cae2fc`); Space scrolls the zoom viewer (`4658a1c`, `224018e`);
+   template residue removed (`572f608`); heading levels (Scotties card titles to `h3`, MenuMe 1/2/3 to spans)
+   in the commit after it.
+2. Running as Sonnet agents, each delivering a patch to `/home/user/temp/agent/xinyanchen-build/patch-<name>.diff`
+   from briefs in `/home/user/temp/agent/xinyanchen-build/briefs/` (`common.md` plus one per agent):
+   `align-tales` (Fix 4 on Tales), `inferred` (wide-window text caps, the 414 to 639 phone stretch, wave drift,
+   Contact field alignment). Next to launch: `align-menume-scotties` (Fix 3 clipped chip rows and white fragment,
+   Fix 4 on MenuMe and Scotties). Review each patch, apply with `git apply --3way`, regress, check in Safari, commit.
+3. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
+   request and inferred ask to commits; fill its "in progress" lines as the agents land.
+   Text contrast still needs a client decision; header magic numbers (audit 2.3) are not started.
 4. Apple gate: all six pages in iPhone 15 Simulator Safari and in macOS Safari at the client's two screens
    (1920 wide at 1x and at 2x), including a real tap on the menu's open state.
 5. Done: real Safari at 1920 wide picks `about-garden-portrait-photograph-and-gray-frame-1312w.png` at 2x
@@ -1314,3 +1318,12 @@ Template cleanup (audit 6.2): the case-study pages lose 16 empty `class=""` attr
 `class` values, the `<h1>` and `<h2>` drop `case-study-subheading` (its rules only match `h3` and `h4`), and the two
 identical focus-ring rules are one. Regression against the previous commit, every viewport frame of all three pages at
 390, 744 and 1440: identical heights and no differing pixels beyond two sub-pixel frames at 744.
+
+Safari risks from the audit's section 7, checked in real Safari 27 (UTM VM, 1920 wide at 1x): Home's SVG named-view
+`srcset` candidates and the river animation's `pow()` mask render correctly; the `:target` hover technique is gone
+(buttons are CSS); `body` container-type does not re-anchor the fixed back-to-top link (checked earlier this round).
+
+Heading levels (audit 6.3): Scotties' Key Learnings jumped from `h2` to `h4`; its two card titles are now
+`<h3 class="case-study-card-title">`, a class that repeats the `h4` card-title look (the `h3` subheading rules would
+centre them and add the skateboard glyph). MenuMe's focus-group cards used `<h4>1</h4>` to `<h4>3</h4>` as headings;
+they are `<span class="menume-finding-number">`, styled by their existing disc rule. Regression: identical frames.
