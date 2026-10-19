@@ -3110,6 +3110,15 @@
 
     /* Scotties decorative vocabulary (census S01 onward). */
     &[data-case-study="scotties"] {
+      /*
+        Tablet/Scotties.pdf runs its sections 624 px wide at 744 (from 61 to 685), wider than the other studies' 594;
+        the desktop column is the same 1086 at 1440.
+      */
+      @media(width>=40rem) {
+        & .section-content {
+          inline-size: calc(100% - 120rem / 16 - 234 * var(--home-wide-reference-growth));
+        }
+      }
       &>.content>.project-divider {
         background-color: transparent;
         background-image: url("assets/scotties-hero-divider-chevron-tile.svg");
