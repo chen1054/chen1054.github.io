@@ -1687,3 +1687,18 @@ Safari 17.5 (Apple: "Safari 17.5 is available for ... macOS Sonoma"). Safari upd
 version is unconfirmed until the client reads Safari > About Safari. BCD check at desktop Safari 17.5: nesting and
 `text-wrap: balance` fine; still missing `text-box` (18.2: the pill label trim, so the button-centring the client
 asked for depends on it) and partial relative colours (Home river mask), `text-wrap: pretty` (26).
+iOS 17.0.1 Simulator results (`/home/user/temp/agent/f20/sheets/pos-NN.png`: client shot, base `d758477`, fix):
+the base reproduces the client's plain-bullet sitemaps; with `8fd50ea` both draw the boxed tree and the Scotties
+chevrons sit beside "Cart" instead of over it. The other client shots render the same before and after and are not
+engine issues; they are phone-layout misses against `../Phone/MenuMe.png` and `../Phone/Scotties.png` (390 wide):
+- MenuMe personas (`543`): the design draws each photo about half the column wide, alternating left and right, with
+  the text beside the scribble's path and the scribble running down the open side to the next photo; ours draws
+  full-width photos and the scribble (`.alternating-personas>.flex-row::after`, 88% down the row) crosses the text.
+- Scotties hi-fi callouts (`551`, `552`): the design draws about 60%-wide cards alternating left and right with gaps
+  and connector lines; ours are full width and touch. The design puts "View Mobile Hi-fi Prototype" first, then
+  Desktop, with the chevrons on their own line; ours has Desktop first with the chevrons inline, pushing it off centre.
+- Kept as decided earlier: the phone sitemap is the indented tree, since the design's phone tree has labels about
+  5 px tall.
+Likely meaning of the client's question: her phone designs are not followed on the phone pages, which look like the
+wide layout stacked. Queue: compare every case-study section at 393 against the phone designs (MenuMe `545` and
+`546` usability callouts not yet compared), fix each miss in its own commit, check in iOS 17.0.1 Simulator Safari.
