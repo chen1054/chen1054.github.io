@@ -2011,6 +2011,14 @@
           }
         }
       }
+      /* The character cards on phones: Phone Tales stacks them, staggered, 240 px wide, 36 px into the column. */
+      & figure:has(img[src*="tales-milo-and-mia-character-age-studies"]) {
+        @media(width<40rem) {
+          inline-size: calc(240rem / 16 + 240 * var(--phone-art-growth));
+          max-inline-size: none;
+          margin-inline: calc(36rem / 16 + 36 * var(--phone-art-growth)) auto;
+        }
+      }
       /* The ecosystem map on phones: Phone Tales stacks its two chains 320 px wide from the text column's start. */
       & figure:has(img[src*="tales-school-poster-and-social"]) {
         @media(width<40rem) {
