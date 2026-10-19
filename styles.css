@@ -3193,13 +3193,16 @@
               */
               @media(width>=80rem) {
                 --u: calc(100cqw / 1086);
+                /* 46 px from the last problem line's glyph top to the bulb's top. */
                 &>.small-illustration {
                   inline-size: calc(216 * var(--u));
+                  margin-block-start: calc(3 * var(--u));
                   margin-inline: calc(495 * var(--u)) auto;
                 }
                 &>h3:nth-of-type(2) {
                   inline-size: calc(216 * var(--u));
-                  margin-block-start: calc((32 - 26) * var(--u));
+                  /* 18 px from the bulb's base to the label's glyph top. */
+                  margin-block-start: calc(11 * var(--u));
                   margin-inline-start: calc(426 * var(--u));
                   font-size: calc(18 * var(--u));
                 }
@@ -3741,8 +3744,11 @@
         /*
           Tablet MenuMe leads with the problem at 16 px, line height 2, and sets the two items 47 px under it in
           columns of 260 and 290 px, from 16 px into its 614 px column and at the column's end.
+          Desktop MenuMe centres each icon and title 309 and 769 px into its 1086 px column (columns of 252 and 282
+          px from 183 and 628), with each description starting at its column's start and wrapping at the drawn
+          breaks in 300 and 340 px.
         */
-        @media(width>=40rem) and (width<80rem) {
+        @media(width>=40rem) {
           & .subsection:has(img[src*="mental-overload"]) {
             &>p {
               font-size: 1rem;
@@ -3757,6 +3763,22 @@
                 grid-column: 2;
                 &:last-child {
                   grid-column: 4;
+                }
+              }
+              @media(width>=80rem) {
+                grid-template-columns: calc(18300% / 1086) calc(25200% / 1086) calc(19300% / 1086) calc(28200% / 1086);
+                justify-content: start;
+                margin-block-start: calc(40rem / 16);
+                /* Glyph tops: 23 px from the icon to its title, 46 from the title to its description. */
+                &>article>h4 {
+                  margin-block: calc(19rem / 16) calc(13rem / 16);
+                  white-space: nowrap;
+                }
+                &>article>p {
+                  inline-size: calc(300rem / 16);
+                }
+                &>article:last-child>p {
+                  inline-size: calc(340rem / 16);
                 }
               }
             }
