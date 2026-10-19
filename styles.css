@@ -1744,14 +1744,11 @@
     }
     &[data-case-study="scotties"] {
       /*
-        The desktop design sets the body copy Bold 16; the tablet and phone designs set it Medium (14 and 15). The
-        weight files are static, so it switches where the interpolated size passes 15 px, midway from 744 to 1440.
+        The tablet and phone designs set the body copy Medium; the desktop design's Bold is treated as the outlier
+        (the user's decision, 2026-10-19).
       */
       &>.content {
         font-weight: 500;
-        @media(width>=68.25rem) {
-          font-weight: 700;
-        }
       }
       /* The positioning and value-pillar notes stay Medium on every width; their lead phrase is Bold 15, 16 and 18. */
       &>.content :is(.scotties-positioning-note, .small-illustration~.flex-row>article)>p {
@@ -2968,8 +2965,7 @@
         }
         /*
           Tablet design: each lo-fi page's callouts stack in one column beside the screen (the product listing's in
-          the order categories, grid, filters). The desktop design takes over at the width where the body copy turns
-          Bold.
+          the order categories, grid, filters). The desktop design takes over at 1092 px, midway from 744 to 1440.
         */
         @media(40rem<=width<68.25rem) {
           & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
