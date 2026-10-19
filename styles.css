@@ -3119,6 +3119,12 @@
           inline-size: calc(100% - 120rem / 16 - 234 * var(--home-wide-reference-growth));
         }
       }
+      /* The logo as the designs place it: 291, 450 and 645 px wide. */
+      & .wordmark {
+        max-inline-size: calc(
+          291rem / 16 + 159 * var(--phone-tablet-reference-growth) + 195 * var(--home-wide-reference-growth)
+        );
+      }
       &>.content>.project-divider {
         background-color: transparent;
         background-image: url("assets/scotties-hero-divider-chevron-tile.svg");
