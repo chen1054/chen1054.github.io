@@ -1705,3 +1705,6 @@ wide layout stacked. Queue: compare every case-study section at 393 against the 
 Deploy lag, 2026-10-19 16:14: `8fd50ea` is on `origin/main`, but the live `styles.css` still has the bare `ul {`;
 `gh run list` shows every "pages build and deployment" run since 15:55 still queued on GitHub's side. Re-check
 the live file before telling anyone the fix is live.
+Decided by the user, 2026-10-19: walk all three case studies (Tales, MenuMe, Scotties) section by section at 393
+against `../Phone/*.png` and fix each miss, one commit each, checked in iOS 17.0.1 Simulator Safari (over the narrower
+"only the photographed parts" and "wait for the client"). The user is asking the client for Safari > About Safari.
