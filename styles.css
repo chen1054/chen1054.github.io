@@ -1850,6 +1850,10 @@
         position: relative;
         border-width: 0;
         padding-inline: calc(70rem / 16 + 150 * var(--home-wide-reference-growth) + max(0rem, (100% - 1440rem / 16) / 2));
+        /* On phones the text box is the phone design's 225 px, centred, which keeps it clear of the chevron notch. */
+        @media(width<40rem) {
+          padding-inline: calc((100% - 225rem / 16) / 2);
+        }
         &::after {
           content: "";
           position: absolute;
