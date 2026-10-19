@@ -2269,8 +2269,8 @@
         }
       }
       /*
-        The logo as Tablet and Desktop Tales place it: 466 and 657 px wide, 44 and 79 px under the last line of the
-        copy before it, which both set at line height 1.5.
+        The logo as Tablet and Desktop Tales place it: 466 and 657 px wide, its box 44 and 75 px under the last line
+        of the copy before it, which both set at line height 1.5; Desktop Tales sets Core Product 138 px under it.
       */
       @media(width>=40rem) {
         & p:has(+ .wordmark) {
@@ -2278,7 +2278,12 @@
         }
         & .wordmark {
           max-inline-size: calc(466rem / 16 + 191 * var(--home-wide-reference-growth));
-          margin-block-start: calc(44rem / 16 + 35 * var(--home-wide-reference-growth));
+          margin-block-start: calc(44rem / 16 + 31 * var(--home-wide-reference-growth));
+        }
+      }
+      @media(width>=80rem) {
+        & .wordmark+.subsection {
+          margin-block-start: calc(138rem / 16);
         }
       }
       /* Patchy's card as the designs frame it: 240, 240 and 363 px, which is 249 to 376 px of this canvas. */
@@ -2819,6 +2824,54 @@
           &>p:first-of-type {
             margin-block-end: calc(33rem / 16 - 30 * var(--home-wide-reference-growth));
           }
+        }
+      }
+      /*
+        Desktop Tales spaces the characters and stories by hand: Main Characters 78 px under the One-Pager copy, its
+        cards 37 under the heading and 1002 px wide from 67 px into the 1086 px column; Guardian 89 under them, Patchy
+        23 under its heading; then each story 119 or 71 px under what comes before, its spread 39 under the heading,
+        and its note, as wide as the spread, 20 under it; the last note 130 above the next band.
+      */
+      @media(width>=80rem) {
+        & .subsection:has(img[src*="milo-and-mia-character"]) {
+          margin-block-start: calc(78rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &>figure {
+            inline-size: calc(100200% / 1086);
+            max-inline-size: none;
+            margin-block-start: calc(37rem / 16);
+            margin-inline: calc(6700% / 1086) auto;
+          }
+        }
+        & .subsection:has(img[src*="patchy-guardian"]) {
+          margin-block-start: calc(89rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &>figure {
+            margin-block-start: calc(23rem / 16);
+          }
+        }
+        & .subsection:has(>.note) {
+          margin-block-start: calc(71rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &>figure {
+            margin-block: calc(39rem / 16) calc(20rem / 16);
+            margin-inline: calc(5500% / 1086) calc(5100% / 1086);
+          }
+          &>.note {
+            margin-inline: calc(5500% / 1086) calc(5100% / 1086);
+          }
+          &:last-child {
+            margin-block-end: calc(10rem / 16);
+          }
+        }
+        & .subsection:has(img[src*="patchy-guardian"])+.subsection {
+          margin-block-start: calc(119rem / 16);
         }
       }
       & .impact-cards {
