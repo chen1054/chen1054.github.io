@@ -75,6 +75,8 @@
       A length that holds art against art adds its drawn size times this.
     */
     --phone-art-growth: calc(var(--phone-tablet-reference-growth) * 354 / 390);
+    /* The widest content column, shared by every page's text and card measure. */
+    --content-column-max-inline-size: calc(1086rem / 16);
     --color-page-background: #fff;
     --color-portfolio-purple: #685587;
     --color-body-text-purple: #463267;
@@ -589,7 +591,7 @@
         justify-content: space-between;
         align-items: center;
         inline-size: calc(100% - 100rem / 16 - 254 * var(--home-wide-reference-growth));
-        max-inline-size: calc(1086rem / 16);
+        max-inline-size: var(--content-column-max-inline-size);
         margin-block-start: calc(80rem / 16 + 110 * var(--home-wide-reference-growth));
         margin-inline: auto;
         font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
@@ -742,7 +744,7 @@
     }
     & .biography {
       inline-size: calc(100% - 68rem / 16);
-      max-inline-size: calc(1086rem / 16);
+      max-inline-size: var(--content-column-max-inline-size);
       margin-block-start: calc(72rem / 16);
       margin-inline: auto;
       font-size: calc(15rem / 16);
@@ -788,7 +790,7 @@
         font-weight: 700;
         line-height: calc(28rem / 16 + 2 * var(--phone-tablet-reference-growth) + 10 * var(--home-wide-reference-growth));
         @media(width>=40rem) {
-          max-inline-size: calc(1086rem / 16);
+          max-inline-size: var(--content-column-max-inline-size);
         }
       }
       @media(width>=40rem) {
@@ -802,7 +804,7 @@
       flex-wrap: wrap;
       gap: calc(43rem / 16) calc(20rem / 16);
       inline-size: calc(100% - 68rem / 16);
-      max-inline-size: calc(1086rem / 16);
+      max-inline-size: var(--content-column-max-inline-size);
       margin-block-start: calc(42rem / 16);
       margin-inline: auto;
       &>figure {
@@ -886,7 +888,7 @@
     }
     & .column {
       inline-size: calc(100% - 42rem / 16);
-      max-inline-size: calc(1086rem / 16);
+      max-inline-size: var(--content-column-max-inline-size);
       margin-inline: auto;
       font-size: calc(15rem / 16 + 7 * var(--home-wide-reference-growth));
       line-height: calc(30rem / 16 + 5 * var(--home-wide-reference-growth));
@@ -1145,7 +1147,7 @@
     & .section-navigation,
     & .section-content {
       inline-size: calc(100% - 68rem / 16);
-      max-inline-size: calc(1086rem / 16);
+      max-inline-size: var(--content-column-max-inline-size);
       margin-inline: auto;
     }
     & .project-introduction {
@@ -1764,21 +1766,20 @@
   /* Tales for Safer Trails decorative vocabulary (census T01 to T18). */
   .case-study {
     &[data-case-study="tales"] {
-      --tales-growth: var(--home-wide-reference-growth);
       &>.content {
         font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
       }
       & .prototype-link {
-        font-size: calc(14rem / 16 + 4 * var(--tales-growth));
+        font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
       }
       &>.content>.project-divider,
       &>.content>.section>h2 {
         border-block-color: transparent;
         background-image: url("assets/tales-section-band-gold-dash-row.svg");
         background-origin: border-box;
-        background-position: center calc(7rem / 16 + 5 * var(--tales-growth));
+        background-position: center calc(7rem / 16 + 5 * var(--home-wide-reference-growth));
         background-repeat: repeat-x;
-        background-size: calc(24rem / 16 + 36 * var(--tales-growth)) calc(5rem / 16 + 5 * var(--tales-growth));
+        background-size: calc(24rem / 16 + 36 * var(--home-wide-reference-growth)) calc(5rem / 16 + 5 * var(--home-wide-reference-growth));
       }
       &>.content>.project-divider {
         background-position-y: center;
@@ -1786,15 +1787,15 @@
       & :where(h3.subheading),
       & [data-glyph] {
         --glyph: url("assets/tales-subheading-two-leaf-glyph.svg");
-        --glyph-size: calc(24rem / 16 + 11 * var(--tales-growth));
+        --glyph-size: calc(24rem / 16 + 11 * var(--home-wide-reference-growth));
       }
       & [data-glyph="leaf"] {
         --glyph: url("assets/tales-subheading-single-leaf-glyph.svg");
-        --glyph-size: calc(21rem / 16 + 8 * var(--tales-growth));
+        --glyph-size: calc(21rem / 16 + 8 * var(--home-wide-reference-growth));
       }
       & [data-glyph="sprout"] {
         --glyph: url("assets/tales-subheading-sprout-glyph.svg");
-        --glyph-size: calc(21rem / 16 + 3 * var(--tales-growth));
+        --glyph-size: calc(21rem / 16 + 3 * var(--home-wide-reference-growth));
       }
       & p[data-glyph] {
         --glyph-size: calc(18rem / 16);
@@ -1827,9 +1828,9 @@
       & #tales-how-might-we>h2 {
         --quote-measure: calc(342rem / 16);
         padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
-        line-height: calc(48rem / 16 + 12 * var(--tales-growth));
+        line-height: calc(48rem / 16 + 12 * var(--home-wide-reference-growth));
         @media(width>=40rem) {
-          --quote-measure: calc(550rem / 16 + 550 * var(--tales-growth));
+          --quote-measure: calc(550rem / 16 + 550 * var(--home-wide-reference-growth));
         }
       }
       & .spiral-notepad {
@@ -1854,9 +1855,9 @@
         }
       }
       & .impact-cards {
-        --tip: calc(24rem / 16 + 10 * var(--tales-growth));
-        --stem: calc(24rem / 16 + 11 * var(--tales-growth));
-        --ring: calc(61rem / 16 + 25 * var(--tales-growth));
+        --tip: calc(24rem / 16 + 10 * var(--home-wide-reference-growth));
+        --stem: calc(24rem / 16 + 11 * var(--home-wide-reference-growth));
+        --ring: calc(61rem / 16 + 25 * var(--home-wide-reference-growth));
         --mid: calc((100% - var(--tip)) / 2);
         counter-reset: impact;
         align-items: flex-start;
@@ -1913,7 +1914,7 @@
             margin-block-start: 0;
             padding-block-start: var(--stem);
             padding-inline: calc(4rem / 16) calc(var(--tip) + 4rem / 16);
-            font-size: calc(14rem / 16 + 2 * var(--tales-growth));
+            font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
             background-color: var(--c);
             color: var(--on);
             text-align: center;
@@ -2273,7 +2274,6 @@
 
     /* Scotties decorative vocabulary (census S01 onward). */
     &[data-case-study="scotties"] {
-      --scotties-growth: var(--home-wide-reference-growth);
       &>.content>.project-divider {
         background-color: transparent;
         background-image: url("assets/scotties-hero-divider-chevron-tile.svg");
@@ -2301,7 +2301,7 @@
           z-index: -1;
           inset-block: 0;
           inset-inline: 0 auto;
-          max-inline-size: clamp(0px, calc(var(--scotties-growth) * 1000000), 26%);
+          max-inline-size: clamp(0px, calc(var(--home-wide-reference-growth) * 1000000), 26%);
           aspect-ratio: 664 / 292;
           background-image: url("assets/scotties-section-directional-chevrons.svg");
           background-size: auto 100%;
@@ -2311,7 +2311,7 @@
         }
         &::after {
           inset-inline: auto 0;
-          max-inline-size: clamp(0px, calc(26% - var(--scotties-growth) * 1000000), 26%);
+          max-inline-size: clamp(0px, calc(26% - var(--home-wide-reference-growth) * 1000000), 26%);
           transform: none;
         }
       }
@@ -2334,16 +2334,16 @@
           background-repeat: no-repeat;
         }
         &::before {
-          inset-block-start: calc(36rem / 16 + 54 * var(--scotties-growth));
+          inset-block-start: calc(36rem / 16 + 54 * var(--home-wide-reference-growth));
           inset-inline-start: 0;
-          block-size: calc(28rem / 16 + 35 * var(--scotties-growth));
+          block-size: calc(28rem / 16 + 35 * var(--home-wide-reference-growth));
           aspect-ratio: 375 / 126;
           background-image: url("assets/scotties-challenge-dotted-chevron-arrow.svg");
         }
         &::after {
-          inset-block-end: calc(-60rem / 16 + 60 * var(--scotties-growth));
+          inset-block-end: calc(-60rem / 16 + 60 * var(--home-wide-reference-growth));
           inset-inline-end: 0;
-          inline-size: calc(73rem / 16 + 28 * var(--scotties-growth));
+          inline-size: calc(73rem / 16 + 28 * var(--home-wide-reference-growth));
           aspect-ratio: 1;
           background-image: url("assets/scotties-challenge-ice-skate.svg");
         }
@@ -2369,9 +2369,9 @@
         &::before {
           content: "";
           position: absolute;
-          inset-block-start: calc(-40rem / 16 - 20 * var(--scotties-growth));
-          inset-inline-start: max(calc(-0.9 * (62rem / 16 + 87 * var(--scotties-growth))), calc((100% - 100cqw) / 2));
-          inline-size: calc(62rem / 16 + 87 * var(--scotties-growth));
+          inset-block-start: calc(-40rem / 16 - 20 * var(--home-wide-reference-growth));
+          inset-inline-start: max(calc(-0.9 * (62rem / 16 + 87 * var(--home-wide-reference-growth))), calc((100% - 100cqw) / 2));
+          inline-size: calc(62rem / 16 + 87 * var(--home-wide-reference-growth));
           aspect-ratio: 149 / 158;
           background: url("assets/scotties-positioning-skater-figure.svg") center / contain no-repeat;
         }
@@ -2383,9 +2383,9 @@
       .subsection:has(>.scotties-positioning-note)::before {
         content: "";
         position: absolute;
-        inset-block-end: calc(-54rem / 16 - 54 * var(--scotties-growth));
+        inset-block-end: calc(-54rem / 16 - 54 * var(--home-wide-reference-growth));
         inset-inline-start: calc(50% + 36rem / 16);
-        inline-size: calc(158rem / 16 + 161 * var(--scotties-growth));
+        inline-size: calc(158rem / 16 + 161 * var(--home-wide-reference-growth));
         max-inline-size: calc(50% - 2rem / 16);
         aspect-ratio: 319 / 274;
         background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
@@ -2434,7 +2434,7 @@
           position: absolute;
           inset-block-end: 0;
           inset-inline-end: 0;
-          inline-size: calc(190rem / 16 + 286 * var(--scotties-growth));
+          inline-size: calc(190rem / 16 + 286 * var(--home-wide-reference-growth));
           aspect-ratio: 952 / 158;
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
         }
@@ -2466,8 +2466,8 @@
           &::before {
             content: "";
             position: absolute;
-            inset-block-start: calc(-0.6 * (50rem / 16 + 38 * var(--scotties-growth)));
-            inline-size: calc(50rem / 16 + 38 * var(--scotties-growth));
+            inset-block-start: calc(-0.6 * (50rem / 16 + 38 * var(--home-wide-reference-growth)));
+            inline-size: calc(50rem / 16 + 38 * var(--home-wide-reference-growth));
             background: var(--scotties-note-icon) center / contain no-repeat;
           }
         }
@@ -2507,16 +2507,16 @@
             content: "";
             position: absolute;
             inset-block-start: 50%;
-            inset-inline-end: calc(100% + 8rem / 16 + 12 * var(--scotties-growth));
+            inset-inline-end: calc(100% + 8rem / 16 + 12 * var(--home-wide-reference-growth));
             translate: 0 -50%;
-            inline-size: calc(40rem / 16 + 63 * var(--scotties-growth));
+            inline-size: calc(40rem / 16 + 63 * var(--home-wide-reference-growth));
             aspect-ratio: 206 / 71;
             background: url("assets/scotties-hi-fi-chevron-trail.svg") center / contain no-repeat;
           }
         }
       }
       #scotties-reflection .note {
-        --scotties-badge-size: calc(120rem / 16 + 44 * var(--scotties-growth));
+        --scotties-badge-size: calc(120rem / 16 + 44 * var(--home-wide-reference-growth));
         position: relative;
         margin-block-start: calc(var(--scotties-badge-size) - 8rem / 16);
         border: calc(3rem / 16) solid var(--color-case-study-subheading);
