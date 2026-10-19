@@ -1718,3 +1718,11 @@ stacked, OPH laptop and phone side by side instead of stacked, the ecosystem map
 instead of a vertical flow, the social ads side by side instead of stacked). MenuMe and Scotties reports pending.
 In progress: MenuMe personas from the phone PDF's own vectors (`/home/user/temp/agent/f20/scribble/piece-1..4.svg`,
 exported with PyMuPDF; frames 190 by 242 at x 35, 169, 34; text blocks about 217 to 229 wide, Daniel's end-aligned).
+Scotties walk report: `/home/user/temp/agent/f20/walk-scotties/report.md` (11 misses, pairs `miss-NN.png`). Not
+misses, the client's own asks: the hamburger 55 px higher (the client's 2026-10-18 phone design round) and the
+back-to-top circle in the footer (the client's Contact ask). Reported high: personas (design about 58% wide, centred,
+centred text), core value pillars (design order Excitement, Confidence, Belonging in a loop around the skateboard
+with chevron trails), lo-fi homepage and product listing callouts (narrower cards above or below the screenshot
+with connector arrows; ours merges two callouts into one card), hi-fi callouts (known), prototype links (known).
+Medium or low: top blob colour, info labels bold, "Overview & Strategic Context" heading running into the chevron
+notch, Core Challenge chevron run.
