@@ -231,7 +231,11 @@ p {
 .contact-page-form-field>textarea,
 .portfolio-back-to-top-link,
 .phone-navigation-menu-toggle-button,
-#portfolio-primary-navigation>a {
+#portfolio-primary-navigation>a,
+.case-study-section-navigation>ul>li>a,
+.case-study-zoomable-artwork>button,
+.case-study-enlarged-artwork>button,
+.case-study-prototype-link {
   &:focus-visible {
     outline-width: calc(2rem / 16);
     outline-style: solid;
@@ -1373,17 +1377,6 @@ h4.case-study-subheading {
     border-width: 0;
     background-image: url("assets/scotties-section-directional-chevrons.svg");
     background-size: auto 100%;
-  }
-}
-.case-study-section-navigation>ul>li>a,
-.case-study-zoomable-artwork>button,
-.case-study-enlarged-artwork>button,
-.case-study-prototype-link {
-  &:focus-visible {
-    outline-width: calc(2rem / 16);
-    outline-style: solid;
-    outline-color: var(--color-portfolio-purple);
-    outline-offset: calc(4rem / 16);
   }
 }
 @container(width>=64rem) {
