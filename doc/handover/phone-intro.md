@@ -742,8 +742,17 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    All temporary worktrees were removed; `wt-f19` matched `1a361d5` first. The live site serves the new script and
    styles, and `doc/` still answers 404.
    Audit status: F1 to F7, F9, F11, F12, F14, F17, F19 and F20 are fixed; F13 and F18 are declined with reasons. F10 is
-   the README breakpoint list, now current. F15 (3.7 KB of hidden images) and F16 (no font preload; maximum layout
-   shift 0.0096) stay optional and undone. Next: the client reply, on the user's go.
+   the README breakpoint list, now current.
+   The user then chose to do F15 and F16 before the reply (2026-10-19):
+   - F15 `31cc272`: `loading="lazy"` on the navigation logo and the case-study phone corner art, both `display: none` at
+     one end. In Chromium (six pages) and Safari (MenuMe iframes) each width now fetches only the image it shows.
+     About's phone wave layers once looked fetched at 1440, but that was carried over from a 390 visit in the same
+     session; a fresh session fetches only the wide files.
+   - F16 `2bc1e65`: per-page `rel="preload"` with `crossorigin` for the 3 or 4 faces each first screen uses. Chromium
+     layout shift went from nonzero in 17 of 24 loads (largest 0.0093) to 0 in all 24. Each font is fetched once in
+     Chromium and Safari, with no unused-preload warning.
+   Probes: `/home/user/temp/agent/f15/`, `/home/user/temp/agent/f16/`. Every audit item is now fixed or declined.
+   Next: the client reply, on the user's go.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
