@@ -2081,25 +2081,23 @@
             isolation: isolate;
             &>.flex-row {
               position: relative;
+              &::before,
               &:not(:last-child)::after {
-                content: "";
                 position: absolute;
                 z-index: -1;
-                inset-block-start: 88%;
+                background: center / 100% 100% no-repeat;
+              }
+              &:not(:last-child)::after {
+                content: "";
+                inset-block-start: 62%;
                 inset-inline-start: 6%;
-                inline-size: 80%;
+                inline-size: 62%;
                 aspect-ratio: 491 / 320;
-                background: url("assets/menume-gold-persona-scribble.svg") center / 100% 100% no-repeat;
+                background-image: url("assets/menume-gold-persona-scribble.svg");
               }
               &:nth-child(even)::after {
                 scale: -1 1;
                 inset-inline: auto 6%;
-              }
-              @media(width>=40rem) {
-                &:not(:last-child)::after {
-                  inset-block-start: 62%;
-                  inline-size: 62%;
-                }
               }
               &>article {
                 &>h4 {
@@ -2116,6 +2114,84 @@
                   color: var(--color-case-study-accent);
                   font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
                   font-weight: 700;
+                }
+              }
+              /*
+                The phone design: half-width photos on alternating sides, each text block beside the open side, and
+                the scribble in four pieces (vectors from Phone/MenuMe.pdf) running down that side from photo to photo.
+                Lengths are the design's pixels at 390.
+              */
+              @media(width<40rem) {
+                --persona-unit: calc(1rem / 16 + var(--phone-art-growth));
+                --persona-photo-block-size: calc(190 * 748 / 586 * var(--persona-unit));
+                display: block;
+                &>figure {
+                  inline-size: calc(190 * var(--persona-unit));
+                  margin-inline: 0;
+                }
+                &>article {
+                  max-inline-size: calc(225 * var(--persona-unit));
+                  margin-block-start: calc(29 * var(--persona-unit));
+                  &>* {
+                    margin-block: 0;
+                  }
+                  /* Ink gaps from the design (13 and 18), less the subtitle's and body's half-leading. */
+                  /* The design's plates: 108 wide for the short names, just past the column edge. */
+                  &>h4 {
+                    min-inline-size: calc(54 * var(--persona-unit));
+                    margin-block-end: calc(7 * var(--persona-unit));
+                    margin-inline-start: calc(-5 * var(--persona-unit));
+                    padding-inline: calc(27 * var(--persona-unit));
+                    line-height: calc(19 * var(--persona-unit));
+                  }
+                  &>p:first-of-type {
+                    margin-block-end: calc(5 * var(--persona-unit));
+                  }
+                }
+                &:nth-child(even) {
+                  &>figure,
+                  &>article {
+                    margin-inline-start: auto;
+                  }
+                  &>article {
+                    text-align: end;
+                    &>h4 {
+                      margin-inline: auto calc(-3 * var(--persona-unit));
+                    }
+                  }
+                }
+                &:first-child::before {
+                  content: "";
+                  inset-block-start: calc(-8.5 * var(--persona-unit));
+                  inset-inline-end: calc(-9.5 * var(--persona-unit));
+                  inline-size: calc(298.7 * var(--persona-unit));
+                  aspect-ratio: 298.7 / 249.9;
+                  background-image: url("assets/menume-phone-persona-scribble-lead-in.svg");
+                }
+                &:first-child::after {
+                  inset-block: calc(var(--persona-photo-block-size) - 49 * var(--persona-unit))
+                    calc(-3rem - 44.7 * var(--persona-unit));
+                  inset-inline: auto calc(5.1 * var(--persona-unit));
+                  inline-size: calc(176.1 * var(--persona-unit));
+                  aspect-ratio: auto;
+                  background-image: url("assets/menume-phone-persona-scribble-first-to-second.svg");
+                }
+                &:nth-child(2)::after {
+                  inset-block: calc(var(--persona-photo-block-size) - 58.9 * var(--persona-unit))
+                    calc(-3rem - 27.1 * var(--persona-unit));
+                  inset-inline: calc(3.3 * var(--persona-unit)) auto;
+                  inline-size: calc(201.5 * var(--persona-unit));
+                  aspect-ratio: auto;
+                  scale: none;
+                  background-image: url("assets/menume-phone-persona-scribble-second-to-third.svg");
+                }
+                &:last-child::before {
+                  content: "";
+                  inset-block-start: calc(20.7 * var(--persona-unit));
+                  inset-inline-end: calc(-6.8 * var(--persona-unit));
+                  inline-size: calc(307.6 * var(--persona-unit));
+                  aspect-ratio: 307.6 / 242.8;
+                  background-image: url("assets/menume-phone-persona-scribble-trail-out.svg");
                 }
               }
             }
