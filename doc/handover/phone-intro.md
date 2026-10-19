@@ -600,6 +600,14 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Decision (user, 2026-10-18): both MenuMe chip-row screens stay as designed; `MenuMe.fig` is client-owned and will
    not change. The checklist explains the cut last chip as the sideways-scroll cue, without attributing the cut or
    the wireframe's "Diary" to anyone. No re-export is pending.
+   Safari Technology Preview 27.0 at a 1920 window (2026-10-18): nav left 302 on all six pages, no sideways
+   scroll; the VM shows classic scrollbars (client width 1903), and 70 + (1903 - 1440) / 2 = 301.5, so the nav
+   holds the centred column in Safari too (Chromium's 310 is the same formula without a scrollbar). Script:
+   `/home/user/temp/agent/stp-nav/nav-1920.mjs`, screenshot `index-1920.png` beside it.
+   Monochromatic `5e28ff4756` makes `@monochromatic-dev/figma-kiwi` read the 8-byte prelude plus a uint32
+   format version (`j` was version 106); `Website (Copy).fig` parses to 5624 nodes, 207 images in 403 s. The
+   2026-10-18 22:43 copy was still parsing at hand-back; its line lands in
+   `/home/user/temp/agent/figma-kiwi-fix/b.out` (expect 5702 nodes).
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
