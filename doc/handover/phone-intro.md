@@ -660,6 +660,11 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    the CSS; 744 at 2x loads 760w), F17 `c8a97e4` (curly apostrophes, Hi-fi/Lo-fi; Figma itself is mixed), F20
    `fc46cd2` (README), F7 `f2a656d` (inert CSS removed; 0 differences in both browsers). Next: F2 favicon, F5 zoom
    viewer names. Client images at `13f7d95` stay valid (only apostrophe shapes differ in them).
+   F2 `106f1cf`: `icon.svg` 168,825 to 1,891 bytes, the logo's vector paths in the same square frame (renders compared
+   at 16, 32, 180, 512 px in `/home/user/temp/agent/audit-fix-2/`); `favicon.ico` already matches; `apple-touch-icon.png`
+   is opaque on white, so iOS shows it correctly, and stays. F5 `3489fae`: all 47 viewers named after their image's alt,
+   close buttons "Close enlarged image: <alt>"; all 47 opened and closed by button and Escape; 0 style differences.
+   Next (maintenance, gated on 0 computed-style differences unless intended): F6, F9, F11 to F14, F18, F19.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
