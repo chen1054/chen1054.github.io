@@ -2155,6 +2155,19 @@
           margin-inline-start: calc(var(--glyph-size) * -4 / 3);
         }
       }
+      /*
+        The logo as Tablet and Desktop Tales place it: 466 and 657 px wide, 44 and 79 px under the last line of the
+        copy before it, which both set at line height 1.5.
+      */
+      @media(width>=40rem) {
+        & p:has(+ .wordmark) {
+          line-height: 1.5;
+        }
+        & .wordmark {
+          max-inline-size: calc(466rem / 16 + 191 * var(--home-wide-reference-growth));
+          margin-block-start: calc(44rem / 16 + 35 * var(--home-wide-reference-growth));
+        }
+      }
       /* Patchy's card as the designs frame it: 240, 240 and 363 px, which is 249 to 376 px of this canvas. */
       & figure:has(img[src*="tales-patchy-guardian"]) {
         max-inline-size: calc(249rem / 16 + 127 * var(--home-wide-reference-growth));
