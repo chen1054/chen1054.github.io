@@ -20,7 +20,12 @@ The user reviewed and approved this animation.
 Reduced-motion visitors see the complete static introduction immediately.
 The client's original floral logo supplies the local SVG favicon,
 32-pixel ICO fallback, and 180-pixel Apple touch icon on every page.
-One 40rem breakpoint switches to inline navigation and alternating flexbox project columns.
+The main breakpoint is 40rem: it switches to inline navigation and alternating flexbox project columns.
+Three small, documented exceptions sit in `styles.css`:
+a 26.25rem step for the Tales story-pillar icon boxes,
+a 22.5rem to 40rem range for the Tales impact cards,
+and a 64rem container query for the case-study headings.
+The Scotties section bands also change chevron side just above 744px, because the side follows the fluid growth value.
 CSS grids are prohibited.
 Named SVG views trim blank export margins on wide screens without duplicating artwork.
 Their boxes align with the outer column edges while text remains left-aligned.
@@ -42,9 +47,9 @@ No npm dependencies are approved; linting and formatting are skipped by project 
 The hamburger opens the supplied phone navigation menu using a native popover.
 Its close button, Escape, and outside clicks dismiss it.
 The local `portfolio-navigation.mjs` module closes it when a link is selected.
-It also shows the shared back-to-top link after scrolling.
-The link sits 1rem from the bottom and right edges and measures 3rem square.
 Home returns to the homepage; Work jumps to the first project.
+Each page's footer holds the shared back-to-top link, centred above the thank-you line.
+It is a 3rem circle with a gold ring and a purple arrow, always visible with the footer, and it links to the page top.
 About opens `about.html`; Contact opens `contact.html`.
 The phone menu has been reviewed and accepted.
 The About page is available at `about.html`,
