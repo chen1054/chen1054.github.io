@@ -1336,8 +1336,6 @@ h4.case-study-subheading {
   &>.case-study-content>.case-study-project-divider {
     background-color: transparent;
     border-width: 0;
-    background-image: url("assets/menume-section-culinary-wave-divider.svg");
-    background-size: auto 100%;
   }
   &>.case-study-content>.case-study-section>h2 {
     position: relative;
@@ -1348,8 +1346,6 @@ h4.case-study-subheading {
       inset-block-end: 0;
       inset-inline: 0;
       block-size: calc(18rem / 16 + 18 * var(--home-wide-reference-growth));
-      background-image: url("assets/menume-section-culinary-wave-divider.svg");
-      background-size: auto 100%;
     }
   }
 }
