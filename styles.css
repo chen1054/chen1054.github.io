@@ -3138,6 +3138,11 @@
           }
           &>.subsection .alternating-personas {
             isolation: isolate;
+            @media(width>=40rem) and (width<80rem) {
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+              --u: calc(100cqw / 614);
+              container-type: inline-size;
+            }
             &>.flex-row {
               position: relative;
               &::before,
@@ -3173,6 +3178,12 @@
                   color: var(--color-case-study-accent);
                   font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
                   font-weight: 700;
+                  /* The phone and tablet designs break the longest role before its second part; the desktop does not. */
+                  &>span {
+                    @media(width>=80rem) {
+                      display: inline;
+                    }
+                  }
                 }
               }
               /*
@@ -3251,6 +3262,116 @@
                   inline-size: calc(307.6 * var(--persona-unit));
                   aspect-ratio: 307.6 / 242.8;
                   background-image: url("assets/menume-phone-persona-scribble-trail-out.svg");
+                }
+              }
+              /*
+                The tablet design: 190 px photos on alternating sides at 62, 386 and 72 px into its 614 px column,
+                each text block beside the open side (235, 236 and 280 px wide, the second set to its end) 60, 63 and
+                70 px under the photo's top, the rows 46 and 63 px apart, and its own four scribble pieces (vectors
+                from Tablet/MenuMe.pdf) running from photo to photo. The plates are the phone's 108 by 35 px.
+              */
+              @media(width>=40rem) and (width<80rem) {
+                /* From the row's own start, which the even rows reverse. */
+                justify-content: flex-start;
+                align-items: start;
+                gap: 0;
+                margin-block-start: calc(46 * var(--u));
+                &:first-child {
+                  margin-block-start: calc(22 * var(--u));
+                }
+                &:last-child {
+                  margin-block-start: calc(63 * var(--u));
+                }
+                &>figure {
+                  flex: none;
+                  inline-size: calc(190 * var(--u));
+                  max-inline-size: none;
+                  margin: 0 0 0 calc(62 * var(--u));
+                }
+                &>article {
+                  flex: none;
+                  inline-size: calc(235 * var(--u));
+                  margin-block-start: calc(60 * var(--u));
+                  margin-inline-start: calc(54 * var(--u));
+                  &>* {
+                    margin-block: 0;
+                  }
+                  &>h4 {
+                    min-inline-size: calc(54rem / 16);
+                    margin-block-end: calc(7rem / 16);
+                    margin-inline-start: calc(-13 * var(--u));
+                    padding-block: calc(8rem / 16);
+                    padding-inline: calc(27rem / 16);
+                    font-size: calc(18rem / 16);
+                    line-height: calc(19rem / 16);
+                  }
+                  &>p:first-of-type {
+                    margin-block-end: calc(6rem / 16);
+                    font-size: 1rem;
+                    line-height: 1.5;
+                  }
+                }
+                &:nth-child(2) {
+                  &>figure {
+                    margin-inline: 0 calc(38 * var(--u));
+                  }
+                  &>article {
+                    inline-size: calc(236 * var(--u));
+                    margin-block-start: calc(63 * var(--u));
+                    margin-inline: 0 calc(81 * var(--u));
+                    text-align: end;
+                    &>h4 {
+                      margin-inline: auto calc(-5 * var(--u));
+                    }
+                  }
+                }
+                &:nth-child(3) {
+                  &>figure {
+                    margin-inline-start: calc(72 * var(--u));
+                  }
+                  &>article {
+                    inline-size: calc(280 * var(--u));
+                    margin-block-start: calc(70 * var(--u));
+                    margin-inline-start: calc(46 * var(--u));
+                  }
+                }
+                &::before,
+                &::after {
+                  content: none;
+                  scale: none;
+                }
+                &:first-child::before {
+                  content: "";
+                  inset-block-start: calc(87 * var(--u));
+                  inset-inline-start: calc(-1 * var(--u));
+                  inline-size: calc(245 * var(--u));
+                  aspect-ratio: 245 / 131;
+                  background-image: url("assets/menume-tablet-persona-scribble-lead-in.svg");
+                }
+                &:first-child::after {
+                  content: "";
+                  inset-block-start: calc(187 * var(--u));
+                  inset-inline: calc(199 * var(--u)) auto;
+                  inline-size: calc(318 * var(--u));
+                  aspect-ratio: 318 / 208;
+                  background-image: url("assets/menume-tablet-persona-scribble-first-to-second.svg");
+                }
+                &:nth-child(2)::after {
+                  content: "";
+                  scale: none;
+                  inset-block-start: calc(147 * var(--u));
+                  inset-inline: calc(150 * var(--u)) auto;
+                  inline-size: calc(329 * var(--u));
+                  aspect-ratio: 329 / 258;
+                  background-image: url("assets/menume-tablet-persona-scribble-second-to-third.svg");
+                }
+                &:last-child::before {
+                  content: "";
+                  inset-block-start: calc(63 * var(--u));
+                  inset-inline-start: 0;
+                  inline-size: calc(251 * var(--u));
+                  aspect-ratio: 251 / 150;
+                  background-image: url("assets/menume-tablet-persona-scribble-trail-out.svg");
                 }
               }
             }
