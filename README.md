@@ -21,11 +21,11 @@ Reduced-motion visitors see the complete static introduction immediately.
 The client's original floral logo supplies the local SVG favicon,
 32-pixel ICO fallback, and 180-pixel Apple touch icon on every page.
 The main breakpoint is 40rem: it switches to inline navigation and alternating flexbox project columns.
-Three small, documented exceptions sit in `styles.css`:
+Four small, documented exceptions sit in `styles.css`:
 a 26.25rem step for the Tales story-pillar icon boxes,
 a 22.5rem to 40rem range for the Tales impact cards,
-and a 64rem container query for the case-study headings.
-The Scotties section bands also change chevron side just above 744px, because the side follows the fluid growth value.
+a 64rem container query for the case-study headings,
+and a container query above 744px (the tablet design's width) that moves every other Scotties band's chevrons to the left.
 CSS grids are prohibited.
 Named SVG views trim blank export margins on wide screens without duplicating artwork.
 Their boxes align with the outer column edges while text remains left-aligned.
