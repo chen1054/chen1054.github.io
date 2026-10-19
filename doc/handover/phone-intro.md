@@ -590,6 +590,9 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    The repo's `@monochromatic-dev/figma-kiwi` rejects both copies (header magic `fig-kiwij`; it knows only
    `fig-kiwie`); the scratch decoders in `/home/user/temp/agent/fig-parse/` (`node-names.mjs`, `node-detail.mjs`,
    `image-fills.mjs`, `dump-text-full.mjs`) read both.
+   OPH quotations on Tales: left as written by the user's word that the client worked with OPH directly (likely
+   internal OPH material); public-site check found no exact matches and one tension (vaping "long-term health
+   consequences" against OPH's public "long-term health effects are unknown"), recorded in the checklist only.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
