@@ -608,6 +608,13 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    format version (`j` was version 106); `Website (Copy).fig` parses to 5624 nodes, 207 images in 403 s. The
    2026-10-18 22:43 copy was still parsing at hand-back; its line lands in
    `/home/user/temp/agent/figma-kiwi-fix/b.out` (expect 5702 nodes).
+   Client reply `05-client-reply-draft.md` rewritten 2026-10-18 late from the checklist: one WeChat message in
+   Chinese plus an English reference; the wide window, portrait and Contact asks are reported as built; it asks
+   only for the original `IMG_0804` photo and the two removed curriculum citations (and whether Grade 1 D1.2 is
+   the intended one). The OPH quotations and the screen-share proposal are not in it pending the user's answer.
+   Send hold unchanged; still to produce: after captures paired with `evidence/before-d5e6250/` in macOS Safari at
+   1920 and the iPhone 15 Simulator, citation and Contact before/after, an `IMG_0804 1` frame crop; also wait for
+   the Safari style check of the refactor. Parser fix proven on both copies: 5624 and 5702 nodes (`61c8e2370e`).
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
