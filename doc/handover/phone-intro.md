@@ -1342,3 +1342,13 @@ The persona names lost a stray trailing comma. Not changeable on our side: the c
 34 are cropped in the supplied artwork itself (the PDF and `.fig` rasters are identical and no wider export exists),
 and the white fragment in shot 51 is not in the site (it is most likely the macOS screenshot thumbnail).
 Open for the user: the design shows MenuMe's contributions 2x2 at Desktop and Tablet; the site shows them 4 across.
+
+Tales proportion and alignment (action plan Fix 4): the spiral notepad is capped at 322 px up to 744 and 486 px at
+1440 and wider (it had grown to 814 px with large empty regions), its copy starts at the left with a line pitch that
+grows toward the design's double spacing, and it still stays inside the art at every width from 320 to 1920. The
+persona pair and the three story pillars share heading tops (pillar icon boxes share one aspect ratio); on phones
+the impact columns keep paragraph tops level when a tab wraps. The performance chart's labels sit beside their
+quadrants. Jump To Section is a centred bold list at the design's size, and the "How might we" quote wraps to the
+design's two large lines on wide screens. Page height: about +80 px on phones, -100 px at 1440. Left as designed: the
+first timeline node is faded and uncaptioned in all three designs; the Key Insights bubbles keep their stagger.
+Verified in Chromium and real Safari at 1920 wide, 1x.

@@ -1016,12 +1016,17 @@ h4.case-study-subheading {
 }
 .case-study-spiral-notepad {
   aspect-ratio: 486 / 346;
+  max-inline-size: calc(322rem / 16 + 164 * var(--home-wide-reference-growth));
   background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
+  text-align: start;
+  text-wrap: pretty;
   &>* {
     margin-inline: 10%;
   }
   &>p {
     margin-block-start: 12%;
+    /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
+    line-height: calc(1.6em + 0.039 * clamp(0rem, 100cqi - 322rem / 16, 164rem / 16));
   }
 }
 .case-study-play-speech-bubble {
@@ -1770,6 +1775,35 @@ h4.case-study-subheading {
   & .case-study-persona>h4 {
     color: var(--color-case-study-accent);
   }
+  /* Equal column tops: the shorter persona's copy no longer drops to centre against the taller one. */
+  & .case-study-flex-row:has(>.case-study-persona) {
+    align-items: start;
+  }
+  /* Equal-height icon boxes (the tallest icon's ratio) keep the three pillar headings on one line. */
+  & .case-study-story-pillars .case-study-small-illustration {
+    /* From the width where two pillars share a row. */
+    @media(width>=26.25rem) {
+      aspect-ratio: 157 / 154;
+    }
+  }
+  & .case-study-section-navigation>ul {
+    inline-size: fit-content;
+    margin-inline: auto;
+    font-size: calc(16rem / 16 + 6 * var(--tales-growth));
+    font-weight: 700;
+    &>li>a {
+      min-block-size: calc(3rem + 7 * var(--tales-growth));
+    }
+  }
+  /* The quote wraps to the design's measure: two large lines wide, five narrow. */
+  & #tales-how-might-we>h2 {
+    --quote-measure: calc(342rem / 16);
+    padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
+    line-height: calc(48rem / 16 + 12 * var(--tales-growth));
+    @media(width>=40rem) {
+      --quote-measure: calc(550rem / 16 + 550 * var(--tales-growth));
+    }
+  }
   & .case-study-spiral-notepad {
     background-image:
       url("assets/tales-challenge-spiral-notepad-background.svg"),
@@ -1780,7 +1814,7 @@ h4.case-study-subheading {
     /* Keep the copy inside the outline, which is now 5 percent smaller on the right and bottom. */
     padding-block-end: 7%;
     &>* {
-      margin-inline: 8% 12%;
+      margin-inline: 11%;
     }
   }
   & .case-study-subsection>.case-study-note {
@@ -1844,6 +1878,10 @@ h4.case-study-subheading {
         justify-content: center;
         box-sizing: border-box;
         min-block-size: calc(var(--stem) + 72rem / 16);
+        /* Two cards per row: room for the longest title's three lines keeps both paragraphs on one line. */
+        @media(22.5rem<=width<40rem) {
+          min-block-size: calc(var(--stem) + 84rem / 16);
+        }
         margin-block-start: 0;
         padding-block-start: var(--stem);
         padding-inline: calc(4rem / 16) calc(var(--tip) + 4rem / 16);
