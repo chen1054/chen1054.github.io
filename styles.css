@@ -2798,13 +2798,41 @@
         Problem introduction (16 px text) 42.
       */
       @media(40rem<=width<80rem) {
-        & h3.subheading:has(+ :is(p, ul)) {
+        & h3.subheading:has(+ :is(p, ul, ol)) {
           margin-block-end: 1rem;
           &:has(+ p + .alternating-personas) {
             margin-block-end: calc(35rem / 16);
           }
           &:has(+ p + .flex-row>article) {
             margin-block-end: calc(13rem / 16);
+          }
+        }
+        /*
+          The design-system section, by ink at 744: the first heading 180 px under the band, the token list run on
+          from its introduction at the same 28 px pitch, the moodboard 48 under the list and 81 above the next
+          heading, the devices 77 under the delivery list, the buttons 32 under the devices and 16 apart, and 78
+          from the buttons to the next band.
+        */
+        & #menume-design-system>.section-content {
+          padding-block-start: calc(74rem / 16);
+          &>p:has(+ ul) {
+            margin-block-end: 0;
+          }
+          &>p + ul {
+            margin-block-start: 0;
+          }
+          &>.zoomable-artwork {
+            margin-block-start: calc(41rem / 16);
+          }
+          &>.subsection {
+            margin-block-start: calc(72rem / 16);
+          }
+          & .device-showcase {
+            row-gap: calc(26rem / 16);
+            margin-block: calc(35rem / 16) calc(18rem / 16);
+            &>.flex-row {
+              gap: 1rem;
+            }
           }
         }
       }
