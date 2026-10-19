@@ -640,6 +640,14 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    set: 11 numbered key pairs with bilingual captions in the client folder's `evidence/send-13f7d95/`, in the
    message's order (Scotties phone, decorations, copy, sitemap, cards, wide nav, Contact, citations); the draft
    now says the main items, not every item, have images.
+   Audit (2026-10-19), report `/home/user/temp/agent/gpt-audit/report.md`, findings F1 to F20. F1: Pages
+   (Jekyll 3.10 legacy build from `main`) published `doc/`, `README.md`, `mise.toml` and the unlinked source portrait;
+   the user chose site exclusion only, so `_config.yml` (`2d08763`) excludes them while the repo stays public with
+   them. A Jekyll `exclude` list replaces the defaults, and a trailing slash excludes a directory (Jekyll v3.10.0
+   `lib/jekyll/configuration.rb`, `lib/jekyll/entry_filter.rb`). In progress (one agent, one commit each, Chromium
+   and Safari style diffs): F4 faux-bold Abril on Scotties prototype links, F3 About portrait `sizes`, F17 apostrophes
+   and Hi-fi/Lo-fi spelling, F20 README drift, F7 inert CSS. Later: F2 favicon rebuilt from the vector logo, F5 zoom
+   viewer accessible names, F6 hidden 745 px switch, F9 to F16, F18, F19 (maintenance).
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
