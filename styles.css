@@ -952,6 +952,17 @@ h4.case-study-subheading {
     min-inline-size: 0;
   }
 }
+/* MenuMe and Scotties designs align sibling cards' edges and text columns' tops; the Scotties reflection cards stay staggered. */
+.portfolio-case-study-page:is([data-case-study="menume"], [data-case-study="scotties"]) {
+  & .case-study-flex-row {
+    &:has(>aside):not(:has(>figure), #scotties-reflection *) {
+      align-items: stretch;
+    }
+    &:has(>article):not(:has(>figure)) {
+      align-items: start;
+    }
+  }
+}
 .case-study-story-pillars {
   align-items: start;
   text-align: center;
