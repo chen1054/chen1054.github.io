@@ -1711,3 +1711,10 @@ against `../Phone/*.png` and fix each miss, one commit each, checked in iOS 17.0
 Pill labels without `text-box` (iOS 17.0.1 Simulator, Home "More About Me", `sim17-pill-01.png`): the label ink
 centre sits 0.5 device px (0.17 CSS px) above the pill centre (`/home/user/temp/agent/f20/pill-ink.mjs`); a positive
 control with the ink copied 12 device px lower reads 5. Centred without the trim, so no `@supports` fallback.
+Walk reports (Sonnet agents, read-only, unverified until I check each pair image): Tales
+`/home/user/temp/agent/f20/walk-tales/report.md` (15 misses with pairs `miss-NN.png`; high: age-stage trail drawn as
+the shrunk desktop wave instead of the design's vertical zigzag, the three character cards in one row instead of
+stacked, OPH laptop and phone side by side instead of stacked, the ecosystem map as the shrunk two-chain diagram
+instead of a vertical flow, the social ads side by side instead of stacked). MenuMe and Scotties reports pending.
+In progress: MenuMe personas from the phone PDF's own vectors (`/home/user/temp/agent/f20/scribble/piece-1..4.svg`,
+exported with PyMuPDF; frames 190 by 242 at x 35, 169, 34; text blocks about 217 to 229 wide, Daniel's end-aligned).
