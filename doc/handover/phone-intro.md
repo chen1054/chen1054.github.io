@@ -2032,5 +2032,18 @@ the text's start; Scotties' hi-fi pills are drawn 286 x 47 (ours 250 x 42), for 
 fits one line only from about 1435 px, so Safari with classic scrollbars (1425 layout) wraps it as before. Safari
 Technology Preview at 1440 reproduces Chromium's hero boxes and line counts; its screenshots on m1 came back black
 this time (display awake), so that check was geometric.
-Next: continue the desktop walk from Jump To Section down MenuMe, then Tales and Scotties, with `line-diff.py`
-per section; then the client note.
+MenuMe desktop, Jump To Section to the Information Architecture band, landed: `1744ed3` per-page divider and
+section-list gaps (tokens `--hero-divider-gap-desktop`, `--divider-navigation-gap-desktop`; MenuMe's desktop list
+omits Design System, which its phone and tablet lists and the page have, so ours keeps six entries), `52d897c`
+inspiration quote and story card gaps, `47f83e8` dual loop three across (the tablet rule now runs on at desktop),
+`4ae27f9` the bulb's base bars (missing at every width; the label gap gives back the 26/216 of width they add),
+`29b12d8` problem items, `0792148` personas (desktop scribbles exported to
+`assets/menume-desktop-persona-scribble-*.svg`, container 1086 wide at desktop), `d24b164` findings-to-personas
+gap (its message also claims the band gap, which landed in `0792148`; corrected by commit comment). At 1440 every
+line from the hero to the IA band sits within 4 px of Desktop/MenuMe.pdf. Residuals: the designs centre some
+icon headings on their text and others on icon plus text (Inspiration and Personas sit 24 to 26 px off ours);
+the third finding's text is set 12 px lower in an identical bubble; MenuMe's Overview subsection heading is 12 px
+lower than the Research one in its band-to-heading gap; Tales' divider is 36 px tall against the design's 32 and
+its section list runs 8 px low (for the Tales walk).
+Next: continue MenuMe from App Sitemap (28 px short under the IA band) down, then Tales and Scotties, with
+`line-diff.py` per section; then the client note.
