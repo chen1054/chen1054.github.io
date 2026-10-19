@@ -1871,3 +1871,9 @@ the tablet design sets the personas 1 then 2 (ours 2 then 1), the value pillars 
 grid), a vertical sitemap tree (ours the wide tree), a smaller logo, and Key Learnings as two staggered cards one
 above the other (ours side by side). A tablet walk of Scotties is the next item after the phone leftovers; Tales
 and MenuMe tablet walks after that.
+Scotties phone walk done (all 11 misses landed or matching on the 2026-10-19 render at 390): `adb936f` logo 291 /
+450 / 645 px as the three designs; persona headings need no change (Bold 16 / 16 / 18 on the design images, the
+Figma style runs notwithstanding, and ours computes the same). Safari 17.0 BCD check: 24 flags, the same as before
+today's work; Safari Technology Preview renders the wide connectors at 1440. Order from here: the Tales phone walk
+(`/home/user/temp/agent/f20/walk-tales/report.md`, the user's request), then the queued tablet walks (Scotties,
+then Tales and MenuMe).
