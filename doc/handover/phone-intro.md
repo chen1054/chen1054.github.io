@@ -619,6 +619,13 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    `main` against `568c81b` differs only by `16881e4` (Home Medium) and `2c49ce9` (wide nav). The tool now parks
    the pointer before probes and retries focus; runbook in Monochromatic `bea49e5715`. Worktree and unit cleanup
    waits until the after-capture job finishes.
+   After-captures status 2026-10-18 23:35: iPhone 15 pair and the 10 extra pairs (citations, Contact) done in
+   `evidence/after-13f7d95/`; the 54 desktop shots (unit `xyc-after-desktop`, script
+   `/home/user/temp/agent/xyc-after/desktop.mjs`) were blocked from 23:26 to 23:33 because Safari Technology Preview
+   stayed paired to a session my `nav-1920.mjs` rerun never deleted (`| head -2` killed it before its `finally`).
+   With the user's authorization the STP driver launch agent was restarted (`launchctl kickstart -k
+   gui/<uid>/dev.monochromatic.safaridriver-stp`, new driver pid 3372) and the stale automation Safari (pid 2836)
+   ended; the job retries every 15 s. Never pipe a WebDriver script into `head`; redirect to a file instead.
    Queue as of 2026-10-18 late: (a) running, after-captures paired with `evidence/before-d5e6250/` into the client
    folder's `evidence/after-<sha>/` and `evidence/pairs-<sha>/` (STP at 1920, iPhone 15 Simulator, plus citation and
    Contact pairs); (b) running, report-only audit of GPT-built anti-patterns to
