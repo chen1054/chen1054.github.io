@@ -2287,12 +2287,21 @@
           321rem / 16 + 17 * var(--phone-tablet-reference-growth) + 59 * var(--home-wide-reference-growth)
         );
       }
-      /* The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. */
+      /*
+        The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. Tablet Tales draws
+        it 538 px wide from 53 px into the column, a size it keeps in wider columns up to the desktop chart, its pie
+        8 px past the column's centre.
+      */
       & figure:has(img[src*="tales-campaign-performance-metrics"]) {
         @media(width<40rem) {
           inline-size: calc(340rem / 16 + 340 * var(--phone-art-growth));
           max-inline-size: none;
           margin-inline: calc(-4rem / 16) auto;
+        }
+        @media(width>=40rem) and (width<80rem) {
+          inline-size: min(538% / 6.14, 538rem / 16);
+          max-inline-size: none;
+          margin-inline: max(53% / 6.14, 50% - 254rem / 16) auto;
         }
       }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
