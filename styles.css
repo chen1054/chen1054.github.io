@@ -2281,6 +2281,12 @@
           margin-inline: max(-2% / 6.14, 50% - 309rem / 16) auto;
         }
       }
+      /* The poster as the designs draw it: 321, 338 and 397 px wide, centred. */
+      & figure:has(img[src*="tales-one-page-poster-campaign"]) {
+        max-inline-size: calc(
+          321rem / 16 + 17 * var(--phone-tablet-reference-growth) + 59 * var(--home-wide-reference-growth)
+        );
+      }
       /* The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. */
       & figure:has(img[src*="tales-campaign-performance-metrics"]) {
         @media(width<40rem) {
