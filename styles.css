@@ -1741,6 +1741,33 @@
         &>.content .section-content {
           inline-size: calc(100% - 40rem / 16);
         }
+        /*
+          The phone design centres each persona: a 222 px photo with its plate 14 px up and to the start, and the
+          name, role and description centred below (Phone/Scotties.pdf).
+        */
+        &>.content .persona {
+          --persona-unit: calc(1rem / 16 + var(--phone-art-growth));
+          text-align: center;
+          &>.persona-photograph {
+            inline-size: calc(222 * var(--persona-unit));
+            margin-block-end: calc(22 * var(--persona-unit));
+            margin-inline: auto;
+            translate: calc(7 * var(--persona-unit)) 0;
+            &::before {
+              inset: calc(-14 * var(--persona-unit)) calc(14 * var(--persona-unit)) calc(14 * var(--persona-unit))
+                calc(-14 * var(--persona-unit));
+            }
+          }
+          &>h4 {
+            margin-block-end: 0;
+            line-height: calc(32 * var(--persona-unit));
+          }
+          &>p {
+            max-inline-size: calc(285 * var(--persona-unit));
+            margin-block-start: 0;
+            margin-inline: auto;
+          }
+        }
       }
       &>.content>.project-introduction>.project-summary {
         font-weight: 500;
