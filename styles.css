@@ -2011,6 +2011,14 @@
           }
         }
       }
+      /* The ecosystem map on phones: Phone Tales stacks its two chains 320 px wide from the text column's start. */
+      & figure:has(img[src*="tales-school-poster-and-social"]) {
+        @media(width<40rem) {
+          inline-size: calc(320rem / 16 + 320 * var(--phone-art-growth));
+          max-inline-size: none;
+          margin-inline: 0 auto;
+        }
+      }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
