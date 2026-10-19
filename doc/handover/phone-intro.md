@@ -1744,8 +1744,19 @@ Found while doing it: Figma sets the Scotties hi-fi note text Bold 16 on Desktop
 and ours is bold everywhere. A weight audit of every Figma text node per frame against our computed weight is
 running (Sonnet agent, output `/home/user/temp/agent/f20/weights/report.md`).
 Weight audit (Sonnet agent, `/home/user/temp/agent/f20/weights/report.md`, raw `all.json`; Figma data is
-`texts.json` from `Website (Copy).fig`, the older copy, so the client's later instructions win): unverified until
-checked. Likeliest real: Scotties body text Medium 14 to 16 in the Phone and Tablet frames (Bold on Desktop) while
+`texts.json`, dumped 2026-10-18 20:46 from `Website (Copy).fig` of 2026-10-15, before the 22:43 copy arrived;
+re-check each finding in `fig-parse/texts-new-full.json`, the newer copy, and the client's later instructions win):
+unverified until checked. Likeliest real: Scotties body text Medium 14 to 16 in the Phone and Tablet frames (Bold on Desktop) while
 ours is 700 everywhere (about 28 nodes per frame); Tales "Poster" and "Social Media Ads" subheadings Medium 14 on
 Tablet and Desktop (ours 700 18); About biography weights. Suspect, verify first: pills reported as Playfair 700
 although `.pill` sets Abril Fatface; MenuMe finding numbers in "Apple LiGothic" (a Figma font artifact).
+MenuMe usability flows (`fcdaa9e` flow 1 phone grid, `86c78b1` bold labels, `4157a03` flow 2): flow 2's two
+combined screen images are cut without resampling into one PNG per screen with its own viewer and alt text, and
+its highlight rectangles into one overlay per screen; wide layouts pair each note with its row of screens (as
+`Desktop/MenuMe.pdf`); phones follow `Phone/MenuMe.pdf` (finding beside the first screen, squiggle, hi-fi screens in
+two rows, yellow elbows into the iteration). Checked at 390 and 1440 against the design crops in Chromium; iOS
+17.0.1 Simulator shows flow 1 with its elbow and the start and end of flow 2 (text fragments inside the regrouped
+rows do not scroll there, headings do; the middle of flow 2 is not yet seen on iOS). BCD: no new flags. Residual:
+the tablet design puts the iteration full width under its screens, ours beside them.
+Sitemap fix live: `https://chen1054.github.io/styles.css` serves `& ul {` (checked 2026-10-19 after the 16:43
+`pages-build-deployment` run succeeded).
