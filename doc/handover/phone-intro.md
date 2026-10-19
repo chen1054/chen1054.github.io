@@ -1333,3 +1333,12 @@ session hosts that match the requested capabilities" because it only searches th
 and the iPhone 15 lives in the custom set on `/Volumes/XinyanSimDevices` (kept off `m1`'s internal SSD). Linking the
 device into the default set did not register it; the link is removed and the simulator is booted in its own set again.
 The real-tap check of the phone menu's open state is still open.
+
+MenuMe and Scotties alignment (action plan Fix 3 and Fix 4): card rows used `align-items: center`, so unequal cards
+staggered. Rows of notes now stretch to equal height and rows of text columns align their tops (MenuMe overview columns,
+focus-group findings, usability pairs, contributions; Scotties personas and core values); rows with a wireframe stay
+centred as designed, and Scotties' reflection cards keep the design's deliberate stagger. Page heights unchanged.
+The persona names lost a stray trailing comma. Not changeable on our side: the clipped chip rows in client shots 33 and
+34 are cropped in the supplied artwork itself (the PDF and `.fig` rasters are identical and no wider export exists),
+and the white fragment in shot 51 is not in the site (it is most likely the macOS screenshot thumbnail).
+Open for the user: the design shows MenuMe's contributions 2x2 at Desktop and Tablet; the site shows them 4 across.
