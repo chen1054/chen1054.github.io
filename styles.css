@@ -3387,6 +3387,62 @@
           }
         }
         /*
+          From 1024 px, where the row fits our 14 px labels, the sitemap sets each section's pages side by side under
+          it on a bus of their own, as the screenshot in every MenuMe design arranges them; narrower they stack under
+          their section (at 744 the row would need 696 px of the 614 px column).
+        */
+        @media(width>=64rem) {
+          & .sitemap>ul>li>ul>li>ul {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            margin-inline-start: 0;
+            padding-block-start: var(--case-study-sitemap-gap);
+            &::before {
+              content: "";
+              position: absolute;
+              inset-block-start: 0;
+              inset-inline-start: var(--case-study-sitemap-trunk);
+              block-size: var(--case-study-sitemap-gap);
+              border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+            }
+            &>li {
+              padding-inline: 0 calc(2 * var(--case-study-sitemap-column-padding));
+              &::before {
+                display: none;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                inset-block-start: 0;
+                inset-inline: 0;
+                border-block-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+              }
+              &:first-child::after {
+                inset-inline-start: var(--case-study-sitemap-trunk);
+              }
+              &:last-child::after {
+                inset-inline-end: calc(100% - var(--case-study-sitemap-trunk) - var(--case-study-sitemap-line-width));
+              }
+              &>span::before {
+                inset-block: calc(-1 * var(--case-study-sitemap-gap)) 100%;
+                inset-inline: var(--case-study-sitemap-trunk) auto;
+                inline-size: 0;
+                border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+                border-block-end: 0;
+              }
+              &>span::after {
+                inset-block: auto 100%;
+                inset-inline: calc(var(--case-study-sitemap-trunk) - 5rem / 16 + var(--case-study-sitemap-line-width) / 2) auto;
+                translate: none;
+                border-inline: calc(5rem / 16) solid transparent;
+                border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+                border-block-end: 0;
+              }
+            }
+          }
+        }
+        /*
           The end-to-end showcase: the desktop design draws the phone and tablet screens side by side (209 and 600
           px, 25 apart) with both buttons in a row under them; the phone design puts each button under its device.
         */
