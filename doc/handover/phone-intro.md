@@ -1363,7 +1363,13 @@ Inferred asks, part one: case-study section bands keep spanning the window above
 collapses to one long line at 1920; Tales is the same height at 1440 and 1920. On wide Contact layouts the email wave
 now ends on the form's edge (it ran 13 px past it at 1440), as the Tablet and Desktop designs draw it. The audit's
 uncapped-text finding found no other stretched text above 1440 on any page.
-Held for the user: scaling the phone design uniformly from 390 to 639 on Home, About and Contact
-(`font-size: max(100%, 100vw * 16 / 390)` on the root below 40rem, the first hunk of
-`/home/user/temp/agent/xinyanchen-build/patch-inferred.diff`). It removes the stretched voids and all wave drift
-between 390 and 639, but text reaches 26 px at 639 and drops to 16 px at 640.
+Decided by the user (2026-10-18), replacing the uniform phone scaling, which was not shipped: type follows Figma's
+own sizes at 390, 744 and 1440 and interpolates linearly between them, Utopia-style (utopia.fyi's clamp method, with
+Figma's per-role sizes as anchors instead of a ratio scale). A sibling of `--home-wide-reference-growth` covers 390 to
+744, so each size reads `calc(P + (T - P) * phone growth + (D - T) * wide growth)` and nothing jumps at 640.
+Figma's sizes come from decoding `Website (Copy).fig` (Monochromatic `doc/runbook/figma-file-text-extraction.md`).
+Findings: Home, About and Contact already match Figma at the three widths; only the 640 jump is wrong there.
+The case studies differ systematically (subsection headings 16/16/18 against Figma 18/18/22, Tales and Scotties
+body 14 at 390 against 15, among others); these fall under the client's "type size and wrapping" class and get
+Figma's sizes too, Home/About/Contact first. Fluid type does not fill the 414 to 639 voids or move the rem-margined
+waves (238 px drift at 639): open, to be decided with the user after the type change lands.
