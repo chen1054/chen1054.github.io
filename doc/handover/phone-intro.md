@@ -1837,3 +1837,12 @@ residual). All checked in Chromium at 390, 744, 1000 or 1092, and 1440. Not yet 
 Known, not changed: the designs set the finding numbers in Apple LiGothic Medium 50 px, a macOS system font the site
 does not ship (licence not checked); it keeps Abril Fatface numerals at 40 px (45 desktop), matching the glyph height.
 MenuMe walk misses: all addressed.
+Drip seam closed, 2026-10-19 (`40b0c43`): the open hairline in the MenuMe Dual-Loop drip (iOS 17.0.1) and a 3 px
+left-edge notch came from the potrace drip tile, not the box (a temporary red, unmasked drip box in the Simulator
+was full width; probe reverted, never committed). Every MenuMe design stretches one 266-segment drip path; the
+site now does the same with that path (`assets/menume-honey-drip.svg`, `preserveAspectRatio="none"`), and the
+box overlaps the drip's solid top quarter. Checked in Chromium at 390 and 1440 and in the Simulator. Lesson for
+the other traced assets: WebKit can leave a traced shape's edge columns partly empty, which only shows when the
+asset is tiled or butted against another edge.
+Simulator note: `sim17-shots.mjs` sometimes lands at the page top (the fragment did not scroll within its 7 s);
+rerun before reading anything into a page-top shot.
