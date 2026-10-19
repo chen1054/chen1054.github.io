@@ -931,6 +931,13 @@ h4.case-study-subheading {
   margin-block-start: 1rem;
   margin-block-end: 1rem;
 }
+/* Card titles that sit directly under a section heading: an h3 for the outline, sized like the h4 card titles. */
+.case-study-card-title {
+  margin-block: 1rem;
+  color: var(--color-case-study-subheading);
+  font-size: calc(16rem / 16 + 2 * var(--home-wide-reference-growth));
+  font-weight: 700;
+}
 .case-study-subsection {
   margin-block-start: calc(70rem / 16 + 60 * var(--home-wide-reference-growth));
 }
@@ -1970,7 +1977,7 @@ h4.case-study-subheading {
         &:nth-child(3) {
           --menume-tint: var(--color-case-study-heading);
         }
-        &>h4 {
+        &>.menume-finding-number {
           position: absolute;
           inset-block-start: calc(var(--menume-disc) / -2);
           inset-inline-end: 20%;
@@ -2444,7 +2451,7 @@ h4.case-study-subheading {
     border: calc(3rem / 16) solid var(--color-case-study-subheading);
     border-radius: calc(20rem / 16);
     box-shadow: calc(-24rem / 16) calc(-15rem / 16) 0 0 var(--color-case-study-subheading);
-    &>h4 {
+    &>h3 {
       color: var(--color-case-study-heading);
     }
     &::after {
