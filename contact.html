@@ -51,12 +51,9 @@
     src="contact-form-captcha-validation.mjs"
   ></script>
 </head>
-<body class="portfolio-contact-page">
-  <main
-    class="contact-page-content"
-    aria-labelledby="contact-page-introduction-heading"
-  >
-    <picture class="portfolio-page-top-corner-decorations">
+<body class="contact">
+  <main aria-labelledby="contact-page-introduction-heading">
+    <picture class="corner-decorations">
       <source
         media="(width>=40rem)"
         srcset="assets/home-wide-top-corner-decorations.svg"
@@ -69,7 +66,7 @@
       >
     </picture>
     <button
-      class="phone-navigation-menu-toggle-button"
+      class="menu-toggle"
       type="button"
       aria-label="Open navigation menu"
       popovertarget="portfolio-primary-navigation"
@@ -80,14 +77,14 @@
       popover
     >
       <img
-        class="portfolio-wide-navigation-floral-logo"
+        class="floral-logo"
         src="assets/home-wide-navigation-floral-logo.svg"
         alt=""
         width="48"
         height="63"
       >
       <button
-        class="phone-navigation-menu-toggle-button"
+        class="menu-toggle"
         type="button"
         aria-label="Close navigation menu"
         popovertarget="portfolio-primary-navigation"
@@ -107,22 +104,22 @@
       >Contact</a>
     </nav>
     <h1 id="contact-page-introduction-heading">Contact Me</h1>
-    <div class="contact-page-details-and-message-form">
-      <p class="contact-page-invitation">
+    <div class="column">
+      <p class="invitation">
         If you have any questions or comments, please contact me via email,
         or send me a message using the contact form.
       </p>
-      <div class="contact-page-email-and-decorative-wave">
+      <div class="email-row">
         <div>
           <h2>Email</h2>
           <a
-            class="contact-page-email-link"
+            class="email-link"
             href="mailto:rainbowchen.ccc@gmail.com"
           >rainbowchen.ccc@gmail.com</a>
         </div>
         <div
-          class="portfolio-page-decorative-wave-composition
-            contact-page-email-divider-wave-composition"
+          class="wave-composition
+            email-wave"
           aria-hidden="true"
         >
           <picture>
@@ -200,7 +197,7 @@
         </div>
       </div>
       <form
-        class="contact-page-message-form"
+        class="message-form"
         action="https://api.web3forms.com/submit"
         method="POST"
       >
@@ -214,9 +211,9 @@
           name="subject"
           value="Portfolio contact message"
         >
-        <div class="contact-page-name-and-phone-fields">
+        <div class="field-row">
         <label
-          class="contact-page-form-field"
+          class="field"
           for="contact-form-name"
         >
           Name (required)<span aria-hidden="true">*</span>
@@ -229,7 +226,7 @@
           >
         </label>
         <label
-          class="contact-page-form-field"
+          class="field"
           for="contact-form-phone"
         >
           Phone
@@ -243,7 +240,7 @@
         </label>
         </div>
         <label
-          class="contact-page-form-field"
+          class="field"
           for="contact-form-email"
         >
           Email (required)<span aria-hidden="true">*</span>
@@ -256,7 +253,7 @@
           >
         </label>
         <label
-          class="contact-page-form-field"
+          class="field"
           for="contact-form-message"
         >
           Message (required)<span aria-hidden="true">*</span>
@@ -277,26 +274,26 @@
           Enable JavaScript to complete the captcha, or use the email link.
         </noscript>
         <button
-          class="contact-page-send-message-button"
+          class="pill"
           type="submit"
         >Send</button>
       </form>
     </div>
   </main>
-  <footer class="portfolio-page-thank-you-and-copyright-footer">
+  <footer class="site-footer">
     <a
-      class="portfolio-back-to-top-link"
+      class="back-to-top"
       href="#"
       aria-label="Back to top"
     ></a>
     <p>Thank you for your interest in my work!</p>
-    <p class="portfolio-page-copyright-and-creation-tool">
+    <p class="credits">
       <span>Made with VS Code</span>
       <span>© 2026 Xinyan Chen</span>
     </p>
     <div
-      class="portfolio-page-decorative-wave-composition
-        contact-page-footer-bottom-wave-composition"
+      class="wave-composition
+        footer-wave"
       aria-hidden="true"
     >
       <picture>

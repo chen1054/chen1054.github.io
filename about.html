@@ -46,12 +46,9 @@
     src="portfolio-navigation.mjs"
   ></script>
 </head>
-<body class="portfolio-about-page">
-  <main
-    class="about-page-content"
-    aria-labelledby="about-page-introduction-heading"
-  >
-    <picture class="portfolio-page-top-corner-decorations">
+<body class="about">
+  <main aria-labelledby="about-page-introduction-heading">
+    <picture class="corner-decorations">
       <source
         media="(width>=40rem)"
         srcset="assets/home-wide-top-corner-decorations.svg"
@@ -64,7 +61,7 @@
       >
     </picture>
     <button
-      class="phone-navigation-menu-toggle-button"
+      class="menu-toggle"
       type="button"
       aria-label="Open navigation menu"
       popovertarget="portfolio-primary-navigation"
@@ -75,14 +72,14 @@
       popover
     >
       <img
-        class="portfolio-wide-navigation-floral-logo"
+        class="floral-logo"
         src="assets/home-wide-navigation-floral-logo.svg"
         alt=""
         width="48"
         height="63"
       >
       <button
-        class="phone-navigation-menu-toggle-button"
+        class="menu-toggle"
         type="button"
         aria-label="Close navigation menu"
         popovertarget="portfolio-primary-navigation"
@@ -101,8 +98,8 @@
     </nav>
     <h1 id="about-page-introduction-heading">Hello, I’m Xinyan Chen</h1>
     <div
-      class="portfolio-page-decorative-wave-composition
-        about-page-portrait-and-wave-composition"
+      class="wave-composition
+        portrait-wave"
     >
       <picture>
         <source
@@ -189,7 +186,7 @@
         >
       </picture>
       <img
-        class="about-page-garden-portrait"
+        class="portrait"
         src="assets/about-garden-portrait-photograph-and-gray-frame-760w.png"
         srcset="assets/about-garden-portrait-photograph-and-gray-frame-760w.png 760w,
                 assets/about-garden-portrait-photograph-and-gray-frame-1312w.png 1312w"
@@ -199,7 +196,7 @@
         height="502"
       >
     </div>
-    <div class="about-page-biography">
+    <div class="biography">
       <p>
         <strong>For the past five years, my canvas was three-dimensional.</strong>
         As an interior designer, I guided human behavior and built emotional connections
@@ -238,17 +235,17 @@
       </p>
     </div>
     <a
-      class="about-page-curriculum-vitae-link"
+      class="pill"
       href="resume_Xinyan%20Chen.pdf"
     >View My CV</a>
     <section
-      class="about-page-personal-interests"
+      class="interests"
       aria-labelledby="about-page-personal-interests-heading"
     >
       <h2 id="about-page-personal-interests-heading">
         Where can you find me when I’m not working?
       </h2>
-      <div class="about-page-personal-interests-gallery">
+      <div class="gallery">
         <figure>
           <picture>
             <source
@@ -295,20 +292,20 @@
       </div>
     </section>
   </main>
-  <footer class="portfolio-page-thank-you-and-copyright-footer">
+  <footer class="site-footer">
     <a
-      class="portfolio-back-to-top-link"
+      class="back-to-top"
       href="#"
       aria-label="Back to top"
     ></a>
     <p>Thank you for your interest in my work!</p>
-    <p class="portfolio-page-copyright-and-creation-tool">
+    <p class="credits">
       <span>Made with VS Code</span>
       <span>© 2026 Xinyan Chen</span>
     </p>
     <div
-      class="portfolio-page-decorative-wave-composition
-        about-page-footer-bottom-wave-composition"
+      class="wave-composition
+        footer-wave"
       aria-hidden="true"
     >
       <picture>

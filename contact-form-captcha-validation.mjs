@@ -1,4 +1,4 @@
-document.querySelector(".contact-page-message-form").addEventListener(
+document.querySelector(".message-form").addEventListener(
   "submit",
   (event) => {
     const captchaResponse = new FormData(event.currentTarget).get("h-captcha-response");
