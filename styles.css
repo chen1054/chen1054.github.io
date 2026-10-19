@@ -2976,6 +2976,80 @@
               display: block;
             }
           }
+          /*
+            Tablet MenuMe sets the dual loop three across on its 614 px column: each loop's two-line title centred
+            over a 225 and a 229 px box at the column's edges, the bulb (144 px, its squiggle reaching over the second
+            title) and the two-line framework label between them, the label 35 px under the bulb and the titles 84 px
+            under its top, and 81 px from the drips to the next band. Each box's copy starts 25 px in and 16 px down, at line height 2, over a 34 px drip, and
+            wraps at the drawn breaks (186.5 px fits the first box's 183.5 to 189.6 px window in our face).
+          */
+          @media(width>=40rem) and (width<80rem) {
+            &>.subsection:has(>.small-illustration img[src*="dual-loop"]) {
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+              --u: calc(100cqw / 614);
+              container-type: inline-size;
+              &>.small-illustration {
+                inline-size: calc(144 * var(--u));
+                max-inline-size: none;
+                margin-inline: calc(276 * var(--u)) auto;
+              }
+              &>h3:nth-of-type(2) {
+                margin-block: calc(35 * var(--u)) 0;
+                font-size: calc(16 * var(--u));
+                line-height: 2;
+                &>span {
+                  display: block;
+                }
+              }
+              &>.flex-row:last-child {
+                display: grid;
+                grid-template-columns: calc(225 * var(--u)) 1fr calc(229 * var(--u));
+                gap: 0;
+                margin-block: calc(-147 * var(--u)) calc(17 * var(--u));
+                &>aside {
+                  --menume-box-border: 0px;
+                  --menume-drip: calc(34 * var(--u));
+                  display: grid;
+                  /* Equal boxes where the copy wraps into unequal lines. */
+                  grid-template-rows: auto 1fr auto;
+                  isolation: isolate;
+                  margin: 0;
+                  padding: 0;
+                  border-width: 0;
+                  &:last-child {
+                    grid-column: 3;
+                  }
+                  &::before {
+                    content: "";
+                    z-index: -1;
+                    grid-area: 2 / 1;
+                    border: calc(3rem / 16) solid var(--color-case-study-heading);
+                  }
+                  &::after {
+                    position: static;
+                    grid-area: 3 / 1;
+                    margin-block-start: calc(var(--menume-drip) / -4);
+                  }
+                  &>h4 {
+                    grid-area: 1 / 1;
+                    margin-block: 0 calc(7 * var(--u));
+                    font-size: calc(16 * var(--u));
+                    line-height: 1.5;
+                    text-align: center;
+                    &>span {
+                      display: block;
+                    }
+                  }
+                  &>p {
+                    grid-area: 2 / 1;
+                    margin-block: 0;
+                    padding-block: calc(16 * var(--u)) calc(19 * var(--u));
+                    padding-inline: calc(25 * var(--u)) calc(13.5 * var(--u));
+                  }
+                }
+              }
+            }
+          }
         }
         &:where(#menume-research)>.section-content {
           /*
