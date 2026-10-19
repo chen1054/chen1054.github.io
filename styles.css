@@ -2876,6 +2876,56 @@
         }
       }
       /*
+        Desktop Tales draws the campaign's figures at their own sizes and spaces them by hand: the ecosystem map 766
+        px wide from 113 px into the 1086 px column and 37 under its heading; Poster 114 under the map, its poster 39
+        under the heading; Social Media Ads 90 under the poster, the two ads 39 under the heading with their tops
+        aligned, from 179 px in; Performance Metrics 121 under them, the chart 949 px wide from 100 px in and 37
+        under the heading; Potential for Impact 119 under the chart.
+      */
+      @media(width>=80rem) {
+        & .subsection:is(
+          :has(img[src*="tales-school-poster-and-social"]),
+          :has(img[src*="tales-one-page-poster-campaign"]),
+          :has(img[src*="tales-social"]),
+          :has(img[src*="tales-campaign-performance-metrics"])
+        )>h3 {
+          margin-block-end: 0;
+        }
+        & figure:has(img[src*="tales-school-poster-and-social"]) {
+          inline-size: calc(76600% / 1086);
+          max-inline-size: none;
+          margin-block-start: calc(37rem / 16);
+          margin-inline: calc(11300% / 1086) auto;
+        }
+        & .subsection:has(img[src*="tales-one-page-poster-campaign"]) {
+          margin-block-start: calc(114rem / 16);
+          &>figure {
+            margin-block-start: calc(39rem / 16);
+          }
+        }
+        & .subsection:has(img[src*="tales-social"]) {
+          margin-block-start: calc(90rem / 16);
+          &>.device-pair {
+            align-items: start;
+            justify-content: start;
+            margin-block-start: calc(39rem / 16);
+            margin-inline-start: calc(17900% / 1086);
+          }
+        }
+        & .subsection:has(img[src*="tales-campaign-performance-metrics"]) {
+          margin-block-start: calc(121rem / 16);
+          &>figure {
+            inline-size: calc(94900% / 1086);
+            max-inline-size: none;
+            margin-block-start: calc(37rem / 16);
+            margin-inline: calc(10000% / 1086) auto;
+          }
+          &+.subsection {
+            margin-block-start: calc(119rem / 16);
+          }
+        }
+      }
+      /*
         Desktop Tales spaces the characters and stories by hand: Main Characters 78 px under the One-Pager copy, its
         cards 37 under the heading and 1002 px wide from 67 px into the 1086 px column; Guardian 89 under them, Patchy
         23 under its heading; then each story 119 or 71 px under what comes before, its spread 39 under the heading,
