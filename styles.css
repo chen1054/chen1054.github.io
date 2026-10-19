@@ -2869,6 +2869,7 @@
           border-radius: calc(24rem / 16);
         }
         & .subsection:nth-child(3)>.flex-row>.note:last-child,
+        & .subsection:nth-child(4)>.flex-row>.note:nth-child(2),
         & .subsection:nth-child(5) article>.note:nth-child(2) {
           border-width: calc(4rem / 16);
           border-color: var(--color-case-study-heading);
@@ -2923,6 +2924,182 @@
         }
         & .subsection:nth-child(5) .portrait-artwork {
           --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
+        }
+        /*
+          Tablet design: each lo-fi page's callouts stack in one column beside the screen (the product listing's in
+          the order categories, grid, filters). The desktop design takes over at the width where the body copy turns
+          Bold.
+        */
+        @media(40rem<=width<68.25rem) {
+          & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
+            display: grid;
+            grid-template-columns: minmax(0, 240fr) minmax(0, 285fr);
+            align-items: center;
+            &>.note {
+              grid-column: 1;
+            }
+            &>figure {
+              grid-area: 1 / 2 / span 3;
+            }
+          }
+          & .subsection:nth-child(4)>.flex-row>.note:last-child {
+            grid-row: 2;
+          }
+          & .subsection:nth-child(4)>.flex-row>.note:nth-child(2) {
+            grid-row: 3;
+          }
+        }
+        /* Desktop design: the product listing's two filter callouts stack beside the screen, the grid one opposite. */
+        @media(width>=68.25rem) {
+          & .subsection:nth-child(4)>.flex-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: center;
+            &>figure {
+              grid-area: 1 / 2 / 3;
+            }
+            &>.note:first-child {
+              align-self: end;
+            }
+            &>.note:nth-child(2) {
+              align-self: start;
+            }
+            &>.note:last-child {
+              grid-area: 1 / 3 / 3;
+            }
+          }
+        }
+        /*
+          The phone design's lo-fi pages: callouts narrower than the column, above and below the screenshot, each
+          tied to its part of the screenshot by a 3 px arrow. Lengths are the design's pixels at 390
+          (Phone/Scotties.pdf); the arrows between fixed gaps are fixed, the one passing a callout spans grid rows.
+        */
+        @media(width<40rem) {
+          & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
+            --lofi-unit: calc(1rem / 16 + var(--phone-art-growth));
+            display: grid;
+            gap: 0;
+            &>* {
+              grid-column: 1;
+              justify-self: start;
+              margin-inline: 0;
+            }
+            /* Above the screenshot, which is positioned too, so each arrowhead lands on it. */
+            &>.note {
+              position: relative;
+              z-index: 1;
+              padding-block: calc(18 * var(--lofi-unit));
+              padding-inline: calc(22 * var(--lofi-unit));
+              &>p {
+                margin-block: 0;
+              }
+              &>p+p {
+                margin-block-start: 1em;
+              }
+            }
+            &>.note::after,
+            &::after {
+              --line: linear-gradient(var(--arrow-color) 0 0);
+              inline-size: calc(17.4 * var(--lofi-unit));
+              background-image: var(--line), var(--arrow-head);
+              background-repeat: no-repeat;
+              pointer-events: none;
+            }
+          }
+          & .subsection:nth-child(3)>.flex-row {
+            &>.note:first-child {
+              grid-row: 1;
+              justify-self: center;
+              inline-size: calc(263 * var(--lofi-unit));
+              padding-block: 2.5rem 2rem;
+              padding-inline: 2rem;
+            }
+            &>.note:last-child {
+              grid-row: 2;
+              justify-self: center;
+              inline-size: calc(265 * var(--lofi-unit));
+              margin-block-start: calc(39 * var(--lofi-unit));
+              &::after {
+                --arrow-color: var(--color-case-study-heading);
+                --arrow-head: url("assets/scotties-connector-arrowhead-orange-down.svg");
+                content: "";
+                position: absolute;
+                inset-block-start: calc(100% - 9.5 * var(--lofi-unit));
+                inset-inline-start: calc(112.4 * var(--lofi-unit));
+                block-size: calc(67.5 * var(--lofi-unit));
+                background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
+                background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+              }
+            }
+            &>figure {
+              grid-row: 3;
+              justify-self: center;
+              inline-size: calc(288 * var(--lofi-unit));
+              max-inline-size: none;
+              margin-block: calc(54 * var(--lofi-unit)) 0;
+            }
+          }
+          & .subsection:nth-child(4)>.flex-row {
+            &>.note:first-child {
+              grid-row: 1;
+              inline-size: calc(217 * var(--lofi-unit));
+              margin-inline-start: calc(21 * var(--lofi-unit));
+              &::after {
+                --arrow-color: var(--color-case-study-subheading);
+                --arrow-head: url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
+                content: "";
+                position: absolute;
+                inset-block-start: calc(100% - 6.5 * var(--lofi-unit));
+                inset-inline-start: calc(44.3 * var(--lofi-unit));
+                block-size: calc(69.5 * var(--lofi-unit));
+                background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
+                background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+              }
+            }
+            &>figure {
+              grid-row: 2;
+              inline-size: calc(291 * var(--lofi-unit));
+              max-inline-size: none;
+              margin-block: calc(40 * var(--lofi-unit)) 0;
+              margin-inline-start: calc(30 * var(--lofi-unit));
+            }
+            &>.note:nth-child(2) {
+              grid-row: 3;
+              inline-size: calc(248 * var(--lofi-unit));
+              margin-block-start: calc(14 * var(--lofi-unit));
+              margin-inline-start: calc(21 * var(--lofi-unit));
+              &::after {
+                --arrow-color: var(--color-case-study-heading);
+                --arrow-head: url("assets/scotties-connector-arrowhead-orange-up.svg");
+                content: "";
+                position: absolute;
+                inset-block-end: calc(100% - 9.5 * var(--lofi-unit));
+                inset-inline-start: calc(36.2 * var(--lofi-unit));
+                block-size: calc(294.5 * var(--lofi-unit));
+                background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
+                background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+              }
+            }
+            &>.note:last-child {
+              grid-row: 4;
+              inline-size: calc(249 * var(--lofi-unit));
+              margin-block-start: calc(25 * var(--lofi-unit));
+              margin-inline-start: calc(94 * var(--lofi-unit));
+            }
+            /* The grid callout's arrow passes the filter callout, so it spans the screen's and that callout's rows. */
+            &::after {
+              --arrow-color: var(--color-case-study-accent);
+              --arrow-head: url("assets/scotties-connector-arrowhead-sage-up.svg");
+              content: "";
+              z-index: 1;
+              grid-area: 2 / 1 / 4;
+              place-self: stretch start;
+              margin-block: calc(370.2 * var(--lofi-unit)) calc(-35.5 * var(--lofi-unit));
+              margin-inline-start: calc(285.3 * var(--lofi-unit));
+              background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
+              background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+            }
+          }
         }
         /*
           The phone design's hi-fi page: two callouts above the screenshot and two below, narrower than the column,
