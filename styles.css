@@ -1251,10 +1251,11 @@
         font-size: calc(1rem + 6 * var(--home-wide-reference-growth));
         font-weight: 700;
         text-align: start;
+        /* Phone and tablet designs pitch the rows at 32 px (16 px at line height 2), desktop at 55 (22 px at 2.5). */
         &>li>a {
           display: flex;
           align-items: center;
-          min-block-size: calc(3rem + 7 * var(--home-wide-reference-growth));
+          min-block-size: calc(2rem + 23 * var(--home-wide-reference-growth));
           color: inherit;
           text-decoration: none;
           &:hover {
