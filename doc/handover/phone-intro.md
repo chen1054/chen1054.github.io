@@ -686,6 +686,38 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    4. Then the lead does the rest of the maintenance work directly, one commit each: F6, F9, F12, F13, F14, F19 (a
       visible message in place of `alert()`, tried at 390 and 1440), and F18 if kept. Remove `wt-a3` when done.
    The client reply still waits only for the user's go.
+   Resumed 2026-10-19 afternoon. All four units were re-run and answered. WIP review:
+   - The content-column variable and the inlined aliases became `7a3ea5b`, with no intended computed-style change.
+   - The gold merge was rejected as written. Its comment claimed `#d8a150` and `#d9a150` differ in the client's
+     designs. Both Figma files hold only `#d8a150`: 20 fills, 96 strokes, 9 text overrides (the Contact required
+     markers) and 9 drop shadows (`/home/user/temp/agent/fig-parse/gold-uses.mjs`, whose pattern also matches
+     `#d9a150`).
+   - So `6ec4bb3` gives one `--color-river-gold: #d8a150` to the river, the About hover, the required markers, the
+     back-to-top ring and the About shadows. That is an intended red-channel change from 217 to 216 on those three
+     items.
+   F19 `1a361d5`:
+   - A refused send inserts a `role="alert"` paragraph above the captcha. It is centred on phones and end-aligned at
+     40rem and up.
+   - Chromium at 390 and 1440 shows one reminder after two refused sends, no navigation and no console errors.
+     Screenshots are in `/home/user/temp/agent/f19/`. Safari check pending.
+   - Web3Forms' `script.js` does not block an unsolved submit, so the module stays. No null guard was added: the module
+     loads only on Contact.
+   Style-diff pitfall: `style-diff-norm.mjs` appends `/<page>.html`, so a base URL ending in `/` gives `//styles.css`.
+   The server answers that with HTML, and the page renders unstyled. Pass URLs without a trailing slash.
+   Worktree URLs survived the doubled slash, but the server root did not.
+   After the reboot, Safari 4446 was still paired with the killed agent's session. The lock was free, so the guest's
+   `dev.monochromatic.safaridriver` agent was restarted (`launchctl kickstart -k`).
+   Running: Chromium and Safari diffs `wt-a3` against `wt-refactor` (expect 0) and `wt-refactor` against `wt-gold`
+   (expect only the three gold items), outputs in `/home/user/temp/agent/audit-fix/{diff,sdiff}-*.txt`.
+   Queue after them, lead-done, one commit each:
+   1. Safari refused-send check for F19.
+   2. F13.
+   3. F14.
+   4. F6.
+   5. F9.
+   6. F12.
+   7. F18 (optional).
+   Then remove the `wt-a3`, `wt-refactor`, `wt-gold` and `wt-f19` worktrees and update the client checklist `07`.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
