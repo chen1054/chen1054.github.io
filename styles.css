@@ -2248,6 +2248,70 @@
         }
       }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
+      /*
+        Key Insights: both wide designs overlap the two bubbles, Play first and Trust lower and to the end, their text
+        left-aligned at line height 2. Tablet (on its 619 px column): Play 325 px wide at the column start, Trust 333
+        px from 281 px in, 226 px lower; desktop (on 1086 px): 403 and 399 px wide at 83 and 595 px, 115 px apart.
+      */
+      @media(width>=40rem) {
+        & .flex-row:has(>.play-speech-bubble) {
+          --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          --u: calc(100cqw / 619);
+          container-type: inline-size;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr);
+          gap: 0;
+          &>.note {
+            grid-area: 1 / 1;
+            align-self: start;
+            justify-self: start;
+            max-inline-size: none;
+            margin: 0;
+            text-align: start;
+            text-wrap: pretty;
+            &>* {
+              line-height: 2;
+            }
+            &>p {
+              margin-block-start: 0;
+            }
+          }
+          &>.play-speech-bubble {
+            inline-size: calc(325 * var(--u));
+            margin-block-start: calc(52 * var(--u));
+            &>* {
+              margin-inline: 13% 9%;
+            }
+          }
+          &>.trust-speech-bubble {
+            inline-size: calc(333 * var(--u));
+            margin-block-start: calc(312 * var(--u));
+            margin-inline-start: calc(281 * var(--u));
+            &>* {
+              margin-inline: 20% 11%;
+            }
+          }
+          @media(width>=80rem) {
+            --u: calc(100cqw / 1086);
+            &>.play-speech-bubble {
+              inline-size: calc(403 * var(--u));
+              margin-block-start: calc(22 * var(--u));
+              margin-inline-start: calc(83 * var(--u));
+              &>* {
+                margin-inline: 16% 24%;
+              }
+            }
+            &>.trust-speech-bubble {
+              inline-size: calc(399 * var(--u));
+              margin-block-start: calc(167 * var(--u));
+              margin-inline-start: calc(595 * var(--u));
+              &>* {
+                margin-inline: 26% 15%;
+              }
+            }
+          }
+        }
+      }
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
       }
