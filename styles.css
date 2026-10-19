@@ -3698,6 +3698,38 @@
           }
         }
       }
+      /*
+        The tablet design (Tablet/Scotties.pdf, on its 624 px column): the chevron arrows 173 by 58 px at the column
+        start, 42 px under the heading; the cloud 430 px wide straight under them, its text 14 px on a 28 px pitch;
+        the bolt over the cloud's top end; the skate 74 px wide, its foot level with the cloud's, 22 px in from the end.
+      */
+      @media(width>=40rem) and (width<80rem) {
+        .subsection:has(>.scotties-challenge-bubble) {
+          --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          --u: calc(100cqw / 624);
+          container-type: inline-size;
+          &::before {
+            inset-block-start: calc(63 * var(--u));
+            inset-inline-start: calc(9 * var(--u));
+            block-size: calc(58 * var(--u));
+          }
+          &::after {
+            inset-block-end: 0;
+            inset-inline-end: calc(22 * var(--u));
+            inline-size: calc(74 * var(--u));
+          }
+          &>.scotties-challenge-bubble {
+            inline-size: calc(416 * var(--u));
+            max-inline-size: none;
+            margin-block-start: calc(88 * var(--u));
+            margin-inline: calc(112 * var(--u)) 0;
+            &>p {
+              margin-inline: 16% 20%;
+              line-height: 2;
+            }
+          }
+        }
+      }
       .scotties-challenge-bubble {
         position: relative;
         &::before {
@@ -3739,6 +3771,41 @@
         max-inline-size: calc(50% - 2rem / 16);
         aspect-ratio: 319 / 274;
         background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
+      }
+      /*
+        The tablet design's positioning callout, on its 624 px column: the box 397 by 251 px from 101 px in, its
+        copy centred; the skater 193 px wide over its top-left corner; the splat 260 px wide from 358 px in, 97 px
+        below the box (Tablet/Scotties.pdf).
+      */
+      @media(width>=40rem) and (width<80rem) {
+        .subsection:has(>.scotties-positioning-note) {
+          --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          --u: calc(100cqw / 624);
+          container-type: inline-size;
+          margin-block-end: calc(97 * var(--u));
+          &::before {
+            inset-block-end: calc(-97 * var(--u));
+            inset-inline-start: calc(358 * var(--u));
+            inline-size: calc(260 * var(--u));
+            max-inline-size: none;
+          }
+          &>.scotties-positioning-note {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            inline-size: calc(397 * var(--u));
+            max-inline-size: none;
+            min-block-size: calc(251 * var(--u));
+            margin-block-start: calc(107 * var(--u));
+            margin-inline: calc(101 * var(--u)) 0;
+            &::before {
+              inset-block-start: calc(-36 * var(--u));
+              inset-inline-start: calc(-55 * var(--u));
+              inline-size: calc(108 * var(--u));
+            }
+          }
+        }
       }
       .persona-photograph {
         position: relative;
