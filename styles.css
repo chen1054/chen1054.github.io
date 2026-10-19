@@ -3755,6 +3755,40 @@
               margin-block-end: calc(18rem / 16);
             }
           }
+          /*
+            The desktop gaps, from Desktop/MenuMe.png's glyph tops and diagram ink at 1440: 92 from the introduction
+            to the first heading, 64 from a heading to its copy, about 66 from the copy to its diagram, 79 from a
+            diagram to the next heading and 132 from the last diagram to the band.
+          */
+          @media(width>=80rem) {
+            &:nth-of-type(n+2) {
+              margin-block-start: calc(72rem / 16);
+            }
+            &>h4 {
+              margin-block: calc(61rem / 16) calc(31rem / 16);
+            }
+            &>.zoomable-artwork {
+              margin-block-start: calc(38rem / 16);
+            }
+            &:last-child>.zoomable-artwork {
+              margin-block-end: calc(12rem / 16);
+            }
+          }
+        }
+        /*
+          Desktop MenuMe: 149 px from the band to the sitemap heading's glyph top, 94 from the copy to the sitemap
+          and 127 from it to the next heading.
+        */
+        &:where(#menume-information-architecture)>.section-content {
+          @media(width>=80rem) {
+            padding-block-start: calc(148rem / 16);
+            &>.sitemap {
+              margin-block: calc(66rem / 16) 0;
+            }
+            &>.subsection:first-of-type {
+              margin-block-start: calc(125rem / 16);
+            }
+          }
         }
         /*
           From 1024 px, where the row fits our 14 px labels, the sitemap sets each section's pages side by side under
