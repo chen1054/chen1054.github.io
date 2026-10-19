@@ -2942,7 +2942,24 @@
           }
         }
       }
-
+      /*
+        Desktop MenuMe: 227 px from the band's glyph top to the first heading's, the token list run on as above, the
+        devices 89 under the delivery list's last glyph top, and 120 from the buttons to the next band.
+      */
+      @media(width>=80rem) {
+        & #menume-design-system>.section-content {
+          padding-block-start: calc(132rem / 16);
+          &>p:has(+ ul) {
+            margin-block-end: 0;
+          }
+          &>p + ul {
+            margin-block-start: 0;
+          }
+          & .device-showcase {
+            margin-block: calc(62rem / 16) 0;
+          }
+        }
+      }
       /* The phone and tablet designs stack the two prototype buttons, 13 px apart; the desktop sets them in a row. */
       @container(width<64rem) {
         & .content>header>.project-summary>.flex-row {
