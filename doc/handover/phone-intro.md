@@ -1886,3 +1886,11 @@ trail, 05 character cards, 06 Patchy, 07 OPH mockups, 08 ecosystem map, 09 ad mo
 chevrons. For the client note: the phone design's character cards read "Ages 9-10" and "Ages 11-12" against the
 page's tiers 6-8 and 9-12 (ours keep the tiers). Tales' tablet column is about 619 in Tablet/Tales.pdf against our
 594 (for the tablet walk).
+Tales walk, continued: `b16f937` miss 03 (pillar icons at the designs' 0.73 and 1.0 scales, copy left, phone gaps)
+plus the Tales body at line height 2 (phones 30 px, as every Tales frame; tablet and desktop unchanged).
+`99fc8bf` miss 06 (Patchy 249 to 376 px of canvas). `5826b5c` misses 07 and 09 (each composite cut into one PNG per
+device, stacked on phones, side by side wider). Queued with the tablet walks (found while doing these): all three
+desktop designs start body text at 230 px (text blocks 230 to about 1210, a 980 px measure) while wide art spans
+about 174 to 1266; our one column is 1086 (177 to 1263), so desktop paragraphs wrap wider than drawn on every
+study. Tablet text starts: Tales 64, MenuMe 70, Scotties 61 to 66 (ours 75, 75, 60). Decide one text measure per
+study and width before touching it; it changes every paragraph's wrap.
