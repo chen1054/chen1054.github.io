@@ -4628,6 +4628,29 @@
           }
         }
       }
+      /*
+        The tablet design stacks the two learnings, the first box 416 px from 24 px into its 624 px column, the second
+        396 px from 227 px, the boxes 205 px apart under the second badge (Tablet/Scotties.pdf); the desktop sets them
+        side by side.
+      */
+      @media(width>=40rem) and (width<64rem) {
+        :where(#scotties-reflection) .flex-row:has(>.note) {
+          flex-direction: column;
+          align-items: start;
+          row-gap: calc(93rem / 16);
+          &>.note {
+            flex: none;
+            &:nth-child(1) {
+              inline-size: calc(100% * 416 / 624);
+              margin-inline-start: calc(100% * 24 / 624);
+            }
+            &:nth-child(2) {
+              inline-size: calc(100% * 396 / 624);
+              margin-inline-start: calc(100% * 227 / 624);
+            }
+          }
+        }
+      }
       :where(#scotties-reflection) .note {
         --scotties-badge-size: calc(120rem / 16 + 44 * var(--home-wide-reference-growth));
         position: relative;
