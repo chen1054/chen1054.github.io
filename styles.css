@@ -3361,45 +3361,262 @@
           --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
         }
         /*
-          Tablet design: each lo-fi page's callouts stack in one column beside the screen (the product listing's in
-          the order categories, grid, filters). The desktop design takes over at 1092 px, midway from 744 to 1440.
+          The tablet and desktop designs' lo-fi pages, in each design's proportions (624 or 1085 to 1089 px wide, scaled
+          to the column): the screen beside its callouts, each callout as tall as the design's box with its text
+          centred, and tied to its part of the screen by a 3 px connector ending in an arrowhead. A connector is a
+          mask on its callout: a straight one (`--x`, `--y`, `--w`), mirrored with `scale` when it runs right, or an
+          elbow with its own layers. Lengths are the designs' pixels (Tablet and Desktop/Scotties.pdf).
         */
-        @media(40rem<=width<68.25rem) {
+        @media(width>=40rem) {
           & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
+            /* Being a container would make the type growth measure this row; keep measuring the page. */
+            --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            container-type: inline-size;
             display: grid;
-            grid-template-columns: minmax(0, 240fr) minmax(0, 285fr);
-            align-items: center;
+            gap: 0;
+            &>* {
+              align-self: start;
+              justify-self: start;
+              margin: 0;
+            }
+            &>figure {
+              justify-self: stretch;
+              inline-size: auto;
+              max-inline-size: none;
+            }
             &>.note {
-              grid-column: 1;
-            }
-            &>figure {
-              grid-area: 1 / 2 / span 3;
+              --x: 0;
+              --y: 0;
+              --w: 0;
+              /* Above the screen, which the desktop filters connector crosses. */
+              position: relative;
+              z-index: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              box-sizing: border-box;
+              inline-size: calc(var(--box) * var(--u));
+              min-block-size: calc(var(--h) * var(--u));
+              /* The designs' text insets are from the box's outer edge, so the 4 px border comes off them. */
+              padding-block: calc(20 * var(--u));
+              padding-inline: calc(var(--ps) * var(--u) - 4rem / 16) calc(var(--pe) * var(--u) - 4rem / 16);
+              &>p {
+                margin-block: 0;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                inset-block-start: calc(var(--y) * var(--u));
+                inset-inline-start: calc(var(--x) * var(--u));
+                inline-size: calc(var(--w) * var(--u));
+                block-size: calc(17.4 * var(--u));
+                background-color: var(--tint);
+                mask:
+                  url("assets/scotties-connector-arrowhead-left.svg") 0 50% / calc(15 * var(--u)) calc(17.4 * var(--u))
+                  no-repeat,
+                  linear-gradient(#000 0 0) 100% 50% / calc(100% - 13.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+                pointer-events: none;
+              }
             }
           }
-          & .subsection:nth-child(4)>.flex-row>.note:last-child {
-            grid-row: 2;
+          /* Runs right, from the callout's end into the screen. */
+          & .subsection:nth-child(4)>.flex-row>.note:is(:first-child, :last-child)::after {
+            inset-inline-start: calc(100% - 6 * var(--u));
+            scale: -1 1;
           }
+          /* The homepage's orange connector: from the screen's navigation, down the gap, into the callout. */
+          & .subsection:nth-child(3)>.flex-row>.note:last-child {
+            --tint: var(--color-case-study-heading);
+            &::after {
+              inset-inline-start: calc(100% - 7 * var(--u));
+              inset-block-start: calc(-247.5 * var(--u));
+              inline-size: calc(101 * var(--u));
+              block-size: calc(301.2 * var(--u));
+              mask:
+                url("assets/scotties-connector-arrowhead-left.svg") 0 100% / calc(15 * var(--u)) calc(17.4 * var(--u))
+                no-repeat,
+                linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(100% - 7.2 * var(--u)) /
+                calc(21 * var(--u)) calc(3 * var(--u)) no-repeat,
+                linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(3 * var(--u)) calc(100% - 8.7 * var(--u))
+                no-repeat,
+                linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(100% - 31.5 * var(--u)) calc(3 * var(--u))
+                no-repeat;
+            }
+          }
+          /* The listing's filters connector: from the callout's end, up the gap, into the filters. */
           & .subsection:nth-child(4)>.flex-row>.note:nth-child(2) {
-            grid-row: 3;
+            --tint: var(--color-case-study-heading);
+            &::after {
+              inset-inline-start: calc(100% - 6.5 * var(--u));
+              inset-block-start: calc(-208.7 * var(--u));
+              inline-size: calc(67.5 * var(--u));
+              block-size: calc(288.6 * var(--u));
+              scale: -1 1;
+              mask:
+                url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(15 * var(--u)) calc(17.4 * var(--u))
+                no-repeat,
+                linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(7.2 * var(--u)) /
+                calc(21 * var(--u)) calc(3 * var(--u)) no-repeat,
+                linear-gradient(#000 0 0) calc(31.5 * var(--u)) calc(7.2 * var(--u)) /
+                calc(3 * var(--u)) calc(100% - 7.2 * var(--u)) no-repeat,
+                linear-gradient(#000 0 0) 100% 100% / calc(100% - 31.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+            }
           }
-        }
-        /* Desktop design: the product listing's two filter callouts stack beside the screen, the grid one opposite. */
-        @media(width>=68.25rem) {
-          & .subsection:nth-child(4)>.flex-row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            align-items: center;
+          & .subsection:nth-child(3)>.flex-row {
+            --u: calc(100cqw / 624);
+            grid-template-columns: minmax(0, 265fr) minmax(0, 46fr) minmax(0, 288fr) minmax(0, 25fr);
             &>figure {
-              grid-area: 1 / 2 / 3;
+              grid-area: 1 / 3 / 3;
             }
             &>.note:first-child {
-              align-self: end;
-            }
-            &>.note:nth-child(2) {
-              align-self: start;
+              --box: 253;
+              --h: 214;
+              --ps: 26;
+              --pe: 10;
+              grid-area: 1 / 1;
+              margin-block-start: calc(1 * var(--u));
+              margin-inline-start: calc(6 * var(--u));
+              /* Outranks the intro cloud's own padding, set for the stacked phone layout. */
+              padding-block: calc(20 * var(--u));
+              padding-inline: calc(var(--ps) * var(--u) - 4rem / 16) calc(var(--pe) * var(--u) - 4rem / 16);
             }
             &>.note:last-child {
-              grid-area: 1 / 3 / 3;
+              --box: 265;
+              --h: 199;
+              --ps: 23;
+              --pe: 21;
+              grid-area: 2 / 1;
+              margin-block-start: calc(45 * var(--u));
+            }
+          }
+          & .subsection:nth-child(4)>.flex-row {
+            --u: calc(100cqw / 624);
+            grid-template-columns: minmax(0, 249fr) minmax(0, 63fr) minmax(0, 288fr) minmax(0, 24fr);
+            &>figure {
+              grid-area: 1 / 3 / 4;
+            }
+            &>.note:first-child {
+              --box: 217;
+              --h: 114;
+              --ps: 22;
+              --pe: 0;
+              --y: 49.3;
+              --w: 95;
+              --tint: var(--color-case-study-subheading);
+              grid-area: 1 / 1;
+              margin-block-start: calc(5 * var(--u));
+            }
+            &>.note:last-child {
+              --box: 249;
+              --h: 160;
+              --ps: 25;
+              --pe: 26;
+              --y: 72.8;
+              --w: 139.7;
+              --tint: var(--color-case-study-accent);
+              grid-area: 2 / 1;
+              margin-block-start: calc(23 * var(--u));
+            }
+            &>.note:nth-child(2) {
+              --box: 248;
+              --h: 151;
+              --ps: 30;
+              --pe: 17;
+              grid-area: 3 / 1;
+              margin-block-start: calc(21 * var(--u));
+            }
+          }
+          /* The desktop design: the homepage's intro left and navigation callout right; the listing's grid callout right. */
+          @media(width>=68.25rem) {
+            & .subsection:nth-child(3)>.flex-row {
+              --u: calc(100cqw / 1085);
+              grid-template-columns:
+                minmax(0, 355fr) minmax(0, 40fr) minmax(0, 288fr) minmax(0, 76fr) minmax(0, 326fr);
+              &>.note:first-child {
+                --box: 355;
+                --h: 241;
+                --ps: 49;
+                --pe: 39;
+                margin-block-start: calc(47 * var(--u));
+                margin-inline-start: 0;
+              }
+              &>.note:last-child {
+                --box: 326;
+                --h: 251;
+                --ps: 43;
+                --pe: 22;
+                grid-area: 1 / 5;
+                margin-block-start: calc(133 * var(--u));
+                &::after {
+                  inset-inline-start: calc(-172.6 * var(--u));
+                  inset-block-start: calc(-135.4 * var(--u));
+                  inline-size: calc(177.3 * var(--u));
+                  block-size: calc(224.1 * var(--u));
+                  mask:
+                    url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(12.8 * var(--u)) calc(22.4 * var(--u))
+                    no-repeat,
+                    linear-gradient(#000 0 0) calc(11 * var(--u)) calc(9.7 * var(--u)) /
+                    calc(110.5 * var(--u)) calc(3 * var(--u)) no-repeat,
+                    linear-gradient(#000 0 0) calc(118.5 * var(--u)) calc(11.2 * var(--u)) /
+                    calc(3 * var(--u)) calc(100% - 11.2 * var(--u)) no-repeat,
+                    linear-gradient(#000 0 0) 100% 100% / calc(100% - 118.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+                }
+              }
+            }
+            & .subsection:nth-child(4)>.flex-row {
+              --u: calc(100cqw / 1089);
+              grid-template-columns:
+                minmax(0, 335fr) minmax(0, 67fr) minmax(0, 288fr) minmax(0, 97fr) minmax(0, 274fr) minmax(0, 28fr);
+              &>figure {
+                grid-area: 1 / 3 / 3;
+              }
+              &>.note:first-child {
+                --box: 301;
+                --h: 160;
+                --ps: 56;
+                --pe: 47;
+                --y: 51.8;
+                --w: 108;
+                margin-block: calc(-4 * var(--u)) calc(42 * var(--u));
+              }
+              &>.note:nth-child(2) {
+                --box: 283;
+                --h: 199;
+                --ps: 34;
+                --pe: 29;
+                grid-area: 2 / 1;
+                margin-block-start: 0;
+                margin-inline-start: calc(52 * var(--u));
+                &::after {
+                  inset-inline-start: calc(100% - 5 * var(--u));
+                  inset-block-start: calc(-61 * var(--u));
+                  inline-size: calc(111.7 * var(--u));
+                  block-size: calc(129.7 * var(--u));
+                  scale: none;
+                  mask:
+                    url("assets/scotties-connector-arrowhead-orange-up.svg") calc(94.3 * var(--u)) 0 /
+                    calc(17.4 * var(--u)) calc(15 * var(--u)) no-repeat,
+                    linear-gradient(#000 0 0) calc(101.5 * var(--u)) calc(13.5 * var(--u)) /
+                    calc(3 * var(--u)) calc(100% - 13.5 * var(--u)) no-repeat,
+                    linear-gradient(#000 0 0) 0 100% / calc(104.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+                }
+              }
+              /* Right of the screen, so its connector runs left again. */
+              &>.note:last-child {
+                --box: 274;
+                --h: 238;
+                --ps: 35;
+                --pe: 35;
+                --x: -98;
+                --y: 122;
+                --w: 103.2;
+                grid-area: 1 / 5 / 3;
+                margin-block-start: calc(14 * var(--u));
+                &::after {
+                  inset-inline-start: calc(var(--x) * var(--u));
+                  scale: none;
+                }
+              }
             }
           }
         }
