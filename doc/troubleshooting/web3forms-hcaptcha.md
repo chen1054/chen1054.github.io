@@ -75,8 +75,11 @@ The CSP admits the provider loader and hCaptcha script, frame, style, and connec
 documented in the [hCaptcha developer guide][hcaptcha-guide].
 Other pages retain their local-only resource policy.
 
-`contact-form-captcha-validation.mjs:1` reads `h-captcha-response` from the submitted form.
+`contact-form-captcha-validation.mjs` reads `h-captcha-response` from the submitted form.
 It prevents an empty response from navigating to the provider error page.
+Instead of a blocking `alert()` (the pattern in Web3Forms' own example), it inserts a `role="alert"` reminder
+above the captcha, replacing it on each refused send so screen readers announce it again.
+The provider's `script.js` only loads hCaptcha and does not block an unsolved submit itself (read 2026-10-19).
 Web3Forms still validates the response server-side.
 This adds a human challenge and external form resources,
 both approved by the user.
