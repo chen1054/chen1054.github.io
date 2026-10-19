@@ -540,6 +540,10 @@ Queue, in order:
    Regression helper: `/home/user/temp/agent/xinyanchen-build/regress.mjs` compares a throwaway worktree of the previous
    commit (port 4191) with the working tree (4174) frame by frame; serve the old side with no-store too, since Chromium
    can cache `styles.css` from plain `python -m http.server`.
+   Running (2026-10-18): `gaps` agent prototyping options for the 414 to 639 gaps and wave drift (fluid space,
+   bounded artwork), brief `/home/user/temp/agent/xinyanchen-build/briefs/phone-gaps.md`; its screenshots go to the
+   user as a decision. In progress by the lead: case-study type sizes to Figma's at 390, 744 and 1440, with the
+   same interpolation (Figma data in `/home/user/temp/agent/fig-parse/texts.json`).
    Real touch on the Simulator works through `idb` (Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md`).
 3. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request and inferred ask to commits; fill its "in progress" lines as the agents land.
