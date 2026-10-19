@@ -26,6 +26,11 @@
   /* One reference pixel of growth between the supplied 390px and 744px layouts, so type moves smoothly across 40rem. */
   --phone-tablet-reference-growth: clamp(0rem, calc((100vw - 390rem / 16) / 354), calc(1rem / 16));
   --home-wide-reference-growth: 0rem;
+  /*
+    How far the phone artwork has outgrown its 390px drawing: 0 at 390, 0.91 reference pixels per drawn pixel at 744.
+    A length that holds art against art adds its drawn size times this.
+  */
+  --phone-art-growth: calc(var(--phone-tablet-reference-growth) * 354 / 390);
   --color-page-background: #fff;
   --color-portfolio-purple: #685587;
   --color-body-text-purple: #463267;
@@ -43,7 +48,8 @@ body {
 main {
   position: relative;
   margin-inline: auto;
-  padding-block-start: calc(169rem / 16);
+  /* The heading keeps its distance below the top corner artwork, which is drawn 120 pixels tall. */
+  padding-block-start: calc(169rem / 16 + 120 * var(--phone-art-growth));
   color: var(--color-body-text-purple);
   text-align: center;
 }
@@ -145,7 +151,7 @@ p {
 /* The client's Phone Home brings the hero and river 28 to 86 pixels higher, so the river shows without scrolling. */
 .portfolio-home-page>main {
   @media(width<40rem) {
-    padding-block-start: calc(141rem / 16);
+    padding-block-start: calc(141rem / 16 + 120 * var(--phone-art-growth));
     &>.home-introduction-about-page-link {
       margin-block-start: calc(40rem / 16);
     }
@@ -301,7 +307,7 @@ p {
   }
 }
 .home-introduction-bottom-wave-composition {
-  margin-block-start: -3rem;
+  margin-block-start: calc(-48rem / 16 - 48 * var(--phone-art-growth));
 }
 @property --home-introduction-river-fade-progress {
   syntax: "<number>";
@@ -427,7 +433,7 @@ p {
       margin-block-start: calc(27rem / 16);
     }
     &>.home-page-project-side-and-bottom-wave-composition {
-      margin-block-start: calc(-312rem / 16);
+      margin-block-start: calc(-312rem / 16 - 312 * var(--phone-art-growth));
     }
   }
   &:where(#scotties-skating-and-skiing-shop-project) {
@@ -436,7 +442,7 @@ p {
     --home-wide-illustration-width-growth: 231;
     margin-block-start: calc(-12rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
-      margin-block-start: calc(-75rem / 16);
+      margin-block-start: calc(-75rem / 16 - 75 * var(--phone-art-growth));
     }
   }
   &:where(#matcha-delight-japanese-bakery-project) {
@@ -446,7 +452,7 @@ p {
     --home-wide-illustration-width-growth: 221;
     margin-block-start: calc(49rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
-      margin-block-start: calc(-167rem / 16);
+      margin-block-start: calc(-167rem / 16 - 167 * var(--phone-art-growth));
     }
   }
   &:where(#echoes-of-tradition-surrealist-poster-project) {
@@ -458,7 +464,7 @@ p {
       margin-block-start: calc(17rem / 16);
     }
     &>.home-page-project-side-and-bottom-wave-composition {
-      margin-block-start: calc(-36rem / 16);
+      margin-block-start: calc(-36rem / 16 - 36 * var(--phone-art-growth));
     }
   }
   &:where(#youth-in-limbo-photography-project) {
@@ -467,7 +473,7 @@ p {
     --home-wide-illustration-width-growth: 189;
     margin-block-start: calc(43rem / 16);
     &>.home-page-project-side-and-bottom-wave-composition {
-      margin-block-start: calc(-373rem / 16);
+      margin-block-start: calc(-373rem / 16 - 373 * var(--phone-art-growth));
     }
   }
 }
@@ -475,6 +481,11 @@ p {
   display: block;
   inline-size: 100%;
   block-size: auto;
+  @media(width<40rem) {
+    /* The project artwork stops growing at the largest phone width; the waves keep following the viewport. */
+    max-inline-size: calc(440rem / 16);
+    margin-inline: auto;
+  }
   &>img {
     aspect-ratio: var(--home-phone-illustration-aspect-ratio);
     display: block;
@@ -490,7 +501,7 @@ p {
   margin-block-start: calc(27rem / 16);
 }
 .home-page-project-side-and-bottom-wave-composition {
-  margin-block-start: calc(-249rem / 16);
+  margin-block-start: calc(-249rem / 16 - 249 * var(--phone-art-growth));
 }
 .portfolio-page-thank-you-and-copyright-footer {
   margin-block-start: calc(86rem / 16);
@@ -511,7 +522,7 @@ p {
   }
 }
 .home-page-footer-bottom-wave-composition {
-  margin-block-start: calc(-65rem / 16);
+  margin-block-start: calc(-65rem / 16 - 65 * var(--phone-art-growth));
 }
 
 .about-page-content {
@@ -526,7 +537,7 @@ p {
   margin-block-start: calc(19rem / 16);
   margin-inline: auto;
   &>.about-page-garden-portrait {
-    inset-block-start: calc(45rem / 16);
+    inset-block-start: calc(45rem / 16 + 45 * var(--phone-art-growth));
     inset-inline-end: 0;
     inline-size: 61%;
     margin-inline: auto;
@@ -611,7 +622,7 @@ p {
   margin-block-start: calc(90rem / 16);
 }
 .about-page-footer-bottom-wave-composition {
-  margin-block-start: calc(-60rem / 16);
+  margin-block-start: calc(-60rem / 16 - 60 * var(--phone-art-growth));
 }
 .contact-page-content {
   font-family: "Playfair Display", serif;
@@ -731,7 +742,7 @@ p {
   cursor: pointer;
 }
 .contact-page-footer-bottom-wave-composition {
-  margin-block-start: calc(-72rem / 16);
+  margin-block-start: calc(-72rem / 16 - 72 * var(--phone-art-growth));
 }
 @font-face {
   font-family: "Playfair Display";
@@ -1377,8 +1388,14 @@ p {
   }
   &>.portfolio-page-thank-you-and-copyright-footer {
     margin-block-start: calc(110rem / 16);
-    &>.home-page-footer-bottom-wave-composition>picture>img {
-      filter: brightness(0) invert(calc(217 / 255));
+    &>.home-page-footer-bottom-wave-composition {
+      /* The case studies keep their footer wave where it was; only Home, About and Contact track the phone art. */
+      @media(width<40rem) {
+        margin-block-start: calc(-65rem / 16);
+      }
+      &>picture>img {
+        filter: brightness(0) invert(calc(217 / 255));
+      }
     }
   }
   &[data-case-study="menume"] {
