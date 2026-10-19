@@ -727,12 +727,18 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
      the Home and About wide footer. The two `.case-study` blocks stay split by concern.
    - F18 declined: it changes DOM structure that the CSS selects on, for no visible gain.
    - `07` gained a line for the later fixes. `05` gained the on-page captcha reminder in both languages.
-   Still running: Chromium diffs for the HTML commits (`wt-gold` against `wt-html`, expect 0), F9 (`wt-f6` against
-   `wt-f9`, expect 0) and F12 (`wt-f9` against `wt-f12` on Home, About and Contact, expect 0). Also running: the
-   Safari gold diff, the cumulative Safari diff `wt-gold` against `wt-f12` (expect only F6's pseudos) and the Safari
-   F19 check (`/home/user/temp/agent/f19/safari-f19.mjs`).
-   Once they come back, remove the `wt-a3`, `wt-refactor`, `wt-gold`, `wt-f19`, `wt-html`, `wt-f6`, `wt-f9` and
-   `wt-f12` worktrees.
+   Every check came back as expected (2026-10-19):
+   - Chromium: the HTML commits, F9 and F12 each show 0 differences.
+   - Safari gold: 132 differences, all the intended gold step.
+   - Safari cumulative `wt-gold` against `wt-f12`: 16 differences, all on the two even Scotties band pseudos that F6
+     changes, matching Chromium.
+   - Safari F19 at 390 and 1440: one `role="alert"` reminder after two refused sends, centred and end-aligned, no
+     navigation. Screenshots are in `/home/user/temp/agent/f19/safari/`.
+   All temporary worktrees were removed; `wt-f19` matched `1a361d5` first. The live site serves the new script and
+   styles, and `doc/` still answers 404.
+   Audit status: F1 to F7, F9, F11, F12, F14, F17, F19 and F20 are fixed; F13 and F18 are declined with reasons. F10 is
+   the README breakpoint list, now current. F15 (3.7 KB of hidden images) and F16 (no font preload; maximum layout
+   shift 0.0096) stay optional and undone. Next: the client reply, on the user's go.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
