@@ -535,11 +535,12 @@ Queue, in order (updated 2026-10-18 21:45):
    (nav and footer in Playfair Regular, 1 s animation steps, Home's wide footer like About's, About footer gap, phone
    hamburger and Home hero) `b85e0e0`, scope confirmed by the user. Each checked in Chromium, real Safari at 1920,
    and the iPhone 15 Simulator.
-2. Running: the `gaps` agent (agent id `a153be796d6f751fd`, brief
-   `/home/user/temp/agent/xinyanchen-build/briefs/phone-gaps.md`, worktrees `/home/user/temp/agent/wt-gaps/*`, unit
-   `xinyanchen-gaps`) prototypes options for the 414 to 639 voids and wave drift (fluid space, bounded artwork). It was
-   told to rebase onto `8fc0987`, since the Home phone hero moved. Its screenshots go to the user as a decision through
-   the question tool; the user rejected uniform scaling (text reached 26 px).
+2. Decided 2026-10-18 by the user: option 3 (hybrid) for the 414 to 639 range. Waves keep their distance from the
+   text through a phone growth term (`--phone-art-growth`, 0 at 390) on the art-against-art lengths only, and project
+   illustrations stop growing at 440 wide. Known costs the user accepted: wave tops rise into the illustration area at
+   639, and iPhone 15 (393) shifts by up to 3 px. Patch `/home/user/temp/agent/xinyanchen-build/patch-gaps-3.diff`
+   (built on `8fc0987`, old class names), evidence in `/home/user/temp/agent/xinyanchen-build/gaps-work/` (contact
+   sheets at 639; columns current, 1, 2, 2b, 3). Port it by hand onto the layered stylesheet after the refactor lands.
 3. In progress: the nesting refactor (user preference, 2026-10-18: use CSS nesting wherever it helps; the user's
    example was `.case-study { & .subheading { ... } }` instead of `.case-study-subheading`, and native nesting cannot
    splice `&-subheading`, so HTML class names get shorter). The user rejected keeping order by selector weight
