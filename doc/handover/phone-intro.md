@@ -2052,5 +2052,14 @@ straight under its parent on a vertical line (Recipes plan and Delivery too, whe
 elbows), levels about 70 px apart, wider padded boxes, Profile and Settings to the right under Profile & Settings.
 Ours at 1440 is 860 x 274, so the page below runs 114 px early. The CSS is shared with Scotties' sitemap; check
 Desktop/Scotties.pdf's sitemap before restructuring. Labels stay ours (the raster's are FigJam's small sans).
-Next: continue MenuMe from the Usability band (its intro sits 19 px low and 97 px too far above the first flow
-heading) down, then Tales and Scotties, with `line-diff.py` per section; then the sitemap tree; then the client note.
+MenuMe desktop, Usability to the end, landed: `a16d9ff` usability flows (the design's six connectors exported
+to `assets/menume-usability-desktop-*.svg`; every note line breaks as drawn), `c26a8eb` usability introduction
+gaps, `77bcfa3` lists on the full 980 px (all pages; MenuMe's Loch Blue line), `96b0e8d` design-system section
+gaps, `f28d90b` contribution cards two by two (`<wbr>` after "Onboarding/"), `d344c9e` key learnings and the
+closing quote. At 1440 every MenuMe line from the hero to the quote now breaks as drawn except the End-to-End list
+(the design hangs it about 55 px left of the text column, 1008 px wide; ours stays on the column) and sits on the
+design's spacing; below the sitemap the page runs 114 to 142 px early (the sitemap's missing height). The footer
+runs 138 px longer (the client's back-to-top). Safari Technology Preview at 1423 layout px reproduces the new
+layouts in proportion. Tools: `f20/desk/sweep.js` finds the text widths where an element's lines start as drawn.
+Next: Tales desktop walk, then Scotties, with `line-diff.py` per section; then the sitemap tree; then the client
+note.
