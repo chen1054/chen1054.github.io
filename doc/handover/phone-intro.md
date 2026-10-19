@@ -1735,3 +1735,11 @@ contributions alternating sides, device screens stacked each with its own button
 hero blob grey `#D8D8D7` (ours `#EBE4D9`, reported by both MenuMe and Scotties walks) and bold info labels.
 Low: focus-group bubbles, list markers. Order of work: high misses first, page by page, each verified against its
 pair image before changing anything.
+Phone-layout fixes landed (each checked at 390 in Chromium against the phone design crop; wide unchanged):
+`8214ca7` MenuMe personas (Chromium style diff: 744, 1440, 1920 differ only by content-less `::before` boxes that
+draw nothing; iOS 17.0.1 Simulator renders it as designed), `e098f71` Scotties closing links Mobile over Desktop on
+all widths (all three designs), `1e1bceb` Scotties phone hi-fi callouts and connectors (grid plus subgrid; geometry
+from `Phone/Scotties.pdf` via PyMuPDF `get_drawings`). Wide layouts still lack the hi-fi and lo-fi connectors.
+Found while doing it: Figma sets the Scotties hi-fi note text Bold 16 on Desktop but Medium 14 on Tablet and Phone,
+and ours is bold everywhere. A weight audit of every Figma text node per frame against our computed weight is
+running (Sonnet agent, output `/home/user/temp/agent/f20/weights/report.md`).
