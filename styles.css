@@ -252,8 +252,8 @@
       The content box is exactly the pill, so the trimmed label centers on it.
       Pages set the inputs (colours, phone width, wide growth per reference pixel); this rule computes the size.
     */
-    --pill-color: var(--color-portfolio-purple);
-    --pill-hover-color: var(--color-river-gold);
+    --pill-color: var(--color-heading-and-case-study-gold);
+    --pill-hover-color: var(--color-portfolio-purple);
     --pill-phone-inline-size: calc(136rem / 16);
     --pill-wide-inline-growth: 86;
     --pill-wide-block-growth: 20;
@@ -420,6 +420,9 @@
       }
     }
     & .about-link {
+      /* The one purple pill; the client asked for it to hover to the river gold. */
+      --pill-color: var(--color-portfolio-purple);
+      --pill-hover-color: var(--color-river-gold);
       margin-block-start: calc(40rem / 16);
       @media(width>=40rem) {
         margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
@@ -557,8 +560,6 @@
           }
         }
         &>.pill {
-          --pill-color: var(--color-heading-and-case-study-gold);
-          --pill-hover-color: var(--color-portfolio-purple);
           --pill-phone-inline-size: calc(153rem / 16);
           --pill-wide-inline-growth: 120;
           --pill-wide-block-growth: 29;
@@ -691,15 +692,8 @@
         }
       }
     }
-    /* Home's wide footer is drawn like About's (client's Desktop Home, 2026-10-18). */
     & .footer-wave {
       margin-block-start: calc(-65rem / 16 - 65 * var(--phone-art-growth));
-      @media(width>=40rem) {
-        margin-block-start: calc(-67rem / 16 - 64 * var(--home-wide-reference-growth));
-        &>picture>img {
-          block-size: calc(186rem / 16 + 174 * var(--home-wide-reference-growth));
-        }
-      }
     }
   }
   .about {
@@ -769,8 +763,6 @@
       }
     }
     & .pill {
-      --pill-color: var(--color-heading-and-case-study-gold);
-      --pill-hover-color: var(--color-portfolio-purple);
       --pill-wide-inline-growth: 197;
       --pill-wide-block-growth: 29;
       inset-inline-start: 0;
@@ -860,11 +852,14 @@
     }
     & .footer-wave {
       margin-block-start: calc(-60rem / 16 - 60 * var(--phone-art-growth));
-      @media(width>=40rem) {
-        margin-block-start: calc(-67rem / 16 - 64 * var(--home-wide-reference-growth));
-        &>picture>img {
-          block-size: calc(186rem / 16 + 174 * var(--home-wide-reference-growth));
-        }
+    }
+  }
+  /* Home's wide footer is drawn like About's (client's Desktop Home, 2026-10-18). */
+  :is(.home, .about) .footer-wave {
+    @media(width>=40rem) {
+      margin-block-start: calc(-67rem / 16 - 64 * var(--home-wide-reference-growth));
+      &>picture>img {
+        block-size: calc(186rem / 16 + 174 * var(--home-wide-reference-growth));
       }
     }
   }
@@ -1036,8 +1031,6 @@
       }
     }
     & .pill {
-      --pill-color: var(--color-heading-and-case-study-gold);
-      --pill-hover-color: var(--color-portfolio-purple);
       --pill-wide-inline-growth: 74;
       --pill-wide-block-growth: 29;
       margin-block-start: calc(17rem / 16);
