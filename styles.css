@@ -2465,22 +2465,29 @@
               margin-inline: 20% 11%;
             }
           }
+          /*
+            Desktop Tales: the bubbles' outlines 80 and 209 px under the heading's glyph top, their titles 90 and 111
+            px under the outlines, the copy on 254 and 247 px measures (it wraps as drawn from 241 to 267.5 and
+            236.5 to 256.5 px), and the next band 141 px under the second.
+          */
           @media(width>=80rem) {
             --u: calc(100cqw / 1086);
             &>.play-speech-bubble {
               inline-size: calc(403 * var(--u));
-              margin-block-start: calc(22 * var(--u));
+              margin-block-start: calc(17 * var(--u));
               margin-inline-start: calc(83 * var(--u));
+              padding-block-end: calc(20 * var(--u));
               &>* {
-                margin-inline: 16% 24%;
+                margin-inline: 16% 21%;
               }
             }
             &>.trust-speech-bubble {
               inline-size: calc(399 * var(--u));
-              margin-block-start: calc(167 * var(--u));
+              margin-block: calc(146 * var(--u)) calc(21 * var(--u));
               margin-inline-start: calc(595 * var(--u));
+              padding-block-start: calc(6 * var(--u));
               &>* {
-                margin-inline: 26% 15%;
+                margin-inline: 26% 12%;
               }
             }
           }
