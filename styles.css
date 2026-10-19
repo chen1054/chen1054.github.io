@@ -1109,6 +1109,10 @@
       --case-study-preview-aspect-ratio: 281 / 199;
       --summary-subtitle-tablet: 396;
       --summary-facts-tablet: 484;
+      /* The phone and tablet designs draw the hero art 278 px wide. */
+      &>.content .project-introduction>.project-preview {
+        max-inline-size: calc(280rem / 16 + 158 * var(--home-wide-reference-growth));
+      }
       --color-case-study-prototype-text: var(--color-case-study-heading);
       --case-study-prototype-hover-chroma: 0.079444;
       --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
