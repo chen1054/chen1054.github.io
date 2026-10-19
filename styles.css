@@ -3108,8 +3108,9 @@
             title) and the two-line framework label between them, the label 35 px under the bulb and the titles 84 px
             under its top, and 81 px from the drips to the next band. Each box's copy starts 25 px in and 16 px down, at line height 2, over a 34 px drip, and
             wraps at the drawn breaks (186.5 px fits the first box's 183.5 to 189.6 px window in our face).
+            Desktop MenuMe keeps the arrangement on its 1086 px column with its own numbers (in `@media(width>=80rem)`).
           */
-          @media(width>=40rem) and (width<80rem) {
+          @media(width>=40rem) {
             &>.subsection:has(>.small-illustration img[src*="dual-loop"]) {
               --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
               --u: calc(100cqw / 614);
@@ -3171,6 +3172,46 @@
                     margin-block: 0;
                     padding-block: calc(16 * var(--u)) calc(19 * var(--u));
                     padding-inline: calc(25 * var(--u)) calc(13.5 * var(--u));
+                  }
+                }
+              }
+              /*
+                Desktop/MenuMe.pdf: a 301 and a 358 px box from 106 and 677 px into the column, each titled on one
+                line 3 px in from its edge, the bulb (exported from this design, 216 px) 495 px in, its 18 px label
+                at line height 2 centred 534 px in (under the bulb, not its squiggle), and 121 px from the drips to the
+                next band.
+              */
+              @media(width>=80rem) {
+                --u: calc(100cqw / 1086);
+                &>.small-illustration {
+                  inline-size: calc(216 * var(--u));
+                  margin-inline: calc(495 * var(--u)) auto;
+                }
+                &>h3:nth-of-type(2) {
+                  inline-size: calc(216 * var(--u));
+                  margin-block-start: calc(28 * var(--u));
+                  margin-inline-start: calc(426 * var(--u));
+                  font-size: calc(18 * var(--u));
+                }
+                &>.flex-row:last-child {
+                  grid-template-columns: calc(301 * var(--u)) 1fr calc(358 * var(--u));
+                  margin-block: calc(-134 * var(--u)) calc(11 * var(--u));
+                  margin-inline: calc(106 * var(--u)) calc(51 * var(--u));
+                  &>aside {
+                    --menume-drip: calc(45 * var(--u));
+                    &>h4 {
+                      margin-block-end: calc(9 * var(--u));
+                      padding-inline-start: calc(3 * var(--u));
+                      font-size: calc(18 * var(--u));
+                      text-align: start;
+                      &>span {
+                        display: inline;
+                      }
+                    }
+                    &>p {
+                      padding-block: calc(15 * var(--u)) calc(24 * var(--u));
+                      padding-inline: calc(30 * var(--u));
+                    }
                   }
                 }
               }
