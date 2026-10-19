@@ -1909,3 +1909,11 @@ own (text fragments between "Main Characters" and "Guardian: Patchy" do not scro
 did not scroll it, so the cards were not seen in place there). Safari 17.0 BCD check unchanged (24 flags), no bare
 nested selectors. Residual: the ecosystem icons come out about 20% smaller than the phone design's. Next: the
 Scotties tablet walk, then Tales and MenuMe tablet walks, then the desktop text measure decision.
+Tablet walks started 2026-10-19: full-page Chromium renders at 744 in `/home/user/temp/agent/f20/full744/`
+(`fullpage-width.mjs <base> <out> <width> [page...]`), one Sonnet walker per study writing
+`/home/user/temp/agent/f20/walk-{scotties,tales,menume}-744/report.md`. Every reported miss gets verified on a
+full-resolution crop before fixing (one commit each), Scotties first. Seen while setting up, to confirm in the
+reports: at 744 the Scotties design sets the subtitle on one line and the metadata smaller and narrower than ours,
+the hero art larger, and the nav links darker. `c06f78b` made the phone ecosystem `<source height>` an integer;
+Safari reserves all four phone art boxes at full size before loading (no layout shift; BCD: `source` width and
+height since Safari 15).
