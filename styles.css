@@ -2189,6 +2189,50 @@
             &>h4 {
               color: var(--color-case-study-accent);
             }
+            /*
+              The phone design centres each heading above a 225 px box (Phone/MenuMe.pdf): the border moves to a
+              pseudo-element around the text's row, and the drip still hangs from the box.
+            */
+            @media(width<40rem) {
+              --menume-box-border: 0px;
+              --dual-loop-unit: calc(1rem / 16 + var(--phone-art-growth));
+              --menume-drip: calc(34 * var(--dual-loop-unit));
+              display: grid;
+              isolation: isolate;
+              flex: none;
+              inline-size: calc(225 * var(--dual-loop-unit));
+              margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 33 * var(--dual-loop-unit));
+              margin-inline: auto;
+              padding: 0;
+              border-width: 0;
+              &::before {
+                content: "";
+                z-index: -1;
+                grid-area: 2 / 1;
+                border: calc(3rem / 16) solid var(--color-case-study-heading);
+              }
+              /* The design breaks before the parenthesis. */
+              &>h4 {
+                grid-area: 1 / 1;
+                margin-block: 0 calc(10 * var(--dual-loop-unit));
+                text-align: center;
+                &>span {
+                  display: block;
+                }
+              }
+              &>p {
+                grid-area: 2 / 1;
+                margin-block: 0;
+                padding-block: calc(22 * var(--dual-loop-unit));
+                padding-inline: calc(16 * var(--dual-loop-unit));
+              }
+            }
+          }
+          /* The phone design breaks the framework heading before "Culinary Framework". */
+          &>.subsection>h3>span {
+            @media(width<40rem) {
+              display: block;
+            }
           }
         }
         &:where(#menume-research)>.section-content {
