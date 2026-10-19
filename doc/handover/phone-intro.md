@@ -1970,3 +1970,9 @@ Technology Preview on m1 shows classic scrollbars (727 layout px at 744), so its
 tablet column is still the shared 594: measure it from drawn full-width boxes first in the MenuMe walk.
 Remaining Tales tablet queue: curriculum box padding and rhythm (22), ecosystem 517, poster 338, metrics labels
 (27 to 29).
+Tales tablet walk done: `5b50b5a` curriculum note rhythm, `fd9f77f` tablet ecosystem map
+(`f20/tales-art/build-eco-tablet.py`), `859d9aa` poster 321/338/397 px, `25c9424` tablet metrics chart
+(`f20/tales-art/build-metrics-tablet.py`), `83dff19` impact card wrapping (balanced titles need Safari 17.5;
+earlier versions keep the old breaks). Kept by decision: our verified curriculum references, so the second note
+is 419 px against the drawn 493. Full-page renders drift after lazy images load: pair sections with viewport
+shots or element boxes. Next: MenuMe tablet walk, column first.
