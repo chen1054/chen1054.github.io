@@ -1743,3 +1743,9 @@ from `Phone/Scotties.pdf` via PyMuPDF `get_drawings`). Wide layouts still lack t
 Found while doing it: Figma sets the Scotties hi-fi note text Bold 16 on Desktop but Medium 14 on Tablet and Phone,
 and ours is bold everywhere. A weight audit of every Figma text node per frame against our computed weight is
 running (Sonnet agent, output `/home/user/temp/agent/f20/weights/report.md`).
+Weight audit (Sonnet agent, `/home/user/temp/agent/f20/weights/report.md`, raw `all.json`; Figma data is
+`texts.json` from `Website (Copy).fig`, the older copy, so the client's later instructions win): unverified until
+checked. Likeliest real: Scotties body text Medium 14 to 16 in the Phone and Tablet frames (Bold on Desktop) while
+ours is 700 everywhere (about 28 nodes per frame); Tales "Poster" and "Social Media Ads" subheadings Medium 14 on
+Tablet and Desktop (ours 700 18); About biography weights. Suspect, verify first: pills reported as Playfair 700
+although `.pill` sets Abril Fatface; MenuMe finding numbers in "Apple LiGothic" (a Figma font artifact).
