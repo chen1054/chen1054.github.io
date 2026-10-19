@@ -2119,9 +2119,15 @@
           display: none;
         }
       }
-      & .project-introduction,
-      & .section-content {
+      & .project-introduction {
         inline-size: calc(100% - 150rem / 16 - 204 * var(--home-wide-reference-growth));
+      }
+      /*
+        Tablet/Tales.pdf and Tablet/MenuMe.pdf run their sections 614 px wide at 744 (Tales 64 to 678, MenuMe 70 to
+        684: their notes, panels and full-width images span it); the desktop column is 1086 at 1440.
+      */
+      & .section-content {
+        inline-size: calc(100% - 130rem / 16 - 224 * var(--home-wide-reference-growth));
       }
     }
   }
@@ -2132,15 +2138,6 @@
         font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
         /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
         line-height: calc(30rem / 16 - 2 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth));
-      }
-      /*
-        Tablet/Tales.pdf runs its sections 614 px wide at 744 (64 to 678: the curriculum spreads, notes and persona
-        frames); the desktop column is the same 1086 at 1440.
-      */
-      @media(width>=40rem) {
-        & .section-content {
-          inline-size: calc(100% - 130rem / 16 - 224 * var(--home-wide-reference-growth));
-        }
       }
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
@@ -3824,8 +3821,8 @@
     /* Scotties decorative vocabulary (census S01 onward). */
     &[data-case-study="scotties"] {
       /*
-        Tablet/Scotties.pdf runs its sections 624 px wide at 744 (from 61 to 685), wider than the shared 594 (Tales
-        runs 614); the desktop column is the same 1086 at 1440.
+        Tablet/Scotties.pdf runs its sections 624 px wide at 744 (from 61 to 685), wider than the shared 614; the
+        desktop column is the same 1086 at 1440.
       */
       @media(width>=40rem) {
         & .section-content {
