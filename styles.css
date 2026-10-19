@@ -1942,6 +1942,53 @@
       & figure:has(img[src*="tales-patchy-guardian"]) {
         max-inline-size: calc(249rem / 16 + 127 * var(--home-wide-reference-growth));
       }
+      /*
+        The OPH hub and the social ads, two device images each: stacked and centred on phones, side by side with their
+        bottoms aligned wider (the desktop design starts the hub at the column's edge). Widths and gaps are the
+        designs' pixels at 390, 744 and 1440 (Phone, Tablet and Desktop Tales).
+      */
+      & .device-pair {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(51rem / 16);
+        margin-block: 2rem;
+        &>figure {
+          inline-size: var(--device-inline-size);
+          max-inline-size: none;
+          margin: 0;
+        }
+        @media(width>=40rem) {
+          flex-direction: row;
+          justify-content: center;
+          align-items: end;
+        }
+      }
+      & .device-pair:has(img[src*="tales-oph"]) {
+        &>:first-child {
+          --device-inline-size: calc(318rem / 16 + 70 * var(--phone-tablet-reference-growth) + 227 * var(--home-wide-reference-growth));
+        }
+        &>:last-child {
+          --device-inline-size: calc(155rem / 16 - 36 * var(--phone-tablet-reference-growth) + 74 * var(--home-wide-reference-growth));
+        }
+        @media(width>=40rem) {
+          column-gap: calc(36rem / 16 + 41 * var(--home-wide-reference-growth));
+        }
+        @media(width>=68.25rem) {
+          justify-content: start;
+        }
+      }
+      & .device-pair:has(img[src*="tales-social"]) {
+        &>:first-child {
+          --device-inline-size: calc(321rem / 16 - 8 * var(--phone-tablet-reference-growth) + 115 * var(--home-wide-reference-growth));
+        }
+        &>:last-child {
+          --device-inline-size: calc(201rem / 16 - 39 * var(--phone-tablet-reference-growth) + 58 * var(--home-wide-reference-growth));
+        }
+        @media(width>=40rem) {
+          column-gap: calc(68rem / 16 - 2 * var(--home-wide-reference-growth));
+        }
+      }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
