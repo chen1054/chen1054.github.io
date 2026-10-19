@@ -531,11 +531,16 @@ Queue, in order:
 1. Done: Tales note bullets are real lists (`3cae2fc`); Space scrolls the zoom viewer (`4658a1c`, `224018e`);
    template residue removed (`572f608`); heading levels (Scotties card titles to `h3`, MenuMe 1/2/3 to spans)
    in the commit after it.
-2. Running as Sonnet agents, each delivering a patch to `/home/user/temp/agent/xinyanchen-build/patch-<name>.diff`
-   from briefs in `/home/user/temp/agent/xinyanchen-build/briefs/` (`common.md` plus one per agent):
-   `align-tales` (Fix 4 on Tales), `inferred` (wide-window text caps, the 414 to 639 phone stretch, wave drift,
-   Contact field alignment). Next to launch: `align-menume-scotties` (Fix 3 clipped chip rows and white fragment,
-   Fix 4 on MenuMe and Scotties). Review each patch, apply with `git apply --3way`, regress, check in Safari, commit.
+2. Landed from agents: `4426c36` (MenuMe and Scotties card alignment) and `813e155` (Tales proportions and
+   alignment), each checked in Chromium, real Safari at 1920 wide 1x, and the iPhone 15 Simulator.
+   Still running: `inferred` (wide-window text caps, the 414 to 639 phone stretch, wave drift, Contact field
+   alignment), brief in `/home/user/temp/agent/xinyanchen-build/briefs/inferred.md`, patch to
+   `/home/user/temp/agent/xinyanchen-build/patch-inferred.diff`. Review, `git apply --3way`, regress, check in
+   Safari and the Simulator, commit.
+   Regression helper: `/home/user/temp/agent/xinyanchen-build/regress.mjs` compares a throwaway worktree of the previous
+   commit (port 4191) with the working tree (4174) frame by frame; serve the old side with no-store too, since Chromium
+   can cache `styles.css` from plain `python -m http.server`.
+   Real touch on the Simulator works through `idb` (Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md`).
 3. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request and inferred ask to commits; fill its "in progress" lines as the agents land.
    Text contrast still needs a client decision; header magic numbers (audit 2.3) are not started.
