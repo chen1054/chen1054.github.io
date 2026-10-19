@@ -1819,3 +1819,4 @@ widths (miss-04), with the squiggle and brush stroke exported as vectors from `P
 PNGs. Not yet checked in the iOS 17.0.1 Simulator. MenuMe left: miss-07 bubbles (low), miss-12 list markers and
 bold labels (low), tablet flow-2 residual. Note: the design copy reads "meals.We" (no space); the site keeps the
 space, so the story box wraps one word differently from the tablet design.
+iOS 17.0.1 Simulator, 2026-10-19: the four MenuMe walk fixes render as in Chromium (`sim17-mm2-0[0-3].png`).
