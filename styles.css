@@ -2792,6 +2792,22 @@
 
     /* MenuMe decorative vocabulary (census M01 to M15). */
     &[data-case-study="menume"] {
+      /*
+        Tablet/MenuMe.pdf sets its subheadings 41 to 43 px (baseline to baseline) above the text under them, 8 more
+        than the shared spacing measured on Scotties; the persona introduction sits 61 under its heading, and the
+        Problem introduction (16 px text) 42.
+      */
+      @media(40rem<=width<80rem) {
+        & h3.subheading:has(+ :is(p, ul)) {
+          margin-block-end: 1rem;
+          &:has(+ p + .alternating-personas) {
+            margin-block-end: calc(35rem / 16);
+          }
+          &:has(+ p + .flex-row>article) {
+            margin-block-end: calc(13rem / 16);
+          }
+        }
+      }
       /* The phone and tablet designs stack the two prototype buttons, 13 px apart; the desktop sets them in a row. */
       @container(width<64rem) {
         & .content>header>.project-summary>.flex-row {
