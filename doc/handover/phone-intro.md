@@ -1630,3 +1630,21 @@ the summary 29 px and the button 30 px closer, so the river shows on the first s
 Confirmed by the user (2026-10-18), against the literal per-file reading: the Regular Playfair nav, the Regular
 footer text and the higher phone hamburger apply on every page (Desktop About and the other phone files still draw
 the old versions), and the flower appears 1 s after the river finishes (6.8 s).
+
+## Client iPhone round, 2026-10-19
+
+The client sent 11 iPhone screenshots of the live site opened from WeChat (11:27 to 11:30), saved by the user in
+`../Client screenshots 2026OCT191142/` (`542.jpeg` to `552.jpeg`, 1179 by 2556, no annotations). The client said
+the phone runs iOS 17.0.2 (21A350), which ships Safari 17.0.
+Visible in them: both sitemaps (MenuMe `544`, Scotties `549`) render as plain bulleted lists instead of the boxed
+tree, and on Scotties the chevron art covers "Favorites" and "Cart" (`549`); MenuMe's gold squiggle crosses
+Alicia's text (`543`).
+Cause found so far: caniuse's `css-nesting` data marks Safari and iOS 16.5 to 17.1 partial, note "Does not allow
+nesting of type (element) selectors without starting with a symbol, like the `&` nesting selector". The scan
+`/home/user/temp/agent/f20/bare-nested.mjs` (postcss) finds three such rules in `styles.css`, all in the sitemap
+block: `ul`, `span`, `ul ul` (lines 1459, 1466, 1484 at `8ab35c3`).
+Why last round missed it: every Safari check ran on current engines (macOS Safari 27, Technology Preview, iOS 27.0
+Simulator, the only runtime installed on `m1`); no oldest supported Safari was set or tested.
+In progress: render every page at 393 in Playwright WebKit 17.0 (image `playwright:v1.38.0-jammy`) and WebKit 18.2
+(`v1.49.1-noble`) with `/home/user/temp/agent/f20/webkit-boxes.mjs` and diff element boxes, to find everything
+else that differs on the client's engine before fixing. The reply to the client stays on hold.
