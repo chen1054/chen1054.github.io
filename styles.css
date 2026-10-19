@@ -2407,6 +2407,59 @@
             content: none;
           }
         }
+        /*
+          The end-to-end showcase: the desktop design draws the phone and tablet screens side by side (209 and 600
+          px, 25 apart) with both buttons in a row under them; the phone design puts each button under its device.
+        */
+        & .device-showcase {
+          --showcase-unit: calc(1rem / 16 + var(--phone-art-growth));
+          display: grid;
+          grid-template-columns: minmax(0, 209fr) minmax(0, 600fr);
+          align-items: end;
+          gap: calc(40rem / 16) calc(25rem / 16);
+          max-inline-size: calc(834rem / 16);
+          margin-block: 2rem;
+          margin-inline: auto;
+          &>figure {
+            max-inline-size: none;
+            margin: 0;
+          }
+          &>.flex-row {
+            grid-column: 1 / -1;
+            justify-content: start;
+            &>* {
+              flex: none;
+              margin-inline: 0;
+            }
+          }
+          @media(width<40rem) {
+            grid-template-columns: minmax(0, 1fr);
+            row-gap: 0;
+            &>.flex-row {
+              display: contents;
+            }
+            & .prototype-link {
+              justify-self: center;
+            }
+            &>figure:first-child {
+              grid-row: 1;
+              justify-self: center;
+              inline-size: calc(153 * var(--showcase-unit));
+            }
+            & .prototype-link:first-child {
+              grid-row: 2;
+              margin-block-start: calc(32 * var(--showcase-unit));
+            }
+            &>figure:nth-child(2) {
+              grid-row: 3;
+              margin-block-start: calc(50 * var(--showcase-unit));
+            }
+            & .prototype-link:last-child {
+              grid-row: 4;
+              margin-block-start: calc(27 * var(--showcase-unit));
+            }
+          }
+        }
         /* The Problem & Solution items: centred, with a smaller icon and a teal title, in all three designs. */
         & .subsection:has(img[src*="mental-overload"])>.flex-row>article {
           text-align: center;
