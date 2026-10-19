@@ -3975,6 +3975,13 @@
           }
         }
         &:where(#menume-usability)>.section-content {
+          /* Desktop MenuMe: 122 px from the band to the introduction's glyph top, 64 from it to the first flow's. */
+          @media(width>=80rem) {
+            padding-block-start: calc(101rem / 16);
+            &>.subsection:first-of-type {
+              margin-block-start: calc(33rem / 16);
+            }
+          }
           &>.subsection {
             /*
               Every design numbers the two flows, at 16 px (18 on the desktop); the phone's two lines 32 apart and
