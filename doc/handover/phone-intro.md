@@ -526,7 +526,11 @@ Session goal, set by the user on 2026-10-18: fix the site to the point where we 
 "we fixed everything you asked, and everything we inferred you would almost certainly ask".
 Figma references are design intent, not pixel specs (the user, citing Erik Kennedy of learnui.design).
 
-Queue, in order (updated 2026-10-18 21:45):
+Queue, in order (updated 2026-10-18 23:00):
+
+Working rules the user set this evening: Safari is the reference browser ("golden child") and Chromium results never
+block; computed-style diffs never block a commit (commit, then fix what the diff finds in its own commit); delegate
+non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents and keep the lead on client-visible work.
 
 1. Done and pushed since the round began (details in the dated sections of "Client comparison round"):
    card alignment `4426c36`, Tales proportions `813e155`, band headings at 1440 measure and Contact wave edge
@@ -535,46 +539,51 @@ Queue, in order (updated 2026-10-18 21:45):
    (nav and footer in Playfair Regular, 1 s animation steps, Home's wide footer like About's, About footer gap, phone
    hamburger and Home hero) `b85e0e0`, scope confirmed by the user. Each checked in Chromium, real Safari at 1920,
    and the iPhone 15 Simulator.
-2. Decided 2026-10-18 by the user: option 3 (hybrid) for the 414 to 639 range. Waves keep their distance from the
-   text through a phone growth term (`--phone-art-growth`, 0 at 390) on the art-against-art lengths only, and project
-   illustrations stop growing at 440 wide. Known costs the user accepted: wave tops rise into the illustration area at
-   639, and iPhone 15 (393) shifts by up to 3 px. Patch `/home/user/temp/agent/xinyanchen-build/patch-gaps-3.diff`
-   (built on `8fc0987`, old class names), evidence in `/home/user/temp/agent/xinyanchen-build/gaps-work/` (contact
-   sheets at 639; columns current, 1, 2, 2b, 3). Port it by hand onto the layered stylesheet after the refactor lands.
-3. In progress: the nesting refactor (user preference, 2026-10-18: use CSS nesting wherever it helps; the user's
-   example was `.case-study { & .subheading { ... } }` instead of `.case-study-subheading`, and native nesting cannot
-   splice `&-subheading`, so HTML class names get shorter). The user rejected keeping order by selector weight
-   ("there are better ways than artificially fighting specificity; I already approved huge refactors"), so precedence
-   now comes from cascade layers:
-   - `@layer base, components, pages;` element defaults and the one focus ring
-     (`:where(a, button, input, textarea):focus-visible`, which matched every reachable control the old 14-selector
-     list did, checked on all six pages) in `base`; shared pieces (`.corner-decorations`, `.menu-toggle`, the
-     navigation, `.pill`, `.wave-composition`, `.site-footer` with `.credits` and `.back-to-top`) in `components`;
-     `.home`, `.about`, `.contact` and `.case-study` (body classes) in `pages`.
-   - Variants set inputs and components compute outputs: pages set `--pill-color`, `--pill-hover-color`,
-     `--pill-phone-inline-size`, `--pill-wide-inline-growth`, `--pill-wide-block-growth`; `.pill` computes the size.
-   - The one `@media(width>=40rem)` block is gone: each wide value sits in the rule it adjusts, and phone-only variant
-     values sit in `@media(width<40rem)`, so the ranges never compete.
-   - Built in `/home/user/temp/agent/wt-layer` (served on 4198, unit `xinyanchen-layer`) on top of stage 1 (case-study
-     classes under `.case-study`, built by `/home/user/temp/agent/fig-parse/nest-family.py family-case-study.json` in
-     `wt-nest`, served on 4196).
-   - Gate: screenshots proved unusable (HEAD against itself differed in 12, then 7, of 66 captures), so the gate is the
-     computed-style diff `/home/user/temp/agent/fig-parse/style-diff.mjs <base-url> <candidate-url> [page ...]`
-     (every element and pseudo-element, every property, four widths, plus hover and focus of the controls; runbook in
-     Monochromatic `doc/runbook/css-refactor-computed-style-regression.md`, with its self-check and positive control).
-     Commit only at `summary: 0 differences` against HEAD; then one look in Safari and the Simulator.
-   - The `gaps` agent's patches predate the new class names and get ported by hand after its decision.
-4. Apple gate (task 8): all six pages in iPhone 15 Simulator Safari and macOS Safari at 1920 wide 1x and 2x after the
-   refactor lands. Real touch on the Simulator works through `idb` (Monochromatic
+2. Done: the 414 to 639 phone range, option 3 (hybrid) of four the `gaps` agent prototyped, chosen by the user:
+   `568c81b`. Lengths that hold art against art grow with `--phone-art-growth` (0 at 390), and project illustrations
+   stop growing at 440 wide. Home at 639 is 5782 px tall (was 7183); 390 and 640 up unchanged; case studies pinned and
+   unchanged. Accepted costs: wave tops rise into the illustration area at 639, and iPhone 15 (393) shifts by up to
+   3 px. Evidence: `/home/user/temp/agent/xinyanchen-build/gaps-work/` (contact sheets at 639; columns current, 1, 2,
+   2b, 3). Still to do: look at it in Safari (VM at 744 is the nearest Safari can go; Simulator at 393).
+3. Done: the nesting refactor. User preference (2026-10-18): use CSS nesting wherever it helps (the user's example was
+   `.case-study { & .subheading { ... } }`; native nesting cannot splice `&-subheading`, so HTML class names got
+   shorter). The user rejected ordering by selector weight ("there are better ways than artificially fighting
+   specificity; I already approved huge refactors"), so precedence comes from cascade layers.
+   - Stage 1, case-study classes under `.case-study`: `e9f6250` (Chromium computed-style diff 0 against its parent).
+   - Layers and the rest: `c7bda33`. `@layer base, components, pages;` element defaults and one focus ring
+     (`:where(a, button, input, textarea):focus-visible`, matching every reachable control the old 14-selector list
+     did) in `base`; `.corner-decorations`, `.menu-toggle`, the navigation, `.pill`, `.wave-composition`,
+     `.site-footer` (`.credits`, `.back-to-top`) in `components`; body classes `.home`, `.about`, `.contact`,
+     `.case-study` in `pages`. Pages set pill inputs (`--pill-color`, `--pill-hover-color`, `--pill-phone-inline-size`,
+     `--pill-wide-inline-growth`, `--pill-wide-block-growth`) and `.pill` computes the size. The single wide `@media`
+     block is gone: wide values sit in the rule they adjust, phone-only variants in `@media(width<40rem)`.
+   - Running (Sonnet agent): the Safari computed-style gate, `@wt-base` (worktree of `568c81b`) against `main`,
+     tool `/home/user/temp/agent/fig-parse/safari-style-diff.mjs` (base and candidate as same-origin iframes of each
+     width in one Safari page, so 390 works; margins through Typed OM). Its focus probe was being fixed. Any
+     regression it reports gets its own fix commit.
+   - Running (Sonnet agent): why Chromium's `getComputedStyle` reports `0px` for a resolved `margin: auto` on about 1
+     load in 5 (About's portrait wave at 1920; the box is always at 240). Report to
+     `/home/user/temp/agent/chromium-flake/report.md`.
+   - Chromium diff tool: `/home/user/temp/agent/fig-parse/style-diff.mjs`, runbook in Monochromatic
+     `doc/runbook/css-refactor-computed-style-regression.md`.
+4. Running (Sonnet agent): a second Safari WebDriver so automation runs need not queue. Safari Technology Preview
+   (different WebKit version, accepted by the user) in the VM guest on guest port 4448, m1 4449, Linux 4450 (unit
+   `xinyanchen-vm-webdriver-stp`). Until it lands, every WebDriver run on 4446 holds
+   `flock /home/user/temp/agent/vm-safari.lock`.
+   Serving: the Linux 4174 server is now `/var/home/user/temp/agent/xinyanchen-build/no-store-server-mux.mjs` (unit
+   `xinyanchen-no-store`): `/` is the main repo as before, `/@wt-<name>/` serves `/home/user/temp/agent/wt-<name>`,
+   so the guest's single forwarded origin `localhost:4173` reaches every build.
+5. Apple gate (task 8): all six pages in iPhone 15 Simulator Safari and macOS Safari at 1920 wide 1x and 2x, now on
+   `c7bda33`. Real touch on the Simulator works through `idb` (Monochromatic
    `doc/runbook/m1-apple-browser-rig-rebuild.md`); the menu's open and closed states passed on 2026-10-18.
-5. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
+6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
-6. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
+7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
    MenuMe chip rows (shots 33, 34); text contrast; the wide-window option A, B or C; a re-send of the blank
    `IMG_0804 1.pdf`; whether the Page 161 quote is complete. Kept as designed unless told otherwise: the faded first
    timeline node, the staggered Key Insights bubbles and Scotties reflection cards. Not applied: lossy WebP and the
    unified About skating crop (files in `/home/user/temp/agent/xinyanchen-build/images-work/`).
-7. Then rewrite `05-client-reply-draft.md` around the built artifacts.
+8. Then rewrite `05-client-reply-draft.md` around the built artifacts.
 
 Tools from this round: `/home/user/temp/agent/fig-parse/` holds the Figma decoder (`dump-text.mjs`, Figma text data
 `texts.json`, runbook in Monochromatic `doc/runbook/figma-file-text-extraction.md`), per-role and per-element size
