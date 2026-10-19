@@ -3587,6 +3587,17 @@
         }
         &:where(#menume-usability)>.section-content {
           &>.subsection {
+            /*
+              Every design numbers the two flows, at 16 px (18 on the desktop); the phone's two lines 32 apart and
+              35 above the first card.
+            */
+            &>h3 {
+              font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
+              @media(width<40rem) {
+                margin-block-end: calc(35rem / 16);
+                line-height: 2;
+              }
+            }
             &>h3::before {
               content: none;
             }
