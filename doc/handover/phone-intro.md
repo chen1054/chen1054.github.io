@@ -1654,10 +1654,27 @@ cannot stand in for the client's engine. The user: "Why are we doing Playwright 
 and now we know the version for phone." Use real Safari of the client's version only.
 Authorized by the user: the iOS 17.0.1 Simulator runtime (closest Apple offers to 17.0.2; same Safari 17.0) on `m1`,
 archive in `/Volumes/MacData/sim-runtimes/`, installed with `xcodes runtimes install 'iOS 17.0.1'` (unit
-`xinyanchen-ios17-install`). Not yet known whether Xcode 27 boots it.
-Fix committed: `8fd50ea` prefixes the three sitemap rules with `&`. Grep of `styles.css` for features newer than
-Safari 17.0: `text-wrap: balance` and `pretty` (17.5, degrade to normal wrapping), `text-box` (18.2, degrades);
-relative colours are supported in 17.0 per caniuse. Next: in iOS 17.0.1 Simulator Safari at 393, compare the base
+`xinyanchen-ios17-install`). Xcode 27 boots it: device "iPhone 15 iOS 17.0.1"
+(`9CA037B0-574E-4662-A3EF-744BFB6E15E7`) in the custom set `/Volumes/XinyanSimDevices/devices`; the iOS 27 iPhone 15
+is shut down meanwhile. Screenshots: `/home/user/temp/agent/f20/sim17-shots.mjs` (copy of `sim-shots.mjs`).
+Fix committed: `8fd50ea` prefixes the three sitemap rules with `&`; Chromium computed-style diff against `d758477`
+on MenuMe and Scotties at all four widths: 0 differences.
+Retracted: a first pass listed iOS 17.0 gaps from memory (the user: "recalling instead of checking what iOS 17
+supports is laughable"). Replaced by a mechanical check against MDN browser-compat-data 8.1.6 (2026-10-15):
+`/home/user/temp/agent/f20/bcd-css.mjs` walks every property, keyword, function, unit, selector, at-rule and media
+feature in `styles.css` (267 features); `bcd-html.mjs` every element, attribute and enumerated value in the six pages
+(125 uses); the two scripts' APIs were looked up one by one (`hidePopover` 17, the rest older). Positive control:
+BCD's `css.selectors.nesting` carries the type-selector gap for 16.5 to 17.1. Not supported or partial on iOS 17.0:
+- nesting, nested rules starting with a type selector: fixed by `8fd50ea`.
+- relative colour syntax, partial: `rgb(from ...)` "channel value calculations do not work correctly, requiring
+  values to be specified as percentages" (WebKit bug 267647), used with a calculated alpha in Home's river fade mask
+  (line 456); `oklch(from ...)` "calculations with `h` channel values do not work correctly", used for hovers and
+  the enlarged-image backdrop (lines 371, 1640, 1662), none of which calculate `h`.
+- `text-box` (added 18.2): the pill label trim, line 281, which centres button labels.
+- `text-wrap: balance` (17.5) and `pretty` (26): heading and paragraph wrapping, lines 1342, 1364, 1400.
+- `overscroll-behavior` partial (no effect without scrollable overflow); cursor and `resize` keywords have no iOS
+  support, which does not matter on a phone; `<link rel="icon">` is unsupported on iOS, the Apple touch icon covers it.
+Next: in iOS 17.0.1 Simulator Safari at 393, compare the base
 copy (`/@wt-base/`, `d758477`) with `8fd50ea` on every page, and look for the client's other shots (543 squiggle
 over Alicia's text, 549 chevrons over the sitemap, 551 and 552 boxes touching) before and after.
 Client question, 2026-10-19, relayed by the user: "你是不是做了 phone 版本才做 tablet 和 desktop" (did you build
