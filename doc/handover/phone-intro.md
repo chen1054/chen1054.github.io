@@ -1877,3 +1877,12 @@ Figma style runs notwithstanding, and ours computes the same). Safari 17.0 BCD c
 today's work; Safari Technology Preview renders the wide connectors at 1440. Order from here: the Tales phone walk
 (`/home/user/temp/agent/f20/walk-tales/report.md`, the user's request), then the queued tablet walks (Scotties,
 then Tales and MenuMe).
+Tales phone walk, 2026-10-19 (re-checked against a fresh 390 render; report `f20/walk-tales/report.md`, current
+pairs `f20/walk-tales/now/`): already fixed before today, miss 02 (labels). Client asks, not misses: 14 (hamburger),
+15 (back-to-top). `449e8af` misses 12 and 13 (bulleted lists, bold channel labels). `44ed623` miss 01 (The
+Challenge: figure, heading, pad, within 1 px of all three designs) and the subheading alignment (wide designs start
+prose-led subheadings at the text edge; phone only Dual-Persona). Open: 03 pillar icons and body alignment, 04 age
+trail, 05 character cards, 06 Patchy, 07 OPH mockups, 08 ecosystem map, 09 ad mockups, 10 metric labels, 11 impact
+chevrons. For the client note: the phone design's character cards read "Ages 9-10" and "Ages 11-12" against the
+page's tiers 6-8 and 9-12 (ours keep the tiers). Tales' tablet column is about 619 in Tablet/Tales.pdf against our
+594 (for the tablet walk).
