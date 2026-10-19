@@ -1830,3 +1830,10 @@ Decision, 2026-10-19 (the user): "just set floor to 17, I know Client's Safari o
 The support floor is Safari 17.0 on macOS and iOS. `bcd-css.mjs styles.css safari 17.0` flags the same 29 lines
 as the `safari_ios 17.0` baseline, and `bare-nested.mjs` already guards the 17.0 to 17.1 nesting gap; the iOS
 17.0.1 Simulator (Safari 17.0) remains the test engine for both. No flattened build.
+MenuMe walk, rest landed 2026-10-19: `ba596be` focus-group bubbles (miss-07) from the design's exported outline and
+tail, one over two on tablets; `9cbd3d8` token and delivery lists (miss-12), restoring the numbered heading
+"End-to-End User Experience Delivery" that both designs repeat; `5b2fbab` tablet flow 2 grid (the
+residual). All checked in Chromium at 390, 744, 1000 or 1092, and 1440. Not yet in the iOS 17.0.1 Simulator.
+Known, not changed: the designs set the finding numbers in Apple LiGothic Medium 50 px, a macOS system font with
+no web licence; the site keeps Abril Fatface numerals at 40 px (45 desktop), matching the glyph height.
+MenuMe walk misses: all addressed.
