@@ -2262,12 +2262,53 @@
           }
         }
         &:where(#menume-research)>.section-content {
+          /*
+            The findings, as all three designs draw them: the designer's hand-drawn bubble (263.5 by 211.6 px, 295.6
+            wide on desktop) with a looping tail, exported from Phone/MenuMe.pdf and tinted by mask, a 70 px number
+            disc (79 on desktop); one column on phones, one over two on tablets, three in a row on desktops.
+          */
+          &>.flex-row {
+            --bubble-inline: calc(263.5rem / 16 + 32.1 * var(--home-wide-reference-growth));
+            --menume-disc: calc(70.3rem / 16 + 8.7 * var(--home-wide-reference-growth));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: calc(119rem / 16 + 3.5 * var(--phone-tablet-reference-growth) - 3.6 * var(--home-wide-reference-growth)) calc(42.4rem / 16 + 5 * var(--home-wide-reference-growth));
+            margin-block: calc(var(--menume-disc) / 2 + 2rem) calc(56rem / 16 + 2rem);
+            @media(width<40rem) {
+              flex-direction: column;
+              align-items: center;
+            }
+            @media(40rem<=width<68.25rem) {
+              &>:first-child {
+                margin-inline: calc((100% - var(--bubble-inline)) / 2);
+              }
+            }
+          }
           &>.flex-row>aside {
             position: relative;
-            margin-block: calc(var(--menume-disc) / 2) calc(32rem / 16);
-            border-color: var(--menume-tint);
-            border-width: calc(4rem / 16);
-            border-radius: calc(36rem / 16);
+            box-sizing: border-box;
+            flex: none;
+            inline-size: min(100%, var(--bubble-inline));
+            aspect-ratio: 2635 / 2116;
+            margin: 0;
+            padding-block: calc(35rem / 16 + 4 * var(--home-wide-reference-growth)) calc(36rem / 16 + 2 * var(--home-wide-reference-growth));
+            padding-inline: calc(27rem / 16 + 3.3 * var(--home-wide-reference-growth)) calc(14.5rem / 16 - 2.2 * var(--home-wide-reference-growth));
+            border-width: 0;
+            border-radius: 0;
+            &>p {
+              margin-block: 0;
+            }
+            @media(width>=68.25rem) {
+              inline-size: min(var(--bubble-inline), (100% - 2 * (42.4rem / 16 + 5 * var(--home-wide-reference-growth))) / 3);
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background-color: var(--menume-tint);
+              mask: url("assets/menume-finding-bubble-outline.svg") center / 100% 100% no-repeat;
+            }
             &:nth-child(1) {
               --menume-tint: var(--menume-honey);
             }
@@ -2280,7 +2321,8 @@
             &>.menume-finding-number {
               position: absolute;
               inset-block-start: calc(var(--menume-disc) / -2);
-              inset-inline-end: 20%;
+              inset-inline-end: 13.5%;
+              z-index: 1;
               inline-size: var(--menume-disc);
               margin-block: 0;
               border-radius: 50%;
@@ -2288,7 +2330,7 @@
               box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
               color: var(--color-page-background);
               font-family: "Abril Fatface", serif;
-              font-size: calc(24rem / 16 + 12 * var(--home-wide-reference-growth));
+              font-size: calc(40rem / 16 + 5 * var(--home-wide-reference-growth));
               font-weight: 400;
               line-height: var(--menume-disc);
               text-align: center;
@@ -2296,12 +2338,12 @@
             &::after {
               content: "";
               position: absolute;
-              inset-block-start: calc(100% + 2rem / 16);
-              inset-inline-start: 18%;
-              inline-size: calc(77rem / 16);
-              block-size: calc(32rem / 16);
+              inset-block-start: 88.85%;
+              inset-inline-start: 21.14%;
+              inline-size: 39.47%;
+              block-size: 26.37%;
               background-color: var(--menume-tint);
-              mask: url("assets/menume-speech-bubble-tail.svg") center / 100% 100% no-repeat;
+              mask: url("assets/menume-finding-bubble-tail.svg") center / 100% 100% no-repeat;
             }
           }
           &>.subsection .alternating-personas {
