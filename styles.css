@@ -2837,6 +2837,8 @@
           @media(40rem<=width<68.25rem) {
             &>.subsection:has(img[src*="weekly-specials-low"]) {
               --usability-unit: calc(100cqw / 620);
+              /* Being a container would make the type growth measure this flow; keep measuring the page. */
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
               container-type: inline-size;
               display: grid;
               grid-template-columns:
