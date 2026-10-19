@@ -1085,9 +1085,12 @@
     */
     --hero-art-desktop: 422;
     --hero-art-start-desktop: 0;
+    /* The gap from the summary's last line to the prototype pills: 46 px glyph top to pill top on MenuMe, 70 on Scotties. */
+    --summary-pills-gap-desktop: 12;
     &[data-case-study="menume"] {
       --hero-art-desktop: 438;
       --hero-art-start-desktop: 52;
+      --summary-pills-gap-desktop: 19;
       --summary-bullet: "•" / "";
       --summary-bullet-indent: 1rem;
       --summary-subtitle-overhang: 6;
@@ -1111,6 +1114,7 @@
     }
     &[data-case-study="scotties"] {
       --hero-art-desktop: 551;
+      --summary-pills-gap-desktop: 43;
       --summary-bullet: "•" / "";
       --summary-bullet-indent: 1rem;
       --color-case-study-accent: #bdca9d;
@@ -1267,6 +1271,9 @@
         }
         &:last-of-type {
           margin-block-end: calc(12rem / 16);
+          @media(width>=80rem) {
+            margin-block-end: calc(var(--summary-pills-gap-desktop) * 1px);
+          }
         }
         &>strong {
           font-weight: 700;
@@ -1772,6 +1779,10 @@
       padding-block: calc(7rem / 16 + 4 * var(--home-wide-reference-growth));
       padding-inline: calc(16rem / 16 + 2 * var(--home-wide-reference-growth));
       border-radius: 3rem;
+      /* The desktop designs draw every pill about 250 px wide whatever its label (202 or 214 px). */
+      @media(width>=80rem) {
+        min-inline-size: calc(3rem + 202 * var(--home-wide-reference-growth));
+      }
       background-color: var(--color-case-study-prototype-background);
       /* All three designs shadow the prototype buttons as they do the Home pills: 4 px down, 4 blurred. */
       box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
