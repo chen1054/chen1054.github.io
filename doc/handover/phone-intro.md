@@ -643,7 +643,8 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Audit (2026-10-19), report `/home/user/temp/agent/gpt-audit/report.md`, findings F1 to F20. F1: Pages
    (Jekyll 3.10 legacy build from `main`) published `doc/`, `README.md`, `mise.toml` and the unlinked source portrait;
    the user chose site exclusion only, so `_config.yml` (`2d08763`) excludes them while the repo stays public with
-   them. A Jekyll `exclude` list replaces the defaults, and a trailing slash excludes a directory (Jekyll v3.10.0
+   them; verified live after build `7d4f201`: those paths 404, pages, CSS, scripts, assets and PDFs 200. A Jekyll
+   `exclude` list replaces the defaults, and a trailing slash excludes a directory (Jekyll v3.10.0
    `lib/jekyll/configuration.rb`, `lib/jekyll/entry_filter.rb`). In progress (one agent, one commit each, Chromium
    and Safari style diffs): F4 faux-bold Abril on Scotties prototype links, F3 About portrait `sizes`, F17 apostrophes
    and Hi-fi/Lo-fi spelling, F20 README drift, F7 inert CSS. Later: F2 favicon rebuilt from the vector logo, F5 zoom
