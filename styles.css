@@ -3001,6 +3001,18 @@
             font-weight: 400;
             line-height: 2;
             text-align: center;
+            /*
+              Desktop/MenuMe.pdf: the box 94 px under the paragraph's glyph top, its line's glyph top 71 px into it and
+              centred 270 px in, and the story card 163 px above the next heading's glyph top.
+            */
+            @media(width>=80rem) {
+              margin-block-start: calc(67rem / 16);
+              padding-block: calc(61.5rem / 16) calc(43.5rem / 16);
+              padding-inline-start: 2rem;
+              &+aside {
+                margin-block-end: calc(158rem / 16);
+              }
+            }
             &::before {
               content: "";
               position: absolute;
