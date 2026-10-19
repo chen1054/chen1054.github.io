@@ -2045,5 +2045,12 @@ icon headings on their text and others on icon plus text (Inspiration and Person
 the third finding's text is set 12 px lower in an identical bubble; MenuMe's Overview subsection heading is 12 px
 lower than the Research one in its band-to-heading gap; Tales' divider is 36 px tall against the design's 32 and
 its section list runs 8 px low (for the Tales walk).
-Next: continue MenuMe from App Sitemap (28 px short under the IA band) down, then Tales and Scotties, with
-`line-diff.py` per section; then the client note.
+`c442089` IA spacing (band to sitemap heading, copy to sitemap, flow headings and diagrams, last diagram to band).
+Queued (not started): the desktop sitemap as the design's top-down tree. Desktop/MenuMe.pdf's sitemap is a raster
+(4096 x 2278 at 132 to 1273, 6285 to 6919) whose ink spans 230 to 1206 x 6390 to 6778 (976 x 388): every child
+straight under its parent on a vertical line (Recipes plan and Delivery too, where ours indents them with
+elbows), levels about 70 px apart, wider padded boxes, Profile and Settings to the right under Profile & Settings.
+Ours at 1440 is 860 x 274, so the page below runs 114 px early. The CSS is shared with Scotties' sitemap; check
+Desktop/Scotties.pdf's sitemap before restructuring. Labels stay ours (the raster's are FigJam's small sans).
+Next: continue MenuMe from the Usability band (its intro sits 19 px low and 97 px too far above the first flow
+heading) down, then Tales and Scotties, with `line-diff.py` per section; then the sitemap tree; then the client note.
