@@ -4812,6 +4812,46 @@
                 }
               }
             }
+            /*
+              The desktop design sets the cards two by two: 434 by 253 px, 67 px into its 1086 px column and 67
+              apart, the rows 96 apart, each card's copy on a 360 px measure, its tape 72 px before and 57 above the
+              corner, and a 90 px badge 31 past the end and 34 below (Desktop/MenuMe.pdf).
+            */
+            @media(width>=80rem) {
+              display: grid;
+              grid-template-columns: calc(6700% / 1086) calc(43400% / 1086) calc(6700% / 1086) calc(43400% / 1086);
+              justify-content: start;
+              gap: calc(96rem / 16) 0;
+              &>aside {
+                --menume-disc: calc(90rem / 16);
+                grid-column: 2;
+                min-block-size: calc(253rem / 16);
+                margin: 0;
+                padding-block: calc(22rem / 16) calc(16rem / 16);
+                padding-inline: calc(43rem / 16) calc(23rem / 16);
+                &:nth-child(even) {
+                  grid-column: 4;
+                }
+                /* The fourth card's copy starts 60 px in and wraps on 341. */
+                &:nth-child(4) {
+                  padding-inline: calc(56rem / 16) calc(29rem / 16);
+                }
+                &>p {
+                  margin-block: 0;
+                }
+                &::before {
+                  inset-block-start: calc(-57rem / 16);
+                  inset-inline-start: calc(-72rem / 16);
+                  inline-size: calc(152rem / 16);
+                  block-size: calc(118rem / 16);
+                }
+                &::after {
+                  inset-block-end: calc(-34rem / 16);
+                  inset-inline-end: calc(-31rem / 16);
+                  font-size: calc(50rem / 16);
+                }
+              }
+            }
           }
           /*
             The tablet design: the section heading 156 px under the band and the cards' tops 77 under its baseline,
@@ -4832,6 +4872,12 @@
             /* 158 from the second learning's box to the closing quote's first baseline. */
             &>.closing-reflection {
               margin-block-start: calc(138rem / 16);
+            }
+          }
+          /* The desktop design: the cards' tops 149 px under the heading's glyph top. */
+          @media(width>=80rem) {
+            &>h3 {
+              margin-block-end: calc(116rem / 16);
             }
           }
           &>.subsection>h3 {
