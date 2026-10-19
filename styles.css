@@ -3352,10 +3352,16 @@
           }
           &>.subsection .alternating-personas {
             isolation: isolate;
-            @media(width>=40rem) and (width<80rem) {
+            @media(width>=40rem) {
               --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
               --u: calc(100cqw / 614);
               container-type: inline-size;
+            }
+            /* Desktop MenuMe: 182 px from the last photo's foot to the next band's glyph top. */
+            @media(width>=80rem) {
+              --u: calc(100cqw / 1086);
+              max-inline-size: none;
+              margin-block-end: calc(10 * var(--u));
             }
             &>.flex-row {
               position: relative;
@@ -3586,6 +3592,118 @@
                   inline-size: calc(251 * var(--u));
                   aspect-ratio: 251 / 150;
                   background-image: url("assets/menume-tablet-persona-scribble-trail-out.svg");
+                }
+              }
+              /*
+                The desktop design: 294 px photos at 170, 656 (136 from the end) and 117 px into its 1086 px column,
+                each row starting where the last photo ends; the copy meets an edge 543 px in (the first and third
+                start there, the second ends there), 340, 360 and 370 px wide, its plate 115, 82 and 130 px under the
+                photo's top; 168 by 53 px plates; and its own four scribble pieces (vectors from Desktop/MenuMe.pdf).
+              */
+              @media(width>=80rem) {
+                justify-content: flex-start;
+                align-items: start;
+                gap: 0;
+                margin-block-start: 0;
+                &:first-child {
+                  margin-block-start: calc(51 * var(--u));
+                }
+                &:last-child {
+                  margin-block-start: calc(-2 * var(--u));
+                }
+                &>figure {
+                  flex: none;
+                  inline-size: calc(294 * var(--u));
+                  max-inline-size: none;
+                  margin: 0 0 0 calc(170 * var(--u));
+                }
+                &>article {
+                  flex: none;
+                  inline-size: calc(340 * var(--u));
+                  margin-block-start: calc(115 * var(--u));
+                  margin-inline-start: calc(79 * var(--u));
+                  &>* {
+                    margin-block: 0;
+                  }
+                  /* The design sets each name low on its plate: 17 px from the plate's top to the name's glyph top. */
+                  &>h4 {
+                    min-inline-size: calc(77rem / 16);
+                    margin-block-end: calc(12rem / 16);
+                    margin-inline-start: calc(-24 * var(--u));
+                    padding-block: calc(19rem / 16) calc(5rem / 16);
+                    padding-inline: calc(45.5rem / 16);
+                    line-height: calc(29rem / 16);
+                  }
+                  &>p:first-of-type {
+                    margin-block-end: calc(3rem / 16);
+                    line-height: 1.5;
+                  }
+                }
+                &:nth-child(2) {
+                  &>figure {
+                    margin-inline: 0 calc(136 * var(--u));
+                  }
+                  &>article {
+                    inline-size: calc(360 * var(--u));
+                    margin-block-start: calc(82 * var(--u));
+                    margin-inline: 0 calc(114 * var(--u));
+                    text-align: end;
+                    &>h4 {
+                      margin-inline: auto calc(-23 * var(--u));
+                    }
+                  }
+                }
+                &:nth-child(3) {
+                  &>figure {
+                    margin-inline-start: calc(117 * var(--u));
+                  }
+                  &>article {
+                    inline-size: calc(370 * var(--u));
+                    margin-block-start: calc(130 * var(--u));
+                    margin-inline-start: calc(132 * var(--u));
+                    /* Its plate is drawn 4 px taller, with its role 10 px further down. */
+                    &>h4 {
+                      margin-block-end: calc(22rem / 16);
+                    }
+                  }
+                }
+                &::before,
+                &::after {
+                  content: none;
+                  scale: none;
+                }
+                &:first-child::before {
+                  content: "";
+                  inset-block-start: calc(71 * var(--u));
+                  inset-inline-start: calc(39 * var(--u));
+                  inline-size: calc(394 * var(--u));
+                  aspect-ratio: 394 / 174;
+                  background-image: url("assets/menume-desktop-persona-scribble-lead-in.svg");
+                }
+                &:first-child::after {
+                  content: "";
+                  inset-block-start: calc(239 * var(--u));
+                  inset-inline: calc(438 * var(--u)) auto;
+                  inline-size: calc(492 * var(--u));
+                  aspect-ratio: 492 / 320;
+                  background-image: url("assets/menume-desktop-persona-scribble-first-to-second.svg");
+                }
+                &:nth-child(2)::after {
+                  content: "";
+                  scale: none;
+                  inset-block-start: calc(144 * var(--u));
+                  inset-inline: calc(263 * var(--u)) auto;
+                  inline-size: calc(506 * var(--u));
+                  aspect-ratio: 506 / 397;
+                  background-image: url("assets/menume-desktop-persona-scribble-second-to-third.svg");
+                }
+                &:last-child::before {
+                  content: "";
+                  inset-block-start: calc(117 * var(--u));
+                  inset-inline-start: calc(7 * var(--u));
+                  inline-size: calc(384 * var(--u));
+                  aspect-ratio: 384 / 230;
+                  background-image: url("assets/menume-desktop-persona-scribble-trail-out.svg");
                 }
               }
             }
