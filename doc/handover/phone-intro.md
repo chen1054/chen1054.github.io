@@ -707,17 +707,32 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Worktree URLs survived the doubled slash, but the server root did not.
    After the reboot, Safari 4446 was still paired with the killed agent's session. The lock was free, so the guest's
    `dev.monochromatic.safaridriver` agent was restarted (`launchctl kickstart -k`).
-   Running: Chromium and Safari diffs `wt-a3` against `wt-refactor` (expect 0) and `wt-refactor` against `wt-gold`
-   (expect only the three gold items), outputs in `/home/user/temp/agent/audit-fix/{diff,sdiff}-*.txt`.
-   Queue after them, lead-done, one commit each:
-   1. Safari refused-send check for F19.
-   2. F13.
-   3. F14.
-   4. F6.
-   5. F9.
-   6. F12.
-   7. F18 (optional).
-   Then remove the `wt-a3`, `wt-refactor`, `wt-gold` and `wt-f19` worktrees and update the client checklist `07`.
+   Diff results so far, outputs in `/home/user/temp/agent/audit-fix/{diff,sdiff}-*.txt`:
+   - `7a3ea5b`: 0 differences in Chromium and Safari.
+   - Gold `6ec4bb3` in Chromium: 132 differences, every one the 217 to 216 red-channel change. That also serves as the
+     positive control for the refactor's zero.
+   Rest of the maintenance round, lead-done:
+   - F13 rejected after measurement. Deleting the 20 `aria-hidden` attributes on decorative wrappers added 23 empty
+     `generic` nodes to Chromium's accessibility tree (`/home/user/temp/agent/f13/`), so the attribute stays. The
+     `for` attributes on wrapping labels also stay: W3C WAI calls explicit labels better supported.
+   - F14 `bab3183`: a whitespace-only reindent, by `/home/user/temp/agent/f14/reindent.mjs`, which leaves Home and
+     About byte-identical.
+   - F14 `96f3a45`: drops the `loading="eager"` and `defer` attributes.
+   - F6 `3d75dad`: `@container(width>744px)` replaces the million-times clamp. Band crops at 390, 744, 745, 800 and
+     1440 are pixel-identical, with an odd-against-even control. The Chromium differences are exactly the vanished
+     zero-width pseudos and simplified `max-inline-size` values.
+   - F9 `4127219`: ten `#section` hooks become `:where()`. The Scotties card-row arm matched nothing, so it is gone.
+     The Tales pill exception and the local `span` undo stay, because inverting them adds code.
+   - F12 `105abe0`: gold is the pill default, with Home's About link the one purple override, and one shared rule for
+     the Home and About wide footer. The two `.case-study` blocks stay split by concern.
+   - F18 declined: it changes DOM structure that the CSS selects on, for no visible gain.
+   - `07` gained a line for the later fixes. `05` gained the on-page captcha reminder in both languages.
+   Still running: Chromium diffs for the HTML commits (`wt-gold` against `wt-html`, expect 0), F9 (`wt-f6` against
+   `wt-f9`, expect 0) and F12 (`wt-f9` against `wt-f12` on Home, About and Contact, expect 0). Also running: the
+   Safari gold diff, the cumulative Safari diff `wt-gold` against `wt-f12` (expect only F6's pseudos) and the Safari
+   F19 check (`/home/user/temp/agent/f19/safari-f19.mjs`).
+   Once they come back, remove the `wt-a3`, `wt-refactor`, `wt-gold`, `wt-f19`, `wt-html`, `wt-f6`, `wt-f9` and
+   `wt-f12` worktrees.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
