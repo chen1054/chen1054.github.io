@@ -1438,7 +1438,8 @@
         min-inline-size: 3rem;
         min-block-size: 3rem;
         cursor: zoom-in;
-        &>img {
+        /* Directly, or inside a picture that swaps in a phone version. */
+        & img {
           display: block;
           inline-size: 100%;
           block-size: auto;
@@ -1639,14 +1640,14 @@
           font-size: 2rem;
           line-height: 3rem;
         }
-        &>img {
+        & img {
           display: block;
           inline-size: auto;
           min-inline-size: 100%;
           block-size: auto;
         }
         /* Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. */
-        &>img[src$=".png"] {
+        & img[src$=".png"] {
           min-inline-size: 0;
           margin-inline: auto;
         }
@@ -1987,6 +1988,27 @@
         }
         @media(width>=40rem) {
           column-gap: calc(68rem / 16 - 2 * var(--home-wide-reference-growth));
+        }
+      }
+      /*
+        The age trail on phones: Phone Tales draws it 336 px wide from the text column's start, 14 px past its end.
+        Only the desktop design prints the footnote its asterisks point to, so phones show it as text under the trail.
+      */
+      & figure:has(img[src*="tales-age-tier-progression"]) {
+        &>figcaption {
+          margin-block-start: 1rem;
+          font-size: calc(13rem / 16);
+          line-height: 1.5;
+        }
+        @media(width<40rem) {
+          inline-size: calc(336rem / 16 + 336 * var(--phone-art-growth));
+          max-inline-size: none;
+          margin-inline: 0 auto;
+        }
+        @media(width>=40rem) {
+          &>figcaption {
+            display: none;
+          }
         }
       }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
