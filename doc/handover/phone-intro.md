@@ -1420,3 +1420,6 @@ intro animation steps 1 s apart (name 1 s, summary and button 2 s, purple accent
 6.8 s, one second after the river finishes); phones: hamburger 56 px higher on every page, Home hero 28 px higher with
 the summary 29 px and the button 30 px closer, so the river shows on the first screen (Home 87 px shorter).
 "Hello, I'm" was already #685587.
+Confirmed by the user (2026-10-18), against the literal per-file reading: the Regular Playfair nav, the Regular
+footer text and the higher phone hamburger apply on every page (Desktop About and the other phone files still draw
+the old versions), and the flower appears 1 s after the river finishes (6.8 s).
