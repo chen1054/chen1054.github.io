@@ -619,6 +619,13 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    `main` against `568c81b` differs only by `16881e4` (Home Medium) and `2c49ce9` (wide nav). The tool now parks
    the pointer before probes and retries focus; runbook in Monochromatic `bea49e5715`. Worktree and unit cleanup
    waits until the after-capture job finishes.
+   Queue as of 2026-10-18 late: (a) running, after-captures paired with `evidence/before-d5e6250/` into the client
+   folder's `evidence/after-<sha>/` and `evidence/pairs-<sha>/` (STP at 1920, iPhone 15 Simulator, plus citation and
+   Contact pairs); (b) running, report-only audit of GPT-built anti-patterns to
+   `/home/user/temp/agent/gpt-audit/report.md`; fixes land only after (a) finishes, each in its own commit with a
+   Safari style diff; (c) after (a): remove worktrees `wt-nest`, `wt-layer`, `wt-hybrid`, `wt-base`, `wt-refactor`,
+   `wt-gaps/*`, `wt-harness` and units `xinyanchen-nest`, `xinyanchen-layer`, `xinyanchen-hybrid`,
+   `xinyanchen-gaps`; (d) the client reply goes out only when the user says so.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
