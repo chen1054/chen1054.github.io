@@ -649,6 +649,12 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    and Safari style diffs): F4 faux-bold Abril on Scotties prototype links, F3 About portrait `sizes`, F17 apostrophes
    and Hi-fi/Lo-fi spelling, F20 README drift, F7 inert CSS. Later: F2 favicon rebuilt from the vector logo, F5 zoom
    viewer accessible names, F6 hidden 745 px switch, F9 to F16, F18, F19 (maintenance).
+   Reboot recovery (2026-10-19 00:26, the user's REISUB): `2baa185` had been pushed but the local branch update was
+   lost; its content sat staged, byte-identical to the pushed blob, so local `main` was fast-forwarded. All
+   `xinyanchen-*` units were re-run from Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md` (corrected in
+   `88dbdac5e8` to start `no-store-server-mux.mjs`); 4174, m1's 4173, Safari 4446 and STP 4450 all answered. The
+   cut-off fix agent left no edits; its half-created `wt-pre` matched `7d4f201` and was removed. The audit fixes
+   (F4, F3, F17, F20, F7) were restarted from scratch.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
