@@ -2744,6 +2744,43 @@
                 line-height: 1;
               }
             }
+            /*
+              The phone design alternates the cards: 260 px wide, the odd ones 23 px into the column and the even
+              ones at its end, 103 px apart, the title right above the text, a 64 px badge 12 px past the end and 30
+              below, and the brush tape over the top corner (Phone/MenuMe.pdf).
+            */
+            @media(width<40rem) {
+              --card-unit: calc(1rem / 16 + var(--phone-art-growth));
+              flex-direction: column;
+              align-items: start;
+              gap: calc(103 * var(--card-unit));
+              &>aside {
+                --menume-disc: calc(64 * var(--card-unit));
+                flex: none;
+                inline-size: calc(260 * var(--card-unit));
+                margin-block: 0;
+                margin-inline: calc(23 * var(--card-unit)) 0;
+                padding-block: calc(16 * var(--card-unit)) calc(20 * var(--card-unit));
+                padding-inline: calc(24 * var(--card-unit));
+                &:nth-child(even) {
+                  margin-inline-start: auto;
+                }
+                &>p {
+                  margin-block: 0;
+                }
+                &::before {
+                  inset-block-start: calc(-34 * var(--card-unit));
+                  inset-inline-start: calc(-43 * var(--card-unit));
+                  inline-size: calc(92 * var(--card-unit));
+                  block-size: calc(70 * var(--card-unit));
+                }
+                &::after {
+                  inset-block-end: calc(-30 * var(--card-unit) - 8rem / 16);
+                  inset-inline-end: calc(-12.5 * var(--card-unit) - 4rem / 16);
+                  font-size: calc(36 * var(--card-unit));
+                }
+              }
+            }
           }
           &>.subsection {
             &>h4 {
