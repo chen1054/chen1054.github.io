@@ -1783,3 +1783,10 @@ second `.flex-row`), so on phones that row was 880 px tall with a stray connecto
 until `c96e808` scoped the grid to the row with the callouts. Found by rendering the link row on its own at 390.
 Also in `c96e808`: summary labels bold (Tales ExtraBold, own line on phones) without gaps between entries; prototype
 buttons shadowed on all widths and 31 px on phones with a 48 px hit area. `94c5fb3`: phone banner text box 225 px.
+Decided by the user, 2026-10-19: the MenuMe and Scotties corner blob stays cream `#EBE4D9` at every width (the
+Tablet and Phone designs' `#D8D8D7` is not followed). Weight switch question raised by the user ("another Figma
+issue where a shared text box is displayed as using the first char's font weight?"): checked; the Scotties body
+nodes carry no style-override table in any frame (one weight per box), and `Desktop/Scotties.png` renders
+"Initially, our priority..." Bold where `Phone/Scotties.png` renders it Medium, so the frames really differ there.
+The dump (`fig-parse/dump-text-full.mjs`) does not record `characterStyleIDs`, so mixed boxes can't be mapped to
+runs from data alone; their bold runs (pillar names, summary labels) were confirmed on the design images.
