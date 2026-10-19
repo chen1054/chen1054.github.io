@@ -1811,3 +1811,11 @@ models: 13.6-inch, 2560 x 1664 native (support.apple.com/en-us/111867), and 15.3
 (support.apple.com/en-us/111346); neither page states the default scaled resolution, so the client's Safari
 viewport width is unknown. Open, for the client: screen size and System Settings > Displays resolution (and
 Safari > About Safari, still asked). Until then, test wide layouts across laptop widths (1280 to 1710).
+MenuMe walk, 2026-10-19, landed: `644c792` contribution cards alternate on phone (miss-08); `4149e88` showcase
+split into phone and tablet images, each button under its device on phone (miss-09); `440d50d` Key Learnings
+staggered on wide layouts, headings centred on phone (miss-10); `a626330` Inspiration callout at all three
+widths (miss-04), with the squiggle and brush stroke exported as vectors from `Phone/MenuMe.pdf` (exporter:
+`/home/user/temp/agent/f20/export-shape.py`). Each checked in Chromium at 390, 744 and 1440 against the design
+PNGs. Not yet checked in the iOS 17.0.1 Simulator. MenuMe left: miss-07 bubbles (low), miss-12 list markers and
+bold labels (low), tablet flow-2 residual. Note: the design copy reads "meals.We" (no space); the site keeps the
+space, so the story box wraps one word differently from the tablet design.
