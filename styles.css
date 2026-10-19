@@ -2354,7 +2354,15 @@
           max-inline-size: none;
           margin-inline: max(-7% / 6.14, 50% - 314rem / 16) auto;
         }
+        /*
+          Desktop Tales draws the trail 969 px wide from 64 px into the 1086 px column, 113 px under the pillars' last
+          glyph top and 100 above the paragraph's.
+        */
         @media(width>=80rem) {
+          inline-size: calc(96900% / 1086);
+          max-inline-size: none;
+          margin-block: calc(70rem / 16) calc(99rem / 16);
+          margin-inline: calc(6400% / 1086) auto;
           &>figcaption {
             display: none;
           }
@@ -2622,6 +2630,44 @@
             margin-inline-end: calc(20% / 2.75);
           }
         }
+        /*
+          Desktop Tales starts the pillars' copy 53, 421 and 783 px into the 1086 px column, centres each icon and
+          title 135, 124 and 124 px past that, and runs the copy on 304.5, 282 and 259 px measures (inside the 303 to
+          306, 263.5 to 300.5 and 243.5 to 274.5 px windows where it wraps as drawn), so the copy overhangs its box.
+          Icon centres 218 px under the intro's glyph top, titles 111 under them, copy 37 under the titles.
+        */
+        @media(width>=80rem) {
+          display: grid;
+          grid-template-columns:
+            calc(5300% / 1086) calc(27000% / 1086) calc(9800% / 1086) calc(24800% / 1086) calc(11400% / 1086)
+            calc(24800% / 1086);
+          justify-content: start;
+          gap: 0;
+          margin-block-start: calc(79rem / 16);
+          &>* {
+            grid-column: 2;
+            /* The title's margin collapses into the icon's. */
+            &>.small-illustration {
+              margin-block-end: calc(28rem / 16);
+            }
+            &>p {
+              margin-block-start: calc(-11rem / 16);
+              margin-inline-end: calc(-34.5rem / 16);
+            }
+          }
+          &>:nth-child(2) {
+            grid-column: 4;
+            &>p {
+              margin-inline-end: calc(-34rem / 16);
+            }
+          }
+          &>:nth-child(3) {
+            grid-column: 6;
+            &>p {
+              margin-inline-end: calc(-11rem / 16);
+            }
+          }
+        }
         /* Stacked, the Phone design's gaps from ink to ink: icon to title 31, title to copy 32, copy to icon 47. */
         @media(width<26.25rem) {
           row-gap: 0;
@@ -2641,8 +2687,9 @@
         --quote-measure: calc(342rem / 16);
         padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
         line-height: calc(48rem / 16 + 12 * var(--home-wide-reference-growth));
+        /* 1066 px at 1440 breaks before "of daily", as Desktop Tales does (1050.5 to 1082.5 px in our face). */
         @media(width>=40rem) {
-          --quote-measure: calc(550rem / 16 + 550 * var(--home-wide-reference-growth));
+          --quote-measure: calc(550rem / 16 + 516 * var(--home-wide-reference-growth));
         }
       }
       /*
@@ -2691,6 +2738,30 @@
           &>.spiral-notepad {
             grid-area: 2 / 2;
             margin-inline-start: 0;
+          }
+        }
+      }
+      /*
+        Desktop Tales sets text 42 px under a heading's glyph top, and a paragraph after a list on the list's line
+        pitch.
+      */
+      @media(width>=80rem) {
+        & :is(.section-content, .subsection)>h3:has(+ :is(p, ul)) {
+          margin-block-end: calc(6rem / 16);
+        }
+        & .subsection>ul:has(+ p) {
+          margin-block-end: 0;
+          &+p {
+            margin-block-start: 0;
+          }
+        }
+      }
+      /* Desktop Tales: the figure 60 px under the band, and Dual-Persona Framing 236 under the pad's last glyph top. */
+      & .section-content:has(>.flex-row>.spiral-notepad) {
+        @media(width>=80rem) {
+          padding-block-start: calc(59rem / 16);
+          &>.subsection {
+            margin-block-start: calc(144rem / 16);
           }
         }
       }
