@@ -1846,3 +1846,17 @@ the other traced assets: WebKit can leave a traced shape's edge columns partly e
 asset is tiled or butted against another edge.
 Simulator note: `sim17-shots.mjs` sometimes lands at the page top (the fragment did not scroll within its 7 s);
 rerun before reading anything into a page-top shot.
+Scotties, 2026-10-19: `b8705dc` Core Challenge chevrons 41.4 px on phone (59 tablet, 63 desktop kept), phone
+cloud, skate and following heading placed as `Phone/Scotties.pdf`. `68e9c60` and `be68d51`: wide hi-fi homepage as
+Tablet and Desktop/Scotties.pdf (callouts spaced beside the screen, 3 px connectors with arrowheads, desktop intro
+and third callout on the screen's left, links under the screen); each callout's minimum height is the design
+box's, scaled, so arrows land on the design's spots: tablet within 0.003 of the screen height from 900 to 1279,
+desktop within 0.002 from 1440 (Chromium; Safari Technology Preview the same at 1440). New breakpoint for this
+subsection only: the desktop composition starts at 80rem (1280 px), measured (from 1092 its arrows ran off the
+screen). Known: at 744 the last arrow lands on the screen footer (site tablet column 594 against the design's 620).
+Container-unit pitfall found and fixed (`900b874`): `--home-wide-reference-growth` is written in `cqw`, so a size
+container inside the page made the growth measure the container (MenuMe tablet flow heading 18 px instead of 18.9
+at 900). Every container added for a layout unit now redefines the growth from `100vw`; a computed-style diff
+against the uncontained page is empty. The older containers (Tales notepad and bubbles, Scotties cloud) show no
+difference.
+Scotties left: wide lo-fi connectors, persona heading runs, the Tablet "Home" breadcrumb.
