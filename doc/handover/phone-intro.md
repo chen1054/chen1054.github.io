@@ -699,7 +699,10 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    - A refused send inserts a `role="alert"` paragraph above the captcha. It is centred on phones and end-aligned at
      40rem and up.
    - Chromium at 390 and 1440 shows one reminder after two refused sends, no navigation and no console errors.
-     Screenshots are in `/home/user/temp/agent/f19/`. Safari check pending.
+     Screenshots are in `/home/user/temp/agent/f19/`. Safari check passed later the same day.
+   - Known and accepted: the reminder stays after the visitor solves the captcha until Send is pressed again, which
+     then sends the form. Clearing it earlier needs an hCaptcha `data-callback` global, which is more code than F19
+     asked for.
    - Web3Forms' `script.js` does not block an unsolved submit, so the module stays. No null guard was added: the module
      loads only on Contact.
    Style-diff pitfall: `style-diff-norm.mjs` appends `/<page>.html`, so a base URL ending in `/` gives `//styles.css`.
@@ -714,7 +717,9 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Rest of the maintenance round, lead-done:
    - F13 rejected after measurement. Deleting the 20 `aria-hidden` attributes on decorative wrappers added 23 empty
      `generic` nodes to Chromium's accessibility tree (`/home/user/temp/agent/f13/`), so the attribute stays. The
-     `for` attributes on wrapping labels also stay: W3C WAI calls explicit labels better supported.
+     `for` attributes on wrapping labels also stay. The W3C WAI forms tutorial
+     (https://www.w3.org/WAI/tutorials/forms/labels/, fetched 2026-10-19) says "Generally, explicit labels are better
+     supported by assistive technology."
    - F14 `bab3183`: a whitespace-only reindent, by `/home/user/temp/agent/f14/reindent.mjs`, which leaves Home and
      About byte-identical.
    - F14 `96f3a45`: drops the `loading="eager"` and `defer` attributes.
