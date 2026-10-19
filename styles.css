@@ -245,12 +245,13 @@ p {
     outline-offset: calc(4rem / 16);
   }
 }
+/* Centred above the footer text, so it comes into view with the footer. */
 .portfolio-back-to-top-link {
-  position: fixed;
-  inset-block-end: 1rem;
-  inset-inline-end: 1rem;
-  z-index: 1;
+  position: relative;
+  display: block;
   box-sizing: border-box;
+  margin-block-end: calc(1rem + 16 * var(--home-wide-reference-growth));
+  margin-inline: auto;
   inline-size: 3rem;
   block-size: 3rem;
   border: calc(2rem / 16) solid var(--color-back-to-top-ring);
@@ -705,6 +706,11 @@ p {
     Send button does not jump; the frame is sized in pixels whatever the font size.
   */
   min-block-size: 138px;
+  /* Centred over the Send button, as the client asked, with the button's same nudge. */
+  position: relative;
+  inset-inline-start: calc(13rem / 32);
+  display: flex;
+  justify-content: center;
   &>iframe {
     display: block;
   }
@@ -1528,6 +1534,13 @@ h4.case-study-subheading {
     &>textarea {
       margin-block-start: calc(13rem / 16 + 8 * var(--home-wide-reference-growth));
     }
+  }
+  .h-captcha {
+    /* As wide as the Send button below it (its 144 by 74 growth), so the frame centres over the pill. */
+    inset-inline-start: 0;
+    align-self: end;
+    inline-size: calc(144rem / 16 + 74 * var(--home-wide-reference-growth));
+    min-inline-size: max-content;
   }
   .contact-page-send-message-button {
     --home-wide-button-width-growth: 74;

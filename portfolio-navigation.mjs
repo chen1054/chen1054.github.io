@@ -6,10 +6,3 @@ document.getElementById("portfolio-primary-navigation").addEventListener(
     }
   }
 );
-
-const backToTopLink = document.querySelector(".portfolio-back-to-top-link");
-function updateBackToTopLinkVisibility() {
-  backToTopLink.hidden = scrollY <= 0;
-}
-addEventListener("scroll", updateBackToTopLinkVisibility, { passive: true });
-updateBackToTopLinkVisibility();
