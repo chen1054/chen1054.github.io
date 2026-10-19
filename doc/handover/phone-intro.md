@@ -1648,3 +1648,19 @@ Simulator, the only runtime installed on `m1`); no oldest supported Safari was s
 In progress: render every page at 393 in Playwright WebKit 17.0 (image `playwright:v1.38.0-jammy`) and WebKit 18.2
 (`v1.49.1-noble`) with `/home/user/temp/agent/f20/webkit-boxes.mjs` and diff element boxes, to find everything
 else that differs on the client's engine before fixing. The reply to the client stays on hold.
+Rejected, the Playwright detour: Playwright's "WebKit 17.0" (v1.38 image) draws the sitemap tree correctly, so it
+already accepts the nesting iOS 17.0 rejects (Playwright builds WebKit from newer trunk than Apple's release); it
+cannot stand in for the client's engine. The user: "Why are we doing Playwright at all? The golden child is Safari,
+and now we know the version for phone." Use real Safari of the client's version only.
+Authorized by the user: the iOS 17.0.1 Simulator runtime (closest Apple offers to 17.0.2; same Safari 17.0) on `m1`,
+archive in `/Volumes/MacData/sim-runtimes/`, installed with `xcodes runtimes install 'iOS 17.0.1'` (unit
+`xinyanchen-ios17-install`). Not yet known whether Xcode 27 boots it.
+Fix committed: `8fd50ea` prefixes the three sitemap rules with `&`. Grep of `styles.css` for features newer than
+Safari 17.0: `text-wrap: balance` and `pretty` (17.5, degrade to normal wrapping), `text-box` (18.2, degrades);
+relative colours are supported in 17.0 per caniuse. Next: in iOS 17.0.1 Simulator Safari at 393, compare the base
+copy (`/@wt-base/`, `d758477`) with `8fd50ea` on every page, and look for the client's other shots (543 squiggle
+over Alicia's text, 549 chevrons over the sitemap, 551 and 552 boxes touching) before and after.
+Client question, 2026-10-19, relayed by the user: "你是不是做了 phone 版本才做 tablet 和 desktop" (did you build
+the phone version first, then tablet and desktop). Facts: Home was built phone first (`6b3f4ea` and following,
+2026-10-15), then adapted to tablet and desktop (`fdfe88f`); the stylesheet is phone-first (wide values under
+`@media(width>=40rem)`). The case-study pages predate this work.
