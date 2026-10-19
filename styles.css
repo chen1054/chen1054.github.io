@@ -1305,6 +1305,15 @@
       margin-block-start: 0;
       margin-block-end: 2rem;
       text-align: center;
+      /* Over text, the designs leave 30, 21 and 44 px of ink between heading and text (Scotties' About, all three). */
+      &:has(+ :is(p, ul)) {
+        margin-block-end: calc(
+          17rem / 16 - 9 * var(--phone-tablet-reference-growth) + 22 * var(--home-wide-reference-growth)
+        );
+        & + * {
+          margin-block-start: 0;
+        }
+      }
     }
     & h4.subheading {
       margin-block-start: 1rem;
@@ -3654,6 +3663,15 @@
           --scotties-note-icon: url("assets/scotties-lo-fi-ice-boot-corner-icon.svg");
           inset-inline-end: 6%;
           aspect-ratio: 88 / 71;
+        }
+        /* The hi-fi intro is a boxed note under its skater, not running text: it keeps its wider gap below desktop. */
+        @media(width<80rem) {
+          & .subsection:nth-child(5)>h3 {
+            margin-block-end: 2rem;
+            & + p {
+              margin-block-start: 1rem;
+            }
+          }
         }
         & .subsection:nth-child(5)>h3+p::before {
           --scotties-note-icon: url("assets/scotties-hi-fi-skater-corner-icon.svg");
