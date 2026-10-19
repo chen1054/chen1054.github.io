@@ -2129,21 +2129,24 @@
             --menume-drip-color: var(--menume-honey);
             position: relative;
             box-sizing: border-box;
-            inline-size: min(calc(100% - var(--menume-disc) / 2), calc(300rem / 16 + 272 * var(--home-wide-reference-growth)));
-            margin-block-end: calc(var(--menume-drip) + 2rem);
-            padding-block: calc(16rem / 16 + 20 * var(--home-wide-reference-growth));
-            padding-inline: 1rem calc(var(--menume-disc) / 2 + 1rem);
+            --menume-disc: calc(57.7rem / 16 + 10.5 * var(--phone-tablet-reference-growth) + 45.2 * var(--home-wide-reference-growth));
+            inline-size: min(calc(100% - var(--menume-disc) / 2), calc(291.5rem / 16 + 53.3 * var(--phone-tablet-reference-growth) + 227.2 * var(--home-wide-reference-growth)));
+            margin-block-end: calc(90rem / 16 - 1.6 * var(--phone-tablet-reference-growth) + 46.1 * var(--home-wide-reference-growth));
+            margin-inline-start: calc(58 * var(--home-wide-reference-growth));
+            padding-block: calc(23rem / 16 + 5.5 * var(--phone-tablet-reference-growth) + 24 * var(--home-wide-reference-growth));
+            padding-inline: 1rem calc(var(--menume-disc) / 2);
             border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
             background-color: var(--menume-honey);
             color: #000;
             font-family: "Abril Fatface", serif;
-            font-size: calc(20rem / 16 + 8 * var(--home-wide-reference-growth));
+            font-size: calc(18rem / 16 + 2 * var(--phone-tablet-reference-growth) + 8 * var(--home-wide-reference-growth));
             font-weight: 400;
+            line-height: 2;
             text-align: center;
             &::before {
               content: "";
               position: absolute;
-              inset-block-start: calc(var(--menume-disc) / 5);
+              inset-block-start: calc(var(--menume-disc) * 0.13);
               inset-inline-end: calc(var(--menume-disc) / -2);
               inline-size: var(--menume-disc);
               block-size: var(--menume-disc);
@@ -2151,26 +2154,49 @@
               filter: drop-shadow(0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%));
             }
           }
+          /*
+            The story box, as all three designs draw it: offset toward the column's end under the quote, a thin honey
+            border with a soft honey shadow 6 px down, the orange squiggle from the quote's drip over its top corner,
+            the pot inside its bottom corner, and an orange brush stroke over that corner (the Phone, Tablet and Desktop MenuMe.pdf).
+          */
           &>aside {
             position: relative;
+            box-sizing: border-box;
+            inline-size: min(100%, calc(265rem / 16 + 167.3 * var(--phone-tablet-reference-growth) + 187.7 * var(--home-wide-reference-growth)));
+            margin-inline-start: calc(35.5rem / 16 + 121 * var(--phone-tablet-reference-growth) + 187 * var(--home-wide-reference-growth));
+            padding-block: calc(21rem / 16 + 11 * var(--phone-tablet-reference-growth) - 2 * var(--home-wide-reference-growth)) calc(44rem / 16 - 8 * var(--phone-tablet-reference-growth) - 11 * var(--home-wide-reference-growth));
+            padding-inline: calc(18.9rem / 16 + 14 * var(--phone-tablet-reference-growth) + 20 * var(--home-wide-reference-growth)) calc(20.1rem / 16 + 19.4 * var(--phone-tablet-reference-growth) + 11.6 * var(--home-wide-reference-growth));
             border-color: var(--menume-honey);
-            border-width: calc(4rem / 16);
+            border-width: calc(1.5rem / 16);
             border-radius: 0;
+            box-shadow: 0 calc(6rem / 16) calc(4rem / 16) var(--menume-honey);
+            &>p {
+              margin-block: 0;
+              &::after {
+                content: "";
+                position: absolute;
+                inset-block-end: calc(-41rem / 16 + 11.5 * var(--phone-tablet-reference-growth) - 39.8 * var(--home-wide-reference-growth));
+                inset-inline-end: calc(-28.5rem / 16 - 1.9 * var(--phone-tablet-reference-growth) - 46 * var(--home-wide-reference-growth));
+                inline-size: calc(79.8rem / 16 - 5.7 * var(--phone-tablet-reference-growth) + 77.6 * var(--home-wide-reference-growth));
+                block-size: calc(73.5rem / 16 + 3.3 * var(--phone-tablet-reference-growth) + 42.5 * var(--home-wide-reference-growth));
+                background: url("assets/menume-inspiration-orange-brush-stroke.svg") center / 100% 100% no-repeat;
+              }
+            }
             &::before {
               content: "";
               position: absolute;
-              inset-block-end: calc(100% - 32rem / 16);
-              inset-inline-start: 10%;
-              inline-size: calc(var(--menume-arrow) * 1.1);
-              block-size: calc(var(--menume-arrow) * 1.7);
-              background: url("assets/menume-orange-squiggle-connector.svg") center / contain no-repeat;
+              inset-block-start: calc(-61.6rem / 16 - 1.2 * var(--phone-tablet-reference-growth) - 36 * var(--home-wide-reference-growth));
+              inset-inline-start: calc(-2.3rem / 16 - 12.6 * var(--phone-tablet-reference-growth) - 45 * var(--home-wide-reference-growth));
+              inline-size: calc(55.7rem / 16 + 4.7 * var(--phone-tablet-reference-growth) + 34.8 * var(--home-wide-reference-growth));
+              aspect-ratio: 557 / 843;
+              background: url("assets/menume-inspiration-orange-squiggle.svg") center / contain no-repeat;
             }
             &::after {
               content: "";
               position: absolute;
-              inset-block-end: calc(12rem / 16);
-              inset-inline-end: calc(16rem / 16);
-              inline-size: calc(40rem / 16 + 25 * var(--home-wide-reference-growth));
+              inset-block-end: calc(18.8rem / 16 + 4.7 * var(--phone-tablet-reference-growth) - 6.9 * var(--home-wide-reference-growth));
+              inset-inline-end: calc(37.5rem / 16 - 10.7 * var(--phone-tablet-reference-growth) + 15.8 * var(--home-wide-reference-growth));
+              inline-size: calc(44rem / 16 + 10 * var(--phone-tablet-reference-growth) + 10.8 * var(--home-wide-reference-growth));
               aspect-ratio: 1;
               background: url("assets/menume-teal-cooking-pot-icon.svg") center / contain no-repeat;
             }
