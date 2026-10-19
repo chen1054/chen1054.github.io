@@ -3326,11 +3326,16 @@
             }
           }
         }
-        /* The Problem & Solution items: centred, with a smaller icon and a teal title, in all three designs. */
+        /*
+          The Problem & Solution items: centred, with a smaller icon (102, 115 and 152 px wide in the Phone, Tablet and
+          Desktop designs) and a teal title; the tablet and desktop designs align each description to its start.
+        */
         & .subsection:has(img[src*="mental-overload"])>.flex-row>article {
           text-align: center;
           &>.small-illustration {
-            inline-size: calc(102rem / 16 + 50 * var(--home-wide-reference-growth));
+            inline-size: calc(
+              102rem / 16 + 13 * var(--phone-tablet-reference-growth) + 37 * var(--home-wide-reference-growth)
+            );
             margin-block: 0;
             margin-inline: auto;
           }
@@ -3340,6 +3345,33 @@
           }
           &>p {
             margin-block-start: 0;
+            @media(width>=40rem) {
+              text-align: start;
+            }
+          }
+        }
+        /*
+          Tablet MenuMe leads with the problem at 16 px, line height 2, and sets the two items 47 px under it in
+          columns of 260 and 290 px, from 16 px into its 614 px column and at the column's end.
+        */
+        @media(width>=40rem) and (width<80rem) {
+          & .subsection:has(img[src*="mental-overload"]) {
+            &>p {
+              font-size: 1rem;
+              line-height: 2;
+            }
+            &>.flex-row:has(>article) {
+              display: grid;
+              grid-template-columns: calc(16% / 6.14) calc(260% / 6.14) 1fr calc(290% / 6.14);
+              gap: 0;
+              margin-block-start: calc(47rem / 16);
+              &>article {
+                grid-column: 2;
+                &:last-child {
+                  grid-column: 4;
+                }
+              }
+            }
           }
         }
         &:where(#menume-usability)>.section-content {
