@@ -2019,6 +2019,14 @@
           margin-inline: 0 auto;
         }
       }
+      /* The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. */
+      & figure:has(img[src*="tales-campaign-performance-metrics"]) {
+        @media(width<40rem) {
+          inline-size: calc(340rem / 16 + 340 * var(--phone-art-growth));
+          max-inline-size: none;
+          margin-inline: calc(-4rem / 16) auto;
+        }
+      }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
