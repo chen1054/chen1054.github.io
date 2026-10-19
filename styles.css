@@ -1291,6 +1291,27 @@
     & .section-content {
       padding-block: calc(64rem / 16 + 56 * var(--home-wide-reference-growth));
       text-align: start;
+      /*
+        The desktop designs set body text about 980 px wide from x 230, inside the 1086 px column the artwork spans.
+        In our rendering every MenuMe paragraph wraps line for line from 973 to 984 px and Scotties' from 958 to 980,
+        so the measure is 976.
+      */
+      @media(width>=80rem) {
+        &>:is(p, ul, ol),
+        &>.subsection>:is(p, ul, ol) {
+          margin-inline: calc(5300% / 1086) calc(5700% / 1086);
+        }
+        /*
+          Two keep their designs' own boxes: Tales' title story breaks before "connecting" (946 to 963 px wrap as
+          drawn, so 954), and Scotties' About runs on to the column's end (1000 to 1071).
+        */
+        :where([data-case-study="tales"]) &>p:has(+ .wordmark) {
+          margin-inline-end: calc(7900% / 1086);
+        }
+        :where(#scotties-overview) &>h3:first-child+p {
+          margin-inline-end: 0;
+        }
+      }
     }
     & .paragraph {
       margin-block: 1rem;
@@ -5402,6 +5423,7 @@
                 grid-area: 2 / 1 / 4 / 2;
                 align-self: start;
                 margin-block: calc(64 * var(--u)) 0;
+                margin-inline: 0;
                 padding-block: calc(46 * var(--u));
                 padding-inline: calc(51 * var(--u)) calc(38 * var(--u));
               }
