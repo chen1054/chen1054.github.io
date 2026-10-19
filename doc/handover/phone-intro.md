@@ -1917,3 +1917,26 @@ reports: at 744 the Scotties design sets the subtitle on one line and the metada
 the hero art larger, and the nav links darker. `c06f78b` made the phone ecosystem `<source height>` an integer;
 Safari reserves all four phone art boxes at full size before loading (no layout shift; BCD: `source` width and
 height since Safari 15).
+Tablet walk reports in (2026-10-19): `/home/user/temp/agent/f20/walk-{scotties,menume}-744/report.md`; Tales' report
+came back as text only (its pairs and `ours.png` are in `walk-tales-744/`). `agent-browser screenshot --full` at 744
+produced bad frames (the footer swirl cut to 418 px, the phone age trail below y 3800): verify every claim on the
+live page or a viewport screenshot. Not misses: the nav and footer text (Playfair Regular, site purple, per the
+client's revised designs, `b85e0e0`; the tablet MenuMe and Tales frames simply omit the nav), the back-to-top
+button (client ask), the cream corner blob, design typos, the footer wave (artifact). Landed: `f7489b1` hero
+subtitle and summary boxes and prototype pills (all studies), `0268e65` Jump list pitch, `1f3bbbe` section bands.
+Queue, shared first: (a) subheading to text gap about 25 px over the designs (Scotties 10, Tales 15 and 20) and the
+Scotties subheading glyph 31 against 25 px; (b) Scotties: personas Jake alone then Gwen and Jonathan, cards 237 x 293,
+text centred (15 to 17); Core Value pillars around the board as on phone, board 134 px (18, 19); Core Challenge
+cloud 430 x 350 under the arrows, text at pitch 28, bolt 107 px, skate at the cloud's bottom right (11 to 13); Brand
+Message box 397 x 251 with the skater and splat as drawn (14); Key Learnings stacked and staggered (29); hero art
+278 px (02); typography panel text size (20); gaps 21, 24 to 26; hi-fi buttons beside the last callout (28);
+sitemap node size (23). (c) MenuMe: dual-loop three-part layout with small cards (10 to 12); persona photos 187 x
+240, text alignment, squiggles (15 to 17); sitemap tree shape (18); flow headings numbered (19, 21); Personalized
+Menu Flow cards, screens and connectors (22 to 24); contribution cards and badge numerals (26, 27, 32); Key
+Learnings indent (28); Problem intro size and alignment (08, 09); delivery buttons gap (30). Flow image order (20)
+needs the client: the design's diagrams sit under the wrong headings, ours match the headings. (d) Tales: Key
+Insights bubbles staggered and larger, text left at 14/28 (11 to 13); Story World one then two (14); wordmark 465
+px centred (19); curriculum boxes padding and gaps (22); ecosystem 517 px, poster 338 px, metrics labels 14 px on
+tablet (27 to 29); timeline labels 30% small (16); Core Product gaps (20); Challenge note pitch 28 (09); persona
+gaps (10). Curriculum page numbers differ between the design and ours (23): ours were checked against the
+official PDF earlier; leave them.
