@@ -1456,14 +1456,14 @@
       margin-inline: 0;
       font-weight: 700;
       line-height: calc(20rem / 16);
-      ul {
+      & ul {
         margin-block: 0;
         margin-inline: 0;
         padding-block: 0;
         padding-inline: 0;
         list-style: none;
       }
-      span {
+      & span {
         position: relative;
         display: block;
         box-sizing: border-box;
@@ -1481,7 +1481,7 @@
       &>ul>li>ul>li>span {
         background-color: var(--color-case-study-sitemap-branch);
       }
-      ul ul {
+      & ul ul {
         margin-inline-start: var(--case-study-sitemap-trunk);
         &>li {
           position: relative;
