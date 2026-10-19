@@ -1768,6 +1768,72 @@
             margin-inline: auto;
           }
         }
+        /*
+          The phone design loops the three pillars around the skateboard: Excitement first and indented, the
+          skateboard, then Confidence and Belonging side by side, joined by pale chevron trails, each pillar name
+          running into its text (Phone/Scotties.pdf).
+        */
+        &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+          --pillar-unit: calc(1rem / 16 + var(--phone-art-growth));
+          display: grid;
+          &>.small-illustration {
+            grid-row: 4;
+            position: relative;
+            inline-size: calc(146 * var(--pillar-unit));
+            max-inline-size: none;
+            margin-block: calc(45 * var(--pillar-unit)) 0;
+            margin-inline: calc(102 * var(--pillar-unit)) 0;
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(-51 * var(--pillar-unit));
+              inset-inline-start: calc(-42 * var(--pillar-unit));
+              inline-size: calc(204 * var(--pillar-unit));
+              block-size: calc(277.4 * var(--pillar-unit));
+              background: url("assets/scotties-phone-core-value-chevron-trails.svg") center / 100% 100% no-repeat;
+              pointer-events: none;
+            }
+          }
+          &>.flex-row {
+            display: contents;
+            &>article {
+              grid-column: 1;
+              align-self: start;
+              margin-block: 0;
+              &::before {
+                content: none;
+              }
+              &>p {
+                margin-block: 0;
+                &>span {
+                  display: inline;
+                }
+              }
+            }
+            /* Tree order is Confidence, Belonging, Excitement. */
+            /* Only Excitement's name takes its own line, as the design's text breaks after it. */
+            &>article:nth-child(3) {
+              grid-row: 3;
+              &>p>span {
+                display: block;
+              }
+              inline-size: calc(236 * var(--pillar-unit));
+              margin-block-start: calc(40 * var(--pillar-unit));
+              margin-inline-start: calc(100 * var(--pillar-unit));
+            }
+            &>article:nth-child(1) {
+              grid-row: 5;
+              inline-size: calc(170 * var(--pillar-unit));
+              margin-block-start: calc(28 * var(--pillar-unit));
+            }
+            &>article:nth-child(2) {
+              grid-row: 5;
+              inline-size: calc(165 * var(--pillar-unit));
+              margin-block-start: calc(99 * var(--pillar-unit));
+              margin-inline-start: calc(185 * var(--pillar-unit));
+            }
+          }
+        }
       }
       &>.content>.project-introduction>.project-summary {
         font-weight: 500;
