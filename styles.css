@@ -2251,6 +2251,92 @@
               background-image: url("assets/menume-weekly-specials-highlight-rectangles.svg");
             }
           }
+          /*
+            The phone design's first flow: the finding beside the lo-fi screen, an orange squiggle down to the hi-fi
+            pair, and a yellow elbow from the pair into the iteration, which comes last. The two rows give up their
+            boxes so all four parts share one grid. Lengths are the design's pixels at 390 (Phone/MenuMe.pdf).
+          */
+          @media(width<40rem) {
+            &>.subsection:has(img[src*="personalization-low"]) {
+              --usability-unit: calc(1rem / 16 + var(--phone-art-growth));
+              display: grid;
+              &>.flex-row {
+                display: contents;
+                &>* {
+                  grid-column: 1;
+                  align-self: start;
+                }
+                &>aside {
+                  padding-block: calc(24 * var(--usability-unit));
+                  padding-inline: calc(22 * var(--usability-unit));
+                  &::after {
+                    content: none;
+                  }
+                  &>p {
+                    margin-block: 0;
+                  }
+                }
+                &>aside:first-child {
+                  grid-row: 2;
+                  justify-self: start;
+                  inline-size: calc(194 * var(--usability-unit));
+                  margin-inline-start: calc(-19 * var(--usability-unit));
+                }
+                &>aside:last-child {
+                  grid-row: 4;
+                  justify-self: start;
+                  inline-size: calc(234 * var(--usability-unit));
+                  margin-block-start: calc(38 * var(--usability-unit));
+                  margin-inline-start: calc(39 * var(--usability-unit));
+                }
+                &>figure:first-child {
+                  grid-row: 2;
+                  justify-self: end;
+                  inline-size: calc(142 * var(--usability-unit));
+                  margin-block-start: calc(4 * var(--usability-unit));
+                  margin-inline-end: calc(-16 * var(--usability-unit));
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    inset-block-start: calc(100% + 14 * var(--usability-unit));
+                    inset-inline-start: calc(15 * var(--usability-unit));
+                    inline-size: calc(45 * var(--usability-unit));
+                    block-size: calc(83 * var(--usability-unit));
+                    background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+                  }
+                }
+                &>figure:last-child {
+                  grid-row: 3;
+                  justify-self: start;
+                  inline-size: calc(292 * var(--usability-unit));
+                  margin-block-start: calc(103 * var(--usability-unit));
+                  margin-inline-start: calc(16 * var(--usability-unit));
+                }
+              }
+              /* The elbow: from the hi-fi pair's start edge down into the iteration's, a 3 px line and arrowhead. */
+              &::before {
+                --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                content: "";
+                z-index: 1;
+                grid-area: 3 / 1 / 4;
+                place-self: stretch start;
+                inline-size: calc(51.5 * var(--usability-unit));
+                margin-block: calc(283.5 * var(--usability-unit)) calc(-172.7 * var(--usability-unit));
+                margin-inline-start: calc(-6.5 * var(--usability-unit));
+                background-image:
+                  var(--line), var(--line), var(--line), url("assets/menume-usability-connector-arrowhead-right.svg");
+                background-position:
+                  0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)), calc(36.5 * var(--usability-unit)) 100%;
+                background-size:
+                  calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                  calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
+                  calc(38 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                  calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
+                background-repeat: no-repeat;
+                pointer-events: none;
+              }
+            }
+          }
         }
         &:where(#menume-contributions)>.section-content {
           &>.contribution-cards {
