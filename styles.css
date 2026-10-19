@@ -225,7 +225,13 @@
     @media(width>=40rem) {
       position: absolute;
       inset-block-start: calc(20rem / 16 + 16 * var(--home-wide-reference-growth));
-      inset-inline-start: calc(35rem / 16 + 35 * var(--home-wide-reference-growth));
+      /*
+        Above 1440 the navigation keeps its design offset from the centred 1440 column the content sits in, instead of
+        staying pinned to the window edge; the corner artwork and waves still run to the window edges.
+      */
+      inset-inline-start: calc(
+        35rem / 16 + 35 * var(--home-wide-reference-growth) + max(0rem, (100cqw - 1440rem / 16) / 2)
+      );
       display: flex;
       align-items: start;
       column-gap: calc(25rem / 16 + 36 * var(--home-wide-reference-growth));
