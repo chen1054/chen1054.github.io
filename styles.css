@@ -2227,10 +2227,34 @@
                 block-size: var(--menume-arrow);
                 background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
               }
-              &:last-child {
+              /* The iteration: second in its row, or first in the second row where each note leads its screens. */
+              &:is(:last-child, .flex-row + .flex-row>*) {
                 border-color: var(--color-case-study-secondary);
                 &::after {
                   background-image: url("assets/menume-orange-squiggle-arrow-short.svg");
+                }
+              }
+              &:not(:last-child):is(.flex-row + .flex-row>*)::after {
+                content: none;
+              }
+            }
+            /*
+              The Weekly Specials flow: each note shares a row with its three screens, as the desktop design draws it
+              (note 288 wide, centred against screens 211 wide, 16 apart, at 1440).
+            */
+            &>.flex-row:has(>.screen-set) {
+              align-items: center;
+              &>aside {
+                flex: 288 1 0;
+              }
+              &>.screen-set {
+                display: flex;
+                flex: 665 1 0;
+                align-items: start;
+                gap: calc(8rem / 16 + 8 * var(--home-wide-reference-growth));
+                &>figure {
+                  flex: 1 1 0;
+                  min-inline-size: 0;
                 }
               }
             }
@@ -2247,8 +2271,14 @@
             &:has(img[src*="personalization-high"])::after {
               background-image: url("assets/menume-personalization-highlight-rectangles.svg");
             }
-            &:has(img[src*="weekly-specials-high"])::after {
-              background-image: url("assets/menume-weekly-specials-highlight-rectangles.svg");
+            &:has(img[src$="high-fidelity-weekly-special.png"])::after {
+              background-image: url("assets/menume-weekly-specials-high-fidelity-weekly-special-highlights.svg");
+            }
+            &:has(img[src$="high-fidelity-authentic-recipes.png"])::after {
+              background-image: url("assets/menume-weekly-specials-high-fidelity-authentic-recipes-highlights.svg");
+            }
+            &:has(img[src$="high-fidelity-shopping-list.png"])::after {
+              background-image: url("assets/menume-weekly-specials-high-fidelity-shopping-list-highlights.svg");
             }
           }
           /*
@@ -2332,6 +2362,116 @@
                   calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
                   calc(38 * var(--usability-unit)) calc(3 * var(--usability-unit)),
                   calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
+                background-repeat: no-repeat;
+                pointer-events: none;
+              }
+            }
+            /*
+              The phone design's second flow: the finding beside the first lo-fi screen, the other two below, a
+              squiggle down to the hi-fi screens in two rows, the iteration beside the third, and a yellow elbow from
+              the second screen down into the iteration.
+            */
+            &>.subsection:has(img[src*="weekly-specials-low"]) {
+              --usability-unit: calc(1rem / 16 + var(--phone-art-growth));
+              display: grid;
+              &>.flex-row,
+              &>.flex-row>.screen-set {
+                display: contents;
+              }
+              & aside,
+              & figure {
+                grid-column: 1;
+                align-self: start;
+                justify-self: start;
+                flex: none;
+                margin-inline: 0;
+              }
+              & aside {
+                padding-block: calc(24 * var(--usability-unit));
+                padding-inline: calc(22 * var(--usability-unit));
+                &::after {
+                  content: none;
+                }
+                &>p {
+                  margin-block: 0;
+                }
+              }
+              &>.flex-row:first-of-type {
+                &>aside {
+                  grid-row: 2;
+                  inline-size: calc(184 * var(--usability-unit));
+                  margin-inline-start: calc(-4 * var(--usability-unit));
+                }
+                & figure:nth-child(1) {
+                  grid-row: 2;
+                  inline-size: calc(133 * var(--usability-unit));
+                  margin-block-start: calc(5 * var(--usability-unit));
+                  margin-inline-start: calc(189 * var(--usability-unit));
+                }
+                & figure:nth-child(n+2) {
+                  grid-row: 3;
+                  inline-size: calc(134 * var(--usability-unit));
+                  margin-block-start: calc(17 * var(--usability-unit));
+                }
+                & figure:nth-child(2) {
+                  margin-inline-start: calc(36 * var(--usability-unit));
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    inset-block-start: calc(100% + 21 * var(--usability-unit));
+                    inset-inline-start: calc(137 * var(--usability-unit));
+                    inline-size: calc(45 * var(--usability-unit));
+                    block-size: calc(83 * var(--usability-unit));
+                    background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+                  }
+                }
+                & figure:nth-child(3) {
+                  margin-inline-start: calc(187 * var(--usability-unit));
+                }
+              }
+              &>.flex-row:last-of-type {
+                &>aside {
+                  grid-row: 5;
+                  inline-size: calc(215 * var(--usability-unit));
+                  margin-block-start: calc(20 * var(--usability-unit));
+                  margin-inline-start: calc(127 * var(--usability-unit));
+                }
+                & figure {
+                  inline-size: calc(134 * var(--usability-unit));
+                }
+                & figure:nth-child(-n+2) {
+                  grid-row: 4;
+                  margin-block-start: calc(132 * var(--usability-unit));
+                }
+                & figure:nth-child(1) {
+                  margin-inline-start: calc(-15 * var(--usability-unit));
+                }
+                & figure:nth-child(2) {
+                  margin-inline-start: calc(136 * var(--usability-unit));
+                }
+                & figure:nth-child(3) {
+                  grid-row: 5;
+                  margin-block-start: calc(30 * var(--usability-unit));
+                  margin-inline-start: calc(-16 * var(--usability-unit));
+                }
+              }
+              &::before {
+                --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                content: "";
+                z-index: 1;
+                grid-area: 4 / 1 / 5;
+                place-self: stretch start;
+                inline-size: calc(39.5 * var(--usability-unit));
+                margin-block: calc(254.3 * var(--usability-unit)) calc(-29.5 * var(--usability-unit));
+                margin-inline-start: calc(271 * var(--usability-unit));
+                background-image: url("assets/menume-usability-connector-arrowhead-left.svg"), var(--line), var(--line);
+                background-position:
+                  0 0, calc(13.5 * var(--usability-unit)) calc(7.2 * var(--usability-unit)),
+                  calc(36.5 * var(--usability-unit)) calc(7.2 * var(--usability-unit));
+                background-size:
+                  calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit)),
+                  calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                  calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit));
                 background-repeat: no-repeat;
                 pointer-events: none;
               }
