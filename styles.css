@@ -1087,10 +1087,18 @@
     --hero-art-start-desktop: 0;
     /* The gap from the summary's last line to the prototype pills: 46 px glyph top to pill top on MenuMe, 70 on Scotties. */
     --summary-pills-gap-desktop: 12;
+    /*
+      Each desktop design's gaps around the hero divider, in px: from the hero to the divider, and from the divider
+      to the navigation (Tales 215 and 111, MenuMe 115 and 122, Scotties 102 and 129).
+    */
+    --hero-divider-gap-desktop: 215;
+    --divider-navigation-gap-desktop: 111;
     &[data-case-study="menume"] {
       --hero-art-desktop: 438;
       --hero-art-start-desktop: 52;
       --summary-pills-gap-desktop: 19;
+      --hero-divider-gap-desktop: 115;
+      --divider-navigation-gap-desktop: 122;
       --summary-bullet: "•" / "";
       --summary-bullet-indent: 1rem;
       --summary-subtitle-overhang: 6;
@@ -1115,6 +1123,8 @@
     &[data-case-study="scotties"] {
       --hero-art-desktop: 551;
       --summary-pills-gap-desktop: 43;
+      --hero-divider-gap-desktop: 102;
+      --divider-navigation-gap-desktop: 129;
       --summary-bullet: "•" / "";
       --summary-bullet-indent: 1rem;
       --color-case-study-accent: #bdca9d;
@@ -1286,6 +1296,9 @@
     & .project-divider {
       block-size: calc(16rem / 16 + 16 * var(--home-wide-reference-growth));
       margin-block-start: calc(45rem / 16 + 155 * var(--home-wide-reference-growth));
+      @media(width>=80rem) {
+        margin-block-start: calc(var(--hero-divider-gap-desktop) * 1px);
+      }
       background-color: var(--color-case-study-accent);
       border-block-width: calc(2rem / 16);
       border-block-style: dashed;
@@ -1294,6 +1307,10 @@
     & .section-navigation {
       max-inline-size: calc(580rem / 16);
       margin-block: calc(90rem / 16);
+      /* The desktop designs: 108 px between the heading's and the first entry's glyph tops, 150 from the last to the band. */
+      @media(width>=80rem) {
+        margin-block: calc(var(--divider-navigation-gap-desktop) * 1px) calc(107rem / 16);
+      }
       &>h2 {
         color: var(--color-case-study-heading);
         font-family: "Abril Fatface", serif;
@@ -1302,6 +1319,9 @@
       }
       &>ul {
         margin-block-start: 2rem;
+        @media(width>=80rem) {
+          margin-block-start: calc(58rem / 16);
+        }
         margin-block-end: 0;
         inline-size: fit-content;
         margin-inline: auto;
@@ -2934,7 +2954,9 @@
       --menume-arrow: calc(30rem / 16 + 50 * var(--home-wide-reference-growth));
       &>.content>.project-divider {
         block-size: calc(26rem / 16 + 23 * var(--home-wide-reference-growth));
-        margin-block-start: calc(35rem / 16 + 148 * var(--home-wide-reference-growth));
+        @media(width<80rem) {
+          margin-block-start: calc(35rem / 16 + 148 * var(--home-wide-reference-growth));
+        }
         background-image: url("assets/menume-gold-squiggle-one-period.svg");
         background-size: calc(291rem / 16 + 216 * var(--home-wide-reference-growth)) 100%;
       }
