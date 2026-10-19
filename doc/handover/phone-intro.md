@@ -1760,3 +1760,12 @@ rows do not scroll there, headings do; the middle of flow 2 is not yet seen on i
 the tablet design puts the iteration full width under its screens, ours beside them.
 Sitemap fix live: `https://chen1054.github.io/styles.css` serves `& ul {` (checked 2026-10-19 after the 16:43
 `pages-build-deployment` run succeeded).
+Scotties type and phone layout (`dd1a12c`, `eee3c7f`, `b726c52`): body copy Medium below 68.25rem (1092 px, where the
+interpolated size passes 15; the designs give Desktop Bold 16, Tablet Medium 14, Phone Medium 15, and the weight
+files are static; my choice of switch point, open to veto); positioning and pillar notes Medium on every width with
+the lead phrase Bold 15 / 16 / 18; "Typography & Color Palette" and "Brand Identity: Logo Concept" in Abril
+Fatface (all frames of the newer copy, confirmed on `Phone/Scotties.png`); the phone text column 20 px from each edge
+(the Scotties phone design's; MenuMe and Tales use 34, measured with `f20/text-edges.mjs`), hi-fi callout offsets
+moved by 14 to stay put; phone personas centred (222 px photo, plate offset 14, text centred, 285 px measure).
+Scotties weight re-audit (`f20/weights/rerun/`, newer copy): phone mismatches 30 to 6, tablet 34 to 10. Left:
+persona heading runs (Figma mixed-style mapping unclear), the Tablet "Home" breadcrumb in Abril.
