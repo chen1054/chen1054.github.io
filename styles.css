@@ -1018,9 +1018,6 @@
       inset-inline-start: calc(13rem / 32);
       display: flex;
       justify-content: center;
-      &>iframe {
-        display: block;
-      }
       @media(width>=40rem) {
         /* As wide as the Send button below it (its 144 by 74 growth), so the frame centres over the pill. */
         inset-inline-start: 0;
@@ -1362,12 +1359,8 @@
     & .spiral-notepad {
       aspect-ratio: 486 / 346;
       max-inline-size: calc(322rem / 16 + 164 * var(--home-wide-reference-growth));
-      background-image: url("assets/tales-challenge-spiral-notepad-background.svg");
       text-align: start;
       text-wrap: pretty;
-      &>* {
-        margin-inline: 10%;
-      }
       &>p {
         margin-block-start: 12%;
         /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
@@ -1662,7 +1655,6 @@
       color: var(--color-case-study-prototype-text);
       font-family: "Abril Fatface", serif;
       font-weight: 400;
-      font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
       text-align: center;
       text-decoration: none;
       &:hover {
@@ -1715,9 +1707,7 @@
         &::after {
           content: "";
           position: absolute;
-          inset-block-end: 0;
           inset-inline: 0;
-          block-size: calc(18rem / 16 + 18 * var(--home-wide-reference-growth));
         }
       }
     }
@@ -1736,21 +1726,13 @@
           content: "";
           position: absolute;
           inset-block: 0;
-          inset-inline-end: 0;
           inline-size: calc(80rem / 16 + 252 * var(--home-wide-reference-growth));
           background-image: url("assets/scotties-section-directional-chevrons.svg");
-          background-size: 100% 100%;
         }
-      }
-      &>.content>.section:nth-of-type(even)>h2::after {
-        inset-inline-start: 0;
-        inset-inline-end: auto;
-        transform: scaleX(-1);
       }
       &>.content>.project-divider {
         block-size: calc(20rem / 16);
         border-width: 0;
-        background-image: url("assets/scotties-section-directional-chevrons.svg");
         background-size: auto 100%;
       }
     }
@@ -2168,9 +2150,6 @@
                 inline-size: calc(var(--menume-arrow) * 0.54);
                 block-size: var(--menume-arrow);
                 background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
-              }
-              &:first-child {
-                border-color: var(--color-case-study-accent);
               }
               &:last-child {
                 border-color: var(--color-case-study-secondary);
