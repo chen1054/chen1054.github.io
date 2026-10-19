@@ -1806,3 +1806,8 @@ Open: iOS 17.0.1 Simulator shows a hairline light seam inside the MenuMe Dual-Lo
 about two thirds across); Chromium does not. Likely the drip mask tile seam (`repeat-x` at a fractional tile width).
 MenuMe `a87462f` (Problem & Solution centred, smaller icons, teal titles) and `62a59a7` (phone Dual-Loop headings
 above 225 px boxes) checked in Chromium at 390 and 1440 and in the iOS 17.0.1 Simulator.
+Client device, 2026-10-19 (relayed by the user): "Client is on a MacBook Air M2." Apple's spec pages list two M2
+models: 13.6-inch, 2560 x 1664 native (support.apple.com/en-us/111867), and 15.3-inch, 2880 x 1864 native
+(support.apple.com/en-us/111346); neither page states the default scaled resolution, so the client's Safari
+viewport width is unknown. Open, for the client: screen size and System Settings > Displays resolution (and
+Safari > About Safari, still asked). Until then, test wide layouts across laptop widths (1280 to 1710).
