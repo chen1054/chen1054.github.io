@@ -2300,26 +2300,29 @@
           transform: none;
         }
       }
-      /* Below 745px every band keeps its chevrons on the right; wider, even bands swap to a mirrored left copy. */
-      &>.content>.section:nth-of-type(even)>h2 {
-        &::before {
-          content: "";
-          position: absolute;
-          z-index: -1;
-          inset-block: 0;
-          inset-inline: 0 auto;
-          max-inline-size: clamp(0px, calc(var(--home-wide-reference-growth) * 1000000), 26%);
-          aspect-ratio: 664 / 292;
-          background-image: url("assets/scotties-section-directional-chevrons.svg");
-          background-size: auto 100%;
-          background-position: right;
-          background-repeat: no-repeat;
-          transform: scaleX(-1);
-        }
-        &::after {
-          inset-inline: auto 0;
-          max-inline-size: clamp(0px, calc(26% - var(--home-wide-reference-growth) * 1000000), 26%);
-          transform: none;
+      /*
+        Up to the 744px tablet design every band keeps its chevrons on the right; wider, even bands use a mirrored
+        left copy instead. The body is the query container, as for the wide growth value.
+      */
+      @container(width>744px) {
+        &>.content>.section:nth-of-type(even)>h2 {
+          &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset-block: 0;
+            inset-inline: 0 auto;
+            max-inline-size: 26%;
+            aspect-ratio: 664 / 292;
+            background-image: url("assets/scotties-section-directional-chevrons.svg");
+            background-size: auto 100%;
+            background-position: right;
+            background-repeat: no-repeat;
+            transform: scaleX(-1);
+          }
+          &::after {
+            content: none;
+          }
         }
       }
       &>.content h3.subheading::before {
