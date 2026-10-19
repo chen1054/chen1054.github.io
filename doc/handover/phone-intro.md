@@ -1385,3 +1385,14 @@ subheading; Contact heading) carry one formula each with their line heights, rep
 Every text size on all six pages is unchanged at 390, 744, 1440 and 1920; nothing on these pages steps by more
 than 1 px between 639 and 640 (the greeting was 24 then 28). Heights: +1 px at 393, up to +14 px at 639.
 The nav keeps 15 (overlay menu) and 14 (bar): different components, both as Figma draws them.
+
+Case-study type to Figma (sizes read from `Website (Copy).fig` per frame; 390 / 744 / 1440):
+section subheadings 18 / 18 / 22 (were 16 / 16 / 18); the jump list is Playfair Bold 16 / 16 / 22 and centred on
+all three pages, as all three designs draw it (it was Tales only); prototype links 14 / 14 / 16 (Tales' 18 at 1440);
+closing reflections 16 / 16 / 18; Tales pillar titles 15 / 14 / 16; MenuMe persona names 18 / 18 / 24 and subtitles
+16 / 16 / 18; Tales body 15 / 14 / 16. MenuMe and Scotties body stay 14 on phones: Figma draws MenuMe at 14 (52 of
+70 phone body nodes) and Scotties split 13 to 12. Text in painted containers sizes to its artwork and is unchanged.
+Figma inconsistency kept consistent on purpose: five MenuMe subsection headings ("Weekly Specials to Doorstep",
+"What's in My Fridge", the two usability flows, "Key Learnings & Takeaways") are 16 in Figma while their siblings
+are 18; the site uses 18 for all. Heights: 744 unchanged, 1440 +35 to +42 on MenuMe and Scotties, Tales +420 at 393
+(15 px body adds lines), no horizontal overflow at 320 to 1920.

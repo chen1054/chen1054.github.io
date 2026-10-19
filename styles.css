@@ -876,12 +876,16 @@ p {
   &>ul {
     margin-block-start: 2rem;
     margin-block-end: 0;
+    inline-size: fit-content;
+    margin-inline: auto;
     padding-inline-start: 1rem;
+    font-size: calc(1rem + 6 * var(--home-wide-reference-growth));
+    font-weight: 700;
     text-align: start;
     &>li>a {
       display: flex;
       align-items: center;
-      min-block-size: 3rem;
+      min-block-size: calc(3rem + 7 * var(--home-wide-reference-growth));
       color: inherit;
       text-decoration: none;
       &:hover {
@@ -926,6 +930,7 @@ p {
   }
 }
 h3.case-study-subheading {
+  font-size: calc(18rem / 16 + 4 * var(--home-wide-reference-growth));
   margin-block-start: 0;
   margin-block-end: 2rem;
   text-align: center;
@@ -969,6 +974,9 @@ h4.case-study-subheading {
 .case-study-story-pillars {
   align-items: start;
   text-align: center;
+  & h4 {
+    font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
+  }
   &>* {
     flex-basis: calc(160rem / 16);
   }
@@ -1319,7 +1327,7 @@ h4.case-study-subheading {
   background-color: var(--color-case-study-prototype-background);
   color: var(--color-case-study-prototype-text);
   font-family: "Abril Fatface", serif;
-  font-size: calc(16rem / 16);
+  font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
   text-align: center;
   text-decoration: none;
   &:hover {
@@ -1339,6 +1347,7 @@ h4.case-study-subheading {
 }
 .case-study-closing-reflection {
   margin-block-start: calc(80rem / 16);
+  font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
   margin-block-end: 0;
   margin-inline: 0;
   color: var(--color-case-study-subtitle);
@@ -1721,6 +1730,12 @@ h4.case-study-subheading {
 /* Tales for Safer Trails decorative vocabulary (census T01 to T18). */
 .portfolio-case-study-page[data-case-study="tales"] {
   --tales-growth: var(--home-wide-reference-growth);
+  &>.case-study-content {
+    font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
+  }
+  & .case-study-prototype-link {
+    font-size: calc(14rem / 16 + 4 * var(--tales-growth));
+  }
   &>.case-study-content>.case-study-project-divider,
   &>.case-study-content>.case-study-section>h2 {
     border-block-color: transparent;
@@ -1771,15 +1786,6 @@ h4.case-study-subheading {
     /* From the width where two pillars share a row. */
     @media(width>=26.25rem) {
       aspect-ratio: 157 / 154;
-    }
-  }
-  & .case-study-section-navigation>ul {
-    inline-size: fit-content;
-    margin-inline: auto;
-    font-size: calc(16rem / 16 + 6 * var(--tales-growth));
-    font-weight: 700;
-    &>li>a {
-      min-block-size: calc(3rem + 7 * var(--tales-growth));
     }
   }
   /* The quote wraps to the design's measure: two large lines wide, five narrow. */
@@ -2066,13 +2072,14 @@ h4.case-study-subheading {
               min-inline-size: calc(120rem / 16 + 48 * var(--home-wide-reference-growth));
               padding-block: calc(8rem / 16 + 4 * var(--home-wide-reference-growth));
               padding-inline: calc(24rem / 16);
-              font-size: calc(18rem / 16 + 8 * var(--home-wide-reference-growth));
+              font-size: calc(18rem / 16 + 6 * var(--home-wide-reference-growth));
               text-align: center;
               background: url("assets/menume-yellow-brush-name-plate.svg") center / 100% 100% no-repeat;
               color: var(--color-case-study-accent);
             }
             &>p:first-of-type {
               color: var(--color-case-study-accent);
+              font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
               font-weight: 700;
             }
           }
