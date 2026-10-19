@@ -1984,3 +1984,24 @@ ignores `row-reverse` (use `flex-start`); flex-row gaps add to margins that enco
 seen on the way (dual loop three across, personas, problem items layout) wait on the desktop measure decision.
 Remaining MenuMe tablet queue: sitemap tree (18), flow headings numbered (19, 21), Personalized Menu Flow (22 to
 24), contributions and numerals (26, 27, 32), Key Learnings indent (28), delivery buttons gap (30).
+
+MenuMe tablet walk, continued: `636fee9` sitemap pages side by side from 1024 px (narrower they stack: at 744 the
+row needs 696 px of 614; the tablet design's sitemap is a screenshot with about 8 px labels), `8a0c564` task
+flow headings numbered and centred (gaps from Tablet/MenuMe.png ink), `a0aa8d5` tablet Personalized Menu flow
+(cards, squiggles and an elbow hung from the screens row so it survives taller cards at 640), `6fafd1b`
+usability headings numbered at 16/18 px (its message wrongly cites miss 26; corrected by a commit comment),
+`e45b584` Weekly Specials screens replaced by the designs' own 780 px embeds (identical bytes in all three
+PDFs) with 1 px frames and highlight overlays rebuilt from the design vectors, and the phone and tablet weekly
+flows re-set (phone figures had a stray 32 px bottom margin; both flows' card padding had been measured from
+outside the 4 px border). Gotchas: `cqw` in a container's own margin resolves against the next container out
+(use a percentage of the column); a `container-type` subsection does not collapse its last child's margin with
+the next sibling's.
+
+Flagged for the user (not done; an inferred ask, not a walk miss): the designs embed 2x artwork where the site
+serves about 1x. MenuMe, measured from Tablet/MenuMe.pdf: personas 1200 x 1799, 1200 x 1530 and 1150 x 1725
+uncropped originals (ours 586 x 748, the design clips them to its frames, so each needs re-cropping); the
+personalization wireframe 780 x 1688 (ours 424 x 914, near drop-in, ours has the frame baked in); the
+personalization hi-fi as two 780 x 1688 screens of 601 and 782 KB (ours one combined 878 x 914, so a markup
+change); the device showcase as one 3840 x 2160 (ours two images); the flow diagrams 4096 px wide (ours 1960,
+and their order is the open client question, miss 20). Tales and Scotties not yet measured. The client is on a
+MacBook Air M2 (Retina). Byte cost per page not yet measured beyond the Weekly swap (+360 KB for six screens).
