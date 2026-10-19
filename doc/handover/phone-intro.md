@@ -1802,3 +1802,7 @@ user asked for a hand drawing with as few characters as possible: `a5102be`, one
 twice with `<use>` (292 and 270 bytes). Audit of the other 11 potrace assets (`scale(0.100000,-0.100000)`
 signature): rendered large, none shows a stray gap or crossing; the only other layered one, the Scotties Core
 Challenge cloud, matches the design raster (its bump spikes are in the client's artwork).
+Open: iOS 17.0.1 Simulator shows a hairline light seam inside the MenuMe Dual-Loop drip (`sim17-late-02.png`,
+about two thirds across); Chromium does not. Likely the drip mask tile seam (`repeat-x` at a fractional tile width).
+MenuMe `a87462f` (Problem & Solution centred, smaller icons, teal titles) and `62a59a7` (phone Dual-Loop headings
+above 225 px boxes) checked in Chromium at 390 and 1440 and in the iOS 17.0.1 Simulator.
