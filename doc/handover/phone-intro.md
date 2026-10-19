@@ -576,6 +576,9 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
 5. Apple gate (task 8): all six pages in iPhone 15 Simulator Safari and macOS Safari at 1920 wide 1x and 2x, now on
    `c7bda33`. Real touch on the Simulator works through `idb` (Monochromatic
    `doc/runbook/m1-apple-browser-rig-rebuild.md`); the menu's open and closed states passed on 2026-10-18.
+   Client instruction relayed by the user (2026-10-18): the six Home project descriptions and their Project Type and
+   Role lines are Regular (`ee17eea`). `Website (Copy).fig` says SemiBold and Bold; treat that copy as possibly
+   missing client instructions, and the client's word as the spec.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
