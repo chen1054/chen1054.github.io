@@ -471,7 +471,7 @@
       margin-block-start: calc(99rem / 16);
       font-family: "Playfair Display", serif;
       font-size: calc(14rem / 16);
-      font-weight: 400;
+      font-weight: 500;
       line-height: calc(21rem / 16);
       &>.illustration {
         display: block;
