@@ -1860,3 +1860,14 @@ at 900). Every container added for a layout unit now redefines the growth from `
 against the uncontained page is empty. The older containers (Tales notepad and bubbles, Scotties cloud) show no
 difference.
 Scotties left: wide lo-fi connectors, persona heading runs, the Tablet "Home" breadcrumb.
+Scotties, later 2026-10-19: `eb3c495` wide lo-fi pages as Tablet and Desktop/Scotties.pdf (callouts at the design
+boxes' widths and minimum heights, Figma text widths inside the 4 px border, 3 px connectors as masks, the two
+elbows included; callouts above the screen since the desktop filters elbow crosses it). `fa0ffb3` Scotties sections
+624 px at 744 as Tablet/Scotties.pdf (61 to 685), still 1086 at 1440; the other studies keep 594 (MenuMe's tablet
+design is about 599, Tales about 619, not changed). With it, at 744 the hi-fi last arrow lands at 0.877 of the
+screen (design 0.878) and the lo-fi filters arrow at 0.346 (box 0.23 to 0.34); below 744 (no design) they drift.
+Queued, found while checking `fa0ffb3` against Tablet/Scotties.png (the earlier walk covered the phone only):
+the tablet design sets the personas 1 then 2 (ours 2 then 1), the value pillars around the board (ours a 2 + 1
+grid), a vertical sitemap tree (ours the wide tree), a smaller logo, and Key Learnings as two staggered cards one
+above the other (ours side by side). A tablet walk of Scotties is the next item after the phone leftovers; Tales
+and MenuMe tablet walks after that.
