@@ -2177,13 +2177,65 @@
         --stem: calc(24rem / 16 + 11 * var(--home-wide-reference-growth));
         --ring: calc(61rem / 16 + 25 * var(--home-wide-reference-growth));
         --mid: calc((100% - var(--tip)) / 2);
+        /*
+          One strip of overlapping chevrons, each earlier one drawn over the next, as wide as the designs draw it (350,
+          671 and 980 px at 390, 744 and 1440): two per row on phones overlapping by 0.196 of a chevron, four in a row
+          wider by 0.15. Each chevron is the strip's width over (count - overlaps), each overlap pulled back by a
+          negative margin; the copy starts about 11 px before the overlap ends. On phones the rings centre on the whole
+          chevron, as Phone Tales places them.
+        */
+        --strip: calc(350rem / 16 + 321 * var(--phone-tablet-reference-growth) + 309 * var(--home-wide-reference-growth));
+        --chevron: calc(var(--strip) / 1.804);
+        --overlap: calc(var(--strip) * 0.196 / 1.804);
+        --mid: 50%;
         counter-reset: impact;
         align-items: flex-start;
+        column-gap: 0;
+        box-sizing: border-box;
+        inline-size: var(--strip);
+        margin-inline: calc((100% - var(--strip)) / 2);
+        @media(width>=40rem) {
+          --chevron: calc(var(--strip) / 3.55);
+          --overlap: calc(var(--strip) * 0.15 / 3.55);
+          --mid: calc((100% - var(--tip)) / 2);
+        }
         &>* {
-          flex-basis: calc(130rem / 16);
+          position: relative;
+          flex: 0 0 var(--chevron);
           counter-increment: impact;
+          /* The designs set this copy at line height 1.5, against the page's 2. */
+          &>p {
+            padding-inline: calc(15rem / 16 - 15 * var(--phone-tablet-reference-growth)) var(--tip);
+            line-height: 1.5;
+          }
+          &:nth-child(1) {
+            z-index: 4;
+          }
+          &:nth-child(2) {
+            z-index: 3;
+          }
+          &:nth-child(3) {
+            z-index: 2;
+          }
+          &:nth-child(4) {
+            z-index: 1;
+          }
+          /* Every chevron after the first in its row: two per row on phones, four wider. */
+          &:nth-child(even) {
+            --title-start: var(--overlap);
+            margin-inline-start: calc(-1 * var(--overlap));
+            &>p {
+              padding-inline-start: calc(var(--overlap) - 11rem / 16);
+            }
+          }
           @media(width>=40rem) {
-            flex-basis: calc(240rem / 16);
+            &:nth-child(3) {
+              --title-start: var(--overlap);
+              margin-inline-start: calc(-1 * var(--overlap));
+              &>p {
+                padding-inline-start: calc(var(--overlap) - 11rem / 16);
+              }
+            }
           }
           &:nth-child(1) {
             --c: var(--color-case-study-accent);
@@ -2231,7 +2283,9 @@
             }
             margin-block-start: 0;
             padding-block-start: var(--stem);
-            padding-inline: calc(4rem / 16) calc(var(--tip) + 4rem / 16);
+            /* Clear of the earlier chevron's tip over this one, and of this one's tip; Figma's line height 1.5. */
+            padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
+            line-height: 1.5;
             font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
             background-color: var(--c);
             color: var(--on);
