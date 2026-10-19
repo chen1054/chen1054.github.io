@@ -1190,8 +1190,15 @@
         line-height: calc(30rem / 16 + 6 * var(--home-wide-reference-growth));
         text-align: center;
       }
+      /* The designs draw the summary as one block, each entry on a new line with its label bold. */
       &>p {
-        margin-block: calc(12rem / 16);
+        margin-block: 0;
+        &:last-of-type {
+          margin-block-end: calc(12rem / 16);
+        }
+        &>strong {
+          font-weight: 700;
+        }
       }
     }
     & .project-preview>button>img {
@@ -1661,11 +1668,26 @@
       padding-inline: calc(24rem / 16);
       border-radius: 3rem;
       background-color: var(--color-case-study-prototype-background);
+      /* All three designs shadow the prototype buttons as they do the Home pills: 4 px down, 4 blurred. */
+      box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
       color: var(--color-case-study-prototype-text);
       font-family: "Abril Fatface", serif;
       font-weight: 400;
       text-align: center;
       text-decoration: none;
+      /* The phone designs draw a 31 px pill; an invisible 48 px area keeps the touch target. */
+      @media(width<40rem) {
+        position: relative;
+        min-block-size: 0;
+        padding-block: calc(7rem / 16);
+        line-height: calc(17rem / 16);
+        &::after {
+          content: "";
+          position: absolute;
+          inset-block: calc(50% - 1.5rem);
+          inset-inline: 0;
+        }
+      }
       &:hover {
         background-color: oklch(
           from var(--color-case-study-prototype-background)
@@ -1901,6 +1923,13 @@
       }
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
+      }
+      /* The Tales designs set the summary labels ExtraBold, and on phones each on its own line. */
+      & .project-summary>p>strong {
+        font-weight: 800;
+        @media(width<40rem) {
+          display: block;
+        }
       }
       &>.content>.project-divider,
       &>.content>.section>h2 {
@@ -3120,7 +3149,7 @@
           Lengths are the design's pixels at 390 (Phone/Scotties.pdf).
         */
         @media(width<40rem) {
-          & .subsection:nth-child(5)>.flex-row {
+          & .subsection:nth-child(5)>.flex-row:has(>article) {
             --hifi-unit: calc(1rem / 16 + var(--phone-art-growth));
             display: grid;
             grid-template-rows: repeat(5, auto);
