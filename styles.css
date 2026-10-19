@@ -2751,8 +2751,10 @@
         pitch.
       */
       @media(width>=80rem) {
+        /* Its text in line with the copy, 53 px into the 1086 px column, the icon hanging before it. */
         & :is(.section-content, .subsection)>h3:has(+ :is(p, ul)) {
           margin-block-end: calc(6rem / 16);
+          margin-inline-start: calc(5300% / 1086 - var(--glyph-size) * 4 / 3);
         }
         & .subsection>ul:has(+ p) {
           margin-block-end: 0;
@@ -2823,6 +2825,53 @@
           }
           &>p:first-of-type {
             margin-block-end: calc(33rem / 16 - 30 * var(--home-wide-reference-growth));
+          }
+        }
+      }
+      /*
+        Desktop Tales opens the Digital Touchpoint and Campaign sections with one line of copy 124 px under the band
+        and 5 px into the 1086 px column, at line height 1.5 like the channel lists after it, whose labels sit 38 px
+        under the line before them with their icons hanging; the next heading's glyph 86 px under the last line. The
+        OPH devices start 47 px in, 57 under the copy; the Doodle Editor 120 under them, its copy 85 px in and 45
+        under the heading, the tablet 386 px wide and 64 under it, the demo link 44 under that and 135 above the next
+        band.
+      */
+      @media(width>=80rem) {
+        & :where(#tales-digital-touchpoint, #tales-campaign-and-impact)>.section-content {
+          &>:is(p, ul) {
+            margin-block: 0;
+            line-height: 1.5;
+          }
+          &>p:first-child {
+            margin-block-start: calc(3rem / 16);
+            margin-inline: calc(500% / 1086) 0;
+          }
+          &>p[data-glyph] {
+            margin-block-start: calc(14rem / 16);
+            margin-inline-start: calc(5300% / 1086 - 27rem / 16);
+          }
+          &>:is(p, ul)+.subsection {
+            margin-block-start: calc(62rem / 16);
+          }
+        }
+        & .subsection>p+.device-pair:not(:has(img[src*="tales-social"])) {
+          margin-block-start: calc(57rem / 16);
+          margin-inline-start: calc(4700% / 1086);
+        }
+        & .subsection:has(>.device-pair)+.subsection:has(>.portrait-artwork) {
+          margin-block-start: calc(120rem / 16);
+          &>h3 {
+            margin-block-end: calc(9rem / 16);
+          }
+          &>p {
+            margin-inline: calc(8500% / 1086) calc(2500% / 1086);
+          }
+          &>.portrait-artwork {
+            max-inline-size: calc(386rem / 16);
+            margin-block-start: calc(64rem / 16);
+          }
+          &>.prototype-link {
+            margin-block: calc(44rem / 16) calc(21rem / 16);
           }
         }
       }
