@@ -540,22 +540,29 @@ Queue, in order (updated 2026-10-18 21:45):
    `xinyanchen-gaps`) prototypes options for the 414 to 639 voids and wave drift (fluid space, bounded artwork). It was
    told to rebase onto `8fc0987`, since the Home phone hero moved. Its screenshots go to the user as a decision through
    the question tool; the user rejected uniform scaling (text reached 26 px).
-3. In progress: the nesting refactor (user preference; plan in the item below). Stage 1 (case-study classes under
-   `.case-study`, root body class `case-study`) is built in `/home/user/temp/agent/wt-nest` (served on 4196, unit
-   `xinyanchen-nest`) by `/home/user/temp/agent/fig-parse/nest-family.py family-case-study.json`. Its regression
-   `/home/user/temp/agent/fig-parse/pixel-regress.mjs <base> <candidate> <out-dir>` (six pages full-page at 390, 744,
-   1440, 1920, plus one open image viewer per case study) is running: first HEAD against itself for the noise floor
-   (`regress-noise.txt`), then HEAD against stage 1 (`regress-nest1.txt`). Commit stage 1 only if every capture
-   matches beyond the noise floor. Then: stage 2a, one shared `pill` class on the nine pill links (Home intro link,
-   six Home project links, About CV link, Contact Send) replacing the mixed selector lists; stage 2, page families
-   under body classes `home`, `about`, `contact` (config `{"pages", "root_old", "root_new", "prefixes", "keep"}`; Home
-   maps `home-introduction-` to `introduction-` and `home-page-` to nothing, keeping the shared
-   `home-page-footer-bottom-wave-composition`); stage 3, shared components (footer, wave compositions, navigation);
-   stage 4, wide overrides moved from the one `@media(width>=40rem)` block into their base rules. Same regression
-   after each stage.
-   User preference (2026-10-18): use CSS nesting wherever it helps, not only for the case studies (the user's
-   example was `.case-study { & .subheading { ... } }` instead of `.case-study-subheading`; native nesting cannot
-   splice `&-subheading`, so HTML class names get shorter).
+3. In progress: the nesting refactor (user preference, 2026-10-18: use CSS nesting wherever it helps; the user's
+   example was `.case-study { & .subheading { ... } }` instead of `.case-study-subheading`, and native nesting cannot
+   splice `&-subheading`, so HTML class names get shorter). The user rejected keeping order by selector weight
+   ("there are better ways than artificially fighting specificity; I already approved huge refactors"), so precedence
+   now comes from cascade layers:
+   - `@layer base, components, pages;` element defaults and the one focus ring
+     (`:where(a, button, input, textarea):focus-visible`, which matched every reachable control the old 14-selector
+     list did, checked on all six pages) in `base`; shared pieces (`.corner-decorations`, `.menu-toggle`, the
+     navigation, `.pill`, `.wave-composition`, `.site-footer` with `.credits` and `.back-to-top`) in `components`;
+     `.home`, `.about`, `.contact` and `.case-study` (body classes) in `pages`.
+   - Variants set inputs and components compute outputs: pages set `--pill-color`, `--pill-hover-color`,
+     `--pill-phone-inline-size`, `--pill-wide-inline-growth`, `--pill-wide-block-growth`; `.pill` computes the size.
+   - The one `@media(width>=40rem)` block is gone: each wide value sits in the rule it adjusts, and phone-only variant
+     values sit in `@media(width<40rem)`, so the ranges never compete.
+   - Built in `/home/user/temp/agent/wt-layer` (served on 4198, unit `xinyanchen-layer`) on top of stage 1 (case-study
+     classes under `.case-study`, built by `/home/user/temp/agent/fig-parse/nest-family.py family-case-study.json` in
+     `wt-nest`, served on 4196).
+   - Gate: screenshots proved unusable (HEAD against itself differed in 12, then 7, of 66 captures), so the gate is the
+     computed-style diff `/home/user/temp/agent/fig-parse/style-diff.mjs <base-url> <candidate-url> [page ...]`
+     (every element and pseudo-element, every property, four widths, plus hover and focus of the controls; runbook in
+     Monochromatic `doc/runbook/css-refactor-computed-style-regression.md`, with its self-check and positive control).
+     Commit only at `summary: 0 differences` against HEAD; then one look in Safari and the Simulator.
+   - The `gaps` agent's patches predate the new class names and get ported by hand after its decision.
 4. Apple gate (task 8): all six pages in iPhone 15 Simulator Safari and macOS Safari at 1920 wide 1x and 2x after the
    refactor lands. Real touch on the Simulator works through `idb` (Monochromatic
    `doc/runbook/m1-apple-browser-rig-rebuild.md`); the menu's open and closed states passed on 2026-10-18.
