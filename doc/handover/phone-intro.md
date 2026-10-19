@@ -1956,3 +1956,8 @@ chevron cluster. Safari Technology Preview at 744 (727 layout px) places the con
 same column proportions. Residuals kept: sitemap labels 14 px (the tablet design's sitemap is a shrunk raster,
 about 9 px), hero divider 20 against 16 px. Noted for the desktop walk: Scotties' desktop hero art is about 518
 px with a 25 px gap to the text and the desktop summary is bulleted. Next: MenuMe and Tales tablet queues.
+Tales tablet walk: `b462b2b` Key Insights bubbles staggered (640 up, desktop too), `30d3691` Challenge notepad
+copy (line height 2, drawn breaks, top-aligned), `1ac63c1` personas and their heading (640 up, desktop too).
+Section pairing tool: `f20/pair-sections.py` (design PDF text lines matched to our headings). Remaining Tales
+tablet queue: Story World one then two (14), timeline labels (16), wordmark 465 px (19), Core Product gaps (20),
+curriculum box padding (22), ecosystem 517, poster 338, metrics labels (27 to 29). Then the MenuMe tablet queue.
