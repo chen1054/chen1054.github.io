@@ -579,6 +579,17 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    Client instruction relayed by the user (2026-10-18): the six Home project descriptions and their Project Type and
    Role lines are Medium, 500 (first relayed as Regular in `ee17eea`, corrected to Medium by the user). `Website (Copy).fig` says SemiBold and Bold; treat that copy as possibly
    missing client instructions, and the client's word as the spec.
+   Also landed 2026-10-18 late: wide navigation on the centred 1440 column, artwork still full-bleed (`2c49ce9`,
+   the reasonable default the user asked for without waiting for a client pick; capping the corner art at 1440 cut
+   it with a hard edge); Tales curriculum citations corrected to verbatim official expectations (see the checklist's
+   "Open items" section; source PDF and extraction in `/home/user/temp/agent/curriculum-check/`).
+   Figma findings: `IMG_0804 1` has no image fill in either Figma copy we hold (only a teal stroke), so the blank
+   PDF is the file's own state; the MenuMe chip rows are cut inside the app-screen exports
+   (`Phone_1Meal_1Weekly_1Groceries 1` and `2`), so re-exports must come from the MenuMe app design file. The
+   second copy `Website (Copy) 202610182243.fig` adds only the Home Medium and footer Regular edits (both built).
+   The repo's `@monochromatic-dev/figma-kiwi` rejects both copies (header magic `fig-kiwij`; it knows only
+   `fig-kiwie`); the scratch decoders in `/home/user/temp/agent/fig-parse/` (`node-names.mjs`, `node-detail.mjs`,
+   `image-fills.mjs`, `dump-text-full.mjs`) read both.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
