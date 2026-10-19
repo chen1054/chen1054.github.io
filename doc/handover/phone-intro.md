@@ -1940,3 +1940,12 @@ px centred (19); curriculum boxes padding and gaps (22); ecosystem 517 px, poste
 tablet (27 to 29); timeline labels 30% small (16); Core Product gaps (20); Challenge note pitch 28 (09); persona
 gaps (10). Curriculum page numbers differ between the design and ours (23): ours were checked against the
 official PDF earlier; leave them.
+Tablet walk progress: `920e462` subheading to text gap (30, 21, 44 px ink, the Scotties hi-fi note excluded);
+`12d0cfc` Scotties skateboard glyph; `1c05d1a` Scotties personas (one then two on tablet, three in a row from
+1024); `175c537` core value pillars around the board (tablet and desktop geometry, trails exported by colour with
+`f20/export-region-color.py`, `ONLY_COLOR=#rrggbb`); `e139782` key learnings stacked on tablet; `496d922` core
+challenge cloud and positioning callout (640 to 1279). Pattern for tablet compositions: make the subsection an
+inline-size container, restate `--home-wide-reference-growth` in `vw`, `--u: calc(100cqw / 624)`; put the block
+after the shared rules it overrides (same specificity, source order decides). Scotties left: hero art 278 px (02),
+typography panel text (20), gaps (21, 24 to 26), hi-fi buttons beside the last callout (28), sitemap nodes (23),
+divider 16 px (06).
