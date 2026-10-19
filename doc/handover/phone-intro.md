@@ -1327,3 +1327,9 @@ Heading levels (audit 6.3): Scotties' Key Learnings jumped from `h2` to `h4`; it
 `<h3 class="case-study-card-title">`, a class that repeats the `h4` card-title look (the `h3` subheading rules would
 centre them and add the skateboard glyph). MenuMe's focus-group cards used `<h4>1</h4>` to `<h4>3</h4>` as headings;
 they are `<span class="menume-finding-number">`, styled by their existing disc rule. Regression: identical frames.
+
+iPhone Simulator taps: `safaridriver` (`platformName: iOS`, `safari:useSimulator`) answered "Could not find any
+session hosts that match the requested capabilities" because it only searches the default CoreSimulator device set,
+and the iPhone 15 lives in the custom set on `/Volumes/XinyanSimDevices` (kept off `m1`'s internal SSD). Linking the
+device into the default set did not register it; the link is removed and the simulator is booted in its own set again.
+The real-tap check of the phone menu's open state is still open.
