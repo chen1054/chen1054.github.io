@@ -1894,3 +1894,18 @@ desktop designs start body text at 230 px (text blocks 230 to about 1210, a 980 
 about 174 to 1266; our one column is 1086 (177 to 1263), so desktop paragraphs wrap wider than drawn on every
 study. Tablet text starts: Tales 64, MenuMe 70, Scotties 61 to 66 (ours 75, 75, 60). Decide one text measure per
 study and width before touching it; it changes every paragraph's wrap.
+Tales phone walk done (all 15 items landed, matching, or client asks): `e2a8d7e` miss 11 (impact chevrons as one
+overlapping strip); `07d8448` miss 04 (vertical age trail on phones, from the Phone Tales vectors with the trail
+redrawn as a dashed cosine, 1.6% RMSE against the design; the footnote kept as phone text); `28c5b51` miss 08
+(ecosystem map's School chain stacked under the first); `ef9edbc` miss 10 (metrics chart at the phone scale with
+two-line 15 px labels, "Browser" spelled right); `6bdb445` miss 05 (character cards stacked and staggered, the
+page's tiers kept). Each phone version swaps in below 640 px through `picture` (the viewer opens the same one) and
+grows past 390 like the other phone art. Phone artwork the design drew as soft-masked rasters (ecosystem, metrics
+outline) is rebuilt from our desktop vectors (`/home/user/temp/agent/f20/restack-eco.py`, `build-metrics-phone.py`,
+`restack-cards.py`). Verified: Chromium at 390, 639, 640, 1440 (phone source to 639, desktop from 640, no
+horizontal scroll, viewers open); Safari Technology Preview at 390 and 744 (same sources and boxes); iOS 17.0.1
+Simulator Safari renders the age trail, ecosystem and metrics phone versions in the page and the cards SVG on its
+own (text fragments between "Main Characters" and "Guardian: Patchy" do not scroll on iOS 17, and `idb ui swipe`
+did not scroll it, so the cards were not seen in place there). Safari 17.0 BCD check unchanged (24 flags), no bare
+nested selectors. Residual: the ecosystem icons come out about 20% smaller than the phone design's. Next: the
+Scotties tablet walk, then Tales and MenuMe tablet walks, then the desktop text measure decision.
