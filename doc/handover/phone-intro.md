@@ -526,48 +526,53 @@ Session goal, set by the user on 2026-10-18: fix the site to the point where we 
 "we fixed everything you asked, and everything we inferred you would almost certainly ask".
 Figma references are design intent, not pixel specs (the user, citing Erik Kennedy of learnui.design).
 
-Queue, in order:
+Queue, in order (updated 2026-10-18 21:45):
 
-1. Done: Tales note bullets are real lists (`3cae2fc`); Space scrolls the zoom viewer (`4658a1c`, `224018e`);
-   template residue removed (`572f608`); heading levels (Scotties card titles to `h3`, MenuMe 1/2/3 to spans)
-   in the commit after it.
-2. Landed from agents: `4426c36` (MenuMe and Scotties card alignment) and `813e155` (Tales proportions and
-   alignment), each checked in Chromium, real Safari at 1920 wide 1x, and the iPhone 15 Simulator.
-   Still running: `inferred` (wide-window text caps, the 414 to 639 phone stretch, wave drift, Contact field
-   alignment), brief in `/home/user/temp/agent/xinyanchen-build/briefs/inferred.md`, patch to
-   `/home/user/temp/agent/xinyanchen-build/patch-inferred.diff`. Review, `git apply --3way`, regress, check in
-   Safari and the Simulator, commit.
-   Regression helper: `/home/user/temp/agent/xinyanchen-build/regress.mjs` compares a throwaway worktree of the previous
-   commit (port 4191) with the working tree (4174) frame by frame; serve the old side with no-store too, since Chromium
-   can cache `styles.css` from plain `python -m http.server`.
-   Running (2026-10-18): `gaps` agent prototyping options for the 414 to 639 gaps and wave drift (fluid space,
-   bounded artwork), brief `/home/user/temp/agent/xinyanchen-build/briefs/phone-gaps.md`; its screenshots go to the
-   user as a decision. In progress by the lead: case-study type sizes to Figma's at 390, 744 and 1440, with the
-   same interpolation (Figma data in `/home/user/temp/agent/fig-parse/texts.json`).
+1. Done and pushed since the round began (details in the dated sections of "Client comparison round"):
+   card alignment `4426c36`, Tales proportions `813e155`, band headings at 1440 measure and Contact wave edge
+   `f2e1d3f`, fluid type to Figma sizes `5a4ba66` (Home, About, Contact) and `0986f1e` (case studies), the client's
+   Contact asks (captcha in English over Send, back-to-top above the footer) `745a5e4`, and the client's design round
+   (nav and footer in Playfair Regular, 1 s animation steps, Home's wide footer like About's, About footer gap, phone
+   hamburger and Home hero) `b85e0e0`, scope confirmed by the user. Each checked in Chromium, real Safari at 1920,
+   and the iPhone 15 Simulator.
+2. Running: the `gaps` agent (agent id `a153be796d6f751fd`, brief
+   `/home/user/temp/agent/xinyanchen-build/briefs/phone-gaps.md`, worktrees `/home/user/temp/agent/wt-gaps/*`, unit
+   `xinyanchen-gaps`) prototypes options for the 414 to 639 voids and wave drift (fluid space, bounded artwork). It was
+   told to rebase onto `8fc0987`, since the Home phone hero moved. Its screenshots go to the user as a decision through
+   the question tool; the user rejected uniform scaling (text reached 26 px).
+3. In progress: the nesting refactor (user preference; plan in the item below). Stage 1 (case-study classes under
+   `.case-study`, root body class `case-study`) is built in `/home/user/temp/agent/wt-nest` (served on 4196, unit
+   `xinyanchen-nest`) by `/home/user/temp/agent/fig-parse/nest-family.py family-case-study.json`. Its regression
+   `/home/user/temp/agent/fig-parse/pixel-regress.mjs <base> <candidate> <out-dir>` (six pages full-page at 390, 744,
+   1440, 1920, plus one open image viewer per case study) is running: first HEAD against itself for the noise floor
+   (`regress-noise.txt`), then HEAD against stage 1 (`regress-nest1.txt`). Commit stage 1 only if every capture
+   matches beyond the noise floor. Then: stage 2a, one shared `pill` class on the nine pill links (Home intro link,
+   six Home project links, About CV link, Contact Send) replacing the mixed selector lists; stage 2, page families
+   under body classes `home`, `about`, `contact` (config `{"pages", "root_old", "root_new", "prefixes", "keep"}`; Home
+   maps `home-introduction-` to `introduction-` and `home-page-` to nothing, keeping the shared
+   `home-page-footer-bottom-wave-composition`); stage 3, shared components (footer, wave compositions, navigation);
+   stage 4, wide overrides moved from the one `@media(width>=40rem)` block into their base rules. Same regression
+   after each stage.
    User preference (2026-10-18): use CSS nesting wherever it helps, not only for the case studies (the user's
    example was `.case-study { & .subheading { ... } }` instead of `.case-study-subheading`; native nesting cannot
-   splice `&-subheading`, so HTML class names get shorter). Staged, each a pixel-identical commit: (1) case-study
-   classes under `.case-study` (transform `/home/user/temp/agent/fig-parse/nest-case-study.py`, worktree
-   `wt-nest`); (2) `about-page-*`, `contact-page-*`, `home-page-*`, `home-introduction-*` under each page's body
-   class; (3) shared components (footer, wave compositions, navigation) under their own roots; (4) the wide
-   `@media(width>=40rem)` overrides moved into their base rules. The `gaps` agent's patches predate stages 2 to 4
-   and get ported by hand.
-   Real touch on the Simulator works through `idb` (Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md`).
-3. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
-   request and inferred ask to commits; fill its "in progress" lines as the agents land.
-   Text contrast still needs a client decision; header magic numbers (audit 2.3) are not started.
-4. Apple gate: all six pages in iPhone 15 Simulator Safari and in macOS Safari at the client's two screens
-   (1920 wide at 1x and at 2x), including a real tap on the menu's open state.
-5. Done: real Safari at 1920 wide picks `about-garden-portrait-photograph-and-gray-frame-1312w.png` at 2x
-   (1312 device pixels for 656 CSS pixels, exactly 2.0) and the `760w` file at 1x, so the portrait is sharp on both
-   client screens. Safari's `naturalWidth` reports the srcset candidate divided by its density (656), which is why
-   the image agent read it as 1.0.
-6. Done: `assets/menume-section-culinary-wave-divider.svg` and its two overridden declarations are deleted (identical frames).
-7. Not applied, for the user to decide: lossy WebP (Scotties homepage 4.08 MB as PNG, 0.64 MB at quality 90,
-   40 dB PSNR, files in `/home/user/temp/agent/xinyanchen-build/images-work/lossy/`), and unifying the About skating
-   photo's phone crop with the desktop framing (`images-work/skating-opt/unified-wide-framing-516.png`).
-8. Client side: ask for a re-send of the blank `IMG_0804 1.pdf`, confirm the Page 161 quote is complete,
-   then rewrite `05-client-reply-draft.md` around the built artifacts, including the wide-window options.
+   splice `&-subheading`, so HTML class names get shorter).
+4. Apple gate (task 8): all six pages in iPhone 15 Simulator Safari and macOS Safari at 1920 wide 1x and 2x after the
+   refactor lands. Real touch on the Simulator works through `idb` (Monochromatic
+   `doc/runbook/m1-apple-browser-rig-rebuild.md`); the menu's open and closed states passed on 2026-10-18.
+5. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
+   request, design note and inferred ask to commits; keep it current as items land.
+6. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
+   MenuMe chip rows (shots 33, 34); text contrast; the wide-window option A, B or C; a re-send of the blank
+   `IMG_0804 1.pdf`; whether the Page 161 quote is complete. Kept as designed unless told otherwise: the faded first
+   timeline node, the staggered Key Insights bubbles and Scotties reflection cards. Not applied: lossy WebP and the
+   unified About skating crop (files in `/home/user/temp/agent/xinyanchen-build/images-work/`).
+7. Then rewrite `05-client-reply-draft.md` around the built artifacts.
+
+Tools from this round: `/home/user/temp/agent/fig-parse/` holds the Figma decoder (`dump-text.mjs`, Figma text data
+`texts.json`, runbook in Monochromatic `doc/runbook/figma-file-text-extraction.md`), per-role and per-element size
+probes (`roles.mjs`, `type-sizes.mjs`), and a PyMuPDF venv (`pdfenv`); the client's PDFs have outlined text, so
+design values come from the PNGs. The device server `no-store-server.mjs` is copied per worktree as
+`server-<port>.mjs` with its root and port replaced.
 
 Visual capture on Apple browsers no longer depends on `m1` staying unlocked:
 iPhone Simulator screenshots work while locked (`/home/user/temp/agent/xinyanchen-build/sim-shots.mjs`;
