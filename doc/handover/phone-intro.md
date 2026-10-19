@@ -752,6 +752,7 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
      layout shift went from nonzero in 17 of 24 loads (largest 0.0093) to 0 in all 24. Each font is fetched once in
      Chromium and Safari, with no unused-preload warning.
    Probes: `/home/user/temp/agent/f15/`, `/home/user/temp/agent/f16/`. Every audit item is now fixed or declined.
+   At the user's choice, the reply draft's "faster pages" line in both languages now also mentions F15 and F16.
    Next: the client reply, on the user's go.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
