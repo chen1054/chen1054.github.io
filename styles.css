@@ -1089,6 +1089,7 @@
       --color-case-study-secondary: #f5cb5c;
       --color-case-study-note: var(--color-page-background);
       --color-case-study-corner-base: #ebe4d9;
+      --color-case-study-wireframe-frame: #474e32;
       --case-study-preview-aspect-ratio: 267 / 178;
       --color-case-study-prototype-background: var(--color-case-study-accent);
       --color-case-study-prototype-text: var(--color-page-background);
@@ -3595,6 +3596,8 @@
               font-size: calc(1rem + 2 * var(--home-wide-reference-growth));
               @media(width<40rem) {
                 margin-block-end: calc(35rem / 16);
+                /* Narrow enough to break the second heading after "Balancing", as drawn. */
+                padding-inline: calc(20rem / 16);
                 line-height: 2;
               }
             }
@@ -3660,6 +3663,17 @@
             }
             &:has(img[src*="personalization-high"])::after {
               background-image: url("assets/menume-personalization-highlight-rectangles.svg");
+            }
+            /* The design's highlights, drawn over each screen plus a 2 px margin (the last overhangs its screen). */
+            &:has(img[src*="weekly-specials-high"])::after {
+              inset: calc(-200% / 457) calc(-200% / 211.2);
+            }
+            /* The design frames each screen in a 1 px line, olive round the wireframes and teal round the UI. */
+            &>button>img[src*="weekly-specials-low"] {
+              box-shadow: 0 0 0 calc(1rem / 16) var(--color-case-study-wireframe-frame);
+            }
+            &>button>img[src*="weekly-specials-high"] {
+              box-shadow: 0 0 0 calc(1rem / 16) var(--color-case-study-accent);
             }
             &:has(img[src$="high-fidelity-weekly-special.png"])::after {
               background-image: url("assets/menume-weekly-specials-high-fidelity-weekly-special-highlights.svg");
@@ -3764,6 +3778,8 @@
             &>.subsection:has(img[src*="weekly-specials-low"]) {
               --usability-unit: calc(1rem / 16 + var(--phone-art-growth));
               display: grid;
+              /* 74 from the iteration to the next section's band, with the section's 64 px padding. */
+              margin-block-end: calc(10 * var(--usability-unit));
               &>.flex-row,
               &>.flex-row>.screen-set {
                 display: contents;
@@ -3775,6 +3791,10 @@
                 justify-self: start;
                 flex: none;
                 margin-inline: 0;
+              }
+              /* The design's gaps are all above each screen; its screens are 131 and 132 px inside 1 px frames. */
+              & figure {
+                margin-block-end: 0;
               }
               & aside {
                 padding-block: calc(24 * var(--usability-unit));
@@ -3794,17 +3814,17 @@
                 }
                 & figure:nth-child(1) {
                   grid-row: 2;
-                  inline-size: calc(133 * var(--usability-unit));
-                  margin-block-start: calc(5 * var(--usability-unit));
-                  margin-inline-start: calc(189 * var(--usability-unit));
+                  inline-size: calc(131 * var(--usability-unit));
+                  margin-block-start: calc(6 * var(--usability-unit));
+                  margin-inline-start: calc(190 * var(--usability-unit));
                 }
                 & figure:nth-child(n+2) {
                   grid-row: 3;
-                  inline-size: calc(134 * var(--usability-unit));
-                  margin-block-start: calc(17 * var(--usability-unit));
+                  inline-size: calc(132 * var(--usability-unit));
+                  margin-block-start: calc(20 * var(--usability-unit));
                 }
                 & figure:nth-child(2) {
-                  margin-inline-start: calc(36 * var(--usability-unit));
+                  margin-inline-start: calc(37 * var(--usability-unit));
                   &::after {
                     content: "";
                     position: absolute;
@@ -3816,7 +3836,7 @@
                   }
                 }
                 & figure:nth-child(3) {
-                  margin-inline-start: calc(187 * var(--usability-unit));
+                  margin-inline-start: calc(188 * var(--usability-unit));
                 }
               }
               &>.flex-row:last-of-type {
@@ -3825,24 +3845,27 @@
                   inline-size: calc(215 * var(--usability-unit));
                   margin-block-start: calc(20 * var(--usability-unit));
                   margin-inline-start: calc(127 * var(--usability-unit));
+                  /* The design's text box inside the 4 px border, so the copy wraps line for line as drawn. */
+                  padding-block: calc(16.4 * var(--usability-unit)) calc(17.6 * var(--usability-unit));
+                  padding-inline: calc(26 * var(--usability-unit)) calc(20.5 * var(--usability-unit));
                 }
                 & figure {
-                  inline-size: calc(134 * var(--usability-unit));
+                  inline-size: calc(132 * var(--usability-unit));
                 }
                 & figure:nth-child(-n+2) {
                   grid-row: 4;
-                  margin-block-start: calc(132 * var(--usability-unit));
+                  margin-block-start: calc(134 * var(--usability-unit));
                 }
                 & figure:nth-child(1) {
-                  margin-inline-start: calc(-15 * var(--usability-unit));
+                  margin-inline-start: calc(-14 * var(--usability-unit));
                 }
                 & figure:nth-child(2) {
-                  margin-inline-start: calc(136 * var(--usability-unit));
+                  margin-inline-start: calc(137 * var(--usability-unit));
                 }
                 & figure:nth-child(3) {
                   grid-row: 5;
-                  margin-block-start: calc(30 * var(--usability-unit));
-                  margin-inline-start: calc(-16 * var(--usability-unit));
+                  margin-block-start: calc(32 * var(--usability-unit));
+                  margin-inline-start: calc(-15 * var(--usability-unit));
                 }
               }
               &::before {
@@ -3971,11 +3994,16 @@
               --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
               container-type: inline-size;
               display: grid;
+              /* 75 from the iteration to the next section's band, with the section's 64 px padding. */
+              margin-block-end: calc(1100% / 620);
               grid-template-columns:
                 minmax(0, 184fr) minmax(0, 17fr) minmax(0, 134fr) minmax(0, 9fr) minmax(0, 134fr) minmax(0, 7fr)
                 minmax(0, 135fr);
               &>:not(.flex-row) {
                 grid-column: 1 / -1;
+              }
+              &>h3 {
+                margin-block-end: calc(41 * var(--usability-unit));
               }
               &>.flex-row,
               &>.flex-row>.screen-set {
@@ -3987,7 +4015,9 @@
                 flex: none;
                 margin: 0;
               }
+              /* The columns are the design's 1 px frames; each screen sits inside its own. */
               & figure {
+                margin: calc(1 * var(--usability-unit));
                 &:nth-child(1) {
                   grid-column: 3;
                 }
@@ -4008,8 +4038,9 @@
                 &>aside {
                   grid-area: 2 / 1;
                   margin-block-start: calc(57 * var(--usability-unit));
-                  padding-block: calc(27 * var(--usability-unit));
-                  padding-inline: calc(29 * var(--usability-unit)) calc(27 * var(--usability-unit));
+                  /* The design's text box inside the 4 px border, so the copy wraps line for line as drawn. */
+                  padding-block: calc(21.4 * var(--usability-unit)) calc(27.6 * var(--usability-unit));
+                  padding-inline: calc(25 * var(--usability-unit)) calc(7.5 * var(--usability-unit));
                   &::after {
                     inset-block-start: calc(100% + 32 * var(--usability-unit));
                     inset-inline-start: calc(83.6 * var(--usability-unit));
@@ -4031,7 +4062,7 @@
               &>.flex-row:last-of-type {
                 & figure {
                   grid-row: 3;
-                  margin-block-start: calc(91 * var(--usability-unit));
+                  margin-block-start: calc(92 * var(--usability-unit));
                 }
                 &>aside {
                   --line: linear-gradient(var(--color-case-study-secondary) 0 0);
@@ -4039,8 +4070,8 @@
                   justify-self: start;
                   inline-size: calc(430 * var(--usability-unit));
                   margin-block-start: calc(25 * var(--usability-unit));
-                  padding-block: calc(26 * var(--usability-unit)) calc(22 * var(--usability-unit));
-                  padding-inline: calc(30 * var(--usability-unit)) calc(36 * var(--usability-unit));
+                  padding-block: calc(20.4 * var(--usability-unit)) calc(18.6 * var(--usability-unit));
+                  padding-inline: calc(26 * var(--usability-unit)) calc(10.2 * var(--usability-unit));
                   &::after {
                     content: none;
                   }
