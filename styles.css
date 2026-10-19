@@ -3137,10 +3137,10 @@
         /*
           Desktop Tales overlaps its four 276.5 px chevrons by 32.5, 39.5 and 54.5 px, centres the rings 120, 123,
           138 and 145 px into them on 31 px stems over 69 px title bands, centres the titles 121, 140, 142 and 155 px
-          in, and starts the copy 0, 27, 36 and 59 px in on 244, 210, 218 and 217.5 px measures at line height 2
-          (inside the windows where each wraps as drawn: 226.5 to 263, 199 to 222, 209.5 to 226.5 and 215.5 to 227
-          px), its first glyph 29 px under the band; the strip 2 px right of centre. Lengths are in the strip's
-          980ths, so they narrow with it.
+          in and 5 px below the band's middle, and starts the copy 0, 27, 36 and 59 px in on 244, 210, 218 and 217.5
+          px measures at line height 2 (inside the windows where each wraps as drawn: 226.5 to 263, 199 to 222, 209.5
+          to 226.5 and 215.5 to 227 px), its first glyph 29 px under the band; the strip 2 px right of centre.
+          Lengths are in the strip's 980ths, so they narrow with it.
         */
         @media(width>=80rem) {
           --u980: calc(var(--strip) / 980);
@@ -3150,6 +3150,7 @@
           &>* {
             &>h4 {
               min-block-size: calc(var(--stem) + 69 * var(--u980));
+              padding-block-start: calc(var(--stem) + 10 * var(--u980));
               padding-inline-end: calc(var(--tip) + 4rem / 16);
             }
           }
@@ -3167,10 +3168,14 @@
             --title-start: calc(45.5 * var(--u980));
             margin-inline-start: calc(-39.5 * var(--u980));
           }
+          /* The last title runs into the tip, as drawn, so it fits one line. */
           &>:nth-child(4) {
             --mid: calc(145 * var(--u980));
-            --title-start: calc(71.5 * var(--u980));
+            --title-start: calc(63.5 * var(--u980));
             margin-inline-start: calc(-54.5 * var(--u980));
+            &>h4 {
+              padding-inline-end: calc(30 * var(--u980));
+            }
           }
           &>:nth-child(n)>p {
             margin-block-start: calc(24rem / 16);
