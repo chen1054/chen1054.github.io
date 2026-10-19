@@ -1921,6 +1921,21 @@
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
       }
+      /*
+        The Tablet and Desktop designs start a subheading at the text's edge, its glyph hanging into the margin, when
+        prose follows it and over the personas; the Phone design does so only over the personas, 17 px further in.
+      */
+      & .subsection:has(>.flex-row>.persona)>h3 {
+        text-align: start;
+        /* The glyph and its gap are 4/3 of the glyph size. */
+        margin-inline-start: calc(17rem / 16 - 17 * var(--phone-tablet-reference-growth) - var(--glyph-size) * 4 / 3);
+      }
+      @media(width>=40rem) {
+        & h3.subheading:has(+ :is(p, ul)) {
+          text-align: start;
+          margin-inline-start: calc(var(--glyph-size) * -4 / 3);
+        }
+      }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
@@ -1990,6 +2005,55 @@
         line-height: calc(48rem / 16 + 12 * var(--home-wide-reference-growth));
         @media(width>=40rem) {
           --quote-measure: calc(550rem / 16 + 550 * var(--home-wide-reference-growth));
+        }
+      }
+      /*
+        The Challenge: every design puts the heading over the notepad, the worried figure first. Phones stack figure,
+        heading and pad; wider, the figure stands left of the heading and pad. Lengths are the designs' pixels at 390,
+        744 and 1440 (Phone, Tablet and Desktop Tales), measured to the figure's drawing, which the designs frame in a
+        larger square.
+      */
+      & .flex-row:has(>.spiral-notepad) {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        gap: 0;
+        &>figure {
+          inline-size: calc(142rem / 16 + 94 * var(--home-wide-reference-growth));
+          max-inline-size: none;
+          margin: 0;
+        }
+        /* The glyph hangs into the margin, so the heading's text starts where the design's does. */
+        &>h3 {
+          justify-self: start;
+          margin-block: calc(32rem / 16) 0;
+          margin-inline: calc(-17rem / 16) 0;
+        }
+        &>.spiral-notepad {
+          justify-self: start;
+          inline-size: calc(334rem / 16 + 11 * var(--phone-tablet-reference-growth) + 137 * var(--home-wide-reference-growth));
+          max-inline-size: none;
+          margin-block-start: calc(21rem / 16 + 12 * var(--phone-tablet-reference-growth) + 6 * var(--home-wide-reference-growth));
+          margin-inline-start: calc(-13rem / 16);
+        }
+        @media(width>=40rem) {
+          grid-template-columns: auto auto;
+          justify-content: start;
+          align-items: start;
+          column-gap: calc(40rem / 16 + 6 * var(--home-wide-reference-growth));
+          margin-inline-start: calc(24rem / 16);
+          &>figure {
+            grid-area: 1 / 1 / 3;
+          }
+          &>h3 {
+            grid-area: 1 / 2;
+            margin-block-start: calc(14rem / 16 + 51 * var(--home-wide-reference-growth));
+            margin-inline-start: calc(4rem / 16 + 1 * var(--home-wide-reference-growth));
+          }
+          &>.spiral-notepad {
+            grid-area: 2 / 2;
+            margin-inline-start: 0;
+          }
         }
       }
       & .spiral-notepad {
