@@ -1949,3 +1949,10 @@ inline-size container, restate `--home-wide-reference-growth` in `vw`, `--u: cal
 after the shared rules it overrides (same specificity, source order decides). Scotties left: hero art 278 px (02),
 typography panel text (20), gaps (21, 24 to 26), hi-fi buttons beside the last callout (28), sitemap nodes (23),
 divider 16 px (06).
+Scotties tablet walk done: `680e9bb` hero art 280 px, `7db58e8` tablet typography panel (Tablet/Scotties.pdf
+vectors, its raster cones replaced by our vector desktop cones, `f20/scot-ty-add-cones.py`), `9332e29` gaps under
+the type panel and wireframe headings, `2b041e5` hi-fi chevron above the pills below 1280, `06968d5` sitemap
+chevron cluster. Safari Technology Preview at 744 (727 layout px) places the container-unit compositions at the
+same column proportions. Residuals kept: sitemap labels 14 px (the tablet design's sitemap is a shrunk raster,
+about 9 px), hero divider 20 against 16 px. Noted for the desktop walk: Scotties' desktop hero art is about 518
+px with a 25 px gap to the text and the desktop summary is bulleted. Next: MenuMe and Tales tablet queues.
