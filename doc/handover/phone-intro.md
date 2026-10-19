@@ -597,6 +597,9 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    clips, horizontal scroll) of component `3069:5733` (five 72-wide chips, gap 20, 440 wide); wireframe screen is
    not in this file. Safari Technology Preview driver enabled 2026-10-18 and proven on Linux port 4450 alongside a
    busy 4446.
+   Decision (user, 2026-10-18): both MenuMe chip-row screens stay as designed; `MenuMe.fig` is client-owned and will
+   not change. The checklist explains the cut last chip as the sideways-scroll cue, without attributing the cut or
+   the wireframe's "Diary" to anyone. No re-export is pending.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
