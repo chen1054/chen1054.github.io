@@ -1,0 +1,9 @@
+# GitHub Pages builds this repository with Jekyll 3.10 (legacy build from main), which publishes every file it
+# does not exclude. Working notes, tooling and the unlinked source portrait stay in the repository but off the site.
+# This list replaces Jekyll's default excludes (Gemfile, node_modules, vendor), none of which exist here.
+# A trailing slash excludes a whole directory.
+exclude:
+  - doc/
+  - README.md
+  - mise.toml
+  - "about me portrait.png"
