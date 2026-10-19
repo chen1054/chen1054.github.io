@@ -4874,10 +4874,28 @@
               margin-block-start: calc(138rem / 16);
             }
           }
-          /* The desktop design: the cards' tops 149 px under the heading's glyph top. */
+          /*
+            The desktop design: the cards' tops 149 px under the heading's glyph top, Key Learnings 161 under the
+            second row, and its first learning heading 149 under it.
+          */
           @media(width>=80rem) {
             &>h3 {
               margin-block-end: calc(116rem / 16);
+            }
+            &>.subsection {
+              margin-block-start: calc(160rem / 16);
+              &>h3 {
+                margin-block-end: calc(112rem / 16);
+              }
+            }
+            /*
+              The closing quote on a 1000 px measure (it wraps as drawn from 981 to 1032 px), its lines 36 apart and
+              140 under the drips (its margin collapses with the last learning's).
+            */
+            &>.closing-reflection {
+              margin-block-start: calc(213rem / 16);
+              margin-inline: calc(4300% / 1086);
+              line-height: 2;
             }
           }
           &>.subsection>h3 {
@@ -4941,6 +4959,42 @@
                 margin-block-end: calc(var(--menume-drip) * 0.75 + 43rem / 16);
                 padding-block: calc(20rem / 16) calc(11rem / 16);
                 padding-inline: 2rem calc(22.5rem / 16);
+                &>p {
+                  margin-block: 0;
+                }
+              }
+            }
+            /*
+              The desktop design: an 818 and an 828 px box from 52 and 204 px into the 1086 px column, each heading's
+              icon at its box's edge and its text in line with the copy, 44 and 49 px into the box, the copy on 736
+              and 745 px measures 40 px under the box's top, and drips about 69 px deep.
+            */
+            @media(width>=80rem) {
+              &>:is(h4, aside) {
+                margin-inline-start: calc(5200% / 1086);
+              }
+              &>:is(h4, aside):nth-of-type(1) {
+                inline-size: calc(81800% / 1086);
+              }
+              &>:is(h4, aside):nth-of-type(2) {
+                inline-size: calc(82800% / 1086);
+                margin-inline-start: calc(20400% / 1086);
+              }
+              &>h4 {
+                margin-block-end: calc(37rem / 16);
+                padding-inline-start: 0;
+                &::before {
+                  margin-inline-end: calc(16rem / 16);
+                }
+              }
+              &>aside {
+                --menume-drip: calc(92rem / 16);
+                margin-block-end: calc(var(--menume-drip) * 0.75 + 73rem / 16);
+                padding-block: calc(35rem / 16) calc(26rem / 16);
+                padding-inline: calc(44rem / 16) calc(38rem / 16);
+                &:nth-of-type(2) {
+                  padding-inline: calc(49rem / 16) calc(40rem / 16);
+                }
                 &>p {
                   margin-block: 0;
                 }
