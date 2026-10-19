@@ -1373,3 +1373,11 @@ The case studies differ systematically (subsection headings 16/16/18 against Fig
 body 14 at 390 against 15, among others); these fall under the client's "type size and wrapping" class and get
 Figma's sizes too, Home/About/Contact first. Fluid type does not fill the 414 to 639 voids or move the rem-margined
 waves (238 px drift at 639): open, to be decided with the user after the type change lands.
+
+Fluid type, Home, About and Contact: `--phone-tablet-reference-growth` (0 at 390, one reference pixel at 744, on `vw`
+because nothing below 40rem is a size container) joins `--home-wide-reference-growth`, and the six roles whose
+Figma sizes differ between the phone and tablet frames (Home greeting, name and summary; About heading and
+subheading; Contact heading) carry one formula each with their line heights, replacing their wide overrides.
+Every text size on all six pages is unchanged at 390, 744, 1440 and 1920; nothing on these pages steps by more
+than 1 px between 639 and 640 (the greeting was 24 then 28). Heights: +1 px at 393, up to +14 px at 639.
+The nav keeps 15 (overlay menu) and 14 (bar): different components, both as Figma draws them.
