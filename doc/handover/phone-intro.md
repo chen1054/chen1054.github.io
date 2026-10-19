@@ -1778,3 +1778,8 @@ cards left of the screen. Found while matching wraps: every case-study text node
 Still open on Scotties: wide connectors (lo-fi and hi-fi), tablet note padding (ours 32, design about 20), blob
 colour, info labels bold, "Overview & Strategic Context" banner into the chevron notch, Core Challenge chevrons,
 persona heading weight runs, the Tablet breadcrumb.
+Correction to the `1e1bceb` entry: its phone grid also matched the closing prototype-link row (the hi-fi subsection's
+second `.flex-row`), so on phones that row was 880 px tall with a stray connector above the buttons from `1e1bceb`
+until `c96e808` scoped the grid to the row with the callouts. Found by rendering the link row on its own at 390.
+Also in `c96e808`: summary labels bold (Tales ExtraBold, own line on phones) without gaps between entries; prototype
+buttons shadowed on all widths and 31 px on phones with a 48 px hit area. `94c5fb3`: phone banner text box 225 px.
