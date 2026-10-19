@@ -2924,6 +2924,17 @@
             margin-block-start: calc(119rem / 16);
           }
         }
+        /*
+          The closing quote on an 880 px measure, centred (it wraps as drawn from 852 to 923 px), its lines 36 px
+          apart and 138 px under the impact copy.
+        */
+        & .closing-reflection {
+          margin-block-start: calc(89rem / 16);
+          padding-inline: calc(10300% / 1086);
+          &>p {
+            line-height: 2;
+          }
+        }
       }
       /*
         Desktop Tales spaces the characters and stories by hand: Main Characters 78 px under the One-Pager copy, its
@@ -3114,6 +3125,61 @@
               0 var(--stem),
               calc(var(--mid) - 1.5rem / 16) var(--stem)
             );
+          }
+        }
+        /*
+          Desktop Tales overlaps its four 276.5 px chevrons by 32.5, 39.5 and 54.5 px, centres the rings 120, 123,
+          138 and 145 px into them on 31 px stems over 69 px title bands, centres the titles 121, 140, 142 and 155 px
+          in, and starts the copy 0, 27, 36 and 59 px in on 244, 210, 218 and 217.5 px measures at line height 2
+          (inside the windows where each wraps as drawn: 226.5 to 263, 199 to 222, 209.5 to 226.5 and 215.5 to 227
+          px), its first glyph 29 px under the band; the strip 2 px right of centre. Lengths are in the strip's
+          980ths, so they narrow with it.
+        */
+        @media(width>=80rem) {
+          --u980: calc(var(--strip) / 980);
+          --chevron: calc(276.5 * var(--u980));
+          --stem: calc(31 * var(--u980));
+          margin-inline-start: calc((100% - var(--strip)) / 2 + 2 * var(--u980));
+          &>* {
+            &>h4 {
+              min-block-size: calc(var(--stem) + 69 * var(--u980));
+              padding-inline-end: calc(var(--tip) + 4rem / 16);
+            }
+          }
+          &>:nth-child(1) {
+            --mid: calc(120 * var(--u980));
+            --title-start: calc(3.5 * var(--u980));
+          }
+          &>:nth-child(2) {
+            --mid: calc(123 * var(--u980));
+            --title-start: calc(41.5 * var(--u980));
+            margin-inline-start: calc(-32.5 * var(--u980));
+          }
+          &>:nth-child(3) {
+            --mid: calc(138 * var(--u980));
+            --title-start: calc(45.5 * var(--u980));
+            margin-inline-start: calc(-39.5 * var(--u980));
+          }
+          &>:nth-child(4) {
+            --mid: calc(145 * var(--u980));
+            --title-start: calc(71.5 * var(--u980));
+            margin-inline-start: calc(-54.5 * var(--u980));
+          }
+          &>:nth-child(n)>p {
+            margin-block-start: calc(24rem / 16);
+            line-height: 2;
+          }
+          &>:nth-child(1)>p {
+            padding-inline: 0 calc(32.5 * var(--u980));
+          }
+          &>:nth-child(2)>p {
+            padding-inline: calc(27 * var(--u980)) calc(39.5 * var(--u980));
+          }
+          &>:nth-child(3)>p {
+            padding-inline: calc(36 * var(--u980)) calc(22.5 * var(--u980));
+          }
+          &>:nth-child(4)>p {
+            padding-inline: calc(59 * var(--u980)) 0;
           }
         }
       }
