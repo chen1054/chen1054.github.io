@@ -2859,6 +2859,40 @@
               border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
               background-color: var(--menume-honey);
             }
+            /*
+              The tablet and desktop designs stagger the two learnings: each box 83.5% of the column, the second at
+              its end, each heading starting in line with its box's text.
+            */
+            @media(width>=40rem) {
+              &>:is(h4, aside) {
+                box-sizing: border-box;
+                inline-size: 83.5%;
+                &:nth-of-type(2) {
+                  margin-inline-start: auto;
+                }
+              }
+              &>h4 {
+                padding-inline-start: 2rem;
+              }
+              /* The drip clears the next heading by 49 px at 744 and 80 at 1440. */
+              &>aside {
+                margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 33rem / 16 + 31 * var(--home-wide-reference-growth));
+              }
+            }
+            /* The phone design centres the headings over full-width boxes with a 60 px drip (Phone/MenuMe.pdf). */
+            @media(width<40rem) {
+              --learning-unit: calc(1rem / 16 + var(--phone-art-growth));
+              &>h4 {
+                margin-block: 0 calc(24 * var(--learning-unit));
+                text-align: center;
+              }
+              &>aside {
+                --menume-drip: calc(60 * var(--learning-unit));
+                margin-block-end: calc(var(--menume-drip) - 16rem / 16 + 100 * var(--learning-unit));
+                padding-block: calc(20 * var(--learning-unit));
+                padding-inline: calc(23 * var(--learning-unit));
+              }
+            }
           }
           &>.closing-reflection {
             color: #000;
