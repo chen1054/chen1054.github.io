@@ -2138,12 +2138,16 @@
       }
       /*
         The Tablet and Desktop designs start a subheading at the text's edge, its glyph hanging into the margin, when
-        prose follows it and over the personas; the Phone design does so only over the personas, 17 px further in.
+        prose follows it; over the personas every design starts it with them: 17 px into the column on phones, at the
+        photos' tape 11 px before it on tablets, and at the descriptions 53 px into it on desktops.
       */
       & .subsection:has(>.flex-row>.persona)>h3 {
         text-align: start;
         /* The glyph and its gap are 4/3 of the glyph size. */
-        margin-inline-start: calc(17rem / 16 - 17 * var(--phone-tablet-reference-growth) - var(--glyph-size) * 4 / 3);
+        margin-inline-start: calc(
+          17rem / 16 - 28 * var(--phone-tablet-reference-growth) + 64 * var(--home-wide-reference-growth) -
+            var(--glyph-size) * 4 / 3
+        );
       }
       @media(width>=40rem) {
         & h3.subheading:has(+ :is(p, ul)) {
@@ -2365,6 +2369,37 @@
       /* Equal column tops: the shorter persona's copy no longer drops to centre against the taller one. */
       & .flex-row:has(>.persona) {
         align-items: start;
+      }
+      /*
+        Tablet and Desktop Tales centre the two personas, 280 and 423 px wide and 54 and 183 px apart, and set each
+        name and description from the photo's frame (19 and 22 px in from its tape), the descriptions 240 and 372 px
+        wide. They leave 40 and 19 px from the heading's line to the photos, 22 and 30 to the names, none to the
+        descriptions, and 72 and 120 from those to the band. Below 744 px the pair keeps the tablet's proportions of
+        its 594 px column, which it overhangs by 11 px on each side.
+      */
+      @media(width>=40rem) {
+        & .flex-row:has(>.persona) {
+          justify-content: center;
+          gap: calc(min(54% / 6.16, 54rem / 16) + 129 * var(--home-wide-reference-growth));
+          margin-inline: calc(-11% / 5.94);
+          &>.persona {
+            flex: 0 0 calc(min(280% / 6.16, 280rem / 16) + 143 * var(--home-wide-reference-growth));
+            max-inline-size: none;
+            &>figure {
+              max-inline-size: none;
+              margin-block: calc(8rem / 16 - 21 * var(--home-wide-reference-growth))
+                calc(22rem / 16 + 8 * var(--home-wide-reference-growth));
+            }
+            &>:is(h4, p) {
+              margin-block: 0;
+              margin-inline: calc(13.1rem / 16 + 2.1%) 0;
+            }
+            &>p {
+              margin-block-end: calc(8rem / 16 - 8 * var(--home-wide-reference-growth));
+              margin-inline-end: calc(5.3rem / 16 + 5.6%);
+            }
+          }
+        }
       }
       /*
         The pillar icons at the designs' sizes: Desktop Tales draws them at their own 157, 204 and 164 px, Phone and
