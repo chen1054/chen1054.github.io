@@ -1374,6 +1374,11 @@
         &>.subsection>:is(p, ul, ol) {
           margin-inline: calc(5300% / 1086) calc(5700% / 1086);
         }
+        /* Lists keep the full 980 px: MenuMe's token list wraps "trustworthy" on its line only from 958 px. */
+        &>:is(ul, ol),
+        &>.subsection>:is(ul, ol) {
+          margin-inline-end: calc(5300% / 1086);
+        }
         /*
           Two keep their designs' own boxes: Tales' title story breaks before "connecting" (946 to 963 px wrap as
           drawn, so 954), and Scotties' About runs on to the column's end (1000 to 1071).
@@ -2937,6 +2942,7 @@
           }
         }
       }
+
       /* The phone and tablet designs stack the two prototype buttons, 13 px apart; the desktop sets them in a row. */
       @container(width<64rem) {
         & .content>header>.project-summary>.flex-row {
