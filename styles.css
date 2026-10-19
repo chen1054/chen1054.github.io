@@ -3163,6 +3163,21 @@
       }
       .subsection:has(>.scotties-challenge-bubble) {
         position: relative;
+        @media(width<40rem) {
+          margin-block-end: calc(170rem / 16);
+        }
+        /*
+          The phone design: chevrons 60 px below the heading's top, the cloud 66 px below them with its text clear of
+          the bolt, and the skate 37 px in from the column's end, 22 px under the cloud.
+        */
+        &>.scotties-challenge-bubble {
+          @media(width<40rem) {
+            margin-block-start: calc(65.7rem / 16);
+            &>p {
+              margin-block: 20% 8%;
+            }
+          }
+        }
         &::before,
         &::after {
           content: "";
@@ -3171,9 +3186,9 @@
           background-repeat: no-repeat;
         }
         &::before {
-          inset-block-start: calc(36rem / 16 + 54 * var(--home-wide-reference-growth));
+          inset-block-start: calc(60rem / 16 - 24 * var(--phone-tablet-reference-growth) + 54 * var(--home-wide-reference-growth));
           inset-inline-start: 0;
-          block-size: calc(28rem / 16 + 35 * var(--home-wide-reference-growth));
+          block-size: calc(41.4rem / 16 + 17.6 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth));
           aspect-ratio: 375 / 126;
           background-image: url("assets/scotties-challenge-dotted-chevron-arrow.svg");
         }
@@ -3183,6 +3198,10 @@
           inline-size: calc(73rem / 16 + 28 * var(--home-wide-reference-growth));
           aspect-ratio: 1;
           background-image: url("assets/scotties-challenge-ice-skate.svg");
+          @media(width<40rem) {
+            inset-block-end: calc(-95rem / 16);
+            inset-inline-end: calc(37rem / 16);
+          }
         }
       }
       .scotties-challenge-bubble {
