@@ -3699,13 +3699,19 @@
               --w: 58.2;
               --ps: 27;
               --pe: 12;
+              --h: 219;
               --tint: var(--color-case-study-subheading);
               position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
               grid-column: 4;
               align-self: start;
               box-sizing: border-box;
+              /* The design's box height, so the rows keep the design's spacing beside the screen. */
+              min-block-size: calc(var(--h) * var(--u));
               margin: 0;
-              padding-block: calc(26 * var(--u));
+              padding-block: calc(23 * var(--u));
               padding-inline: calc(var(--ps) * var(--u)) calc(var(--pe) * var(--u));
               &>p {
                 margin-block: 0;
@@ -3726,7 +3732,7 @@
               }
               &:nth-child(1) {
                 grid-row: 3;
-                margin-block-start: calc(12 * var(--u));
+                margin-block: calc(12 * var(--u)) calc(15 * var(--u));
               }
               &:nth-child(2) {
                 --x: -54.6;
@@ -3734,9 +3740,10 @@
                 --w: 61.1;
                 --ps: 22;
                 --pe: 10;
+                --h: 253;
                 --tint: var(--color-case-study-heading);
                 grid-row: 4;
-                margin-block-start: calc(15 * var(--u));
+                margin-block-end: calc(15 * var(--u));
                 margin-inline: calc(2 * var(--u));
               }
               &:nth-child(3) {
@@ -3745,9 +3752,10 @@
                 --w: 66;
                 --ps: 27;
                 --pe: 20;
+                --h: 278;
                 --tint: var(--color-case-study-accent);
                 grid-row: 5;
-                margin-block-start: calc(15 * var(--u));
+                margin-block-end: calc(8 * var(--u));
                 margin-inline-start: calc(5 * var(--u));
               }
               /* The last connector is an elbow: from the callout's edge, up its vertical, then left to the screen. */
@@ -3755,15 +3763,15 @@
                 --x: -36;
                 --y: 2.4;
                 --w: 42.5;
-                --h: 102.6;
+                --h: 282;
+                --elbow: 102.6;
                 --v: 24;
                 --ps: 31;
                 --pe: 16;
                 grid-row: 6;
-                margin-block-start: calc(8 * var(--u));
                 margin-inline-start: calc(-21 * var(--u));
                 &::after {
-                  block-size: calc(var(--h) * var(--u));
+                  block-size: calc(var(--elbow) * var(--u));
                   mask:
                     url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(15 * var(--u)) calc(17.4 * var(--u))
                     no-repeat,
@@ -3775,12 +3783,19 @@
                 }
               }
             }
+            /* Under the screen, centred on it, and as wide as the labels need. */
             &>.flex-row:has(>.prototype-link) {
               grid-area: 7 / 2;
+              justify-self: center;
               align-items: center;
+              inline-size: max-content;
               margin-block-start: calc(36 * var(--u));
             }
-            @media(width>=68.25rem) {
+            /*
+              The desktop composition from 1280 px: narrower, its 16 px text outgrows the scaled boxes and pushes the
+              last callout past the screen (measured from 1092 up), while the tablet one still lands every arrow.
+            */
+            @media(width>=80rem) {
               --hifi-wide-unit: calc(100cqw / 1088);
               grid-template-columns:
                 minmax(0, 360fr) minmax(0, 39fr) minmax(0, 288fr) minmax(0, 60fr) minmax(0, 341fr);
@@ -3800,11 +3815,12 @@
                 --w: 57;
                 --ps: 33;
                 --pe: 39;
+                --h: 232;
                 grid-column: 5;
-                padding-block: calc(39 * var(--u));
+                padding-block: calc(32 * var(--u));
                 &:nth-child(1) {
                   grid-row: 2;
-                  margin-block-start: calc(7 * var(--u));
+                  margin-block: calc(7 * var(--u)) calc(34 * var(--u));
                 }
                 &:nth-child(2) {
                   --x: -54;
@@ -3812,9 +3828,10 @@
                   --w: 61.1;
                   --ps: 43;
                   --pe: 28;
+                  --h: 332;
                   grid-row: 3;
                   inline-size: calc(307 * var(--u));
-                  margin-block-start: calc(34 * var(--u));
+                  margin-block: 0 calc(36 * var(--u));
                   margin-inline: calc(5 * var(--u)) 0;
                 }
                 /* Left of the screen, so its connector runs the other way. */
@@ -3824,9 +3841,10 @@
                   --w: 66.7;
                   --ps: 42;
                   --pe: 36;
+                  --h: 317;
                   grid-area: 3 / 1 / 5 / 2;
                   inline-size: calc(319 * var(--u));
-                  margin-block-start: calc(305 * var(--u));
+                  margin-block: calc(271 * var(--u)) 0;
                   margin-inline-start: calc(17 * var(--u));
                   &::after {
                     inset-inline-start: calc(100% - 5.2 * var(--u));
@@ -3837,13 +3855,14 @@
                   --x: -46.5;
                   --y: 107.3;
                   --w: 51.5;
-                  --h: 118.2;
+                  --h: 354;
+                  --elbow: 118.2;
                   --v: 27;
                   --ps: 42;
                   --pe: 31;
                   grid-row: 4;
                   inline-size: calc(326 * var(--u));
-                  margin-block-start: calc(36 * var(--u));
+                  margin-block: 0;
                   margin-inline-start: calc(-5 * var(--u));
                 }
               }
