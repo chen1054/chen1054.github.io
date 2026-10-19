@@ -1079,7 +1079,18 @@
     /* Each Tablet design's subtitle and summary box, in px; both widen to the desktop's 540 px. */
     --summary-subtitle-tablet: 303;
     --summary-facts-tablet: 485;
+    /*
+      Each Desktop design's hero art, in px of its 1086 px column: its width and how far in it starts (the summary
+      starts at 555 in all three); MenuMe and Scotties bullet the summary, and MenuMe's subtitle runs 6 px past it.
+    */
+    --hero-art-desktop: 422;
+    --hero-art-start-desktop: 0;
     &[data-case-study="menume"] {
+      --hero-art-desktop: 438;
+      --hero-art-start-desktop: 52;
+      --summary-bullet: "•" / "";
+      --summary-bullet-indent: 1rem;
+      --summary-subtitle-overhang: 6;
       /* Figma's box is 443 px with a forced break after "&"; 260 px breaks it there. */
       --summary-subtitle-tablet: 260;
       --summary-facts-tablet: 375;
@@ -1099,6 +1110,9 @@
       --case-study-secondary-prototype-hover-chroma: 0.168313;
     }
     &[data-case-study="scotties"] {
+      --hero-art-desktop: 551;
+      --summary-bullet: "•" / "";
+      --summary-bullet-indent: 1rem;
       --color-case-study-accent: #bdca9d;
       --color-case-study-heading: #fc6529;
       --color-case-study-subheading: #474e32;
@@ -1112,7 +1126,9 @@
       --summary-facts-tablet: 484;
       /* The phone and tablet designs draw the hero art 278 px wide. */
       &>.content .project-introduction>.project-preview {
-        max-inline-size: calc(280rem / 16 + 158 * var(--home-wide-reference-growth));
+        @media(width<80rem) {
+          max-inline-size: calc(280rem / 16 + 158 * var(--home-wide-reference-growth));
+        }
       }
       --color-case-study-prototype-text: var(--color-case-study-heading);
       --case-study-prototype-hover-chroma: 0.079444;
@@ -1182,6 +1198,16 @@
         max-inline-size: calc(240rem / 16 + 198 * var(--home-wide-reference-growth));
         margin-block: 0;
       }
+      @media(width>=80rem) {
+        justify-content: start;
+        gap: 0 calc((555 - var(--hero-art-desktop) - var(--hero-art-start-desktop)) * 100% / 1086);
+        &>.project-preview {
+          flex: none;
+          inline-size: calc(var(--hero-art-desktop) * 100% / 1086);
+          max-inline-size: none;
+          margin-inline-start: calc(var(--hero-art-start-desktop) * 100% / 1086);
+        }
+      }
     }
     & .project-summary {
       flex: 1 1 calc(400rem / 16);
@@ -1202,6 +1228,11 @@
         font-size: calc(18rem / 16 + 4 * var(--home-wide-reference-growth));
         line-height: calc(30rem / 16 + 6 * var(--home-wide-reference-growth));
         text-align: center;
+        /* The desktop designs: 49 px from the title's glyph top to the subtitle's, its lines 33 apart. */
+        @media(width>=80rem) {
+          margin-block-start: calc(1rem - 11 * var(--home-wide-reference-growth));
+          line-height: calc(30rem / 16 + 3 * var(--home-wide-reference-growth));
+        }
       }
       @media(width>=40rem) {
         &>h2 {
@@ -1217,8 +1248,23 @@
         }
       }
       /* The designs draw the summary as one block, each entry on a new line with its label bold. */
+      /* Breaks only the desktop design draws (Scotties' "(Desktop & Mobile)" and "Hi-fi Wireframes)"). */
+      & .desktop-break {
+        @media(width<80rem) {
+          display: none;
+        }
+      }
       &>p {
         margin-block: 0;
+        @media(width>=80rem) {
+          position: relative;
+          padding-inline-start: var(--summary-bullet-indent, 0px);
+          &::before {
+            content: var(--summary-bullet, none);
+            position: absolute;
+            inset-inline-start: calc(3rem / 16);
+          }
+        }
         &:last-of-type {
           margin-block-end: calc(12rem / 16);
         }
@@ -2125,6 +2171,9 @@
         &>p {
           text-align: start;
           margin-inline: 0;
+        }
+        &>h2 {
+          margin-inline-end: calc(-1px * var(--summary-subtitle-overhang, 0));
         }
         &>.flex-row {
           justify-content: start;
