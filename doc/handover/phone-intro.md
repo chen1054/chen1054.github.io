@@ -1726,3 +1726,12 @@ with chevron trails), lo-fi homepage and product listing callouts (narrower card
 with connector arrows; ours merges two callouts into one card), hi-fi callouts (known), prototype links (known).
 Medium or low: top blob colour, info labels bold, "Overview & Strategic Context" heading running into the chevron
 notch, Core Challenge chevron run.
+MenuMe walk report: `/home/user/temp/agent/f20/walk-menume/report.md` (12 misses, pairs `miss-NN.png`). High:
+personas (known), usability flows 1 and 2 (design: finding box about 47% wide beside the lo-fi screen, big orange
+squiggle to the hi-fi screens, yellow elbow arrow into an offset iteration box last, bold labels, about 25 px
+padding; ours: full-width boxes with oversized padding before all screens, thin squiggles). Medium: Inspiration
+callout, Problem & Solution items centred with smaller icons, Dual-Loop boxes narrower with headings above,
+contributions alternating sides, device screens stacked each with its own button, Key Learnings headings centred,
+hero blob grey `#D8D8D7` (ours `#EBE4D9`, reported by both MenuMe and Scotties walks) and bold info labels.
+Low: focus-group bubbles, list markers. Order of work: high misses first, page by page, each verified against its
+pair image before changing anything.
