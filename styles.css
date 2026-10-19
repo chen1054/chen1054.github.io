@@ -2207,8 +2207,10 @@
         }
       }
       /*
-        The age trail on phones: Phone Tales draws it 336 px wide from the text column's start, 14 px past its end.
-        Only the desktop design prints the footnote its asterisks point to, so phones show it as text under the trail.
+        The age trail on phones: Phone Tales draws it 336 px wide from the text column's start, 14 px past its end;
+        Tablet Tales draws it 610 px wide from 17 px before the column, a size it keeps, centred, in wider columns up
+        to the desktop trail. Only the desktop design prints the footnote its asterisks point to, so narrower windows
+        show it as text under the trail.
       */
       & figure:has(img[src*="tales-age-tier-progression"]) {
         &>figcaption {
@@ -2221,7 +2223,12 @@
           max-inline-size: none;
           margin-inline: 0 auto;
         }
-        @media(width>=40rem) {
+        @media(width>=40rem) and (width<80rem) {
+          inline-size: min(610% / 5.94, 610rem / 16);
+          max-inline-size: none;
+          margin-inline: max(-17% / 5.94, 50% - 313.5rem / 16) auto;
+        }
+        @media(width>=80rem) {
           &>figcaption {
             display: none;
           }
