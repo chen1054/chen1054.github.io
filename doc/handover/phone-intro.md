@@ -625,7 +625,8 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    stayed paired to a session my `nav-1920.mjs` rerun never deleted (`| head -2` killed it before its `finally`).
    With the user's authorization the STP driver launch agent was restarted (`launchctl kickstart -k
    gui/<uid>/dev.monochromatic.safaridriver-stp`, new driver pid 3372) and the stale automation Safari (pid 2836)
-   ended; the job retries every 15 s. Never pipe a WebDriver script into `head`; redirect to a file instead.
+   ended; the job resumed at 23:33:17 (20 shots by 23:33:38). Never pipe a WebDriver script into `head`; redirect
+   to a file instead (Monochromatic runbook `79ba2916b3`).
    Queue as of 2026-10-18 late: (a) running, after-captures paired with `evidence/before-d5e6250/` into the client
    folder's `evidence/after-<sha>/` and `evidence/pairs-<sha>/` (STP at 1920, iPhone 15 Simulator, plus citation and
    Contact pairs); (b) running, report-only audit of GPT-built anti-patterns to
