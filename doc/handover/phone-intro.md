@@ -1699,6 +1699,6 @@ engine issues; they are phone-layout misses against `../Phone/MenuMe.png` and `.
   Desktop, with the chevrons on their own line; ours has Desktop first with the chevrons inline, pushing it off centre.
 - Kept as decided earlier: the phone sitemap is the indented tree, since the design's phone tree has labels about
   5 px tall.
-Likely meaning of the client's question: her phone designs are not followed on the phone pages, which look like the
+A guess, not the client's words: the question may come from the client's phone designs not being followed on the phone pages, which look like the
 wide layout stacked. Queue: compare every case-study section at 393 against the phone designs (MenuMe `545` and
 `546` usability callouts not yet compared), fix each miss in its own commit, check in iOS 17.0.1 Simulator Safari.
