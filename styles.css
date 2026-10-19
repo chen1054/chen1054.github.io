@@ -1832,6 +1832,57 @@
             margin-inline: auto;
           }
         }
+      }
+      /*
+        The tablet design centres Jake alone, then Gwen and Jonathan side by side, the photos 222 by 279 px as on
+        phones, their centres 304.5 px apart, and the text centred in 285 px boxes; the desktop sets all three in a
+        row, photos 245 by 308, 359.5 px apart, the names centred over left-aligned descriptions (Scotties.pdf).
+      */
+      @media(width>=40rem) {
+        &>.content .flex-row:has(>.persona) {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, calc(285rem / 16)));
+          justify-content: center;
+          gap: calc(27rem / 16) calc(19.5rem / 16 + 55 * var(--home-wide-reference-growth));
+          &>.persona:first-child {
+            grid-column: 1 / -1;
+            justify-self: center;
+            inline-size: min(100%, calc(285rem / 16));
+          }
+          @media(width>=64rem) {
+            grid-template-columns: repeat(3, minmax(0, calc(285rem / 16)));
+            &>.persona:first-child {
+              grid-column: auto;
+            }
+          }
+        }
+        &>.content .persona {
+          max-inline-size: none;
+          text-align: center;
+          &>.persona-photograph {
+            inline-size: calc(222rem / 16 + 23 * var(--home-wide-reference-growth));
+            max-inline-size: none;
+            margin-block-end: calc(22rem / 16);
+            margin-inline: auto;
+            translate: calc(7rem / 16 + 1 * var(--home-wide-reference-growth)) 0;
+            &::before {
+              inset: calc(-14rem / 16 - 1.5 * var(--home-wide-reference-growth)) calc(14rem / 16 + 1.5 * var(--home-wide-reference-growth)) calc(14rem / 16 + 1.5 * var(--home-wide-reference-growth))
+                calc(-14rem / 16 - 1.5 * var(--home-wide-reference-growth));
+            }
+          }
+          &>h4 {
+            margin-block-end: 0;
+            line-height: 2;
+          }
+          &>p {
+            margin-block-start: 0;
+            @media(width>=64rem) {
+              text-align: start;
+            }
+          }
+        }
+      }
+      @media(width<40rem) {
         /*
           The phone design loops the three pillars around the skateboard: Excitement first and indented, the
           skateboard, then Confidence and Belonging side by side, joined by pale chevron trails, each pillar name
