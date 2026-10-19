@@ -1826,3 +1826,7 @@ lack CSS nesting (added 16.5, partial to 17.1), media range syntax (`width<40rem
 queries (16.0); the stylesheet relies on all three, so on Safari before 16.5 most rules would not apply. Monterey
 can take Safari updates up to 17.6, and the client's iPhone runs iOS 17.0.2, so the Mac's Safari version is
 unknown. The client's Safari version (Safari > About Safari) is the deciding fact; the question is with the user.
+Decision, 2026-10-19 (the user): "just set floor to 17, I know Client's Safari on all devices is at least 17."
+The support floor is Safari 17.0 on macOS and iOS. `bcd-css.mjs styles.css safari 17.0` flags the same 29 lines
+as the `safari_ios 17.0` baseline, and `bare-nested.mjs` already guards the 17.0 to 17.1 nesting gap; the iOS
+17.0.1 Simulator (Safari 17.0) remains the test engine for both. No flattened build.
