@@ -545,7 +545,7 @@ Queue, in order:
    (1312 device pixels for 656 CSS pixels, exactly 2.0) and the `760w` file at 1x, so the portrait is sharp on both
    client screens. Safari's `naturalWidth` reports the srcset candidate divided by its density (656), which is why
    the image agent read it as 1.0.
-6. Delete `assets/menume-section-culinary-wave-divider.svg` with the two `url()` declarations the MenuMe block overrides.
+6. Done: `assets/menume-section-culinary-wave-divider.svg` and its two overridden declarations are deleted (identical frames).
 7. Not applied, for the user to decide: lossy WebP (Scotties homepage 4.08 MB as PNG, 0.64 MB at quality 90,
    40 dB PSNR, files in `/home/user/temp/agent/xinyanchen-build/images-work/lossy/`), and unifying the About skating
    photo's phone crop with the desktop framing (`images-work/skating-opt/unified-wide-framing-516.png`).
