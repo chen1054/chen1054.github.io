@@ -1790,3 +1790,6 @@ nodes carry no style-override table in any frame (one weight per box), and `Desk
 "Initially, our priority..." Bold where `Phone/Scotties.png` renders it Medium, so the frames really differ there.
 The dump (`fig-parse/dump-text-full.mjs`) does not record `characterStyleIDs`, so mixed boxes can't be mapped to
 runs from data alone; their bold runs (pillar names, summary labels) were confirmed on the design images.
+Decided by the user, 2026-10-19: Scotties body copy Medium at every width (Desktop's Bold treated as the outlier),
+`0f6dfb8`; the 68.25rem breakpoint now serves only the lo-fi tablet/desktop layout switch. Supersedes the
+weight-switch note on `dd1a12c`.
