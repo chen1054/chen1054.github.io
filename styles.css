@@ -3483,12 +3483,14 @@
           }
         }
       }
+      /* The designs draw the skateboard 23 by 13 px (phone, tablet) and 32 by 17 (desktop), 3, 11 and 19 px from the text. */
       &>.content h3.subheading::before {
         content: "";
         display: inline-block;
-        inline-size: 1.7em;
-        block-size: 0.95em;
-        margin-inline-end: 0.5em;
+        inline-size: calc(23rem / 16 + 9 * var(--home-wide-reference-growth));
+        block-size: calc(13rem / 16 + 4 * var(--home-wide-reference-growth));
+        /* The heading's first letter adds about 3 px of side bearing. */
+        margin-inline-end: calc(8 * var(--phone-tablet-reference-growth) + 8 * var(--home-wide-reference-growth));
         background: url("assets/scotties-subheading-skate-glyph.svg") center / contain no-repeat;
         vertical-align: -0.1em;
       }
