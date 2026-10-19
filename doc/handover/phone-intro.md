@@ -655,6 +655,11 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    `88dbdac5e8` to start `no-store-server-mux.mjs`); 4174, m1's 4173, Safari 4446 and STP 4450 all answered. The
    cut-off fix agent left no edits; its half-created `wt-pre` matched `7d4f201` and was removed. The audit fixes
    (F4, F3, F17, F20, F7) were restarted from scratch.
+   Audit fixes landed 2026-10-19, each with Chromium and Safari computed-style diffs: F4 `3b8f44f` (Abril links at
+   400; Safari's faux-bold advance gone, links about 10 px narrower), F3 `81f65e0` (`sizes` with `clamp()` matching
+   the CSS; 744 at 2x loads 760w), F17 `c8a97e4` (curly apostrophes, Hi-fi/Lo-fi; Figma itself is mixed), F20
+   `fc46cd2` (README), F7 `f2a656d` (inert CSS removed; 0 differences in both browsers). Next: F2 favicon, F5 zoom
+   viewer names. Client images at `13f7d95` stay valid (only apostrophe shapes differ in them).
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
