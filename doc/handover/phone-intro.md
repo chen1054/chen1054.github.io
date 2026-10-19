@@ -1976,3 +1976,11 @@ Tales tablet walk done: `5b50b5a` curriculum note rhythm, `fd9f77f` tablet ecosy
 earlier versions keep the old breaks). Kept by decision: our verified curriculum references, so the second note
 is 419 px against the drawn 493. Full-page renders drift after lazy images load: pair sections with viewport
 shots or element boxes. Next: MenuMe tablet walk, column first.
+MenuMe tablet walk: `41cea31` shared tablet column 614 px (Tales and MenuMe; Scotties 624; hero introduction
+594), `fbbb8e7` dual loop three across, `fe848c7` Problem intro 16 px and its two items, `edd265c` personas
+(tablet scribbles exported by colour from Tablet/MenuMe.pdf). Pairing tool: `f20/pair-viewport.py` (viewport
+captures per section). Gotchas: a global `:is(h1, h2, p)>span { display: block }`; `justify-content: start`
+ignores `row-reverse` (use `flex-start`); flex-row gaps add to margins that encode drawn gaps. Desktop misses
+seen on the way (dual loop three across, personas, problem items layout) wait on the desktop measure decision.
+Remaining MenuMe tablet queue: sitemap tree (18), flow headings numbered (19, 21), Personalized Menu Flow (22 to
+24), contributions and numerals (26, 27, 32), Key Learnings indent (28), delivery buttons gap (30).
