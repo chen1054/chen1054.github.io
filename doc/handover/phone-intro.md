@@ -753,7 +753,10 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
      Chromium and Safari, with no unused-preload warning.
    Probes: `/home/user/temp/agent/f15/`, `/home/user/temp/agent/f16/`. Every audit item is now fixed or declined.
    At the user's choice, the reply draft's "faster pages" line in both languages now also mentions F15 and F16.
-   Next: the client reply, on the user's go.
+   The user then chose to check everything on the live site before the reply goes out. The guide is
+   `../Client comparison screenshots 2026OCT170133/08-self-check-guide.md`, which says not to solve the captcha and
+   press Send, because that emails the client. Next: fix what the user reports, one commit each with a Safari check;
+   the reply still waits for the user's go.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
