@@ -668,6 +668,24 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    User direction (2026-10-19): the maintenance agent's approach looked questionable to the user; it runs to the end
    untouched, and its commits get a lead review before anything builds on them. From the next work item, work that
    cannot run in parallel is done by the lead directly in this session, not delegated.
+   Shutdown pause (2026-10-19): the user powered the PC off for a few hours to isolate a room issue. The lead stopped
+   the maintenance agent first. It had committed nothing past `c9c12c4`; its uncommitted F11 work-in-progress is still
+   in the main worktree's `styles.css` (45 lines in, 42 out). A copy is saved as
+   `/home/user/temp/agent/maint-wip/styles-wip-on-c9c12c4.patch`. The WIP adds `--content-column-max-inline-size` for
+   the six `calc(1086rem / 16)` literals. It merges `--color-contact-required-marker` and `--color-back-to-top-ring`
+   with the About gallery shadow literal into one `--color-accent-gold: #d9a150`, keeping river gold `#d8a150`
+   separate. It also inlines `--tales-growth` as `--home-wide-reference-growth`. The patch has no style diff and no
+   review; its last message said "Shell quoting is fighting me". Its worktree `/var/mnt/encrypted/temp/agent/wt-a3` is
+   clean at `c9c12c4`. On resume:
+   1. Re-run the `xinyanchen-*` units from Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md` and check that
+      4174, m1's 4173, Safari 4446 and STP 4450 answer.
+   2. The lead reviews the WIP line by line against F11. Merging two named tokens into one is a judgement call, not a
+      required cleanup.
+   3. Keep or trim the WIP, then run the normalized Chromium and Safari style diffs with a positive control, and
+      commit only at 0 differences.
+   4. Then the lead does the rest of the maintenance work directly, one commit each: F6, F9, F12, F13, F14, F19 (a
+      visible message in place of `alert()`, tried at 390 and 1440), and F18 if kept. Remove `wt-a3` when done.
+   The client reply still waits only for the user's go.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
