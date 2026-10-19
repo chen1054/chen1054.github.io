@@ -1961,3 +1961,12 @@ copy (line height 2, drawn breaks, top-aligned), `1ac63c1` personas and their he
 Section pairing tool: `f20/pair-sections.py` (design PDF text lines matched to our headings). Remaining Tales
 tablet queue: Story World one then two (14), timeline labels (16), wordmark 465 px (19), Core Product gaps (20),
 curriculum box padding (22), ecosystem 517, poster 338, metrics labels (27 to 29). Then the MenuMe tablet queue.
+Tales tablet, continued: `c9ff8f5` Story World pillars one over two, `35f89bb` tablet age trail
+(`f20/tales-art/build-age-tablet.py`; footnote text now shown up to 1279), `205c9c6` wordmark 466 to 657 px,
+`09bf691` Tales tablet column 614 px (64 to 678 in Tablet/Tales.pdf; 1086 at 1440 unchanged). Correction: the
+"11 px overhang" in `1ac63c1`, `c9ff8f5` and `35f89bb` was a symptom of the 594 px column, not design intent;
+`09bf691` removed those compensations and every Tales paragraph re-wraps at tablet widths, by intent. Safari
+Technology Preview on m1 shows classic scrollbars (727 layout px at 744), so its column is 597 there. MenuMe's
+tablet column is still the shared 594: measure it from drawn full-width boxes first in the MenuMe walk.
+Remaining Tales tablet queue: curriculum box padding and rhythm (22), ecosystem 517, poster 338, metrics labels
+(27 to 29).
