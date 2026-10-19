@@ -893,7 +893,8 @@ p {
   &>h2 {
     margin-block: 0;
     padding-block: calc(30rem / 16 + 20 * var(--home-wide-reference-growth));
-    padding-inline: 1rem;
+    /* Above 1440 pixels the band keeps spanning the window while its heading keeps the 1440 measure. */
+    padding-inline: calc(1rem + max(0rem, (100% - 1440rem / 16) / 2));
     background-color: var(--color-case-study-accent);
     border-block-width: calc(2rem / 16);
     border-block-style: dashed;
@@ -1375,7 +1376,7 @@ h4.case-study-subheading {
   &>.case-study-content>.case-study-section>h2 {
     position: relative;
     border-width: 0;
-    padding-inline: calc(70rem / 16 + 150 * var(--home-wide-reference-growth));
+    padding-inline: calc(70rem / 16 + 150 * var(--home-wide-reference-growth) + max(0rem, (100% - 1440rem / 16) / 2));
     &::after {
       content: "";
       position: absolute;
@@ -1498,6 +1499,8 @@ h4.case-study-subheading {
     margin-block-start: calc(24rem / 16 + 69 * var(--home-wide-reference-growth));
   }
   .contact-page-email-and-decorative-wave {
+    /* The wide designs end the email wave on the fields' edge, 13 pixels inside the column at 1440. */
+    inline-size: calc(100% - 13 * var(--home-wide-reference-growth));
     margin-block-start: calc(10rem / 16 + 54 * var(--home-wide-reference-growth));
   }
   .contact-page-email-link {

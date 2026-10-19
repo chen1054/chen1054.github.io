@@ -1357,3 +1357,13 @@ quadrants. Jump To Section is a centred bold list at the design's size, and the 
 design's two large lines on wide screens. Page height: about +80 px on phones, -100 px at 1440. Left as designed: the
 first timeline node is faded and uncaptioned in all three designs; the Key Insights bubbles keep their stagger.
 Verified in Chromium and real Safari at 1920 wide, 1x.
+
+Inferred asks, part one: case-study section bands keep spanning the window above 1440 while their headings keep the
+1440 measure (padding grows by `max(0rem, (100% - 1440rem / 16) / 2)`), so the "How might we" heading no longer
+collapses to one long line at 1920; Tales is the same height at 1440 and 1920. On wide Contact layouts the email wave
+now ends on the form's edge (it ran 13 px past it at 1440), as the Tablet and Desktop designs draw it. The audit's
+uncapped-text finding found no other stretched text above 1440 on any page.
+Held for the user: scaling the phone design uniformly from 390 to 639 on Home, About and Contact
+(`font-size: max(100%, 100vw * 16 / 390)` on the root below 40rem, the first hunk of
+`/home/user/temp/agent/xinyanchen-build/patch-inferred.diff`). It removes the stretched voids and all wave drift
+between 390 and 639, but text reaches 26 px at 639 and drops to 16 px at 640.
