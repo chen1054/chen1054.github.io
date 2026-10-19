@@ -1708,3 +1708,6 @@ the live file before telling anyone the fix is live.
 Decided by the user, 2026-10-19: walk all three case studies (Tales, MenuMe, Scotties) section by section at 393
 against `../Phone/*.png` and fix each miss, one commit each, checked in iOS 17.0.1 Simulator Safari (over the narrower
 "only the photographed parts" and "wait for the client"). The user is asking the client for Safari > About Safari.
+Pill labels without `text-box` (iOS 17.0.1 Simulator, Home "More About Me", `sim17-pill-01.png`): the label ink
+centre sits 0.5 device px (0.17 CSS px) above the pill centre (`/home/user/temp/agent/f20/pill-ink.mjs`); a positive
+control with the ink copied 12 device px lower reads 5. Centred without the trim, so no `@supports` fallback.
