@@ -1804,6 +1804,12 @@
         font-family: "Abril Fatface", serif;
         font-weight: 400;
       }
+      /* The tablet design leaves 75 px of ink between the type panels' heading and their chevron trail. */
+      @media(width>=40rem) and (width<80rem) {
+        &>.content .subsection:has(img[src*="type-specimens"])>h3.subheading {
+          margin-block-end: calc(69rem / 16);
+        }
+      }
       /* The phone design sets the Scotties column 20 px from each edge (Phone/Scotties.png), where the others use 34. */
       @media(width<40rem) {
         &>.content .section-content {
@@ -3897,6 +3903,15 @@
           --scotties-note-icon: url("assets/scotties-lo-fi-ice-boot-corner-icon.svg");
           inset-inline-end: 6%;
           aspect-ratio: 88 / 71;
+        }
+        /* The tablet design leaves about 70 px under the headings over the three wireframe pages, 80 over hi-fi's skater. */
+        @media(width>=40rem) and (width<80rem) {
+          & .subsection:has(.portrait-artwork)>h3.subheading {
+            margin-block-end: calc(69rem / 16);
+          }
+          & .subsection:nth-child(5)>h3.subheading {
+            margin-block-end: calc(79rem / 16);
+          }
         }
         /* The hi-fi intro is a boxed note under its skater, not running text: it keeps its wider gap below desktop. */
         @media(width<80rem) {
