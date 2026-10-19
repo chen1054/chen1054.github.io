@@ -533,8 +533,10 @@ Queue, in order:
 3. Remaining audit items: template residue and header magic numbers; text contrast needs a client decision.
 4. Apple gate: all six pages in iPhone 15 Simulator Safari and in macOS Safari at the client's two screens
    (1920 wide at 1x and at 2x), including a real tap on the menu's open state.
-5. Check the About garden portrait at 2x: the client also has a 4K screen at 2x, and the image agent measured the
-   portrait at 1.0 device pixels per CSS pixel at 1440 and 1920; confirm Safari picks the `1312w` candidate.
+5. Done: real Safari at 1920 wide picks `about-garden-portrait-photograph-and-gray-frame-1312w.png` at 2x
+   (1312 device pixels for 656 CSS pixels, exactly 2.0) and the `760w` file at 1x, so the portrait is sharp on both
+   client screens. Safari's `naturalWidth` reports the srcset candidate divided by its density (656), which is why
+   the image agent read it as 1.0.
 6. Delete `assets/menume-section-culinary-wave-divider.svg` with the two `url()` declarations the MenuMe block overrides.
 7. Not applied, for the user to decide: lossy WebP (Scotties homepage 4.08 MB as PNG, 0.64 MB at quality 90,
    40 dB PSNR, files in `/home/user/temp/agent/xinyanchen-build/images-work/lossy/`), and unifying the About skating
