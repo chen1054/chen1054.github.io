@@ -3861,7 +3861,10 @@
           position: absolute;
           inset-block-end: 0;
           inset-inline-end: 0;
-          inline-size: calc(190rem / 16 + 286 * var(--home-wide-reference-growth));
+          /* 190, 274 and 476 px across the phone, tablet and desktop designs. */
+          inline-size: calc(
+            190rem / 16 + 84 * var(--phone-tablet-reference-growth) + 202 * var(--home-wide-reference-growth)
+          );
           aspect-ratio: 952 / 158;
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
         }
