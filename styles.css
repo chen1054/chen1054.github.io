@@ -1882,6 +1882,116 @@
           }
         }
       }
+      /*
+        The tablet design sets the three pillars around the skateboard: Excitement top right, Confidence left, and
+        Belonging bottom right, each tied to the board by a pale chevron trail, with Confidence's name running into
+        its text. Lengths are the design's pixels on its 624 px column (Tablet/Scotties.pdf), scaled to the column.
+      */
+      @media(width>=40rem) {
+        &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+          /* A container, so the unit follows the column; the wide growth is then restated against the viewport. */
+          --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          --u: calc(100cqw / 624);
+          container-type: inline-size;
+          display: grid;
+          &>.small-illustration,
+          &>.flex-row>article {
+            grid-area: 3 / 1;
+            align-self: start;
+            justify-self: start;
+          }
+          &>.small-illustration {
+            position: relative;
+            inline-size: calc(146 * var(--u));
+            max-inline-size: none;
+            margin-block: calc(91 * var(--u)) 0;
+            margin-inline: calc(233 * var(--u)) 0;
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(-20 * var(--u));
+              inset-inline-start: calc(-43 * var(--u));
+              inline-size: calc(221 * var(--u));
+              block-size: calc(256 * var(--u));
+              background: url("assets/scotties-tablet-core-value-chevron-trails.svg") center / 100% 100% no-repeat;
+              pointer-events: none;
+            }
+          }
+          &>.flex-row {
+            display: contents;
+            &>article {
+              margin-block: 0;
+              &::before {
+                content: none;
+              }
+              &>p {
+                margin-block: 0;
+                &>span {
+                  display: block;
+                }
+              }
+            }
+            /* Tree order is Confidence, Belonging, Excitement. */
+            &>article:nth-child(1) {
+              inline-size: calc(186 * var(--u));
+              margin-block-start: calc(155 * var(--u));
+              margin-inline-start: calc(6 * var(--u));
+              &>p>span {
+                display: inline;
+              }
+            }
+            &>article:nth-child(2) {
+              inline-size: calc(209 * var(--u));
+              margin-block-start: calc(296 * var(--u));
+              margin-inline-start: calc(369 * var(--u));
+            }
+            &>article:nth-child(3) {
+              inline-size: calc(193 * var(--u));
+              margin-block-start: calc(23 * var(--u));
+              margin-inline-start: calc(427 * var(--u));
+            }
+          }
+          /*
+            The desktop composition from 1280 px, on its 1086 px column (Desktop/Scotties.pdf): the same three around
+            a 247 px board, each name on its own line; its trails are rasters there, so the tablet trails scale with
+            the board.
+          */
+          @media(width>=80rem) {
+            --u: calc(100cqw / 1086);
+            &>.small-illustration {
+              inline-size: calc(247 * var(--u));
+              margin-block-start: calc(103 * var(--u));
+              margin-inline-start: calc(430 * var(--u));
+              &::after {
+                inset-block-start: calc(-34 * var(--u));
+                inset-inline-start: calc(-73 * var(--u));
+                inline-size: calc(374 * var(--u));
+                block-size: calc(433 * var(--u));
+              }
+            }
+            &>.flex-row {
+              &>article:nth-child(1) {
+                inline-size: calc(278 * var(--u));
+                margin-block-start: calc(253 * var(--u));
+                margin-inline-start: calc(72 * var(--u));
+                &>p>span {
+                  display: block;
+                }
+              }
+              &>article:nth-child(2) {
+                inline-size: calc(271 * var(--u));
+                margin-block-start: calc(383 * var(--u));
+                margin-inline-start: calc(685 * var(--u));
+              }
+              &>article:nth-child(3) {
+                inline-size: calc(301 * var(--u));
+                margin-block-start: calc(23 * var(--u));
+                margin-inline-start: calc(761 * var(--u));
+              }
+            }
+          }
+        }
+      }
       @media(width<40rem) {
         /*
           The phone design loops the three pillars around the skateboard: Excitement first and indented, the
