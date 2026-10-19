@@ -1106,6 +1106,10 @@
       --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
       --case-study-secondary-prototype-hover-chroma: 0.079444;
     }
+    /*
+      All three case-study designs track their text at -1.9% (Figma letter spacing on nearly every text node of each
+      frame); the navigation and the prototype links are the exceptions, set at 0.
+    */
     & .content {
       padding-block-start: calc(178rem / 16 + 216 * var(--home-wide-reference-growth));
       color: var(--color-case-study-text);
@@ -1113,6 +1117,10 @@
       font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
       font-weight: 500;
       line-height: calc(28rem / 16 + 4 * var(--home-wide-reference-growth));
+      letter-spacing: -0.019em;
+      & :is(#portfolio-primary-navigation, .prototype-link) {
+        letter-spacing: normal;
+      }
     }
     & .subheading:where(h3,h4) {
       color: var(--color-case-study-subheading);
