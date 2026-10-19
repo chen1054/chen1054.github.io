@@ -522,6 +522,10 @@ vector artwork replacing every soft mask, live HTML sitemaps, WOFF2 fonts, the A
 image weight, and the decorative vocabulary on all three case studies
 (each verified in Chromium, in real macOS Safari 27 at 1920 wide 1x, and in iPhone 15 Simulator Safari).
 
+Session goal, set by the user on 2026-10-18: fix the site to the point where we can defensibly show the client
+"we fixed everything you asked, and everything we inferred you would almost certainly ask".
+Figma references are design intent, not pixel specs (the user, citing Erik Kennedy of learnui.design).
+
 Queue, in order:
 
 1. Done (commit "fix(tales): mark note bullets up as lists"): Tales note bullets, the 13 fake "•" paragraphs in seven runs, are
@@ -1305,3 +1309,8 @@ without script would mean moving the thumbnail itself into the top layer, which 
 Browsers give every `[popover]` a solid canvas-text border; the old button viewer hid it through the global button
 reset, so the dialog version sets `border-width: 0` (Safari showed a dark frame around the open viewer until then).
 Safari still draws its thin blue focus ring around the autofocused dialog, the browser's standard indicator.
+
+Template cleanup (audit 6.2): the case-study pages lose 16 empty `class=""` attributes and 75 trailing spaces inside
+`class` values, the `<h1>` and `<h2>` drop `case-study-subheading` (its rules only match `h3` and `h4`), and the two
+identical focus-ring rules are one. Regression against the previous commit, every viewport frame of all three pages at
+390, 744 and 1440: identical heights and no differing pixels beyond two sub-pixel frames at 744.
