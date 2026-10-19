@@ -1408,3 +1408,15 @@ end-aligned on wide layouts (at 744 the 158 px frame is wider than the 136 px pi
 centre). The back-to-top link moved from a fixed bottom-right button into each footer, centred above the thank-you
 line, so it appears only with the footer; the scroll script that toggled `hidden` is gone. Pages grow by the link
 (48 px plus a 16 to 32 px gap).
+
+Client design round, 2026-10-18 21:13 to 21:19 (`Desktop/Home/`, `Desktop/About/`, `Phone/Home/`, each with a dated
+`.txt` of notes; the PDFs are outlined, so values were measured from the PNGs):
+navigation in Playfair Display Regular (new `PlayfairDisplay-Regular.woff2` from the client's font zip, compressed
+like the others) at its old 25 px in #685587, hover #463267 with underline; footer text Regular #685587 on every page
+(the client's reason, that the font renders heavier than in Figma, applies site-wide, though only Desktop Home was
+redrawn); Home's wide footer uses About's waves and geometry (the case studies keep theirs, which match the old Home
+footer); About's thank-you line at 1440 sits at the design's y 3063 (+28 px; the back-to-top link already added 80);
+intro animation steps 1 s apart (name 1 s, summary and button 2 s, purple accent 3 s, river from 4 s for 1.8 s, flower
+6.8 s, one second after the river finishes); phones: hamburger 56 px higher on every page, Home hero 28 px higher with
+the summary 29 px and the button 30 px closer, so the river shows on the first screen (Home 87 px shorter).
+"Hello, I'm" was already #685587.
