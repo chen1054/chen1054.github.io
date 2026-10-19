@@ -1793,3 +1793,5 @@ runs from data alone; their bold runs (pillar names, summary labels) were confir
 Decided by the user, 2026-10-19: Scotties body copy Medium at every width (Desktop's Bold treated as the outlier),
 `0f6dfb8`; the 68.25rem breakpoint now serves only the lo-fi tablet/desktop layout switch. Supersedes the
 weight-switch note on `dd1a12c`.
+Client, 2026-10-19 (relayed by the user): "Scotties' desktop body font uses medium weights. Client made an error in
+Figma." Confirms `0f6dfb8` (Medium at every width); the Bold in `Desktop/Scotties.png` body copy is a Figma slip.
