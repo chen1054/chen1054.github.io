@@ -2264,12 +2264,21 @@
           margin-inline: calc(36rem / 16 + 36 * var(--phone-art-growth)) auto;
         }
       }
-      /* The ecosystem map on phones: Phone Tales stacks its two chains 320 px wide from the text column's start. */
+      /*
+        The ecosystem map on phones: Phone Tales stacks its two chains 320 px wide from the text column's start.
+        Tablet Tales draws it 522 px wide from 2 px before the column, a size it keeps, centred, in wider columns up to
+        the desktop map.
+      */
       & figure:has(img[src*="tales-school-poster-and-social"]) {
         @media(width<40rem) {
           inline-size: calc(320rem / 16 + 320 * var(--phone-art-growth));
           max-inline-size: none;
           margin-inline: 0 auto;
+        }
+        @media(width>=40rem) and (width<80rem) {
+          inline-size: min(522% / 6.14, 522rem / 16);
+          max-inline-size: none;
+          margin-inline: max(-2% / 6.14, 50% - 309rem / 16) auto;
         }
       }
       /* The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. */
