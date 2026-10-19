@@ -1300,16 +1300,15 @@
         min-inline-size: 0;
       }
     }
-    /* MenuMe and Scotties designs align sibling cards' edges and text columns' tops; the Scotties reflection cards stay staggered. */
-    &:is([data-case-study="menume"], [data-case-study="scotties"]) {
-      & .flex-row {
-        &:has(>aside):not(:has(>figure), #scotties-reflection *) {
-          align-items: stretch;
-        }
-        &:has(>article):not(:has(>figure)) {
-          align-items: start;
-        }
-      }
+    /*
+      MenuMe and Scotties designs align text columns' tops; MenuMe also aligns sibling cards' edges. Scotties has one
+      row of cards, its reflection, which stays staggered as designed.
+    */
+    &:is([data-case-study="menume"], [data-case-study="scotties"]) .flex-row:has(>article):not(:has(>figure)) {
+      align-items: start;
+    }
+    &[data-case-study="menume"] .flex-row:has(>aside):not(:has(>figure)) {
+      align-items: stretch;
     }
     & .story-pillars {
       align-items: start;
@@ -1832,7 +1831,7 @@
         }
       }
       /* The quote wraps to the design's measure: two large lines wide, five narrow. */
-      & #tales-how-might-we>h2 {
+      & :where(#tales-how-might-we)>h2 {
         --quote-measure: calc(342rem / 16);
         padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
         line-height: calc(48rem / 16 + 12 * var(--home-wide-reference-growth));
@@ -1975,7 +1974,7 @@
             }
           }
         }
-        &#menume-overview>.section-content {
+        &:where(#menume-overview)>.section-content {
           &>.menume-inspiration-quote {
             --menume-drip-color: var(--menume-honey);
             position: relative;
@@ -2042,7 +2041,7 @@
             }
           }
         }
-        &#menume-research>.section-content {
+        &:where(#menume-research)>.section-content {
           &>.flex-row>aside {
             position: relative;
             margin-block: calc(var(--menume-disc) / 2) calc(32rem / 16);
@@ -2129,7 +2128,7 @@
             }
           }
         }
-        &#menume-information-architecture>.section-content>.subsection {
+        &:where(#menume-information-architecture)>.section-content>.subsection {
           &>h4,
           &:nth-of-type(n+2)>h3 {
             color: var(--color-case-study-accent);
@@ -2138,7 +2137,7 @@
             content: none;
           }
         }
-        &#menume-usability>.section-content {
+        &:where(#menume-usability)>.section-content {
           &>.subsection {
             &>h3::before {
               content: none;
@@ -2184,7 +2183,7 @@
             }
           }
         }
-        &#menume-contributions>.section-content {
+        &:where(#menume-contributions)>.section-content {
           &>.contribution-cards {
             counter-reset: menume-card;
             &>aside {
@@ -2266,8 +2265,8 @@
       }
       &>.content :is(
         .menume-inspiration-quote,
-        #menume-overview .flex-row>aside,
-        #menume-contributions .subsection>aside
+        :where(#menume-overview) .flex-row>aside,
+        :where(#menume-contributions) .subsection>aside
       )::after {
         content: "";
         position: absolute;
@@ -2449,7 +2448,7 @@
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
         }
       }
-      #scotties-wireframing {
+      :where(#scotties-wireframing) {
         & .note {
           border-width: calc(3rem / 16);
           border-color: var(--color-case-study-accent);
@@ -2525,7 +2524,7 @@
           }
         }
       }
-      #scotties-reflection .note {
+      :where(#scotties-reflection) .note {
         --scotties-badge-size: calc(120rem / 16 + 44 * var(--home-wide-reference-growth));
         position: relative;
         margin-block-start: calc(var(--scotties-badge-size) - 8rem / 16);
