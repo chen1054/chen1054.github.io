@@ -1008,6 +1008,14 @@
         }
       }
     }
+    & .captcha-reminder {
+      /* Inserted above the captcha when Send is pressed without it; aligned like the captcha and Send. */
+      margin-block: 0;
+      text-align: center;
+      @media(width>=40rem) {
+        text-align: end;
+      }
+    }
     & .h-captcha {
       /*
         Reserve the compact hCaptcha frame before its third-party script loads, so the
