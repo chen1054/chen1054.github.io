@@ -544,6 +544,10 @@ Queue, in order:
    bounded artwork), brief `/home/user/temp/agent/xinyanchen-build/briefs/phone-gaps.md`; its screenshots go to the
    user as a decision. In progress by the lead: case-study type sizes to Figma's at 390, 744 and 1440, with the
    same interpolation (Figma data in `/home/user/temp/agent/fig-parse/texts.json`).
+   User preference (2026-10-18): nest rules under a parent instead of prefixed class names, for example
+   `.case-study { & .subheading { ... } }` rather than `.case-study-subheading` (native nesting cannot splice
+   `&-subheading`, so class names in the HTML get shorter). Queued as its own pixel-identical refactor commit,
+   after the `gaps` decision lands so the agent's patches still apply; new rules are written nested meanwhile.
    Real touch on the Simulator works through `idb` (Monochromatic `doc/runbook/m1-apple-browser-rig-rebuild.md`).
 3. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request and inferred ask to commits; fill its "in progress" lines as the agents land.
