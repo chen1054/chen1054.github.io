@@ -1921,7 +1921,10 @@
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
       }
-      /* The Tales designs set the summary labels ExtraBold, and on phones each on its own line. */
+      /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
+      & ul.paragraph {
+        padding-inline-start: calc(22rem / 16);
+      }
       & .project-summary>p>strong {
         font-weight: 800;
         @media(width<40rem) {
