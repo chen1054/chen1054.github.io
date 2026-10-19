@@ -4193,26 +4193,35 @@
               }
             }
             /*
-              The phone design alternates the cards: 260 px wide, the odd ones 23 px into the column and the even
-              ones at its end, 103 px apart, the title right above the text, a 64 px badge 12 px past the end and 30
-              below, and the brush tape over the top corner (Phone/MenuMe.pdf).
+              The phone and tablet designs draw the same card: 260 px wide, the title right above the text, a 64 px
+              badge 12 px past the end and 30 below, and the brush tape over the top corner (Phone/MenuMe.pdf).
+              The phone alternates them, the odd ones 23 px into the column and the even ones at its end, 103 px
+              apart; the tablet sets them two across, 37 px into its 614 px column from x 70 and 42 apart, the rows
+              335 px from top to top, with 50 px numerals (Tablet/MenuMe.pdf).
             */
             @media(width<40rem) {
-              --card-unit: calc(1rem / 16 + var(--phone-art-growth));
               flex-direction: column;
               align-items: start;
               gap: calc(103 * var(--card-unit));
+              &>aside {
+                margin-inline: calc(23 * var(--card-unit)) 0;
+                &:nth-child(even) {
+                  margin-inline-start: auto;
+                }
+              }
+            }
+            @media(width<80rem) {
+              --card-unit: calc(1rem / 16 + var(--phone-art-growth));
+              @media(width>=40rem) {
+                --card-unit: calc(1rem / 16);
+              }
               &>aside {
                 --menume-disc: calc(64 * var(--card-unit));
                 flex: none;
                 inline-size: calc(260 * var(--card-unit));
                 margin-block: 0;
-                margin-inline: calc(23 * var(--card-unit)) 0;
                 padding-block: calc(16 * var(--card-unit)) calc(20 * var(--card-unit));
                 padding-inline: calc(24 * var(--card-unit));
-                &:nth-child(even) {
-                  margin-inline-start: auto;
-                }
                 &>p {
                   margin-block: 0;
                 }
@@ -4229,6 +4238,50 @@
                 }
               }
             }
+            @media(40rem<=width<80rem) {
+              display: grid;
+              grid-template-columns: calc(3740% / 614) calc(26000% / 614) calc(4200% / 614) calc(26000% / 614);
+              gap: calc(34rem / 16) 0;
+              &>aside {
+                grid-column: 2;
+                inline-size: auto;
+                min-block-size: calc(301rem / 16);
+                margin-inline: 0;
+                /* The design's text box is 214 px; ours keeps its thicker border, so the end padding gives way. */
+                padding-inline-end: calc(13.5rem / 16);
+                &:nth-child(even) {
+                  grid-column: 4;
+                }
+                padding-block-start: calc(19rem / 16);
+                &::after {
+                  font-size: calc(50rem / 16);
+                }
+              }
+            }
+          }
+          /*
+            The tablet design: the section heading 156 px under the band and the cards' tops 77 under its baseline,
+            and Key Learnings 124 under the second row; that heading is 16 px on the phone and tablet, 22 on the
+            desktop.
+          */
+          @media(40rem<=width<80rem) {
+            padding-block-start: calc(49rem / 16);
+            &>h3 {
+              margin-block-end: calc(70rem / 16);
+            }
+            &>.subsection {
+              margin-block-start: calc(96.5rem / 16);
+              &>h3 {
+                margin-block-end: calc(37rem / 16);
+              }
+            }
+            /* 158 from the second learning's box to the closing quote's first baseline. */
+            &>.closing-reflection {
+              margin-block-start: calc(138rem / 16);
+            }
+          }
+          &>.subsection>h3 {
+            font-size: calc(1rem + 6 * var(--home-wide-reference-growth));
           }
           &>.subsection {
             &>h4 {
@@ -4272,6 +4325,25 @@
               /* The drip clears the next heading by 49 px at 744 and 80 at 1440. */
               &>aside {
                 margin-block-end: calc(var(--menume-drip) * 0.75 + 33rem / 16 + 31 * var(--home-wide-reference-growth));
+              }
+            }
+            /*
+              The tablet design puts each heading's icon at its box's edge and its text in line with the box's copy,
+              the copy 20 px under the box's top on a 458 px measure, and drips 83 px deep (Tablet/MenuMe.pdf).
+            */
+            @media(40rem<=width<80rem) {
+              &>h4 {
+                margin-block-end: calc(22rem / 16);
+                padding-inline-start: calc(4rem / 16);
+              }
+              &>aside {
+                --menume-drip: calc(83rem / 16);
+                margin-block-end: calc(var(--menume-drip) * 0.75 + 43rem / 16);
+                padding-block: calc(20rem / 16) calc(11rem / 16);
+                padding-inline: 2rem calc(22.5rem / 16);
+                &>p {
+                  margin-block: 0;
+                }
               }
             }
             /* The phone design centres the headings over full-width boxes with a 60 px drip (Phone/MenuMe.pdf). */
