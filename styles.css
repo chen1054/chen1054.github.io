@@ -1938,6 +1938,10 @@
           margin-inline-start: calc(var(--glyph-size) * -4 / 3);
         }
       }
+      /* Patchy's card as the designs frame it: 240, 240 and 363 px, which is 249 to 376 px of this canvas. */
+      & figure:has(img[src*="tales-patchy-guardian"]) {
+        max-inline-size: calc(249rem / 16 + 127 * var(--home-wide-reference-growth));
+      }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       & ul.paragraph {
         padding-inline-start: calc(22rem / 16);
