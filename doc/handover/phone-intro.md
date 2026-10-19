@@ -1400,3 +1400,11 @@ Figma inconsistency kept consistent on purpose: five MenuMe subsection headings 
 "What's in My Fridge", the two usability flows, "Key Learnings & Takeaways") are 16 in Figma while their siblings
 are 18; the site uses 18 for all. Heights: 744 unchanged, 1440 +35 to +42 on MenuMe and Scotties, Tales +420 at 393
 (15 px body adds lines), no horizontal overflow at 320 to 1920.
+
+Client asks of 2026-10-18 (Contact screenshots, asks in the file names): the captcha is forced to English with
+`data-lang="en"` (Web3Forms' `client/script.js` turns it into hCaptcha's `hl=en`; it had followed the browser
+language) and sits centred over Send: centred with Send's 6.5 px nudge on phones, as wide as the Send button and
+end-aligned on wide layouts (at 744 the 158 px frame is wider than the 136 px pill and stops at the form edge, 7 px off
+centre). The back-to-top link moved from a fixed bottom-right button into each footer, centred above the thank-you
+line, so it appears only with the footer; the scroll script that toggled `hidden` is gone. Pages grow by the link
+(48 px plus a 16 to 32 px gap).
