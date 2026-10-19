@@ -2479,6 +2479,14 @@
           The end-to-end showcase: the desktop design draws the phone and tablet screens side by side (209 and 600
           px, 25 apart) with both buttons in a row under them; the phone design puts each button under its device.
         */
+        /* Both designs hang the token and delivery lists 22 px in, the delivery bullets in line with its numbers. */
+        & :is(ul, ol).paragraph {
+          padding-inline-start: calc(22rem / 16);
+          & ul {
+            padding-inline-start: 0;
+            list-style-type: disc;
+          }
+        }
         & .device-showcase {
           --showcase-unit: calc(1rem / 16 + var(--phone-art-growth));
           display: grid;
