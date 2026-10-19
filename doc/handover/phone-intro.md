@@ -2016,3 +2016,21 @@ longer than the tablet design. Safari Technology Preview on m1 matches Chromium 
 scrollbars there); the client's MacBook Air M2 uses overlay scrollbars by default.
 Next: the desktop walk (Tales, MenuMe, Scotties at 1440 against Desktop/*.png), which starts with the desktop
 measure decision (designs set text 980 px wide, ours 1086); then the client note with the tablet fixes.
+
+Desktop walk, under way (1440 against Desktop/*.pdf and .png). Tools: `f20/desk/ours-lines.js` (every rendered
+line of our page with top, left, right, size) and `f20/desk/line-diff.py <design.pdf> <ours.json> [y0 y1]`
+(matches each design line to ours and prints the vertical and start offsets and differing breaks);
+`f20/pair-viewport.py` now strips the "1. " flow numbers and creates its output folder. Landed: `c1914eb` body
+text on the designs' measure (from 1280 px, 976 px from x 230 at 1440; Tales' title story keeps 954 and Scotties'
+About runs to the column's end; every checked body line matches: MenuMe 18, Tales 8, Scotties 10); `7d80240` the
+heroes as drawn (art per page 438 from 52 / 422 / 551 px of the 1086 column, summary at 555, subtitle 49 px under
+the title with 33 px lines, MenuMe and Scotties bulleted, Scotties' desktop-only breaks as `br.desktop-break`,
+Tales' "Hi-fi" non-breaking; every hero line within 4 px); `758f085` prototype pills at least 250 px at 1440 (all
+pills, label-sized at tablet) and the hero pills' per-page gap (MenuMe 46, Scotties 70 px). Phone and tablet heroes
+are unchanged against live. Residuals: the designs' pill x offsets disagree (MenuMe +10, Scotties -15), ours keep
+the text's start; Scotties' hi-fi pills are drawn 286 x 47 (ours 250 x 42), for that section; the MenuMe subtitle
+fits one line only from about 1435 px, so Safari with classic scrollbars (1425 layout) wraps it as before. Safari
+Technology Preview at 1440 reproduces Chromium's hero boxes and line counts; its screenshots on m1 came back black
+this time (display awake), so that check was geometric.
+Next: continue the desktop walk from Jump To Section down MenuMe, then Tales and Scotties, with `line-diff.py`
+per section; then the client note.
