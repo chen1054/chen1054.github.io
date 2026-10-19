@@ -1681,3 +1681,9 @@ Client question, 2026-10-19, relayed by the user: "你是不是做了 phone 版�
 the phone version first, then tablet and desktop). Facts: Home was built phone first (`6b3f4ea` and following,
 2026-10-15), then adapted to tablet and desktop (`fdfe88f`); the stylesheet is phone-first (wide values under
 `@media(width>=40rem)`). The case-study pages were built for all widths at once (`14fed4c`, 2026-10-15).
+Client's Mac, relayed by the user 2026-10-19: "Client's Mac Safari ver: 14.5 (23F79)". 23F79 is macOS 14.5, not a
+Safari version: ipsw.me lists `Mac14,2` firmware 14.5 build 23F79 released 2024-05-13, the date BCD gives for
+Safari 17.5 (Apple: "Safari 17.5 is available for ... macOS Sonoma"). Safari updates apart from macOS, so the Safari
+version is unconfirmed until the client reads Safari > About Safari. BCD check at desktop Safari 17.5: nesting and
+`text-wrap: balance` fine; still missing `text-box` (18.2: the pill label trim, so the button-centring the client
+asked for depends on it) and partial relative colours (Home river mask), `text-wrap: pretty` (26).
