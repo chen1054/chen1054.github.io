@@ -81,9 +81,8 @@
     --color-portfolio-purple: #685587;
     --color-body-text-purple: #463267;
     --color-heading-and-case-study-gold: #c27f36;
-    --color-home-river-gold: #d8a150;
-    --color-contact-required-marker: #d9a150;
-    --color-back-to-top-ring: #d9a150;
+    /* The Figma files' one light gold: the river, the Contact required markers and the About photo shadows. */
+    --color-river-gold: #d8a150;
     color-scheme: light;
     @media(width>=40rem) {
       /* One reference pixel of growth between the supplied 744px and 1440px layouts. */
@@ -254,7 +253,7 @@
       Pages set the inputs (colours, phone width, wide growth per reference pixel); this rule computes the size.
     */
     --pill-color: var(--color-portfolio-purple);
-    --pill-hover-color: var(--color-home-river-gold);
+    --pill-hover-color: var(--color-river-gold);
     --pill-phone-inline-size: calc(136rem / 16);
     --pill-wide-inline-growth: 86;
     --pill-wide-block-growth: 20;
@@ -357,7 +356,7 @@
       margin-inline: auto;
       inline-size: 3rem;
       block-size: 3rem;
-      border: calc(2rem / 16) solid var(--color-back-to-top-ring);
+      border: calc(2rem / 16) solid var(--color-river-gold);
       border-radius: 50%;
       &::before {
         /* The arrow artwork is a mask painted in the link's color, so hover only changes a color. */
@@ -822,7 +821,7 @@
             block-size: auto;
             margin-inline: auto;
             border-radius: calc(50rem / 16);
-            box-shadow: 0 calc(6rem / 16) calc(5rem / 16) #d9a150;
+            box-shadow: 0 calc(6rem / 16) calc(5rem / 16) var(--color-river-gold);
             @media(width>=40rem) {
               inset-block-start: calc(5rem / 16 - 3 * var(--home-wide-reference-growth));
             }
@@ -975,7 +974,7 @@
       font-weight: 700;
       line-height: calc(28rem / 16 + 14 * var(--home-wide-reference-growth));
       &>span {
-        color: var(--color-contact-required-marker);
+        color: var(--color-river-gold);
       }
       &>input,
       &>textarea {
