@@ -1820,3 +1820,9 @@ PNGs. Not yet checked in the iOS 17.0.1 Simulator. MenuMe left: miss-07 bubbles 
 bold labels (low), tablet flow-2 residual. Note: the design copy reads "meals.We" (no space); the site keeps the
 space, so the story box wraps one word differently from the tablet design.
 iOS 17.0.1 Simulator, 2026-10-19: the four MenuMe walk fixes render as in Chromium (`sim17-mm2-0[0-3].png`).
+Risk from the client's device, 2026-10-19: EveryMac lists the 13-inch M2 MacBook Air (2022) as shipping with
+macOS Monterey 12.4, whose Safari is 15.5. `bcd-css.mjs styles.css safari <v>` (BCD 8.1.6): Safari 15.5 and 16.4
+lack CSS nesting (added 16.5, partial to 17.1), media range syntax (`width<40rem`, 16.4) and, on 15.5, container
+queries (16.0); the stylesheet relies on all three, so on Safari before 16.5 most rules would not apply. Monterey
+can take Safari updates up to 17.6, and the client's iPhone runs iOS 17.0.2, so the Mac's Safari version is
+unknown. The client's Safari version (Safari > About Safari) is the deciding fact; the question is with the user.
