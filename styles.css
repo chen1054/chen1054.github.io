@@ -1917,6 +1917,8 @@
     &[data-case-study="tales"] {
       &>.content {
         font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
+        /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
+        line-height: calc(30rem / 16 - 2 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth));
       }
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
@@ -1991,11 +1993,53 @@
       & .flex-row:has(>.persona) {
         align-items: start;
       }
-      /* Equal-height icon boxes (the tallest icon's ratio) keep the three pillar headings on one line. */
-      & .story-pillars .small-illustration {
-        /* From the width where two pillars share a row. */
-        @media(width>=26.25rem) {
-          aspect-ratio: 157 / 154;
+      /*
+        The pillar icons at the designs' sizes: Desktop Tales draws them at their own 157, 204 and 164 px, Phone and
+        Tablet at 0.73 of that. Titles centre over left-aligned copy in every design.
+      */
+      & .story-pillars {
+        &>* {
+          text-align: start;
+          &>h4 {
+            text-align: center;
+          }
+        }
+        &>:nth-child(1) {
+          --pillar-icon: 157;
+        }
+        &>:nth-child(2) {
+          --pillar-icon: 204;
+        }
+        &>:nth-child(3) {
+          --pillar-icon: 164;
+        }
+        & .small-illustration {
+          --pillar-scale: calc(0.73rem / 16 + 0.27 * var(--home-wide-reference-growth));
+          inline-size: calc(var(--pillar-icon) * var(--pillar-scale));
+          max-inline-size: none;
+          margin-inline: auto;
+          /*
+            From the width where two pillars share a row: equal boxes as tall as the tallest icon, the icons centred
+            in them as the desktop design centres them, keep the titles on one line.
+          */
+          @media(width>=26.25rem) {
+            display: grid;
+            align-content: center;
+            block-size: calc(154 * var(--pillar-scale));
+          }
+        }
+        /* Stacked, the Phone design's gaps from ink to ink: icon to title 31, title to copy 32, copy to icon 47. */
+        @media(width<26.25rem) {
+          row-gap: 0;
+          & .small-illustration {
+            margin-block: calc(22rem / 16) calc(19rem / 16);
+          }
+          & h4 {
+            margin-block: 0 calc(2rem / 16);
+          }
+          & p {
+            margin-block-start: 0;
+          }
         }
       }
       /* The quote wraps to the design's measure: two large lines wide, five narrow. */
