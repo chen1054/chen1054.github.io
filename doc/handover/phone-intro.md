@@ -1702,3 +1702,6 @@ engine issues; they are phone-layout misses against `../Phone/MenuMe.png` and `.
 A guess, not the client's words: the question may come from the client's phone designs not being followed on the phone pages, which look like the
 wide layout stacked. Queue: compare every case-study section at 393 against the phone designs (MenuMe `545` and
 `546` usability callouts not yet compared), fix each miss in its own commit, check in iOS 17.0.1 Simulator Safari.
+Deploy lag, 2026-10-19 16:14: `8fd50ea` is on `origin/main`, but the live `styles.css` still has the bare `ul {`;
+`gh run list` shows every "pages build and deployment" run since 15:55 still queued on GitHub's side. Re-check
+the live file before telling anyone the fix is live.
