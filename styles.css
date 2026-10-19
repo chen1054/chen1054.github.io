@@ -2823,6 +2823,112 @@
               }
             }
           }
+          /*
+            The tablet design's second flow (620 px wide at 744, scaled to the column): the finding beside the three
+            lo-fi screens, squiggles down from the finding and from the second screen to the hi-fi screens, and the
+            iteration under them, joined to the first hi-fi screen by a yellow elbow.
+          */
+          @media(40rem<=width<68.25rem) {
+            &>.subsection:has(img[src*="weekly-specials-low"]) {
+              --usability-unit: calc(100cqw / 620);
+              container-type: inline-size;
+              display: grid;
+              grid-template-columns:
+                minmax(0, 184fr) minmax(0, 17fr) minmax(0, 134fr) minmax(0, 9fr) minmax(0, 134fr) minmax(0, 7fr)
+                minmax(0, 135fr);
+              &>:not(.flex-row) {
+                grid-column: 1 / -1;
+              }
+              &>.flex-row,
+              &>.flex-row>.screen-set {
+                display: contents;
+              }
+              & aside,
+              & figure {
+                align-self: start;
+                flex: none;
+                margin: 0;
+              }
+              & figure {
+                &:nth-child(1) {
+                  grid-column: 3;
+                }
+                &:nth-child(2) {
+                  grid-column: 5;
+                }
+                &:nth-child(3) {
+                  grid-column: 7;
+                }
+              }
+              & aside>p {
+                margin-block: 0;
+              }
+              &>.flex-row:first-of-type {
+                & figure {
+                  grid-row: 2;
+                }
+                &>aside {
+                  grid-area: 2 / 1;
+                  margin-block-start: calc(57 * var(--usability-unit));
+                  padding-block: calc(27 * var(--usability-unit));
+                  padding-inline: calc(29 * var(--usability-unit)) calc(27 * var(--usability-unit));
+                  &::after {
+                    inset-block-start: calc(100% + 32 * var(--usability-unit));
+                    inset-inline-start: calc(83.6 * var(--usability-unit));
+                    inline-size: calc(61.4 * var(--usability-unit));
+                    block-size: calc(114 * var(--usability-unit));
+                    background-image: url("assets/menume-usability-tablet-squiggle-down-left.svg");
+                  }
+                }
+                & figure:nth-child(2)::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(100% + 6 * var(--usability-unit));
+                  inset-inline-start: calc(25.3 * var(--usability-unit));
+                  inline-size: calc(48.4 * var(--usability-unit));
+                  block-size: calc(89.7 * var(--usability-unit));
+                  background: url("assets/menume-usability-tablet-squiggle-down.svg") center / contain no-repeat;
+                }
+              }
+              &>.flex-row:last-of-type {
+                & figure {
+                  grid-row: 3;
+                  margin-block-start: calc(91 * var(--usability-unit));
+                }
+                &>aside {
+                  --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                  grid-area: 4 / 1 / 5 / 6;
+                  justify-self: start;
+                  inline-size: calc(430 * var(--usability-unit));
+                  margin-block-start: calc(25 * var(--usability-unit));
+                  padding-block: calc(26 * var(--usability-unit)) calc(22 * var(--usability-unit));
+                  padding-inline: calc(30 * var(--usability-unit)) calc(36 * var(--usability-unit));
+                  &::after {
+                    content: none;
+                  }
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    inset-block-start: calc(-212.2 * var(--usability-unit));
+                    inset-inline-start: calc(147.5 * var(--usability-unit));
+                    inline-size: calc(61.5 * var(--usability-unit));
+                    block-size: calc(217.2 * var(--usability-unit));
+                    background-image: url("assets/menume-usability-connector-arrowhead-right.svg"), var(--line), var(--line);
+                    background-position:
+                      calc(46.5 * var(--usability-unit)) 0, 0 calc(7.2 * var(--usability-unit)),
+                      0 calc(7.2 * var(--usability-unit));
+                    background-size:
+                      calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit)),
+                      calc(48 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                      calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit));
+                    background-repeat: no-repeat;
+                    pointer-events: none;
+                  }
+                }
+              }
+            }
+          }
         }
         &:where(#menume-contributions)>.section-content {
           &>.contribution-cards {
