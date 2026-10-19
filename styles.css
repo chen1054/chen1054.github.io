@@ -3279,6 +3279,10 @@
             justify-content: center;
             gap: calc(119rem / 16 + 3.5 * var(--phone-tablet-reference-growth) - 3.6 * var(--home-wide-reference-growth)) calc(42.4rem / 16 + 5 * var(--home-wide-reference-growth));
             margin-block: calc(var(--menume-disc) / 2 + 2rem) calc(56rem / 16 + 2rem);
+            /* Desktop MenuMe: 146 px from the tails to the persona heading's glyph top. */
+            @media(width>=80rem) {
+              margin-block-end: calc(177rem / 16);
+            }
             @media(width<40rem) {
               flex-direction: column;
               align-items: center;
