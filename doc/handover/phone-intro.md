@@ -2005,3 +2005,14 @@ personalization hi-fi as two 780 x 1688 screens of 601 and 782 KB (ours one comb
 change); the device showcase as one 3840 x 2160 (ours two images); the flow diagrams 4096 px wide (ours 1960,
 and their order is the open client question, miss 20). Tales and Scotties not yet measured. The client is on a
 MacBook Air M2 (Retina). Byte cost per page not yet measured beyond the Weekly swap (+360 KB for six screens).
+
+MenuMe tablet walk done: `cc5d01a` subheading-to-text 42 px as Tablet/MenuMe.pdf (MenuMe only: Tales' design uses
+30 to 31, Scotties' 33 to 41; Scotties' Core Value and Tactile headings are 7 px short of their design's 41, not
+yet fixed), `22ca034` design-system section gaps and prototype buttons 16 apart (miss 30), `01e6487` contribution
+cards as the phone card two across with 50 px numerals (26, 27, 32) and Key Learnings notes (28). Every MenuMe
+tablet miss is landed or recorded: miss 20 (flow diagram order) waits on the client; the sitemap at 640 to 1023
+keeps stacking (18, residual); the footer keeps the client's back-to-top above the credits, so the page end runs
+longer than the tablet design. Safari Technology Preview on m1 matches Chromium at its 727 px viewport (classic
+scrollbars there); the client's MacBook Air M2 uses overlay scrollbars by default.
+Next: the desktop walk (Tales, MenuMe, Scotties at 1440 against Desktop/*.png), which starts with the desktop
+measure decision (designs set text 980 px wide, ours 1086); then the client note with the tablet fixes.
