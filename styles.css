@@ -2580,6 +2580,135 @@
           --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
         }
         /*
+          The phone design's hi-fi page: two callouts above the screenshot and two below, narrower than the column,
+          each tied to its part of the screenshot by a connector. One grid holds the screenshot in row 3 and, through a
+          subgrid, the callouts in rows 1, 2, 4 and 5, so each connector can span the rows between its two ends.
+          Lengths are the design's pixels at 390 (Phone/Scotties.pdf).
+        */
+        @media(width<40rem) {
+          & .subsection:nth-child(5)>.flex-row {
+            --hifi-unit: calc(1rem / 16 + var(--phone-art-growth));
+            display: grid;
+            grid-template-rows: repeat(5, auto);
+            gap: 0;
+            &>figure {
+              grid-area: 3 / 1;
+              inline-size: calc(286 * var(--hifi-unit));
+              margin-block-start: calc(22 * var(--hifi-unit));
+              margin-inline: auto;
+            }
+            &>article {
+              display: grid;
+              grid-area: 1 / 1 / 6;
+              grid-template-rows: subgrid;
+              pointer-events: none;
+              &>.note {
+                grid-column: 1;
+                justify-self: start;
+                padding-block: calc(24 * var(--hifi-unit));
+                padding-inline: calc(26 * var(--hifi-unit));
+                pointer-events: auto;
+                &>p {
+                  margin-block: 0;
+                }
+              }
+              &>.note:nth-child(1) {
+                grid-row: 1;
+                inline-size: calc(258 * var(--hifi-unit));
+                margin-inline-start: calc(32 * var(--hifi-unit));
+              }
+              &>.note:nth-child(2) {
+                grid-row: 2;
+                inline-size: calc(254 * var(--hifi-unit));
+                margin-block-start: calc(14 * var(--hifi-unit));
+                margin-inline-start: calc(36 * var(--hifi-unit));
+              }
+              &>.note:nth-child(3) {
+                grid-row: 4;
+                inline-size: calc(253 * var(--hifi-unit));
+                margin-block-start: calc(35 * var(--hifi-unit));
+                margin-inline-start: calc(22 * var(--hifi-unit));
+              }
+              &>.note:nth-child(4) {
+                grid-row: 5;
+                inline-size: calc(279 * var(--hifi-unit));
+                margin-block-start: calc(8 * var(--hifi-unit));
+                margin-inline-start: calc(47 * var(--hifi-unit));
+              }
+            }
+            /* Connectors: 3 px lines drawn as background layers, so each can stretch between rows; arrowheads last. */
+            &::before,
+            &::after,
+            &>article::before,
+            &>article::after {
+              content: "";
+              z-index: 1;
+              grid-column: 1;
+              place-self: stretch start;
+              background-repeat: no-repeat;
+              pointer-events: none;
+            }
+            &::before {
+              --line: linear-gradient(var(--color-case-study-subheading) 0 0);
+              grid-row: 1 / 3;
+              inline-size: calc(30.6 * var(--hifi-unit));
+              margin-block: calc(100.9 * var(--hifi-unit)) calc(-41 * var(--hifi-unit));
+              margin-inline-start: calc(8.3 * var(--hifi-unit));
+              background-image: var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
+              background-position: calc(6.9 * var(--hifi-unit)) 0, calc(6.9 * var(--hifi-unit)) 0, 0 100%;
+              background-size:
+                calc(100% - 6.9 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+                calc(3 * var(--hifi-unit)) calc(100% - 13.5 * var(--hifi-unit)),
+                calc(17.3 * var(--hifi-unit)) calc(15 * var(--hifi-unit));
+            }
+            &::after {
+              --line: linear-gradient(var(--color-case-study-heading) 0 0);
+              grid-row: 2 / 4;
+              inline-size: calc(53 * var(--hifi-unit));
+              margin-block: calc(162 * var(--hifi-unit)) calc(586.8 * var(--hifi-unit));
+              margin-inline-start: calc(281 * var(--hifi-unit));
+              background-image:
+                var(--line), var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-left.svg");
+              background-position:
+                0 0, 100% 0, calc(44.5 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
+                calc(31 * var(--hifi-unit)) 100%;
+              background-size:
+                100% calc(3 * var(--hifi-unit)),
+                calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
+                calc(8.5 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+                calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit));
+            }
+            &>article::before {
+              --line: linear-gradient(var(--color-case-study-accent) 0 0);
+              grid-row: 3 / 4;
+              inline-size: calc(43 * var(--hifi-unit));
+              margin-block: calc(595.3 * var(--hifi-unit)) calc(-121.5 * var(--hifi-unit));
+              margin-inline-start: calc(-12.5 * var(--hifi-unit));
+              background-image:
+                url("assets/scotties-hi-fi-connector-arrowhead-right.svg"), var(--line), var(--line), var(--line);
+              background-position:
+                calc(10.5 * var(--hifi-unit)) 0, 0 calc(7.2 * var(--hifi-unit)), 0 calc(7.2 * var(--hifi-unit)), 0 100%;
+              background-size:
+                calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit)),
+                calc(12 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+                calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
+                100% calc(3 * var(--hifi-unit));
+            }
+            &>article::after {
+              --line: linear-gradient(var(--color-case-study-subheading) 0 0);
+              grid-row: 3 / 5;
+              inline-size: calc(17.4 * var(--hifi-unit));
+              margin-block: calc(855.5 * var(--hifi-unit)) calc(-16 * var(--hifi-unit));
+              margin-inline-start: calc(285.8 * var(--hifi-unit));
+              background-image: url("assets/scotties-hi-fi-connector-arrowhead-up.svg"), var(--line);
+              background-position: 0 0, calc(7.2 * var(--hifi-unit)) calc(13.5 * var(--hifi-unit));
+              background-size:
+                calc(17.4 * var(--hifi-unit)) calc(15 * var(--hifi-unit)),
+                calc(3 * var(--hifi-unit)) calc(100% - 13.5 * var(--hifi-unit));
+            }
+          }
+        }
+        /*
           All three designs stack the closing links, Mobile over Desktop, with the chevron trail beside the first on
           wide layouts and on its own line above them, at the column start, on phones.
         */
