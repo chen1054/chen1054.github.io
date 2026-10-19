@@ -636,7 +636,10 @@ non-client-blocking work (tooling, diffs, infrastructure) to Sonnet subagents an
    `wt-hybrid` removed after proving their work is on `main` (`wt-nest` equals `e9f6250`, `wt-hybrid` equals
    `c7bda33`, `wt-layer` is `c7bda33` minus the hybrid phone fix); copies `wt-refactor`, `wt-gaps` deleted; units
    `xinyanchen-nest`, `xinyanchen-layer`, `xinyanchen-hybrid` stopped. `wt-harness` stays (Safari style-diff page).
-   (d) the client reply has every attachment and goes out only when the user says so.
+   (d) the client reply has every attachment and goes out only when the user says so; the user chose a short
+   set: 11 numbered key pairs with bilingual captions in the client folder's `evidence/send-13f7d95/`, in the
+   message's order (Scotties phone, decorations, copy, sitemap, cards, wide nav, Contact, citations); the draft
+   now says the main items, not every item, have images.
 6. Client-facing checklist: `../Client comparison screenshots 2026OCT170133/07-what-we-fixed.md` maps every client
    request, design note and inferred ask to commits; keep it current as items land.
 7. Open for the user or client: MenuMe contributions 2x2 (as designed) or 4 across (built); uncropped exports for the
