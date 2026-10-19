@@ -4279,6 +4279,186 @@
             }
           }
           /*
+            The desktop design's flows (Desktop/MenuMe.pdf, lengths in its 1086 px column from x 177). The first: the
+            finding (378 px) and the iteration (400) 132 apart at 81 px in, an orange squiggle between them, the lo-fi
+            screen (213) and the hi-fi pair (440) 50 below with another squiggle between those, and a yellow elbow
+            from the iteration's end edge into the second hi-fi screen. The second: the finding (288) beside the
+            three lo-fi screens (211 px images, 15 and 16 apart, from 368 px in), the iteration (284) beside the
+            three hi-fi screens 131 below, squiggles down from the finding and the second screen, and a yellow arrow
+            from the iteration into the first hi-fi screen. The vectors are the design's own; each note's padding
+            makes its copy wrap line for line as drawn.
+          */
+          @media(width>=80rem) {
+            &>.subsection:has(img[src*="personalization-low"]) {
+              --u: calc(100cqw / 1086);
+              /* Being a container would make the type growth measure this flow; keep measuring the page. */
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+              container-type: inline-size;
+              &>.flex-row {
+                justify-content: flex-start;
+                gap: 0;
+                margin-block: 0;
+                &>* {
+                  flex: none;
+                  margin-block: 0;
+                  margin-inline-end: 0;
+                }
+              }
+              &>.flex-row>aside {
+                min-block-size: calc(229 * var(--u));
+                padding-block: calc(34.5 * var(--u)) calc(26.5 * var(--u));
+                &>p {
+                  margin-block: 0;
+                }
+                &::after {
+                  inset-block-start: calc(87 * var(--u));
+                  inset-inline: calc(416 * var(--u)) auto;
+                  inline-size: calc(53 * var(--u));
+                  block-size: calc(81 * var(--u));
+                  background-image: url("assets/menume-usability-desktop-squiggle-between-notes.svg");
+                }
+                &:first-child {
+                  inline-size: calc(378 * var(--u));
+                  margin-inline-start: calc(81 * var(--u));
+                  padding-inline: calc(41 * var(--u)) calc(32 * var(--u));
+                }
+                &:last-child {
+                  inline-size: calc(400 * var(--u));
+                  margin-inline-start: calc(132 * var(--u));
+                  padding-inline: calc(39 * var(--u)) calc(43 * var(--u));
+                  &::after {
+                    content: none;
+                  }
+                }
+              }
+              &>.flex-row:has(>figure) {
+                position: relative;
+                align-items: start;
+                margin-block-start: calc(50 * var(--u));
+                /* The elbow hangs from the screens, leaving the iteration 160 px under its top. */
+                &::after {
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  inset-block-start: calc(-120 * var(--u));
+                  inset-inline-start: calc(982 * var(--u));
+                  inline-size: calc(54 * var(--u));
+                  block-size: calc(215 * var(--u));
+                  background: url("assets/menume-usability-desktop-connector-elbow.svg") center / 100% 100% no-repeat;
+                  pointer-events: none;
+                }
+                &>figure:first-child {
+                  inline-size: calc(213 * var(--u));
+                  max-inline-size: none;
+                  margin-inline-start: calc(156 * var(--u));
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    inset-block-start: calc(207 * var(--u));
+                    inset-inline-start: calc(279 * var(--u));
+                    inline-size: calc(68 * var(--u));
+                    block-size: calc(100 * var(--u));
+                    background: url("assets/menume-usability-desktop-squiggle-between-screens.svg") center / 100% 100%
+                      no-repeat;
+                  }
+                }
+                &>figure:last-child {
+                  inline-size: calc(440 * var(--u));
+                  margin-inline-start: calc(192 * var(--u));
+                }
+              }
+            }
+            &>.subsection:has(img[src*="weekly-specials-low"]) {
+              --u: calc(100cqw / 1086);
+              --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+              container-type: inline-size;
+              display: grid;
+              grid-template-columns:
+                minmax(0, 47fr) minmax(0, 288fr) minmax(0, 33fr) minmax(0, 211fr) minmax(0, 15fr) minmax(0, 211fr)
+                minmax(0, 16fr) minmax(0, 211fr) minmax(0, 54fr);
+              &>:not(.flex-row) {
+                grid-column: 1 / -1;
+              }
+              &>.flex-row,
+              &>.flex-row>.screen-set {
+                display: contents;
+              }
+              & aside,
+              & figure {
+                grid-column: 2;
+                align-self: start;
+                justify-self: start;
+                flex: none;
+                margin: 0;
+              }
+              & figure {
+                inline-size: 100%;
+                &:nth-child(1) {
+                  grid-column: 4;
+                }
+                &:nth-child(2) {
+                  grid-column: 6;
+                }
+                &:nth-child(3) {
+                  grid-column: 8;
+                }
+              }
+              & aside>p {
+                margin-block: 0;
+              }
+              &>.flex-row:first-of-type {
+                & figure {
+                  grid-row: 2;
+                }
+                &>aside {
+                  grid-row: 2;
+                  inline-size: calc(288 * var(--u));
+                  margin-block-start: calc(163 * var(--u));
+                  padding-block: calc(45.5 * var(--u)) calc(37.5 * var(--u));
+                  padding-inline: calc(38 * var(--u)) calc(10 * var(--u));
+                  &::after {
+                    inset-block-start: calc(100% + 76 * var(--u));
+                    inset-inline: calc(138 * var(--u)) auto;
+                    inline-size: calc(59 * var(--u));
+                    block-size: calc(123 * var(--u));
+                    background-image: url("assets/menume-usability-desktop-squiggle-under-finding.svg");
+                  }
+                }
+                & figure:nth-child(2)::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(100% + 31 * var(--u));
+                  inset-inline-start: calc(47 * var(--u));
+                  inline-size: calc(55 * var(--u));
+                  block-size: calc(99 * var(--u));
+                  background: url("assets/menume-usability-desktop-squiggle-under-screens.svg") center / 100% 100%
+                    no-repeat;
+                }
+              }
+              &>.flex-row:last-of-type {
+                & figure {
+                  grid-row: 3;
+                  margin-block-start: calc(131 * var(--u));
+                }
+                &>aside {
+                  grid-row: 3;
+                  inline-size: calc(284 * var(--u));
+                  margin-block-start: calc(152 * var(--u));
+                  padding-block: calc(43.5 * var(--u)) calc(35.5 * var(--u));
+                  padding-inline: calc(30 * var(--u)) calc(24 * var(--u));
+                  &::after {
+                    content: "";
+                    inset-block-start: calc(148 * var(--u));
+                    inset-inline: calc(278 * var(--u)) auto;
+                    inline-size: calc(53 * var(--u));
+                    block-size: calc(20 * var(--u));
+                    background-image: url("assets/menume-usability-desktop-connector-arrow.svg");
+                  }
+                }
+              }
+            }
+          }
+          /*
             The tablet design's first flow (Tablet/MenuMe.pdf at 744, lengths in its 614 px column from x 70): the
             finding (221 px) and the iteration (234 px) 82 apart with an orange squiggle between them, the lo-fi
             screen (142 px) and the hi-fi pair (292 px) 58 below with the same squiggle between those, and a yellow
