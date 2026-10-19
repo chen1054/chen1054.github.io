@@ -1723,6 +1723,19 @@
           font-weight: 700;
         }
       }
+      /* The positioning and value-pillar notes stay Medium on every width; their lead phrase is Bold 15, 16 and 18. */
+      &>.content :is(.scotties-positioning-note, .small-illustration~.flex-row>article)>p {
+        font-weight: 500;
+        &>span {
+          font-size: calc(15rem / 16 + var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
+          font-weight: 700;
+        }
+      }
+      /* All three designs set the two Visual Strategy subsection headings in Abril Fatface, not Playfair Bold. */
+      &>.content>:where(#scotties-visual-strategy)>.section-content>.subsection>h3 {
+        font-family: "Abril Fatface", serif;
+        font-weight: 400;
+      }
       /* The phone design sets the Scotties column 20 px from each edge (Phone/Scotties.png), where the others use 34. */
       @media(width<40rem) {
         &>.content .section-content {
