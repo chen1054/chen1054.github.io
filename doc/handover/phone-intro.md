@@ -2063,3 +2063,26 @@ runs 138 px longer (the client's back-to-top). Safari Technology Preview at 1423
 layouts in proportion. Tools: `f20/desk/sweep.js` finds the text widths where an element's lines start as drawn.
 Next: Tales desktop walk, then Scotties, with `line-diff.py` per section; then the sitemap tree; then the client
 note.
+
+Tales desktop landed: `d233840` introduction, how-might-we measure, story pillars on the design's own columns,
+age trail size; `462bd5c` characters and stories spacing; `fd2a2b0` Digital Touchpoint and Campaign intros,
+channel lists at line height 1.5, hung heading icons; `009087f` campaign figures at their drawn sizes (map 766,
+chart 949); `d111f25` impact chevrons (per-chevron overlaps, rings, copy measures) and closing quote; `5eae6cc`
+Key Insights bubbles; `ea5f3b8` last impact title on one line (correction comment on `d111f25`); `b9a410f`
+notepad and bubbles wrap plainly instead of `text-wrap: pretty` (correction comment: phone widths unchanged);
+`78e3504` desktop lists 1004 px so Safari keeps MenuMe's Loch Blue line. At 1440 every Tales line breaks as drawn
+in Chromium and Safari Technology Preview and sits within 3 px of the design, except:
+- "developmental stages." (the copy pass's grammar fix of the designs' "stage.");
+- the Mighty Brains and Don't-be-fooled headings +64 and -36 px: our notes quote the curriculum word for word
+  (`ea79666`, chosen by the user), so their heights differ from the drawn citations;
+- the demo link label and band headings about 5 px high (the shared link is 42 px tall, drawn 48; band headings
+  sit 5 px higher in their bands);
+- the footer 139 px lower (the client's back-to-top), as on MenuMe.
+Tool caveats: `agent-browser screenshot --full` renders `<picture>` with the phone source and stretches the page
+below it, so pair with tall viewport shots instead; `f20/desk/sweep.js` now matches 24-character line starts;
+`f20/desk/breaks-dump.js` dumps every text block's breaks for a Chromium-against-Safari comparison (Safari returns
+CRC16 hashes, compared in `br-safari.json`).
+Safari parity finding: Safari breaks 23 blocks differently from Chromium at 393, 3 at 744 and 3 at 1440 (the two
+at 1440 left are Scotties blocks 18 and 70). Queued as its own task: sweep both browsers per block, pick measures
+inside both windows; include the phone trust bubble, whose base `balance` breaks line 1 unlike Phone Tales.
+Next: Scotties desktop walk, then the Safari parity pass at 393 and 744, the sitemap tree, the client note.
