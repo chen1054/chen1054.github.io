@@ -2116,3 +2116,25 @@ design: the second and third flow headings are drawn 12 and 61 px lower because 
 headings with the diagrams in a different order (miss 20, waiting on the client; ours pairs each heading with its
 own flow, `446ba33`), so the drawn diagram heights differ from ours under each heading.
 Next: the Safari parity pass at 393 and 744 (task #31), then the client note.
+
+Safari parity pass at 393 and 744 (task #31): the earlier finding (23 blocks at 393, 3 at 744) was mostly a harness
+artifact. Safari Technology Preview on m1 draws classic scrollbars inside an iframe too, so an iframe `w + 17` wide
+lays out at `w` but resolves `100vw` (and every `vw`-based growth token) at `w + 17`; even `overflow: hidden`,
+`scrollbar-width: none` and `::-webkit-scrollbar` left the 17 px. An iPhone has overlay scrollbars. Use a page-tall
+iframe instead (`width: w; height: 25000px`): nothing scrolls, so `clientWidth`, `100vw` and `(width: wpx)` all
+equal `w`; `vh` units grow, which leaves text widths alone. The tablet checks recorded at "727 layout px" and the
+1280 sitemap check carried the same bias; 1440 checks did not, since the growth tokens saturate there.
+With that harness, 5 blocks at 393 and 3 at 744 break differently between the browsers:
+- fixed, `f49b655`: the Scotties phone hi-fi "Transitions gracefully" callout, at the edge of the window where both
+  break it as drawn; now 199.5 px, inside it;
+- Safari matches the design where Chromium does not (left as is): MenuMe's overview note at 393 and 744 (Safari
+  lays it out 1 px narrower), Tales' logo paragraph at 393 (the design's first four breaks);
+- neither matches the design (left as is): the Scotties Visual Strategy paragraph at 393 (Chromium matches its own
+  breaks only from exactly 353 px, the full column; Safari's 13 lines are the stable result), the Scotties
+  challenge cloud copy at 393 and 744 (balanced wrapping breaks differently in each engine, with the same line count);
+- Tales' "Empowering pre-teens" item at 744: Chromium matches the drawn lone "on" only from exactly 574 px, the full
+  width; Safari carries "focusing on" down, also two lines.
+Tool: `f20/desk/par-sweep.js` (per block, the widths where its lines start with given words; compares by prefix, as
+short words broke the 5-character comparison) and `f20/desk/design-starts.py` (a block's drawn line starts from a
+design PDF).
+Next: the client note (task #30).
