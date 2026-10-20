@@ -4442,6 +4442,7 @@
         /*
           The end-to-end showcase: the desktop design draws the phone and tablet screens side by side (209 and 600
           px, 25 apart) with both buttons in a row under them; the phone design puts each button under its device.
+          The client asked for each button centred under its own device (2026-10-19, "分别中间对齐"), at every width.
         */
         /* Both designs hang the token and delivery lists 22 px in, the delivery bullets in line with its numbers. */
         & :is(ul, ol).paragraph {
@@ -4465,22 +4466,17 @@
             margin: 0;
           }
           &>.flex-row {
-            grid-column: 1 / -1;
-            justify-content: start;
-            &>* {
-              flex: none;
-              margin-inline: 0;
-            }
+            display: contents;
+          }
+          /* A button may outgrow the phone's column; it stays one line, centred on the device. */
+          & .prototype-link {
+            justify-self: center;
+            margin-inline: 0;
+            white-space: nowrap;
           }
           @media(width<40rem) {
             grid-template-columns: minmax(0, 1fr);
             row-gap: 0;
-            &>.flex-row {
-              display: contents;
-            }
-            & .prototype-link {
-              justify-self: center;
-            }
             &>figure:first-child {
               grid-row: 1;
               justify-self: center;
