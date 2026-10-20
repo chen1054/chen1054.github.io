@@ -2086,3 +2086,22 @@ Safari parity finding: Safari breaks 23 blocks differently from Chromium at 393,
 at 1440 left are Scotties blocks 18 and 70). Queued as its own task: sweep both browsers per block, pick measures
 inside both windows; include the phone trust bubble, whose base `balance` breaks line 1 unlike Phone Tales.
 Next: Scotties desktop walk, then the Safari parity pass at 393 and 744, the sitemap tree, the client note.
+
+Scotties desktop landed: `a358d40` core challenge cloud (six `<br class="desktop-break">` in the challenge copy,
+shown from 1280 px only) and the positioning note; `31cf81c` personas and core value pillars; `998cc9e` visual
+strategy artwork (wordmark 635 px); `f65ab44` the sitemap at the design's scale (47 px boxes, 17 px labels, the
+four sections at their drawn columns, the shared tree CSS untouched below 1280 and on MenuMe); `1e019fe`
+wireframe pages' spacing and the gap down to the Key Learnings band; `fe4bf4c` wireframe note measures; `918b5be`
+key learnings boxes at their drawn sizes and places; `0748ad6` closing quote. At 1440 every Scotties copy line
+breaks as drawn and sits within 6 px of Desktop/Scotties.pdf in Chromium; Safari Technology Preview breaks all 74
+text blocks as Chromium does (blocks 18 and 70 from the parity finding are fixed). Residuals:
+- the footer 136 px lower (the client's back-to-top), as on MenuMe and Tales;
+- the type specimens' labels are live type in the design, inside the image in ours;
+- the drawing places each sitemap section's incoming arrow 31 to 50 px in, ours uses the 32 px trunk for all four;
+- the hi-fi "Opens with high-energy action" callout breaks as drawn only from 255.4 to 255.65 px in both browsers
+  (ours 255.53): a font or engine change could tip its last line.
+Tool caveats: `f20/desk/sweep.js` sets the element's content box, so an element with a border (the hi-fi intro's
+4 px dashed one) needs its border subtracted when comparing; `pm.samples` in PyMuPDF copies the whole raster on
+each access, so bind it once (`f20/desk/scan-lines.py`).
+Next: the MenuMe sitemap as the design's top-down tree, then the Safari parity pass at 393 and 744, then the
+client note.
