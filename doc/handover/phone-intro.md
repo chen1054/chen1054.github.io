@@ -2504,6 +2504,14 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - Design findings reviewed (1440, `diff-now-*`): MenuMe flows (order question with the client), Contact's
   verification above Send (the client's ask), Tales citations (content), MenuMe device showcase within 4 to 15 px
   of the design (phone 15 px high; residual).
+- `8110aeb` Home layout as the Desktop design (the user: "Do whatever looks the best"; judged the design's
+  pairing of picture and text across the gutter better than ours): pictures and headings within 1 px at 1440 in
+  Safari; 390 and 744 unchanged in Chromium; picture-to-text gaps 28 px or more from 744 to 1920
+  (`sweep/gap-probe.mjs`).
+- Youth in Limbo, reopened: after `bda96e8` the photo still went missing in one of two Technology Preview
+  full-page passes (`shots-fix3` blank, `shots-fix3b` drawn); Safari 27 drew it in one pass, Safari 17.5 in its
+  pass. The clip path was not the whole cause. Running `sweep/youth-trials.mjs` (four trials per browser, vector
+  against clipped) to measure the rate before choosing a fix; a likely robust fix moves the photo out of the SVG.
 - Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
   picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
   then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
