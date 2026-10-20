@@ -2560,7 +2560,16 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   already covered by the 2x backing captures.
 - agent-browser docs landed in the Monochromatic repo (`96b7259c06`, `1702fc8247`): close race (upstream #2134,
   fix PR #2138), relative screenshot path (#137), full-page capture missing lazy previews (cause open).
-- Queue: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Reply draft and evidence updated 2026-10-20 evening: `05-client-reply-draft.md` gains the full-page-check
+  section (both languages) and drops the "larger files only on enlarge" and "About 6.1 to 2.8 MB" lines;
+  `07-what-we-fixed.md` gains "Full-page check" and "Full-resolution images". New send set
+  `evidence/send-d7fbea3/` (54 desktop after frames re-captured at `d7fbea3`, pairs by
+  `xyc-after/make-pairs-d7fbea3.mjs`, phone and extra frames still the `5cf1620` captures and labelled so); the
+  seven desktop pairs in it checked by eye. Do not send `send-5cf1620/`.
+- Rig state at the end of 2026-10-20: Sonoma VM stopped (display left at `1920x1200pt`), its tunnels and unit
+  `xyc-sonoma-tunnel` stopped; podman on m1 running with `snowflake-proxy` up (it ran beside the VM for about an
+  hour without trouble).
+- Queue: done except the user's review of the reply; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
