@@ -2335,11 +2335,30 @@ Diffed against the 2026-10-18 22:43 copy (text dumps `/home/user/temp/agent/f20/
   on the phone: the bubble tails differ in shape. It belongs with the bubble-frame item. Extracted to
   `/home/user/temp/agent/f20/fig-191300/img/`.
 
+### Triage at 1920 by 950, 2026-10-20
+
+Captured in the VM's Safari Technology Preview at a 1920 by 950 viewport (classic scrollbars, 1903 layout px) on
+`5be6c75`, one frame per item, beside the client's shot and the Desktop PNG at the same anchor (1440 column centred).
+Script `/home/user/temp/agent/f20/triage/triage.mjs` (items in `items.mjs`, sheets by `sheets.py`, frames in `now/`,
+sheets `sheet-<id>.png`).
+Already matching the design, nothing to do: Tales challenge figure (t1), persona text under the photos (t2),
+citation card on the comic's edges (t3); MenuMe Inspiration with the question mark whole (m1), moodboard on the text
+column (m3), Dual-Loop with the bulb's base showing (m5), both flows (m6, m7), Key Learnings (m8); Scotties cards
+(s1; the quote now sits about 127 px under the cards against about 139 in the design, about 65 in the client's shot),
+emotional pillars (s2), sitemap (s3), lo-fi and hi-fi sections with their arrows (s4 to s7).
+Open:
+- m4, MenuMe showcase buttons. The Desktop and Tablet designs pair both buttons in the middle; the Phone design
+  stacks each under its device (built, `4149e88`). Assumption (the user said to make assumptions and work
+  autonomously): the client wrote "分别" ("each") and, unlike nine other items, not "参考原设计", so each button is
+  centred under its own device on the wide layouts. Easy to revert.
+- m2, focus-group bubbles: identical on desktop now; the client's `WechatIMG110` shows the phone tails differing.
+  Check on the phone.
+- Residuals noticed, not asked: the Tales Challenge notepad draws about 8% narrower than the design at 1920; Scotties'
+  "Lo-fi Product Listing Page" heading carries the skateboard glyph, the design's does not.
+
 ### Queue
 
-1. Triage: capture the current site at 1920 by 950 in Safari at each item's place, next to the client's shot and
-   the Desktop design crop; mark each item still open or already fixed (with the commit).
-2. Fix the open ones: Tales, then MenuMe, then Scotties; one commit per fix, each checked at 1920 by 950 in Safari.
+1. m4, then m2 on the phone, then the residuals; one commit per fix, each checked at 1920 by 950 in Safari.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
