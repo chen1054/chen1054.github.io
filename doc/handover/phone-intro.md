@@ -2387,5 +2387,20 @@ The batch is done. The user chose, 2026-10-20, "I'll review and send": the user 
 `05-client-reply-draft.md`, fills the placeholders and sends it with the 16 images (today's three fixes go without
 images). Nothing has gone to the client from this session.
 
+### Readiness assessment, 2026-10-20
+
+The user asked how we feel, since "Ready" was called at least three times and the client found more each time.
+Why each call failed, from this file: 2026-10-18, our checks ran at 1440, the client's at 1920; 2026-10-19, every
+Safari check ran on current engines, the client's iOS 17.0 dropped the sitemap nesting; 2026-10-20, 16 of 19 notes
+predated the 2026-10-19 walks, one (m4) was new, and the notepad miss (about 5%) had passed the desktop walk.
+Common cause: "ready" rested on checks that did not match the client's conditions (viewport, engine) or method (the
+client compares whole pages to Figma by eye; we checked listed items and walked sections).
+Gaps still open:
+- No mechanical full-page comparison of every page at 1920 by 950 against the Desktop PNGs; walks were by eye.
+- Desktop has never rendered on a Safari 17 engine (client Mac: macOS 14.5, Safari likely 17.5, unconfirmed); only
+  Safari Technology Preview and a BCD static check. The iOS 17.0.1 Simulator covers the phone only.
+- Known deviations the client may raise: the Challenge group 6 to 8 px low, the footer about 140 px lower (back-to-top
+  button), MenuMe contributions 4 across against the designs' 2x2, the m4 assumption.
+
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
