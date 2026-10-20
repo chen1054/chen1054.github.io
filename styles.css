@@ -502,6 +502,9 @@
           }
         }
         @media(width>=40rem) {
+          /* Desktop design: each picture's own inset from the outer column edge and rise against its heading. */
+          position: relative;
+          inset-block-start: calc(var(--home-wide-illustration-rise, 0) * var(--home-wide-reference-growth));
           inline-size: min(
             calc(
               var(--home-wide-illustration-base-width)
@@ -509,6 +512,8 @@
             ),
             var(--home-wide-project-column-available-width)
           );
+          margin-inline: calc(var(--home-wide-illustration-inset-start, 0) * var(--home-wide-reference-growth))
+            calc(var(--home-wide-illustration-inset-end, 0) * var(--home-wide-reference-growth));
         }
       }
       &>.description {
@@ -592,7 +597,7 @@
         align-items: center;
         inline-size: calc(100% - 100rem / 16 - 254 * var(--home-wide-reference-growth));
         max-inline-size: var(--content-column-max-inline-size);
-        margin-block-start: calc(80rem / 16 + 110 * var(--home-wide-reference-growth));
+        margin-block-start: calc(80rem / 16 + (110 + var(--home-wide-section-gap-extra, 0)) * var(--home-wide-reference-growth));
         margin-inline: auto;
         font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
         line-height: calc(19rem / 16 + 10 * var(--home-wide-reference-growth));
@@ -603,6 +608,8 @@
       }
       /* Per-project geometry measured from the supplied designs. */
       &:where(#tales-for-safer-trails-project) {
+        --home-wide-illustration-inset-start: 26;
+        --home-wide-illustration-rise: -31;
         @media(width>=40rem) {
           margin-block-start: calc(120rem / 16 + 124 * var(--home-wide-reference-growth));
           &>.description>.role {
@@ -625,6 +632,9 @@
       }
       &:where(#menume-meal-planning-app-project) {
         --home-phone-illustration-aspect-ratio: 390 / 179;
+        --home-wide-illustration-inset-end: 32;
+        --home-wide-illustration-rise: -5;
+        --home-wide-section-gap-extra: 25;
         --home-wide-illustration-base-width: calc(267rem / 16);
         --home-wide-illustration-width-growth: 209;
         @media(width<40rem) {
@@ -645,6 +655,8 @@
       }
       &:where(#scotties-skating-and-skiing-shop-project) {
         --home-phone-illustration-aspect-ratio: 390 / 218;
+        --home-wide-illustration-rise: -45;
+        --home-wide-section-gap-extra: 1;
         --home-wide-illustration-base-width: calc(302rem / 16);
         --home-wide-illustration-width-growth: 231;
         @media(width<40rem) {
@@ -656,6 +668,8 @@
       }
       &:where(#matcha-delight-japanese-bakery-project) {
         --home-phone-illustration-aspect-ratio: 390 / 186;
+        --home-wide-illustration-rise: -31;
+        --home-wide-section-gap-extra: 5;
         --home-wide-role-margin: calc(30rem / 16 - 12 * var(--home-wide-reference-growth));
         --home-wide-illustration-base-width: calc(289rem / 16);
         --home-wide-illustration-width-growth: 221;
@@ -668,6 +682,9 @@
       }
       &:where(#echoes-of-tradition-surrealist-poster-project) {
         --home-phone-illustration-aspect-ratio: 390 / 234;
+        --home-wide-illustration-inset-start: 29;
+        --home-wide-illustration-rise: -51;
+        --home-wide-section-gap-extra: 3;
         --home-wide-illustration-base-width: calc(236rem / 16);
         --home-wide-illustration-width-growth: 117;
         @media(width<40rem) {
@@ -682,6 +699,9 @@
       }
       &:where(#youth-in-limbo-photography-project) {
         --home-phone-illustration-aspect-ratio: 390 / 210;
+        --home-wide-illustration-inset-end: 66;
+        --home-wide-illustration-rise: 4;
+        --home-wide-section-gap-extra: 3;
         --home-wide-illustration-base-width: calc(252rem / 16);
         --home-wide-illustration-width-growth: 189;
         @media(width<40rem) {
