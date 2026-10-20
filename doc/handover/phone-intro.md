@@ -2146,3 +2146,18 @@ Scotties the same way); then draft the client reply from `07-what-we-fixed.md` f
 sends it). Client note updated 2026-10-19 with the tablet and desktop walks, the parity pass and the flow-order
 question (local file, not in the repo).
 Next: the 2x artwork refresh, then the reply draft.
+
+2x artwork, landed: `cb2c319` Scotties lo-fi wireframes (recomposed from Desktop/Scotties.pdf's 1440 px sources in the
+1 pt frame), `c77779f` Tales poster (from the 3072 px design poster), `70ba00c` MenuMe personas (framed regions of
+Desktop/MenuMe.pdf rendered at 2x with the page's white fill removed from a scratch copy and `/Interpolate` set on
+the 362 px frame image and its soft mask, which otherwise upscale stair-stepped). Pattern: lossless WebP (lossy
+smooths photographs), `srcset="<file> <px>w"` plus `sizes="<old CSS width>px"` so the natural size stays the old
+one on every screen (a `2x` descriptor alone lets `src` act as the 1x candidate on 1x screens), and the enlarged
+view's natural-size rule covers `.webp`. Inline boxes, enlarged sizes and page heights checked against live.
+Findings: at 1440 on the 2x MacBook most inline images already had about 2x; the softness is in the enlarged views
+(one file pixel per CSS pixel) and on the 3x iPhone. Scotties personas cannot improve (the design's sources are
+smaller than or close to ours); Tales personas' design sources are smaller than ours; the MenuMe "3840 x 2160"
+is a brand collage, not the device showcase. Tools in `/home/user/temp/agent/f20/hidpi/`: `match.py`,
+`region-match.py` (design placement whose render matches an asset), `compose-frame.py`, `build2.py`, `locate.py`.
+Running: unit `hidpi-region-match` matches the 29 remaining PNG assets (`hidpi/matches.txt`, ends with DONE).
+Next: swap each asset whose matched source is larger, then the client reply draft.
