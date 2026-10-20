@@ -2545,9 +2545,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   at its source density (unit `xyc-fullres-fit`, log `fullres/fit-log.txt`). Unit `xyc-fullres-match` re-matches
   the MenuMe personas, Scotties wireframes and personas and the Tales poster (`fullres/matches2.txt`); the old
   Scotties persona rows matched MenuMe's PDF and are not trusted.
+- Full-res, phase 2 landed: `d7fbea3`, eleven pictures re-rendered at their source density with the old files'
+  exact ratios (`fullres/rerender.py`; boxes unchanged to 0.002 px), Jonathan from his 866 px original; the viewer
+  sizes bitmaps by their `width` attribute, so no bitmap `srcset` remains (only the skating photo's art-directed
+  `<source>`). Not changed, with reasons: Instagram phone (no design box matches), Gwen and Jake (sources smaller
+  than ours: 361 and 415 px for our 490), MenuMe personas (equal density). Not re-measured: Home's SVG-embedded
+  photos (recorded as native when the soft masks were removed). Verified: page boxes and heights in Chromium at 390,
+  744, 1440; all 54 viewers' opened sizes at 390 and 1440 (positive control: old viewer CSS moves 9); Safari 17.5
+  viewers at their width attributes. Every referenced image file per page against `59323f0`: About 4.5 to 7.0 MB,
+  Home 3.9 unchanged, MenuMe 13.9 to 10.1, Scotties 10.9 to 9.3, Tales 11.1 to 10.9 (pairs became one file; the
+  case studies used to download only the 1x PNGs until a viewer opened).
+- Sonoma VM display set to `1920x1200pt`, but with `--no-graphics` the guest still reports `devicePixelRatio` 1.
+  With one file per picture, image choice no longer depends on the ratio, so the 2x question left is rendering only,
+  already covered by the 2x backing captures.
 - agent-browser docs landed in the Monochromatic repo (`96b7259c06`, `1702fc8247`): close race (upstream #2134,
   fix PR #2138), relative screenshot path (#137), full-page capture missing lazy previews (cause open).
-- Queue: full-res phase 2 (above); merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Queue: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
