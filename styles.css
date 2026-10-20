@@ -1786,8 +1786,12 @@
           min-inline-size: 100%;
           block-size: auto;
         }
-        /* Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. */
-        & img[src$=".png"] {
+        /*
+          Bitmaps open at their natural size: stretching them to a wider viewer only blurs them. A 2x file gives its
+          width in `srcset` and its CSS size in `sizes`, so its natural size is half its pixels on every screen and
+          Retina screens get all of them.
+        */
+        & img:is([src$=".png"], [src$=".webp"]) {
           min-inline-size: 0;
           margin-inline: auto;
         }
