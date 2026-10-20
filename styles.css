@@ -746,7 +746,7 @@
       }
       @media(width>=40rem) {
         margin-block-start: calc(54rem / 16 + 24 * var(--home-wide-reference-growth));
-        &>picture>img {
+        &>picture:not(.portrait)>img {
           block-size: calc(370rem / 16 + 320 * var(--home-wide-reference-growth));
         }
       }
