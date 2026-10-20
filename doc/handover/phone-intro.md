@@ -2472,6 +2472,12 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   against the design or against animation timing.
 - Tales findings: the stories' note cards are 393, 329 and 457 tall against the design's 327, 430 and 419, from the
   citation edits (content-driven, expected); the bubbles and hero art sit within a few px.
+- `f87a7b6` MenuMe personas margin (band gap 129.9 at 1440 and 1920, design 130); `047126f` Scotties tablet
+  note margin (same self-container mistake; band 177 px below the box at 744, design 177.6). Scanner for the
+  mistake: `/home/user/temp/agent/f20/sweep/self-cq.py` (control: flags both on the stylesheet before `f87a7b6`).
+- m1, 2026-10-20: `podman-machine-default` stopped for the Sonoma VM (user-approved). It was running container
+  `snowflake-proxy` (up 47 hours). Restore after the Sonoma runs: `podman machine start`, then
+  `podman start snowflake-proxy` if it is not up.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
