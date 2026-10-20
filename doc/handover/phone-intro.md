@@ -2591,8 +2591,9 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   `fullres/grain/draw-grain.py` (fixed seed; stains clamped to the bar edges, hole washes cut to the holes by a
   vector-only clip path; a clamped version left straight inset edges in the holes and an unclipped one made rings
   and letter-like shapes, both rejected). Bar and hole mean colours within 2 levels of the design
-  texture at its own scale; at 1x the bar matches (52 against 53) and the holes are lighter (172 against 162) and
-  less varied (standard deviation 18 against 26) (`fullres/grain/render-check.py`); photo shown in 4 of 4 scroll trials in Technology Preview, Safari 27 and
+  texture at its own scale; at 1x the bar matches (52 against 53) and the holes were lighter (172 against 162),
+  darkened by `e91e568` to 166 against 162 (texture scale 162 against 165); they stay less varied at 1x (standard
+  deviation 21 against 26) (`fullres/grain/render-check.py`); photo shown in 4 of 4 scroll trials in Technology Preview, Safari 27 and
   Safari 17.5; Home boxes unchanged. The reply now says the texture was redrawn instead of offering it back.
   Sonoma VM stopped again afterwards.
 - Queue: the user's review of the reply; then the Safari docs land; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
