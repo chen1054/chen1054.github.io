@@ -2,9 +2,10 @@
 
 ## Latest status
 
-As of 2026-10-20 the site work for the client's asks is landed (last site commit `5cf1620`), and the client reply
-waits for the user's review: see the section "Client reply status, 2026-10-20" at the end of this file. The entries
-in between are a dated log, oldest first; "Current state" describes the work as of the landing animation.
+As of 2026-10-20 afternoon a new client batch is in progress: see "Client batch, 2026-10-20" at the end of this
+file (19 annotated screenshots, a new Figma export, the client viewport 1920 by 950). The client reply in "Client
+reply status, 2026-10-20" waits for that batch. The entries in between are a dated log, oldest first; "Current
+state" describes the work as of the landing animation.
 
 ## Current state
 
@@ -1817,6 +1818,7 @@ models: 13.6-inch, 2560 x 1664 native (support.apple.com/en-us/111867), and 15.3
 (support.apple.com/en-us/111346); neither page states the default scaled resolution, so the client's Safari
 viewport width is unknown. Open, for the client: screen size and System Settings > Displays resolution (and
 Safari > About Safari, still asked). Until then, test wide layouts across laptop widths (1280 to 1710).
+(Corrected 2026-10-20: the viewport was already known, 1920 by 950; see "Client batch, 2026-10-20".)
 MenuMe walk, 2026-10-19, landed: `644c792` contribution cards alternate on phone (miss-08); `4149e88` showcase
 split into phone and tablet images, each button under its device on phone (miss-09); `440d50d` Key Learnings
 staggered on wide layouts, headings centred on phone (miss-10); `a626330` Inspiration callout at all three
@@ -2257,4 +2259,71 @@ The user reviews `05-client-reply-draft.md` and the send set, fills the placehol
 client answers, act on each question as listed in "What the message says" and record the answer in
 `07-what-we-fixed.md`.
 
+## Client batch, 2026-10-20
+
+The user, 2026-10-20 about 14:25, sent two paths: `../Website (Copy) 2026OCT191300.fig` (exported 2026-10-20 18:20
+UTC, 321 MB; the two earlier `Website (Copy)` files are no longer in the folder) and
+`../Client screenshots 2026OCT191300/`, 19 screenshots taken 14:12 to 14:20, each named with the client's
+instruction. The user then said: "Make your assumptions and work autonomously. I need to go to get an injury checked
+out." The reply drafted in "Client reply status, 2026-10-20" does not cover this batch and should wait for it.
+
+### Client viewport (correction)
+
+The user, 2026-10-20: "you know the exact client viewport. The client has a M2 macbook air and a 4k 27in ext
+screen." It was already recorded in `../Client comparison screenshots 2026OCT170133/README.md` (stated 2026-10-18):
+a 1080p screen at 1x and a 4K screen at 2x, both a 1920 by 1080 CSS screen, 1920 by 950 in Safari. The batch's
+full-width shots are 1920 wide with classic scrollbars. The "Client device, 2026-10-19" entry calling the width
+unknown was wrong. Check this batch at 1920 by 950 in the VM's Safari Technology Preview (port 4450, lock
+`flock /home/user/temp/agent/vm-stp.lock`), at 1x and 2x, against the Desktop design PNGs.
+
+### The client's instructions, as written (file name, then translation)
+
+Tales:
+- `左边的人位置高一点，参考原设计。.png`: "Put the person on the left a bit higher; refer to the original design."
+  (The Challenge.)
+- `文字的两边与图片对齐.png`: "Align both sides of the text with the images." (Personas Sarah and Emma.)
+- `黄色卡片的两边与上面图画对齐.png`: "Align both sides of the yellow card with the drawing above." (Comic and
+  citation card.)
+
+MenuMe:
+- `排版参考原设计.png`: "Layout: refer to the original design." (The Inspiration.)
+- `问号被部分遮住了.png`: "The question mark is partly covered." (Inspiration callout.)
+- `对话气泡的框有点不一样,不应该形状不一样.png`: "The speech bubbles' frames are a bit different; they should not
+  differ in shape." (Focus Group Key Findings.)
+- `图片的两边与文字对齐.png`: "Align both sides of the image with the text." (Moodboard.)
+- `手机和平板的button分别中间对齐吧.png`: "Centre the phone and the tablet buttons, each [under its device]."
+- `灯泡的下方没显示出来。另外的排版参考原设计。.png`: "The bottom of the light bulb doesn't show. For the rest of
+  the layout, refer to the original design." (Dual-Loop Culinary Framework.)
+- `参考原设计.png`: "Refer to the original design." (Weekly Specials Flow, full width.)
+- `排版参考原设计 2.png`: "Layout: refer to the original design." (Personalized Menu Flow, full width.)
+- `排版参考原设计 3.png`: "Layout: refer to the original design." (Key Learnings & Takeaways.)
+
+Scotties:
+- `左右两边的位置和卡片大小与原来设计有差别。另外最后一段话与卡片的间距太近。.png`: "The left and right positions
+  and the card sizes differ from the original design. Also the last paragraph is too close to the cards."
+  (Reflection cards and closing quote.)
+- `排版参考原设计 4.png`: "Layout: refer to the original design." (Skateboard and the three emotions.)
+- `排版参考原设计 5.png`: "Layout: refer to the original design." (Sitemap.)
+- `排版参考原设计，这里的箭头消失了。.png` and its `2`, `3`, `4`: "Layout: refer to the original design; the arrows
+  here have disappeared." (Lo-fi Homepage, Lo-fi Product Listing Page, Hi-fi Homepage top and bottom.)
+
+### Done in this batch
+
+- `8e51b4f`, from the user's own question before the batch arrived ("Why are these not aligned?", a screenshot of
+  the Tales Key Insights bubbles): the fill-to-outline offset is the design's, but the Trust fill was cut flat at
+  its bottom and both offsets were about half the design's. The user chose to match the design and fix the cut.
+  Fills refitted to the Desktop and Phone PNGs, drawn from a `::before` reaching past the box, so no text or band
+  moved (rects identical at six widths in Chromium, and at 390, 744 and 1440 in Safari Technology Preview against
+  live). Correction comment on `a5102be`: [a5102be-correction]. The Safari MCP's screenshots come back black; take
+  Safari frames over WebDriver on port 4450 (the VM) instead.
+
+### Queue
+
+1. Diff the new `.fig` against the 2026-10-18 22:43 copy (text dump in unit `xyc-fig-191300-text`, output
+   `/home/user/temp/agent/f20/fig-191300/texts.json`; compare with
+   `/home/user/temp/agent/fig-parse/texts-new-full.json`). If frames changed, re-export the Desktop references
+   before fixing against them.
+2. Tales items, then MenuMe, then Scotties; one commit per fix, each checked at 1920 by 950 in Safari.
+
+[a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
