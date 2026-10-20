@@ -2485,6 +2485,17 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   left the socket refusing; a stop and start fixed it; `snowflake-proxy` came back up by itself).
 - Decided by the user, 2026-10-20: allow installing m1's VM key into the Sonoma guest with the image's documented
   default login (then turn password login off in the guest). Home picture positions: "Do whatever looks the best."
+- Sonoma rig working, 2026-10-20: guest macOS 14.5, Safari 17.5 (read from the app bundle), screen 1024 by 768 at
+  2x, classic scrollbars 15 px (1905 layout px in a 1920 window). Login: user `admin` with m1's
+  `~/.ssh/id_ed25519_vm` key; the documented default password worked only with `PreferredAuthentications=password`
+  (keyboard-interactive was rejected), and password and keyboard-interactive login are now off
+  (`/etc/ssh/sshd_config.d/100-key-only.conf`). Updates, sleep and screensaver off; `sudo safaridriver --enable`
+  done; guest LaunchAgent `dev.monochromatic.safaridriver` runs `safaridriver -p 4444` in `gui/501`.
+  Tunnels: on m1, `ssh -N -L 127.0.0.1:4454:127.0.0.1:4444 -R 127.0.0.1:4173:127.0.0.1:4173 admin@192.168.64.9`
+  (nohup, log `/Volumes/MacData/tart/tunnel.log`); on Linux, unit `xyc-sonoma-tunnel` forwards 4454. Drive with
+  `DRIVER=http://127.0.0.1:4454 BROWSER=safari`, lock `/home/user/temp/agent/vm-sonoma.lock`. Start the VM with
+  `TART_HOME=/Volumes/MacData/tart/home tart run --no-graphics sonoma-14.5` (works from SSH), only with podman
+  stopped.
 - Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
   picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
   then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
