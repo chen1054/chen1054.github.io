@@ -2400,7 +2400,8 @@ Gaps still open:
 - Desktop has never rendered on a Safari 17 engine (client Mac: macOS 14.5, Safari likely 17.5, unconfirmed); only
   Safari Technology Preview and a BCD static check. The iOS 17.0.1 Simulator covers the phone only.
 - Known deviations the client may raise: the Challenge group 6 to 8 px low, the footer about 140 px lower (back-to-top
-  button), MenuMe contributions 4 across against the designs' 2x2, the m4 assumption.
+  button), the m4 assumption. (Corrected the same day: an earlier line here also listed MenuMe's contributions as
+  4 across; `f28d90b` already set them two by two as designed.)
 
 Decided by the user, 2026-10-20 (supersedes "I'll review and send" in "Next"):
 - Hold the reply until a full-page check: every page captured in Safari at 1920 by 950, compared pixel by pixel
