@@ -6133,6 +6133,10 @@
                 margin-block-end: calc(4rem / 16);
               }
             }
+            /* And 132 px from the last prototype link down to the Key Learnings band. */
+            &>.section-content {
+              padding-block-end: calc(136rem / 16);
+            }
           }
           /* The desktop design: the homepage's intro left and navigation callout right; the listing's grid callout right. */
           @media(width>=68.25rem) {
@@ -6794,6 +6798,53 @@
         }
         &:nth-child(2) {
           --scotties-badge-icon: url("assets/scotties-key-learning-helmet-badge-icon.svg");
+        }
+      }
+      /*
+        Desktop Scotties draws the learnings as two 483 px boxes side by side: the first 476 px wide from 74 px into
+        the 1086 px column and 280 px under the band, the second 453 px wide 83 px after it and 61 px lower. Each badge
+        sits 92 px in and 15 px over its box, the shadows 21 and 12 px up-left of the boxes and 14 and 3 of the
+        badges. The second box sets its heading 8 px in from its copy and 9 px further above it. The insets set the
+        copy 395 and 379 px wide, inside the 389.5 to 400.5 and 372.5 to 383 px where
+        Chromium and Safari both break it as drawn.
+      */
+      @media(width>=80rem) {
+        :where(#scotties-reflection) .flex-row:has(>.note) {
+          flex-wrap: nowrap;
+          justify-content: start;
+          align-items: start;
+          gap: 0;
+          &>.note {
+            flex: none;
+            box-sizing: border-box;
+            min-block-size: calc(483rem / 16);
+            box-shadow: calc(-21rem / 16) calc(-12rem / 16) 0 0 var(--color-case-study-subheading);
+            &::after {
+              inset-block-end: calc(100% - 12rem / 16);
+              inset-inline-start: calc(89rem / 16);
+              box-shadow: calc(-14rem / 16) calc(-3rem / 16) 0 0 var(--color-case-study-subheading);
+            }
+            &:nth-child(1) {
+              inline-size: calc(100% * 476 / 1086);
+              margin-block-start: calc(160rem / 16);
+              margin-inline-start: calc(100% * 74 / 1086);
+              padding-block-start: calc(29rem / 16);
+              padding-inline: calc(41rem / 16) calc(34rem / 16);
+            }
+            &:nth-child(2) {
+              inline-size: calc(100% * 453 / 1086);
+              margin-block-start: calc(221rem / 16);
+              margin-inline-start: calc(100% * 83 / 1086);
+              padding-block-start: calc(33rem / 16);
+              padding-inline: calc(35rem / 16) calc(33rem / 16);
+              &>h3 {
+                margin-inline-start: calc(8rem / 16);
+              }
+              &>p {
+                margin-block-start: calc(25rem / 16);
+              }
+            }
+          }
         }
       }
     }
