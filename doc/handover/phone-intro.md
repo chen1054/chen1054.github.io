@@ -2496,6 +2496,14 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   `DRIVER=http://127.0.0.1:4454 BROWSER=safari`, lock `/home/user/temp/agent/vm-sonoma.lock`. Start the VM with
   `TART_HOME=/Volumes/MacData/tart/home tart run --no-graphics sonoma-14.5` (works from SSH), only with podman
   stopped.
+- Safari 17.5 results, 2026-10-20 (on `047126f`): at 1440 (2x screen, captures `s17/`) every page matches
+  Chromium (`eng17-*`); the only flagged area, Home's hero river, is its reveal animation caught mid-way (seam
+  at the frame join at y 900); single frames 10 s after scrolling show the designed river and flower in both
+  Safari 17.5 and Technology Preview (`view/river-frames.png`). At 1920 by 950 (1905 layout) every element is
+  the 1440 layout moved or a full-width band, as in Technology Preview.
+- Design findings reviewed (1440, `diff-now-*`): MenuMe flows (order question with the client), Contact's
+  verification above Send (the client's ask), Tales citations (content), MenuMe device showcase within 4 to 15 px
+  of the design (phone 15 px high; residual).
 - Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
   picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
   then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
