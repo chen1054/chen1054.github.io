@@ -2460,8 +2460,16 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   "render correctly") is superseded. Case-study heroes use the fragment in a plain `src`, which Safari draws
   correctly (MenuMe pair checked); left as is.
 - Home findings still open: picture positions differ from the design by up to 66 px (ours align each picture to
-  the column's outer edge, `f5fa91e`; the design starts right-hand pictures near x 756 and left-hand ones near 205);
-  Youth in Limbo's frame is empty (the `IMG_0804` question with the client).
+  the column's outer edge, `f5fa91e`; the design starts right-hand pictures near x 756 and left-hand ones near 205).
+- Retracted: Youth in Limbo's empty frame is not the `IMG_0804` question. Safari against Chromium at 1440
+  (`chromium-shoot.mjs`, `run-engine.py`, `pixdiff.py` with `-` anchors; control: the pre-`1b85496` build flags
+  all six Home pictures) showed Chromium drawing the photo and Safari not. Safari drops the photo once the picture
+  has been scrolled past and back (blank 20 s later), and keeps it without the clip path on the photo's group; a
+  smaller re-encode (so no ICC profile either) and a nested `<svg>` viewport both still failed. The user suggested
+  vectors: `bda96e8` draws the frame's strips and holes as flat shapes over the unclipped photo (texture gone).
+- Safari against Chromium at 1440: About, Contact, Tales, MenuMe and Scotties show no differing region; Home's
+  remaining one is the hero river (Safari draws the gold band solid where Chromium fades it), not yet checked
+  against the design or against animation timing.
 - Tales findings: the stories' note cards are 393, 329 and 457 tall against the design's 327, 430 and 419, from the
   citation edits (content-driven, expected); the bubbles and hero art sit within a few px.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
