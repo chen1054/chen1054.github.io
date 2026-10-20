@@ -2522,8 +2522,19 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   2026-10-18 instruction applied site-wide (`b85e0e0`). Not a miss.
 - Full-width bands at 1920 (`view/bands1920-*.png`): heroes, Tales band headings and footers run edge to edge
   without stretching or seams.
-- Queue: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and `07-what-we-fixed.md`; 2x
-  check; agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
+- `411935c` About portrait: wide windows choose by density (Safari 17.5 measured not to choose a srcset file again
+  after a resize). The rigs report `devicePixelRatio` 1 (all three Safaris, screen 1920 by 1200), so Safari's image
+  choice at 2x was never exercised; Sonoma VM display set to `1920x1200pt` to test HiDPI (Safari 27's VM switches with
+  `displayplacer` mode 34, see `/home/user/temp/agent/xinyanchen-build/vm-safari-shot.mjs`).
+- The user, 2026-10-20 (overrides the image-weight decisions: "Image weight", the 2x artwork rule "inline moves to it
+  only when the WebP is no heavier", the About 516 px photos and the portrait's 760 and 1312 cuts): "Let's always
+  serve the full res images. This overrides the earlier decision of image optimization. But it removes an entire
+  failure class." Doing now: every raster, inline and enlarged, uses the largest file we have (the zoom WebP, the
+  largest version in git history, the client's 4x portrait); no srcset choosing between files. To measure and
+  propose: re-extracting design sources whose native resolution exceeds 2x.
+- Queue: full-res images (above); merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+  `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
+  agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
