@@ -6210,11 +6210,12 @@
                 }
               }
               /* Right of the screen, so its connector runs left again. */
+              /* 47.5: the copy wraps as drawn from 183 to 202.5 px in Chromium and Safari. */
               &>.note:last-child {
                 --box: 274;
                 --h: 238;
                 --ps: 35;
-                --pe: 35;
+                --pe: 47.5;
                 --x: -98;
                 --y: 122;
                 --w: 103.2;
@@ -6624,13 +6625,18 @@
               --hifi-wide-unit: calc(100cqw / 1088);
               grid-template-columns:
                 minmax(0, 360fr) minmax(0, 39fr) minmax(0, 288fr) minmax(0, 60fr) minmax(0, 341fr);
+              /*
+                End insets set each copy's measure inside the window where Chromium and Safari both break it as the
+                design does at 1440: the intro 268 to 269.5 px, the callouts 255.4 to 255.65, 200 to 228.5, 225 to
+                231.5 and 240.3 to 241.85.
+              */
               &>h3+p {
                 grid-area: 2 / 1 / 4 / 2;
                 align-self: start;
                 margin-block: calc(64 * var(--u)) 0;
                 margin-inline: 0;
                 padding-block: calc(46 * var(--u));
-                padding-inline: calc(51 * var(--u)) calc(38 * var(--u));
+                padding-inline: calc(51 * var(--u)) calc(31.7 * var(--u));
               }
               & .portrait-artwork {
                 grid-area: 2 / 3 / 6;
@@ -6640,7 +6646,7 @@
                 --y: 91.3;
                 --w: 57;
                 --ps: 33;
-                --pe: 39;
+                --pe: 44;
                 --h: 232;
                 grid-column: 5;
                 padding-block: calc(32 * var(--u));
@@ -6666,7 +6672,7 @@
                   --y: 32.3;
                   --w: 66.7;
                   --ps: 42;
-                  --pe: 36;
+                  --pe: 43;
                   --h: 317;
                   grid-area: 3 / 1 / 5 / 2;
                   inline-size: calc(319 * var(--u));
@@ -6685,7 +6691,7 @@
                   --elbow: 118.2;
                   --v: 27;
                   --ps: 42;
-                  --pe: 31;
+                  --pe: 34.5;
                   grid-row: 4;
                   inline-size: calc(326 * var(--u));
                   margin-block: 0;
