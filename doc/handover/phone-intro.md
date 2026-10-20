@@ -2596,13 +2596,25 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   deviation 21 against 26) (`fullres/grain/render-check.py`); photo shown in 4 of 4 scroll trials in Technology Preview, Safari 27 and
   Safari 17.5; Home boxes unchanged. The reply now says the texture was redrawn instead of offering it back.
   Sonoma VM stopped again afterwards.
-- Queue: the user's review of the reply; then the Safari docs land; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Safari docs landed in the Monochromatic repo (`ec70f3e194`, `aef49a90d7`):
+  `doc/troubleshooting/safari-svg-view-fragment-lazy-image-aspect-ratio.md` and
+  `safari-technology-preview-svg-image-clipped-raster-missing.md`. Retraction: `1b85496`'s cause ("Safari ignores a
+  #view fragment in the srcset") is wrong; measured in Technology Preview 252, `<picture>` makes no difference and a
+  lazy fragment image takes its box ratio from the whole canvas, letterboxing the view (eager images with a CSS
+  aspect-ratio are unaffected). Corrective comment [1b85496-correction]. The finding exposed the same bug in the
+  case-study hero viewers (lazy, fragment): Safari Technology Preview and 27 opened them at 2.179, 1.789 and 1.848
+  against the art's 1.5, 1.541 and 1.265. Fixed `6e97123` (trimmed files; no fragment reference left), measured in
+  Technology Preview, Safari 27 and Safari 17.5, Chromium unchanged; reply and `07-what-we-fixed.md` updated.
+  Sonoma VM stopped again.
+- Queue: the user reviews and sends the reply (their answer, 2026-10-20: "I'll review and send"; texture: "Looks
+  right, keep it"); was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
 
+[1b85496-correction]: https://github.com/chen1054/chen1054.github.io/commit/1b85496719015c4ac70ac67620e740735304f924#commitcomment-205880540
 [bda96e8-correction]: https://github.com/chen1054/chen1054.github.io/commit/bda96e82021850bdc8e3665542bdd0b3475e9577#commitcomment-205869889
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
