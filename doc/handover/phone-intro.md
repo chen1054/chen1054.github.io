@@ -2569,7 +2569,18 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - Rig state at the end of 2026-10-20: Sonoma VM stopped (display left at `1920x1200pt`), its tunnels and unit
   `xyc-sonoma-tunnel` stopped; podman on m1 running with `snowflake-proxy` up (it ran beside the VM for about an
   hour without trouble).
-- Queue: done except the user's review of the reply; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Home's SVG-embedded rasters, measured 2026-10-20 against `Phone/Home.pdf` (the SVGs use Phone-frame points): all
+  13 embedded images have a same-size image in the PDF at the same density (Echoes 1246, Matcha 1350, 123 and 115,
+  MenuMe 2266, 376, 390, Scotties 1230, 1272, 376, 406, Tales 1376, Youth 2048 px); the PDF's 3000 by 2000 image
+  over Youth is the old film-frame texture. So every raster on all six pages is at its source's resolution or is a
+  recorded exception (Instagram phone; Gwen and Jake, whose sources are smaller).
+- 2x, closed with evidence: no `resolution`, `dppx`, `image-set` or `device-pixel-ratio` anywhere in `styles.css`, the
+  pages or the SVGs (one base64 false positive), and no bitmap `srcset`; image choice cannot depend on the screen's
+  ratio, and rendering at 2x is covered by the Safari 17.5 2x-backing captures (`s17/`).
+- Reply range corrected: About photos 3.8 to 6 times as many pixels across (beach 1975/516 to skating 3072/516).
+- Safari troubleshooting docs (the `#view` fragment in `srcset`, the Technology Preview clipped raster): a background
+  agent is writing them in the Monochromatic repo.
+- Queue: the user's review of the reply; then the Safari docs land; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
