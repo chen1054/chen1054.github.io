@@ -6553,11 +6553,14 @@
                 margin-block-start: calc(14 * var(--hifi-unit));
                 margin-inline-start: calc(50 * var(--hifi-unit));
               }
+              /* A 23 px end inset sets the copy about 199.5 px wide at 393, inside the 196.75 to 202.5 px where
+                 Chromium and Safari both break it as drawn; the drawn 26 left it on Safari's edge. */
               &>.note:nth-child(3) {
                 grid-row: 4;
                 inline-size: calc(253 * var(--hifi-unit));
                 margin-block-start: calc(35 * var(--hifi-unit));
                 margin-inline-start: calc(36 * var(--hifi-unit));
+                padding-inline-end: calc(23 * var(--hifi-unit));
               }
               &>.note:nth-child(4) {
                 grid-row: 5;
