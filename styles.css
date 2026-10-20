@@ -6116,6 +6116,24 @@
               margin-block-start: calc(21 * var(--u));
             }
           }
+          /*
+            Desktop Scotties sets each lo-fi wireframe 36 px under its heading's glyph top and the hi-fi one 35, the
+            listing 48 px under the homepage's wireframe and the hi-fi homepage 122 under the listing's.
+          */
+          @media(width>=80rem) {
+            & .subsection:is(:nth-child(3), :nth-child(4))>h3 {
+              margin-block-end: calc(5rem / 16);
+            }
+            & .subsection:nth-child(4) {
+              margin-block-start: calc(47rem / 16);
+            }
+            & .subsection:nth-child(5) {
+              margin-block-start: calc(121rem / 16);
+              &>h3 {
+                margin-block-end: calc(4rem / 16);
+              }
+            }
+          }
           /* The desktop design: the homepage's intro left and navigation callout right; the listing's grid callout right. */
           @media(width>=68.25rem) {
             & .subsection:nth-child(3)>.flex-row {
