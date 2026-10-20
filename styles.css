@@ -6846,6 +6846,16 @@
             }
           }
         }
+        /*
+          The closing quote: 36 px lines, 806 px wide (inside the 801.5 to 812 px where both browsers break it as
+          drawn) and centred 6.5 px right of the column's middle, 124 px under the second box.
+        */
+        :where(#scotties-reflection) .closing-reflection {
+          inline-size: calc(806rem / 16);
+          margin-block-start: calc(118rem / 16);
+          margin-inline-start: calc(100% * 146.5 / 1086);
+          line-height: 2;
+        }
       }
     }
   }
