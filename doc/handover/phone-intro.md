@@ -2402,5 +2402,11 @@ Gaps still open:
 - Known deviations the client may raise: the Challenge group 6 to 8 px low, the footer about 140 px lower (back-to-top
   button), MenuMe contributions 4 across against the designs' 2x2, the m4 assumption.
 
+Decided by the user, 2026-10-20 (supersedes "I'll review and send" in "Next"):
+- Hold the reply until a full-page check: every page captured in Safari at 1920 by 950, compared pixel by pixel
+  against the Desktop PNGs, every region off by more than a few px fixed or listed.
+- Cover desktop Safari 17 with a macOS Sonoma VM on m1 (image on `/Volumes/MacData`; probe m1's memory and the
+  existing VM first).
+
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
