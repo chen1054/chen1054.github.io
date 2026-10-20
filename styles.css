@@ -2001,6 +2001,64 @@
         }
       }
       /*
+        Desktop Scotties starts the User Personas and Core Value headings' text in line with the copy, 53 px into the
+        1086 px column, their icons hanging before it; the photos 85 px under the heading's glyph top, the names 42
+        under the photos and the copy 41 under the role. Each name and role centres at 172, 544 and 899 px into the
+        column, and the copy starts at 53, 400 and 761 px on 273, 282 and 268.5 px measures (it wraps as drawn from
+        267.5 to 279, 263.5 to 300 and 267.5 to 269.5 px in Chromium and Safari).
+      */
+      @media(width>=80rem) {
+        & #scotties-research h3 {
+          margin-inline-start: calc(200% / 1086);
+          text-align: start;
+        }
+        & #scotties-research h3:has(+ .flex-row>.persona) {
+          margin-block-end: calc(22rem / 16);
+        }
+        /* Core Value 106 px under the personas' last glyph top, its intro 70 under the heading's glyph top. */
+        &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+          margin-block-start: calc(63rem / 16);
+          &>h3 {
+            margin-block-end: calc(34rem / 16);
+          }
+          /* The pillars' first glyph 87 px under the intro's. */
+          &>p {
+            margin-block-end: calc(34rem / 16);
+          }
+        }
+        &>.content .persona {
+          &>.persona-photograph {
+            margin-block-end: calc(36rem / 16);
+          }
+          &>p {
+            box-sizing: border-box;
+            margin-block-start: calc(7rem / 16);
+          }
+          &:nth-child(1) {
+            &>h4 {
+              margin-inline-end: calc(23rem / 16);
+            }
+            &>p {
+              inline-size: calc(273rem / 16);
+              margin-inline-start: calc(12rem / 16);
+            }
+          }
+          &:nth-child(2)>p {
+            inline-size: calc(282rem / 16);
+            margin-inline-start: calc(-1rem / 16);
+          }
+          &:nth-child(3) {
+            &>h4 {
+              margin-inline-end: calc(8rem / 16);
+            }
+            &>p {
+              inline-size: calc(268.5rem / 16);
+              margin-inline-start: calc(1rem / 16);
+            }
+          }
+        }
+      }
+      /*
         The tablet design sets the three pillars around the skateboard: Excitement top right, Confidence left, and
         Belonging bottom right, each tied to the board by a pale chevron trail, with Confidence's name running into
         its text. Lengths are the design's pixels on its 624 px column (Tablet/Scotties.pdf), scaled to the column.
@@ -2102,7 +2160,8 @@
                 margin-inline-start: calc(685 * var(--u));
               }
               &>article:nth-child(3) {
-                inline-size: calc(301 * var(--u));
+                /* 291 px: Excitement wraps as drawn from 284 to 299 px in Chromium and Safari. */
+                inline-size: calc(291 * var(--u));
                 margin-block-start: calc(23 * var(--u));
                 margin-inline-start: calc(761 * var(--u));
               }
