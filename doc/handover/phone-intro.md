@@ -2197,4 +2197,7 @@ MenuMe persona and Scotties wireframe WebPs decode at their old natural sizes, 5
 unchanged PNG control. Trade-off left as is: the task flows serve 3920 px files inline too (fewer bytes, but four
 times the decoded pixels, about 6 megapixels each). The draft's sharper-images claim is scoped to the three
 project pages (Home, About and Contact have no enlarged views).
-Next: the user reviews the draft and sends it; nothing goes out before that.
+User decisions, 2026-10-20: the reply mentions the contrast finding as an FYI (question 5: orange `#F89E3F` 2.11:1,
+teal `#60B5BF` 2.37:1 on white, against 3:1 for large text), drops the vaping-wording FYI, and sends all 16
+attachments (`evidence/send-5cf1620/`). Draft updated to match.
+Next: the user reviews the final draft and sends it; nothing goes out before that.
