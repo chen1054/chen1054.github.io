@@ -2532,7 +2532,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   failure class." Doing now: every raster, inline and enlarged, uses the largest file we have (the zoom WebP, the
   largest version in git history, the client's 4x portrait); no srcset choosing between files. To measure and
   propose: re-extracting design sources whose native resolution exceeds 2x.
-- Queue: full-res images (above); merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Full-res, phase 1 landed: `e3b5706` About (photos as lossless `jpegtran` crops of the originals in
+  `Desktop/About.pdf`, 1975 to 3072 px; portrait the client's 4x file, 2624 px lossless WebP; `411935c`'s density
+  choice reverted, no srcset left choosing between files); `715b2e1` twelve case-study pictures show their 2x WebP
+  inline too. Boxes and heights unchanged (Chromium 390, 744, 1440 via `sweep/box-probe.mjs` with
+  `AGENT_BROWSER_SESSION=fullres` against worktree `wt-fr`; Safari 17.5 1440 and 1920). Work dir
+  `/home/user/temp/agent/f20/fullres/`.
+- Full-res, phase 2 (running): pictures whose design source is denser than our file. `fullres/gain-now.py` counts
+  only images covering a quarter of the box (a first version counted edge neighbours and misread the Facebook ad
+  as 3.98x; it is 1.17x). Candidates: hub laptop 1.46x, hub phone 1.27x, Facebook ad 1.17x, mobile showcase 1.14x,
+  three parent stories 1.13x, Instagram 1.11x, tablet showcase 1.04x; `hidpi/fit-full.py` renders each located box
+  at its source density (unit `xyc-fullres-fit`, log `fullres/fit-log.txt`). Unit `xyc-fullres-match` re-matches
+  the MenuMe personas, Scotties wireframes and personas and the Tales poster (`fullres/matches2.txt`); the old
+  Scotties persona rows matched MenuMe's PDF and are not trusted.
+- agent-browser docs landed in the Monochromatic repo (`96b7259c06`, `1702fc8247`): close race (upstream #2134,
+  fix PR #2138), relative screenshot path (#137), full-page capture missing lazy previews (cause open).
+- Queue: full-res phase 2 (above); merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
