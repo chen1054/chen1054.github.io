@@ -2383,8 +2383,9 @@ Open:
 
 ### Next
 
-The batch is done. The user reviews the updated `05-client-reply-draft.md` and sends it; nothing has gone to the
-client.
+The batch is done. The user chose, 2026-10-20, "I'll review and send": the user reviews the updated
+`05-client-reply-draft.md`, fills the placeholders and sends it with the 16 images (today's three fixes go without
+images). Nothing has gone to the client from this session.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
