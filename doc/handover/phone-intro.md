@@ -2605,7 +2605,23 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   case-study hero viewers (lazy, fragment): Safari Technology Preview and 27 opened them at 2.179, 1.789 and 1.848
   against the art's 1.5, 1.541 and 1.265. Fixed `6e97123` (trimmed files; no fragment reference left), measured in
   Technology Preview, Safari 27 and Safari 17.5, Chromium unchanged; reply and `07-what-we-fixed.md` updated.
-  Sonoma VM stopped again.
+- Retraction, 2026-10-20 late: `sweep/stp-eval.mjs` hard-coded Technology Preview (port 4450) and ignored `DRIVER`
+  and `BROWSER` (the env-aware copy was `safari-eval.mjs`), so every "Safari 17.5" or "Safari 27" result run through
+  it came from Technology Preview: the portrait srcset re-selection (`411935c`), "rigs report devicePixelRatio 1"
+  for 17.5, "Sonoma guest still reports devicePixelRatio 1", the 17.5 bitmap viewers (`d7fbea3`) and the hero
+  viewer numbers (`6e97123`). `collect.mjs`, `stp-card.mjs` and `shoot.mjs` honored the variables, so the 17.5 box
+  comparisons, captures and Youth trials stand. Fixed: `stp-eval.mjs` honors both and prints the answering browser
+  and version first. Re-run in the real browsers: Safari 17.5 reports devicePixelRatio 2 and matches
+  `(resolution >= 2dppx)` (Safari 27 and Technology Preview 1); the hero viewers gave identical numbers in Safari 27
+  and 17.5 before and after `6e97123`; every bitmap viewer (of 54 viewers) opens at its width attribute in both; the raster
+  probe flags no on-page image short of the device pixels on any page in either (positive control: at 4 times the
+  ratio it flags the portrait and beach photo). At 17.5's ratio 2, 17 viewer images have fewer pixels than the
+  screen (MenuMe weekly-specials screens 780 for 1560, mobile showcase 486 for 810; Scotties Gwen and Jake 490 for
+  980, Jonathan 615 for 984, homepage 1272 for 2544; Tales Sarah 845 and Emma 841 for about 1690, parent stories
+  2240 to 2578 for 3920, Facebook ad 1284 for 1712); each is at its design source's resolution per the full-res
+  records, so not a miss. Capture of the open MenuMe hero viewer before `6e97123` (`sweep/shots-hero/grid.png`):
+  in both Safaris the art filled about two thirds of the viewer, blank to its right and below; the reply says that.
+  Corrective comments [411935c-correction], [d7fbea3-correction], [6e97123-correction]. Sonoma VM stopped again.
 - Queue: the user reviews and sends the reply (their answer, 2026-10-20: "I'll review and send"; texture: "Looks
   right, keep it"); was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
@@ -2614,6 +2630,9 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
 
+[411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
+[d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
+[6e97123-correction]: https://github.com/chen1054/chen1054.github.io/commit/6e9712362158159c54d20ddf0e0fd0953b684814#commitcomment-205881795
 [1b85496-correction]: https://github.com/chen1054/chen1054.github.io/commit/1b85496719015c4ac70ac67620e740735304f924#commitcomment-205880540
 [bda96e8-correction]: https://github.com/chen1054/chen1054.github.io/commit/bda96e82021850bdc8e3665542bdd0b3475e9577#commitcomment-205869889
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
