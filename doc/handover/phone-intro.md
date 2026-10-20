@@ -2105,3 +2105,14 @@ Tool caveats: `f20/desk/sweep.js` sets the element's content box, so an element 
 each access, so bind it once (`f20/desk/scan-lines.py`).
 Next: the MenuMe sitemap as the design's top-down tree, then the Safari parity pass at 393 and 744, then the
 client note.
+
+MenuMe desktop sitemap landed: `c6e0cb2` draws it as Desktop/MenuMe.pdf's centred top-down tree from 1280 px (the
+1024 px row layout now stops at 1279). Every box lands within 2 px of the raster's in Chromium and Safari
+Technology Preview, and the page below moved down 111 px, so Core Task Flows now lands exactly on the design.
+Decision taken under "Figma is design intent", open to the user's veto: the desktop sitemap labels drop from 16 to
+13 px, where our Playfair matches the drawn labels' 8 to 9 px cap height and fits the drawn boxes; only "Select
+from fridge" needs 131 px where the drawing has 114. Below the tree, MenuMe's flows run as before against the
+design: the second and third flow headings are drawn 12 and 61 px lower because every MenuMe design pairs the
+headings with the diagrams in a different order (miss 20, waiting on the client; ours pairs each heading with its
+own flow, `446ba33`), so the drawn diagram heights differ from ours under each heading.
+Next: the Safari parity pass at 393 and 744 (task #31), then the client note.
