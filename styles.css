@@ -1512,7 +1512,8 @@
       aspect-ratio: 486 / 346;
       max-inline-size: calc(322rem / 16 + 164 * var(--home-wide-reference-growth));
       text-align: start;
-      text-wrap: pretty;
+      /* Plain wrapping, as the designs break it; Safari's pretty wrapping re-breaks the whole paragraph. */
+      text-wrap: wrap;
       &>p {
         margin-block-start: 12%;
         /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
@@ -2442,7 +2443,8 @@
             max-inline-size: none;
             margin: 0;
             text-align: start;
-            text-wrap: pretty;
+            /* Plain wrapping: the designs end Institutional Trust on one word, which Safari's pretty avoids. */
+            text-wrap: wrap;
             &>* {
               line-height: 2;
             }
