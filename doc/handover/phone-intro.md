@@ -2622,8 +2622,9 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   records, so not a miss. Capture of the open MenuMe hero viewer before `6e97123` (`sweep/shots-hero/grid.png`):
   in both Safaris the art filled about two thirds of the viewer, blank to its right and below; the reply says that.
   Corrective comments [411935c-correction], [d7fbea3-correction], [6e97123-correction]. Sonoma VM stopped again.
-- Queue: the user reviews and sends the reply (their answer, 2026-10-20: "I'll review and send"; texture: "Looks
-  right, keep it"); was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
+- Queue: the user re-reads the reply's new hero-viewer bullet and softer-originals note, then sends it (their
+  answers, 2026-10-20: "I'll review and send"; texture: "Looks right, keep it"; after the late changes: "Re-read
+  those lines, send"; on the tool flaw: "No, that covers it"). Nothing else queued for the agent; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
