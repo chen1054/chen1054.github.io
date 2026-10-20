@@ -2171,6 +2171,13 @@ upscale stair-stepped); `swap.py` applies the rule; `verify.py` runs the Chromiu
 No gain, left as is: Scotties personas and Tales personas (design sources no larger), MenuMe mobile showcase
 (sources 1.80 and 2.22 px per point against 1.94), Tales parent stories (2.26 against 2.0), Tales Facebook ad
 (1.17x), MenuMe weekly specials screens and the Scotties hi-fi homepage (already the full source).
-Running: unit `hidpi-refine-flows` refines the crops of the three MenuMe task flows in their 4096 px sources
-(scales 0.52 to 0.56, so about 1.8 to 1.9x our detail; results in `hidpi/loc-*/refine.txt`, `refine-done.txt`).
-Next: swap the three task flows (enlarged only if heavier), then the client reply draft.
+Landed last: `5cf1620` MenuMe task flows, both views (crops of the 4096 px design diagrams, refined to the pixel
+with `refine.py`; lighter than the PNGs). The old preferences crop sat about 9 px off the design image in one box
+(commit comment corrects the message's 5 px). 2x refresh done; client note `07-what-we-fixed.md` has the item.
+Reply attachments: the `send-13f7d95` after frames predate the walks, so they are being recaptured. iPhone after
+frames for the client's shots 542 to 552 come from `/home/user/temp/agent/f20/sim17-match.mjs`: units
+`xinyanchen-inject-server` (port 4175, serves the working tree plus `/__frame.js`, which scrolls `?text=` to
+`?y=`; a file because the pages' CSP blocks inline scripts) and `xinyanchen-m1-inject-tunnel`, then a band from the
+client's shot is matched in the capture and the frame retaken with the shift. `simctl openurl` ignores text
+fragments (`#:~:text=`), which is why the script exists.
+Next: compose the iPhone pairs and recapture the desktop key pairs, then rewrite `05-client-reply-draft.md`.
