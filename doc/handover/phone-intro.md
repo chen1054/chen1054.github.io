@@ -2512,12 +2512,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   full-page passes (`shots-fix3` blank, `shots-fix3b` drawn); Safari 27 drew it in one pass, Safari 17.5 in its
   pass. The clip path was not the whole cause. Running `sweep/youth-trials.mjs` (four trials per browser, vector
   against clipped) to measure the rate before choosing a fix; a likely robust fix moves the photo out of the SVG.
-- Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
-  picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
-  then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
+- Youth trials, measured: scroll-away-and-back (`youth-trials.mjs`, 3 s after return): clipped (old) lost the
+  photo in 3 of 4 Technology Preview trials, 0 of 4 in Safari 27 and 0 of 4 in Safari 17.5; vector (`bda96e8`)
+  showed it 4 of 4 in each. Full-page passes (`youth-fullpage-trials.mjs`): vector drew it 3 of 3 in each of the
+  three. So 21 of 22 vector trials drew it; the one miss was the single `shots-fix3` preview pass. In our
+  measurements the bug is Technology Preview's; the client's Safari 17 drew the photo with either build. No
+  further change; corrective comment on `bda96e8` ([bda96e8-correction], its message said Safari generally).
+- Footer weight: Figma uses SemiBold in 17 of 18 frames (Desktop Home Regular); ours is Regular by the client's
+  2026-10-18 instruction applied site-wide (`b85e0e0`). Not a miss.
+- Full-width bands at 1920 (`view/bands1920-*.png`): heroes, Tales band headings and footers run edge to edge
+  without stretching or seams.
+- Queue: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and `07-what-we-fixed.md`; 2x
+  check; agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
 
+[bda96e8-correction]: https://github.com/chen1054/chen1054.github.io/commit/bda96e82021850bdc8e3665542bdd0b3475e9577#commitcomment-205869889
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
