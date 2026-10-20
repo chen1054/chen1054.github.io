@@ -2356,9 +2356,28 @@ Open:
 - Residuals noticed, not asked: the Tales Challenge notepad draws about 8% narrower than the design at 1920; Scotties'
   "Lo-fi Product Listing Page" heading carries the skateboard glyph, the design's does not.
 
-### Queue
+### Results, 2026-10-20
 
-1. m4, then m2 on the phone, then the residuals; one commit per fix, each checked at 1920 by 950 in Safari.
+- m4: `579dabf`, each prototype button centred under its device at every width (centres equal at 744, 1440, 1920
+  in Chromium; checked in Safari at 1920 by 950). A first try with `min-inline-size: max-content` overrode the
+  desktop's 250 px pill minimum (`.prototype-link` base rule); `white-space: nowrap` keeps one line instead.
+- m2: already fixed on the phone too (`ba596be`); the three bubbles share one shape and match `Phone/MenuMe.png`.
+- Notepad residual: `a544c71`, the pad 506 px at full growth (from 482), copy margins and top offset adjusted so its
+  left edge, 353 px measure, breaks and first line stay; a negative block-end margin keeps everything after it in
+  place. Drawn outline and sheet within 3 px of the design; Safari at 1920 checked. The whole Challenge group still
+  sits about 6 to 8 px lower than the design (older, not touched).
+- Glyph residual: left as is. Tablet and Phone draw the glyph on "Lo-fi Product Listing Page"; only Desktop omits
+  it, likely a slip in the file.
+- Client files updated (local): `05-client-reply-draft.md` gained a section on these notes in both languages (no
+  attachments) and now names the 1920-wide screen instead of the MacBook Air for desktop; `07-what-we-fixed.md`
+  gained the batch's evidence and the same correction. Backups:
+  `/home/user/temp/agent/f20/07-what-we-fixed.before-2026-10-20-batch.md` (the draft's pre-batch text is the
+  2026-10-19 backup named in "Client reply status").
+
+### Next
+
+The batch is done. The user reviews the updated `05-client-reply-draft.md` and sends it; nothing has gone to the
+client.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
