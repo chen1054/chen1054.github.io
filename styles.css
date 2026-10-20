@@ -4207,19 +4207,19 @@
           @media(width>=80rem) {
             padding-block-start: calc(148rem / 16);
             &>.sitemap {
-              margin-block: calc(66rem / 16) 0;
+              margin-block: calc(68rem / 16) 0;
             }
             &>.subsection:first-of-type {
-              margin-block-start: calc(125rem / 16);
+              margin-block-start: calc(128rem / 16);
             }
           }
         }
         /*
           From 1024 px, where the row fits our 14 px labels, the sitemap sets each section's pages side by side under
           it on a bus of their own, as the screenshot in every MenuMe design arranges them; narrower they stack under
-          their section (at 744 the row would need 696 px of the 614 px column).
+          their section (at 744 the row would need 696 px of the 614 px column). From 1280 px the desktop tree follows.
         */
-        @media(width>=64rem) {
+        @media(width>=64rem) and (width<80rem) {
           & .sitemap>ul>li>ul>li>ul {
             position: relative;
             display: flex;
@@ -4266,6 +4266,150 @@
                 border-inline: calc(5rem / 16) solid transparent;
                 border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
                 border-block-end: 0;
+              }
+            }
+          }
+        }
+        /*
+          Desktop MenuMe draws the sitemap as a centred top-down tree (a FigJam raster in Desktop/MenuMe.pdf): labels
+          with an 8 to 9 px cap height, which ours reach at 13 px, in boxes 37 px tall and at least 113 wide; levels
+          87 px apart, each line meeting its boxes' middles and each chain running straight down. The sections take
+          307, 206, 206 and 258 px of the 977 px tree. Menu Planner sits 150 px into its column over Weekly special
+          and Diet Preferences, 37 px apart. Profile & Settings is 65 px tall over Profile and Settings, 7 px in, 25
+          apart and 39 px under it. Bars run 24 px under their parent (19 under Profile & Settings). Select from
+          fridge needs 131 px for our label where the drawing has 114, and stays centred on its chain.
+        */
+        @media(width>=80rem) {
+          & .sitemap {
+            font-size: calc(13rem / 16);
+            & li::before,
+            & li::after,
+            & span::before,
+            & span::after,
+            & ul::before,
+            & ul::after {
+              content: none;
+            }
+            & span {
+              min-inline-size: calc(113rem / 16);
+              padding-block: calc(8.5rem / 16);
+            }
+            & ul ul {
+              --sitemap-in: calc(50rem / 16);
+              display: flex;
+              align-items: flex-start;
+              margin-inline: 0;
+              padding-block-start: calc(50rem / 16);
+              &>li {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+                /* The incoming line from the bar or the parent, then its arrowhead, both on the box's middle. */
+                &>span::before,
+                &>span::after {
+                  content: "";
+                  position: absolute;
+                  inset-block: auto 100%;
+                  inset-inline: 50% auto;
+                  translate: -50% 0;
+                }
+                &>span::before {
+                  inline-size: 0;
+                  block-size: var(--sitemap-in);
+                  border-block-end: 0;
+                  border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+                }
+                &>span::after {
+                  border-inline: calc(5rem / 16) solid transparent;
+                  border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+                  border-block-end: 0;
+                }
+              }
+            }
+            /*
+              The three bars: the parent's drop (`--drop` from the list's start, `--bar-y` long), then the bar from
+              `--bar` on. Unweighted, so each list's own rule sets them.
+            */
+            & ul:where(.sitemap>ul>li>ul, .sitemap>ul>li>ul>li:is(:first-child, :last-child)>ul) {
+              --bar-y: calc(24rem / 16);
+              position: relative;
+              &::before,
+              &::after {
+                content: "";
+                position: absolute;
+                inset-block-start: 0;
+                border-color: var(--color-case-study-sitemap-line);
+                border-style: solid;
+                border-width: 0;
+              }
+              &::before {
+                inset-inline-start: var(--drop);
+                block-size: var(--bar-y);
+                border-inline-start-width: var(--case-study-sitemap-line-width);
+              }
+              &::after {
+                inset-block-start: var(--bar-y);
+                inset-inline-start: var(--bar);
+                inline-size: var(--bar-size);
+                border-block-start-width: var(--case-study-sitemap-line-width);
+              }
+            }
+            &>ul>li {
+              &>span {
+                min-inline-size: calc(114rem / 16);
+              }
+              &>ul {
+                --sitemap-in: calc(25rem / 16);
+                --drop: 50%;
+                --bar: calc(206.5rem / 16);
+                --bar-size: calc(575.5rem / 16);
+                display: grid;
+                grid-template-columns: calc(307rem / 16) calc(206rem / 16) calc(206rem / 16) auto;
+                &>li {
+                  align-items: start;
+                }
+                &>li:nth-child(1) {
+                  &>span {
+                    margin-inline-start: calc(150rem / 16);
+                  }
+                  &>ul {
+                    --sitemap-in: calc(25rem / 16);
+                    --drop: calc(206.5rem / 16);
+                    --bar: calc(56.5rem / 16);
+                    --bar-size: calc(168.5rem / 16);
+                    column-gap: calc(37rem / 16);
+                    &>li:nth-child(2)>span {
+                      min-inline-size: calc(150rem / 16);
+                    }
+                  }
+                }
+                &>li:nth-child(2) {
+                  justify-self: start;
+                  align-items: center;
+                  &>span {
+                    min-inline-size: calc(162rem / 16);
+                  }
+                }
+                &>li:nth-child(3)>span {
+                  min-inline-size: calc(163rem / 16);
+                }
+                &>li:nth-child(4) {
+                  &>span {
+                    min-inline-size: calc(126rem / 16);
+                    padding-block: calc(22.5rem / 16);
+                  }
+                  &>ul {
+                    --sitemap-in: calc(20rem / 16);
+                    --bar-y: calc(19rem / 16);
+                    --drop: calc(56rem / 16);
+                    --bar: calc(56rem / 16);
+                    --bar-size: calc(138.5rem / 16);
+                    column-gap: calc(25rem / 16);
+                    margin-inline-start: calc(7rem / 16);
+                    padding-block-start: calc(39rem / 16);
+                  }
+                }
               }
             }
           }
