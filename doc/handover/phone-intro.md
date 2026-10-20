@@ -2138,3 +2138,11 @@ Tool: `f20/desk/par-sweep.js` (per block, the widths where its lines start with 
 short words broke the 5-character comparison) and `f20/desk/design-starts.py` (a block's drawn line starts from a
 design PDF).
 Next: the client note (task #30).
+
+The user's decisions, 2026-10-19: keep the MenuMe desktop sitemap labels at 13 px; swap in the designs' 2x artwork
+now (the Retina refresh flagged earlier: MenuMe personas re-cropped from the uncropped originals, the
+personalization wireframe and hi-fi screens, the device showcase, the flow diagrams; then measure Tales and
+Scotties the same way); then draft the client reply from `07-what-we-fixed.md` for the user's review (the user
+sends it). Client note updated 2026-10-19 with the tablet and desktop walks, the parity pass and the flow-order
+question (local file, not in the repo).
+Next: the 2x artwork refresh, then the reply draft.
