@@ -1374,10 +1374,13 @@
         &>.subsection>:is(p, ul, ol) {
           margin-inline: calc(5300% / 1086) calc(5700% / 1086);
         }
-        /* Lists keep the full 980 px: MenuMe's token list wraps "trustworthy" on its line only from 958 px. */
+        /*
+          Lists run 1004 px, as MenuMe's token list is drawn: its items keep "trustworthy" on the drawn line from 957.5
+          to 1005 px in Chromium and 959.5 to 1006.5 in Safari, so 982 sits inside both.
+        */
         &>:is(ul, ol),
         &>.subsection>:is(ul, ol) {
-          margin-inline-end: calc(5300% / 1086);
+          margin-inline-end: calc(2900% / 1086);
         }
         /*
           Two keep their designs' own boxes: Tales' title story breaks before "connecting" (946 to 963 px wrap as
