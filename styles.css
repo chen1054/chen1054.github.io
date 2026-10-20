@@ -1523,13 +1523,34 @@
         line-height: calc(1.6em + 0.039 * clamp(0rem, 100cqi - 322rem / 16, 164rem / 16));
       }
     }
+    /*
+      The designs offset each bubble's fill from its outline far enough to cross the outline's box, so the artwork
+      paints from a layer reaching past the box by the SVG's extra viewBox rows, leaving the text where it was.
+    */
+    & :is(.play-speech-bubble, .trust-speech-bubble) {
+      position: relative;
+      isolation: isolate;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset-inline: 0;
+        background-size: 100% 100%;
+      }
+    }
     & .play-speech-bubble {
       aspect-ratio: 411 / 392;
-      background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
+      &::before {
+        inset-block: calc(-2 / 392 * 100%) 0;
+        background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
+      }
     }
     & .trust-speech-bubble {
       aspect-ratio: 413 / 415;
-      background-image: url("assets/tales-trust-insight-speech-bubble-background.svg");
+      &::before {
+        inset-block: calc(-2 / 415 * 100%) calc(-13 / 415 * 100%);
+        background-image: url("assets/tales-trust-insight-speech-bubble-background.svg");
+      }
       &>* {
         margin-inline: 23% 11%;
       }
