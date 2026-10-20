@@ -215,26 +215,13 @@
           height="292"
         >
       </picture>
-      <!--
-        Wide windows choose by pixel density, not width: Safari 17.5 keeps a width-chosen file after the window
-        widens, so a page opened narrow kept the 760 px file for a 1312 px slot on a 2x screen.
-      -->
-      <picture class="portrait">
-        <source
-          media="(width>=40rem)"
-          srcset="assets/about-garden-portrait-photograph-and-gray-frame-760w.png 1x,
-                  assets/about-garden-portrait-photograph-and-gray-frame-1312w.png 2x"
-        >
-        <img
-          src="assets/about-garden-portrait-photograph-and-gray-frame-760w.png"
-          srcset="assets/about-garden-portrait-photograph-and-gray-frame-760w.png 760w,
-                  assets/about-garden-portrait-photograph-and-gray-frame-1312w.png 1312w"
-          sizes="61vw"
-          alt="Xinyan sitting beside a traditional Japanese garden."
-          width="656"
-          height="502"
-        >
-      </picture>
+      <img
+        class="portrait"
+        src="assets/about-garden-portrait-photograph-and-gray-frame.webp"
+        alt="Xinyan sitting beside a traditional Japanese garden."
+        width="656"
+        height="502"
+      >
     </div>
     <div class="biography">
       <p>
@@ -290,10 +277,10 @@
           <picture>
             <source
               media="(width>=40rem)"
-              srcset="assets/about-wide-skating-rink-photograph.png"
+              srcset="assets/about-wide-skating-rink-photograph.jpg"
             >
             <img
-              src="assets/about-phone-skating-rink-photograph.png"
+              src="assets/about-phone-skating-rink-photograph.jpg"
               alt="Xinyan at an outdoor skating rink."
               width="497"
               height="663"
@@ -306,7 +293,7 @@
         <figure>
           <picture>
             <img
-              src="assets/about-beach-photograph.png"
+              src="assets/about-beach-photograph.jpg"
               alt="Xinyan at the beach."
               width="516"
               height="689"
@@ -319,7 +306,7 @@
         <figure>
           <picture>
             <img
-              src="assets/about-reading-photograph.png"
+              src="assets/about-reading-photograph.jpg"
               alt="Xinyan reading at home."
               width="516"
               height="687"
