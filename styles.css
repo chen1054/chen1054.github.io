@@ -5798,6 +5798,76 @@
           aspect-ratio: 952 / 158;
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
         }
+        /*
+          Desktop Scotties draws the sitemap larger: 47 px boxes, 17 px labels padded 26 px (at least 121 px wide,
+          seven boxes at their own drawn widths); the root's stem 67 px down to the bar, the sections 34 px under it
+          and starting 4, 322, 579 and 915 px into the 1086 px column; each section's trunk 32 px in, its pages 37
+          past the trunk, the first 49 px under the section and the rest 96 px apart; the chevrons 4 px in from the
+          column's end and 7 below the last page. The heading 220 px under the band's top, the root 69 under the
+          heading's glyph top, and Lo-fi Homepage 129 under the chevrons.
+        */
+        @media(width>=80rem) {
+          :where(#scotties-wireframing)>.section-content:has(>&) {
+            padding-block-start: calc(125rem / 16);
+          }
+          &+.subsection {
+            margin-block-start: calc(135rem / 16);
+          }
+          --case-study-sitemap-gap: calc(49rem / 16);
+          --case-study-sitemap-trunk: calc(32rem / 16);
+          --case-study-sitemap-indent: calc(37rem / 16);
+          --case-study-sitemap-column-padding: 0px;
+          margin-block-start: calc(39rem / 16);
+          &::after {
+            inset-block-end: calc(-7rem / 16);
+            inset-inline-end: calc(4rem / 16);
+          }
+          font-size: calc(17rem / 16);
+          & span {
+            min-inline-size: calc(121rem / 16);
+            padding-block: calc(13.5rem / 16);
+            padding-inline: calc(26rem / 16);
+          }
+          &>ul>li {
+            &>span::before {
+              block-size: calc(67rem / 16);
+            }
+            &>ul {
+              display: grid;
+              grid-template-columns: calc(31800% / 1086) calc(25700% / 1086) calc(33600% / 1086) auto;
+              justify-content: start;
+              align-self: stretch;
+              margin-inline-start: calc(400% / 1086);
+              padding-block-start: calc(67rem / 16);
+              &>li {
+                padding-block-start: calc(34rem / 16);
+                &>span::before {
+                  inset-block-start: calc(-34rem / 16);
+                }
+                &:nth-child(1)>ul>li:nth-child(4)>span,
+                &:nth-child(3)>ul>li:nth-child(2)>span {
+                  inline-size: calc(216rem / 16);
+                  padding-inline: 0;
+                }
+                &:nth-child(2)>ul>li:first-child>span {
+                  inline-size: calc(121rem / 16);
+                  padding-inline: 0;
+                }
+                &:nth-child(3)>span {
+                  inline-size: calc(256rem / 16);
+                }
+                &:nth-child(4) span {
+                  min-inline-size: 0;
+                  inline-size: calc(99rem / 16);
+                  padding-inline: 0;
+                }
+                &:nth-child(4)>span {
+                  inline-size: calc(92rem / 16);
+                }
+              }
+            }
+          }
+        }
       }
       :where(#scotties-wireframing) {
         & .note {
