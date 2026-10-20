@@ -2396,8 +2396,11 @@ predated the 2026-10-19 walks, one (m4) was new, and the notepad miss (about 5%)
 Common cause: "ready" rested on checks that did not match the client's conditions (viewport, engine) or method (the
 client compares whole pages to Figma by eye; we checked listed items and walked sections).
 Gaps still open:
-- No mechanical full-page comparison of every page at 1920 by 950 against the Desktop PNGs; walks were by eye.
-- Desktop has never rendered on a Safari 17 engine (client Mac: macOS 14.5, Safari likely 17.5, unconfirmed); only
+- The desktop walk compared text lines mechanically at 1440 (`line-diff.py`), but non-text geometry (art, cards,
+  shapes) only by eye, and nothing checked how each element grows from 1440 to 1920: the notepad was right at 1440
+  and under-grew.
+- Desktop has never rendered on a Safari 17 engine (client Mac: macOS 14.5; its Safari version is unconfirmed, the
+  question to the client has no recorded answer; 14.5 shipped 17.5, a Sonoma update would give 17.6); only
   Safari Technology Preview and a BCD static check. The iOS 17.0.1 Simulator covers the phone only.
 - Known deviations the client may raise: the Challenge group 6 to 8 px low, the footer about 140 px lower (back-to-top
   button), the m4 assumption. (Corrected the same day: an earlier line here also listed MenuMe's contributions as
@@ -2408,6 +2411,19 @@ Decided by the user, 2026-10-20 (supersedes "I'll review and send" in "Next"):
   against the Desktop PNGs, every region off by more than a few px fixed or listed.
 - Cover desktop Safari 17 with a macOS Sonoma VM on m1 (image on `/Volumes/MacData`; probe m1's memory and the
   existing VM first).
+
+Method (no 1920 design exists; the Desktop PNGs are 1440 wide and the site grows past 1440):
+- Layer 1, at 1440 in Safari: every element's box against the Desktop PDF, sections placed by text-line anchors,
+  then non-text boxes and a pixel overlay per section.
+- Layer 2, at 1920 by 950 in Safari: each element's size at 1920 over its size at 1440, flagged against the page's
+  dominant growth; outliers are what the client's eye catches at 1920.
+- Positive control: layer 2 run on `5be6c75` (before the notepad fix) must flag the notepad, else fix the method.
+- Then 2x, then the same sweep in the Sonoma VM's Safari.
+
+Sonoma VM facts (m1, 2026-10-20): host macOS 27.0, 16 GiB, 64% free; `/Volumes/MacData` 237 GB free; UTM's
+existing `macOS.utm` guest (macOS 27, 8192 MB) carries the Safari and STP WebDriver. UTM creation and the guest's
+Setup Assistant are GUI steps (`utmctl` fails over SSH), and the guest password is never stored or asked for, so
+either a scripted route (being researched) or the user at m1 is needed.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
