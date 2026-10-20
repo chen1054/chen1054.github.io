@@ -2853,7 +2853,7 @@
         }
         &>.spiral-notepad {
           justify-self: start;
-          inline-size: calc(334rem / 16 + 11 * var(--phone-tablet-reference-growth) + 137 * var(--home-wide-reference-growth));
+          inline-size: calc(334rem / 16 + 11 * var(--phone-tablet-reference-growth) + 161 * var(--home-wide-reference-growth));
           max-inline-size: none;
           margin-block-start: calc(21rem / 16 + 12 * var(--phone-tablet-reference-growth) + 6 * var(--home-wide-reference-growth));
           margin-inline-start: calc(-13rem / 16);
@@ -2872,8 +2872,10 @@
             margin-block-start: calc(14rem / 16 + 51 * var(--home-wide-reference-growth));
             margin-inline-start: calc(4rem / 16 + 1 * var(--home-wide-reference-growth));
           }
+          /* The pad's last 24 px of growth (height 346/486 of it) draw past the box: the copy, not the pad, sets the gap. */
           &>.spiral-notepad {
             grid-area: 2 / 2;
+            margin-block-end: calc(-24 * 346 / 486 * var(--home-wide-reference-growth));
             margin-inline-start: 0;
           }
         }
@@ -2927,11 +2929,12 @@
           justify-content: start;
           padding-block-end: 0;
           &>p {
-            margin-block-start: calc(20.9% - 13.5rem / 16);
+            margin-block-start: calc(20.9% - 13.5rem / 16 - 5 * var(--home-wide-reference-growth));
             font-size: min(1em, calc(14 * 100cqi / 345));
           }
           &>* {
-            margin-inline: 13% calc(10rem / 16 + 56 * var(--home-wide-reference-growth));
+            margin-inline: calc(13% - 3 * var(--home-wide-reference-growth))
+              calc(10rem / 16 + 80 * var(--home-wide-reference-growth));
             line-height: 2;
           }
         }
