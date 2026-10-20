@@ -5891,7 +5891,11 @@
           --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
           --u: calc(100cqw / 624);
           container-type: inline-size;
-          margin-block-end: calc(97 * var(--u));
+          /*
+            A percentage, not --u: this element is the container, so its own units would read the viewport.
+            113.6 of 624: the box's foot to the next band is 177.6 px in the tablet design.
+          */
+          margin-block-end: calc(11360% / 624);
           &::before {
             inset-block-end: calc(-97 * var(--u));
             inset-inline-start: calc(358 * var(--u));
