@@ -1,5 +1,11 @@
 # Portfolio implementation handover
 
+## Latest status
+
+As of 2026-10-20 the site work for the client's asks is landed (last site commit `5cf1620`), and the client reply
+waits for the user's review: see the section "Client reply status, 2026-10-20" at the end of this file. The entries
+in between are a dated log, oldest first; "Current state" describes the work as of the landing animation.
+
 ## Current state
 
 The client requested a landing introduction animation;
@@ -2174,30 +2180,81 @@ No gain, left as is: Scotties personas and Tales personas (design sources no lar
 Landed last: `5cf1620` MenuMe task flows, both views (crops of the 4096 px design diagrams, refined to the pixel
 with `refine.py`; lighter than the PNGs). The old preferences crop sat about 9 px off the design image in one box
 (commit comment corrects the message's 5 px). 2x refresh done; client note `07-what-we-fixed.md` has the item.
-Reply attachments: the `send-13f7d95` after frames predate the walks, so they are being recaptured. iPhone after
-frames for the client's shots 542 to 552 come from `/home/user/temp/agent/f20/sim17-match.mjs`: units
-`xinyanchen-inject-server` (port 4175, serves the working tree plus `/__frame.js`, which scrolls `?text=` to
-`?y=`; a file because the pages' CSP blocks inline scripts) and `xinyanchen-m1-inject-tunnel`, then a band from the
-client's shot is matched in the capture and the frame retaken with the shift. `simctl openurl` ignores text
-fragments (`#:~:text=`), which is why the script exists.
-Attachments done (2026-10-19 22:00): `evidence/after-5cf1620/` (desktop frames from `xyc-after/desktop.mjs` in Safari
-Technology Preview, extras from `extras-after.mjs`, WeChat and the client's iPhone shots from `sim17-match.mjs` and
-`sim17-frame.mjs`; framings for 545, 546, 548, 550 to 552 set by eye after band matches failed on moved content),
-pairs from `xyc-after/make-pairs-5cf1620.mjs` in `evidence/pairs-5cf1620/` (77 pairs), and the 16-image send set
-`evidence/send-5cf1620/` with `captions.md`; every send pair checked by eye. The capture units are stopped;
-restart with `systemd-run --user --unit=xinyanchen-inject-server ... node .../f20/inject/server.mjs <repo> 4175` and
-`--unit=xinyanchen-m1-inject-tunnel ... ssh -N -R 127.0.0.1:4175:127.0.0.1:4175 m1`.
-Reply draft rewritten 2026-10-19 in `05-client-reply-draft.md` (backup of the 2026-10-18 one in
-`/home/user/temp/agent/f20/`): adds the iPhone shots, the walks, the sharper enlarged images, and questions on the
-MenuMe flow order and the Tales phone age labels, plus an optional note on the vaping wording; the contrast finding is
-left out for the user to decide.
-Enlarged views checked on iOS 17.0.1 Safari 17.0 at 3x (Simulator, `sim17-frame-pop.mjs` with `&popover=<id>`;
-the page reports through an image beacon to `inject/reports.log`, since the CSP sets `connect-src 'none'`): the
-MenuMe persona and Scotties wireframe WebPs decode at their old natural sizes, 586 x 748 and 574 x 906, like the
-unchanged PNG control. Trade-off left as is: the task flows serve 3920 px files inline too (fewer bytes, but four
-times the decoded pixels, about 6 megapixels each). The draft's sharper-images claim is scoped to the three
-project pages (Home, About and Contact have no enlarged views).
-User decisions, 2026-10-20: the reply mentions the contrast finding as an FYI (question 5: orange `#F89E3F` 2.11:1,
-teal `#60B5BF` 2.37:1 on white, against 3:1 for large text), drops the vaping-wording FYI, and sends all 16
-attachments (`evidence/send-5cf1620/`). Draft updated to match.
-Next: the user reviews the final draft and sends it; nothing goes out before that.
+Trade-off left as is: the task flows serve their 3920 px files inline too (fewer bytes than the PNGs, but four
+times the decoded pixels, about 6 megapixels each). Enlarged views checked on iOS 17.0.1 Safari 17.0 at 3x in the
+Simulator: the MenuMe persona and Scotties wireframe WebPs decode at their old natural sizes, 586 x 748 and 574 x 906,
+like an unchanged PNG control.
+
+## Client reply status, 2026-10-20
+
+The reply is drafted and waits for the user, who sends it; nothing has gone to the client.
+
+### Files (local, outside the repo)
+
+All in `/var/home/user/xinyanchen-portfolio/Client comparison screenshots 2026OCT170133/`:
+- `05-client-reply-draft.md`: the WeChat message in Simplified Chinese plus an English reference copy; bracketed
+  placeholders for the client's name and the signature. Backup of the 2026-10-18 draft:
+  `/home/user/temp/agent/f20/05-client-reply-draft.before-2026-10-19.md`.
+- `07-what-we-fixed.md`: the evidence behind every sentence, with commits; it gained the 2x artwork item (scoped to
+  the three case studies, the only pages with enlarged views) and the measured contrast figures.
+- `evidence/send-5cf1620/`: the 16 numbered before and after pairs to send (8.4 MB), captions in `captions.md`.
+- `evidence/pairs-5cf1620/`: the full set of 77 pairs (54 desktop at the client's shot positions, 2 WeChat, the
+  client's 11 iPhone shots of 2026-10-19, 10 extras), index in `index.md`, whose per-shot notes predate the walks.
+- `evidence/after-5cf1620/`: the raw after frames. `send-13f7d95/` and `pairs-13f7d95/` predate the phone, tablet
+  and desktop walks and must not be sent.
+
+### What the message says
+
+New since the 2026-10-18 draft: the client's iPhone shots (sitemaps fixed for iOS 17.0, phone layouts walked against
+the phone designs), the tablet and desktop walks (desktop lines break as drawn within a few pixels, except the
+footer, about 140 px lower because of the back-to-top button, and around the MenuMe flows), and the sharper
+enlarged images on the three project pages.
+Questions to the client, each answerable alone, none blocking built work:
+- the original `IMG_0804` photo (the Figma frame holds only a stroke);
+- replacements for the two removed curriculum citations, and whether Grade 1 D1.2 is the intended one;
+- the MenuMe task-flow order: every design places each diagram under another heading, the site pairs each heading
+  with its own diagram (`446ba33`); if the client picks the designs' order, swap the three diagrams' headings;
+- the Tales phone design's character-card labels "Ages 9-10" and "Ages 11-12" against the tiers 6-8 and 9-12 that
+  the rest of the page and the other designs use (the phone page keeps 6-8 and 9-12);
+- FYI only: MenuMe's orange headings `#F89E3F` measure 2.11:1 and its teal headings `#60B5BF` 2.37:1 on white,
+  against WCAG 2.2 AA's 3:1 for large text (success criterion 1.4.3), measured 2026-10-20 in Chromium at 1440 on
+  `5cf1620`; a palette decision for the client.
+
+### The user's decisions, 2026-10-20
+
+- Mention the contrast finding as an FYI (the user chose this over the recommended leave-it-out).
+- Drop the FYI on the vaping wording (the Tales note's "long-term health consequences" against OPH's public page,
+  "the long-term health effects are unknown"); it stays recorded in `07-what-we-fixed.md`.
+- Send all 16 attachments (the 11 picks of 2026-10-18 recaptured, plus 5 of the client's iPhone shots: 544, 549,
+  543, 551, 552).
+
+### How the attachments were made
+
+- Desktop after frames: `/home/user/temp/agent/xyc-after/desktop.mjs`, Safari Technology Preview over WebDriver
+  (unit `xinyanchen-vm-webdriver-stp`, local port 4450) at 1920 by 950 at 1x, anchored to each before frame's heading.
+- Extras: `xyc-after/extras-after.mjs` (the after half of `extras.mjs`), Chromium.
+- Phone frames: the iOS 17.0.1 iPhone 15 Simulator on m1 (the client runs iOS 17.0.2), with
+  `/home/user/temp/agent/f20/sim17-match.mjs` and `sim17-frame.mjs`. `simctl openurl` ignores text fragments
+  (`#:~:text=`), so `f20/inject/server.mjs` (unit `xinyanchen-inject-server`, port 4175, reverse-tunnelled to m1 by
+  unit `xinyanchen-m1-inject-tunnel`) serves the working tree plus `/__frame.js`, which scrolls `?text=` to `?y=`
+  (a file, as the pages' CSP blocks inline scripts) and with `&popover=<id>` opens an enlarged view and reports its
+  size through an image beacon to `inject/reports.log` (the CSP sets `connect-src 'none'`). Framings for iPhone
+  shots 545, 546, 548 and 550 to 552 were set by eye after band matches failed on moved content. Both units are
+  stopped; restart them with `systemd-run --user --unit=<name> --collect --property=MemoryMax=<cap>` around
+  `node /home/user/temp/agent/f20/inject/server.mjs <repo> 4175` and
+  `ssh -N -o BatchMode=yes -o ExitOnForwardFailure=yes -R 127.0.0.1:4175:127.0.0.1:4175 m1`.
+- Pairs: `xyc-after/make-pairs-5cf1620.mjs` (adds the iOS 17 labels and the client's iPhone shots).
+
+### Corrections on record
+
+- `5cf1620`'s message says the old preferences flow crop sat "about 5 px" off the design; it was about 9 px. Corrected
+  in a [commit comment][5cf1620-correction].
+- The untracked `wsf-390.png` in the repo root is not ours to touch.
+
+### Next
+
+The user reviews `05-client-reply-draft.md` and the send set, fills the placeholders and sends the message. When the
+client answers, act on each question as listed in "What the message says" and record the answer in
+`07-what-we-fixed.md`.
+
+[5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
