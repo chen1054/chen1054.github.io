@@ -2478,6 +2478,14 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - m1, 2026-10-20: `podman-machine-default` stopped for the Sonoma VM (user-approved). It was running container
   `snowflake-proxy` (up 47 hours). Restore after the Sonoma runs: `podman machine start`, then
   `podman start snowflake-proxy` if it is not up.
+- Sonoma VM, 2026-10-20: image pulled; `tart clone ... sonoma-14.5`, `tart set --memory 4096 --cpu 2`; a plain
+  `tart run --no-graphics` from SSH started it (no keychain error), guest IP 192.168.64.9. Installing m1's VM key
+  with the image's documented default login was refused by the permission check (security weakening); asked
+  the user. The VM is stopped and podman is restored (a first `podman machine start` printed `Error: EOF` and
+  left the socket refusing; a stop and start fixed it; `snowflake-proxy` came back up by itself).
+- Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
+  picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
+  then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
