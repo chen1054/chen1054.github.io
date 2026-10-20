@@ -2483,6 +2483,8 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   with the image's documented default login was refused by the permission check (security weakening); asked
   the user. The VM is stopped and podman is restored (a first `podman machine start` printed `Error: EOF` and
   left the socket refusing; a stop and start fixed it; `snowflake-proxy` came back up by itself).
+- Decided by the user, 2026-10-20: allow installing m1's VM key into the Sonoma guest with the image's documented
+  default login (then turn password login off in the guest). Home picture positions: "Do whatever looks the best."
 - Queue: review the remaining design findings (MenuMe, Scotties, About, Contact, from `diff-now-*`); the Home
   picture positions (asked); full-width bands at 1920; 2x; the same sweep in Sonoma Safari 17.5 once reachable;
   then update `05-client-reply-draft.md` and `07-what-we-fixed.md`.
