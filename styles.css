@@ -3817,7 +3817,8 @@
             @media(width>=80rem) {
               --u: calc(100cqw / 1086);
               max-inline-size: none;
-              margin-block-end: calc(10 * var(--u));
+              /* A percentage, not --u: this element is the container, so cqw here would read the viewport. */
+              margin-block-end: calc(1000% / 1086);
             }
             &>.flex-row {
               position: relative;
