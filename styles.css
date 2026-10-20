@@ -1223,6 +1223,12 @@
         }
       }
     }
+    /* Breaks only the desktop design draws (Scotties' hero summary and its challenge cloud). */
+    & .desktop-break {
+      @media(width<80rem) {
+        display: none;
+      }
+    }
     & .project-summary {
       flex: 1 1 calc(400rem / 16);
       max-inline-size: calc(540rem / 16);
@@ -1262,12 +1268,6 @@
         }
       }
       /* The designs draw the summary as one block, each entry on a new line with its label bold. */
-      /* Breaks only the desktop design draws (Scotties' "(Desktop & Mobile)" and "Hi-fi Wireframes)"). */
-      & .desktop-break {
-        @media(width<80rem) {
-          display: none;
-        }
-      }
       &>p {
         margin-block: 0;
         @media(width>=80rem) {
@@ -5533,6 +5533,89 @@
         max-inline-size: calc(50% - 2rem / 16);
         aspect-ratio: 319 / 274;
         background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
+      }
+      /*
+        The desktop design (Desktop/Scotties.pdf, on its 1086 px column): the cloud 550 by 447 px from 268 px in,
+        41 under the heading, which sits 143 px under the About copy; the chevrons 188 px wide from 21 px in, 99
+        under the heading's top; the skate 101 px wide, 70 from the column's end, 4 above the cloud's foot. The
+        copy keeps the drawn short-long-short lines (forced breaks), 32 px apart, its first glyph 122 under the
+        cloud's top. Brand Message 122 px under the cloud; its box 449 by 288 px from 318 px in, 105 under the
+        heading, its copy on 327 px (it wraps as drawn from 308 to 347 px in Chromium and Safari); the skater 149
+        px wide, 98 px before and 72 above the box; the splat 318 px wide from 577 px in, 103 below the box; the
+        next band 323 px under the box.
+      */
+      @media(width>=80rem) {
+        .subsection:has(>.scotties-challenge-bubble) {
+          --home-wide-reference-growth: calc(1rem / 16);
+          --u: calc(100cqw / 1086);
+          container-type: inline-size;
+          margin-block-start: calc(115rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &::before {
+            inset-block-start: calc(99 * var(--u));
+            inset-inline-start: calc(21 * var(--u));
+            block-size: calc(63 * var(--u));
+          }
+          &::after {
+            inset-block-end: calc(4 * var(--u));
+            inset-inline-end: calc(70 * var(--u));
+            inline-size: calc(101 * var(--u));
+          }
+          &>.scotties-challenge-bubble {
+            justify-content: start;
+            box-sizing: border-box;
+            inline-size: calc(550 * var(--u));
+            max-inline-size: none;
+            aspect-ratio: 550 / 447;
+            margin-block-start: calc(41 * var(--u));
+            margin-inline: calc(268 * var(--u)) 0;
+            text-wrap: wrap;
+            /* The cloud is its own container, so these are in its 550ths. */
+            &>p {
+              margin-block: calc(117 * 100cqw / 550) 0;
+              margin-inline: calc(65 * 100cqw / 550);
+              line-height: 2;
+            }
+          }
+        }
+        .subsection:has(>.scotties-positioning-note) {
+          --home-wide-reference-growth: calc(1rem / 16);
+          --u: calc(100cqw / 1086);
+          container-type: inline-size;
+          margin-block: calc(122rem / 16) calc(203rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &::before {
+            inset-block-end: calc(-103 * var(--u));
+            inset-inline-start: calc(577 * var(--u));
+            inline-size: calc(318 * var(--u));
+            max-inline-size: none;
+          }
+          &>.scotties-positioning-note {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            inline-size: calc(449 * var(--u));
+            max-inline-size: none;
+            min-block-size: calc(288 * var(--u));
+            margin-block-start: calc(105 * var(--u));
+            margin-inline: calc(318 * var(--u)) 0;
+            padding-block: 0;
+            padding-inline: calc(56 * var(--u));
+            text-wrap: wrap;
+            &>p {
+              margin-block: 0;
+            }
+            &::before {
+              inset-block-start: calc(-72 * var(--u));
+              inset-inline-start: calc(-98 * var(--u));
+              inline-size: calc(149 * var(--u));
+            }
+          }
+        }
       }
       /*
         The tablet design's positioning callout, on its 624 px column: the box 397 by 251 px from 101 px in, its
