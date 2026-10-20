@@ -2583,6 +2583,17 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - Viewer change on iOS 17.0 (Simulator iPhone 15, Safari 17.0, 3x, via `inject/server.mjs` `&popover=`): the Tales
   comic, poster, MenuMe tablet showcase and Jonathan open at their width attributes (1960 by 1202, 794 by 1058, 1183
   by 804, 492 by 616) from the full-resolution files. Inject units stopped again.
+- Youth in Limbo texture: the user, on dropping it: "Bro you can draw file grain texture directly yourself in svg",
+  then "You don't need to keep it procedural, hard-baking it would be fine", then "Be very careful about automated
+  tracing. Drawing yourself is better whenever it makes sense. Last time automated tracing screwed up and only the
+  client found it." A potrace trace of the design texture (`fullres/grain-trace.py`) was rejected on inspection
+  (a square notch in one hole, slashes the design lacks, jagged hole edges). Landed `79365fc`: shapes drawn by
+  `fullres/grain/draw-grain.py` (fixed seed; stains clamped to the bar edges, hole washes cut to the holes by a
+  vector-only clip path; a clamped version left straight inset edges in the holes and an unclipped one made rings
+  and letter-like shapes, both rejected). Statistics within 2 levels of the design texture
+  (`fullres/grain/render-check.py`); photo shown in 4 of 4 scroll trials in Technology Preview, Safari 27 and
+  Safari 17.5; Home boxes unchanged. The reply now says the texture was redrawn instead of offering it back.
+  Sonoma VM stopped again afterwards.
 - Queue: the user's review of the reply; then the Safari docs land; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
