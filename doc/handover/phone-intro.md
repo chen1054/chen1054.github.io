@@ -2317,13 +2317,29 @@ Scotties:
   live). Correction comment on `a5102be`: [a5102be-correction]. The Safari MCP's screenshots come back black; take
   Safari frames over WebDriver on port 4450 (the VM) instead.
 
+### What the new Figma file holds
+
+Diffed against the 2026-10-18 22:43 copy (text dumps `/home/user/temp/agent/f20/fig-191300/texts.json` and
+`/home/user/temp/agent/fig-parse/texts-new-full.json`; canvas listing by
+`/home/user/temp/agent/fig-parse/canvas-children.mjs`):
+- Design changes: Desktop Scotties body copy Bold to Medium (22 nodes), already built (`0f6dfb8`); a duplicate Phone
+  MenuMe frame removed. No other text, size or font change in any frame.
+- New on the Desktop canvas, left of the frames: the heading "10月19日修改意见：" ("Revision notes, 19 October:")
+  above the client's screenshots, named "Screenshot 2026-10-19 at 11.00.20 AM" to "1.49.54 PM" (Retina, 2x), plus
+  two 1920-wide groups. These are the folder's 19 files, so the batch shows the site as of the morning of
+  2026-10-19, before that day's phone, tablet and desktop walks; each item must be checked against the current
+  site before any fix. One shot is on the canvas but not in the folder: 11.00.20, the Tales Key Insights bubbles
+  before `a5102be` (white highlight crossing the outline), already fixed.
+- New on the Phone canvas: the same heading above the 11 iPhone shots of 2026-10-19 (the
+  `../Client screenshots 2026OCT191142/` set) and one more, `WechatIMG110` (13:51), MenuMe Focus Group Key Findings
+  on the phone: the bubble tails differ in shape. It belongs with the bubble-frame item. Extracted to
+  `/home/user/temp/agent/f20/fig-191300/img/`.
+
 ### Queue
 
-1. Diff the new `.fig` against the 2026-10-18 22:43 copy (text dump in unit `xyc-fig-191300-text`, output
-   `/home/user/temp/agent/f20/fig-191300/texts.json`; compare with
-   `/home/user/temp/agent/fig-parse/texts-new-full.json`). If frames changed, re-export the Desktop references
-   before fixing against them.
-2. Tales items, then MenuMe, then Scotties; one commit per fix, each checked at 1920 by 950 in Safari.
+1. Triage: capture the current site at 1920 by 950 in Safari at each item's place, next to the client's shot and
+   the Desktop design crop; mark each item still open or already fixed (with the commit).
+2. Fix the open ones: Tales, then MenuMe, then Scotties; one commit per fix, each checked at 1920 by 950 in Safari.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
