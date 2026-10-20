@@ -2,9 +2,10 @@
 
 ## Latest status
 
-As of 2026-10-20 afternoon a new client batch is in progress: see "Client batch, 2026-10-20" at the end of this
-file (19 annotated screenshots, a new Figma export, the client viewport 1920 by 950). The client reply in "Client
-reply status, 2026-10-20" waits for that batch. The entries in between are a dated log, oldest first; "Current
+As of 2026-10-20 afternoon the client's batch of 2026-10-19 notes is handled (last site commit `a544c71`): see
+"Client batch, 2026-10-20" at the end of this file (19 annotated screenshots, a new Figma export, the client
+viewport 1920 by 950). The client reply in "Client reply status, 2026-10-20", updated for the batch, waits for the
+user. The entries in between are a dated log, oldest first; "Current
 state" describes the work as of the landing animation.
 
 ## Current state
