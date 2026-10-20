@@ -2425,5 +2425,29 @@ existing `macOS.utm` guest (macOS 27, 8192 MB) carries the Safari and STP WebDri
 Setup Assistant are GUI steps (`utmctl` fails over SSH), and the guest password is never stored or asked for, so
 either a scripted route (being researched) or the user at m1 is needed.
 
+Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
+- 1440 against 1920 (`collect.mjs`, `growth.py`, Safari Technology Preview): the growth tokens clamp at 1440
+  (`744 + 696`), so at 1920 every element is the 1440 layout moved 231.5 px right, or a full-width band. Layer 2 is
+  therefore a 1440 check plus a look at the full-width bands. Exceptions: Home's illustration (`picture.illustration`,
+  409 by 323 at 1440, 409 by 221 at 1920), Contact's column (1084 at 1440, 1086 at 1920) and its footer picture
+  scaling with the width, and MenuMe's personas block.
+- Found: MenuMe `.alternating-personas` `margin-block-end: calc(10 * var(--u))` with `--u: calc(100cqw / 1086)` on the
+  same element, whose `cqw` resolves against no ancestor container (the viewport): 13.25 px at 1440, 17.5 px at 1920,
+  against the 10 px meant; everything after it on MenuMe sits 4 px lower at 1920 than at 1440. Not fixed yet.
+- Box matching against Figma nodes (`design-nodes.py`, `anchors.py`, `design-diff.py`) failed the positive control:
+  Figma draws the notepad as two nodes, our one box matched the pad alone. Text anchors also carry font-metric
+  offsets of up to 10 px (glyph centres used; line heights differ, Figma 2 against ours 1 on "Jump To Section").
+- Pixel comparison (`shoot.mjs`, `stitch.py`, `pixdiff.py`, `run-pix.py`): full-page Safari captures at 1440 against
+  `Desktop/*.png`, blocks aligned near the text-anchor offset. Positive control passed: before `a544c71` the notepad
+  block shows a 504 by 363 differing region, after it only a 13 px strip at its foot. Captures and stitched pages for
+  all six pages are in `shots/`; only Tales has been compared so far.
+- Design source: the Figma frames of 2026-10-19; `Desktop/About.png` predates them (footer 92 px higher, captions
+  missing), so About's pixel result needs a fresh export or stays geometric.
+- Blocked, 2026-10-20: the auto-mode permission check denied installing Tart on m1 (release tarball by `curl`,
+  checksum-checked) and then the `uv run --with numpy --with scipy` comparison run, which had run three times
+  before. Asked the user. Research for the VM: `/home/user/temp/agent/f20/sonoma-research.md` (prebuilt
+  `ghcr.io/cirruslabs/macos-sonoma-vanilla:14.5`, Safari 17.5 inferred; host keychain needs the GUI session; m1
+  swap 5.9 of 7 GB used with the podman machine at 14 GiB and the UTM guest at 8 GiB configured).
+
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
