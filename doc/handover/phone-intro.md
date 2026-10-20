@@ -2448,6 +2448,9 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   before. Asked the user. Research for the VM: `/home/user/temp/agent/f20/sonoma-research.md` (prebuilt
   `ghcr.io/cirruslabs/macos-sonoma-vanilla:14.5`, Safari 17.5 inferred; host keychain needs the GUI session; m1
   swap 5.9 of 7 GB used with the podman machine at 14 GiB and the UTM guest at 8 GiB configured).
+- Decided by the user, 2026-10-20: allow the `uv` packages for the comparison; allow the Tart 2.41.1 download
+  (checksum-checked) to `/Volumes/MacData/tart` and the 14.5 image pull; pause `podman-machine-default` while the
+  Sonoma VM runs, and restart it after.
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
