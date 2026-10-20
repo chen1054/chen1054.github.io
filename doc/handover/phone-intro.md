@@ -2191,4 +2191,10 @@ Reply draft rewritten 2026-10-19 in `05-client-reply-draft.md` (backup of the 20
 `/home/user/temp/agent/f20/`): adds the iPhone shots, the walks, the sharper enlarged images, and questions on the
 MenuMe flow order and the Tales phone age labels, plus an optional note on the vaping wording; the contrast finding is
 left out for the user to decide.
+Enlarged views checked on iOS 17.0.1 Safari 17.0 at 3x (Simulator, `sim17-frame-pop.mjs` with `&popover=<id>`;
+the page reports through an image beacon to `inject/reports.log`, since the CSP sets `connect-src 'none'`): the
+MenuMe persona and Scotties wireframe WebPs decode at their old natural sizes, 586 x 748 and 574 x 906, like the
+unchanged PNG control. Trade-off left as is: the task flows serve 3920 px files inline too (fewer bytes, but four
+times the decoded pixels, about 6 megapixels each). The draft's sharper-images claim is scoped to the three
+project pages (Home, About and Contact have no enlarged views).
 Next: the user reviews the draft and sends it; nothing goes out before that.
