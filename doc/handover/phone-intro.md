@@ -2451,6 +2451,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - Decided by the user, 2026-10-20: allow the `uv` packages for the comparison; allow the Tart 2.41.1 download
   (checksum-checked) to `/Volumes/MacData/tart` and the 14.5 image pull; pause `podman-machine-default` while the
   Sonoma VM runs, and restart it after.
+- Tart 2.41.1 installed at `/Volumes/MacData/tart/bin/tart.app` (checksum and notarization checked); the image pull
+  runs in Linux unit `xyc-tart-pull` with `TART_HOME=/Volumes/MacData/tart/home`, log `/Volumes/MacData/tart/pull.log`
+  on m1.
+- `1b85496`: Home's wide project pictures used `#project-artwork-without-blank-export-margins` view fragments in
+  `srcset`; Safari (27 and Technology Preview) draws the whole canvas instead, so every Home picture from 640 px up
+  was small inside its box. The wrong claim at "Safari risks from the audit's section 7" (named-view candidates
+  "render correctly") is superseded. Case-study heroes use the fragment in a plain `src`, which Safari draws
+  correctly (MenuMe pair checked); left as is.
+- Home findings still open: picture positions differ from the design by up to 66 px (ours align each picture to
+  the column's outer edge, `f5fa91e`; the design starts right-hand pictures near x 756 and left-hand ones near 205);
+  Youth in Limbo's frame is empty (the `IMG_0804` question with the client).
+- Tales findings: the stories' note cards are 393, 329 and 457 tall against the design's 327, 430 and 419, from the
+  citation edits (content-driven, expected); the bubbles and hero art sit within a few px.
+- Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
+  `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
+  same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
 
 [a5102be-correction]: https://github.com/chen1054/chen1054.github.io/commit/a5102be978faccf474a31f8b539bd1ad3a4cf7cf#commitcomment-205848188
 [5cf1620-correction]: https://github.com/chen1054/chen1054.github.io/commit/5cf1620e727bda1cd3f6a633d3eef596236d0a09#commitcomment-205734606
