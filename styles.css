@@ -1918,6 +1918,42 @@
           margin-block-end: calc(69rem / 16);
         }
       }
+      /*
+        Desktop Scotties: the first heading 218 px under the band's top, the moodboard 64 under the copy's last
+        glyph top; Typography 130 under it, its panel 1082 px wide from 2 px into the 1086 px column and 102 under
+        the heading's glyph top; Brand Identity 126 under the panel, its copy 72 under the heading; the logo from
+        217 px in, 62 under the copy's last glyph top and 183 above the next band's heading.
+      */
+      @media(width>=80rem) {
+        &>.content>:where(#scotties-visual-strategy)>.section-content {
+          padding-block-start: calc(125rem / 16);
+          &>figure {
+            margin-block-start: calc(37rem / 16);
+          }
+          &>.subsection:has(img[src*="type-specimens"]) {
+            margin-block-start: calc(129rem / 16);
+            &>h3 {
+              margin-block-end: 0;
+            }
+            &>figure {
+              inline-size: calc(108200% / 1086);
+              max-inline-size: none;
+              margin-block-start: calc(71rem / 16);
+              margin-inline: calc(200% / 1086) auto;
+            }
+          }
+          &>.subsection:has(.wordmark) {
+            margin-block-start: calc(126rem / 16);
+            &>h3 {
+              margin-block-end: calc(36rem / 16);
+            }
+            &>.wordmark {
+              margin-block: calc(35rem / 16) calc(11rem / 16);
+              margin-inline: calc(21700% / 1086) auto;
+            }
+          }
+        }
+      }
       /* The phone design sets the Scotties column 20 px from each edge (Phone/Scotties.png), where the others use 34. */
       @media(width<40rem) {
         &>.content .section-content {
@@ -5415,10 +5451,10 @@
           inline-size: calc(100% - 120rem / 16 - 234 * var(--home-wide-reference-growth));
         }
       }
-      /* The logo as the designs place it: 291, 450 and 645 px wide. */
+      /* The logo as the designs place it: 291, 450 and 635 px wide (its drawing's box; the ink is 645 at 1440). */
       & .wordmark {
         max-inline-size: calc(
-          291rem / 16 + 159 * var(--phone-tablet-reference-growth) + 195 * var(--home-wide-reference-growth)
+          291rem / 16 + 159 * var(--phone-tablet-reference-growth) + 185 * var(--home-wide-reference-growth)
         );
       }
       &>.content>.project-divider {
