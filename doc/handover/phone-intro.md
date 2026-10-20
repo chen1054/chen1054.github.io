@@ -2363,7 +2363,12 @@ Open:
 - m4: `579dabf`, each prototype button centred under its device at every width (centres equal at 744, 1440, 1920
   in Chromium; checked in Safari at 1920 by 950). A first try with `min-inline-size: max-content` overrode the
   desktop's 250 px pill minimum (`.prototype-link` base rule); `white-space: nowrap` keeps one line instead.
+- m4 in Safari at a 744 layout width (`/home/user/temp/agent/f20/triage/m4-stp.mjs`, window widened by the 17 px
+  classic scrollbar): centres equal, both labels on one line; the 209 px phone button overhangs its 152 px column,
+  its left edge 28 px into the page gutter and 37 px from the window edge.
 - m2: already fixed on the phone too (`ba596be`); the three bubbles share one shape and match `Phone/MenuMe.png`.
+  Confirmed in the iOS 17.0.1 Simulator's Safari (`/home/user/temp/agent/f20/sim17/batch-m2-a.png`, `-b.png`; inject
+  server and tunnel units started for it and stopped after).
 - Notepad residual: `a544c71`, the pad 506 px at full growth (from 482), copy margins and top offset adjusted so its
   left edge, 353 px measure, breaks and first line stay; a negative block-end margin keeps everything after it in
   place. Drawn outline and sheet within 3 px of the design; Safari at 1920 checked. The whole Challenge group still
