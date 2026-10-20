@@ -2180,4 +2180,15 @@ frames for the client's shots 542 to 552 come from `/home/user/temp/agent/f20/si
 `?y=`; a file because the pages' CSP blocks inline scripts) and `xinyanchen-m1-inject-tunnel`, then a band from the
 client's shot is matched in the capture and the frame retaken with the shift. `simctl openurl` ignores text
 fragments (`#:~:text=`), which is why the script exists.
-Next: compose the iPhone pairs and recapture the desktop key pairs, then rewrite `05-client-reply-draft.md`.
+Attachments done (2026-10-19 22:00): `evidence/after-5cf1620/` (desktop frames from `xyc-after/desktop.mjs` in Safari
+Technology Preview, extras from `extras-after.mjs`, WeChat and the client's iPhone shots from `sim17-match.mjs` and
+`sim17-frame.mjs`; framings for 545, 546, 548, 550 to 552 set by eye after band matches failed on moved content),
+pairs from `xyc-after/make-pairs-5cf1620.mjs` in `evidence/pairs-5cf1620/` (77 pairs), and the 16-image send set
+`evidence/send-5cf1620/` with `captions.md`; every send pair checked by eye. The capture units are stopped;
+restart with `systemd-run --user --unit=xinyanchen-inject-server ... node .../f20/inject/server.mjs <repo> 4175` and
+`--unit=xinyanchen-m1-inject-tunnel ... ssh -N -R 127.0.0.1:4175:127.0.0.1:4175 m1`.
+Reply draft rewritten 2026-10-19 in `05-client-reply-draft.md` (backup of the 2026-10-18 one in
+`/home/user/temp/agent/f20/`): adds the iPhone shots, the walks, the sharper enlarged images, and questions on the
+MenuMe flow order and the Tales phone age labels, plus an optional note on the vaping wording; the contrast finding is
+left out for the user to decide.
+Next: the user reviews the draft and sends it; nothing goes out before that.
