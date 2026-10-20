@@ -2147,17 +2147,30 @@ sends it). Client note updated 2026-10-19 with the tablet and desktop walks, the
 question (local file, not in the repo).
 Next: the 2x artwork refresh, then the reply draft.
 
-2x artwork, landed: `cb2c319` Scotties lo-fi wireframes (recomposed from Desktop/Scotties.pdf's 1440 px sources in the
-1 pt frame), `c77779f` Tales poster (from the 3072 px design poster), `70ba00c` MenuMe personas (framed regions of
-Desktop/MenuMe.pdf rendered at 2x with the page's white fill removed from a scratch copy and `/Interpolate` set on
-the 362 px frame image and its soft mask, which otherwise upscale stair-stepped). Pattern: lossless WebP (lossy
-smooths photographs), `srcset="<file> <px>w"` plus `sizes="<old CSS width>px"` so the natural size stays the old
-one on every screen (a `2x` descriptor alone lets `src` act as the 1x candidate on 1x screens), and the enlarged
-view's natural-size rule covers `.webp`. Inline boxes, enlarged sizes and page heights checked against live.
-Findings: at 1440 on the 2x MacBook most inline images already had about 2x; the softness is in the enlarged views
-(one file pixel per CSS pixel) and on the 3x iPhone. Scotties personas cannot improve (the design's sources are
-smaller than or close to ours); Tales personas' design sources are smaller than ours; the MenuMe "3840 x 2160"
-is a brand collage, not the device showcase. Tools in `/home/user/temp/agent/f20/hidpi/`: `match.py`,
-`region-match.py` (design placement whose render matches an asset), `compose-frame.py`, `build2.py`, `locate.py`.
-Running: unit `hidpi-region-match` matches the 29 remaining PNG assets (`hidpi/matches.txt`, ends with DONE).
-Next: swap each asset whose matched source is larger, then the client reply draft.
+2x artwork. Rule: the enlarged view (a lazy `<img>` in a closed popover, fetched only on open; checked by
+resource timing in Safari Technology Preview and Chromium) always gets a 2x lossless WebP; the inline `<img>` moves
+to it too only when the WebP is no heavier than the old PNG, since inline the old files already give about one file
+pixel per device pixel on every target screen (a MenuMe persona shows at 191.5 CSS px on a 3x iPhone, 575 device
+px, from a 586 px file). Lossless because lossy WebP subsamples chroma, which softens photographs. Each WebP
+`<img>` has `srcset="<file> <px>w"` plus `sizes="<old CSS width>px"`, so its natural size stays the old one on every
+screen (a `2x` descriptor alone lets `src` act as the 1x candidate on 1x screens), and the enlarged view's
+natural-size rule covers `.webp`. Verified per commit: page heights, inline boxes and enlarged sizes at 393, 744
+and 1440 against live in Chromium (the check fires on a pattern only local files match), plus natural sizes and
+`currentSrc` in the Safari page-tall iframe.
+Landed, both views (WebP no heavier): `cb2c319` Scotties lo-fi wireframes (1440 px sources in the 1 pt frame),
+`c77779f` Tales poster (from the 3072 px design poster).
+Landed, enlarged view only: `70ba00c` + `f08dac8`, then `08b132b` restoring their inline PNGs byte for byte (MenuMe
+personas and personalization screens); `022b877` MenuMe moodboard (3840 px source); `bd800fa` Scotties moodboard
+(design box with its frame); `4203646` MenuMe tablet showcase; `f63ce31` Tales hub laptop and phone, browser editor
+tablet, Instagram phone.
+How: `region-match.py` finds the design box whose render matches an asset; `fit.py` renders a padded box,
+locates the asset in it (`locate.py`) and renders the exact box at 2x; `render-region.py` removes the page's
+white fill from a scratch copy and sets `/Interpolate` on images and soft masks (low-resolution frames otherwise
+upscale stair-stepped); `swap.py` applies the rule; `verify.py` runs the Chromium check. All in
+`/home/user/temp/agent/f20/hidpi/`. Registration against the old files is within a pixel or two.
+No gain, left as is: Scotties personas and Tales personas (design sources no larger), MenuMe mobile showcase
+(sources 1.80 and 2.22 px per point against 1.94), Tales parent stories (2.26 against 2.0), Tales Facebook ad
+(1.17x), MenuMe weekly specials screens and the Scotties hi-fi homepage (already the full source).
+Running: unit `hidpi-refine-flows` refines the crops of the three MenuMe task flows in their 4096 px sources
+(scales 0.52 to 0.56, so about 1.8 to 1.9x our detail; results in `hidpi/loc-*/refine.txt`, `refine-done.txt`).
+Next: swap the three task flows (enlarged only if heavier), then the client reply draft.
