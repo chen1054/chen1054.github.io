@@ -2345,7 +2345,8 @@ sheets `sheet-<id>.png`).
 Already matching the design, nothing to do: Tales challenge figure (t1), persona text under the photos (t2),
 citation card on the comic's edges (t3); MenuMe Inspiration with the question mark whole (m1), moodboard on the text
 column (m3), Dual-Loop with the bulb's base showing (m5), both flows (m6, m7), Key Learnings (m8); Scotties cards
-(s1; the quote now sits about 127 px under the cards against about 139 in the design, about 65 in the client's shot),
+(s1; the quote's box 118 px under the lower card, the design's 118 from its nodes, 12630 to 12748, and our boxes
+within 3 px of those; card edge to first ink 130 px now, 81 in the client's shot),
 emotional pillars (s2), sitemap (s3), lo-fi and hi-fi sections with their arrows (s4 to s7).
 Open:
 - m4, MenuMe showcase buttons. The Desktop and Tablet designs pair both buttons in the middle; the Phone design
@@ -2371,9 +2372,9 @@ Open:
   it, likely a slip in the file.
 - Client files updated (local): `05-client-reply-draft.md` gained a section on these notes in both languages (no
   attachments) and now names the 1920-wide screen instead of the MacBook Air for desktop; `07-what-we-fixed.md`
-  gained the batch's evidence and the same correction. Backups:
-  `/home/user/temp/agent/f20/07-what-we-fixed.before-2026-10-20-batch.md` (the draft's pre-batch text is the
-  2026-10-19 backup named in "Client reply status").
+  gained the batch's evidence and the same correction. Backup of the evidence file:
+  `/home/user/temp/agent/f20/07-what-we-fixed.before-2026-10-20-batch.md`. No pre-batch copy of the draft exists;
+  the batch added only the new section, the note at its top and the two viewport phrases.
 
 ### Next
 
