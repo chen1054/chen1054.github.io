@@ -2580,6 +2580,9 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
 - Reply range corrected: About photos 3.8 to 6 times as many pixels across (beach 1975/516 to skating 3072/516).
 - Safari troubleshooting docs (the `#view` fragment in `srcset`, the Technology Preview clipped raster): a background
   agent is writing them in the Monochromatic repo.
+- Viewer change on iOS 17.0 (Simulator iPhone 15, Safari 17.0, 3x, via `inject/server.mjs` `&popover=`): the Tales
+  comic, poster, MenuMe tablet showcase and Jonathan open at their width attributes (1960 by 1202, 794 by 1058, 1183
+  by 804, 492 by 616) from the full-resolution files. Inject units stopped again.
 - Queue: the user's review of the reply; then the Safari docs land; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
