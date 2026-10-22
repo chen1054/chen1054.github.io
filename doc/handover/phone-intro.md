@@ -3394,6 +3394,11 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   all six pages): load leaves focus on BODY at 1440 and 390; open focuses the nav, nav and close button outline
   none. Screenshots (`eye/menu-focus-safari/<page>-open.png`) looked at: no box on the panel or the close button.
   The close button draws the same three bars as the open button (the supplied artwork), not an X.
+  iOS 17.0.1 Simulator (iPhone 15, 393 wide, working tree at `261969d` through `inject/server.mjs` on 4185,
+  `menu-sim.ts iphone17-focus`): the menu opens through `showPopover()`, which fires the same `toggle` handler a
+  tap does, not a real tap (m1 has no tap tool: no `idb`, `cliclick` or Appium). All six screenshots
+  (`eye/menu-iphone17-focus/<page>.png`) looked at: no box on the panel or the button. Keyboard order (Tab,
+  Escape) was checked in Chromium only.
 - Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
   two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
   known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
