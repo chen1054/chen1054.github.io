@@ -3361,15 +3361,12 @@
             line-height: round(nearest, 1.5em, 1px);
           }
           /*
-            Tablet Tales wraps every card's copy at about 148 px, the first card's too, and breaks each title after
-            its first word, where the titles' balanced breaks fall.
+            Tablet Tales wraps every card's copy at about 148 px, the first card's too. It also breaks each title
+            after its first word, which the page writes as a tablet-only break.
           */
           @media(width>=40rem) and (width<80rem) {
             &:first-child>p {
               padding-inline-end: calc(var(--tip) + 17rem / 16 - 17 * var(--home-wide-reference-growth));
-            }
-            &>h4 {
-              text-wrap: balance;
             }
           }
           &:nth-child(1) {
