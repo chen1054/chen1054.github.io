@@ -2648,10 +2648,21 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   user then: "You may disable podman's keepalive." Disabled (`launchctl bootout` and `launchctl disable`
   `gui/501/cat.aquati.podman-keepalive`) and podman stopped while the Sonoma VM runs; re-enable it and start podman
   when the VM stops. Guest tunnel on m1 (nohup) and Linux unit `xyc-sonoma-tunnel` up.
-- Queue (2026-10-22), from the user: replace the drawn Tales Key Insights speech bubbles (play and trust) with the
-  client's bubble SVGs, organizing the files into `assets/` ("Client said the bubbles we drew were still bad");
-  then the client's ask that "phone demo and desktop demo of a page of OPH's site should both be GIF", using
-  `phone_demo.gif` and `desktop_demo.gif`.
+- Bubbles, the user: "Client said the bubbles we drew were still bad, so I got client to upload these to github.
+  Feel free to organize them." Landed `4a1471a`: the client's files renamed into `assets/`
+  (`tales-{play,trust}-insight-speech-bubble-{outline,fill}.svg`; the "from ppt" pair kept unused as
+  `tales-insight-speech-bubble-{outline,fill}-powerpoint-original.svg`); ours removed. Fill in `::before`, outline in
+  `::after`, placed in the unchanged bubble boxes where Desktop Tales draws them (`f20/bubbles/align.py` slid each
+  file over the design PDF at 4x: overlap fills 0.92, outlines 0.85 and 0.75; page 10.5 px below the design at
+  1440). Chromium: boxes identical at 390, 744, 1440, no sideways scroll; art within 2 px of the design except where
+  the client's files differ (trust tail tips shorter by 8.5 and 19 px, play fill's feathered edge 4.5 px). Safari
+  17.5 at 1440 and 744 (live) draws the same. The Phone design uses the same shapes and offsets.
+- OPH demo GIFs, the client via the user: "phone demo and desktop demo of a page of OPH's site should both be GIF".
+  Measured: `desktop_demo.gif` (2876 by 1918, 145 frames, 80 ms) has the laptop mockup's screen ratio exactly
+  (screen 355 to 3314 by 68 to about 2041 in `tales-oph-resource-hub-laptop.webp`: 1.4995 both); `phone_demo.gif`
+  (710 by 1580, 265 frames, 70 ms) has its own rounded screen and camera dot, ratio 0.4499 against the phone
+  mockup's screen at about 0.472. Asked the user (sheet `f20/gif/gif-options.png`): A, desktop GIF on the laptop
+  screen and phone GIF as supplied (recommended); B, both as supplied. Not built yet.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
