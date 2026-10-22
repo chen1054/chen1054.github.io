@@ -2980,7 +2980,17 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     `run-sim-after.mjs`, `simgeo-after/`): `round()` applies on iOS 17.0. Tales 19928 px in Safari and Chromium
     (was 19744 against 19934); About, Contact, Home identical; MenuMe 1 px; Scotties 2 px in two paragraphs of
     `section:7` (left as is).
-  - Desktop Safari 17.5 against Chromium after the deploy: `run-desktop-after.mjs` into `geo-after/` (running).
+  - Desktop Safari 17.5 against Chromium on the live site after the deploy (`run-desktop-after.mjs`,
+    `geo-after/`, log `run-desktop-after.log`), page heights at 744, 790, 1024, 1280, 1440, 1920:
+    - About, Contact, Home, Tales (except 1280): equal at every width.
+    - MenuMe 744, 790, 1440, 1920: within 1 px. Scotties 744, 1440, 1920: equal.
+    - Still different, from the scrollbar breakpoint shift the user kept: MenuMe 1024 (81 px, its sitemap tree)
+      and 1280 (438), Scotties 1024 and 1280 (about 1000), Tales 1280 (635).
+    - Scotties 790: header `p:2` one line longer in Safari (28 px); Scotties 1440: `section:9` `div:4>p:1` one line
+      longer, page height equal. Both were there before `64d6dbc` (27.75 and 22.75 px), so they are text-width
+      wraps, not line height; left as is.
+    - Home's project-text spans still measure as two-line boxes in Safari; same wraps on screen (screenshots).
+    - Before the change, the same widths differed by 25 to 95 px on most pages.
 - Client reply drafted (the user chose "Draft client reply"):
   `../Client screenshots 2026OCT220120/reply-draft.md`, Chinese with an English reference. It covers CF72 to
   CF111, the bubbles, the GIFs and our own fixes. It says to send or merge the 2026-10-20 draft first if that
