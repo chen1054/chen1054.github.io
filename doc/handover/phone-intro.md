@@ -2963,8 +2963,11 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   - On Home, a span inside the project text measures differently; screenshots at 1440 show the same line breaks
     in both (`pairs/index-1440-s7-*.png`).
 - 744 and 1920 match almost exactly because the fluid sizes clamp to whole values there.
-- No change made. Rounding line heights in CSS would change Chromium and every page's wraps for at most 1 px per
-  line in Safari.
+- The user chose "Round line heights" (over leaving both; breakpoints stay as they are): Safari and Chrome should
+  agree to the pixel. In progress: each `line-height` that can come out fractional becomes
+  `round(nearest, ..., 1px)`. A unitless factor (`2`, `1.5`) would then inherit as a length, so a before/after
+  Chromium check flags any element whose line height moves by more than 0.5 px. Next after that: draft the client
+  reply (the user chose "Draft client reply"; a local file the user sends).
 
 ### Not ours
 
