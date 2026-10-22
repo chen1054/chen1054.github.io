@@ -239,7 +239,8 @@
       inline-size: max-content;
       block-size: auto;
       padding-block: 0;
-      font-size: calc(14rem / 16 + 11 * var(--home-wide-reference-growth));
+      /* The client: "Change the font size of nav to 22 for desktops" (the designs drew 25 at 1440). */
+      font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
       line-height: calc(20rem / 16 + 14 * var(--home-wide-reference-growth));
       overflow: visible;
     }
