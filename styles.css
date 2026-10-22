@@ -3701,12 +3701,12 @@
               background: url("assets/menume-inspiration-orange-squiggle.svg") center / contain no-repeat;
             }
             /*
-              The forced breaks give each design's own last lines only near its width (Chromium sweep 640 to 1920 by
-              10): the tablet's from 740 to 912 px, the desktop's from 1360. Elsewhere they leave a short line ("a
-              daily source of" at 710 to 730 and from 916, "of stress into an" at 1280 to 1350), so there the copy
-              wraps freely in a gutter as wide as the pot, and no line reaches it.
+              The forced breaks give each design's own last lines only near its width (sweeps 640 to 1920, Chromium
+              by 10 and Safari 17.5 by 5): the tablet's from 740 to 912 px, the desktop's from 1390 (Safari; 1360 in
+              Chromium). Elsewhere they leave a short line ("a daily source of" at 710 to 730 and from 916, "into
+              an" up to 1385), so there the copy wraps freely in a gutter as wide as the pot, and no line reaches it.
             */
-            @media(width>=40rem) and (width<46.25rem), (width>=56rem) and (width<85rem) {
+            @media(width>=40rem) and (width<46.25rem), (width>=56rem) and (width<87rem) {
               padding-inline-end: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16);
               &>p :is(.phone-break, .tablet-break, .desktop-break) {
                 display: none;
