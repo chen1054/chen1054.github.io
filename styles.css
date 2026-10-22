@@ -2548,6 +2548,12 @@
         show it as text under the trail.
       */
       & figure:has(img[src*="tales-age-tier-progression"]) {
+        /*
+          The client: the footnote and the next paragraph "属于不同的部分，间距需要增加" (belong to different parts; the
+          gap must grow), on phones and tablets. Desktop Tales sets its footnote 94 px above the paragraph's glyph tops
+          at 20 px text; 56 px here gives about 76 px at the phone's 16 px text and 69 at the tablet's 14.
+        */
+        margin-block-end: calc(56rem / 16);
         &>figcaption {
           margin-block-start: 1rem;
           font-size: calc(13rem / 16);
