@@ -2759,6 +2759,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     Cart. `fc4f178` wraps `::after` in the query instead, there and for the Core Challenge skate (its phone place
     had never applied on iOS 17). `f20/batch-phone/scan-pseudo-media.mjs styles.css` lists any query nested in a
     pseudo-element; now none (the previous HEAD: those two). Never nest a query inside a pseudo-element rule.
+  - The user, 2026-10-22: "for the GIF, we still need the phone frame too." `a926b8e`: the Tales OPH phone
+    recording plays inside the designs' phone mockup again. The frame
+    (`assets/tales-oph-resource-hub-phone-frame.webp`, 1158 by 2421) is the old mockup with its screen cut out,
+    lengthened 90 px between the side buttons (rows 1330 to 1930 resampled vertically to 690 rows; repeating rows
+    left a step in the rim's light gradient), because the recording (710 by 1580) is taller than the mockup's
+    screen. Built by `f20/phone-frame/build-frame.py`; the recording sits under it, clipped to the screen's 132 px
+    corners. Chromium at 390, 744, 1440: recording on the opening within 0.01 px, reduced motion shows the first
+    frame. The commit message understates the height change (correction comment on the commit: about +8.9 px at
+    390, +6.8 at 744, +11.1 at 1440).
+  - Found while diffing styles (not from the client), in progress: every `<source media="(width>=40rem)">` on all
+    six pages (45 of them; tablet and phone sources on Tales and Scotties already had sizes) lacks `width` and
+    `height`, so at 744 and wider the browser reserves 0 px for those pictures until each file arrives (Home's
+    project pictures measured 0 px tall before load, 289 to 353 px after), and the page jumps as they load. The
+    user asked: "are we not doing placeholders correctly?" Fix: give each source its file's size
+    (`f20/batch-phone/py/source-dims.py`); check with `f20/batch-phone/probe-placeholder.mjs` (a proxy holds image
+    responses so pictures are measured while pending) and `style-diff.mjs` for the loaded layout.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
