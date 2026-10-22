@@ -1340,6 +1340,11 @@
       /* The designs draw the summary as one block, each entry on a new line with its label bold. */
       &>p {
         margin-block: 0;
+        /* All three Phone designs set the summary at 15 px on a 30 px pitch, whatever their body size. */
+        @media(width<40rem) {
+          font-size: calc(15rem / 16);
+          line-height: calc(30rem / 16);
+        }
         @media(width>=80rem) {
           position: relative;
           padding-inline-start: var(--summary-bullet-indent, 0px);
