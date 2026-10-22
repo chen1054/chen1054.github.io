@@ -2673,7 +2673,22 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   px at 1440, 3.1 at 390, 0 at 744 where the laptop is taller); no sideways scroll, no console errors; a first
   phone-width rule (`button:not([popover]) img`) also caught the viewer's button (opened 1257 wide) and was
   narrowed to `>button img` before the commit. The recordings' see-through sticky header is in the client's
-  files. Safari check: running. Single GIF frames from ImageMagick are deltas (blank); use ffmpeg.
+  files. Safari 17.5 at 1920 (live, `f20/gif/safari-demo.mjs`): identical boxes to Chromium, both viewers at
+  1223 and 353, both GIFs decoded at full size, 91278 device pixels changed between screenshots 1.5 s apart
+  (animating). Single GIF frames from ImageMagick are deltas (blank); use ffmpeg.
+- New client batch, 2026-10-22, folder `Client screenshots 2026OCT220120/` (the user pointed at its
+  `first seen on desktop`), each item a screenshot named with the client's words:
+  - Desktop: CF101 "button的变色(的时候）为背景是紫色，文字是黄色。" (Tales Launch Doodle Demo hover: purple
+    background, yellow text); CF102 and CF103 "虚线出现了两次，箭头不见了" (MenuMe orange squiggles: the line
+    appears twice, the arrow is missing); CF105 and CF106 "两个button变色（的时候）：文字与背景的颜色调换" (Scotties
+    prototype buttons hover: swap text and background colours); CF107 and CF108 "线框的箭头超出了范围" (Scotties
+    wireframe annotation arrows go out of range); CF109 "Change the font size of nav to 22 for desktops"; CF110
+    "这个button变色的颜色改为与上面Xinyan Chen一样的黄色。" (Home More About Me hover: the Xinyan Chen yellow).
+  - Phone: CF72 (Health / To paragraphs need more gap, phone and tablet), CF74 (text outside its box), CF75 (box
+    too close to the headings; follow the design), CF77 (graphic directly under the sitemap, centred), CF78
+    (gap to increase), CF82 (an extra green arrow), CF85 (left margin for the box), CF86 (centre it all), CF87
+    (centre the light bulb), CF90 (the flower appears at 0.3 s). Tablet: CF93 (sitemap text the size of body text).
+  - Queue: the desktop items first (CF109, the hover colours, CF102/103, CF107/108), then phone and tablet.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
