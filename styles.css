@@ -421,9 +421,9 @@
       }
     }
     & .about-link {
-      /* The one purple pill; the client asked for it to hover to the river gold. */
+      /* The one purple pill; the client: "这个button变色的颜色改为与上面Xinyan Chen一样的黄色。" (hover to the name's gold). */
       --pill-color: var(--color-portfolio-purple);
-      --pill-hover-color: var(--color-river-gold);
+      --pill-hover-color: var(--color-heading-and-case-study-gold);
       margin-block-start: calc(40rem / 16);
       @media(width>=40rem) {
         margin-block-start: calc(47rem / 16 + 41 * var(--home-wide-reference-growth));
