@@ -1894,6 +1894,31 @@
         display: none;
       }
     }
+    /*
+      The Tales phone: the client's recording plays under the phone frame, whose screen is see-through (1056 by 2348 px
+      from 50, 27 in the 1158 by 2421 frame), clipped to the screen's 132 px corners so the recording's square corners
+      stay inside the bezel. The frame is the designs' phone mockup, lengthened between its side buttons to the
+      recording's taller shape. With reduced motion the recording's first frame shows, as the frame has no screen.
+    */
+    & :is(.zoomable-artwork, .enlarged-artwork) .device-with-screen-recording>picture.screen-recording {
+      position: absolute;
+      inset-block-start: calc(27 / 2421 * 100%);
+      inset-inline-start: calc(50 / 1158 * 100%);
+      inline-size: calc(1056 / 1158 * 100%);
+      block-size: calc(2348 / 2421 * 100%);
+      overflow: hidden;
+      border-radius: calc(132 / 1056 * 100%) / calc(132 / 2348 * 100%);
+      &>img {
+        inline-size: 100%;
+        block-size: 100%;
+        margin: 0;
+        object-fit: cover;
+      }
+    }
+    /* Positioned so it paints over the recording before it. */
+    & .device-with-screen-recording>img.device-frame {
+      position: relative;
+    }
     & .prototype-link {
       display: flex;
       justify-content: center;
@@ -2524,14 +2549,6 @@
         }
         &>:last-child {
           --device-inline-size: calc(155rem / 16 - 36 * var(--phone-tablet-reference-growth) + 74 * var(--home-wide-reference-growth));
-          /*
-            The client's phone recording is the phone's screen alone: it takes the width and place the designs' phone
-            mockup gives its screen (1058 of 1158 px, from 49 px in).
-          */
-          &>button img {
-            inline-size: calc(1058 / 1158 * 100%);
-            margin-inline-start: calc(49 / 1158 * 100%);
-          }
         }
         @media(width>=40rem) {
           column-gap: calc(36rem / 16 + 41 * var(--home-wide-reference-growth));
