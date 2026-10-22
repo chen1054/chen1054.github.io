@@ -84,11 +84,11 @@
     /* The widest content column, shared by every page's text and card measure. */
     --content-column-max-inline-size: calc(1086rem / 16);
     /*
-      The river keeps its drawn shape and size (the user: "the river should never be stretched", "The river should
-      never be bigger than its designed size."), so it is centred on windows wider than its 1440 drawing; every
-      page's navigation lines up with it.
+      The river keeps its drawn shape (the user: "the river should never be stretched") and grows with the window
+      until it covers a 1080p screen (the client: stretch the river and footer patterns "to at least cover 1080p";
+      the user chose even growth), then is centred; every page's navigation lines up with it.
     */
-    --river-max-inline-size: calc(1440rem / 16);
+    --river-max-inline-size: calc(1920rem / 16);
     --color-page-background: #fff;
     --color-portfolio-purple: #685587;
     --color-body-text-purple: #463267;
@@ -766,7 +766,8 @@
       }
     }
     & .portrait-wave {
-      max-inline-size: var(--river-max-inline-size);
+      /* A cut river that never spans the window (the user, 2026-10-22), so it stays at its 1440 drawing. */
+      max-inline-size: calc(1440rem / 16);
       margin-block-start: calc(19rem / 16);
       margin-inline: auto;
       &>.portrait {

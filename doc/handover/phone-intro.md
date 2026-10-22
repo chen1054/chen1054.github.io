@@ -3361,6 +3361,12 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   superseded; unit `xinyanchen-safari-cf112b` (`safari-cf112b.ts`, logs `cf112b-safari-<page>.log`, checked by
   `cf112-check.ts`, now expecting the max rule) re-runs Home and About once the deploy is live. Expect the
   logo at 232.5 at the 1920 window (1905 layout).
+- The user, relaying the client: "Client said to stretch the river and footer patterns to at least cover 1080p."
+  Asked how; the user chose "Grow evenly (Recommended)": keep the drawn shape, grow to 1920 wide, centre only
+  beyond 1920. Supersedes "never bigger than its designed size" for windows up to 1920. In progress:
+  `--river-max-inline-size` 1440 to 1920 (Home's river and every footer share it; the logo rule follows). The
+  user then: "For About: The cut river on About is never meant to cover the entire width anyway." So About's
+  `.portrait-wave` keeps its own 1440 cap (as before CF112) and its photo composition is unchanged.
 - iPhone 15 (iOS 17.0.1) Scotties after-capture reviewed (`simtriples/iphone17-after-scotties-*.png`): fine. One
   callout breaks "divisions / —Skateboarding," where all three Phone frames break "divisions— / Skateboarding,".
   Left as is with the Scotties "—from" line: the designs themselves start three lines with an em dash
