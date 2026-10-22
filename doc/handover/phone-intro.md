@@ -3354,6 +3354,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
 - Safari 17.5 (live, after `4b5101e`; `cf112-check.ts`): Home 161 of 161 widths 640 to 1920 every 8 match (river
   ratio, river left max(0, (cw - 1440) / 2), nav 35 + 35 growth + river left); About and Scotties all wide
   widths match. At the 1920 window (1905 layout) both rivers start at 232.5 and the nav at 302.5.
+- iPhone 15 (iOS 17.0.1) Scotties after-capture reviewed (`simtriples/iphone17-after-scotties-*.png`): fine. One
+  callout breaks "divisions / —Skateboarding," where all three Phone frames break "divisions— / Skateboarding,".
+  Left as is with the Scotties "—from" line: the designs themselves start three lines with an em dash
+  (`fig-lines.json`: 3 start, 19 end, 40 mid-line), and body copy breaks are not matched elsewhere either.
 - In flight: unit `xinyanchen-safari-cf112` (Tales impact titles 390 to 1440 every 1, `impact-safari-3.log`),
   then unit `xinyanchen-safari-waves` (`safari-waves.ts`, `waves-probe.js`, all six pages 640 to 1920 every 16,
   `waves-safari-<page>.log`).
