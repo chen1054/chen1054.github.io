@@ -3328,8 +3328,23 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   left end is the window's left edge.
 - Reading: the navigation's left edge is the design padding (35 at 744 growing to 70 at 1440) plus the river's
   left offset, which is zero while the river covers the window and half the uncovered width once it is centred.
-- Safari check of the river's first painted column and the fix: in progress; ultrawide captures in
-  `f20/eye/ultrawide-before/` (`ultrawide.ts`).
+- The user, during the fix: "at 1920 the river is stretched about 33% beyond its design ratio - no the river
+  should never be stretched." Then: "The river should never be bigger than its designed size."
+- Landed `4b5101e`: `--river-max-inline-size` (1440, on `:root`); Home's `.intro-wave` and About's
+  `.portrait-wave` keep their drawings' ratio (`aspect-ratio` 1440/495 and 1440/690 instead of fixed heights),
+  cap at that width and centre; the navigation's `inset-inline-start` adds `max(0, (100cqw - cap) / 2)`.
+  Chromium (`nav-geom.ts`, all six pages, 640 to 3440): rivers keep the ratio at every width (Home 744 by
+  255.75, was 261; About 744 by 356.5, was 370); at 1440 river boxes and page heights unchanged; above 1440 the
+  river is centred (left 240 at 1920, 1000 at 3440) and the navigation sits 70 right of it (310, 1070) on every
+  page. So at 1920 the navigation stays where it was and the river now starts 240 in, with straight cut ends.
+  Captures: `f20/eye/ultrawide-before/`, `ultrawide-after-1440/` (with `index-1920-fade.png`, a trial
+  160 px fade on both ends set through CSSOM: the page's CSP drops injected `<style>` elements).
+- Open, asked of the user: straight cut ends versus a fade at 1920 and wider; and the footer waves, which break
+  the same rules (`footer-geom.ts`): Home and About footers stretch (5.333 at 1920 against the drawing's 4),
+  Contact's grows past its drawing (3440 by 860), case-study footers squeeze at 744 (4.088 against 4.571) and
+  stretch at 1920 (6.095).
+- Safari 17.5 run in flight: unit `xinyanchen-safari-cf112` (`safari-cf112.ts`): nav and river on Home and About
+  640 to 1920 every 8, Scotties nav, then Tales impact titles 390 to 1440 every 1 (`impact-safari-3.log`).
 - Also: the Safari 1 px impact sweep (`impact-safari-2.log`) ran against the deploy before `c28a368`, so its
   mixed phone title lines are the case `c28a368` fixes; re-check in Safari after the next deploy (expect two
   lines per title from 390 to 1279).
