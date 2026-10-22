@@ -2758,9 +2758,33 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       10.26 to 10.48 px in the paragraph against 11.15 to 11.23 in the labels (+8%); P 14.20 against 14.37; l 15.36
       against 16.11; "Menu" 47.27 against 49.09 wide, "Planner" 64.10 against 68.14. The site's font files
       (`py/cf93-font-letters.py`, outline bounds) give Bold and Medium the same lowercase height at one size (7.43
-      against 7.42 at 14 px) and Bold 2.4% wider, so the client's renderer draws the bold labels' lowercase a pixel
-      taller (likely per-file rounding to the pixel grid). Same file and size as the paragraph would draw the same.
+      against 7.42 at 14 px) and Bold 2.4% wider.
+      Retracted: "matching weight to the body is likely the real fix" (the user: "that's not the fix") and the
+      guess that the gap is per-file rounding. The client asked for size ("CF93 sitemap的字尺寸保持与正文文字一样大吧",
+      keep the sitemap text the same size as the body text). The user also: "Computed sizes don't work for such a
+      issue": a browser can enlarge text when drawing while `getComputedStyle` still reports the CSS size, so
+      decide from screenshot pixels only. One measurer for every image: `f20/batch-phone/py/cf93-measure.py`
+      (label/paragraph ratios of lowercase height, tallest letter, ink width of "Menu Planner").
+      - Client screenshot: lowercase 1.085, tallest 1.049, width 1.043.
+      - Chromium 834 at 2x (`probe-cf93-variants.mjs`): 1.000, 1.004, 1.023. Weight 500 for the labels gives
+        1.001, 1.003, 0.996; bold at 0.92 em gives 0.927, 0.950, 0.937. The width sweep 640 to 1200 computes equal
+        sizes (1280 up: labels 13 px).
+      - iPad (10th generation) iOS 17.0.1 Simulator, 820 px at 2x, same line breaks and tree as the client's:
+        1.003, 0.998, 1.014. Downscaled to the client's scale (best pixel fit 0.676, `py/cf93-rescale.py`):
+        1.024, 1.022, 1.053, and its word widths match the client's within a pixel, but the client's label
+        lowercase is 1 px taller (11.21 against 10.21). So iOS 17 Safari does not reproduce the client's bigger
+        labels; the client's device does something more. `html { text-size-adjust: 100% }` (server port 4176)
+        looked unchanged on iOS 17 by eye; not measured there (the second capture opened in a new tab, shifting the
+        page 66 px), and on iOS 17 there was nothing to undo.
+      - Next: the same capture on an iOS 27 iPad (A16) Simulator, `EEF5F6E4-C2A4-4013-932C-54335C837479`, in case
+        the client's tablet runs a newer iPadOS. Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
+        `xinyanchen-inject-server` (4177, as is) and `xinyanchen-inject-server-tsa` (4176, `EXTRA_CSS`), tunnel
+        `xinyanchen-m1-inject-tunnel`; the page reports boxes to `f20/inject/reports.log` (`&measure=`).
       Scope chosen by the user: MenuMe and Scotties (one rule draws both trees); desktop keeps its 13 px labels.
+    - Placeholder fix `72a2e77` verified complete (task closed): 0 pictures change size while their files load on
+      all six pages at 390, 744, 1440 and 1920 (positive control: the base build moves 6 on Home); loaded layout
+      against the base differs only in the intended `aspect-ratio` hints and two About images' heights by under
+      0.05 px (`f20/batch-phone/srcdims-check.txt`).
     - CF90 confirmed by the user, 2026-10-22: keep "0.3 s after the river" (flower from 6.1 s, `50c5b39`).
   - Found while measuring (not from the client), `4c3660c`: at 360 Scotties, MenuMe and Tales were 374, 362 and
     370 px wide, at 375 (iPhone SE, mini) Scotties 382 and MenuMe 376 (also at `c99cb9f`). Causes: phone art in
