@@ -3429,6 +3429,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     and the menu stays open until Escape. Not a regression: the old `autofocus` on Close led to the same next
     field. Asked the user whether the menu should close when focus leaves it; the user chose "Leave as is
     (Recommended)", so the menu keeps the standard non-closing popover behaviour.
+- Client reply re-read (the user chose "Re-read the draft first"), not sent: the logo bullet claimed the logo lines
+  up with the river on every screen wider than 1920; corrected in both languages to "never outside the river's left
+  end, lined up from about a 2060 px layout". The menu focus fix (Safari's purple box around the close button) was
+  missing and is added under the self-found fixes in both languages. The draft's header records the re-read.
 
 ### Not ours
 
