@@ -1799,6 +1799,25 @@
         }
       }
     }
+    /*
+      Phone closing quotes take their Phone-frame boxes (Tales 349 px, MenuMe 335, Scotties 348 plus the frame's two
+      forced breaks), centred over the text column, so they wrap as drawn; the 325 px column wrapped them otherwise.
+      Below a 375 px screen the box keeps 13 px gutters instead, so the page never scrolls sideways.
+    */
+    @media(width<40rem) {
+      & .closing-reflection {
+        --closing-reflection-box: calc(349rem / 16);
+        --closing-reflection-inline-size: min(var(--closing-reflection-box), 100vw - calc(26rem / 16));
+        inline-size: var(--closing-reflection-inline-size);
+        margin-inline: calc((100% - var(--closing-reflection-inline-size)) / 2);
+        .case-study[data-case-study="menume"] & {
+          --closing-reflection-box: calc(335rem / 16);
+        }
+        .case-study[data-case-study="scotties"] & {
+          --closing-reflection-box: calc(348rem / 16);
+        }
+      }
+    }
     @media(width>=40rem) {
       & .sitemap>ul>li {
         display: flex;
