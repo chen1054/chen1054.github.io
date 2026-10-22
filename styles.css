@@ -1246,6 +1246,12 @@
         display: none;
       }
     }
+    /* Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud). */
+    & .phone-break {
+      @media(width>=40rem) {
+        display: none;
+      }
+    }
     & .project-summary {
       flex: 1 1 calc(400rem / 16);
       max-inline-size: calc(540rem / 16);
@@ -5774,10 +5780,20 @@
           the bolt, and the skate 37 px in from the column's end, 22 px under the cloud.
         */
         &>.scotties-challenge-bubble {
+          /*
+            The client: "文字超出了框" (the text runs outside the cloud). Phone Scotties sets the copy in its 346.8 px
+            cloud at 14 px on a 22 px pitch, centred, at most 281.8 px wide, its first line 50.7 px from the cloud's
+            top, broken into the design's nine lines (the phone breaks in the markup). The box is wider than the
+            longest line so font differences never add a wrap.
+          */
           @media(width<40rem) {
             margin-block-start: calc(65.7rem / 16);
             &>p {
-              margin-block: 20% 8%;
+              margin-block: 14% auto;
+              margin-inline: 5%;
+              font-size: calc(14 * 100cqi / 346.8);
+              line-height: calc(22 / 14);
+              text-wrap: wrap;
             }
           }
         }
