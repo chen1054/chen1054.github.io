@@ -3383,6 +3383,15 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   to the 22 October desktop section in both languages; the old "menu follows the centred content" bullet now
   points to them; attachment 8 rebuilt with its after side at `048408b` (Safari 17.5, 1920 by 950,
   `xyc-after/pair8-048408b.ts`), old pair moved to `evidence/send-64d6dbc-replaced/`, `captions.md` updated.
+- Menu focus box (task 77), asked of the user with three options; the user chose "Focus the menu itself
+  (Recommended)". Landed `5c772d4`: the nav gets `tabindex="-1"`, the close button loses `autofocus`, and
+  `portfolio-navigation.mjs` focuses the nav on the popover's `toggle` (open) event; `styles.css` drops the nav's
+  outline on `:focus`. A first try put `autofocus` on the nav itself: Chromium then focused the always-visible
+  wide nav at page load (`document.activeElement` NAV at 1440), so it moved to the script. Chromium
+  (`nav-focus-check.ts`, all six pages): load leaves focus on BODY at 1440 and 390; open focuses the nav, outline
+  none; Tab goes to Close, then Home; Escape closes. A run against a cached old script failed the open check (the
+  positive control). Safari 17.5 check: unit `xinyanchen-safari-menu-focus` (`safari-menu-focus.ts`, waits for
+  the deploy; screenshots in `eye/menu-focus-safari/`).
 - Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
   two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
   known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
