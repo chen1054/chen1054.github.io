@@ -72,9 +72,10 @@
     --home-wide-reference-growth: 0rem;
     /*
       How far the phone artwork has outgrown its 390px drawing: 0 at 390, 0.91 reference pixels per drawn pixel at 744.
-      A length that holds art against art adds its drawn size times this.
+      A length that holds art against art adds its drawn size times this. Narrower phones (360, 375) shrink the art
+      with the screen, down to 320, so drawn widths never push the page sideways; type keeps its 390 sizes.
     */
-    --phone-art-growth: calc(var(--phone-tablet-reference-growth) * 354 / 390);
+    --phone-art-growth: clamp(-70rem / 16 / 390, (100vw - 390rem / 16) / 390, 354rem / 16 / 390);
     /* The widest content column, shared by every page's text and card measure. */
     --content-column-max-inline-size: calc(1086rem / 16);
     --color-page-background: #fff;
@@ -3577,10 +3578,12 @@
             the pot inside its bottom corner, and an orange brush stroke over that corner (the Phone, Tablet and Desktop MenuMe.pdf).
           */
           &>aside {
+            --menume-story-inset: calc(35.5rem / 16 + 121 * var(--phone-tablet-reference-growth) + 187 * var(--home-wide-reference-growth));
             position: relative;
             box-sizing: border-box;
-            inline-size: min(100%, calc(265rem / 16 + 167.3 * var(--phone-tablet-reference-growth) + 187.7 * var(--home-wide-reference-growth)));
-            margin-inline-start: calc(35.5rem / 16 + 121 * var(--phone-tablet-reference-growth) + 187 * var(--home-wide-reference-growth));
+            /* Never past the column's end, so the brush stroke over its corner stays on narrow phones' screens. */
+            inline-size: min(100% - var(--menume-story-inset), calc(265rem / 16 + 167.3 * var(--phone-tablet-reference-growth) + 187.7 * var(--home-wide-reference-growth)));
+            margin-inline-start: var(--menume-story-inset);
             padding-block: calc(21rem / 16 + 11 * var(--phone-tablet-reference-growth) - 2 * var(--home-wide-reference-growth)) calc(44rem / 16 - 8 * var(--phone-tablet-reference-growth) - 11 * var(--home-wide-reference-growth));
             padding-inline: calc(18.9rem / 16 + 14 * var(--phone-tablet-reference-growth) + 20 * var(--home-wide-reference-growth)) calc(20.1rem / 16 + 19.4 * var(--phone-tablet-reference-growth) + 11.6 * var(--home-wide-reference-growth));
             border-color: var(--menume-honey);
@@ -5923,7 +5926,8 @@
         inset-block-end: calc(-54rem / 16 - 54 * var(--home-wide-reference-growth));
         inset-inline-start: calc(50% + 36rem / 16);
         inline-size: calc(158rem / 16 + 161 * var(--home-wide-reference-growth));
-        max-inline-size: calc(50% - 2rem / 16);
+        /* Starting 36 px past the middle, this ends at the screen's edge (the 20 px gutter) on phones under 390. */
+        max-inline-size: calc(50% - 16rem / 16);
         aspect-ratio: 319 / 274;
         background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
       }
