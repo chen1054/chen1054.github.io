@@ -6220,6 +6220,18 @@
             }
           }
         }
+        /*
+          The client: "这个间距要增加" (this spacing should grow), of the hi-fi box's gaps. Phone Scotties draws the box
+          64.5 px under its heading's text (the heading's line box adds 2) and the first callout 39 px under the box.
+        */
+        @media(width<40rem) {
+          & .subsection:nth-child(5)>h3 {
+            margin-block-end: calc(62.5rem / 16);
+            & + p {
+              margin-block-end: calc(39rem / 16);
+            }
+          }
+        }
         & .subsection:nth-child(5)>h3+p::before {
           --scotties-note-icon: url("assets/scotties-hi-fi-skater-corner-icon.svg");
           inset-inline-start: 5%;
