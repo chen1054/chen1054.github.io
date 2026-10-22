@@ -1090,10 +1090,8 @@
     --color-case-study-header-text: var(--color-page-background);
     --color-case-study-prototype-background: var(--color-case-study-secondary);
     --color-case-study-prototype-text: var(--color-case-study-accent);
-    --case-study-prototype-hover-chroma: 0.185372;
     --color-case-study-secondary-prototype-background: var(--color-case-study-secondary);
     --color-case-study-secondary-prototype-text: var(--color-case-study-accent);
-    --case-study-secondary-prototype-hover-chroma: 0.185372;
     --case-study-corner-accent-mask: url("assets/case-study-phone-corner-accent-mask.svg");
     --case-study-corner-base-mask: url("assets/case-study-phone-corner-base-mask.svg");
     --case-study-preview-aspect-ratio: 258 / 204;
@@ -1166,9 +1164,7 @@
         }
       }
       --color-case-study-prototype-text: var(--color-case-study-heading);
-      --case-study-prototype-hover-chroma: 0.079444;
       --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
-      --case-study-secondary-prototype-hover-chroma: 0.079444;
     }
     /*
       All three case-study designs track their text at -1.9% (Figma letter spacing on nearly every text node of each
@@ -1920,11 +1916,20 @@
         inset-block: calc(50% - 1.5rem);
         inset-inline: 0;
       }
+      /*
+        The client, on Tales: "button的变色(的时候）为背景是紫色，文字是黄色。"; on Scotties: "两个button变色（的时候）：
+        文字与背景的颜色调换". Both ask for text and background to swap on hover. MenuMe keeps its deeper shade.
+      */
       &:hover {
-        background-color: oklch(
-          from var(--color-case-study-prototype-background)
-          l var(--case-study-prototype-hover-chroma) h
-        );
+        background-color: var(--color-case-study-prototype-text);
+        color: var(--color-case-study-prototype-background);
+        .case-study[data-case-study="menume"] & {
+          background-color: oklch(
+            from var(--color-case-study-prototype-background)
+            l var(--case-study-prototype-hover-chroma) h
+          );
+          color: var(--color-case-study-prototype-text);
+        }
       }
     }
     & .secondary-prototype-link {
