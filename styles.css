@@ -2152,6 +2152,8 @@
         */
         &>.content .persona {
           --persona-unit: calc(1rem / 16 + var(--phone-art-growth));
+          /* One persona per row: from 552 px two fit the row's 240 px basis, and their grown photos overflowed it. */
+          flex-basis: 100%;
           text-align: center;
           &>.persona-photograph {
             inline-size: calc(222 * var(--persona-unit));
