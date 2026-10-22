@@ -83,6 +83,12 @@
     --phone-art-growth: clamp(-70rem / 16 / 390, (100vw - 390rem / 16) / 390, 354rem / 16 / 390);
     /* The widest content column, shared by every page's text and card measure. */
     --content-column-max-inline-size: calc(1086rem / 16);
+    /*
+      The river keeps its drawn shape and size (the user: "the river should never be stretched", "The river should
+      never be bigger than its designed size."), so it is centred on windows wider than its 1440 drawing; every
+      page's navigation lines up with it.
+    */
+    --river-max-inline-size: calc(1440rem / 16);
     --color-page-background: #fff;
     --color-portfolio-purple: #685587;
     --color-body-text-purple: #463267;
@@ -233,11 +239,12 @@
       position: absolute;
       inset-block-start: calc(20rem / 16 + 16 * var(--home-wide-reference-growth));
       /*
-        Above 1440 the navigation keeps its design offset from the centred 1440 column the content sits in, instead of
-        staying pinned to the window edge; the corner artwork and waves still run to the window edges.
+        The client: "Get the logo+nav bar to always stick to the left side of the screen with padding, clamped by the
+        leftmost side of the river." The padding is the designs' 35 to 70; on windows wider than the river, it counts
+        from the river's left end instead of the window's.
       */
       inset-inline-start: calc(
-        35rem / 16 + 35 * var(--home-wide-reference-growth) + max(0rem, (100cqw - 1440rem / 16) / 2)
+        35rem / 16 + 35 * var(--home-wide-reference-growth) + max(0rem, (100cqw - var(--river-max-inline-size)) / 2)
       );
       display: flex;
       align-items: start;
@@ -438,9 +445,12 @@
     & .intro-wave {
       margin-block-start: calc(-48rem / 16 - 48 * var(--phone-art-growth));
       @media(width>=40rem) {
+        /* The wide drawing's 1440 by 495 shape at every width, centred once the window is wider than the river. */
+        max-inline-size: var(--river-max-inline-size);
         margin-block-start: calc(-76rem / 16 - 28 * var(--home-wide-reference-growth));
+        margin-inline: auto;
         &>picture>img {
-          block-size: calc(261rem / 16 + 234 * var(--home-wide-reference-growth));
+          aspect-ratio: 1440 / 495;
         }
       }
     }
@@ -744,7 +754,7 @@
       }
     }
     & .portrait-wave {
-      max-inline-size: 90rem;
+      max-inline-size: var(--river-max-inline-size);
       margin-block-start: calc(19rem / 16);
       margin-inline: auto;
       &>.portrait {
@@ -759,8 +769,9 @@
       }
       @media(width>=40rem) {
         margin-block-start: calc(54rem / 16 + 24 * var(--home-wide-reference-growth));
+        /* The wide river drawing's 1440 by 690 shape at every width. */
         &>picture>img {
-          block-size: calc(370rem / 16 + 320 * var(--home-wide-reference-growth));
+          aspect-ratio: 1440 / 690;
         }
       }
     }
