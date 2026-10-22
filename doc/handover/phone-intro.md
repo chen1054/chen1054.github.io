@@ -2821,7 +2821,8 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         13.72 px. Side effect: some labels stop wrapping: MenuMe 834 (Select from fridge, Recipes & Videos share,
         Profile & Settings; height same), MenuMe 1024 (Recipes plan; tree 296 to 284), Scotties 640 (Event &
         Community Hub 3 lines to 2), Scotties 790 (Apparel & Accessories, Our Team, Community Highlights; 384 to
-        364). Before/after: `f20/batch-phone/cf93-wraps-before-after.png`; asked the user whether they are fine.
+        364). Before/after: `f20/batch-phone/cf93-wraps-before-after.png`. Decided by the user, 2026-10-22:
+        keep the new breaks. CF93 done; the CF72 to CF93 batch is complete.
       - Left behind: iPad Simulators `DF24B12C-...` (iOS 17) and `EEF5F6E4-...` (iOS 27) in the custom set, shut
         down; the iPhone 15 iOS 17 Simulator is shut down too (boot it again for phone checks).
       - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
