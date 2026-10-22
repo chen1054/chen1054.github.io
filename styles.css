@@ -1544,32 +1544,54 @@
       }
     }
     /*
-      The designs offset each bubble's fill from its outline far enough to cross the outline's box, so the artwork
-      paints from a layer reaching past the box by the SVG's extra viewBox rows, leaving the text where it was.
+      The client's bubbles: a yellow fill under a purple outline, two files each. Each layer sits where Desktop Tales
+      draws it relative to the bubble box (box units: play 411 by 392, trust 413 by 415, the box's own ratio), so
+      the box, and the text in it, stay where they were; the fills reach past the box as drawn.
     */
     & :is(.play-speech-bubble, .trust-speech-bubble) {
       position: relative;
       isolation: isolate;
-      &::before {
+      &::before,
+      &::after {
         content: "";
         position: absolute;
         z-index: -1;
-        inset-inline: 0;
         background-size: 100% 100%;
+        background-repeat: no-repeat;
       }
     }
     & .play-speech-bubble {
       aspect-ratio: 411 / 392;
       &::before {
-        inset-block: calc(-2 / 392 * 100%) 0;
-        background-image: url("assets/tales-play-insight-speech-bubble-background.svg");
+        inset-block-start: calc(-15.38 / 392 * 100%);
+        inset-inline-start: calc(7.14 / 411 * 100%);
+        inline-size: calc(399.82 / 411 * 100%);
+        block-size: calc(364.49 / 392 * 100%);
+        background-image: url("assets/tales-play-insight-speech-bubble-fill.svg");
+      }
+      &::after {
+        inset-block-start: calc(5.53 / 392 * 100%);
+        inset-inline-start: calc(0.77 / 411 * 100%);
+        inline-size: calc(409.92 / 411 * 100%);
+        block-size: calc(372.57 / 392 * 100%);
+        background-image: url("assets/tales-play-insight-speech-bubble-outline.svg");
       }
     }
     & .trust-speech-bubble {
       aspect-ratio: 413 / 415;
       &::before {
-        inset-block: calc(-2 / 415 * 100%) calc(-13 / 415 * 100%);
-        background-image: url("assets/tales-trust-insight-speech-bubble-background.svg");
+        inset-block-start: calc(29.16 / 415 * 100%);
+        inset-inline-start: calc(57.45 / 413 * 100%);
+        inline-size: calc(362.76 / 413 * 100%);
+        block-size: calc(397.61 / 415 * 100%);
+        background-image: url("assets/tales-trust-insight-speech-bubble-fill.svg");
+      }
+      &::after {
+        inset-block-start: calc(5.61 / 415 * 100%);
+        inset-inline-start: calc(8.8 / 413 * 100%);
+        inline-size: calc(389.31 / 413 * 100%);
+        block-size: calc(409.92 / 415 * 100%);
+        background-image: url("assets/tales-trust-insight-speech-bubble-outline.svg");
       }
       &>* {
         margin-inline: 23% 11%;
