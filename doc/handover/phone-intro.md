@@ -2799,9 +2799,14 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       - Brute force (the user: "there's no time constraints. Brute force it."): Safari 17.5 width sweep 640 to 1279
         (`safari-cf93-sweep.mjs`, `py/cf93-widths.py`): the client's paragraph and label line breaks occur at 790 to
         838 only. No sitemap or body type rule changed between 2026-10-19 21:46 and 2026-10-22 01:50 (`git log`).
-        Next: captures at each matching width (`safari-cf93-captures.mjs`, 2x now, 1x after
-        `tart set sonoma-14.5 --display 1920x1200px`) against the export with `py/cf93-match.py` (scale grid times
-        nearest, bilinear, bicubic, area and Lanczos resampling, OpenCV template match).
+        Captures at each matching width (`safari-cf93-captures.mjs`) against the export with `py/cf93-match.py`
+        (scale grid times nearest, bilinear, bicubic, area and Lanczos resampling, OpenCV template match): 2x best
+        790 at 0.4925, mean difference 4.99 grey levels; 1x (VM display switched with `sonoma-display.mjs px`,
+        `devicePixelRatio` 1) best 790 at 0.9875 bicubic, 3.93. So the client's screen draws at 1x. Aligned
+        (`py/cf93-align.py`, `cf93-side-by-side.png`): letters match in shape, size and place; ours a shade darker.
+        In that reproduction, as in the export: label and body letters the same height (8, 10, 11 px), label word
+        87 px against about 85 (bold). The VM is left at `1920x1200px` (1x) for CF93; restore with
+        `flock vm-sonoma.lock node f20/batch-phone/sonoma-display.mjs pt` when done.
       - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
         screenshot." Name the analyzer and the saved file with every number: `py/cf93-evidence.py` (fixed
         half-way threshold, whole-pixel boxes of touching ink pixels, an 8x enlarged pixel grid to count by hand).
