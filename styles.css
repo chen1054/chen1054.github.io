@@ -7119,6 +7119,14 @@
         &:nth-child(2) {
           --scotties-badge-icon: url("assets/scotties-key-learning-helmet-badge-icon.svg");
         }
+        /*
+          The client: "框的左边需要留出边距。" (leave a margin left of the box). Phone Scotties draws the box from 34
+          px and its dark backing from 20 px, 14 px left of and 11 px above the box; the backing ran to the screen's edge.
+        */
+        @media(width<40rem) {
+          margin-inline-start: calc(14rem / 16);
+          box-shadow: calc(-14rem / 16) calc(-11rem / 16) 0 0 var(--color-case-study-subheading);
+        }
       }
       /*
         Desktop Scotties draws the learnings as two 483 px boxes side by side: the first 476 px wide from 74 px into
