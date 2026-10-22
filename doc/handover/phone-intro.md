@@ -2772,9 +2772,34 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     six pages (45 of them; tablet and phone sources on Tales and Scotties already had sizes) lacks `width` and
     `height`, so at 744 and wider the browser reserves 0 px for those pictures until each file arrives (Home's
     project pictures measured 0 px tall before load, 289 to 353 px after), and the page jumps as they load. The
-    user asked: "are we not doing placeholders correctly?" Fix: give each source its file's size
-    (`f20/batch-phone/py/source-dims.py`); check with `f20/batch-phone/probe-placeholder.mjs` (a proxy holds image
-    responses so pictures are measured while pending) and `style-diff.mjs` for the loaded layout.
+    user asked: "are we not doing placeholders correctly?" (I had first called it "a timing issue rather than CSS";
+    it was a real layout shift.)
+    - Two causes. The 45 wide `<source>`s had no size, and an `<img>`'s own `width`/`height` do not apply when a
+      `<source>` without them is chosen. And Home's `.project>.illustration>img` set `aspect-ratio: auto` from 40rem
+      up: a plain `auto` uses only the loaded file's ratio and drops the attribute hint, so even sized sources kept
+      0 px. Sizing the sources alone left Home at 0 px (measured), so both are needed.
+    - Fix `72a2e77`: every wide source gets its file's size
+      (`f20/batch-phone/py/source-dims.py --write`, SVG width/height or viewBox, raster pixels); the Home phone
+      ratio now applies only below 40rem.
+    - Measured with `f20/batch-phone/probe-placeholder.mjs <page> [widths]` (base build `PORT=4175`, working copy
+      4173): unfixed Home has 6 pictures at 0 px at 744, 1440 and 1920 (positive control); fixed Home and About 0
+      jumps at 390, 744, 1440, 1920. Contact, MenuMe, Scotties, Tales and the loaded-layout `style-diff.mjs` (should
+      show no change) were running at the time of writing; results go here.
+    - Probe pitfalls, each hit once: agent-browser runs no command while a page is still loading (held images
+      delay the load event), so the page measures itself (an injected same-origin script posts to the proxy); the
+      pages' CSP blocks that post (`connect-src 'none'`, Contact allows hCaptcha only), so the proxy edits that
+      directive; a browser opens 6 connections per host, so held images on the page's host queued the script, and
+      pictures now load from `localhost` while the page is `127.0.0.1` (proxy listens on IPv4 and IPv6); pictures
+      released in one width's pass came from cache in the next, so each pass uses its own path prefix; `eval`
+      prints strings JSON-encoded (decode twice); the probe must `process.exit` or it hangs after reporting.
+  - Simulator notes from the phone-frame check (2026-10-22): the no-store server units from 2026-10-19
+    (`xinyanchen-no-store`) are gone and `m1`'s `localhost:4173` answers nothing, so the check used the live site
+    after the deploy (GitHub Pages sends `styles.css` with `max-age=600`, so Simulator Safari can show CSS up to 10
+    minutes old; wait that long after the last visit). Text fragments worked for "In-Browser Doodle Editor" but
+    not "A responsive web resource"; `#id` anchors work. `idb ui swipe 196 700 196 250` did not scroll Safari.
+    On `m1`, zsh does not split a command stored in a variable (`$I ui ...` fails); write the command out.
+    iOS 17.0 result: the phone frame draws with the GIF inside and no corner showing past the bezel
+    (`f20/batch-phone/sim17/frame4.png`).
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
