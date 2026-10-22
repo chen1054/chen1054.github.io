@@ -3021,6 +3021,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     final card's text at 180) were reframed by hand to show the chevrons and both buttons.
   - Two `sim17-frame.mjs` runs at once on one Simulator can cross; run them one after another.
   - Do not send `send-d7fbea3/` or `send-5cf1620/`.
+- Next, decided by the user 2026-10-22 ("I'll review and send"): the user fills the placeholders and sends the
+  merged reply with `send-64d6dbc/`. When the client answers, record each answer in `07-what-we-fixed.md` and act
+  on it; repeat every unanswered question in the next reply. Rig state: Sonoma VM running (the user's choice),
+  podman on m1 stopped, keepalive disabled; Simulator, inject server and tunnel stopped.
 
 ### Not ours
 
