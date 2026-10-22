@@ -3033,6 +3033,17 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     unanswered question" for those five.
   - "Yes, check them" before sending: the open phone menu, the enlarged-view popovers and pseudo-element text in
     Safari 17.5 and iOS 17, plus the Scotties 790 header wrap and the Scotties 1440 `section:9` wrap.
+  - Then the user: "Please also check every page x device x viewport by eye and make sure nothing looks wrong."
+- Reply reworded (local file only): one "需要您做的一件事" / "One thing we need from you" (IMG_0804), then
+  "我们替您定下的几处" / "Choices we made for you" (five items, no reply needed); cross-references repointed.
+- By-eye pass, in progress (scripts in `~/temp/agent/f20/eye/`):
+  - `frames-safari.mjs`: Safari 17.5 (Sonoma VM), live site, widths 744, 790, 1024, 1180, 1280, 1440, 1920, all
+    950 tall, frames every 800 px (unit `xinyanchen-eye-safari`, under `vm-sonoma.lock`), into `safari/`.
+  - `frames-sim.mjs <label> <UDID>`: iOS 17.0.1 Simulator frames from the working tree (equal to `main`) via
+    `inject/server.mjs` on 4175 (new `?scroll=&frame=` mode reports height and scroll position), into
+    `sim-<label>/`. Devices: iPhone 15 (`9CA037B0-...`), then iPad 10th (`DF24B12C-...`) portrait.
+  - Queue: look at every frame; then the menu, popovers and pseudo-element text; then the Scotties wraps; fix
+    findings one commit each.
 
 ### Not ours
 
