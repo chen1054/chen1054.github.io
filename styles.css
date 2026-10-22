@@ -5643,6 +5643,14 @@
               border-width: 0;
               border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
               background-color: var(--menume-honey);
+              /*
+                The designs draw the copy above the drip, which starts a quarter of its depth inside the box; the
+                tablet copy's last line sits in that band (Tablet/MenuMe in the .fig: drip from 12012, copy to 12024).
+              */
+              &>p {
+                position: relative;
+                z-index: 1;
+              }
             }
             /*
               The tablet and desktop designs stagger the two learnings: each box 83.5% of the column, the second at
