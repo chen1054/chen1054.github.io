@@ -3390,8 +3390,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   wide nav at page load (`document.activeElement` NAV at 1440), so it moved to the script. Chromium
   (`nav-focus-check.ts`, all six pages): load leaves focus on BODY at 1440 and 390; open focuses the nav, outline
   none; Tab goes to Close, then Home; Escape closes. A run against a cached old script failed the open check (the
-  positive control). Safari 17.5 check: unit `xinyanchen-safari-menu-focus` (`safari-menu-focus.ts`, waits for
-  the deploy; screenshots in `eye/menu-focus-safari/`).
+  positive control). Safari 17.5, live `5c772d4` (`safari-menu-focus.ts`, real WebDriver click on the hamburger,
+  all six pages): load leaves focus on BODY at 1440 and 390; open focuses the nav, nav and close button outline
+  none. Screenshots (`eye/menu-focus-safari/<page>-open.png`) looked at: no box on the panel or the close button.
+  The close button draws the same three bars as the open button (the supplied artwork), not an X.
 - Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
   two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
   known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
@@ -3402,12 +3404,12 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   callout breaks "divisions / —Skateboarding," where all three Phone frames break "divisions— / Skateboarding,".
   Left as is with the Scotties "—from" line: the designs themselves start three lines with an em dash
   (`fig-lines.json`: 3 start, 19 end, 40 mid-line), and body copy breaks are not matched elsewhere either.
-- In flight: unit `xinyanchen-safari-cf112` (Tales impact titles 390 to 1440 every 1, `impact-safari-3.log`),
-  then unit `xinyanchen-safari-waves` (`safari-waves.ts`, `waves-probe.js`, all six pages 640 to 1920 every 16,
-  `waves-safari-<page>.log`).
-- Also: the Safari 1 px impact sweep (`impact-safari-2.log`) ran against the deploy before `c28a368`, so its
-  mixed phone title lines are the case `c28a368` fixes; re-check in Safari after the next deploy (expect two
-  lines per title from 390 to 1279).
+- Done: unit `xinyanchen-safari-cf112` (Tales impact titles, results in the Tales bullet in this section) and
+  unit `xinyanchen-safari-waves` (`safari-waves.ts`, `waves-probe.js`, all six pages at 81 widths from 640 to
+  1920, `waves-safari-<page>.log`): no wave flagged. The older sweep `impact-safari-2.log` ran before `c28a368`
+  and is superseded by `impact-safari-3.log`.
+- Coverage gaps: widths over a 1905 layout were checked in Chromium only; the wave probe's positive control
+  (old footers flagged on live) ran in Chromium only.
 
 ### Not ours
 
