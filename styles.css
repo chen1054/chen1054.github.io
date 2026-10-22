@@ -1683,6 +1683,13 @@
       --case-study-sitemap-column-padding: calc(6rem / 16);
       margin-block: 2rem;
       margin-inline: 0;
+      /*
+        The client (CF93): "sitemap的字尺寸保持与正文文字一样大吧" (keep the sitemap text the same size as the body
+        text). Bold letters run wider than the body's Medium at one size, so the labels sit at 0.98 of the body
+        text: there a label word measures the body's width by pixel count in Safari 17.5 at 1x and 2x ("Menu
+        Planner" 174 px in both at 790 to 838 px, 2x). Desktop sets its own sizes from 1280 px.
+      */
+      font-size: 0.98em;
       font-weight: 700;
       line-height: calc(20rem / 16);
       & ul {
