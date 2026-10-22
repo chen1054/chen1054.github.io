@@ -3270,7 +3270,20 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       the four chevrons fill the strip exactly, and sub-pixel rounding wrapped the last one at some widths
       (Chromium 780, 800, 820, 1180; fine at 744, 760, 1024, 1279). `81028ed` sets `flex-wrap: nowrap` from
       40rem. Chromium sweep 320 to 1925 by 7 (`impact-cr.ts`, `impact-sweep.log`): one row everywhere from
-      640, no overflow. iPad and Safari check after deploy still pending.
+      640, no overflow.
+    - Checked after the `0c8d237` deploy:
+      - Safari 17.5, live site (`heads-safari.ts`, `heads-safari.log`): every heading's line breaks at all 18
+        page frames (window = frame width + 15, so 390, 744 and 1440 CSS) match the `.fig`; same counts as
+        Chromium, no differences.
+      - Safari 17.5 impact strip (`safari-sweep.mjs` with `impact-probe.js`, `impact-safari.log`): one row,
+        `flex-wrap: nowrap`, no sideways scroll at every 5 px from 640 to 1920 CSS (257 widths).
+      - iPad 10th (iOS 17.0.1, working tree, `text-sim.ts`, `text-ipad10/`): impact cards in one row; Scotties
+        "culture history." and the hero meta "Lo-fi & Hi-fi Wireframes)" read right.
+      - Scotties 1920 Safari frames reviewed: nothing wrong. A body line in "Visualizing Subculture Energy"
+        starts with "—from"; a normal break before a dash, left as is.
+      - In flight: unit `xinyanchen-eye-iphone-after` (iPhone 15, iOS 17.0.1, working tree) recaptures Home,
+        About, MenuMe, Scotties and Tales into `sim-iphone17-after/`; unit `xinyanchen-safari-recapture`
+        recaptures Tales at seven widths into `safari/` (log `frames-safari-1022c.log`). Review both.
     - More tools: `fig-all-lines.ts` (every visible text node's lines in the 18 frames, `fig-lines.json`),
       `heads-probe.js` + `heads-diff.ts` (env ONLY `device:page`), `split-probe.js` (words split at a
       hyphen), `impact-cr.ts`; `orphan-cr.ts` takes PROBE to pick the probe file, and `orphan-probe.js`
