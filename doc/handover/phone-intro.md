@@ -3047,7 +3047,18 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   - The user, 2026-10-22: "The .png is outdated. Use the latest .fig as ground truth." The PNG and PDF exports
     in `../Phone`, `../Tablet`, `../Desktop` and `doc/reference/` are older than the design; compare against
     `../Website (Copy) 2026OCT191300.fig` only. Node boxes per frame: `~/temp/agent/fig-parse/dump-boxes.mjs`
-    into `~/temp/agent/f20/fig-191300/boxes.jsonl`.
+    into `~/temp/agent/f20/fig-191300/boxes.jsonl`; solid fills under a frame: `frame-fills.mjs`.
+  - Running list of findings: `~/temp/agent/f20/eye/findings.md`. Fixed so far (each checked in Chromium,
+    Safari re-check after deploy pending):
+    - `8469182` About photos wrapped 2+1 at a 744 px window with a classic scrollbar (row 15 px narrower than the
+      design); the wide gallery no longer wraps.
+    - `2d6fc5d` Contact Name and Phone stacked at 744 for the same reason; the wide row no longer wraps.
+    - `d97fb53` MenuMe learnings: the drip painted over the copy's last line at tablet widths; the copy now
+      paints above it, as the design layers it.
+  - Checked against the `.fig` and left as is: Home phone Scotties pill over the grey wave (drawn so); Home phone
+    footer gold `#C27F36` (the `.fig` Phone/Home frame uses it; other pages `#D8A150`); Contact intro "via email,"
+    (`2ea3807`); Matcha role gap (`7b70e03`); Contact captcha centred over Send.
+  - Done by eye: desktop Safari Home, About, Contact at all widths; MenuMe 744; iPhone Home, About, Contact.
 
 ### Not ours
 
