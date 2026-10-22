@@ -2637,7 +2637,17 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   stretched it (`none`). Band ratio measured against the art's 4.898: Home 4.156 at 640 to 4.889 at 1280 (taller,
   hence the top anchor), About and case studies 4.776 at 640, 5.552 at 744, 6.531 at 1920. Chromium (`f20/stone/`,
   `edge.py`): 1440 pixel-identical on all six pages; at 744 and 1920 the stone reaches the last column on all six,
-  top row 0. Safari check: pending.
+  top row 0. Safari 17.5 (Sonoma VM, live site, `f20/stone/safari-top.mjs`, `edge-one.py`): on all six pages at
+  1920 (1905 layout), 1440 and 744 the stone paints up to 2 px from the layout edge across 56 to 140 CSS rows.
+  Positive control in the same Safari: the old geometry recreated in-page (case-study masks 1440 wide and centred,
+  Home's image 1440 wide) ends at 1672.5 and 1440 with no rows painted at the edge. A first probe counted Safari's
+  top border line and scrollbar edge as paint; a first control (old SVGs from jsDelivr as mask images) drew no
+  stone at all; both replaced.
+- m1 rig, 2026-10-22: `tart` is not on the SSH PATH; run `/Volumes/MacData/tart/bin/tart.app/Contents/MacOS/tart`.
+  The launch agent `cat.aquati.podman-keepalive` (every 300 s) restarted podman after `podman machine stop`; the
+  user then: "You may disable podman's keepalive." Disabled (`launchctl bootout` and `launchctl disable`
+  `gui/501/cat.aquati.podman-keepalive`) and podman stopped while the Sonoma VM runs; re-enable it and start podman
+  when the VM stops. Guest tunnel on m1 (nohup) and Linux unit `xyc-sonoma-tunnel` up.
 - Queue (2026-10-22), from the user: replace the drawn Tales Key Insights speech bubbles (play and trust) with the
   client's bubble SVGs, organizing the files into `assets/` ("Client said the bubbles we drew were still bad");
   then the client's ask that "phone demo and desktop demo of a page of OPH's site should both be GIF", using
