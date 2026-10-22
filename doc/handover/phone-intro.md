@@ -2894,6 +2894,87 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
 
+## Full Safari re-check, 2026-10-22
+
+The user chose "Full Safari re-check first" (before drafting a client reply) once the 2026-10-20 batch was done.
+Result: no layout bug in the site. Every Safari and Chromium difference traces to one of two Safari engine
+behaviours, both checked directly.
+
+### Method
+
+- Element geometry: every element's box on all six live pages, compared between browsers.
+  - Safari: Safari 17.5 in the Sonoma VM at 2x, window widths 744, 790, 1024, 1280, 1440 and 1920.
+  - Chromium: same window width with its 15 px scrollbar shown (`AGENT_BROWSER_HIDE_SCROLLBARS=false`), so the
+    layout widths match; all 36 pairs matched.
+  - Phones: the iOS 17.0.1 iPhone 15 Simulator (393 px wide), against Chromium at 393 by 659.
+- Tools in `~/temp/agent/f20/recheck/`:
+  - `geometry.js` collects the boxes.
+  - `safari-geometry.mjs`, `chromium-geometry.mjs` (`WIDTH`/`HEIGHT` override the window), `sim-geometry.mjs`
+    with `assemble-sim.py` collect them per browser.
+  - `sources.py <dir>` lists where differences start (boxes relative to the parent).
+  - `pair-shot.mjs <page> <width> <path> <out>` screenshots one element in both browsers.
+  - `safari-mq.mjs`, `safari-eval.mjs` (script in `PROBE`) probe Safari directly.
+- Outputs: `geo/`, `simgeo/`, `geo-sources-6.txt`, `pairs/`.
+
+### Phones
+
+About, Contact, Home and MenuMe were identical to the quarter pixel. Scotties differed by 4 px. Tales was 190 px
+shorter in Safari, made up of paragraphs 2 to 7 px shorter (see "Whole-pixel line heights").
+A first pass compared Chromium at 390 against the Simulator's 393 and showed spurious 3 px width
+differences everywhere; the Simulator's iPhone 15 is 393 wide.
+
+### Breakpoints sit 15 px later in Safari with classic scrollbars
+
+- Safari leaves its classic scrollbar out of the width that media queries test; Chromium counts it.
+- Measured with `matchMedia`, Scotties:
+  - `(width >= 80rem)` first matches at a 1295 px window (`clientWidth` 1280); `min-width: 1279px` fails at 1280.
+  - `(width >= 64rem)` first matches at 1039.
+- `100vw` is the same in both browsers (790 at a 790 window), so only media queries move.
+- WebKit's open bug: https://bugs.webkit.org/show_bug.cgi?id=52653
+  ("Media queries should ignore scroll bars when calculating width of viewport", status NEW).
+- Effect: at window widths 1280 to 1294, Safari shows the tablet layout where Chromium shows desktop (likewise 1024
+  to 1038). This produced the large differences: Scotties about 950 px of page height at 1024 and 1280, MenuMe
+  531 px and Tales 537 px at 1280.
+- The tablet layout is built for content up to 1279 px wide, and Safari gives it 1265, so it lays out as designed
+  (`pairs/scotties-1280-s9-safari.png`).
+- The client's 1920 px window, and overlay-scrollbar Macs (trackpad default), are not affected.
+- No change made.
+
+### Whole-pixel line heights in Safari
+
+- Safari 17.5 lays out a fractional line height as the whole pixel below it.
+- Four lines of a test paragraph (`probe-lineheight.js`):
+
+  ```text
+  # ~/temp/agent/f20/recheck/probe-lineheight.js
+  line-height  Safari  Chromium
+  29.98px      116     119.94
+  29.5px       116     118
+  19.5px       76      78
+  26.6px       104     106.38
+  30px         120     120
+  ```
+
+- The fluid type often gives fractional sizes; Tales body text at 393 is 14.9915 px with a 29.98 px line.
+- Safari's lines are therefore up to 1 px tighter:
+  - About 190 px over the Tales phone page.
+  - 25 to 95 px on desktop pages at 790 and 1440.
+  - The Contact footer lines: 26 against 27.
+  - On Home, a span inside the project text measures differently; screenshots at 1440 show the same line breaks
+    in both (`pairs/index-1440-s7-*.png`).
+- 744 and 1920 match almost exactly because the fluid sizes clamp to whole values there.
+- No change made. Rounding line heights in CSS would change Chromium and every page's wraps for at most 1 px per
+  line in Safari.
+
+### Not ours
+
+The Contact page's fourth body `<div>` (added after the scripts, the hCaptcha widget) has a `position: fixed`
+child that Safari reports as tall as the page and Chromium as tall as the window.
+
+### Not run
+
+The planned 1x Safari pass at 790 and 1440. Neither engine behaviour depends on pixel density.
+
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
 [6e97123-correction]: https://github.com/chen1054/chen1054.github.io/commit/6e9712362158159c54d20ddf0e0fd0953b684814#commitcomment-205881795
