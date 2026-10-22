@@ -3371,8 +3371,11 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   footers 1920 by 480 or 420, logo 70 up to 1920 and 320 at 2560; footers at 1920 read fine (`cover1080-footer/`).
   Safari re-check of the new rules: unit `xinyanchen-safari-cf112c` (`safari-cf112b.ts`) waits for the deploy,
   then nav and river (`cf112b-safari-<page>.log`, `cf112-check.ts`) and every wave (`waves-safari-<page>.log`,
-  `waves-probe.js` now flags ratio skew, width over 1920, About's wave over 1440). Earlier `cf112b` logs (against
-  `b0b22e4`) and partial `waves-safari-*` logs are overwritten by that run.
+  `waves-probe.js` now flags ratio skew, width over 1920, About's wave over 1440). Result (live `048408b`):
+  Home and About 161 of 161 widths each match (`cf112-check.ts`); every wave image on all six pages, 81 widths
+  each, none flagged. At the client's 1920 window (1905 layout): Home's river 1905 by 654.84 from 0, logo 70;
+  About's river 1440 by 690 from 232.5. The wave probe's positive control ran in Chromium only (same script).
+  CF112 done.
 - Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
   two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
   known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
