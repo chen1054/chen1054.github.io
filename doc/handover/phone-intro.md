@@ -3281,6 +3281,19 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
         "culture history." and the hero meta "Lo-fi & Hi-fi Wireframes)" read right.
       - Scotties 1920 Safari frames reviewed: nothing wrong. A body line in "Visualizing Subculture Energy"
         starts with "—from"; a normal break before a dash, left as is.
+      - Tales Safari recapture (all seven widths) reviewed: the 1024 and 1180 impact titles mixed one and two
+        lines. `89b8055` writes the Tablet frame's break after each title's first word as a `tablet-break` and
+        drops the balance rule. Chromium: every title two lines from 642 to 1285. From 1286 to 1383 titles
+        still mix one and two lines (no design frame there; equal-height chevrons; left as is); from 1384 all
+        one line, as Desktop Tales draws them.
+      - The same sweep (`impact-sweep-2.log`, first sweep's check had only tested 640 and up) found phones
+        stacking the impact cards one per row at 397, 439, 474, 551, 586 and 621 px: two chevrons fill a phone
+        row exactly. `3958664` makes each phone chevron a
+        quarter pixel narrower. Chromium 1 px sweep 320 to 645 plus 744, 820, 1024, 1180, 1279
+        (`impact-sweep-3.log`): two rows on phones, one row from 640, at all 331 widths.
+      - Running: unit `xinyanchen-flexrows` (`flexrows-cr.ts`, session `xinyan`) counts the rows of every
+        wrapping flex container on all six pages at every 1 px from 320 to 1920 and flags any whose row count
+        rises as the window widens (the same rounding wrap); output `flexrows.out`, `flexrows-<page>.log`.
       - In flight: unit `xinyanchen-eye-iphone-after` (iPhone 15, iOS 17.0.1, working tree) recaptures Home,
         About, MenuMe, Scotties and Tales into `sim-iphone17-after/`; unit `xinyanchen-safari-recapture`
         recaptures Tales at seven widths into `safari/` (log `frames-safari-1022c.log`). Review both.
