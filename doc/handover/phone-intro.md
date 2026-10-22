@@ -2751,7 +2751,16 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       client's screenshot, lowercase 11 against 10) and look bigger; equal computed sizes hid what anyone sees.
       Compare by eye before numbers. The tablet design (`Tablet/MenuMe.pdf`, a picture there) draws regular-weight
       sans labels, smaller than the paragraph. Option renders at 834: `f20/batch-phone/cf93-options-stack.png`
-      (current bold, paragraph weight 500, bold at 0.9 em); the user's pick decides.
+      (current bold, paragraph weight 500, bold at 0.9 em).
+      The user then asked for each letter measured to 2 decimals, with deterministic pixel tools (not eyeballed
+      zooms or ad hoc splitting; my first "25% wider" was such an error). `f20/batch-phone/py/cf93-components.py`
+      (ink coverage, 8-connected components at 0.5, coverage-weighted edges) on the client's screenshot: lowercase
+      10.26 to 10.48 px in the paragraph against 11.15 to 11.23 in the labels (+8%); P 14.20 against 14.37; l 15.36
+      against 16.11; "Menu" 47.27 against 49.09 wide, "Planner" 64.10 against 68.14. The site's font files
+      (`py/cf93-font-letters.py`, outline bounds) give Bold and Medium the same lowercase height at one size (7.43
+      against 7.42 at 14 px) and Bold 2.4% wider, so the client's renderer draws the bold labels' lowercase a pixel
+      taller (likely per-file rounding to the pixel grid). Same file and size as the paragraph would draw the same.
+      Scope chosen by the user: MenuMe and Scotties (one rule draws both trees); desktop keeps its 13 px labels.
     - CF90 confirmed by the user, 2026-10-22: keep "0.3 s after the river" (flower from 6.1 s, `50c5b39`).
   - Found while measuring (not from the client), `4c3660c`: at 360 Scotties, MenuMe and Tales were 374, 362 and
     370 px wide, at 375 (iPhone SE, mini) Scotties 382 and MenuMe 376 (also at `c99cb9f`). Causes: phone art in
