@@ -5895,9 +5895,10 @@
         }
       }
       /*
-        The tablet design (Tablet/Scotties.pdf, on its 624 px column): the chevron arrows 173 by 58 px at the column
-        start, 42 px under the heading; the cloud 430 px wide straight under them, its text 14 px on a 28 px pitch;
-        the bolt over the cloud's top end; the skate 74 px wide, its foot level with the cloud's, 22 px in from the end.
+        The tablet design (Tablet/Scotties in the .fig, on its 624 px column): the chevron arrows 56 px tall from 11 px
+        in, their top 53 under the heading's middle (the group is turned 180 degrees, so its box runs back from the
+        reported corner); the cloud straight under them, its text 14 px on a 28 px pitch; the bolt from 9 px above
+        the cloud's top end; the skate 74 px wide, its foot level with the cloud's, 22 px in from the end.
       */
       @media(width>=40rem) and (width<80rem) {
         .subsection:has(>.scotties-challenge-bubble) {
@@ -5905,9 +5906,9 @@
           --u: calc(100cqw / 624);
           container-type: inline-size;
           &::before {
-            inset-block-start: calc(63 * var(--u));
-            inset-inline-start: calc(9 * var(--u));
-            block-size: calc(58 * var(--u));
+            inset-block-start: calc(67 * var(--u));
+            inset-inline-start: calc(11 * var(--u));
+            block-size: calc(56 * var(--u));
           }
           &::after {
             inset-block-end: 0;
@@ -5931,6 +5932,9 @@
               display: inline;
             }
             /* The cloud is its own container, so these are in its 433rds. */
+            &::before {
+              inset-block-start: calc(-9 * 100cqw / 433);
+            }
             &>p {
               margin-block: calc(80 * 100cqw / 433) 0;
               margin-inline: calc(34 * 100cqw / 433);
