@@ -2627,6 +2627,21 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   those lines, send"; on the tool flaw: "No, that covers it"). Nothing else queued for the agent; was: merge `sweep/reply-section-draft.md` into `05-client-reply-draft.md` and
   `07-what-we-fixed.md` (its "About 6.1 MB to 2.8 MB" and "larger files only on enlarge" lines change); 2x check;
   agent-browser troubleshooting doc (background agent writing it in the Monochromatic repo).
+- 2026-10-22: merged the client's `42fdeba` and `c99cb9f` (fast-forward): `desktop_demo.gif` (21.8 MB),
+  `phone_demo.gif` (10.8 MB), `purple bubble-1.svg`, `-2.svg`, `yellow bubble-1.svg`, `-2.svg` and the two
+  `* bubble-from ppt .svg`, all in the repo root.
+- CF111, the client: "The top right stone on every page should always stick to the right edge of the screen." The
+  user (with a client capture of a case-study page at a wide window) then: "No stretching." Landed `4ccc9d7`: the
+  three wide corner SVGs anchor top-right at their own shape (`preserveAspectRatio="xMaxYMin meet"`). Before, the
+  case-study masks centred the art (at 1920 the stone ended at x 1679, at 744 at 700) and Home, About and Contact
+  stretched it (`none`). Band ratio measured against the art's 4.898: Home 4.156 at 640 to 4.889 at 1280 (taller,
+  hence the top anchor), About and case studies 4.776 at 640, 5.552 at 744, 6.531 at 1920. Chromium (`f20/stone/`,
+  `edge.py`): 1440 pixel-identical on all six pages; at 744 and 1920 the stone reaches the last column on all six,
+  top row 0. Safari check: pending.
+- Queue (2026-10-22), from the user: replace the drawn Tales Key Insights speech bubbles (play and trust) with the
+  client's bubble SVGs, organizing the files into `assets/` ("Client said the bubbles we drew were still bad");
+  then the client's ask that "phone demo and desktop demo of a page of OPH's site should both be GIF", using
+  `phone_demo.gif` and `desktop_demo.gif`.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
