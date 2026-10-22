@@ -3427,7 +3427,8 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     Escape closes the menu and focus goes to BODY (Safari does not focus a clicked button, so there is no
     earlier focus to return to). On Contact, plain Tab leaves the open menu for the form's name field behind it,
     and the menu stays open until Escape. Not a regression: the old `autofocus` on Close led to the same next
-    field. Asked the user whether the menu should close when focus leaves it.
+    field. Asked the user whether the menu should close when focus leaves it; the user chose "Leave as is
+    (Recommended)", so the menu keeps the standard non-closing popover behaviour.
 
 ### Not ours
 
