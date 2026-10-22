@@ -3167,6 +3167,32 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       - The `.fig` reads "stepper steppers (+ / -)"; the site's "steppers" is the earlier copy fix `af9e40d`.
     - Done by eye since: Safari Tales 1024 and 1440 (to 04), Scotties 790, 1024, 1280 (to 02), 1920; MenuMe
       1024 and 1280 story after the gutter fix (clear of the pot); iPhone MenuMe, all frames.
+    - Safari re-checks on the live site after the deploy of `187d31b` (Pages run 39784841955):
+      - `meta-probe.js` through `safari-sweep.mjs`, 640 to 1920 by 10, all three case studies: no meta item ends
+        on a lone word and no line starts with a bar (129 widths each; files `meta2-*.txt`).
+      - `fit-probe.js` (new: sideways overflow, Scotties persona boxes wider than their row, type panel width),
+        Scotties 640 to 1300 by 5: no overflow anywhere; one persona per row in the phone layout (windows 640 to
+        650); type panel 520 to 620 px in the tablet layout, never wider, desktop art from a 1295 window.
+    - iPhone Tales, all 36 frames, and iPhone Home, About, Contact again: no other findings.
+    - `c96e902` Tales headings: iPhone broke "OPH Dedicated Sub-site (Web / UX/UI)" and "In-Browser Doodle
+      Editor (Web / Tool PoC)". The Phone frame (`2307:46090`) draws "OPH Dedicated Sub-site / (Web UX/UI)" (a
+      forced break) and "In-Browser Doodle Editor / (Web Tool PoC)"; Tablet and Desktop draw each on one line.
+      The parentheticals' words are joined with `&nbsp;`. Chromium at 393 and 320: two lines each, as drawn.
+    - Open, for the user: phone closing quotes wrap differently from the Phone frames. Drawn boxes: Tales 349 px
+      at x 18 (4 lines), MenuMe 335 (6 lines), Scotties 348 (6 lines, forced breaks after "can" and
+      "community"). The site's phone quotes sit in the 325 px text column at 393 (Scotties 353): Tales takes 5
+      lines ("...framework that / evolves alongside their / children's development.""), MenuMe moves "cooks"
+      down a line, Scotties ignores the two forced breaks. No lone words anywhere. Probe: `quote-lines-cr.ts`.
+    - Open, for the user: the phone menu's close button gets the site's purple focus box when the menu opens
+      in Safari, even from a pointer click (Safari 17.5 at a 500 px window, WebDriver element click,
+      `states/index-500-portfolio-primary-navigation.png`), because `autofocus` puts focus on it and WebKit
+      counts that as visible focus. Chromium shows no box after a click. The Phone `.fig` menu (`Frame 2`,
+      `2280:41000`) draws only the three lines.
+    - Phone menu captures in the Simulator: `menu-sim.ts` opens the menu through the inject server's
+      `&popover=` branch. That branch never reports for the menu (it waits for the menu logo, a lazy image the
+      phone layout does not load), so the script waits for the `&scroll=0&frame=` report instead.
+    - Scripts here are `.ts` now (the repo rule against new `.mjs`); `~/temp/agent/f20/eye/package.json` sets
+      `"type": "module"` because `~/temp/agent/f20/package.json` made Node read `.ts` as CommonJS.
 
 ### Not ours
 
