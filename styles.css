@@ -869,8 +869,13 @@
           inline-size: calc(180rem / 16 + 92 * var(--home-wide-reference-growth));
         }
       }
+      /*
+        The tablet design fills this row exactly with three photos, so a desktop window's 15 px scrollbar at 744
+        would push the third onto its own line; the photos shrink a little instead.
+      */
       @media(width>=40rem) {
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: start;
         inline-size: calc(100% - 150rem / 16 - 204 * var(--home-wide-reference-growth));
