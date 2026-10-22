@@ -2,6 +2,11 @@
   Precedence comes from these layers, not from selector weight: page rules override components, and components
   override element defaults. Phone-only values sit in @media(width<40rem) and wide values in @media(width>=40rem),
   nested in the rule they adjust, so the two ranges never compete.
+
+  Line heights that can come out fractional (fluid sizes, em factors) are written as round(nearest, ..., 1px):
+  Safari lays a fractional line height out at the whole pixel below it (29.98 px lines draw 29 px apart), while
+  Chromium keeps the fraction, so unrounded pages ran up to 190 px shorter in Safari. Unitless factors are written
+  in em inside round(); every element's line height was checked to stay within half a pixel of its old value.
 */
 @layer base, components, pages;
 @font-face {
@@ -242,7 +247,7 @@
       padding-block: 0;
       /* The client: "Change the font size of nav to 22 for desktops" (the designs drew 25 at 1440). */
       font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
-      line-height: calc(20rem / 16 + 14 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 20rem / 16 + 14 * var(--home-wide-reference-growth), 1px);
       overflow: visible;
     }
   }
@@ -279,7 +284,7 @@
     font-family: "Abril Fatface", serif;
     font-size: calc(14rem / 16);
     font-weight: 400;
-    line-height: 1;
+    line-height: round(nearest, 1em, 1px);
     text-box: trim-both cap alphabetic;
     text-decoration: none;
     &::before {
@@ -376,7 +381,7 @@
     @media(width>=40rem) {
       margin-block-start: calc(150rem / 16 + 131 * var(--home-wide-reference-growth));
       font-size: calc(11rem / 16 + 9 * var(--home-wide-reference-growth));
-      line-height: calc(15rem / 16 + 12 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 15rem / 16 + 12 * var(--home-wide-reference-growth), 1px);
     }
   }
 }
@@ -394,13 +399,13 @@
       padding-inline-start: calc(2rem / 16);
       color: var(--color-portfolio-purple);
       font-size: calc(24rem / 16 + 4 * var(--phone-tablet-reference-growth) + 12 * var(--home-wide-reference-growth));
-      line-height: calc(2rem + 4 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 2rem + 4 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth), 1px);
     }
     & .designer-name {
       margin-block-start: calc(11rem / 16);
       color: var(--color-heading-and-case-study-gold);
       font-size: calc(2rem + 4 * var(--phone-tablet-reference-growth) + 12 * var(--home-wide-reference-growth));
-      line-height: calc(42rem / 16 + 6 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 42rem / 16 + 6 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth), 1px);
       @media(width>=40rem) {
         margin-block-start: calc(10rem / 16 + 12 * var(--home-wide-reference-growth));
       }
@@ -416,7 +421,7 @@
       font-family: "Playfair Display", serif;
       font-size: calc(15rem / 16 + var(--phone-tablet-reference-growth) + 6 * var(--home-wide-reference-growth));
       font-weight: 700;
-      line-height: calc(2rem + 8 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 2rem + 8 * var(--home-wide-reference-growth), 1px);
       @media(width>=40rem) {
         margin-block-start: calc(33rem / 16 + 41 * var(--home-wide-reference-growth));
       }
@@ -536,7 +541,7 @@
           @media(width>=40rem) {
             margin-block: 0;
             font-size: calc(28rem / 16 + 20 * var(--home-wide-reference-growth));
-            line-height: calc(38rem / 16 + 26 * var(--home-wide-reference-growth));
+            line-height: round(nearest, 38rem / 16 + 26 * var(--home-wide-reference-growth), 1px);
           }
         }
         &>h3 {
@@ -546,7 +551,7 @@
           @media(width>=40rem) {
             margin-block-start: calc(7rem / 16 + 3 * var(--home-wide-reference-growth));
             font-size: calc(18rem / 16 + 12 * var(--home-wide-reference-growth));
-            line-height: calc(24rem / 16 + 16 * var(--home-wide-reference-growth));
+            line-height: round(nearest, 24rem / 16 + 16 * var(--home-wide-reference-growth), 1px);
           }
         }
         &>p {
@@ -608,7 +613,7 @@
         margin-block-start: calc(80rem / 16 + (110 + var(--home-wide-section-gap-extra, 0)) * var(--home-wide-reference-growth));
         margin-inline: auto;
         font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
-        line-height: calc(19rem / 16 + 10 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 19rem / 16 + 10 * var(--home-wide-reference-growth), 1px);
         text-align: start;
         &:nth-of-type(even) {
           flex-direction: row-reverse;
@@ -729,7 +734,7 @@
       &>h1 {
         color: var(--color-heading-and-case-study-gold);
         font-size: calc(24rem / 16 + 12 * var(--phone-tablet-reference-growth) + 12 * var(--home-wide-reference-growth));
-        line-height: calc(2rem + 16 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 2rem + 16 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth), 1px);
       }
       @media(width>=40rem) {
         padding-block-start: calc(158rem / 16 + 120 * var(--home-wide-reference-growth));
@@ -807,7 +812,7 @@
         margin-inline: auto;
         font-size: calc(20rem / 16 + 2 * var(--phone-tablet-reference-growth) + 8 * var(--home-wide-reference-growth));
         font-weight: 700;
-        line-height: calc(28rem / 16 + 2 * var(--phone-tablet-reference-growth) + 10 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 28rem / 16 + 2 * var(--phone-tablet-reference-growth) + 10 * var(--home-wide-reference-growth), 1px);
         @media(width>=40rem) {
           max-inline-size: var(--content-column-max-inline-size);
         }
@@ -857,7 +862,7 @@
           @media(width>=40rem) {
             margin-block-start: calc(19rem / 16 + 24 * var(--home-wide-reference-growth));
             font-size: calc(16rem / 16 + 6 * var(--home-wide-reference-growth));
-            line-height: calc(24rem / 16 + 6 * var(--home-wide-reference-growth));
+            line-height: round(nearest, 24rem / 16 + 6 * var(--home-wide-reference-growth), 1px);
           }
         }
         @media(width>=40rem) {
@@ -901,7 +906,7 @@
         font-family: inherit;
         font-size: calc(24rem / 16 + 4 * var(--phone-tablet-reference-growth) + 20 * var(--home-wide-reference-growth));
         font-weight: 700;
-        line-height: calc(2rem + 6 * var(--phone-tablet-reference-growth) + 26 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 2rem + 6 * var(--phone-tablet-reference-growth) + 26 * var(--home-wide-reference-growth), 1px);
         text-align: center;
       }
       @media(width>=40rem) {
@@ -913,7 +918,7 @@
       max-inline-size: var(--content-column-max-inline-size);
       margin-inline: auto;
       font-size: calc(15rem / 16 + 7 * var(--home-wide-reference-growth));
-      line-height: calc(30rem / 16 + 5 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 30rem / 16 + 5 * var(--home-wide-reference-growth), 1px);
       @media(width>=40rem) {
         inline-size: 75.3%;
         font-size: calc(14rem / 16 + 8 * var(--home-wide-reference-growth));
@@ -935,7 +940,7 @@
       &>div>h2 {
         margin-block: 0;
         font-size: calc(20rem / 16 + 10 * var(--home-wide-reference-growth));
-        line-height: calc(28rem / 16 + 14 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 28rem / 16 + 14 * var(--home-wide-reference-growth), 1px);
       }
       @media(width>=40rem) {
         /* The wide designs end the email wave on the fields' edge, 13 pixels inside the column at 1440. */
@@ -995,7 +1000,7 @@
       min-inline-size: 0;
       font-size: calc(20rem / 16 + 10 * var(--home-wide-reference-growth));
       font-weight: 700;
-      line-height: calc(28rem / 16 + 14 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 28rem / 16 + 14 * var(--home-wide-reference-growth), 1px);
       &>span {
         color: var(--color-river-gold);
       }
@@ -1183,7 +1188,7 @@
       font-family: "Playfair Display", serif;
       font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
       font-weight: 500;
-      line-height: calc(28rem / 16 + 4 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 28rem / 16 + 4 * var(--home-wide-reference-growth), 1px);
       letter-spacing: -0.019em;
       & :is(#portfolio-primary-navigation, .prototype-link) {
         letter-spacing: normal;
@@ -1266,7 +1271,7 @@
       &>h1 {
         color: var(--color-case-study-heading);
         font-size: calc(24rem / 16 + 6 * var(--home-wide-reference-growth));
-        line-height: calc(34rem / 16 + 6 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 34rem / 16 + 6 * var(--home-wide-reference-growth), 1px);
         text-align: center;
       }
       &>h2 {
@@ -1276,12 +1281,12 @@
         max-inline-size: calc(260rem / 16 + 280 * var(--home-wide-reference-growth));
         margin-inline: auto;
         font-size: calc(18rem / 16 + 4 * var(--home-wide-reference-growth));
-        line-height: calc(30rem / 16 + 6 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 30rem / 16 + 6 * var(--home-wide-reference-growth), 1px);
         text-align: center;
         /* The desktop designs: 49 px from the title's glyph top to the subtitle's, its lines 33 apart. */
         @media(width>=80rem) {
           margin-block-start: calc(1rem - 11 * var(--home-wide-reference-growth));
-          line-height: calc(30rem / 16 + 3 * var(--home-wide-reference-growth));
+          line-height: round(nearest, 30rem / 16 + 3 * var(--home-wide-reference-growth), 1px);
         }
       }
       @media(width>=40rem) {
@@ -1388,7 +1393,7 @@
         font-family: "Abril Fatface", serif;
         font-size: calc(24rem / 16 + 6 * var(--home-wide-reference-growth));
         font-weight: 400;
-        line-height: calc(34rem / 16 + 6 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 34rem / 16 + 6 * var(--home-wide-reference-growth), 1px);
       }
     }
     & .section-content {
@@ -1526,7 +1531,7 @@
       text-wrap: balance;
       &>* {
         margin-inline: 13% 21%;
-        line-height: 1.6;
+        line-height: round(nearest, 1.6em, 1px);
       }
       &>h4 {
         margin-block: 0;
@@ -1550,7 +1555,7 @@
       &>p {
         margin-block-start: 12%;
         /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
-        line-height: calc(1.6em + 0.039 * clamp(0rem, 100cqi - 322rem / 16, 164rem / 16));
+        line-height: round(nearest, 1.6em + 0.039 * clamp(0rem, 100cqi - 322rem / 16, 164rem / 16), 1px);
       }
     }
     /*
@@ -1954,7 +1959,7 @@
       text-align: center;
       text-decoration: none;
       /* Phone and tablet designs draw a 31 px pill, desktop ones 42 px; an invisible 48 px area keeps the target. */
-      line-height: calc(17rem / 16 + 3 * var(--home-wide-reference-growth));
+      line-height: round(nearest, 17rem / 16 + 3 * var(--home-wide-reference-growth), 1px);
       &::after {
         content: "";
         position: absolute;
@@ -2120,7 +2125,7 @@
           }
           &>h4 {
             margin-block-end: 0;
-            line-height: calc(32 * var(--persona-unit));
+            line-height: round(nearest, 32 * var(--persona-unit), 1px);
           }
           &>p {
             max-inline-size: calc(285 * var(--persona-unit));
@@ -2168,7 +2173,7 @@
           }
           &>h4 {
             margin-block-end: 0;
-            line-height: 2;
+            line-height: round(nearest, 2em, 1px);
           }
           &>p {
             margin-block-start: 0;
@@ -2485,7 +2490,7 @@
       &>.content {
         font-size: calc(15rem / 16 - var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
         /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
-        line-height: calc(30rem / 16 - 2 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 30rem / 16 - 2 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth), 1px);
       }
       & .prototype-link {
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
@@ -2515,7 +2520,7 @@
       */
       @media(width>=40rem) {
         & p:has(+ .wordmark) {
-          line-height: 1.5;
+          line-height: round(nearest, 1.5em, 1px);
         }
         & .wordmark {
           max-inline-size: calc(466rem / 16 + 191 * var(--home-wide-reference-growth));
@@ -2594,7 +2599,7 @@
         &>figcaption {
           margin-block-start: 1rem;
           font-size: calc(13rem / 16);
-          line-height: 1.5;
+          line-height: round(nearest, 1.5em, 1px);
         }
         @media(width<40rem) {
           inline-size: calc(336rem / 16 + 336 * var(--phone-art-growth));
@@ -2692,7 +2697,7 @@
             /* Plain wrapping: the designs end Institutional Trust on one word, which Safari's pretty avoids. */
             text-wrap: wrap;
             &>* {
-              line-height: 2;
+              line-height: round(nearest, 2em, 1px);
             }
             &>p {
               margin-block-start: 0;
@@ -2946,7 +2951,7 @@
       & :where(#tales-how-might-we)>h2 {
         --quote-measure: calc(342rem / 16);
         padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
-        line-height: calc(48rem / 16 + 12 * var(--home-wide-reference-growth));
+        line-height: round(nearest, 48rem / 16 + 12 * var(--home-wide-reference-growth), 1px);
         /* 1066 px at 1440 breaks before "of daily", as Desktop Tales does (1050.5 to 1082.5 px in our face). */
         @media(width>=40rem) {
           --quote-measure: calc(550rem / 16 + 516 * var(--home-wide-reference-growth));
@@ -3058,7 +3063,7 @@
           &>* {
             margin-inline: calc(13% - 3 * var(--home-wide-reference-growth))
               calc(10rem / 16 + 80 * var(--home-wide-reference-growth));
-            line-height: 2;
+            line-height: round(nearest, 2em, 1px);
           }
         }
       }
@@ -3098,7 +3103,7 @@
         & :where(#tales-digital-touchpoint, #tales-campaign-and-impact)>.section-content {
           &>:is(p, ul) {
             margin-block: 0;
-            line-height: 1.5;
+            line-height: round(nearest, 1.5em, 1px);
           }
           &>p:first-child {
             margin-block-start: calc(3rem / 16);
@@ -3190,7 +3195,7 @@
           margin-block-start: calc(89rem / 16);
           padding-inline: calc(10300% / 1086);
           &>p {
-            line-height: 2;
+            line-height: round(nearest, 2em, 1px);
           }
         }
       }
@@ -3276,7 +3281,7 @@
           /* The designs set this copy at line height 1.5, against the page's 2. */
           &>p {
             padding-inline: calc(15rem / 16 - 15 * var(--phone-tablet-reference-growth)) var(--tip);
-            line-height: 1.5;
+            line-height: round(nearest, 1.5em, 1px);
           }
           /*
             Tablet Tales wraps every card's copy at about 148 px, the first card's too, and breaks each title after
@@ -3350,7 +3355,7 @@
             border-radius: 50%;
             color: var(--num);
             font-size: calc(var(--ring) * 0.45);
-            line-height: calc(var(--ring) - 6rem / 16);
+            line-height: round(nearest, var(--ring) - 6rem / 16, 1px);
             text-align: center;
           }
           &>h4 {
@@ -3367,7 +3372,7 @@
             padding-block-start: var(--stem);
             /* Clear of the earlier chevron's tip over this one, and of this one's tip; Figma's line height 1.5. */
             padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
-            line-height: 1.5;
+            line-height: round(nearest, 1.5em, 1px);
             font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
             background-color: var(--c);
             color: var(--on);
@@ -3430,7 +3435,7 @@
           }
           &>:nth-child(n)>p {
             margin-block-start: calc(24rem / 16);
-            line-height: 2;
+            line-height: round(nearest, 2em, 1px);
           }
           &>:nth-child(1)>p {
             padding-inline: 0 calc(32.5 * var(--u980));
@@ -3574,7 +3579,7 @@
             font-family: "Abril Fatface", serif;
             font-size: calc(18rem / 16 + 2 * var(--phone-tablet-reference-growth) + 8 * var(--home-wide-reference-growth));
             font-weight: 400;
-            line-height: 2;
+            line-height: round(nearest, 2em, 1px);
             text-align: center;
             /*
               Desktop/MenuMe.pdf: the box 94 px under the paragraph's glyph top, its line's glyph top 71 px into it and
@@ -3749,7 +3754,7 @@
               &>h3:nth-of-type(2) {
                 margin-block: calc((35 - 144 * 26 / 216) * var(--u)) 0;
                 font-size: calc(16 * var(--u));
-                line-height: 2;
+                line-height: round(nearest, 2em, 1px);
                 &>span {
                   display: block;
                 }
@@ -3787,7 +3792,7 @@
                     grid-area: 1 / 1;
                     margin-block: 0 calc(7 * var(--u));
                     font-size: calc(16 * var(--u));
-                    line-height: 1.5;
+                    line-height: round(nearest, 1.5em, 1px);
                     text-align: center;
                     &>span {
                       display: block;
@@ -3922,7 +3927,7 @@
               font-family: "Abril Fatface", serif;
               font-size: calc(40rem / 16 + 5 * var(--home-wide-reference-growth));
               font-weight: 400;
-              line-height: var(--menume-disc);
+              line-height: round(nearest, var(--menume-disc), 1px);
               text-align: center;
             }
             &::after {
@@ -4019,7 +4024,7 @@
                     margin-block-end: calc(7 * var(--persona-unit));
                     margin-inline-start: calc(-5 * var(--persona-unit));
                     padding-inline: calc(27 * var(--persona-unit));
-                    line-height: calc(19 * var(--persona-unit));
+                    line-height: round(nearest, 19 * var(--persona-unit), 1px);
                   }
                   &>p:first-of-type {
                     margin-block-end: calc(5 * var(--persona-unit));
@@ -4115,7 +4120,7 @@
                   &>p:first-of-type {
                     margin-block-end: calc(6rem / 16);
                     font-size: 1rem;
-                    line-height: 1.5;
+                    line-height: round(nearest, 1.5em, 1px);
                   }
                 }
                 &:nth-child(2) {
@@ -4223,7 +4228,7 @@
                   }
                   &>p:first-of-type {
                     margin-block-end: calc(3rem / 16);
-                    line-height: 1.5;
+                    line-height: round(nearest, 1.5em, 1px);
                   }
                 }
                 &:nth-child(2) {
@@ -4672,7 +4677,7 @@
           & .subsection:has(img[src*="mental-overload"]) {
             &>p {
               font-size: 1rem;
-              line-height: 2;
+              line-height: round(nearest, 2em, 1px);
             }
             &>.flex-row:has(>article) {
               display: grid;
@@ -4723,7 +4728,7 @@
                 margin-block-end: calc(35rem / 16);
                 /* Narrow enough to break the second heading after "Balancing", as drawn. */
                 padding-inline: calc(20rem / 16);
-                line-height: 2;
+                line-height: round(nearest, 2em, 1px);
               }
             }
             &>h3::before {
@@ -5447,7 +5452,7 @@
                 color: var(--color-page-background);
                 font-family: "Abril Fatface", serif;
                 font-size: calc(28rem / 16 + 12 * var(--home-wide-reference-growth));
-                line-height: 1;
+                line-height: round(nearest, 1em, 1px);
               }
             }
             /*
@@ -5599,7 +5604,7 @@
             &>.closing-reflection {
               margin-block-start: calc(213rem / 16);
               margin-inline: calc(4300% / 1086);
-              line-height: 2;
+              line-height: round(nearest, 2em, 1px);
             }
           }
           &>.subsection>h3 {
@@ -5837,7 +5842,7 @@
               margin-block: 14% auto;
               margin-inline: 5%;
               font-size: calc(14 * 100cqi / 346.8);
-              line-height: calc(22 / 14);
+              line-height: round(nearest, 22em / 14, 1px);
               text-wrap: wrap;
             }
           }
@@ -5898,7 +5903,7 @@
             margin-inline: calc(112 * var(--u)) 0;
             &>p {
               margin-inline: 16% 20%;
-              line-height: 2;
+              line-height: round(nearest, 2em, 1px);
             }
           }
         }
@@ -6000,7 +6005,7 @@
             &>p {
               margin-block: calc(117 * 100cqw / 550) 0;
               margin-inline: calc(65 * 100cqw / 550);
-              line-height: 2;
+              line-height: round(nearest, 2em, 1px);
             }
           }
         }
@@ -7234,7 +7239,7 @@
           inline-size: calc(806rem / 16);
           margin-block-start: calc(118rem / 16);
           margin-inline-start: calc(100% * 146.5 / 1086);
-          line-height: 2;
+          line-height: round(nearest, 2em, 1px);
         }
       }
     }
