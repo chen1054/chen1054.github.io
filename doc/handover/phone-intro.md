@@ -16,7 +16,9 @@ Which Safari checks which width (missed on 2026-10-22, when a phone batch was fi
   there with `Cache-Control: no-store`, see "Client iPhone round, 2026-10-19"). `safaridriver` cannot reach a
   device in a custom set, so measure in Chromium and confirm visually in the Simulator.
 - Tablet 744 and desktop widths: Safari 17.5 in the Sonoma VM over WebDriver (`127.0.0.1:4454`, lock
-  `/home/user/temp/agent/vm-sonoma.lock`), resizing the window.
+  `/home/user/temp/agent/vm-sonoma.lock`), resizing the window. The client's "tablet" screenshots come from Mac
+  Safari 17 with the window resized (the user, 2026-10-22), not an iPad: missed on CF93, when iPad Simulators were
+  built and measured instead and the user had to ask "Don't you already know what the client uses?".
 - Never stand a desktop browser in for the phone (no iframe or resized-window substitutes).
 
 ## Current state
