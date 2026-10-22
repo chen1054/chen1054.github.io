@@ -2972,8 +2972,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     Safari 17.5 and Chromium (116 and 119.875 unrounded).
   - Edit set from data: `tag-lh.mjs` adds `--lh-src: "L<line>"` beside every declaration in a throwaway copy, so
     each element reports the declaration its line height comes from (`lh-collect.mjs`, Chromium, 6 pages at 360,
-    393, 744, 790, 1024, 1280, 1440, 1920). Every text element has a declared line height (none fall back to
-    `normal`); 50 declarations gave fractions.
+    393, 744, 790, 1024, 1280, 1440, 1920). Every visible text element at those widths has a declared line height
+    (none fall back to `normal`); 50 declarations gave fractions. Not exercised: the open phone menu, the
+    enlarged-view popovers and pseudo-element text; the rewrite covers their declarations, but the inheritance
+    check did not see them.
   - Inheritance check (`lh-compare.mjs`, before against after): 3669 text elements, 0 still fractional, 0 moved
     more than 0.5 px from the rounded old value, so turning factors into em changed no inherited line height.
   - iOS 17.0.1 Simulator at 393 before the commit (worktree `f20/lh-wt` served by the inject server on 4177,
