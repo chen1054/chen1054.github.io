@@ -340,6 +340,16 @@
       block-size: auto;
     }
   }
+  /*
+    The wide footer waves follow the river's rule (the user, 2026-10-22): each keeps its drawing's shape (pages set
+    the ratio), never grows past its 1440 drawing, and is centred on wider windows.
+  */
+  .footer-wave {
+    @media(width>=40rem) {
+      max-inline-size: var(--river-max-inline-size);
+      margin-inline: auto;
+    }
+  }
   .site-footer {
     margin-block-start: calc(86rem / 16);
     color: var(--color-portfolio-purple);
@@ -908,7 +918,7 @@
     @media(width>=40rem) {
       margin-block-start: calc(-67rem / 16 - 64 * var(--home-wide-reference-growth));
       &>picture>img {
-        block-size: calc(186rem / 16 + 174 * var(--home-wide-reference-growth));
+        aspect-ratio: 1440 / 360;
       }
     }
   }
@@ -1108,6 +1118,9 @@
       margin-block-start: calc(-72rem / 16 - 72 * var(--phone-art-growth));
       @media(width>=40rem) {
         margin-block-start: calc(-80rem / 16 - 60 * var(--home-wide-reference-growth));
+        &>picture>img {
+          aspect-ratio: 1440 / 360;
+        }
       }
     }
   }
@@ -2082,7 +2095,7 @@
         @media(width>=40rem) {
           margin-block-start: calc(-72rem / 16 - 67 * var(--home-wide-reference-growth));
           &>picture>img {
-            block-size: calc(182rem / 16 + 133 * var(--home-wide-reference-growth));
+            aspect-ratio: 1440 / 315;
           }
         }
       }
