@@ -438,7 +438,10 @@
         }
       }
     }
-    /* Each step appears 1 s after the previous one; the flower 1 s after the river finishes (client, 2026-10-18). */
+    /*
+      Each step appears 1 s after the previous one (client, 2026-10-18); the flower 0.3 s after the river finishes
+      (the client, 2026-10-22: "这朵花的出现时间调整为0.3秒", replacing the earlier 1 s).
+    */
     @media(prefers-reduced-motion:no-preference) {
       & :is(.greeting, .designer-name, .summary, .about-link, .purple-accent, .floral-accent) {
         animation: home-introduction-layer-fade-in 450ms ease-out backwards;
@@ -471,7 +474,7 @@
         );
       }
       & .floral-accent {
-        animation-delay: 6800ms;
+        animation-delay: 6100ms;
       }
     }
     /* One featured project: stacked on phones, illustration beside the description on wide screens. */
