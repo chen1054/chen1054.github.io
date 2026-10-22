@@ -2695,8 +2695,19 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     #c27f36, the name's gold); `c9d2e3c` CF101, CF105, CF106 (Tales and Scotties prototype pills swap text and
     background on hover, all six pills checked; MenuMe's hover unchanged), `f20/hover/probe-hover.mjs`.
     agent-browser `hover .about-link` lands on `main`, not the pill (a tool miss: `elementFromPoint` at the pill
-    centre is the pill, and `mouse move` there hovers it). Next: Safari 17.5 check of all three
-    (`f20/hover/safari-hover.mjs`, live site), then CF102/103.
+    centre is the pill, and `mouse move` there hovers it). Safari 17.5 (live, `f20/hover/safari-hover.mjs`, real
+    pointer moves): nav 22 px at 1920 (21.8 at 1440, the scrollbar narrows the page), every pill hovers as in
+    Chromium.
+  - CF102/103 had two causes. `331f121`: the hi-fi preference screens' picture (re-rendered from the design in
+    `f08dac8`) already carries the dashed highlights, and the page drew its own on top, so each dashed line showed
+    twice; that overlay and its SVG are gone (all widths). `f66c0ee`: the design draws each desktop squiggle as a
+    body plus a separate chevron; the four desktop SVGs are re-exported with both (`f20/export-region.py`), boxes
+    grown by the added margin so the bodies stay put. Tablet and phone squiggles already had their arrowheads.
+    Chromium 1440 matches the design for both flows; Safari 17.5 at 1920 has the same boxes and render.
+  - CF107/108 (in progress): every Scotties wireframe connector runs 5 to 9 px past its callout's border into
+    the box (offsets are from the padding edge, inside the 3 or 4 px border); the design stops each at the border.
+    Arrowhead tips land right. Probe: `f20/scot-arrows/probe-inside.mjs` + `count-inside.py` count
+    connector-coloured pixels inside each callout with its text hidden, at 390, 744, 1440, 1920.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
