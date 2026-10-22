@@ -3055,6 +3055,30 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     - `2d6fc5d` Contact Name and Phone stacked at 744 for the same reason; the wide row no longer wraps.
     - `d97fb53` MenuMe learnings: the drip painted over the copy's last line at tablet widths; the copy now
       paints above it, as the design layers it.
+    - `c36f398` Scotties challenge cloud on tablet widths: the `.fig` Tablet frame draws it 433 wide with seven
+      lines; ours stretched and rewrapped. Safari probe: seven lines and the natural ratio at 744, 790, 1024, 1180,
+      1279, 1280, 1440 and 1920.
+    - `2b05e51` Scotties tablet chevrons and bolt: the `.fig` chevron group is turned 180°, so `boxes.jsonl`
+      (which reads only `m02`/`m12`) reports its far corner; `~/temp/agent/fig-parse/node-transform.mjs` prints
+      the full matrix. The bolt now sits 9/433 of the cloud above it.
+    - `a5ffefb` Tales Challenge note on tablet widths: the outline was smaller than the design and the copy ran
+      into it. At 744 the longest line now clears the outline by 20 px (design 19) and the next heading sits 84
+      below (design 87). Edge: at a 640 layout the backing is 2 px from the window edge (no horizontal scroll).
+    - `6ae9ba6` MenuMe story: the copy's last line ran into the pot at most widths under 1380 (Chromium sweep 360
+      to 1920 by 10). New `.tablet-break` and a phone split that stays until 45rem; minimum gap now 9.5 px (580),
+      11.7 at 360, 14.9 at 740.
+    - `d714dcb` MenuMe persona names: the brush plate was the `h4` background and cropped; it is now a `::before`
+      at the brush's own 1019/333 ratio behind the name.
+  - Still open, small: the desktop Scotties cloud copy starts 117 below the cloud top, the `.fig` 112.
+  - Lessons this round:
+    - Captures older than a fix show the old page: check frame times against `git log` before reviewing.
+    - Colour masks for ink gaps need a strict tolerance (20 for the bolt `#becb9d`); 60 caught grey text
+      anti-aliasing and gave a false 1 px gap.
+    - Partial commits: `git apply --cached --unidiff-zero` of the wanted hunks, then `git commit --no-only`
+      (the git-policy guard accepts it; it commits exactly the index).
+    - Never wait with `tail --pid=$(pgrep --newest --full ...)`: the pattern matches the waiting shell itself and
+      hangs to the timeout. Use the background task's own completion notice.
+    - The default `agent-browser` session belongs to another session; use `--session xinyan`.
   - Checked against the `.fig` and left as is: Home phone Scotties pill over the grey wave (drawn so); Home phone
     footer gold `#C27F36` (the `.fig` Phone/Home frame uses it; other pages `#D8A150`); Contact intro "via email,"
     (`2ea3807`); Matcha role gap (`7b70e03`); Contact captcha centred over Send.
