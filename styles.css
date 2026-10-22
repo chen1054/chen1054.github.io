@@ -4020,8 +4020,26 @@
                   padding-inline: calc(24rem / 16);
                   font-size: calc(18rem / 16 + 6 * var(--home-wide-reference-growth));
                   text-align: center;
-                  background: url("assets/menume-yellow-brush-name-plate.svg") center / 100% 100% no-repeat;
                   color: var(--color-case-study-accent);
+                  position: relative;
+                  isolation: isolate;
+                  /*
+                    The designs draw the brush as wide as the plate, at its own proportions, centred on the name
+                    (MenuMe in the .fig: 108.6 by 34.6 under Alicia and 119.5 by 37.3 under Matthew on phones, 167.9
+                    by 53.6 under Alicia on desktops). As the plate's background it kept its proportions inside the
+                    box and shrank to the box's height, leaving "Matthew" past both ends; drawn behind the name it
+                    can stand taller than the box without moving anything.
+                  */
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    inset-block-start: 50%;
+                    inset-inline: 0;
+                    aspect-ratio: 1019 / 333;
+                    translate: 0 -50%;
+                    background: url("assets/menume-yellow-brush-name-plate.svg") center / 100% 100% no-repeat;
+                  }
                 }
                 &>p:first-of-type {
                   color: var(--color-case-study-accent);
