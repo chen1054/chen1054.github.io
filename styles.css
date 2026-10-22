@@ -240,11 +240,13 @@
       inset-block-start: calc(20rem / 16 + 16 * var(--home-wide-reference-growth));
       /*
         The client: "Get the logo+nav bar to always stick to the left side of the screen with padding, clamped by the
-        leftmost side of the river." The padding is the designs' 35 to 70; on windows wider than the river, it counts
-        from the river's left end instead of the window's.
+        leftmost side of the river." The padding is the designs' 35 to 70 and is the least gap to the window's
+        edge (the user: "the 70px was min from left of logo to left of screen"); once the centred river starts
+        further in, the logo lines up with the river's left end.
       */
-      inset-inline-start: calc(
-        35rem / 16 + 35 * var(--home-wide-reference-growth) + max(0rem, (100cqw - var(--river-max-inline-size)) / 2)
+      inset-inline-start: max(
+        35rem / 16 + 35 * var(--home-wide-reference-growth),
+        (100cqw - var(--river-max-inline-size)) / 2
       );
       display: flex;
       align-items: start;
