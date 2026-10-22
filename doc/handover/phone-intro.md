@@ -2677,7 +2677,8 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   1223 and 353, both GIFs decoded at full size, 91278 device pixels changed between screenshots 1.5 s apart
   (animating). Single GIF frames from ImageMagick are deltas (blank); use ffmpeg.
 - New client batch, 2026-10-22, folder `Client screenshots 2026OCT220120/` (the user pointed at its
-  `first seen on desktop`), each item a screenshot named with the client's words:
+  `first seen on desktop`, then at `first seen on phone` and `first seen on tablet`; all three are this batch),
+  each item a screenshot named with the client's words:
   - Desktop: CF101 "button的变色(的时候）为背景是紫色，文字是黄色。" (Tales Launch Doodle Demo hover: purple
     background, yellow text); CF102 and CF103 "虚线出现了两次，箭头不见了" (MenuMe orange squiggles: the line
     appears twice, the arrow is missing); CF105 and CF106 "两个button变色（的时候）：文字与背景的颜色调换" (Scotties
@@ -2689,6 +2690,13 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     (gap to increase), CF82 (an extra green arrow), CF85 (left margin for the box), CF86 (centre it all), CF87
     (centre the light bulb), CF90 (the flower appears at 0.3 s). Tablet: CF93 (sitemap text the size of body text).
   - Queue: the desktop items first (CF109, the hover colours, CF102/103, CF107/108), then phone and tablet.
+  - Done in Chromium: `a591445` CF109 (nav links 22 px from 1440 up, 14 at 744; nav height and every page
+    heading unmoved at 744, 1440, 1920, `f20/nav/probe-nav.mjs`); `6787623` CF110 (More About Me hovers to
+    #c27f36, the name's gold); `c9d2e3c` CF101, CF105, CF106 (Tales and Scotties prototype pills swap text and
+    background on hover, all six pills checked; MenuMe's hover unchanged), `f20/hover/probe-hover.mjs`.
+    agent-browser `hover .about-link` lands on `main`, not the pill (a tool miss: `elementFromPoint` at the pill
+    centre is the pill, and `mouse move` there hovers it). Next: Safari 17.5 check of all three
+    (`f20/hover/safari-hover.mjs`, live site), then CF102/103.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
