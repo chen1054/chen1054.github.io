@@ -3655,6 +3655,8 @@
           */
           &>aside {
             --menume-story-inset: calc(35.5rem / 16 + 121 * var(--phone-tablet-reference-growth) + 187 * var(--home-wide-reference-growth));
+            --menume-pot-size: calc(44rem / 16 + 10 * var(--phone-tablet-reference-growth) + 10.8 * var(--home-wide-reference-growth));
+            --menume-pot-end: calc(37.5rem / 16 - 10.7 * var(--phone-tablet-reference-growth) + 15.8 * var(--home-wide-reference-growth));
             position: relative;
             box-sizing: border-box;
             /* Never past the column's end, so the brush stroke over its corner stays on narrow phones' screens. */
@@ -3698,12 +3700,24 @@
               aspect-ratio: 557 / 843;
               background: url("assets/menume-inspiration-orange-squiggle.svg") center / contain no-repeat;
             }
+            /*
+              The forced breaks give each design's own last lines only near its width (Chromium sweep 640 to 1920 by
+              10): the tablet's from 740 to 912 px, the desktop's from 1360. Elsewhere they leave a short line ("a
+              daily source of" at 710 to 730 and from 916, "of stress into an" at 1280 to 1350), so there the copy
+              wraps freely in a gutter as wide as the pot, and no line reaches it.
+            */
+            @media(width>=40rem) and (width<46.25rem), (width>=56rem) and (width<85rem) {
+              padding-inline-end: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16);
+              &>p :is(.phone-break, .tablet-break, .desktop-break) {
+                display: none;
+              }
+            }
             &::after {
               content: "";
               position: absolute;
               inset-block-end: calc(18.8rem / 16 + 4.7 * var(--phone-tablet-reference-growth) - 6.9 * var(--home-wide-reference-growth));
-              inset-inline-end: calc(37.5rem / 16 - 10.7 * var(--phone-tablet-reference-growth) + 15.8 * var(--home-wide-reference-growth));
-              inline-size: calc(44rem / 16 + 10 * var(--phone-tablet-reference-growth) + 10.8 * var(--home-wide-reference-growth));
+              inset-inline-end: var(--menume-pot-end);
+              inline-size: var(--menume-pot-size);
               aspect-ratio: 1;
               background: url("assets/menume-teal-cooking-pot-icon.svg") center / contain no-repeat;
             }
