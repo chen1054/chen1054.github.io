@@ -2747,10 +2747,18 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     - CF93 (no change yet): sitemap labels and body copy compute the same size at 744 to 1180 (14 to 15.25 px),
       and in the client's own screenshot the cap heights match (about 12.7 and 13 px). Asked the user what the
       client wants changed.
-  - Found while measuring (not from the client): at 360 px every case study scrolls sideways. Scotties 374
-    (the core-value pair of 165 px articles), MenuMe 376 (the Weekly Specials note, 215 px from 161), Tales 370
-    (a 336 px figure). Also at `c99cb9f`, so it predates this batch.
-  - Safari 17.5 not yet run for CF72 to CF90.
+  - Found while measuring (not from the client), `4c3660c`: at 360 Scotties, MenuMe and Tales were 374, 362 and
+    370 px wide, at 375 (iPhone SE, mini) Scotties 382 and MenuMe 376 (also at `c99cb9f`). Causes: phone art in
+    drawn pixels stopped shrinking at 390 (`--phone-art-growth` clamped at 0; now down to 320, same value from
+    390 up, type unchanged); the brand message starburst (capped to end at the screen edge); the MenuMe story box
+    (now stops at the column's end). Every page now measures its viewport at 360 and 375 in Chromium.
+    `f20/batch-phone/probe-overflow-hunt.mjs` finds pseudo-element culprits by hiding subtrees.
+  - iOS 17.0.1 Simulator Safari on the live site (`f20/batch-phone/sim17-live.mjs`; text fragments do scroll, but
+    the first URL of a run lands at the top, so open a warm-up URL first): CF74, CF75, CF78, CF85, CF86, CF87 as in
+    Chromium. CF77 was not: Safari 17.0 ignores an `@media` nested inside `::after`, so the chevrons stayed by
+    Cart. `fc4f178` wraps `::after` in the query instead, there and for the Core Challenge skate (its phone place
+    had never applied on iOS 17). `f20/batch-phone/scan-pseudo-media.mjs styles.css` lists any query nested in a
+    pseudo-element; now none (the previous HEAD: those two). Never nest a query inside a pseudo-element rule.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
