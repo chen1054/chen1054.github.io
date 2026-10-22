@@ -208,6 +208,13 @@
     font-weight: 400;
     line-height: calc(20rem / 16);
     text-align: start;
+    /*
+      The open menu takes focus itself, so keyboard and screen-reader users start inside it without a box drawn
+      around the close button (the user's choice, 2026-10-22); the panel is not a control, so it draws no outline.
+    */
+    &:focus {
+      outline: none;
+    }
     &>a {
       display: flex;
       align-items: center;
