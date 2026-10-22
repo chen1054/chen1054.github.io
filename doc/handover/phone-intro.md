@@ -2964,10 +2964,27 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     in both (`pairs/index-1440-s7-*.png`).
 - 744 and 1920 match almost exactly because the fluid sizes clamp to whole values there.
 - The user chose "Round line heights" (over leaving both; breakpoints stay as they are): Safari and Chrome should
-  agree to the pixel. In progress: each `line-height` that can come out fractional becomes
-  `round(nearest, ..., 1px)`. A unitless factor (`2`, `1.5`) would then inherit as a length, so a before/after
-  Chromium check flags any element whose line height moves by more than 0.5 px. Next after that: draft the client
-  reply (the user chose "Draft client reply"; a local file the user sends).
+  agree to the pixel.
+- Landed `64d6dbc`: the 53 `line-height` declarations that can come out fractional are
+  `round(nearest, ..., 1px)`; unitless factors are written in em inside it (`2` to `2em`); 17 constant ones
+  (`calc(Nrem / 16)` with whole N, `3rem`, `inherit`) unchanged.
+  - Positive control first (`probe-round.js`): four 14.9915 px lines at `round(nearest, 2em, 1px)` measure 120 in
+    Safari 17.5 and Chromium (116 and 119.875 unrounded).
+  - Edit set from data: `tag-lh.mjs` adds `--lh-src: "L<line>"` beside every declaration in a throwaway copy, so
+    each element reports the declaration its line height comes from (`lh-collect.mjs`, Chromium, 6 pages at 360,
+    393, 744, 790, 1024, 1280, 1440, 1920). Every text element has a declared line height (none fall back to
+    `normal`); 50 declarations gave fractions.
+  - Inheritance check (`lh-compare.mjs`, before against after): 3669 text elements, 0 still fractional, 0 moved
+    more than 0.5 px from the rounded old value, so turning factors into em changed no inherited line height.
+  - iOS 17.0.1 Simulator at 393 before the commit (worktree `f20/lh-wt` served by the inject server on 4177,
+    `run-sim-after.mjs`, `simgeo-after/`): `round()` applies on iOS 17.0. Tales 19928 px in Safari and Chromium
+    (was 19744 against 19934); About, Contact, Home identical; MenuMe 1 px; Scotties 2 px in two paragraphs of
+    `section:7` (left as is).
+  - Desktop Safari 17.5 against Chromium after the deploy: `run-desktop-after.mjs` into `geo-after/` (running).
+- Client reply drafted (the user chose "Draft client reply"):
+  `../Client screenshots 2026OCT220120/reply-draft.md`, Chinese with an English reference. It covers CF72 to
+  CF111, the bubbles, the GIFs and our own fixes. It says to send or merge the 2026-10-20 draft first if that
+  was never sent (unknown to the agent).
 
 ### Not ours
 
