@@ -3113,6 +3113,40 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     footer gold `#C27F36` (the `.fig` Phone/Home frame uses it; other pages `#D8A150`); Contact intro "via email,"
     (`2ea3807`); Matcha role gap (`7b70e03`); Contact captcha centred over Send.
   - Done by eye: desktop Safari Home, About, Contact at all widths; MenuMe 744; iPhone Home, About, Contact.
+  - Continued, same day:
+    - `bc86e99` Scotties persona photos: Jonathan's file is 492 by 616, the others 490 by 616, so at one width his
+      photo rendered 1.1 px shorter and his name sat 1.1 px higher (seen at 790, 1024, 1920). Every Scotties frame
+      keeps the photos one height (Tablet 293.01 each, names at y 3570). The photos take 490:616 with
+      `object-fit: cover`; Chromium probe at 390, 790, 1024, 1440, 1920: three equal heights, names level.
+    - Case-study hero meta items ended on a lone word in Safari (`~/temp/agent/f20/eye/meta-probe.js` through
+      `safari-sweep.mjs`, 640 to 1920 by 10, live site before the fix): Scotties at every width from 790 to 1410
+      ("Mobile)", "Jarvis", "College", "Wireframes)"), MenuMe 640 to 650 ("College"), Tales from 1010
+      ("Experience", "Plan"). No design frame ends an item on one word; the Desktop frame even sets "(Desktop &
+      Mobile)" and "Hi-Fi Wireframes)" as their own lines. Fixed in `1286269`: every meta item's last two words
+      (Scotties' whole "(Desktop & Mobile)") are joined with `&nbsp;`, on all three pages. Chromium 320 to 1920
+      by 10 (`meta-cr.mjs`, which also reports sideways overflow): no lone last word. Safari re-sweep after
+      deploy pending.
+    - `0df35fc` Scotties personas below 640: the phone rules grow each photo with the window (320 px at 580)
+      while the row still wrapped at a 240 px basis, so from 552 px two personas shared a row and the page
+      scrolled sideways by up to 65 px (Chromium 560 to 630; Safari windows up to 655). Each persona now takes a
+      full row; 390 unchanged.
+    - Open, not fixed: Tales scrolls sideways by 5 to 15 px at 320 to 340 px (narrower than any iOS 17 iPhone).
+      Element not identified yet.
+    - Checked against the `.fig` and left as is:
+      - Scotties sitemap labels wrap in Safari from 660 to 800 (at 744: Apparel & Accessories, Our Team, Event &
+        Community Hub, Community Highlights). The Tablet frame draws the tree as a raster with about 10 px labels;
+        at the body size the client asked for (CF93) the four columns need about 652 px, and the user already
+        chose to keep these breaks after `891312c`. Safari sweep: `sitemap-probe.js`.
+      - "—from high-energy color tokens" starts a line in the Scotties learnings card at 790 and 1920; the Tablet
+        frame breaks the same way (`text-lines.mjs`). Same class as the Lo-fi "—Skateboarding".
+      - Scotties closing buttons stack Mobile above Desktop; the Tablet frame does too (y 9750 and 9786).
+      - Scotties cloud copy breaks: the Tablet and Desktop frames force the same breaks.
+      - Desktop Scotties "Lo-fi Homepage": the wireframe sits 9 px under the heading in the `.fig` too.
+      - MenuMe "Component Library:" is Medium in every frame; only the three colour names are Bold
+        (`~/temp/agent/fig-parse/text-styles.mjs`, new: font-style runs of text nodes containing a string).
+      - The `.fig` reads "stepper steppers (+ / -)"; the site's "steppers" is the earlier copy fix `af9e40d`.
+    - Done by eye since: Safari Tales 1024 and 1440 (to 04), Scotties 790, 1024, 1280 (to 02), 1920; MenuMe
+      1024 and 1280 story after the gutter fix (clear of the pot); iPhone MenuMe, all frames.
 
 ### Not ours
 
