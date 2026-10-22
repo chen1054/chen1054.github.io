@@ -1262,15 +1262,27 @@
         }
       }
     }
-    /* Breaks only the desktop design draws (Scotties' hero summary and its challenge cloud). */
+    /*
+      Breaks only the desktop design draws (Scotties' hero summary and its challenge cloud, MenuMe's story ending
+      clear of the pot).
+    */
     & .desktop-break {
       @media(width<80rem) {
         display: none;
       }
     }
-    /* Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud). */
+    /* Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud; MenuMe's story ending). */
     & .phone-break {
       @media(width>=40rem) {
+        display: none;
+      }
+    }
+    /* Breaks only the tablet design draws (MenuMe's story ending clear of the pot). */
+    & .tablet-break {
+      @media(width<40rem) {
+        display: none;
+      }
+      @media(width>=80rem) {
         display: none;
       }
     }
@@ -3017,6 +3029,7 @@
           */
           &>.spiral-notepad {
             grid-area: 2 / 2;
+            inline-size: calc((334rem / 16 + 11 * var(--phone-tablet-reference-growth)) * 360.6 / 345 + 145.4 * var(--home-wide-reference-growth));
             margin-block-end: calc(-24 * 346 / 486 * var(--home-wide-reference-growth));
             margin-inline-start: 0;
           }
@@ -3029,7 +3042,6 @@
       @media(width>=80rem) {
         /* Its text in line with the copy, 53 px into the 1086 px column, the icon hanging before it. */
         & :is(.section-content, .subsection)>h3:has(+ :is(p, ul)) {
-            inline-size: calc((334rem / 16 + 11 * var(--phone-tablet-reference-growth)) * 360.6 / 345 + 145.4 * var(--home-wide-reference-growth));
           margin-block-end: calc(6rem / 16);
           margin-inline-start: calc(5300% / 1086 - var(--glyph-size) * 4 / 3);
         }
@@ -3638,6 +3650,17 @@
             box-shadow: 0 calc(6rem / 16) calc(4rem / 16) var(--menume-honey);
             &>p {
               margin-block: 0;
+              /*
+                The copy ends on each design's own last line, which stops short of the pot (forced breaks in the
+                markup); text wrapping freely ran its last line, or the one above it, into the pot at most widths
+                under 1380 px. Until 720 px the tablet's last line is still longer than the room the pot leaves, so
+                the phone's split under it stays too.
+              */
+              & .phone-break {
+                @media(width<45rem) {
+                  display: inline;
+                }
+              }
               &::after {
                 content: "";
                 position: absolute;
