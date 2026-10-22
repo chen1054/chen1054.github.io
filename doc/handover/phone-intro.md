@@ -3069,7 +3069,22 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       11.7 at 360, 14.9 at 740.
     - `d714dcb` MenuMe persona names: the brush plate was the `h4` background and cropped; it is now a `::before`
       at the brush's own 1019/333 ratio behind the name.
+    - `693ff9e` Scotties phone bolt: the Phone frame draws the desktop bolt 3.7% taller and 7.2 px above the
+      cloud, its tip on line 3's baseline; ours ran about 4 px past it into "no". Shape kept, tip pinned.
+    - `b48d7bd` Scotties cloud: every Scotties frame layers cloud, bolt, text from bottom to top; our bolt
+      (a positioned `::before`) painted over the copy. The copy is positioned now and paints on top.
+    - `96df23c` Tales phone subtitle: a 260 px cap left "Play" alone on a third line; the Phone frame's box is
+      319. The phone cap is per page now (`--summary-subtitle-phone`: Tales 319, MenuMe and Scotties 260).
+    - `dd506bf` Case-study hero on phones and tablets: subtitle pitch 27 (was 30) and a 5.3 px top margin (was
+      16), so its first baseline sits 33.3 under the title's (designs 33.8) and the summary 102.3 (designs 101.6
+      to 105). Probe: `~/temp/agent/f20/eye/hero-baselines.js`; design baselines:
+      `~/temp/agent/fig-parse/hero-baselines.mjs`.
+    - `0e4ad72` Phone summaries at 15 on 30 on every page (MenuMe and Scotties were 14 on 28); their wraps now
+      match the Phone frames at 390.
   - Still open, small: the desktop Scotties cloud copy starts 117 below the cloud top, the `.fig` 112.
+  - Left as is: Tablet/Scotties draws its summary 10 px tighter under its one-line subtitle than the other five
+    frames (ours 75.3 under the title's baseline, design 67.6); Phone/Tales wraps "Lab" alone in Client &
+    Partners (319 px box), ours fits two lines in 325.
   - Lessons this round:
     - Captures older than a fix show the old page: check frame times against `git log` before reviewing.
     - Colour masks for ink gaps need a strict tolerance (20 for the bolt `#becb9d`); 60 caught grey text
