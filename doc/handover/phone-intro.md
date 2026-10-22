@@ -3413,8 +3413,21 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   unit `xinyanchen-safari-waves` (`safari-waves.ts`, `waves-probe.js`, all six pages at 81 widths from 640 to
   1920, `waves-safari-<page>.log`): no wave flagged. The older sweep `impact-safari-2.log` ran before `c28a368`
   and is superseded by `impact-safari-3.log`.
-- Coverage gaps: widths over a 1905 layout were checked in Chromium only; the wave probe's positive control
-  (old footers flagged on live) ran in Chromium only.
+- Former coverage gaps, closed in Safari 17.5 on live `b0fb626` (the user chose "Close Safari gaps first";
+  `eye/safari-gaps.ts`, output `eye/safari-gaps.out`):
+  - Wide windows: the VM screen is 1920 by 1200 at dpr 2, yet WebDriver reached every requested layout up to 3840.
+    All six pages at 1905, 1985, 2045, 2060, 2061, 2100, 2200, 2400, 2560, 3000, 3440 and 3840: nav left equals
+    `max(70, (width - 1920) / 2)` everywhere (70 up to 2060, 70.5 at 2061, 960 at 3840); Home river 1920 by 660
+    centred from 1985 up; About river 1440 by 690 centred; no wave flagged.
+  - Positive control for `waves-probe.js` in Safari: clean before each break; a Home footer wave set to
+    `aspect-ratio: 1440 / 200` is flagged (skew 80); About's `.portrait-wave` with `max-inline-size: none` at 1905
+    flags every layer (1905 wide).
+  - Phone menu keyboard (390 layout, real click on the hamburger): open focuses the nav on all six pages. Plain
+    Tab stays on the nav (Safari's default Tab skips buttons and links); Option+Tab reaches Close, then Home;
+    Escape closes the menu and focus goes to BODY (Safari does not focus a clicked button, so there is no
+    earlier focus to return to). On Contact, plain Tab leaves the open menu for the form's name field behind it,
+    and the menu stays open until Escape. Not a regression: the old `autofocus` on Close led to the same next
+    field. Asked the user whether the menu should close when focus leaves it.
 
 ### Not ours
 
