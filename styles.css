@@ -497,13 +497,16 @@
           max-inline-size: calc(440rem / 16);
           margin-inline: auto;
         }
+        /*
+          Wider, the ratio comes from the wide `<source>`'s width and height, so the picture holds its space before the
+          file arrives (a plain `aspect-ratio: auto` here dropped that hint and the box sat at 0 px until load).
+        */
         &>img {
-          aspect-ratio: var(--home-phone-illustration-aspect-ratio);
           display: block;
           inline-size: 100%;
           block-size: auto;
-          @media(width>=40rem) {
-            aspect-ratio: auto;
+          @media(width<40rem) {
+            aspect-ratio: var(--home-phone-illustration-aspect-ratio);
           }
         }
         @media(width>=40rem) {
