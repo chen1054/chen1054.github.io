@@ -5914,13 +5914,26 @@
             inset-inline-end: calc(22 * var(--u));
             inline-size: calc(74 * var(--u));
           }
+          /*
+            Tablet/Scotties in the .fig: the cloud 433 by 352 from 96 px in, its top 109 under the heading's middle;
+            the copy in a 364 px box 34 in from each side, its first line box 80 under the cloud's top, broken into
+            the same seven lines as the desktop design. Wrapping the copy freely instead ran an eighth line into
+            the outline in Safari and stretched the cloud to fit.
+          */
           &>.scotties-challenge-bubble {
-            inline-size: calc(416 * var(--u));
+            justify-content: start;
+            inline-size: calc(433 * var(--u));
             max-inline-size: none;
-            margin-block-start: calc(88 * var(--u));
-            margin-inline: calc(112 * var(--u)) 0;
+            margin-block-start: calc(95 * var(--u));
+            margin-inline: calc(96 * var(--u)) 0;
+            text-wrap: wrap;
+            & .desktop-break {
+              display: inline;
+            }
+            /* The cloud is its own container, so these are in its 433rds. */
             &>p {
-              margin-inline: 16% 20%;
+              margin-block: calc(80 * 100cqw / 433) 0;
+              margin-inline: calc(34 * 100cqw / 433);
               line-height: round(nearest, 2em, 1px);
             }
           }
