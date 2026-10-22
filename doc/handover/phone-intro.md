@@ -3339,12 +3339,24 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   page. So at 1920 the navigation stays where it was and the river now starts 240 in, with straight cut ends.
   Captures: `f20/eye/ultrawide-before/`, `ultrawide-after-1440/` (with `index-1920-fade.png`, a trial
   160 px fade on both ends set through CSSOM: the page's CSP drops injected `<style>` elements).
-- Open, asked of the user: straight cut ends versus a fade at 1920 and wider; and the footer waves, which break
-  the same rules (`footer-geom.ts`): Home and About footers stretch (5.333 at 1920 against the drawing's 4),
-  Contact's grows past its drawing (3440 by 860), case-study footers squeeze at 744 (4.088 against 4.571) and
-  stretch at 1920 (6.095).
-- Safari 17.5 run in flight: unit `xinyanchen-safari-cf112` (`safari-cf112.ts`): nav and river on Home and About
-  640 to 1920 every 8, Scotties nav, then Tales impact titles 390 to 1440 every 1 (`impact-safari-3.log`).
+- The user chose (AskUserQuestion): "Straight cut (Recommended)" for the centred river's ends, and "Same rule
+  (Recommended)" for the footer waves, which broke the same rules (`footer-geom.ts`): Home and About footers
+  stretched (5.333 at 1920 against the drawing's 4), Contact's grew past its drawing (3440 by 860), case-study
+  footers squeezed at 744 (4.088 against 4.571) and stretched at 1920 (6.095). Then: "\"stretching\" down is
+  fine. proportional." (shrinking with the window below 1440 keeps the drawing's ratio, as built).
+- Landed `ac88e70`: a components `.footer-wave` rule caps at `--river-max-inline-size` and centres from 40rem;
+  pages set `aspect-ratio` (1440/360 Home, About, Contact; 1440/315 case studies) instead of fixed heights.
+  Chromium on all six pages at 640 to 3440: every footer keeps its ratio, 1440 wide from 1440, left 240 at 1920;
+  case-study footers 19 px shorter at 744 with the text on the wave as before (`footer-after/`).
+- Every wave image on all pages (`waves-geom.ts`, flags a box off its declared drawing ratio by over 0.5 percent
+  or wider than drawn): none at 390, 744, 1024, 1440, 1920, 3440. Positive control on the live site before
+  `ac88e70` deployed: flags the footers (33.3 at 1920, -10.6 at 744).
+- Safari 17.5 (live, after `4b5101e`; `cf112-check.ts`): Home 161 of 161 widths 640 to 1920 every 8 match (river
+  ratio, river left max(0, (cw - 1440) / 2), nav 35 + 35 growth + river left); About and Scotties all wide
+  widths match. At the 1920 window (1905 layout) both rivers start at 232.5 and the nav at 302.5.
+- In flight: unit `xinyanchen-safari-cf112` (Tales impact titles 390 to 1440 every 1, `impact-safari-3.log`),
+  then unit `xinyanchen-safari-waves` (`safari-waves.ts`, `waves-probe.js`, all six pages 640 to 1920 every 16,
+  `waves-safari-<page>.log`).
 - Also: the Safari 1 px impact sweep (`impact-safari-2.log`) ran against the deploy before `c28a368`, so its
   mixed phone title lines are the case `c28a368` fixes; re-check in Safari after the next deploy (expect two
   lines per title from 390 to 1279).
