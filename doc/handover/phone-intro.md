@@ -3354,6 +3354,13 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
 - Safari 17.5 (live, after `4b5101e`; `cf112-check.ts`): Home 161 of 161 widths 640 to 1920 every 8 match (river
   ratio, river left max(0, (cw - 1440) / 2), nav 35 + 35 growth + river left); About and Scotties all wide
   widths match. At the 1920 window (1905 layout) both rivers start at 232.5 and the nav at 302.5.
+- Correction, the user: "the 70px was min from left of logo to left of screen." `4b5101e` had put the logo 70
+  inside the river (310 at 1920); `b0b22e4` makes the logo's left edge `max(padding, river left)`. Chromium
+  (Home, About, Tales): logo 35 (744), 70 (1440, 1500, 1580), 80 (1600), 240 (1920), 1000 (3440), equal to the
+  river's left end from 1580 up. The Safari results recorded for `4b5101e` (nav 302.5 at the 1920 window) are
+  superseded; unit `xinyanchen-safari-cf112b` (`safari-cf112b.ts`, logs `cf112b-safari-<page>.log`, checked by
+  `cf112-check.ts`, now expecting the max rule) re-runs Home and About once the deploy is live. Expect the
+  logo at 232.5 at the 1920 window (1905 layout).
 - iPhone 15 (iOS 17.0.1) Scotties after-capture reviewed (`simtriples/iphone17-after-scotties-*.png`): fine. One
   callout breaks "divisions / —Skateboarding," where all three Phone frames break "divisions— / Skateboarding,".
   Left as is with the Scotties "—from" line: the designs themselves start three lines with an em dash
