@@ -2704,10 +2704,42 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
     body plus a separate chevron; the four desktop SVGs are re-exported with both (`f20/export-region.py`), boxes
     grown by the added margin so the bodies stay put. Tablet and phone squiggles already had their arrowheads.
     Chromium 1440 matches the design for both flows; Safari 17.5 at 1920 has the same boxes and render.
-  - CF107/108 (in progress): every Scotties wireframe connector runs 5 to 9 px past its callout's border into
-    the box (offsets are from the padding edge, inside the 3 or 4 px border); the design stops each at the border.
-    Arrowhead tips land right. Probe: `f20/scot-arrows/probe-inside.mjs` + `count-inside.py` count
-    connector-coloured pixels inside each callout with its text hidden, at 390, 744, 1440, 1920.
+  - CF107/108, `06d9798`: every Scotties wireframe connector ran 5 to 9 px past its callout's border into the box
+    (offsets are from the padding edge, inside the 3 or 4 px border); the design stops each at the border. Now
+    zero connector-coloured pixels inside all 8 callouts at 390, 744, 1440, 1920 in Chromium and at 1920, 1440,
+    744 in Safari 17.5; arrowhead tips unmoved. Probe: `f20/scot-arrows/probe-inside.mjs` + `count-inside.py`.
+  - Phone and tablet items, each measured against the phone design (`Phone/*.pdf`, 390 wide) in Chromium at
+    360, 390, 430 and 744 (tablet unchanged unless named); scripts in `f20/batch-phone/`:
+    - `c73088d` CF72: the age-tier figure's foot margin 56 px below desktop (gap +24 at 390, 744, 1100).
+    - `723811a` CF74: the cloud copy at 14 px on 22 in the 346.8 px cloud, scaled with it, broken into the
+      design's nine lines by phone-only `<br class="phone-break">`; all lines inside the cloud at 360 to 430.
+    - `40f5203` CF75: brand message box 75 px under the heading text and 130 over the band (design 74.5, 130;
+      was 34, 64). The box's top margin collapses with the heading's 32, so it carries all 72.5.
+    - `4016ffd` CF77: the sitemap chevrons follow the phone tree, 32 px under it, centred (the phone design
+      draws none; the client's words decide).
+    - `08e9b1e` CF78: hi-fi intro box 64 px under its heading text and 39 over the first callout (design 64.5,
+      39; was 34, 16).
+    - `c3a91dd` CF85: both learning cards from 34 px with their backing 14 left and 11 up (design), so the
+      backing starts 20 px in instead of at the screen edge.
+    - `c775170` CF86: the MenuMe phone tree takes its own width and centres (62.6 px each side at 390).
+    - `5ba23e6` CF87: the dual-loop drawing moves 62 of its 216 units so the bulb's middle meets the column's.
+    - `50c5b39` CF90: read as the gap after the river (the client set 1 s on 2026-10-18): the flower now starts
+      at 6.1 s, river 4 to 5.8 s; measured opacity 0 at 6.09 s, 1 by 6.59 s. Reading flagged to the user.
+    - CF82 (found, not landed): `d7fbea3` re-rendered both Scotties lo-fi wireframes from Desktop/Scotties.pdf
+      with the design's overlay vectors, so the listing picture carries the design's dashed boxes and a sage
+      arrow from another layout, and the homepage picture an orange dashed nav box, under the page's own SVG
+      highlights (dashes twice, the stray arrow). Clean rebuilds at the same pixel sizes (sage frame plus the
+      embedded raster, crop fitted to the current files: listing 576.5, 9824.5, 286 by 405 pt at 6x; homepage
+      576.25, 9287.75, 288.25 by 454.97 at 5.974x) are `f20/batch-phone/scotties-low-fidelity-*.webp`
+      (`py/cf82fit.py`, `py/cf82fit2.py`). Copying them over the tracked assets was refused by the permission
+      check; waiting on the user.
+    - CF93 (no change yet): sitemap labels and body copy compute the same size at 744 to 1180 (14 to 15.25 px),
+      and in the client's own screenshot the cap heights match (about 12.7 and 13 px). Asked the user what the
+      client wants changed.
+  - Found while measuring (not from the client): at 360 px every case study scrolls sideways. Scotties 374
+    (the core-value pair of 165 px articles), MenuMe 376 (the Weekly Specials note, 215 px from 161), Tales 370
+    (a 336 px figure). Also at `c99cb9f`, so it predates this batch.
+  - Safari 17.5 not yet run for CF72 to CF90.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
