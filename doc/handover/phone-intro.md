@@ -3044,6 +3044,10 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     `sim-<label>/`. Devices: iPhone 15 (`9CA037B0-...`), then iPad 10th (`DF24B12C-...`) portrait.
   - Queue: look at every frame; then the menu, popovers and pseudo-element text; then the Scotties wraps; fix
     findings one commit each.
+  - The user, 2026-10-22: "The .png is outdated. Use the latest .fig as ground truth." The PNG and PDF exports
+    in `../Phone`, `../Tablet`, `../Desktop` and `doc/reference/` are older than the design; compare against
+    `../Website (Copy) 2026OCT191300.fig` only. Node boxes per frame: `~/temp/agent/fig-parse/dump-boxes.mjs`
+    into `~/temp/agent/f20/fig-191300/boxes.jsonl`.
 
 ### Not ours
 
