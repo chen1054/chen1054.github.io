@@ -2776,8 +2776,13 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         labels; the client's device does something more. `html { text-size-adjust: 100% }` (server port 4176)
         looked unchanged on iOS 17 by eye; not measured there (the second capture opened in a new tab, shifting the
         page 66 px), and on iOS 17 there was nothing to undo.
-      - Next: the same capture on an iOS 27 iPad (A16) Simulator, `EEF5F6E4-C2A4-4013-932C-54335C837479`, in case
-        the client's tablet runs a newer iPadOS. Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
+      - iPad (A16) iOS 27 Simulator (`EEF5F6E4-C2A4-4013-932C-54335C837479`), measured with windows from each
+        page's reported viewport (`py/cf93-sim-measure.py`): 1.003, 0.998, 1.014, the same with and without
+        `text-size-adjust: 100%`, so autosizing is not involved.
+      - Chromium 820 at 1.35x (the client's image scale, as a low-density screen would draw it): 1.008, 1.001,
+        1.013; bold at 0.92 em there: 0.908, 0.867, 0.932.
+      - No renderer available here reproduces the client's taller labels; asked the user for the client's device
+        and how to proceed (2026-10-22). Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
         `xinyanchen-inject-server` (4177, as is) and `xinyanchen-inject-server-tsa` (4176, `EXTRA_CSS`), tunnel
         `xinyanchen-m1-inject-tunnel`; the page reports boxes to `f20/inject/reports.log` (`&measure=`).
       Scope chosen by the user: MenuMe and Scotties (one rule draws both trees); desktop keeps its 13 px labels.
