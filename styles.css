@@ -5832,7 +5832,10 @@
           inline-size: calc(73rem / 16 + 28 * var(--home-wide-reference-growth));
           aspect-ratio: 1;
           background-image: url("assets/scotties-challenge-ice-skate.svg");
-          @media(width<40rem) {
+        }
+        /* The query wraps the pseudo-element: iOS 17.0 Safari ignores a query nested inside `::after`. */
+        @media(width<40rem) {
+          &::after {
             inset-block-end: calc(-95rem / 16);
             inset-inline-end: calc(37rem / 16);
           }
@@ -6096,12 +6099,15 @@
           );
           aspect-ratio: 952 / 158;
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
-          /*
-            The client: "这个图案放在sitmap的正下方吧，也是居中。" (put this pattern directly under the sitemap,
-            centred). On the phone's one-column tree it sat beside the last page; it now follows the tree, 32 px
-            under it like the sitemap's own spacing.
-          */
-          @media(width<40rem) {
+        }
+        /*
+          The client: "这个图案放在sitmap的正下方吧，也是居中。" (put this pattern directly under the sitemap,
+          centred). On the phone's one-column tree it sat beside the last page; it now follows the tree, 32 px under
+          it like the sitemap's own spacing. The query wraps the pseudo-element: iOS 17.0 Safari ignores a query
+          nested inside `::after`.
+        */
+        @media(width<40rem) {
+          &::after {
             position: static;
             display: block;
             margin-block-start: calc(32rem / 16);
