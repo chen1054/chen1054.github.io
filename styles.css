@@ -4722,19 +4722,16 @@
           }
           & .zoomable-artwork {
             position: relative;
-            &:has(img[src*="high-fidelity"])::after {
+            /*
+              The design's highlights, drawn over each weekly-special screen plus a 2 px margin (the last overhangs its
+              screen). The personalization screens' picture, rendered from the design, already carries its own.
+            */
+            &:has(img[src*="weekly-specials-high"])::after {
               content: "";
               position: absolute;
-              inset: 0;
+              inset: calc(-200% / 457) calc(-200% / 211.2);
               background-size: 100% 100%;
               pointer-events: none;
-            }
-            &:has(img[src*="personalization-high"])::after {
-              background-image: url("assets/menume-personalization-highlight-rectangles.svg");
-            }
-            /* The design's highlights, drawn over each screen plus a 2 px margin (the last overhangs its screen). */
-            &:has(img[src*="weekly-specials-high"])::after {
-              inset: calc(-200% / 457) calc(-200% / 211.2);
             }
             /* The design frames each screen in a 1 px line, olive round the wireframes and teal round the UI. */
             &>button>img[src*="weekly-specials-low"] {
