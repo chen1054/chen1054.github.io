@@ -2785,9 +2785,15 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         1.013; bold at 0.92 em there: 0.908, 0.867, 0.932.
       - The client's browser is Mac Safari 17 with the window resized (the user). Safari 17.5 in the Sonoma VM at
         820 px, 2x (`f20/batch-phone/safari-cf93.mjs`, live site): 1.000, 1.000, 1.013; labels at weight 500:
-        0.999, 1.003, 0.986; bold at 0.92 em: 0.920, 0.920, 0.930. So in the client's browser the label letters
-        already draw at body size; the taller lowercase in their screenshot comes from the image's resizing (it is
-        about 0.68 of a 2x capture), not from the page. Asked the user what the client means (2026-10-22). Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
+        0.999, 1.003, 0.986; bold at 0.92 em: 0.920, 0.920, 0.930.
+      - Retracted: "the taller lowercase in their screenshot comes from the image's resizing". The user: "do not
+        assume the client is an idiot". The client's screenshot is the record of what they see; a run that does not
+        reproduce it has not matched their conditions (window, zoom, display), and proves nothing about their view.
+        Their image is about 1.37 device px per CSS px (line pitch 38.8 px against 28.4 CSS px).
+      - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
+        screenshot." Name the analyzer and the saved file with every number: `py/cf93-evidence.py` (fixed
+        half-way threshold, whole-pixel boxes of touching ink pixels, an 8x enlarged pixel grid to count by hand).
+        Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
         `xinyanchen-inject-server` (4177, as is) and `xinyanchen-inject-server-tsa` (4176, `EXTRA_CSS`), tunnel
         `xinyanchen-m1-inject-tunnel`; the page reports boxes to `f20/inject/reports.log` (`&measure=`).
       Scope chosen by the user: MenuMe and Scotties (one rule draws both trees); desktop keeps its 13 px labels.
