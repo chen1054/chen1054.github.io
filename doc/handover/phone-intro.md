@@ -3367,6 +3367,18 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   `--river-max-inline-size` 1440 to 1920 (Home's river and every footer share it; the logo rule follows). The
   user then: "For About: The cut river on About is never meant to cover the entire width anyway." So About's
   `.portrait-wave` keeps its own 1440 cap (as before CF112) and its photo composition is unchanged.
+- Landed `048408b` (cap 1920; About's portrait wave keeps 1440). Chromium: Home river 1920 by 660 at 1920,
+  footers 1920 by 480 or 420, logo 70 up to 1920 and 320 at 2560; footers at 1920 read fine (`cover1080-footer/`).
+  Safari re-check of the new rules: unit `xinyanchen-safari-cf112c` (`safari-cf112b.ts`) waits for the deploy,
+  then nav and river (`cf112b-safari-<page>.log`, `cf112-check.ts`) and every wave (`waves-safari-<page>.log`,
+  `waves-probe.js` now flags ratio skew, width over 1920, About's wave over 1440). Earlier `cf112b` logs (against
+  `b0b22e4`) and partial `waves-safari-*` logs are overwritten by that run.
+- Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
+  two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
+  known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
+- iPhone 15 (iOS 17.0.1) Tales after-capture (36 frames, working tree with `c28a368`) reviewed
+  (`simtriples/iphone17-after-tales-for-safer-trails-*.png`): fine; impact cards two per row, every title broken
+  after its first word. With Home, About, MenuMe and Scotties, every iPhone page is now reviewed after the fixes.
 - iPhone 15 (iOS 17.0.1) Scotties after-capture reviewed (`simtriples/iphone17-after-scotties-*.png`): fine. One
   callout breaks "divisions / —Skateboarding," where all three Phone frames break "divisions— / Skateboarding,".
   Left as is with the Scotties "—from" line: the designs themselves start three lines with an em dash
