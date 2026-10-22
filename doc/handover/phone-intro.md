@@ -2783,8 +2783,11 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         `text-size-adjust: 100%`, so autosizing is not involved.
       - Chromium 820 at 1.35x (the client's image scale, as a low-density screen would draw it): 1.008, 1.001,
         1.013; bold at 0.92 em there: 0.908, 0.867, 0.932.
-      - No renderer available here reproduces the client's taller labels; asked the user for the client's device
-        and how to proceed (2026-10-22). Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
+      - The client's browser is Mac Safari 17 with the window resized (the user). Safari 17.5 in the Sonoma VM at
+        820 px, 2x (`f20/batch-phone/safari-cf93.mjs`, live site): 1.000, 1.000, 1.013; labels at weight 500:
+        0.999, 1.003, 0.986; bold at 0.92 em: 0.920, 0.920, 0.930. So in the client's browser the label letters
+        already draw at body size; the taller lowercase in their screenshot comes from the image's resizing (it is
+        about 0.68 of a 2x capture), not from the page. Asked the user what the client means (2026-10-22). Tools: `f20/sim17-ipad-cf93.mjs <udid> <prefix>`; servers
         `xinyanchen-inject-server` (4177, as is) and `xinyanchen-inject-server-tsa` (4176, `EXTRA_CSS`), tunnel
         `xinyanchen-m1-inject-tunnel`; the page reports boxes to `f20/inject/reports.log` (`&measure=`).
       Scope chosen by the user: MenuMe and Scotties (one rule draws both trees); desktop keeps its 13 px labels.
