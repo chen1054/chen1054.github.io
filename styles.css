@@ -1847,7 +1847,7 @@
           display: block;
           block-size: auto;
         }
-        & img:not([src$=".png"], [src$=".webp"]) {
+        & img:not([src$=".png"], [src$=".webp"], [src$=".gif"]) {
           inline-size: auto;
           min-inline-size: 100%;
         }
@@ -1855,12 +1855,36 @@
           Bitmaps open at their `width` attribute, the size the design shows them at: stretching them to a wider
           viewer only blurs them, and every file has at least that many pixels.
         */
-        & img:is([src$=".png"], [src$=".webp"]) {
+        & img:is([src$=".png"], [src$=".webp"], [src$=".gif"]) {
+          margin-inline: auto;
+        }
+        & .device-with-screen-recording {
+          inline-size: fit-content;
           margin-inline: auto;
         }
       }
       &::backdrop {
         background-color: oklch(from var(--color-body-text-purple) l c h / 75%);
+      }
+    }
+    /*
+      A device mockup with a screen recording playing on its screen: the recording covers the mockup's screen
+      (Tales laptop: 2960 by 1974 px from 355, 68 in the 3669 by 2289 file, the recording's own ratio). With reduced
+      motion the recording is hidden and the mockup's still screen shows.
+    */
+    & .device-with-screen-recording {
+      display: block;
+      position: relative;
+    }
+    & :is(.zoomable-artwork, .enlarged-artwork) .device-with-screen-recording>img.screen-recording {
+      position: absolute;
+      inset-block-start: calc(68 / 2289 * 100%);
+      inset-inline-start: calc(355 / 3669 * 100%);
+      inline-size: calc(2960 / 3669 * 100%);
+      block-size: calc(1974 / 2289 * 100%);
+      margin: 0;
+      @media(prefers-reduced-motion: reduce) {
+        display: none;
       }
     }
     & .prototype-link {
@@ -2484,6 +2508,14 @@
         }
         &>:last-child {
           --device-inline-size: calc(155rem / 16 - 36 * var(--phone-tablet-reference-growth) + 74 * var(--home-wide-reference-growth));
+          /*
+            The client's phone recording is the phone's screen alone: it takes the width and place the designs' phone
+            mockup gives its screen (1058 of 1158 px, from 49 px in).
+          */
+          &>button img {
+            inline-size: calc(1058 / 1158 * 100%);
+            margin-inline-start: calc(49 / 1158 * 100%);
+          }
         }
         @media(width>=40rem) {
           column-gap: calc(36rem / 16 + 41 * var(--home-wide-reference-growth));
