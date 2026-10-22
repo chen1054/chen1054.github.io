@@ -3025,6 +3025,14 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   merged reply with `send-64d6dbc/`. When the client answers, record each answer in `07-what-we-fixed.md` and act
   on it; repeat every unanswered question in the next reply. Rig state: Sonoma VM running (the user's choice),
   podman on m1 stopped, keepalive disabled; Simulator, inject server and tunnel stopped.
+- The user, 2026-10-22, before sending: "Are we really fine now? I'd rather not do another round with the
+  client. I'm tired." Decided:
+  - "Silence means keep": questions 2 to 6 of the reply are reworded to say the shipped answer is live and stays
+    unless the client says otherwise. Only IMG_0804 needs the client to act (the only copy we have,
+    `../Client comparison screenshots 2026OCT170133/IMG_0804 1.pdf`, is blank). This replaces "repeat every
+    unanswered question" for those five.
+  - "Yes, check them" before sending: the open phone menu, the enlarged-view popovers and pseudo-element text in
+    Safari 17.5 and iOS 17, plus the Scotties 790 header wrap and the Scotties 1440 `section:9` wrap.
 
 ### Not ours
 
