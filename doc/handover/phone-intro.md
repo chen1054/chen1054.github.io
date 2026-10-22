@@ -3130,8 +3130,21 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       while the row still wrapped at a 240 px basis, so from 552 px two personas shared a row and the page
       scrolled sideways by up to 65 px (Chromium 560 to 630; Safari windows up to 655). Each persona now takes a
       full row; 390 unchanged.
-    - Open, not fixed: Tales scrolls sideways by 5 to 15 px at 320 to 340 px (narrower than any iOS 17 iPhone).
-      Element not identified yet.
+    - Left as is: Tales scrolls sideways by 5 to 15 px at 320 to 340 px. The element is `.impact-cards`, a fixed
+      350 px chevron strip (`--strip`, the Phone frame's width), centred. Every iOS 17 iPhone is at least 375 wide.
+    - Separator bars: Safari 1280 started a Tales meta line with "| Hi-fi Phase Team Lead". Every " | " in the meta
+      items now keeps its bar with the word before it. `meta-probe.js` also flags lines that start with a bar;
+      positive control: the live page (before deploy) flags Tales at 1250 to 1265 in Chromium; the working tree
+      flags nothing from 320 to 1920 on all three pages.
+    - Scotties type panel: in a 1280 Safari window (tablet layout, see the 15 px breakpoint shift) the tablet panel
+      had grown to 976 px, its "Body Text" label about 25 px against 15.4 px body; the Tablet frame draws it 620
+      wide, label 16 over 14 px body (Desktop: 18 over 16 in 1082). Like the Tales tablet charts (fixed at 610,
+      522 and 538 px up to the desktop layout), the panel now keeps 620 px, centred.
+    - Retracted the same day: "Safari picks `<picture>` sources against the window minus the scrollbar while CSS
+      uses the full window". Measured (`picture-edge.mjs`): `matchMedia('(width >= 80rem)')` is false at a 1294
+      window (clientWidth 1279) and true at 1295; the sources switch at the same points (1294/1295, 654/655), so
+      art and layout always agree. Resizing re-selects sources. The lesson: test the CSS side with the same probe
+      before calling two mechanisms inconsistent.
     - Checked against the `.fig` and left as is:
       - Scotties sitemap labels wrap in Safari from 660 to 800 (at 744: Apparel & Accessories, Our Team, Event &
         Community Hub, Community Highlights). The Tablet frame draws the tree as a raster with about 10 px labels;
