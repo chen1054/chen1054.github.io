@@ -3294,6 +3294,12 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       - Running: unit `xinyanchen-flexrows` (`flexrows-cr.ts`, session `xinyan`) counts the rows of every
         wrapping flex container on all six pages at every 1 px from 320 to 1920 and flags any whose row count
         rises as the window widens (the same rounding wrap); output `flexrows.out`, `flexrows-<page>.log`.
+        Result: no other rounding wraps. Flags checked by measuring the items: Contact's email row flips
+        between 1 and 2 "rows" from 1095 to 1189, but the email and its wave share one line at every width
+        (their tops differ by under a pixel, the wave being top-aligned and the email centred); MenuMe
+        changes at 640 (the 40rem layout breakpoint); Scotties' hero goes side by side at 1052 and its two
+        prototype buttons stack in the narrower text column until they fit side by side again. Home has no
+        wrapping flex rows.
       - In flight: unit `xinyanchen-eye-iphone-after` (iPhone 15, iOS 17.0.1, working tree) recaptures Home,
         About, MenuMe, Scotties and Tales into `sim-iphone17-after/`; unit `xinyanchen-safari-recapture`
         recaptures Tales at seven widths into `safari/` (log `frames-safari-1022c.log`). Review both.
