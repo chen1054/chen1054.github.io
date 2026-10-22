@@ -3315,6 +3315,25 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       hyphen), `impact-cr.ts`; `orphan-cr.ts` takes PROBE to pick the probe file, and `orphan-probe.js`
       reports `OVERFLOW n` for sideways scroll.
 
+### CF112: the navigation on the left edge, 2026-10-22
+
+- The client: "Get the logo+nav bar to always stick to the left side of the screen with padding, clamped by the
+  leftmost side of the river." The user then: "Must also work on ultrawide screens. Or screens where the river
+  can't cover the whole width and has to be centered."
+- "The river" is Home's gold band (the client's own word for it: "下面那条河流的黄色").
+- Before (Chromium, `f20/eye/nav-geom.ts`): the navigation keeps the 1440 design offset from a centred 1440 column,
+  so its left edge is at 35 (744), 70 (1440), 150 (1600), 310 (1920), 630 (2560), on all pages. Home's river
+  image box spans the whole window at every width (left 0; 1920 by 495 at 1920, 2560 by 495 at 2560), because
+  its SVGs use `preserveAspectRatio="none"` and are clipped to x 0 to 1440: the river stretches sideways and its
+  left end is the window's left edge.
+- Reading: the navigation's left edge is the design padding (35 at 744 growing to 70 at 1440) plus the river's
+  left offset, which is zero while the river covers the window and half the uncovered width once it is centred.
+- Safari check of the river's first painted column and the fix: in progress; ultrawide captures in
+  `f20/eye/ultrawide-before/` (`ultrawide.ts`).
+- Also: the Safari 1 px impact sweep (`impact-safari-2.log`) ran against the deploy before `c28a368`, so its
+  mixed phone title lines are the case `c28a368` fixes; re-check in Safari after the next deploy (expect two
+  lines per title from 390 to 1279).
+
 ### Not ours
 
 The Contact page's fourth body `<div>` (added after the scripts, the hCaptcha widget) has a `position: fixed`
