@@ -3140,6 +3140,13 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       had grown to 976 px, its "Body Text" label about 25 px against 15.4 px body; the Tablet frame draws it 620
       wide, label 16 over 14 px body (Desktop: 18 over 16 in 1082). Like the Tales tablet charts (fixed at 610,
       522 and 538 px up to the desktop layout), the panel now keeps 620 px, centred.
+    - `187d31b` Closing quotes: iPhone Scotties ended on "brand."" alone; the Phone frame ends on "competitive
+      modern brand."". Each closing quote's last two words are glued. Live sweep before (`quote-cr.mjs`): lone
+      last word on every page at many widths; after: none from 320 to 1920. The commit's own control widths came
+      from two sweeps sharing the `xinyan2` browser session; corrected in a commit comment. Lesson: one
+      agent-browser session per running sweep.
+    - Popovers (`states/`, MenuMe 744 and 1920): image, close button and scrolling look right. The blue ring on
+      the dialog is the focus ring from the scripted click; not checked with a real mouse click.
     - Retracted the same day: "Safari picks `<picture>` sources against the window minus the scrollbar while CSS
       uses the full window". Measured (`picture-edge.mjs`): `matchMedia('(width >= 80rem)')` is false at a 1294
       window (clientWidth 1279) and true at 1295; the sources switch at the same points (1294/1295, 654/655), so
