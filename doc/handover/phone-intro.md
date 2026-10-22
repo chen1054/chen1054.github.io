@@ -2790,6 +2790,18 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         assume the client is an idiot". The client's screenshot is the record of what they see; a run that does not
         reproduce it has not matched their conditions (window, zoom, display), and proves nothing about their view.
         Their image is about 1.37 device px per CSS px (line pitch 38.8 px against 28.4 CSS px).
+      - Client setup (the user): Mac Safari 17, window made narrower, normal zoom. The user then supplied the
+        client's Figma export of the same view (752 by 786, "Screenshot 2026-10-20 at 8.20.40 PM 1.png", copied to
+        `f20/client-figma/figma-export.png`): paragraph line pitch 28 px, so about 1 px per CSS px. Plain
+        whole-pixel count (`py/cf93-evidence.py`, sheet `cf93-evidence-figma.png`): paragraph and label "Menu
+        Planner" both lowercase 8 px, capitals 10, "l" 11; label word 87 px wide against the paragraph's about 85.
+        A first crop cut the paragraph's "M" and read 75 px; widen crops past the word's neighbours.
+      - Brute force (the user: "there's no time constraints. Brute force it."): Safari 17.5 width sweep 640 to 1279
+        (`safari-cf93-sweep.mjs`, `py/cf93-widths.py`): the client's paragraph and label line breaks occur at 790 to
+        838 only. No sitemap or body type rule changed between 2026-10-19 21:46 and 2026-10-22 01:50 (`git log`).
+        Next: captures at each matching width (`safari-cf93-captures.mjs`, 2x now, 1x after
+        `tart set sonoma-14.5 --display 1920x1200px`) against the export with `py/cf93-match.py` (scale grid times
+        nearest, bilinear, bicubic, area and Lanczos resampling, OpenCV template match).
       - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
         screenshot." Name the analyzer and the saved file with every number: `py/cf93-evidence.py` (fixed
         half-way threshold, whole-pixel boxes of touching ink pixels, an 8x enlarged pixel grid to count by hand).
