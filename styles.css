@@ -3348,6 +3348,8 @@
           --chevron: calc(var(--strip) / 3.55);
           --overlap: calc(var(--strip) * 0.15 / 3.55);
           --mid: calc((100% - var(--tip)) / 2);
+          /* The four chevrons fill the strip exactly, so sub-pixel rounding could otherwise wrap the last one. */
+          flex-wrap: nowrap;
         }
         &>* {
           position: relative;
