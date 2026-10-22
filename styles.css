@@ -996,7 +996,12 @@
           }
         }
       }
+      /*
+        Name and Phone fill the tablet design's row exactly, so a desktop window's 15 px scrollbar at 744 would
+        stack them; they narrow a little instead.
+      */
       @media(width>=40rem) {
+        flex-wrap: nowrap;
         column-gap: calc(43rem / 16 + 120 * var(--home-wide-reference-growth));
       }
     }
