@@ -4988,10 +4988,10 @@
                   margin-block: 0;
                 }
                 &::after {
-                  inset-block-start: calc(87 * var(--u));
+                  inset-block-start: calc(76 * var(--u));
                   inset-inline: calc(416 * var(--u)) auto;
-                  inline-size: calc(53 * var(--u));
-                  block-size: calc(81 * var(--u));
+                  inline-size: calc(65 * var(--u));
+                  block-size: calc(92 * var(--u));
                   background-image: url("assets/menume-usability-desktop-squiggle-between-notes.svg");
                 }
                 &:first-child {
@@ -5031,10 +5031,10 @@
                   &::after {
                     content: "";
                     position: absolute;
-                    inset-block-start: calc(207 * var(--u));
+                    inset-block-start: calc(191 * var(--u));
                     inset-inline-start: calc(279 * var(--u));
-                    inline-size: calc(68 * var(--u));
-                    block-size: calc(100 * var(--u));
+                    inline-size: calc(82 * var(--u));
+                    block-size: calc(116 * var(--u));
                     background: url("assets/menume-usability-desktop-squiggle-between-screens.svg") center / 100% 100%
                       no-repeat;
                   }
@@ -5095,9 +5095,9 @@
                   padding-inline: calc(38 * var(--u)) calc(10 * var(--u));
                   &::after {
                     inset-block-start: calc(100% + 76 * var(--u));
-                    inset-inline: calc(138 * var(--u)) auto;
-                    inline-size: calc(59 * var(--u));
-                    block-size: calc(123 * var(--u));
+                    inset-inline: calc(125 * var(--u)) auto;
+                    inline-size: calc(72 * var(--u));
+                    block-size: calc(135 * var(--u));
                     background-image: url("assets/menume-usability-desktop-squiggle-under-finding.svg");
                   }
                 }
@@ -5107,7 +5107,7 @@
                   inset-block-start: calc(100% + 31 * var(--u));
                   inset-inline-start: calc(47 * var(--u));
                   inline-size: calc(55 * var(--u));
-                  block-size: calc(99 * var(--u));
+                  block-size: calc(105 * var(--u));
                   background: url("assets/menume-usability-desktop-squiggle-under-screens.svg") center / 100% 100%
                     no-repeat;
                 }
