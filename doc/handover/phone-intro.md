@@ -3291,6 +3291,13 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
         row exactly. `3958664` makes each phone chevron a
         quarter pixel narrower. Chromium 1 px sweep 320 to 645 plus 744, 820, 1024, 1180, 1279
         (`impact-sweep-3.log`): two rows on phones, one row from 640, at all 331 widths.
+      - Phone Tales also breaks each impact title after its first word (Phone frame nodes `2332:53826`,
+        `2332:53825`, `2332:53795`, `2332:53794`); ours wrapped on its own, matching at 390 but not wider
+        (Safari at 393, the iPhone 15 width: "Behavioral Normalization" on one line). The next commit after
+        `3958664` replaces the `tablet-break` with a plain `<br>` that the card rule hides from 80rem.
+        Chromium every 1 px from 320 to 1925 (`impact-sweep-4.log`): phones two rows, all titles two lines;
+        640 to 1279 one row, two lines; 1384 up one line; 1280 to 1383 mixed (left as is, no design frame).
+        Safari 1 px sweep before this commit (`impact-safari-2.log`): phones two rows at every width 390 to 639.
       - Running: unit `xinyanchen-flexrows` (`flexrows-cr.ts`, session `xinyan`) counts the rows of every
         wrapping flex container on all six pages at every 1 px from 320 to 1920 and flags any whose row count
         rises as the window widens (the same rounding wrap); output `flexrows.out`, `flexrows-<page>.log`.
