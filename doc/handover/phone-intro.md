@@ -3081,6 +3081,21 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       `~/temp/agent/fig-parse/hero-baselines.mjs`.
     - `0e4ad72` Phone summaries at 15 on 30 on every page (MenuMe and Scotties were 14 on 28); their wraps now
       match the Phone frames at 390.
+    - MenuMe story, follow-up to `6ae9ba6`: its forced breaks left a short line at most widths away from the
+      designs' own (Safari 1024: "a daily source of" alone). Now the breaks apply only where a sweep shows they
+      give the design's lines (tablet 740 to 895, desktop from 1392); elsewhere a right gutter as wide as the
+      pot, and "budget‑friendly ritual." is glued. Line-quality probe `~/temp/agent/f20/eye/story-quality.js`
+      (fill per line, pot clearance), run in Chromium (`story-quality.mjs`) and in Safari
+      (`safari-sweep.mjs`: one load, resize per width; env PROBE, FROM, TO, STEP).
+  - Lessons this round, continued:
+    - Forced `<br>` in fluid text gives the design's lines only near the design's width; sweep every width
+      for short lines, not just for collisions.
+    - Chromium sweeps here run without a scrollbar. Safari's classic scrollbar narrows the layout while `vw`
+      keeps the window width, so thresholds found in Chromium can be 15 to 30 px off in Safari; sweep there.
+    - Stopping a Safari unit mid-run leaves Safari paired with the dead session ("already paired with another
+      WebDriver session"): restart the guest agent with `launchctl kickstart -k
+      gui/501/dev.monochromatic.safaridriver` (via `ssh m1`, then `ssh -i ~/.ssh/id_ed25519_vm
+      admin@192.168.64.9`). `safari-sweep.mjs` now closes its session on SIGTERM.
   - Still open, small: the desktop Scotties cloud copy starts 117 below the cloud top, the `.fig` 112.
   - Left as is: Tablet/Scotties draws its summary 10 px tighter under its one-line subtitle than the other five
     frames (ours 75.3 under the title's baseline, design 67.6); Phone/Tales wraps "Lab" alone in Client &
