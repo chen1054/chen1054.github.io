@@ -3681,6 +3681,11 @@
           &>.subsection>.small-illustration:has(img[src*="dual-loop"]) {
             @media(width<40rem) {
               margin-block-end: calc(2rem - 180rem / 16 * 26 / 216);
+              /*
+                The client: "灯泡需要居中" (the bulb needs centring), as Phone/MenuMe.pdf centres it with its squiggle
+                off to the right. The bulb's middle is 46 of the drawing's 216 units in, so the drawing moves 62.
+              */
+              translate: calc(100% * 62 / 216) 0;
             }
           }
           /* The phone design breaks the framework heading before "Culinary Framework". */
