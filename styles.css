@@ -6212,6 +6212,14 @@
       .persona-photograph {
         position: relative;
         isolation: isolate;
+        /*
+          Jonathan's photo is 492 by 616 and the other two 490 by 616; at one width it came out 1.1 px shorter and
+          lifted his name. Every Scotties design keeps the three photos one height, so the names sit level.
+        */
+        &>button>img {
+          aspect-ratio: 490 / 616;
+          object-fit: cover;
+        }
         &::before {
           content: "";
           position: absolute;
