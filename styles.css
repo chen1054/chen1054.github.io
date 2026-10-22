@@ -6261,7 +6261,7 @@
           }
           /* Runs right, from the callout's end into the screen. */
           & .subsection:nth-child(4)>.flex-row>.note:is(:first-child, :last-child)::after {
-            inset-inline-start: calc(100% - 6 * var(--u));
+            inset-inline-start: 100%;
             scale: -1 1;
           }
           /* The homepage's orange connector: from the screen's navigation, down the gap, into the callout. */
@@ -6272,11 +6272,12 @@
               inset-block-start: calc(-247.5 * var(--u));
               inline-size: calc(101 * var(--u));
               block-size: calc(301.2 * var(--u));
+              /* The arrowhead's tip touches the callout's border from outside (7 px plus the 4 px border out). */
               mask:
-                url("assets/scotties-connector-arrowhead-left.svg") 0 100% / calc(15 * var(--u)) calc(17.4 * var(--u))
-                no-repeat,
-                linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(100% - 7.2 * var(--u)) /
-                calc(21 * var(--u)) calc(3 * var(--u)) no-repeat,
+                url("assets/scotties-connector-arrowhead-left.svg") calc(7 * var(--u) + 4rem / 16) 100% /
+                calc(15 * var(--u)) calc(17.4 * var(--u)) no-repeat,
+                linear-gradient(#000 0 0) calc(20.5 * var(--u) + 4rem / 16) calc(100% - 7.2 * var(--u)) /
+                calc(14 * var(--u) - 4rem / 16) calc(3 * var(--u)) no-repeat,
                 linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(3 * var(--u)) calc(100% - 8.7 * var(--u))
                 no-repeat,
                 linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(100% - 31.5 * var(--u)) calc(3 * var(--u))
@@ -6299,7 +6300,9 @@
                 calc(21 * var(--u)) calc(3 * var(--u)) no-repeat,
                 linear-gradient(#000 0 0) calc(31.5 * var(--u)) calc(7.2 * var(--u)) /
                 calc(3 * var(--u)) calc(100% - 7.2 * var(--u)) no-repeat,
-                linear-gradient(#000 0 0) 100% 100% / calc(100% - 31.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+                /* Stops at the callout's inner border edge, 6.5 px short of the box's end. */
+                linear-gradient(#000 0 0) calc(31.5 * var(--u)) 100% / calc(100% - 38 * var(--u)) calc(3 * var(--u))
+                no-repeat;
             }
           }
           & .subsection:nth-child(3)>.flex-row {
@@ -6341,7 +6344,7 @@
               --ps: 22;
               --pe: 0;
               --y: 49.3;
-              --w: 95;
+              --w: 89;
               --tint: var(--color-case-study-subheading);
               grid-area: 1 / 1;
               margin-block-start: calc(5 * var(--u));
@@ -6352,7 +6355,7 @@
               --ps: 25;
               --pe: 26;
               --y: 72.8;
-              --w: 139.7;
+              --w: 133.7;
               --tint: var(--color-case-study-accent);
               grid-area: 2 / 1;
               margin-block-start: calc(23 * var(--u));
@@ -6412,7 +6415,7 @@
                 &::after {
                   inset-inline-start: calc(-172.6 * var(--u));
                   inset-block-start: calc(-135.4 * var(--u));
-                  inline-size: calc(177.3 * var(--u));
+                  inline-size: calc(172.6 * var(--u));
                   block-size: calc(224.1 * var(--u));
                   mask:
                     url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(12.8 * var(--u)) calc(22.4 * var(--u))
@@ -6438,7 +6441,7 @@
                 --ps: 56;
                 --pe: 47;
                 --y: 51.8;
-                --w: 108;
+                --w: 102;
                 margin-block: calc(-4 * var(--u)) calc(42 * var(--u));
               }
               &>.note:nth-child(2) {
@@ -6460,7 +6463,9 @@
                     calc(17.4 * var(--u)) calc(15 * var(--u)) no-repeat,
                     linear-gradient(#000 0 0) calc(101.5 * var(--u)) calc(13.5 * var(--u)) /
                     calc(3 * var(--u)) calc(100% - 13.5 * var(--u)) no-repeat,
-                    linear-gradient(#000 0 0) 0 100% / calc(104.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+                    /* Starts at the callout's inner border edge, 5 px into the box. */
+                    linear-gradient(#000 0 0) calc(5 * var(--u)) 100% / calc(99.5 * var(--u)) calc(3 * var(--u))
+                    no-repeat;
                 }
               }
               /* Right of the screen, so its connector runs left again. */
@@ -6472,7 +6477,7 @@
                 --pe: 47.5;
                 --x: -98;
                 --y: 122;
-                --w: 103.2;
+                --w: 98;
                 grid-area: 1 / 5 / 3;
                 margin-block-start: calc(14 * var(--u));
                 &::after {
@@ -6538,9 +6543,9 @@
                 --arrow-head: url("assets/scotties-connector-arrowhead-orange-down.svg");
                 content: "";
                 position: absolute;
-                inset-block-start: calc(100% - 9.5 * var(--lofi-unit));
+                inset-block-start: 100%;
                 inset-inline-start: calc(112.4 * var(--lofi-unit));
-                block-size: calc(67.5 * var(--lofi-unit));
+                block-size: calc(58 * var(--lofi-unit));
                 background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6563,9 +6568,9 @@
                 --arrow-head: url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
                 content: "";
                 position: absolute;
-                inset-block-start: calc(100% - 6.5 * var(--lofi-unit));
+                inset-block-start: 100%;
                 inset-inline-start: calc(44.3 * var(--lofi-unit));
-                block-size: calc(69.5 * var(--lofi-unit));
+                block-size: calc(63 * var(--lofi-unit));
                 background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6587,9 +6592,9 @@
                 --arrow-head: url("assets/scotties-connector-arrowhead-orange-up.svg");
                 content: "";
                 position: absolute;
-                inset-block-end: calc(100% - 9.5 * var(--lofi-unit));
+                inset-block-end: 100%;
                 inset-inline-start: calc(36.2 * var(--lofi-unit));
-                block-size: calc(294.5 * var(--lofi-unit));
+                block-size: calc(285 * var(--lofi-unit));
                 background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6608,7 +6613,8 @@
               z-index: 1;
               grid-area: 2 / 1 / 4;
               place-self: stretch start;
-              margin-block: calc(370.2 * var(--lofi-unit)) calc(-35.5 * var(--lofi-unit));
+              /* Down to the grid callout's inner border edge: its 25 px gap plus its 3 px border. */
+              margin-block: calc(370.2 * var(--lofi-unit)) calc(-25 * var(--lofi-unit) - 3rem / 16);
               margin-inline-start: calc(285.3 * var(--lofi-unit));
               background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
               background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
@@ -6690,7 +6696,8 @@
             &::before {
               --line: linear-gradient(var(--color-case-study-subheading) 0 0);
               grid-row: 1 / 3;
-              inline-size: calc(30.6 * var(--hifi-unit));
+              /* To the first callout's inner border edge: it starts 46 px in, behind a 4 px border. */
+              inline-size: calc(23.7 * var(--hifi-unit) + 4rem / 16);
               margin-block: calc(100.9 * var(--hifi-unit)) calc(-41 * var(--hifi-unit));
               margin-inline-start: calc(22.3 * var(--hifi-unit));
               background-image: var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
@@ -6708,11 +6715,12 @@
               margin-inline-start: calc(295 * var(--hifi-unit));
               background-image:
                 var(--line), var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-left.svg");
+              /* The top line starts at the second callout's inner border edge (it ends 304 px in, 4 px border). */
               background-position:
-                0 0, 100% 0, calc(44.5 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
-                calc(31 * var(--hifi-unit)) 100%;
+                calc(9 * var(--hifi-unit) - 4rem / 16) 0, 100% 0,
+                calc(44.5 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)), calc(31 * var(--hifi-unit)) 100%;
               background-size:
-                100% calc(3 * var(--hifi-unit)),
+                calc(100% - 9 * var(--hifi-unit) + 4rem / 16) calc(3 * var(--hifi-unit)),
                 calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
                 calc(8.5 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
                 calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit));
@@ -6727,17 +6735,19 @@
                 url("assets/scotties-hi-fi-connector-arrowhead-right.svg"), var(--line), var(--line), var(--line);
               background-position:
                 calc(10.5 * var(--hifi-unit)) 0, 0 calc(7.2 * var(--hifi-unit)), 0 calc(7.2 * var(--hifi-unit)), 0 100%;
+              /* The bottom line stops at the third callout's inner border edge (it starts 36 px in, 3 px border). */
               background-size:
                 calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit)),
                 calc(12 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
                 calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
-                100% calc(3 * var(--hifi-unit));
+                calc(34.5 * var(--hifi-unit) + 3rem / 16) calc(3 * var(--hifi-unit));
             }
             &>article::after {
               --line: linear-gradient(var(--color-case-study-subheading) 0 0);
               grid-row: 3 / 5;
               inline-size: calc(17.4 * var(--hifi-unit));
-              margin-block: calc(855.5 * var(--hifi-unit)) calc(-16 * var(--hifi-unit));
+              /* Down to the last callout's inner border edge: its 8 px gap plus its 4 px border. */
+              margin-block: calc(855.5 * var(--hifi-unit)) calc(-8 * var(--hifi-unit) - 4rem / 16);
               margin-inline-start: calc(299.8 * var(--hifi-unit));
               background-image: url("assets/scotties-hi-fi-connector-arrowhead-up.svg"), var(--line);
               background-position: 0 0, calc(7.2 * var(--hifi-unit)) calc(13.5 * var(--hifi-unit));
@@ -6779,7 +6789,7 @@
             & article>.note {
               --x: -53;
               --y: 113.8;
-              --w: 58.2;
+              --w: 53;
               --ps: 27;
               --pe: 12;
               --h: 219;
@@ -6820,7 +6830,7 @@
               &:nth-child(2) {
                 --x: -54.6;
                 --y: 131.7;
-                --w: 61.1;
+                --w: 54.6;
                 --ps: 22;
                 --pe: 10;
                 --h: 253;
@@ -6832,7 +6842,7 @@
               &:nth-child(3) {
                 --x: -57.6;
                 --y: 125.8;
-                --w: 66;
+                --w: 57.6;
                 --ps: 27;
                 --pe: 20;
                 --h: 278;
@@ -6845,7 +6855,7 @@
               &:nth-child(4) {
                 --x: -36;
                 --y: 2.4;
-                --w: 42.5;
+                --w: 36;
                 --h: 282;
                 --elbow: 102.6;
                 --v: 24;
@@ -6901,7 +6911,7 @@
               & article>.note {
                 --x: -52;
                 --y: 91.3;
-                --w: 57;
+                --w: 52;
                 --ps: 33;
                 --pe: 44;
                 --h: 232;
@@ -6914,7 +6924,7 @@
                 &:nth-child(2) {
                   --x: -54;
                   --y: 83.6;
-                  --w: 61.1;
+                  --w: 54;
                   --ps: 43;
                   --pe: 28;
                   --h: 332;
@@ -6927,7 +6937,7 @@
                 &:nth-child(3) {
                   --x: 0;
                   --y: 32.3;
-                  --w: 66.7;
+                  --w: 61.5;
                   --ps: 42;
                   --pe: 43;
                   --h: 317;
@@ -6936,14 +6946,14 @@
                   margin-block: calc(271 * var(--u)) 0;
                   margin-inline-start: calc(17 * var(--u));
                   &::after {
-                    inset-inline-start: calc(100% - 5.2 * var(--u));
+                    inset-inline-start: 100%;
                     scale: -1 1;
                   }
                 }
                 &:nth-child(4) {
                   --x: -46.5;
                   --y: 107.3;
-                  --w: 51.5;
+                  --w: 46.5;
                   --h: 354;
                   --elbow: 118.2;
                   --v: 27;
