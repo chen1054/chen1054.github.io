@@ -3335,7 +3335,11 @@
           chevron, as Phone Tales places them.
         */
         --strip: calc(350rem / 16 + 321 * var(--phone-tablet-reference-growth) + 309 * var(--home-wide-reference-growth));
-        --chevron: calc(var(--strip) / 1.804);
+        /*
+          Two chevrons fill a phone row exactly, and sub-pixel rounding could push the second onto its own row; a
+          quarter pixel less keeps both on it.
+        */
+        --chevron: calc(var(--strip) / 1.804 - 1px / 4);
         --overlap: calc(var(--strip) * 0.196 / 1.804);
         --mid: 50%;
         counter-reset: impact;
