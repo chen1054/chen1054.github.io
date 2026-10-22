@@ -3178,11 +3178,22 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       Editor (Web / Tool PoC)". The Phone frame (`2307:46090`) draws "OPH Dedicated Sub-site / (Web UX/UI)" (a
       forced break) and "In-Browser Doodle Editor / (Web Tool PoC)"; Tablet and Desktop draw each on one line.
       The parentheticals' words are joined with `&nbsp;`. Chromium at 393 and 320: two lines each, as drawn.
-    - Open, for the user: phone closing quotes wrap differently from the Phone frames. Drawn boxes: Tales 349 px
-      at x 18 (4 lines), MenuMe 335 (6 lines), Scotties 348 (6 lines, forced breaks after "can" and
-      "community"). The site's phone quotes sit in the 325 px text column at 393 (Scotties 353): Tales takes 5
-      lines ("...framework that / evolves alongside their / children's development.""), MenuMe moves "cooks"
-      down a line, Scotties ignores the two forced breaks. No lone words anywhere. Probe: `quote-lines-cr.ts`.
+    - `9d97db6` + `bebcd18` Phone closing quotes, wrapped as drawn (the tablet and desktop quotes already were).
+      Drawn boxes: Tales 349 px at x 18 (4 lines), MenuMe 335 (6 lines), Scotties 348 (6 lines, forced breaks
+      after "can" and "community"). The site's phone quotes sat in the 325 px text column at 393: Tales took 5
+      lines ("...framework that / evolves alongside their / children's development.""), MenuMe moved "cooks"
+      down a line, Scotties ignored the two forced breaks. Each phone quote now takes its drawn box, centred,
+      capped at the screen minus 13 px gutters; Scotties' breaks are `phone-break`s. Chromium
+      (`quote-lines-cr.ts`): line for line as drawn from 375 to 639; 640, 744, 1440 identical to live; at 320
+      Scotties leaves "community" alone (no iOS 17 iPhone is that narrow). iOS 17 Simulator at 393: all three
+      as drawn (`quote-iphone17/`). `9d97db6` put the rule before the general `.closing-reflection` rule, whose
+      `margin-inline: 0` (all widths, same specificity) won, so the boxes started at the column edge and MenuMe
+      and Tales scrolled sideways by 8 px up to 360 and 380; `bebcd18` nests the phone rule after the reset.
+      Correction comment: [9d97db6-correction]. Lessons: the trial CSS came from the inject server's unlayered
+      `EXTRA_CSS`, which outranks every layered rule, so a trial can pass where the layered rule loses; and a
+      line probe that reads widths says nothing about position, so measure the box's left and right gaps too.
+      `margin-rules.js` lists every rule that matches an element and sets a margin, nested selectors resolved.
+      Inline `<style>` injection does nothing here: the pages' CSP blocks it.
     - Open, for the user: the phone menu's close button gets the site's purple focus box when the menu opens
       in Safari, even from a pointer click (Safari 17.5 at a 500 px window, WebDriver element click,
       `states/index-500-portfolio-primary-navigation.png`), because `autofocus` puts focus on it and WebKit
@@ -3191,6 +3202,15 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     - Phone menu captures in the Simulator: `menu-sim.ts` opens the menu through the inject server's
       `&popover=` branch. That branch never reports for the menu (it waits for the menu logo, a lazy image the
       phone layout does not load), so the script waits for the `&scroll=0&frame=` report instead.
+    - `c96e902` checked in iOS 17 Safari (`heading-iphone17/`): both headings break as drawn.
+    - Chromium after a real click (agent-browser `click`): the menu opens, focus does not land on the close
+      button, nothing matches `:focus-visible`; screenshot `menu-click-chromium.png`.
+    - In flight (2026-10-22 afternoon): unit `xinyanchen-safari-recapture` (Safari 17.5, live site after
+      `bebcd18`) runs `phone-lines.js` at 500 to 650 px windows on the three case studies, then recaptures every
+      case-study frame at all seven widths into `safari/` (the earlier frames are in
+      `safari-pre-quotes-1022/`); review all of them. Unit `xinyanchen-eye-ipad` captures every page on the
+      iPad 10th (iOS 17.0.1) into `sim-ipad10/`; build sheets with `simtriples.mjs ipad10 <page>` and review.
+      Then report to the user with both open questions (menu focus box, and anything new) in the question tool.
     - Scripts here are `.ts` now (the repo rule against new `.mjs`); `~/temp/agent/f20/eye/package.json` sets
       `"type": "module"` because `~/temp/agent/f20/package.json` made Node read `.ts` as CommonJS.
 
@@ -3203,6 +3223,7 @@ child that Safari reports as tall as the page and Chromium as tall as the window
 
 The planned 1x Safari pass at 790 and 1440. Neither engine behaviour depends on pixel density.
 
+[9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
 [6e97123-correction]: https://github.com/chen1054/chen1054.github.io/commit/6e9712362158159c54d20ddf0e0fd0953b684814#commitcomment-205881795
