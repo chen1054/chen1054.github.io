@@ -3010,7 +3010,11 @@
             margin-block-start: calc(14rem / 16 + 51 * var(--home-wide-reference-growth));
             margin-inline-start: calc(4rem / 16 + 1 * var(--home-wide-reference-growth));
           }
-          /* The pad's last 24 px of growth (height 346/486 of it) draw past the box: the copy, not the pad, sets the gap. */
+          /*
+            The pad's last 24 px of growth (height 346/486 of it) draw past the box: the copy, not the pad, sets the gap.
+            Tablet Tales in the .fig draws the outline 345 px wide inside a 360.6 px group with the yellow backing, as
+            desktop does at 478 of 504; the pad is the group, so its outline is 345 here, not 328.
+          */
           &>.spiral-notepad {
             grid-area: 2 / 2;
             margin-block-end: calc(-24 * 346 / 486 * var(--home-wide-reference-growth));
@@ -3025,6 +3029,7 @@
       @media(width>=80rem) {
         /* Its text in line with the copy, 53 px into the 1086 px column, the icon hanging before it. */
         & :is(.section-content, .subsection)>h3:has(+ :is(p, ul)) {
+            inline-size: calc((334rem / 16 + 11 * var(--phone-tablet-reference-growth)) * 360.6 / 345 + 145.4 * var(--home-wide-reference-growth));
           margin-block-end: calc(6rem / 16);
           margin-inline-start: calc(5300% / 1086 - var(--glyph-size) * 4 / 3);
         }
@@ -3057,22 +3062,21 @@
           margin-inline: 11%;
         }
         /*
-          Tablet and Desktop Tales start the copy 13 percent in at line height 2, its lines breaking where a 290 and a
-          353 px measure break them (279 to 316 and 347 to 359 px fit the drawn breaks). Its first line starts 58.5
-          and 87 px down the 345 and 482 px pads; the copy stays at the tablet's 14 px per 345 px of pad, so it keeps
-          those breaks inside the outline where the body text is still a little larger, just past 640.
+          Tablet and Desktop Tales start the copy an eighth of the pad in at line height 2, its lines breaking where a
+          290 and a 353 px measure break them (279 to 316 and 347 to 359 px fit the drawn breaks). Its first line
+          starts 58.6 and 87.3 px down the 360.6 and 506 px pads; the copy stays at the tablet's 14 px per 360.6 px of
+          pad, so it keeps those breaks inside the outline where the body text is still a little larger, just past 640.
         */
         @media(width>=40rem) {
           --home-wide-reference-growth: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
           justify-content: start;
           padding-block-end: 0;
           &>p {
-            margin-block-start: calc(20.9% - 13.5rem / 16 - 5 * var(--home-wide-reference-growth));
-            font-size: min(1em, calc(14 * 100cqi / 345));
+            margin-block-start: calc(19.74% - 12.6rem / 16);
+            font-size: min(1em, calc(14 * 100cqi / 360.6));
           }
           &>* {
-            margin-inline: calc(13% - 3 * var(--home-wide-reference-growth))
-              calc(10rem / 16 + 80 * var(--home-wide-reference-growth));
+            margin-inline: 12.5% calc(25.6rem / 16 + 64 * var(--home-wide-reference-growth));
             line-height: round(nearest, 2em, 1px);
           }
         }
