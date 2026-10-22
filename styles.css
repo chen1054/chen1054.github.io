@@ -1117,6 +1117,11 @@
     --case-study-corner-accent-mask: url("assets/case-study-phone-corner-accent-mask.svg");
     --case-study-corner-base-mask: url("assets/case-study-phone-corner-base-mask.svg");
     --case-study-preview-aspect-ratio: 258 / 204;
+    /*
+      Each Phone design's subtitle box, in px: Phone/Tales wraps "Normalizing Substance Use Health" in 319. MenuMe
+      and Scotties break after "&" by hand in the same 319, which 260 reproduces.
+    */
+    --summary-subtitle-phone: 319;
     /* Each Tablet design's subtitle and summary box, in px; both widen to the desktop's 540 px. */
     --summary-subtitle-tablet: 303;
     --summary-facts-tablet: 485;
@@ -1144,6 +1149,7 @@
       --summary-bullet-indent: 1rem;
       --summary-subtitle-overhang: 6;
       /* Figma's box is 443 px with a forced break after "&"; 260 px breaks it there. */
+      --summary-subtitle-phone: 260;
       --summary-subtitle-tablet: 260;
       --summary-facts-tablet: 375;
       --color-case-study-accent: #60b5bf;
@@ -1177,6 +1183,7 @@
       --color-case-study-corner-base: #ebe4d9;
       --color-case-study-header-text: var(--color-case-study-heading);
       --case-study-preview-aspect-ratio: 281 / 199;
+      --summary-subtitle-phone: 260;
       --summary-subtitle-tablet: 396;
       --summary-facts-tablet: 484;
       /* The phone and tablet designs draw the hero art 278 px wide. */
@@ -1300,7 +1307,9 @@
         margin-block-start: 1rem;
         margin-block-end: 1rem;
         color: var(--color-case-study-subtitle);
-        max-inline-size: calc(260rem / 16 + 280 * var(--home-wide-reference-growth));
+        max-inline-size: calc(
+          var(--summary-subtitle-phone) * 1rem / 16 + (540 - var(--summary-subtitle-phone)) * var(--home-wide-reference-growth)
+        );
         margin-inline: auto;
         font-size: calc(18rem / 16 + 4 * var(--home-wide-reference-growth));
         line-height: round(nearest, 30rem / 16 + 6 * var(--home-wide-reference-growth), 1px);
