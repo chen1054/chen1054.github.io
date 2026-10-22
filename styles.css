@@ -5886,6 +5886,18 @@
       /* The starburst comes before the positioned note in tree order, so the note paints over it. */
       .subsection:has(>.scotties-positioning-note) {
         position: relative;
+        /*
+          The client: "这个框离上下标题的间距太窄了，参考原设计。" (the box sits too close to the headings above and
+          below; follow the design). Phone Scotties draws the box 74.5 px under the heading's text and 130 px over
+          the Research band. The box's margin collapses with the heading's 32 px one, so it carries the whole 72.5
+          (the heading's line box adds 2); the section's 64 px padding gets 66 more below.
+        */
+        @media(width<40rem) {
+          margin-block-end: calc(66rem / 16);
+          &>.scotties-positioning-note {
+            margin-block-start: calc(72.5rem / 16);
+          }
+        }
       }
       .subsection:has(>.scotties-positioning-note)::before {
         content: "";
