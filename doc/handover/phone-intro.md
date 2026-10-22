@@ -2662,7 +2662,18 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
   (screen 355 to 3314 by 68 to about 2041 in `tales-oph-resource-hub-laptop.webp`: 1.4995 both); `phone_demo.gif`
   (710 by 1580, 265 frames, 70 ms) has its own rounded screen and camera dot, ratio 0.4499 against the phone
   mockup's screen at about 0.472. Asked the user (sheet `f20/gif/gif-options.png`): A, desktop GIF on the laptop
-  screen and phone GIF as supplied (recommended); B, both as supplied. Not built yet.
+  screen and phone GIF as supplied (recommended); B, both as supplied. The user chose A. Landed `c2bc8f1`: GIFs
+  renamed to `assets/tales-oph-resource-hub-{desktop,phone}-demo.gif`; the laptop mockup keeps its box and the
+  recording (`.device-with-screen-recording>img.screen-recording`) covers its screen (2960 by 1974 from 355, 68,
+  measured pixel by pixel); the phone recording replaces the phone mockup (file removed) at the width and place
+  the mockup gave its screen (1058 of 1158 from 49); viewers open them as bitmaps (`.gif` added), laptop 1223,
+  phone 353 (about 2x). Reduced motion: the laptop recording is hidden (still screen shows) and the phone shows
+  `tales-oph-resource-hub-phone-demo-first-frame.png` (ffmpeg frame 0). Chromium (`f20/gif/probe-demo.mjs`): the
+  recording lands on the screen rectangle at 390, 744, 1440; the pair grows by the recording's taller shape (3.9
+  px at 1440, 3.1 at 390, 0 at 744 where the laptop is taller); no sideways scroll, no console errors; a first
+  phone-width rule (`button:not([popover]) img`) also caught the viewer's button (opened 1257 wide) and was
+  narrowed to `>button img` before the commit. The recordings' see-through sticky header is in the client's
+  files. Safari check: running. Single GIF frames from ImageMagick are deltas (blank); use ffmpeg.
 - Tool notes: anchors drop pairs far from their neighbours' median (labels repeated in artwork); agent-browser
   `screenshot --full` drew Home's SVG pictures small, so `chromium-same.mjs` compares scrolled viewport frames;
   same-build noise is only the animated hero (frame 00, and the top of frame 01 at 1440 and 1920).
