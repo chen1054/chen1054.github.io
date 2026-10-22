@@ -3222,7 +3222,7 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
     - Desktop Safari sheets reviewed (recapture after `bebcd18`): MenuMe all seven widths, Scotties 744, 790,
       1024, 1180, 1280, 1440. The Scotties "Lo-fi Homepage" heading 9 px above its wireframe at 1440 is drawn
       that way (Desktop frame: heading box ends at y 9279, wireframe starts at 9288).
-    - Found, not yet fixed:
+    - Found, since fixed (`a12e59b`, `b0d6ef0`, `c9cc147`):
       - Scotties hero meta at a 1280 Safari window (1265 CSS, tablet-to-desktop band, so the
         `.desktop-break` is hidden): "Hi-" ends a line and "fi Wireframes)" starts the next. The plain hyphen
         is a break opportunity; Tales already writes `Hi&#8209;fi`. Fix: `Lo&#8209;fi`, `Hi&#8209;fi`.
@@ -3243,6 +3243,38 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       line is one word; env PAGES FROM TO STEP; log `orphan-cr.log`, 6 pages, 320 to 1920 by 10, many flags,
       mostly in-between widths), `lines-probe.js` + `lines-cr.ts` (rendered heading lines; env PAGE WIDTHS
       PREFIXES; session `xinyan2`), `fig-heading-lines.ts` (`.fig` lines per frame and prefix).
+    - Heading commits (all Chromium-checked; Safari check after deploy still pending):
+      - `b0d6ef0` Scotties: `Research &amp; User&nbsp;Personas`,
+        `Core Value Proposition &amp;&nbsp;Emotional&nbsp;Benefits`.
+      - `f4b4150` MenuMe: eight phone headings joined or broken with `<br class="phone-break">` as Phone MenuMe
+        draws them.
+      - `a12e59b` Scotties hero meta: `Lo&#8209;fi`, `Hi&#8209;fi&nbsp;Wireframes)`.
+      - `398e851` Tales "How might we" quote: measure 320 px on phones, 608 px at 744 growing to the Desktop
+        frame; our line widths equal the `.fig` glyph widths in Chromium.
+      - `867d0d1` Tales: `Strategic&nbsp;Alignment`; "The Core Product:" then a phone break.
+      - `7622273` About: `I’m&nbsp;not&nbsp;working?`.
+      - `9e42f83` MenuMe: `Iterative&nbsp;Design` (its `.fig` node text starts with a stray "Flows", so the
+        diff could not pair it).
+      - `c9cc147` hero subtitles: `Connected&nbsp;Grocery&nbsp;Ecosystem`, `E&#8209;Commerce&nbsp;UX&nbsp;Redesign`.
+      - `1400e3e` last two words joined in headings and card titles across Home, MenuMe, Scotties and Tales,
+        plus Scotties' Jonathan Miller copy "culture&nbsp;history." (lone "history." on the iPad).
+    - Heading diff after these (`heads-diff.ts`, every visible `h1` to `h6` at 390, 744, 1440 against the
+      `.fig` node with the same text): no line-break differences left. Unpaired headings (NOFIG) are ones the
+      design splits across nodes or draws on one line.
+    - Tried and reverted before commit: a phone `text-wrap: balance` on all headings. It fixed some headings
+      and broke others (Home "Dedicated", MenuMe, About `h2`).
+    - Sweep 320 to 1920 by 10 (`orphan-cr-3.log`): sideways scroll only from the known 350 px impact strip
+      below 350 px. Remaining lone-word flags are two-word headings that wrap at narrow in-between widths.
+    - iPad 10th (820) frames reviewed for all six pages. Tales persona copy ends on "routine." and "terms.":
+      body copy, left as is. The Tales impact cards wrapped 3 + 1 at 820 while Tablet Tales draws one row:
+      the four chevrons fill the strip exactly, and sub-pixel rounding wrapped the last one at some widths
+      (Chromium 780, 800, 820, 1180; fine at 744, 760, 1024, 1279). `81028ed` sets `flex-wrap: nowrap` from
+      40rem. Chromium sweep 320 to 1925 by 7 (`impact-cr.ts`, `impact-sweep.log`): one row everywhere from
+      640, no overflow. iPad and Safari check after deploy still pending.
+    - More tools: `fig-all-lines.ts` (every visible text node's lines in the 18 frames, `fig-lines.json`),
+      `heads-probe.js` + `heads-diff.ts` (env ONLY `device:page`), `split-probe.js` (words split at a
+      hyphen), `impact-cr.ts`; `orphan-cr.ts` takes PROBE to pick the probe file, and `orphan-probe.js`
+      reports `OVERFLOW n` for sideways scroll.
 
 ### Not ours
 
