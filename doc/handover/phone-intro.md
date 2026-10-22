@@ -2805,8 +2805,14 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
         `devicePixelRatio` 1) best 790 at 0.9875 bicubic, 3.93. So the client's screen draws at 1x. Aligned
         (`py/cf93-align.py`, `cf93-side-by-side.png`): letters match in shape, size and place; ours a shade darker.
         In that reproduction, as in the export: label and body letters the same height (8, 10, 11 px), label word
-        87 px against about 85 (bold). The VM is left at `1920x1200px` (1x) for CF93; restore with
-        `flock vm-sonoma.lock node f20/batch-phone/sonoma-display.mjs pt` when done.
+        87 px against about 85 (bold).
+      - Decided by the user, 2026-10-22: "Bold, equal word width": keep bold, shrink the tablet and phone labels
+        until a label word measures the body's width by pixel count on the 1x reproduction (desktop 13 and 17 px
+        stay; both are set on `.sitemap` inside 1280 px queries).
+      - Size brute force, 1x Safari at 790, 814, 838 (`safari-cf93-scale.mjs`, `py/cf93-scale.py`, words "Menu
+        Planner" and "Settings"): today label minus body is +1, -1, +2, 0, +1, +1 px; every factor 0.980 to 0.995
+        em gives squared error 6 (today 8), so 1x pixels cannot choose among them. Tie broken at 2x (VM restored
+        to `1920x1200pt` by `sonoma-display.mjs pt`, the rig's normal state), result pending.
       - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
         screenshot." Name the analyzer and the saved file with every number: `py/cf93-evidence.py` (fixed
         half-way threshold, whole-pixel boxes of touching ink pixels, an 8x enlarged pixel grid to count by hand).
