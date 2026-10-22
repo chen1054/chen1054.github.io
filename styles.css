@@ -5908,6 +5908,14 @@
               line-height: round(nearest, 22em / 14, 1px);
               text-wrap: wrap;
             }
+            /*
+              Phone/Scotties in the .fig draws the desktop bolt 3.7% taller than its own shape, its lower tip 31.3% of
+              the cloud's width under the cloud's top, ending on the third line's baseline in the gap before "e-".
+              Keeping the shape and pinning that tip there lifts the bolt off "no".
+            */
+            &::before {
+              inset-block-start: -0.84cqw;
+            }
           }
         }
         &::before,
