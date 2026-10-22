@@ -2746,7 +2746,13 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       check, then landed as `aba53f4` once the user allowed the copy (one set of dashes, no stray arrow at 390 and 1440).
     - CF93 (no change yet): sitemap labels and body copy compute the same size at 744 to 1180 (14 to 15.25 px),
       and in the client's own screenshot the cap heights match (about 12.7 and 13 px). Asked the user what the
-      client wants changed.
+      client wants changed. The user: "What? Can you really not see the difference?" Missed: the labels are bold
+      (700) Playfair against the paragraph's 500, so they draw much wider (the "M" 15 px against 13 in the
+      client's screenshot, lowercase 11 against 10) and look bigger; equal computed sizes hid what anyone sees.
+      Compare by eye before numbers. The tablet design (`Tablet/MenuMe.pdf`, a picture there) draws regular-weight
+      sans labels, smaller than the paragraph. Option renders at 834: `f20/batch-phone/cf93-options-stack.png`
+      (current bold, paragraph weight 500, bold at 0.9 em); the user's pick decides.
+    - CF90 confirmed by the user, 2026-10-22: keep "0.3 s after the river" (flower from 6.1 s, `50c5b39`).
   - Found while measuring (not from the client), `4c3660c`: at 360 Scotties, MenuMe and Tales were 374, 362 and
     370 px wide, at 375 (iPhone SE, mini) Scotties 382 and MenuMe 376 (also at `c99cb9f`). Causes: phone art in
     drawn pixels stopped shrinking at 390 (`--phone-art-growth` clamped at 0; now down to 320, same value from
