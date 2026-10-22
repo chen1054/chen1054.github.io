@@ -5998,6 +5998,10 @@
       }
       .scotties-challenge-bubble {
         position: relative;
+        /* Every Scotties frame in the .fig layers the copy over the bolt; positioned after it, the copy paints on top. */
+        &>p {
+          position: relative;
+        }
         &::before {
           content: "";
           position: absolute;
