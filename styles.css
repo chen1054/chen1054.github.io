@@ -2104,6 +2104,15 @@
         &>.content .subsection:has(img[src*="type-specimens"])>h3.subheading {
           margin-block-end: calc(69rem / 16);
         }
+        /*
+          Tablet Scotties draws the type panel 620 px wide, its "Body Text" label at 16 px over 14 px body copy. Grown
+          with the column it reached 976 px in a 1280 Safari window, the label about 25 px; like the Tales charts, the
+          panel keeps its drawn size in wider columns until the desktop art takes over.
+        */
+        &>.content .subsection>figure:has(img[src*="type-specimens"]) {
+          max-inline-size: calc(620rem / 16);
+          margin-inline: auto;
+        }
       }
       /*
         Desktop Scotties: the first heading 218 px under the band's top, the moodboard 64 under the copy's last
