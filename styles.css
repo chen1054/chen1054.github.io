@@ -3364,10 +3364,7 @@
             padding-inline: calc(15rem / 16 - 15 * var(--phone-tablet-reference-growth)) var(--tip);
             line-height: round(nearest, 1.5em, 1px);
           }
-          /*
-            Tablet Tales wraps every card's copy at about 148 px, the first card's too. It also breaks each title
-            after its first word, which the page writes as a tablet-only break.
-          */
+          /* Tablet Tales wraps every card's copy at about 148 px, the first card's too. */
           @media(width>=40rem) and (width<80rem) {
             &:first-child>p {
               padding-inline-end: calc(var(--tip) + 17rem / 16 - 17 * var(--home-wide-reference-growth));
@@ -3452,6 +3449,12 @@
             padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
             line-height: round(nearest, 1.5em, 1px);
             font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
+            /* Phone and Tablet Tales break each title after its first word; Desktop Tales sets each on one line. */
+            @media(width>=80rem) {
+              &>br {
+                display: none;
+              }
+            }
             background-color: var(--c);
             color: var(--on);
             text-align: center;
