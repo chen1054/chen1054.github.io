@@ -3213,6 +3213,36 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
       Then report to the user with both open questions (menu focus box, and anything new) in the question tool.
     - Scripts here are `.ts` now (the repo rule against new `.mjs`); `~/temp/agent/f20/eye/package.json` sets
       `"type": "module"` because `~/temp/agent/f20/package.json` made Node read `.ts` as CommonJS.
+    - `f213b57` MenuMe Personalized Menu flow: the tablet flow rule ended at 68.25rem, so from a 1092 px window
+      the plain row drew the lo-fi screen 400 px wide and 862 tall beside 234 px hi-fi screens (seen in the
+      Safari 1180 sheet). The rule now holds until 80rem. Chromium: lo-fi 197, 208, 226 px beside pairs 404,
+      428, 465 at 1092, 1165, 1279, no overflow (`menume-usability-1165.png`, `-1279.png`). Other rules ending
+      at 68.25rem: the focus group has its own rule from 68.25rem; Weekly Specials falls back to a row that
+      looks right at 1180. Safari check after deploy still pending.
+    - Desktop Safari sheets reviewed (recapture after `bebcd18`): MenuMe all seven widths, Scotties 744, 790,
+      1024, 1180, 1280, 1440. The Scotties "Lo-fi Homepage" heading 9 px above its wireframe at 1440 is drawn
+      that way (Desktop frame: heading box ends at y 9279, wireframe starts at 9288).
+    - Found, not yet fixed:
+      - Scotties hero meta at a 1280 Safari window (1265 CSS, tablet-to-desktop band, so the
+        `.desktop-break` is hidden): "Hi-" ends a line and "fi Wireframes)" starts the next. The plain hyphen
+        is a break opportunity; Tales already writes `Hi&#8209;fi`. Fix: `Lo&#8209;fi`, `Hi&#8209;fi`.
+      - Scotties Phone headings at 393 break unlike the Phone frame: we draw "Research & User / Personas" and
+        "Core Value Proposition & Emotional / Benefits"; the frame draws "Research & / User Personas" and
+        "Core Value Proposition / & Emotional Benefits". The by-eye iPhone pass missed both.
+      - Hero subtitles end on one word in the band below the desktop frame: Scotties "Redesign" from 1060 to
+        1190 (Chromium), MenuMe "Ecosystem" from 1050 to 1430, which includes the Safari 1440 window
+        (1425 CSS; visible in `safari-sheets/menume-1440-00.png`; the earlier "MenuMe 1440 fine" was wrong).
+    - Heading check plan (advisor-agreed): diff every heading's line breaks against the `.fig` at each frame's
+      own width (from the depth-0 rows of `boxes.jsonl`), keyed by node GUID, because `text-lines.mjs` takes
+      the first node matching a prefix and Desktop Scotties has two "Wireframing Execution" nodes. Compare
+      line count and each line's first word. Fix with width-independent joins (`&nbsp;`, `&#8209;`,
+      `<br class="phone-break">`), never per-heading widths; one commit per heading group; Safari check at
+      window = frame width + 15. Between frame widths, fix only what those joins fix anyway or what looks
+      broken; a lone word in a full-width banner heading at 320 px is not a defect to chase.
+    - New tools in `~/temp/agent/f20/eye/`: `orphan-probe.js` + `orphan-cr.ts` (headings and titles whose last
+      line is one word; env PAGES FROM TO STEP; log `orphan-cr.log`, 6 pages, 320 to 1920 by 10, many flags,
+      mostly in-between widths), `lines-probe.js` + `lines-cr.ts` (rendered heading lines; env PAGE WIDTHS
+      PREFIXES; session `xinyan2`), `fig-heading-lines.ts` (`.fig` lines per frame and prefix).
 
 ### Not ours
 
