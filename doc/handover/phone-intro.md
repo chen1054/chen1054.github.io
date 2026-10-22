@@ -3003,8 +3003,24 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   lead it, and every later reply repeats each question until the client answers it.
 - The user, 2026-10-22: keep the Sonoma VM running (podman on m1 stays stopped, `snowflake-proxy` down,
   keepalive disabled, until the user says otherwise).
-- In progress: the merge, then re-checking the 16 attachments, whose after frames (`evidence/send-d7fbea3/`)
-  predate CF72 to CF111 and `64d6dbc` (pair 1, the Scotties cloud, changed with CF74).
+- Merged: `../Client screenshots 2026OCT220120/reply-draft.md` leads with six open questions (the five of
+  2026-10-20 plus what CF90's 0.3 s counts from), then the 2026-10-22 round, then the 2026-10-20 content. The old
+  `05-client-reply-draft.md` is marked superseded. Backups:
+  - `/home/user/temp/agent/f20/05-client-reply-draft.before-merge-2026-10-22.md`
+  - `/home/user/temp/agent/f20/reply-draft.before-merge.md`
+- Attachments refreshed: `../Client comparison screenshots 2026OCT170133/evidence/send-64d6dbc/` (16 pairs,
+  8.4 MB), every pair checked by eye.
+  - After frames at `64d6dbc`, in `evidence/after-64d6dbc/`:
+    - desktop: Safari 17.5 (Sonoma VM) at 1920 by 950, live site, by `xyc-after/desktop-env.mjs` (`desktop.mjs`
+      with `DRIVER`, `ORIGIN`, `BROWSER` from the environment; accepts 2x frames);
+    - phone: the iOS 17.0.1 Simulator through the inject server (repo on 4177, m1's 4175 tunnelled to it) by
+      `xyc-after/refresh-64d6dbc.mjs`;
+    - extras: Chromium, by `extras-after-env.mjs` (`HOST` from the environment).
+  - Pairs by `xyc-after/make-pairs-64d6dbc.mjs` (skips frames not captured), send set by `send-64d6dbc.mjs`.
+  - `sim17-match.mjs` framed WeChat 97, 543 and 544 correctly. 549 (`Community Highlights` at 160) and 552 (the
+    final card's text at 180) were reframed by hand to show the chevrons and both buttons.
+  - Two `sim17-frame.mjs` runs at once on one Simulator can cross; run them one after another.
+  - Do not send `send-d7fbea3/` or `send-5cf1620/`.
 
 ### Not ours
 
