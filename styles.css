@@ -5317,9 +5317,10 @@
             finding (221 px) and the iteration (234 px) 82 apart with an orange squiggle between them, the lo-fi
             screen (142 px) and the hi-fi pair (292 px) 58 below with the same squiggle between those, and a yellow
             elbow from the iteration's end edge into the second hi-fi screen; 34 above the heading and 103 under the
-            screens. The vectors are the design's own.
+            screens. The vectors are the design's own. It holds until the desktop layout: from 1092 px the plain row
+            drew the lo-fi screen 400 px wide and 862 tall beside 234 px hi-fi screens.
           */
-          @media(40rem<=width<68.25rem) {
+          @media(40rem<=width<80rem) {
             &>.subsection:has(img[src*="personalization-low"]) {
               --u: calc(100cqw / 614);
               /* Being a container would make the type growth measure this flow; keep measuring the page. */
