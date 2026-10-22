@@ -4325,6 +4325,13 @@
           and 127 from it to the next heading.
         */
         &:where(#menume-information-architecture)>.section-content {
+          /* The client, of the phone's one-column tree: "整个居中" (centre the whole thing). */
+          @media(width<40rem) {
+            &>.sitemap {
+              inline-size: fit-content;
+              margin-inline: auto;
+            }
+          }
           @media(width>=80rem) {
             padding-block-start: calc(148rem / 16);
             &>.sitemap {
