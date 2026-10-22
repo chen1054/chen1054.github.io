@@ -3376,6 +3376,13 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   each, none flagged. At the client's 1920 window (1905 layout): Home's river 1905 by 654.84 from 0, logo 70;
   About's river 1440 by 690 from 232.5. The wave probe's positive control ran in Chromium only (same script).
   CF112 done.
+- Tablet after the ratio change (Chromium, `f20/eye/tablet-after/`): About at 744, 820, 1024 and Home at 744 read
+  as before; About's photo still sits on the gold band, matching the earlier Safari capture
+  (`eye/safari1x/about-744-00.png`) and the tablet reference.
+- Client reply (`../Client screenshots 2026OCT220120/reply-draft.md`, not sent): CF112 and the 1080p sizing added
+  to the 22 October desktop section in both languages; the old "menu follows the centred content" bullet now
+  points to them; attachment 8 rebuilt with its after side at `048408b` (Safari 17.5, 1920 by 950,
+  `xyc-after/pair8-048408b.ts`), old pair moved to `evidence/send-64d6dbc-replaced/`, `captions.md` updated.
 - Safari 17.5 Tales impact titles every 1 px, 390 to 1440 window (`impact-safari-3.log`, after `c28a368`): phones
   two rows and every title on two lines at all widths; 655 to 1294 one row, two lines; 1295 to 1401 mixed (the
   known no-frame range); one line from 1402 (layout 1387). No sideways scroll at any of 1051 widths.
