@@ -6081,6 +6081,17 @@
           );
           aspect-ratio: 952 / 158;
           background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
+          /*
+            The client: "这个图案放在sitmap的正下方吧，也是居中。" (put this pattern directly under the sitemap,
+            centred). On the phone's one-column tree it sat beside the last page; it now follows the tree, 32 px
+            under it like the sitemap's own spacing.
+          */
+          @media(width<40rem) {
+            position: static;
+            display: block;
+            margin-block-start: calc(32rem / 16);
+            margin-inline: auto;
+          }
         }
         /*
           Desktop Scotties draws the sitemap larger: 47 px boxes, 17 px labels padded 26 px (at least 121 px wide,
