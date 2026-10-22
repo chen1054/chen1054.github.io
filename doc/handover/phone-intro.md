@@ -8,6 +8,17 @@ viewport 1920 by 950). The client reply in "Client reply status, 2026-10-20", up
 user. The entries in between are a dated log, oldest first; "Current
 state" describes the work as of the landing animation.
 
+Which Safari checks which width (missed on 2026-10-22, when a phone batch was first sent to desktop Safari in a
+390 px iframe; the user: "why aren't you using the emulator?"):
+- Phone widths: the iOS 17.0.1 iPhone 15 Simulator on `m1` (Safari 17.0, the client's phone engine), device
+  `9CA037B0-574E-4662-A3EF-744BFB6E15E7` in the custom set `/Volumes/XinyanSimDevices/devices`; screenshots with
+  `/home/user/temp/agent/f20/sim17-shots.mjs` (it opens `http://localhost:4173/...` on `m1`, so serve the build
+  there with `Cache-Control: no-store`, see "Client iPhone round, 2026-10-19"). `safaridriver` cannot reach a
+  device in a custom set, so measure in Chromium and confirm visually in the Simulator.
+- Tablet 744 and desktop widths: Safari 17.5 in the Sonoma VM over WebDriver (`127.0.0.1:4454`, lock
+  `/home/user/temp/agent/vm-sonoma.lock`), resizing the window.
+- Never stand a desktop browser in for the phone (no iframe or resized-window substitutes).
+
 ## Current state
 
 The client requested a landing introduction animation;
@@ -2732,7 +2743,7 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       embedded raster, crop fitted to the current files: listing 576.5, 9824.5, 286 by 405 pt at 6x; homepage
       576.25, 9287.75, 288.25 by 454.97 at 5.974x) are `f20/batch-phone/scotties-low-fidelity-*.webp`
       (`py/cf82fit.py`, `py/cf82fit2.py`). Copying them over the tracked assets was refused by the permission
-      check; waiting on the user.
+      check, then landed as `aba53f4` once the user allowed the copy (one set of dashes, no stray arrow at 390 and 1440).
     - CF93 (no change yet): sitemap labels and body copy compute the same size at 744 to 1180 (14 to 15.25 px),
       and in the client's own screenshot the cap heights match (about 12.7 and 13 px). Asked the user what the
       client wants changed.
