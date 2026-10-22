@@ -2812,7 +2812,18 @@ Progress, 2026-10-20 (tools in `/home/user/temp/agent/f20/sweep/`):
       - Size brute force, 1x Safari at 790, 814, 838 (`safari-cf93-scale.mjs`, `py/cf93-scale.py`, words "Menu
         Planner" and "Settings"): today label minus body is +1, -1, +2, 0, +1, +1 px; every factor 0.980 to 0.995
         em gives squared error 6 (today 8), so 1x pixels cannot choose among them. Tie broken at 2x (VM restored
-        to `1920x1200pt` by `sonoma-display.mjs pt`, the rig's normal state), result pending.
+        to `1920x1200pt` by `sonoma-display.mjs pt`, the rig's normal state): squared error today 43, 0.995 33,
+        0.990 18, 0.985 15, 0.980 8, 0.975 17.
+      - Fixed in `891312c`: `.sitemap { font-size: 0.98em }` in the shared rule. Live in Safari 17.5 at 2x:
+        "Menu Planner" label 174, 174, 175 px against body 174, 174, 175 at 790, 814, 838; "Settings" -2, -2, 0
+        (before: +3, 0, +4, 0, +3, +3). Chromium (`probe-cf93-layout.mjs`, base 4175 against 4173): desktop
+        unchanged (MenuMe 13 px, Scotties 17 px, same heights at 1280, 1440, 1920); tablet and phone labels 14 to
+        13.72 px. Side effect: some labels stop wrapping: MenuMe 834 (Select from fridge, Recipes & Videos share,
+        Profile & Settings; height same), MenuMe 1024 (Recipes plan; tree 296 to 284), Scotties 640 (Event &
+        Community Hub 3 lines to 2), Scotties 790 (Apparel & Accessories, Our Team, Community Highlights; 384 to
+        364). Before/after: `f20/batch-phone/cf93-wraps-before-after.png`; asked the user whether they are fine.
+      - Left behind: iPad Simulators `DF24B12C-...` (iOS 17) and `EEF5F6E4-...` (iOS 27) in the custom set, shut
+        down; the iPhone 15 iOS 17 Simulator is shut down too (boot it again for phone checks).
       - The user also: "Pixel measurements are invalid unless we use a dumb deterministic analyzer vs a hardbaked
         screenshot." Name the analyzer and the saved file with every number: `py/cf93-evidence.py` (fixed
         half-way threshold, whole-pixel boxes of touching ink pixels, an 8x enlarged pixel grid to count by hand).
