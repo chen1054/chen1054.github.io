@@ -3015,14 +3015,17 @@
           }
         }
       }
-      /* The quote wraps to the design's measure: two large lines wide, five narrow. */
+      /*
+        The quote wraps to the design's text box: 320 px on Phone Tales (five lines, "conversations as a routine /
+        part of daily parenting for"), 608 px on Tablet Tales ("... daily parenting for / children").
+      */
       & :where(#tales-how-might-we)>h2 {
-        --quote-measure: calc(342rem / 16);
+        --quote-measure: calc(320rem / 16);
         padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
         line-height: round(nearest, 48rem / 16 + 12 * var(--home-wide-reference-growth), 1px);
         /* 1066 px at 1440 breaks before "of daily", as Desktop Tales does (1050.5 to 1082.5 px in our face). */
         @media(width>=40rem) {
-          --quote-measure: calc(550rem / 16 + 516 * var(--home-wide-reference-growth));
+          --quote-measure: calc(608rem / 16 + 458 * var(--home-wide-reference-growth));
         }
       }
       /*
