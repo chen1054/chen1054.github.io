@@ -2997,6 +2997,14 @@ differences everywhere; the Simulator's iPhone 15 is 393 wide.
   `../Client screenshots 2026OCT220120/reply-draft.md`, Chinese with an English reference. It covers CF72 to
   CF111, the bubbles, the GIFs and our own fixes. It says to send or merge the 2026-10-20 draft first if that
   was never sent (unknown to the agent).
+- Decided by the user, 2026-10-22, on whether the 2026-10-20 reply was sent: "Merge them. I did talk with the
+  client but it's not up to me to make sure the client reads everything. For important questions vs a human the
+  only foolproof way is to ask until we get answers." So one message carries both rounds, the open questions
+  lead it, and every later reply repeats each question until the client answers it.
+- The user, 2026-10-22: keep the Sonoma VM running (podman on m1 stays stopped, `snowflake-proxy` down,
+  keepalive disabled, until the user says otherwise).
+- In progress: the merge, then re-checking the 16 attachments, whose after frames (`evidence/send-d7fbea3/`)
+  predate CF72 to CF111 and `64d6dbc` (pair 1, the Scotties cloud, changed with CF74).
 
 ### Not ours
 
