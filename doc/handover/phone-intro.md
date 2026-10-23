@@ -4159,7 +4159,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     0.01 px. The composite differs from the design render in 7 of 271,200 pixels at 4x (10% fuzz). Chromium
     640/744/1100/1279 use the tablet file (1279: 627 by 92.4) and 1280 the wide one (627 by 86); Safari 17.5 at
     744 and 1100 is correct.
-  - Next in this queue: M2 tablet corner art, then the remaining `triage.md` items.
+- M2 done (tablet top corner), `a37a7ed`. Home, About and Contact share one corner drawing, and their tablet
+  frames carry the same two paths (purple under clip `0 0 744 77`, grey under `0 0 744 134`). The new
+  `home-tablet-top-corner-decorations.svg` (744 by 134, top right anchored) serves `(40rem<=width<80rem)`; the
+  desktop height formula now starts at `width>=80rem`, so the tablet file keeps its ratio (115.3 tall at 640, 230.3
+  at 1279, then 261.8 for the wide file at 1280). Composite against the design render at 4x right of the nav: 29 of
+  696,800 pixels differ. Chromium 640/744/1100/1279/1280 on all three pages shows no contact with the nav or the
+  headings; Safari 17.5 Home 744 and About 1100 are correct.
+- Next in this queue: M3 About's 30 px shift (to verify), then the remaining `triage.md` items.
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
