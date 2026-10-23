@@ -3893,9 +3893,27 @@ for them.
 - `1f276d3` audit find: the tablet elbow (`assets/menume-usability-tablet-connector-elbow.svg`) top line now starts
   at x 10.5 (was 7.5), 2 units inside the iteration's outer edge: root in the border at 640 (2.4 px clear of the
   box interior), 744 (2.0), 1000 (1.5), 1279 (0.8). Crops `eye/tablet-root/pair-*.png`. Not yet checked in Safari.
-- Open: the phone elbow head (`styles.css`, phone first-flow `&::before`): edited in the working tree to end at
-  45.5 units plus 2 px (was 51.5 units), being measured (`arrow-audit/phone104-before/` live and
-  `phone104-after/` local, 18 widths 320 to 639).
+- `de313aa` side finding: the Scotties desktop sitemap's columns are percentages of the design's 1086 px column but
+  its boxes keep drawn widths, so below about 1410 Profile, Favorites and Cart ran up to 10.7 px past the column
+  (1280), past the chevrons' end and 15 px off centre (`eye/sitemap-overflow.ts`, shots `eye/sitemap-1280/`). The
+  third column is now `min(336/1086, 100% - 575/1086 - 171px)`. Nothing past the column at 1280 to 2560; box rects
+  equal to live at 1412 and up, differ at 1280, 1400, 1408 (`eye/sitemap-rects-*.log`).
+- `a28d9c1` audit find: the phone elbow head ends at 45.5 units plus 2 px (was 51.5). Audit `arrow-audit/phone104-before/`
+  (live) against `phone104-after/` (local), 18 widths 320 to 639, DEPTH 0.5, CORNER 24: the head's 11 hits on the
+  iteration box (414 to 620, 1.1 to 3.5 px) are gone. Remaining hits, unchanged and as designed: the elbow root
+  crossing the hi-fi screenshot's frame to its dashed Dislikes box (0.6 to 3 px into the image box, crop
+  `phone104-after-report/crops/menume-560-8-46.png`), and the opening squiggle in the intro note (reply choice 8).
+  Head crops `eye/phone104-head/head-*.png`.
+- Found by those crops, pre-existing and live: the head sits a fixed 126 units below the iteration box's top, but
+  the box's text does not scale with the units, so the box is relatively shorter on wider phones (`eye/phone104-probe.log`:
+  8 lines at 390, 5 at 560 to 620, 4 at 639); the head reached the bottom corner at 620 and fell 7.7 px below the
+  box at 639. In the working tree: the elbow moved from the subsection's `::before` to the iteration box's
+  `::before` (absolute), head at `min(126u, box bottom - 24 px corner - half the head)`; advisor's ranking, clamp
+  over proportional (45 % of the box everywhere would move the head at every width but 390). Being verified:
+  `arrow-audit/phone104-v2/` against `phone104-after/` pixel diff (`eye/pixel-diff.py`), expecting change at 600
+  to 639 only.
+- `#106` sweep: viewed every raster next to a CSS connector (MenuMe personalization lo-fi and hi-fi, the six
+  weekly-specials screens, Scotties lo-fi homepage and listing, Scotties hi-fi homepage): no other baked arrow pieces.
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
