@@ -2602,10 +2602,30 @@
           background-image: url("assets/scotties-section-directional-chevrons.svg");
         }
       }
+      /*
+        Phone and Tablet Scotties draw the strip as 12.67 by 14 px chevrons 14 apart with a 0.5 px pale edge, which
+        is the tile at its own 15 px, 86 and 87 px below the "Mobile" button's text and 76 and 80 above "Jump To
+        Section"; Desktop draws a 22 px raster strip.
+      */
       &>.content>.project-divider {
-        block-size: calc(20rem / 16);
+        block-size: calc(15rem / 16);
+        @media(width<80rem) {
+          margin-block-start: calc(
+            79rem / 16 + var(--phone-tablet-reference-growth) + 32 * var(--home-wide-reference-growth)
+          );
+        }
+        @media(width>=80rem) {
+          block-size: calc(20rem / 16);
+        }
         border-width: 0;
         background-size: auto 100%;
+      }
+      & .section-navigation {
+        @media(width<80rem) {
+          margin-block-start: calc(
+            77rem / 16 + 4 * var(--phone-tablet-reference-growth) + 57 * var(--home-wide-reference-growth)
+          );
+        }
       }
     }
     @container(width>=64rem) {
