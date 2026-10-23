@@ -4234,8 +4234,48 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   `orphan-a.log` and `orphan-b.log`. The control run alone found about 20 such body paragraphs on Tales at 320,
   and the iOS 17 frame of the Tales outcomes shows "resources." alone at 393. Plan: glue the last two words
   where flagged, re-sweep, then Safari and Simulator.
-- Queued after that: re-shoot the Simulator Thank-you block (`r1024`), the Ages heading icon (low), then
-  `triage.md`'s Scotties items, then #114 and the layer removal.
+- Simulator re-shoot `r1024`: the Play bubble ends "threatening stories." clear of the notch; the Doodle button
+  and the Thank-you footer read right.
+- Tales single leaf, `be0af05`: every design leaf is 21.75 px tall with a 3 px stroke at 390 and 744 (Ages, Poster,
+  persona names, Channels labels); Desktop Tales draws heading leaves 26.5 px and persona leaves 29 px, still 3 px.
+  Ours had a 2 px stroke. Redrawn by hand along the centre line of the Tablet Tales outline (paths 204 and 205 of
+  `pdftocairo -svg`) as a 3 px `vector-effect="non-scaling-stroke"`, so the stroke stays 3 px as the glyph grows.
+  Checked in Chromium (390, 744, 1440), Safari 17.5 (744, 1440) and the iOS 17 Simulator (`r1025`). Open, low:
+  Desktop Tales draws The Challenge and the Channels labels with a veined leaf.
+- Design verdicts recorded in `triage.md`: About bold extent differs between the design's own frames (site kept);
+  the Tablet Contact Send pill is lighter than Phone and Desktop (site kept).
+- Stray last words (task #117): `f20/impact/orphan-sweep.ts` flagged 147 elements across the six pages at 57
+  widths (`orphan-groups.txt`). Kept as drawn: two-word labels in the MenuMe flow chart and Scotties sitemap, and the
+  impact title "Behavioral Normalization" (Phone Tales breaks it after its first word); list in
+  `f20/impact/glue-exclude.txt`. `glue.py` joined the last two words of the rest with `&nbsp;` (123 places, plus
+  `Nurse&nbsp;&amp;&nbsp;Mom` and the jump list's `Campaign&nbsp;&amp;&nbsp;Impact` by hand, so no line starts
+  with "&"). Bubble-fit checker after it: 0 of 80. Commits: `03d2adb` Tales, `c0aa129` MenuMe, `eed0238` Scotties,
+  `abf7111` Home, About and Contact. Two subjects miscount (Tales; MenuMe is 46, not 47); corrective comments
+  [03d2adb][03d2adb-correction] and [c0aa129][c0aa129-correction]. Re-sweep: nothing left but the excluded labels.
+- Lesson: the glue made two MenuMe phone findings overflow at 320, and the sweep's OVERFLOW lines showed it before
+  the commit; read those lines before committing any glue. A soft hyphen is no remedy: browsers break at it
+  whenever the prefix fits, so `hier&shy;archies` split at most widths up to 1920 (`f20/impact/shy-check.ts`).
+- Lesson: `safari-shot.ts` sets `innerWidth`, which includes the VM's classic scrollbar (15 px), so a 320 run lays
+  out at 305; pass 335 for a 320 layout. Selectors must have a box: `display: contents` rows do not scroll.
+- #114 at 1x, landed:
+  - `94affff` Tales: impact strip, Challenge pad and device pair capped at `100vw - 40px`; no page overflow on any
+    page at 320 to 1440, image ratios unchanged.
+  - `064f9c8` MenuMe personas below 390: the text keeps the scribble's 97 px lane and the subtitle shrinks with the
+    art (13 px at 320); 390 measured unchanged (225 px text, 16 px subtitle).
+  - `faf5638` MenuMe Weekly Specials: the tablet flow now holds to 80rem, so 1092 to 1279 has both squiggles and
+    the elbow to the Ground Beef card, as the Tablet frame draws. Tip on the dashed line at 1092, 1150, 1200, 1279
+    in Chromium (`f20/impact/me8tips/tips-sheet.png`) and at 1200 in Safari 17.5 (`f20/impact/safari/`).
+  - `38f66cb` MenuMe phone findings: side padding shrinks faster than the box below 390, so the glued pairs fit at
+    320 (15 px padding, about 1 px slack); 390 and wider unchanged.
+  - The MenuMe pot near "ritual" at 320 already clears it.
+  - Left as is: "Core Task Flows (Logic & Decision Frameworks)" overflows its 252 px column by 3 px at 320 only
+    (`f4b4150` keeps the Phone frame's break); it is centred, so it reaches 1.5 px into a 34 px gutter, no scroll.
+    The 2 px `a` and the "What should I cook tonight?" h3 OVERFLOW lines predate this work.
+- Next: Safari 17.5 at a 320 layout for the persona and finding fixes, then the layer removal (#115), then
+  `triage.md`'s Scotties items.
+
+[03d2adb-correction]: https://github.com/chen1054/chen1054.github.io/commit/03d2adbf6711ffb16cab0a693a266e74c621e627#commitcomment-206404984
+[c0aa129-correction]: https://github.com/chen1054/chen1054.github.io/commit/c0aa1297ac152a43ee7d6b5a9b6e646f78cd2477#commitcomment-206404986
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
