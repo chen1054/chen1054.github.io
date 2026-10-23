@@ -3582,8 +3582,15 @@ stays 14 px; the Tales copy scales against the phone's 322 px reference although
 tablet copy `min(1em, 14 * 100cqw / 433)`), `f61ff83` (Tales tablet h4 and p scale against 325 and 333). The 1em
 caps hold from 744 up, so those widths should not move.
 
-Next: full checker on the live site (unit `xinyanchen-bubble-fit-after2`, `eye/bubble-fit/after2.txt`);
-`compare-runs.ts after after2 744` must report no change from 744 up; then Safari 17.5 at 656, 696 and 704.
+Checked: Safari 17.5 at 656, 696, 704, 720 (`eye/band-safari-after/`): the Scotties cloud keeps its seven 744
+lines inside, Play and Trust keep four lines on the fill. Chromium checker (`after2.txt`): Tales 0 crossings at
+every width; the only flags are the 82 phone Scotties bolt overlaps the design draws. `compare-runs.ts after
+after2 744`: 436 rows identical, 2 changed, Trust at 1280: the tablet rule also reached desktop (1280 bubble
+359 px, so the new reference shrank its copy and re-wrapped it). `e5e1c7d` scopes the new font rules to
+`width<80rem`.
+
+Next: full checker again (unit `xinyanchen-bubble-fit-after3`, `after3.txt`); `compare-runs.ts after after3 744`
+must show only identical rows.
 
 ### Arrow audit tool
 
