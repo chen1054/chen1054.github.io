@@ -7233,6 +7233,16 @@
                   linear-gradient(#000 0 0) 100% 50% / calc(100% - 13.5 * var(--u)) calc(3 * var(--u)) no-repeat;
                 pointer-events: none;
               }
+              /*
+                The tablet design measures each straight connector from the box's outer edge, but it hangs from inside
+                the 4 px border, so its head ended 3 to 4 px short of the dashed line at every width.
+              */
+              @media(width<80rem) {
+                &:not(:nth-child(4))::after {
+                  inset-inline-start: calc(var(--x) * var(--u) - 4rem / 16);
+                  inline-size: calc(var(--w) * var(--u) + 4rem / 16);
+                }
+              }
               &:nth-child(1) {
                 grid-row: 3;
                 margin-block: calc(12 * var(--u)) calc(15 * var(--u));
@@ -7254,10 +7264,11 @@
                 green dashed box). The tablet design draws it to the dark box's top edge, 62 px under the sage box's
                 centre; the desktop design aims it at that centre, as here.
               */
+              /* 2 longer than the design's 57.6: aimed at the sage box's centre, its line sits further right. */
               &:nth-child(3) {
-                --x: -57.6;
+                --x: -59.6;
                 --y: 63.7;
-                --w: 57.6;
+                --w: 59.6;
                 --ps: 27;
                 --pe: 20;
                 --h: 278;
@@ -7267,13 +7278,14 @@
                 margin-inline-start: calc(5 * var(--u));
               }
               /* The last connector is an elbow: from the callout's edge, up its vertical, then left to the screen. */
+              /* 1.5 longer than the design's 36, bend kept in place, so the head ends in the line (2 px short at 640). */
               &:nth-child(4) {
-                --x: -36;
+                --x: -37.5;
                 --y: 2.4;
-                --w: 36;
+                --w: 37.5;
                 --h: 282;
                 --elbow: 102.6;
-                --v: 24;
+                --v: 25.5;
                 --ps: 31;
                 --pe: 16;
                 grid-row: 6;
