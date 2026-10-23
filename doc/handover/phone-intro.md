@@ -3512,6 +3512,22 @@ The user chose "Re-check every page by eye" before sending. Plan, in order (scri
 3.  Look at every frame; compare against the earlier pass's frames (`safari/`, `sim-<label>/`) to see what moved.
     Findings go to `eye/findings-r2.md`, fixes one commit each, checked in Safari.
 
+Step 1 done: 485 frames, every sheet of all six pages at all seven widths looked at. No layout finding.
+The earlier `safari/` pass had case-study frames only, so Home, About and Contact had no baseline and were
+looked at in full. Already-decided items were seen again and left:
+
+- em-dash line starts (About "—such as", Scotties);
+- Scotties desktop wireframe headings 9 px above their wireframes, as the `.fig` draws them;
+- the 65 px MenuMe desktop "Profile & Settings" box.
+
+MenuMe at 1180 and 1280 is about 400 px shorter than in the earlier pass: that pass ran before `f213b57`.
+
+One broken-image "?" appeared, on MenuMe 744 frame 09 (the Personalized Menu lo-fi wireframe). It is the second
+sighting after the Shopping List one at 728. `eye/safari-broken-probe.ts` loaded the page fresh 12 times in
+Safari 17.5 (744 ×4 and 728 ×2, each with forced-eager and with plain scrolling): 25 images per load, 0 broken.
+Read as a passing fetch failure during the capture; nothing to change in the page. Step 2 is running
+(iPhone 15 first).
+
 ### Arrow audit tool
 
 `/home/user/temp/agent/f20/arrow-audit/`: `capture.ts` saves each page full-length twice (as is, and with every
