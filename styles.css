@@ -2652,6 +2652,17 @@
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
       }
       /*
+        Phone and Tablet Tales set the three long section titles at 22 px where the short ones keep 24; Desktop sets
+        all at 30 (fig 2319:50217, 2332:52202, 2197:8071, 2209:9268, 2410:78176). Phone wraps them in a 292 px box,
+        centred, breaking "Digital Touchpoint: OPH" from "Resource Hub & Online Tool".
+      */
+      & :is(#tales-core-solution, #tales-digital-touchpoint, #tales-campaign-and-impact)>h2 {
+        font-size: calc(22rem / 16 + 8 * var(--home-wide-reference-growth));
+        @media(width<40rem) {
+          padding-inline: calc((100% - 292rem / 16) / 2);
+        }
+      }
+      /*
         The Tablet and Desktop designs start a subheading at the text's edge, its glyph hanging into the margin, when
         prose follows it; over the personas every design starts it with them: 17 px into the column on phones, at the
         photos' tape (the column's start) on tablets, and at the descriptions 53 px into it on desktops.
