@@ -4147,6 +4147,19 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   `SETTLE=9000`; output `f20/design-cmp/site-v2/`, `sheets-v2/`. The stress run uses it too (unit
   `xinyanchen-stress2`). Never use `screenshot --full` for evidence on this site.
 - Triage of reviewer findings: `f20/design-cmp/triage.md` (artefact, agreed, design slip, or open, with evidence).
+- M6 done (tablet rivers). From 640 to 1279 the site used the desktop drawings scaled down, so Home's three river
+  stripes ran out of the gold band onto the white. Both pages now carry a `(40rem<=width<80rem)` source cut from
+  the tablet export (`pdftocairo -svg`, layers by path index; scripts in `f20/river/`):
+  - Home intro river, `e8ae32f`: seven `home-tablet-introduction-wave-*.svg` files, 744 by 262, plus an
+    `aspect-ratio: 744 / 262` rule for that range. Chromium 640/744/1100/1279 use the tablet file and 1280 the
+    wide one; Safari 17.5 at 744 and 1100 is correct once the reveal animation ends (`WAIT=8000`).
+  - Contact email divider, `0cbc73e`: six `contact-tablet-email-divider-*.svg` files, viewBox `313 299 339 50`;
+    no CSS change, since the source's width and height give the box its shape. The tablet export draws the flower
+    as a raster, so the desktop vector flower is scaled (0.4742) onto the raster's square; the far corners agree to
+    0.01 px. The composite differs from the design render in 7 of 271,200 pixels at 4x (10% fuzz). Chromium
+    640/744/1100/1279 use the tablet file (1279: 627 by 92.4) and 1280 the wide one (627 by 86); Safari 17.5 at
+    744 and 1100 is correct.
+  - Next in this queue: M2 tablet corner art, then the remaining `triage.md` items.
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
