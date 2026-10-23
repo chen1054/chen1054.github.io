@@ -84,6 +84,11 @@ Landed in `cbd6b9b`: copy at least 6.2 px from the cloud outline at 201 widths f
 and iOS 17.0.1 Simulator frames of the Scotties cloud and pillars, the MenuMe story and the Tales heading
 (`f20/oneshape/sim/shot-br-*.png`). The Simulator's inject server finds text only at the start of an element's own
 text node: name a block by its first words.
+Safari 17.5 from the repo after the commit: MenuMe story at 744 and 1440, Tales "Core Product" heading at 744
+(`f20/badge/safari-br-*.png`). The Safari cloud frames at 744, 1100 and 1440 predate the `justify-content` edit,
+which changed no computed value at 640 and up (those ranges already set `start`).
+The sweeps ran on `wt-br`, which lacks the Inter numerals commit (badge discs only); snapshot HEAD afresh before the
+next sweep or the layer removal's style diffs.
 Free wrapping also filled the whole cloud width on tablet and desktop (5 long lines in the cloud's top half at 1100
 and 1440, against the design's 7 centred lines): the copy keeps the design's side insets (34/433, 65/550) and a line
 length cap from the designs (26 em tablet, 24.5 em desktop), with the floats reaching back out past the insets.
