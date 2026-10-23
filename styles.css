@@ -5764,9 +5764,10 @@
           /*
             The tablet design's second flow (620 px wide at 744, scaled to the column): the finding beside the three
             lo-fi screens, squiggles down from the finding and from the second screen to the hi-fi screens, and the
-            iteration under them, joined to the first hi-fi screen by a yellow elbow.
+            iteration under them, joined to the first hi-fi screen by a yellow elbow. It holds until the desktop
+            layout: from 1092 px the plain row put the iteration beside the hi-fi screens with no squiggle or arrow.
           */
-          @media(40rem<=width<68.25rem) {
+          @media(40rem<=width<80rem) {
             &>.subsection:has(img[src*="weekly-specials-low"]) {
               --usability-unit: calc(100cqw / 620);
               /* Being a container would make the type growth measure this flow; keep measuring the page. */
