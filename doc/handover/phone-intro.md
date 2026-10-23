@@ -3598,8 +3598,11 @@ says "below 744"; it also re-wrapped Trust at 1280). Reply draft updated with th
 
 Coverage gap, open: the by-eye passes covered Safari 744 to 1920, iPhone 393 and iPad 820. The band from 640 to
 743 was never looked at by eye on any page; the checker that found these defects covers only the three bubbles.
-The client resizes a Mac Safari window ("Window made narrower"), so that band is reachable. Proposed next: a
-Safari 17.5 by-eye sweep of all six pages from 640 to 743, pending the user's choice.
+The client resizes a Mac Safari window ("Window made narrower"), so that band is reachable. The user chose "Sweep
+640-743 first", before sending the reply. Running: Safari 17.5 frames of all six pages at 640, 672, 704, 736
+(`eye/frames-safari-band.mjs`, frames `eye/safari-band-r1/`, unit `xinyanchen-eye-safari-band`, log
+`eye/frames-safari-band.log`); sheets via `eye/safari-sheets-band.ts` into `eye/safari-sheets-band/`; every sheet
+viewed; fixes one commit each.
 
 ### Arrow audit tool
 
