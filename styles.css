@@ -6650,18 +6650,22 @@
             &::after {
               inset-inline-start: calc(100% - 6.5 * var(--u));
               inset-block-start: calc(-208.7 * var(--u));
-              inline-size: calc(67.5 * var(--u));
+              /*
+                7.5 longer than the design's run, with the bend kept in place: the shared highlights put the filters
+                box about 4 px right of where the tablet design draws it, and the head ended 7 px short of its line.
+              */
+              inline-size: calc(75 * var(--u));
               block-size: calc(288.6 * var(--u));
               scale: -1 1;
               mask:
                 url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(15 * var(--u)) calc(17.4 * var(--u))
                 no-repeat,
                 linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(7.2 * var(--u)) /
-                calc(21 * var(--u)) calc(3 * var(--u)) no-repeat,
-                linear-gradient(#000 0 0) calc(31.5 * var(--u)) calc(7.2 * var(--u)) /
+                calc(28.5 * var(--u)) calc(3 * var(--u)) no-repeat,
+                linear-gradient(#000 0 0) calc(39 * var(--u)) calc(7.2 * var(--u)) /
                 calc(3 * var(--u)) calc(100% - 7.2 * var(--u)) no-repeat,
                 /* Stops at the callout's inner border edge, 6.5 px short of the box's end. */
-                linear-gradient(#000 0 0) calc(31.5 * var(--u)) 100% / calc(100% - 38 * var(--u)) calc(3 * var(--u))
+                linear-gradient(#000 0 0) calc(39 * var(--u)) 100% / calc(100% - 45.5 * var(--u)) calc(3 * var(--u))
                 no-repeat;
             }
           }
@@ -6704,7 +6708,8 @@
               --ps: 22;
               --pe: 0;
               --y: 49.3;
-              --w: 89;
+              /* The design's 89 plus 10.5: the shared highlights draw the dark box right of the tablet design's. */
+              --w: 99.5;
               --tint: var(--color-case-study-subheading);
               grid-area: 1 / 1;
               margin-block-start: calc(5 * var(--u));
@@ -6715,7 +6720,8 @@
               --ps: 25;
               --pe: 26;
               --y: 72.8;
-              --w: 133.7;
+              /* The design's 133.7 plus 3, for the same shift of the sage box. */
+              --w: 136.7;
               --tint: var(--color-case-study-accent);
               grid-area: 2 / 1;
               margin-block-start: calc(23 * var(--u));
