@@ -2828,9 +2828,12 @@
             }
           }
           /*
-            Desktop Tales: the bubbles' outlines 80 and 209 px under the heading's glyph top, their titles 90 and 111
-            px under the outlines, the copy on 254 and 247 px measures (it wraps as drawn from 241 to 267.5 and
-            236.5 to 256.5 px), and the next band 141 px under the second.
+            Desktop Tales: the copy on 254 and 247 px measures (it wraps as drawn from 241 to 267.5 and 236.5 to
+            256.5 px), the next band 140 px under the second bubble's fill. The 2026OCT222006 .fig redraws the two
+            bubbles as vectors (Group 239398 and 239399): each layer below sits where that file draws it relative to
+            its title (true curve bounds through the group matrices, `fig-222006/tales/bubble-boxes.py`), in the
+            box's own units (play 411 by 392, trust 413 by 415). The text did not move; the outlines now sit 67 and
+            106.5 px above the titles.
           */
           @media(width>=80rem) {
             --u: calc(100cqw / 1086);
@@ -2842,6 +2845,18 @@
               &>* {
                 margin-inline: 16% 21%;
               }
+              &::before {
+                inset-block-start: calc(-6.39 / 392 * 100%);
+                inset-inline-start: calc(-1.04 / 411 * 100%);
+                inline-size: calc(403.8 / 411 * 100%);
+                block-size: calc(367.86 / 392 * 100%);
+              }
+              &::after {
+                inset-block-start: calc(17.16 / 392 * 100%);
+                inset-inline-start: calc(-9.05 / 411 * 100%);
+                inline-size: calc(414.05 / 411 * 100%);
+                block-size: calc(375.78 / 392 * 100%);
+              }
             }
             &>.trust-speech-bubble {
               inline-size: calc(399 * var(--u));
@@ -2850,6 +2865,18 @@
               padding-block-start: calc(6 * var(--u));
               &>* {
                 margin-inline: 26% 12%;
+              }
+              &::before {
+                inset-block-start: calc(15.31 / 415 * 100%);
+                inset-inline-start: calc(37.9 / 413 * 100%);
+                inline-size: calc(366.25 / 413 * 100%);
+                block-size: calc(401.33 / 415 * 100%);
+              }
+              &::after {
+                inset-block-start: calc(-1.12 / 415 * 100%);
+                inset-inline-start: calc(-6.44 / 413 * 100%);
+                inline-size: calc(390.46 / 413 * 100%);
+                block-size: calc(411.57 / 415 * 100%);
               }
             }
           }
