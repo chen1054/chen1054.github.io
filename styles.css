@@ -2704,6 +2704,16 @@
           margin-block-start: calc(138rem / 16);
         }
       }
+      /*
+        The Doodle tablet as Phone and Tablet Tales draw its bezel, 279.5 and 371.5 px wide (measured on the exports);
+        the image is 322/310 of its bezel, so 290 and 386 px, the 386 Desktop already sets.
+      */
+      & .portrait-artwork:has(img[src*="doodle-editor"]) {
+        max-inline-size: calc(290rem / 16);
+        @media(width>=40rem) {
+          max-inline-size: calc(386rem / 16);
+        }
+      }
       /* Patchy's card as the designs frame it: 240, 240 and 363 px, which is 249 to 376 px of this canvas. */
       & figure:has(img[src*="tales-patchy-guardian"]) {
         max-inline-size: calc(249rem / 16 + 127 * var(--home-wide-reference-growth));
