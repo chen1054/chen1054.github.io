@@ -3863,6 +3863,40 @@ for them.
 - CF125 "这个sitmap是不是无法居中？": iPhone, Scotties phone sitemap: can't this sitemap be centred? (The tree sits
   at the left with empty space to its right.)
 
+### Fixes, 2026-10-23 afternoon
+
+- `0366b74` CF123: the desktop elbow (`assets/menume-usability-desktop-connector-elbow.svg`, row `::after` at 982u,
+  54u wide) drew its top line from x 1, 8 units inside the iteration's outer edge (991u), so it ran 4 px past the
+  4 px border at 1440 to 2560 (3.2 at 1280; `eye/cf123-probe.ts`). The line now starts at x 7, ending in the middle
+  of the border as the CF116 fix does; bend and head unchanged. Crops `eye/cf123/pair-*.png`.
+- Why the audit missed it: the stab audit had only ever run MenuMe at 393, 430, 728 and 744. Control: the pre-fix
+  tree (worktree `arrow-audit/old-cf123`, port 4189, unit `xinyanchen-old-cf123`) flags it at 1440 and 1920 (depth
+  2.5) but not at 1280 (the 2 px threshold); `analyse.py` now takes `DEPTH` and `CORNER` from the environment.
+  Full sweep of MenuMe and Scotties at 39 widths, 360 to 2560 (`arrow-audit/full-cf123/`, local 4173): at depth
+  0.5 the Scotties note hits are the notes' own rounded corners (crop `scotties-700-127-38.png`), so the rerun
+  skips ink within 24 px of a corner (`full-cf123-corner/`). Real finds, open: the MenuMe tablet elbow root starts
+  0.9 to 3.2 px inside the iteration box at 960 to 1279; the MenuMe phone elbow head goes 1.1 to 3.5 px past the
+  iteration's left border at 414 to 560.
+- `7d7b355` CF124: the hi-fi preference screens image (`assets/menume-personalization-high-fidelity-screens.webp`)
+  was rendered from `Desktop/MenuMe.pdf` (box x 738.5 to 1177.5, y 9594 to 10051 at 4 px per point, found by
+  matching a fresh render, `f20/cf124/match.py`) with the desktop elbow's head (PDF path, tip 1165.99, 9678) on the
+  second screen. Desktop's CSS head covers it; tablet showed it above its own head, phone showed it alone. Removed
+  by `f20/cf124/fill.py`: the head triangle's pixels (1384) take the colour just below them in the same column (the
+  dashed box has a gap there, dashes end at 9676.5 and restart at 9685.5), the dash end's rows kept; nothing else
+  and no alpha changed. Two rejected attempts: replacing pixels from a PDF re-render with the path redacted (the
+  redaction also removed dash pieces, and renders differ from the asset in 213,071 pixels). Crops at 393 to 1920
+  `eye/cf124-corner/pair-*.png`.
+- `18fe94a` CF125: phone sitemap: `.sitemap>ul` is `fit-content` with auto margins below 40rem. Scotties
+  gaps equal on both sides at 320 to 639; MenuMe's phone sitemap was already centred; 640 up identical
+  (`eye/cf125-probe.ts`, logs `eye/cf125-*.log`). Side finding: at 1280 a Scotties sitemap box runs 10.7 px past
+  its figure (live too), to look at.
+- `1f276d3` audit find: the tablet elbow (`assets/menume-usability-tablet-connector-elbow.svg`) top line now starts
+  at x 10.5 (was 7.5), 2 units inside the iteration's outer edge: root in the border at 640 (2.4 px clear of the
+  box interior), 744 (2.0), 1000 (1.5), 1279 (0.8). Crops `eye/tablet-root/pair-*.png`. Not yet checked in Safari.
+- Open: the phone elbow head (`styles.css`, phone first-flow `&::before`): edited in the working tree to end at
+  45.5 units plus 2 px (was 51.5 units), being measured (`arrow-audit/phone104-before/` live and
+  `phone104-after/` local, 18 widths 320 to 639).
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
