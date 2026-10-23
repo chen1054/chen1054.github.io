@@ -6156,9 +6156,14 @@
             &::before {
               inset-block-start: calc(-9 * 100cqw / 433);
             }
+            /*
+              14 px in the 433 px cloud: below the 744 design width the copy shrinks with the cloud (it held at 14 px
+              and ran out of the cloud from 640 to 728); from 744 up the 1em cap applies as before.
+            */
             &>p {
               margin-block: calc(80 * 100cqw / 433) 0;
               margin-inline: calc(34 * 100cqw / 433);
+              font-size: min(1em, calc(14 * 100cqw / 433));
               line-height: round(nearest, 2em, 1px);
             }
           }
