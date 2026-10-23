@@ -4278,6 +4278,37 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     The 2 px `a` and the "What should I cook tonight?" h3 OVERFLOW lines predate this work.
 - Next: the layer removal (#115), then `triage.md`'s Scotties items.
 
+### Scotties design pass and layer-removal checks
+
+- Scotties phone type and palette panels, `c3c56a0`: the Phone design's panels are one raster (xref 58 in
+  Phone/Scotties.pdf, extracted with its soft mask) at 1228 by 606; a `(width < 40rem)` source serves it as
+  `assets/scotties-type-specimens-and-brand-color-palette-phone.png`. This also clears the cone overlap.
+- Scotties intro chevron strip, `e39e01d`: 15 px tall below 1280 (20 on desktop), 86 px under the buttons and 76
+  above the jump list at 390 and 87 and 80 at 744, as the designs draw it; desktop unchanged.
+- Scotties phone Core Challenge, `ebab562`: measured on the Phone design's pixels from the heading's ink top
+  (`f20/scot-ty/phone/rows.py`, a colour-band analyzer), chevrons 65 (ours 64.5), cloud 130 (130.5), skate 23 under
+  the cloud (24). The cloud copy keeps its 40 px top: at the drawn 49 its last line falls through the cloud's
+  foot, seen by eye though the band numbers looked fine. Checked by eye at 320, 375 and 390.
+- Em dashes, `bb9a62f`: a word joiner (`&#8288;`) before every body-text em dash. Before: Scotties started a line
+  with "—from" at every width from 1408 to 1920. After: `f20/impact/dash-sweep.ts` finds no line starting with a
+  dash on any page from 320 to 1920 by 16.
+- Scotties green dashed boxes, `eb9f3e8`: fig "Rectangle 73" and "74" are 5 px inside, dashes [20, 20], radius 50
+  in all three designs (`fig-parse/dash-all.mts` lists every dashed node with its frame chain). Same SVG approach
+  as the brand box. Three padding overrides had the 4 px border built in (`- 4rem / 16`), and the desktop hi-fi
+  insets are tuned to the design's wrap, which gained a line at 1440 until they gave the pixel back. Box rects
+  identical to HEAD at 13 widths (`f20/scot-ban/box-rects.ts` against a `wt-nl-head` worktree).
+- Kept: the phone Visual Strategy banner's flatter notch. Phone/Scotties.pdf draws every banner's chevrons with the
+  same horizontal geometry and sets their height to the band, so the single-line band's chevrons are the two-line
+  drawing squashed to 74 %. Our SVG matches the two-line phone bands and all tablet bands exactly. Matching it
+  would stretch the art. Details in `f20/design-cmp/triage.md`.
+- Layer removal (#115), Chromium: 0 differences on all six pages at 10 widths, menu closed and open
+  (`f20/nolayer/head-plain.log`). Positive control (`wt-nl-ctl`, 1 px more padding on a MenuMe finding): 122
+  differences at 390, so the diff can see a change. States variant running (`xinyanchen-nolayer-states`).
+- Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
+  mix. Use `truncate:`.
+- Lesson: `rg --replace '$1'` without `--only-matching` keeps the rest of the line, so a PID taken that way is
+  wrong; several bounded waits returned at once this round.
+
 [03d2adb-correction]: https://github.com/chen1054/chen1054.github.io/commit/03d2adbf6711ffb16cab0a693a266e74c621e627#commitcomment-206404984
 [c0aa129-correction]: https://github.com/chen1054/chen1054.github.io/commit/c0aa1297ac152a43ee7d6b5a9b6e646f78cd2477#commitcomment-206404986
 
