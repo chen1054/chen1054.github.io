@@ -3497,6 +3497,7 @@ stylesheet (the Trust outline's left edge at the heading row reads 782 px, near 
 Ruled out: `safari-bubble-state.ts` now also saves a screenshot from the same session that reports the new computed
 values (`eye/tales-bubbles-safari-r3/1440.png`), and all three captures put the Trust outline 111 px left of its
 text at that row, so they show the same CSS. The box edge is the outline's leftmost point lower down, not that row.
+Decided by the user 2026-10-22: keep `2e9f145`. The user reviews and sends the updated client reply themselves.
 
 ### Arrow audit tool
 
