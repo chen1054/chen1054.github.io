@@ -75,6 +75,10 @@ touch the bottom-left curl's tip at 320 to 639 (sweep `f20/badge/clash2`, 40 of 
 hidden, flagged 21 of 21). The tip sits between two samples. Now traced from the artwork alone
 (`cloud-art-4x.png`, which overlays the rendered cloud with 0 px offset at every width checked) as a staircase of 4 px
 bands, each as far in as the outline reaches within it (`py/staircase.py`).
+That alone changed nothing (sweep `clash3`: the same 40 phone widths). The cause was the shared speech-bubble rule's
+`justify-content: center`: on phones the flex column centred the copy, so the floats inside it started 18.3 px low at
+600 and the whole shape slid past the curl's tip. Tablet and desktop already set `start`; the cloud's base rule now
+does, for every range.
 Free wrapping also filled the whole cloud width on tablet and desktop (5 long lines in the cloud's top half at 1100
 and 1440, against the design's 7 centred lines): the copy keeps the design's side insets (34/433, 65/550) and a line
 length cap from the designs (26 em tablet, 24.5 em desktop), with the floats reaching back out past the insets.
