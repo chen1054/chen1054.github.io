@@ -1634,9 +1634,11 @@
       }
     }
     /*
-      The client's bubbles: a yellow fill under a purple outline, two files each. Each layer sits where Desktop Tales
-      draws it relative to the bubble box (box units: play 411 by 392, trust 413 by 415, the box's own ratio), so
-      the box, and the text in it, stay where they were; the fills reach past the box as drawn.
+      The client's bubbles: a yellow fill under a purple outline, two files each. These base insets are the layers'
+      place relative to the bubble box in the earlier desktop design (box units: play 411 by 392, trust 413 by 415,
+      the box's own ratio), kept for tablet and phone, whose designs did not change; the Key Insights `width>=80rem`
+      block overrides them from the 2026OCT222006 file. The box, and the text in it, stay where they were; the fills
+      reach past the box as drawn.
     */
     & :is(.play-speech-bubble, .trust-speech-bubble) {
       position: relative;
