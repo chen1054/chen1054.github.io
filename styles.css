@@ -3068,16 +3068,27 @@
         --glyph: url("assets/tales-subheading-two-leaf-glyph.svg");
         --glyph-size: calc(24rem / 16 + 11 * var(--home-wide-reference-growth));
       }
+      /*
+        The designs draw every leaf 21.75 px tall at 390 and 744, and Desktop Tales its heading leaves 26.5 px, all
+        with a 3 px stroke; the drawing keeps that stroke as it grows.
+      */
       & [data-glyph="leaf"] {
         --glyph: url("assets/tales-subheading-single-leaf-glyph.svg");
-        --glyph-size: calc(21rem / 16 + 8 * var(--home-wide-reference-growth));
+        --glyph-size: calc(21.87rem / 16 + 5.56 * var(--home-wide-reference-growth));
+      }
+      /* Desktop Tales draws the persona leaves 29 px tall. */
+      & .persona>h4[data-glyph] {
+        --glyph-size: calc(21.87rem / 16 + 8.47 * var(--home-wide-reference-growth));
       }
       & [data-glyph="sprout"] {
         --glyph: url("assets/tales-subheading-sprout-glyph.svg");
         --glyph-size: calc(21rem / 16 + 3 * var(--home-wide-reference-growth));
       }
       & p[data-glyph] {
-        --glyph-size: calc(18rem / 16);
+        --glyph-size: calc(21.87rem / 16);
+        @media(width>=80rem) {
+          --glyph-size: calc(18rem / 16);
+        }
       }
       & :is(h3.subheading, [data-glyph])::before {
         content: "";
