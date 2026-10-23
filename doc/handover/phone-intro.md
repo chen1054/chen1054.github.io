@@ -3907,11 +3907,20 @@ for them.
 - Found by those crops, pre-existing and live: the head sits a fixed 126 units below the iteration box's top, but
   the box's text does not scale with the units, so the box is relatively shorter on wider phones (`eye/phone104-probe.log`:
   8 lines at 390, 5 at 560 to 620, 4 at 639); the head reached the bottom corner at 620 and fell 7.7 px below the
-  box at 639. In the working tree: the elbow moved from the subsection's `::before` to the iteration box's
-  `::before` (absolute), head at `min(126u, box bottom - 24 px corner - half the head)`; advisor's ranking, clamp
-  over proportional (45 % of the box everywhere would move the head at every width but 390). Being verified:
-  `arrow-audit/phone104-v2/` against `phone104-after/` pixel diff (`eye/pixel-diff.py`), expecting change at 600
-  to 639 only.
+  box at 639. `8c72034`: the elbow moved from the subsection's `::before` to the iteration box's `::before`
+  (absolute), head at `min(126u, box bottom - 24 px corner - half the head)`; advisor's ranking, clamp over
+  proportional (45 % of the box everywhere would move the head at every width but 390; not offered to the client).
+  Pixel diff `arrow-audit/phone104-v2/` against `phone104-after/` (`eye/pixel-diff.py`): identical at 320 to 480
+  and 520 to 560, head moved at 580 to 639, 92 antialiasing pixels of the root at 500 (no visible move); crops
+  `eye/phone104-v2/`.
+- Safari 17.5 live, by eye (`eye/safari-cf123/`, zooms in `zoom*/`): CF123 root in the border at 1280, 1440, 1920;
+  tablet root at 744, 1000, 1279; CF124 one head at 744, 1000, 1920; Scotties sitemap inside and centred at 1280,
+  1360, 1440; CF125 centred at 393, 430, 520, 625; phone elbow at 393, 430, 560, 600, 625 (Safari wraps the box to
+  4 lines already at 625, where the clamp holds the head on the straight edge). Not checked: the iOS 17 Simulator.
+- Reply draft updated: sections "10 月 23 日这一批" and "23 October" (backup
+  `/home/user/temp/agent/f20/reply-draft.before-cf123.md`).
+- Cleanup: unit `xinyanchen-old-cf123` stopped, worktree `arrow-audit/old-cf123` removed, sessions xinyan10 to 25
+  closed.
 - `#106` sweep: viewed every raster next to a CSS connector (MenuMe personalization lo-fi and hi-fi, the six
   weekly-specials screens, Scotties lo-fi homepage and listing, Scotties hi-fi homepage): no other baked arrow pieces.
 
