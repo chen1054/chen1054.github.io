@@ -2836,6 +2836,68 @@
       }
       /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
       /*
+        Key Insights on phones, as Phone Tales draws them on its 322 px column (outlines measured on the export: Play
+        295.5 px wide from the column start, Trust 278 px from 27.5 px in): boxes of 296.28 and 294.92 px, Trust 21.22
+        px in. The copy is one size, title bold, left-aligned at line height 2, its top 40.5 and 87.5 px under each
+        box's top and its start 64.1 and 69.8 px in (fig nodes 2313:49628, 2319:49860). Play's measure stops short of
+        "stories." so that word does not run into the tail's notch, as the design breaks it; Trust's (200 px of the
+        drawn 206.5) breaks after "must", as drawn, where the full box let "align" reach the outline. Play starts 24
+        px lower than the row and Trust ends 85 px above the next band, as drawn. Trust's fill starts 7.5 px further
+        out than the base inset, where the phone export draws it, so its white gap by the tail clears the last line.
+        Past 390 px the pair keeps the design's 322 px column, centred: the copy then scales only with its bubble and
+        keeps the 390 lines at every phone width (with a 1em cap and a wider bubble it re-wrapped into the notch).
+      */
+      @media(width<40rem) {
+        & .flex-row:has(>.play-speech-bubble) {
+          max-inline-size: calc(322rem / 16);
+          margin-inline: auto;
+        }
+        & :is(.play-speech-bubble, .trust-speech-bubble) {
+          /* Their own widths, not the row's grow-to-fill basis, and placed from the start, not centred. */
+          flex: none;
+          margin-inline-end: auto;
+          justify-content: start;
+          text-align: start;
+          text-wrap: wrap;
+          &>* {
+            line-height: round(nearest, 2em, 1px);
+          }
+          &>p {
+            margin-block-start: 0;
+          }
+        }
+        & .play-speech-bubble {
+          inline-size: calc(29628% / 322);
+          margin-block-start: calc(24rem / 16);
+          &>* {
+            margin-inline: calc(6410% / 296.28) calc(3220% / 296.28);
+          }
+          &>:is(h4, p) {
+            font-size: min(1em, calc(14 * 100cqi / 296.28));
+          }
+          &>h4 {
+            margin-block-start: calc(40.5 * 100cqi / 296.28);
+          }
+        }
+        & .trust-speech-bubble {
+          inline-size: calc(29492% / 322);
+          margin-inline-start: calc(2122% / 322);
+          margin-block-end: calc(21rem / 16);
+          &>* {
+            margin-inline: calc(6980% / 294.92) calc(2512% / 294.92);
+          }
+          &>:is(h4, p) {
+            font-size: min(1em, calc(14 * 100cqi / 294.92));
+          }
+          &>h4 {
+            margin-block-start: calc(87.5 * 100cqi / 294.92);
+          }
+          &::before {
+            inset-inline-start: calc(46.6 / 413 * 100%);
+          }
+        }
+      }
+      /*
         Key Insights: both wide designs overlap the two bubbles, Play first and Trust lower and to the end, their text
         left-aligned at line height 2. Tablet (on its 614 px column): Play 325 px wide at the column start, Trust 333
         px from 281 px in, 260 px lower; desktop (on 1086 px): 403 and 399 px wide at 83 and 595 px, 145 px apart.
