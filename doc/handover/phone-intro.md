@@ -3972,6 +3972,29 @@ Folder `../Client screenshots 2026OCT231254/` (iPhone, WeChat in-app browser, Me
    the deterministic ink diff.
 6. Then the reply, once.
 
+### Design exports from the user
+
+The user exported every frame of the latest fig (17 zips, then two missing ones: Tales desktop and MenuMe
+tablet). Organized into `../Design exports 2026OCT231305/` as `desktop/`, `tablet/`, `phone/` (PDF and PNG per
+page; tablet "Contract" is the fig's own name for Contact), with the original zips in `zips/`.
+
+### Step 2 done: finding bubbles, `a8acded`
+
+- Cause, reproduced: the outline mask kept its drawing's aspect ratio (SVG default `preserveAspectRatio`) while
+  the tail mask was placed by percentages, so any box taller than the drawing (a larger reader font: the client's
+  photos show the text a line longer) moved the tail away from the outline. Chromium at 393 with the bubble text
+  ×1.12 gives a 239 px box instead of 211.6 and six lines, matching the photos.
+- Fix: one closed path (`assets/menume-finding-bubble.svg`, built by `f20/bubble/build.py` from the akar-icons
+  chat-bubble geometry the fig uses, mapped X = 12.975x − 23.95, Y = 12.975y − 36.925), `preserveAspectRatio="none"`,
+  on the `::before`; the `::after` tail and both old assets are gone.
+- One-shape checker (`f20/oneshape/`): 117 captures (13 widths from 320 to 1920, text ×1, ×1.12, ×1.25, three
+  bubbles): new 117 one shape; live before the fix 73 not one (2 of 39 at ×1, at 320; 32 of 39 at ×1.12; all at
+  ×1.25). The old drawing also showed the tail's left stroke poking above the body at every size.
+- iOS 17.0.1 Simulator, iPhone 15: new bubble whole at normal and ×1.12 text; the old build at ×1.12 shows the
+  broken joins exactly as in the client's photos (`f20/oneshape/sim/bubble-4189-*.png`).
+- Known limit: the stretched drawing thickens the horizontal strokes with the box's height ratio. Measured 4 px
+  top and sides at ×1 and ×1.12, 5 px top vs 4 px sides at ×1.25 (`f20/oneshape/thick-local.txt`).
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
