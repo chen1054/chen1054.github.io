@@ -30,8 +30,9 @@ Standing directives from the user, 2026-10-23:
 - Subagent briefs: create or change no file outside the subagent's own output directory (a reviewer overwrote
   `f20/stress/crop.py`).
 - "Do not use explicit line breaks." New copy wrapping comes from widths and `text-wrap`, not `<br>` (said when
-  phone breaks were added to the Scotties brand box; they were removed before commit). The existing
-  `phone-break`/`desktop-break` elements predate this; whether they go too is not yet asked.
+  phone breaks were added to the Scotties brand box; they were removed before commit). The user chose to replace
+  all existing ones too (27 `phone-`/`tablet-`/`desktop-break` elements on Scotties, MenuMe and Tales, plus 4 plain
+  `<br>` on Tales), each by a width-based wrap checked against the design and in Safari.
 - Fix order (the user, 2026-10-23): commit verified design fixes first, then rebuild the layer removal on top.
 
 Verified design fixes landed 2026-10-23: `78bfba1` Tales phone story notes; the Scotties phone brand box (commit
