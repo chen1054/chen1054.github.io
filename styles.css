@@ -5569,15 +5569,20 @@
                     z-index: 1;
                     inset-block-start: calc(-212.2 * var(--usability-unit));
                     inset-inline-start: calc(147.5 * var(--usability-unit));
-                    inline-size: calc(61.5 * var(--usability-unit));
+                    /*
+                      The design's tip is 1.4 px past the Ground Beef dashed line's outer edge (Arrow 36 tip x 274.0,
+                      Rectangle 97 x 272.6). With the design's full 61.5 run the head landed 4 to 6 px past it, onto
+                      the photo, at 640 to 1091, so the run is 3.5 units shorter and the root stays put.
+                    */
+                    inline-size: calc(58 * var(--usability-unit));
                     block-size: calc(212.2 * var(--usability-unit) - 2rem / 16);
                     background-image: url("assets/menume-usability-connector-arrowhead-right.svg"), var(--line), var(--line);
                     background-position:
-                      calc(46.5 * var(--usability-unit)) 0, 0 calc(7.2 * var(--usability-unit)),
+                      calc(43 * var(--usability-unit)) 0, 0 calc(7.2 * var(--usability-unit)),
                       0 calc(7.2 * var(--usability-unit));
                     background-size:
                       calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit)),
-                      calc(48 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                      calc(44.5 * var(--usability-unit)) calc(3 * var(--usability-unit)),
                       calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit));
                     background-repeat: no-repeat;
                     pointer-events: none;
