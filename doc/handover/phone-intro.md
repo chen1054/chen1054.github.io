@@ -79,6 +79,11 @@ That alone changed nothing (sweep `clash3`: the same 40 phone widths). The cause
 `justify-content: center`: on phones the flex column centred the copy, so the floats inside it started 18.3 px low at
 600 and the whole shape slid past the curl's tip. Tablet and desktop already set `start`; the cloud's base rule now
 does, for every range.
+Landed in `cbd6b9b`: copy at least 6.2 px from the cloud outline at 201 widths from 320 to 1920 (sweep `clash4`),
+0 new stranded words on Scotties in balanced and greedy wrapping from 320 to 1920, Safari 17.5 at 744, 1100 and 1440,
+and iOS 17.0.1 Simulator frames of the Scotties cloud and pillars, the MenuMe story and the Tales heading
+(`f20/oneshape/sim/shot-br-*.png`). The Simulator's inject server finds text only at the start of an element's own
+text node: name a block by its first words.
 Free wrapping also filled the whole cloud width on tablet and desktop (5 long lines in the cloud's top half at 1100
 and 1440, against the design's 7 centred lines): the copy keeps the design's side insets (34/433, 65/550) and a line
 length cap from the designs (26 em tablet, 24.5 em desktop), with the floats reaching back out past the insets.
