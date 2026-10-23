@@ -5521,13 +5521,18 @@
                     background-image: url("assets/menume-usability-tablet-squiggle-down-left.svg");
                   }
                 }
+                /*
+                  The design draws this squiggle as a body plus a separate arrowhead; the artwork now carries both
+                  (the client, CF116: "这个箭头的末端没有显示", the arrow's end was missing), its box grown by the head
+                  so the body stays put.
+                */
                 & figure:nth-child(2)::after {
                   content: "";
                   position: absolute;
-                  inset-block-start: calc(100% + 6 * var(--usability-unit));
-                  inset-inline-start: calc(25.3 * var(--usability-unit));
-                  inline-size: calc(48.4 * var(--usability-unit));
-                  block-size: calc(89.7 * var(--usability-unit));
+                  inset-block-start: calc(100% + 6.07 * var(--usability-unit));
+                  inset-inline-start: calc(25.28 * var(--usability-unit));
+                  inline-size: calc(48.42 * var(--usability-unit));
+                  block-size: calc(95.1 * var(--usability-unit));
                   background: url("assets/menume-usability-tablet-squiggle-down.svg") center / contain no-repeat;
                 }
               }
