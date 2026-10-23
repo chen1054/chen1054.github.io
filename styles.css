@@ -5161,7 +5161,12 @@
                 grid-area: 4 / 1 / 5;
                 place-self: stretch start;
                 inline-size: calc(39.5 * var(--usability-unit));
-                margin-block: calc(254.3 * var(--usability-unit)) calc(-29.5 * var(--usability-unit));
+                /*
+                  The foot reaches into the iteration's row by the iteration's 20 unit top margin plus half its 4 px
+                  border, so it ends in the border as the design draws it, not inside the box (the client, CF116,
+                  on phone too).
+                */
+                margin-block: calc(254.3 * var(--usability-unit)) calc(-20 * var(--usability-unit) - 2rem / 16);
                 margin-inline-start: calc(271 * var(--usability-unit));
                 background-image: url("assets/menume-usability-connector-arrowhead-left.svg"), var(--line), var(--line);
                 background-position:
@@ -5542,6 +5547,11 @@
                   &::after {
                     content: none;
                   }
+                  /*
+                    Offsets are from the padding edge, inside the 4 px border. The design stops the elbow at the box's
+                    edge (the client, CF116: "箭头的根部刺穿了文字框", the root pierced the text box), so its foot
+                    ends in the middle of the border instead of 5 px inside the box.
+                  */
                   &::before {
                     content: "";
                     position: absolute;
@@ -5549,7 +5559,7 @@
                     inset-block-start: calc(-212.2 * var(--usability-unit));
                     inset-inline-start: calc(147.5 * var(--usability-unit));
                     inline-size: calc(61.5 * var(--usability-unit));
-                    block-size: calc(217.2 * var(--usability-unit));
+                    block-size: calc(212.2 * var(--usability-unit) - 2rem / 16);
                     background-image: url("assets/menume-usability-connector-arrowhead-right.svg"), var(--line), var(--line);
                     background-position:
                       calc(46.5 * var(--usability-unit)) 0, 0 calc(7.2 * var(--usability-unit)),
