@@ -3443,6 +3443,83 @@ child that Safari reports as tall as the page and Chromium as tall as the window
 
 The planned 1x Safari pass at 790 and 1440. Neither engine behaviour depends on pixel density.
 
+## Client batch, 2026-10-22 evening: arrows
+
+The user: "Client just found more "Arrow stabbed through shapes" issues AFTER EVERYTHING, which means your
+verification is insufficient." The client's shots are in
+`/var/home/user/xinyanchen-portfolio/Client screenshots 2026OCT222006/` and the new design is
+`/var/home/user/xinyanchen-portfolio/Website (Copy) 2026OCT222006.fig` (unpacked to
+`/home/user/temp/agent/f20/fig-222006/`). The .fig's "10月22日修改意见：" block also holds three phone shots (the live
+site in WeChat on an iPhone) with purple circles; `fig-222006/oct22-sheets.py` rebuilds all nine shots into
+`fig-222006/oct22/`.
+
+### Why the earlier verification missed these
+
+The earlier arrow check covered only the eight Scotties callouts at four widths and counted only connector pixels
+inside a box. It never checked missing arrowheads, tips that miss their dashed box, or MenuMe. A connector the
+same colour as the border it crosses also left no difference on the border itself, so the inside part was
+disconnected from the outside part and the stab went unseen.
+
+### The client's instructions, as written (file name, then translation)
+
+- CF113 "鼠标移到这里时，箭头变成和外框一样的黄色。": on hover the back-to-top arrow turns the same gold as its ring.
+- CF114 "箭头根部与右边的文字距离有点宽。（我用紫色标注了）": desktop Scotties core values, the gap between the chevron
+  trail's root and the "Belonging" text is a bit wide (marked in purple).
+- CF115 "这个虚线框我调整了一下，让它将button都框在里面。平板和手机版本也需要调一下。": the client moved the MenuMe
+  Checkout dashed box so it encloses the buttons; tablet and phone need the same.
+- CF116 "这个箭头的末端没有显示 箭头的根部刺穿了文字框": tablet MenuMe, the squiggle's arrowhead is missing and the
+  gold elbow's root pierces the Design Iteration box.
+- CF118 "箭头要往上移一点": tablet Scotties lo-fi listing, the orange arrow should move up a little.
+- CF119 "浅绿色的箭头还没有对准绿色虚线框": tablet Scotties hi-fi, the light green arrow is not yet aimed at the green
+  dashed box.
+- There is no CF117 file.
+- Phone shots 1 and 3 (purple circles): MenuMe phone, the gold elbow's root pierces the Design Iteration box top.
+- Phone shot 2: Scotties lo-fi listing phone, the sage arrowhead sits on and through the sage dashed box's
+  bottom line.
+
+### Design changes in the new .fig
+
+`fig-222006/diff-boxes.py` against the previous file: MenuMe Desktop "Rectangle 100" (the Checkout dashed box)
+moved from y 11206 to 11214; Tales Desktop restructured (Group 40 moved and shrank, "image 17" and two
+"Picture2" removed, Key Insights vectors nudged). The Tales change is not investigated yet.
+
+### Arrow audit tool
+
+`/home/user/temp/agent/f20/arrow-audit/`: `capture.ts` saves each page full-length twice (as is, and with every
+arrow-painting element and pseudo-element hidden through `insertRule`), at 38 widths from 360 to 1920;
+`analyse.py` takes the difference as arrow ink, bridges pieces by a 4-step dilation, and flags ink that is both
+outside a shape's border box and inside its inner box deeper than 2 px. Positive control: the site at
+`06d9798^` (before the callout fix), served from worktree `arrow-audit/old-06d9798` on port 4186. Before the
+bridging step the tool missed all eight known stabs; after it, it flags all eight (depth 2.8 to 5.9 px), and the
+current Scotties shows none. On current MenuMe it flags the client's CF116 stab (393: depth 3.8; 728: depth 3.3).
+Known intended hits: arrowheads entering a screen image to reach their dashed box, and the back-to-top arrow
+inside the footer wave's image rectangle.
+
+### Fixes so far
+
+- `7b3b2fa` CF113: hover arrow uses `--color-river-gold`. Safari 17.5, all six pages: arrow rgb(104,85,135) to
+  rgb(216,161,80), equal to the ring.
+- `8655c36` CF115: `assets/menume-weekly-specials-high-fidelity-shopping-list-highlights.svg` path gets
+  `translate(0 8)`; the one SVG serves desktop, tablet and phone. Not yet checked by eye.
+- `03a434a` CF116 elbow: tablet block size 217.2u to 212.2u minus the border; phone bottom margin -29.5u to -20u
+  minus the border, so the foot ends in the box border. Not yet checked by eye.
+- `fbf998e` CF116 squiggle: `assets/menume-usability-tablet-squiggle-down.svg` is the design's body plus head,
+  composed through the group matrices (`fig-222006/squiggle/compose.py`); the body matches the old asset point for
+  point. Not yet checked by eye.
+
+### CF118 and CF119 measurements (in progress)
+
+Tablet lo-fi listing ("Desktop - 2 1", top 7852, height 404), arrow tips from the screen top: dark 62, orange 122,
+sage 222.5. Dashed boxes: dark 22 to 88, orange 94 to 137, sage 27 to 334.
+
+Tablet hi-fi ("Home 2", x 78, top 8741, 286 by 922), arrow tips from the screen top: dark Arrow 16 at 133.5, orange
+Arrow 17 at 385.4, sage Arrow 14 at 647.5, dark elbow Arrow 19 at 810. Dashed boxes from the screen top: Rect 96
+19 to 251, Rect 97 277 to 434, Rect 98 552 to 619, Rect 99 647 to 832.
+
+Cause at 728: callouts sit in grid rows beside the screen with a minimum height of the design's; at narrow tablet
+widths their text overflows that height, the callouts grow, and connectors, which hang from their callouts, drift
+down relative to the screen.
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
