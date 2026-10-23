@@ -3492,7 +3492,11 @@ coordinates; the bubble files the site already uses match those shapes (play fil
 layers sat 5 to 20 px off around them (play 7 to 15 px high, trust 15 to 20 px right and low). Only the desktop
 block (`width>=80rem`) changed: the tablet and phone designs did not, so their insets stay. After: Chromium and
 Safari 17.5 (`eye/safari-bubble-state.ts`) at 1440 and 1920 put every layer within 0.02 px of the design relative to
-its title; Safari window shots in `eye/tales-bubbles-safari/`.
+its title; Safari window shots in `eye/tales-bubbles-safari/`. A review suspected those shots used a cached
+stylesheet (the Trust outline's left edge at the heading row reads 782 px, near the old CSS's box edge 780.5).
+Ruled out: `safari-bubble-state.ts` now also saves a screenshot from the same session that reports the new computed
+values (`eye/tales-bubbles-safari-r3/1440.png`), and all three captures put the Trust outline 111 px left of its
+text at that row, so they show the same CSS. The box edge is the outline's leftmost point lower down, not that row.
 
 ### Arrow audit tool
 
@@ -3633,8 +3637,9 @@ MenuMe and CF114 (no CSS change in the sweep, checked because the client's CF120
 Missed, then fixed (`cfc4560`): the MenuMe tablet Design Iteration elbow (640 to 1091) ended 4 to 6 px past the
 Ground Beef dashed line's outer edge, its head on the photo. The pre-fix sweep `gap-all.txt` already said so (`+4` to
 `+6`, head id 2), but nobody read the MenuMe rows: the summary only covered Scotties. Design: Arrow 36 tip x 274.0,
-Rectangle 97 x 272.6 (1.4 px past the edge). The CSS run (61.5 units) equals the design's, but the site's root sits
-right of the design's, so the run is now 58 units with the head at 43 and the line 44.5; the root stays put.
+Rectangle 97 x 272.6 (1.4 px past the edge). The CSS run (61.5 units) equals the design's, so the root must sit
+right of the design's (inferred from the CSS, 4 px border plus 147.5u against the design's 142.5, not measured);
+the run is now 58 units with the head at 43 and the line 44.5, and the root stays put.
 Re-sweep after `cfc4560` (`touch-menume-fix`, all 26 widths, `gap-menume-fix.txt`): the elbow head measures +2
 at 640 and -1 at 900, 1000 and 1091. At 700 to 800 the analyser lost it: the device GIF changes frame between the
 A and C captures, so about 100,000 px differ there and the head search lands on orange blocks (the "down" +14 to
@@ -3649,7 +3654,10 @@ outliers as recorded).
 
 Other pages, by construction:
 
-- Index, About, Contact: no connectors. The only arrow is the back-to-top button (CF113).
+- Index, About, Contact: no connectors. The only arrow is the back-to-top button (CF113). Probe:
+  `rg --count "data-case-study|portrait-artwork|zoomable-artwork|class=\"note"` finds 25 on Scotties and 38 on
+  MenuMe (control) and none on the three pages. A first probe for "arrow|connector|squiggle|chevron" also found
+  nothing on Scotties, so it proved nothing.
 - Tales: every arrow is drawn inside a diagram image (age tiers, metrics, ecosystem, character studies, the three
   small illustrations; desktop, tablet and phone variants), so layout cannot move an arrow relative to its target.
   No asset SVG has live `<text>` (`rg "<text"` over `assets/*.svg` finds none; the same search finds 16 `<path>` in
