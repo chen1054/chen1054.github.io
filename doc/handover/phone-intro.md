@@ -3499,7 +3499,7 @@ values (`eye/tales-bubbles-safari-r3/1440.png`), and all three captures put the 
 text at that row, so they show the same CSS. The box edge is the outline's leftmost point lower down, not that row.
 Decided by the user 2026-10-22: keep `2e9f145`. The user reviews and sends the updated client reply themselves.
 
-### Full by-eye re-check, 2026-10-22 late night (queued and running)
+### Full by-eye re-check, 2026-10-22 late night to 2026-10-23 (done)
 
 The user chose "Re-check every page by eye" before sending. Plan, in order (scripts in `~/temp/agent/f20/eye/`):
 
@@ -3589,8 +3589,9 @@ after2 744`: 436 rows identical, 2 changed, Trust at 1280: the tablet rule also 
 359 px, so the new reference shrank its copy and re-wrapped it). `e5e1c7d` scopes the new font rules to
 `width<80rem`.
 
-Next: full checker again (unit `xinyanchen-bubble-fit-after3`, `after3.txt`); `compare-runs.ts after after3 744`
-must show only identical rows.
+Final check after `e5e1c7d` (`after3.txt`, live from 06:50 UTC): Tales 0 crossings at every width from 320 to
+2560, the only flags the 82 phone Scotties bolt overlaps; `compare-runs.ts after after3 744`: 438 identical, 0
+changed. The by-eye re-check is complete; nothing is queued from it.
 
 ### Arrow audit tool
 
