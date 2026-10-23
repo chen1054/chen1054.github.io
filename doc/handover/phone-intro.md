@@ -3558,7 +3558,24 @@ the 30 s read timeout under host load (Monochromatic `doc/troubleshooting/agent-
 ceiling. `capture.mts` now redoes a failed width from scratch, up to four tries. The trial restarted at 02:11 as unit
 `xinyanchen-bubble-fit-ends2` (log `eye/bubble-fit/ends2.log`), alone, at about 4 s per width.
 
-iPad 10th capture finished (unit `xinyanchen-eye-sim-ipad-r2` inactive); its sheets are not yet built or viewed.
+iPad 10th capture finished (unit `xinyanchen-eye-sim-ipad-r2` inactive); every sheet viewed, nothing wrong.
+
+Play bubble fix: `bfd1b60` (phone Play copy `margin-inline: 13% 23%`). Trial: 21% control flagged 48 of 176
+(320 to 424, 584 to 639); 23% and 25% flagged 0 of 176. Checked live: iOS 17.0.1 iPhone 15 Simulator
+(`eye/bubble-iphone15/`, "stories." alone on the last line, on the fill), Safari 17.5 at 744, 1024, 1920
+(`eye/tales-bubbles-safari-r4/`, unchanged), Chromium checker 320 to 639 clean for both Tales bubbles.
+
+New, found by the full checker on the live site (`eye/bubble-fit/after.txt`, marked images `after/*-cross.png`),
+older than `bfd1b60` (the tablet rules override it from 640 up) and never covered before (the first baseline died
+at 616; the Safari pass started at 744). All in the band from 640 to just under 744:
+
+- Scotties Core Challenge cloud, 640 to 680: the copy re-breaks around its hard breaks ("Out-of- / town",
+  "the / store", "big-box / sporting") and runs out of the cloud's bottom. 688 to 728: "sporting" touches the
+  right outline.
+- Tales Trust bubble, 640 to 728: line starts ("professionals.") sit on the white gap left of the fill.
+- Tales Play bubble, 672 to 736: the end of "non-threatening" reaches the tail notch.
+
+Next: confirm each in Safari 17.5 at those widths; fix each as its own commit; re-run the checker over 320 to 2560.
 
 ### Arrow audit tool
 
