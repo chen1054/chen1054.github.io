@@ -6594,6 +6594,12 @@
                 line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 28 * var(--u)), 1px);
                 letter-spacing: -0.019em;
               }
+              /* The desktop composition's 16 px on 32 px text, scaled the same way below its 1440 px design. */
+              @media(68.25rem<=width<90rem) {
+                font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(16 * var(--u)));
+                line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 32 * var(--u)), 1px);
+                letter-spacing: -0.019em;
+              }
               &>p {
                 margin-block: 0;
               }
@@ -7176,6 +7182,12 @@
                 padding-block: calc(23 * var(--u) - 4rem / 16);
                 font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
                 line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 28 * var(--u)), 1px);
+                letter-spacing: -0.019em;
+              }
+              /* The desktop composition's 16 px on 32 px text, scaled the same way below its 1440 px design. */
+              @media(80rem<=width<90rem) {
+                font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(16 * var(--u)));
+                line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 32 * var(--u)), 1px);
                 letter-spacing: -0.019em;
               }
               &>p {
