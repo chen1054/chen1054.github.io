@@ -2671,9 +2671,14 @@
         }
       }
       /*
-        The logo as Tablet and Desktop Tales place it: 466 and 657 px wide, its box 44 and 75 px under the last line
-        of the copy before it, which both set at line height 1.5; Desktop Tales sets Core Product 138 px under it.
+        The logo as the Tales designs place it: on phones 264 px wide, centred, 58 px under the copy's box; on Tablet
+        and Desktop 466 and 657 px wide, its box 44 and 75 px under the last line of the copy before it, which both
+        set at line height 1.5; Desktop Tales sets Core Product 138 px under it.
       */
+      & .wordmark {
+        max-inline-size: calc(264rem / 16);
+        margin-block-start: calc(58rem / 16);
+      }
       @media(width>=40rem) {
         & p:has(+ .wordmark) {
           line-height: round(nearest, 1.5em, 1px);
