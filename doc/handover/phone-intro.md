@@ -4257,6 +4257,11 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   whenever the prefix fits, so `hier&shy;archies` split at most widths up to 1920 (`f20/impact/shy-check.ts`).
 - Lesson: `safari-shot.ts` sets `innerWidth`, which includes the VM's classic scrollbar (15 px), so a 320 run lays
   out at 305; pass 335 for a 320 layout. Selectors must have a box: `display: contents` rows do not scroll.
+  Even at 335 the page scrolls sideways by 8 px there, because `100vw` (335) still counts the scrollbar and the
+  phone art unit grows from it (the Weekly Specials iteration ends at 328; `f20/badge/safari-eval.ts` with
+  `overflow-probe.js`). Rig only: iOS has overlay scrollbars, Chromium at 320 gives scrollWidth 320, and desktop
+  Safari windows cannot be that narrow. Safari 17.5 at a 320 layout otherwise: both findings fit, the Daniel persona
+  clears the scribble (`f20/impact/safari/me-335-*.png`).
 - #114 at 1x, landed:
   - `94affff` Tales: impact strip, Challenge pad and device pair capped at `100vw - 40px`; no page overflow on any
     page at 320 to 1440, image ratios unchanged.
@@ -4271,8 +4276,7 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - Left as is: "Core Task Flows (Logic & Decision Frameworks)" overflows its 252 px column by 3 px at 320 only
     (`f4b4150` keeps the Phone frame's break); it is centred, so it reaches 1.5 px into a 34 px gutter, no scroll.
     The 2 px `a` and the "What should I cook tonight?" h3 OVERFLOW lines predate this work.
-- Next: Safari 17.5 at a 320 layout for the persona and finding fixes, then the layer removal (#115), then
-  `triage.md`'s Scotties items.
+- Next: the layer removal (#115), then `triage.md`'s Scotties items.
 
 [03d2adb-correction]: https://github.com/chen1054/chen1054.github.io/commit/03d2adbf6711ffb16cab0a693a266e74c621e627#commitcomment-206404984
 [c0aa129-correction]: https://github.com/chen1054/chen1054.github.io/commit/c0aa1297ac152a43ee7d6b5a9b6e646f78cd2477#commitcomment-206404986
