@@ -3600,6 +3600,20 @@ iOS 17.0.1 Simulator, iPhone 15, 393 (`eye/sim-gaps.ts`, `sim-gaps2.ts`, through
 reverse-tunnelled to m1; 10 frames in `eye/sim-gaps/`): all eight phone heads meet their lines, looked at.
 Simulator shut down, inject server and tunnel stopped.
 
+MenuMe and CF114 (no CSS change in the sweep, checked because the client's CF120 and CF122 shots were iPhones):
+
+- Safari 17.5, live site, 728, 1280 and 1920 (`eye/safari-phrases.ts`, `eye/menume-safari/`,
+  `eye/menume-safari-r2/`): CF115 Checkout box encloses Subtotal and Checkout; the gold elbow root ends in the
+  Design Iteration border; squiggle heads present. CF114 Belonging chevron trail at 1280 and 1920
+  (`eye/cf114-safari/`) sits next to its text.
+- Seen once, not reproduced: the first Safari capture at 728 showed a broken-image "?" for the Shopping List screen.
+  `eye/safari-img-state.ts` then reported all three hi-fi screens complete at 780×1688 at 728 and 1920, and a repeat
+  capture rendered it. Watch for it if the client reports a missing screen.
+- iOS 17.0.1 Simulator, iPhone 15, 393 (`eye/sim-menume.ts`, frames in `eye/sim-menume/`): elbow root ends on the
+  Design Iteration top border (crop `iter2-root.png`), Checkout box encloses Subtotal and Checkout.
+- Design-intended, kept: the opening squiggle's head reaches into the "While cooking at home" box, as the design
+  draws it; listed in the client reply as a keep-unless-objected item.
+
 ### Tooling limits
 
 `touch-crops.py` picks the ink point nearest overlay ink farthest from the centroid; for the phone hi-fi connectors
