@@ -6580,6 +6580,20 @@
               /* The designs' text insets are from the box's outer edge, so the 4 px border comes off them. */
               padding-block: calc(20 * var(--u));
               padding-inline: calc(var(--ps) * var(--u) - 4rem / 16) calc(var(--pe) * var(--u) - 4rem / 16);
+              /*
+                The client (CF118), of the listing's orange arrow at 728 px: "箭头要往上移一点" (move the arrow up a
+                little). Each callout grew past its design height, pushing the later callouts and their connectors
+                down (25 design px at 728, 128 at 640): 20 px insets left the 114 px box no room for its three lines
+                (the design insets them 14 px from the outer edge), and below the design's width the 14 px text
+                wrapped into more lines in the narrower boxes. The text now scales with the callout there, keeping
+                the design's line breaks.
+              */
+              @media(width<68.25rem) {
+                padding-block: calc(14 * var(--u) - 4rem / 16);
+                font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
+                line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 28 * var(--u)), 1px);
+                letter-spacing: -0.019em;
+              }
               &>p {
                 margin-block: 0;
               }
@@ -7146,6 +7160,18 @@
               margin: 0;
               padding-block: calc(23 * var(--u));
               padding-inline: calc(var(--ps) * var(--u)) calc(var(--pe) * var(--u));
+              /*
+                Below the tablet design's width the 14 px text wrapped into more lines in the narrower boxes, and each
+                callout grew, pushing the later ones and their connectors down (the last one 38 design px below its
+                box at 728, 248 at 640). The text now scales with the callout there, keeping the design's line
+                breaks, and the design's 23 px inset comes from the box's outer edge, so the border comes off it.
+              */
+              @media(width<80rem) {
+                padding-block: calc(23 * var(--u) - 4rem / 16);
+                font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
+                line-height: round(nearest, min(28rem / 16 + 4 * var(--home-wide-reference-growth), 28 * var(--u)), 1px);
+                letter-spacing: -0.019em;
+              }
               &>p {
                 margin-block: 0;
               }
