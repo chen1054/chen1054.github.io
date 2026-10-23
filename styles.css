@@ -6346,18 +6346,20 @@
           margin-block-end: calc(170rem / 16);
         }
         /*
-          The phone design: chevrons 60 px below the heading's top, the cloud 66 px below them with its text clear of
-          the bolt, and the skate 37 px in from the column's end, 22 px under the cloud.
+          The phone design, measured on its pixels from the heading's ink top: the chevrons' ink from 65 px, the cloud
+          from 130 with its text from 183.5 (ours 174) and clear of the bolt, and the skate 37 px in from the column's
+          end, 23 px under the cloud.
         */
         &>.scotties-challenge-bubble {
           /*
             The client: "文字超出了框" (the text runs outside the cloud). Phone Scotties sets the copy in its 346.8 px
             cloud at 14 px on a 22 px pitch, centred, in nine lines that follow the outline; here it wraps freely
-            around the cloud's shaped floats from 40 px under the cloud's top (in a 350 px cloud).
+            around the cloud's shaped floats from 40 px under the cloud's top (in a 350 px cloud); from 49, as drawn,
+            the last line falls through the cloud's foot.
           */
           @media(width<40rem) {
             --cloud-copy-top: calc(40 * 100cqi / 350);
-            margin-block-start: calc(65.7rem / 16);
+            margin-block-start: calc(108.7rem / 16);
             &>p {
               font-size: calc(14 * 100cqi / 346.8);
               line-height: round(nearest, 22em / 14, 1px);
@@ -6396,6 +6398,9 @@
         }
         /* The query wraps the pseudo-element: iOS 17.0 Safari ignores a query nested inside `::after`. */
         @media(width<40rem) {
+          &::before {
+            inset-block-start: calc(71.5rem / 16);
+          }
           &::after {
             inset-block-end: calc(-95rem / 16);
             inset-inline-end: calc(37rem / 16);
