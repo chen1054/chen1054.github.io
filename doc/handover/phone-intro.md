@@ -3499,6 +3499,19 @@ values (`eye/tales-bubbles-safari-r3/1440.png`), and all three captures put the 
 text at that row, so they show the same CSS. The box edge is the outline's leftmost point lower down, not that row.
 Decided by the user 2026-10-22: keep `2e9f145`. The user reviews and sends the updated client reply themselves.
 
+### Full by-eye re-check, 2026-10-22 late night (queued and running)
+
+The user chose "Re-check every page by eye" before sending. Plan, in order (scripts in `~/temp/agent/f20/eye/`):
+
+1.  Safari 17.5, live site, every page at 744, 790, 1024, 1180, 1280, 1440, 1920 by 950: `frames-safari-r2.mjs`
+    (unit `xinyanchen-eye-safari-r2`, under `vm-sonoma.lock`) into `safari-r2/`; sheets two frames at a time via
+    `safari-sheets-r2.ts` into `safari-sheets-r2/`.
+2.  iOS 17.0.1 Simulator, iPhone 15 then iPad 10th portrait (never both at once): `frames-sim-r2.mjs <label>
+    <UDID>` from the working tree through `inject/server.mjs` on 4187 (units `xinyanchen-inject-4187`,
+    `xinyanchen-m1-tunnel-4187`) into `sim-<label>-r2/`.
+3.  Look at every frame; compare against the earlier pass's frames (`safari/`, `sim-<label>/`) to see what moved.
+    Findings go to `eye/findings-r2.md`, fixes one commit each, checked in Safari.
+
 ### Arrow audit tool
 
 `/home/user/temp/agent/f20/arrow-audit/`: `capture.ts` saves each page full-length twice (as is, and with every
