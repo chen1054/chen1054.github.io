@@ -6814,9 +6814,10 @@
                 margin-inline-start: calc(52 * var(--u));
                 &::after {
                   inset-inline-start: calc(100% - 5 * var(--u));
-                  inset-block-start: calc(-61 * var(--u));
+                  /* The tip ends in the filters box's bottom line, as the design draws it (7 px short at -61). */
+                  inset-block-start: calc(-69 * var(--u));
                   inline-size: calc(111.7 * var(--u));
-                  block-size: calc(129.7 * var(--u));
+                  block-size: calc(137.7 * var(--u));
                   scale: none;
                   mask:
                     url("assets/scotties-connector-arrowhead-orange-up.svg") calc(94.3 * var(--u)) 0 /
@@ -6835,9 +6836,10 @@
                 --h: 238;
                 --ps: 35;
                 --pe: 47.5;
-                --x: -98;
+                /* Ends in the sage line, as the design draws it (4 px short at 98). */
+                --x: -103;
                 --y: 122;
-                --w: 98;
+                --w: 103;
                 grid-area: 1 / 5 / 3;
                 margin-block-start: calc(14 * var(--u));
                 &::after {
@@ -7297,10 +7299,14 @@
               & .portrait-artwork {
                 grid-area: 2 / 3 / 6;
               }
+              /*
+                Each arrowhead ends in its dashed line, as the design draws it: at 1920 the dark and orange tips
+                stopped 2 and 5 px short (measured against the overlay's lines).
+              */
               & article>.note {
-                --x: -52;
+                --x: -55;
                 --y: 91.3;
-                --w: 52;
+                --w: 55;
                 --ps: 33;
                 --pe: 44;
                 --h: 232;
@@ -7311,9 +7317,9 @@
                   margin-block: calc(7 * var(--u)) calc(34 * var(--u));
                 }
                 &:nth-child(2) {
-                  --x: -54;
+                  --x: -60;
                   --y: 83.6;
-                  --w: 54;
+                  --w: 60;
                   --ps: 43;
                   --pe: 28;
                   --h: 332;
