@@ -5262,7 +5262,11 @@
                 }
                 &>aside {
                   padding-block: calc(24 * var(--usability-unit));
-                  padding-inline: calc(22 * var(--usability-unit));
+                  /*
+                    Below 390 the box narrows with the art but its text does not, so the side padding gives up more
+                    than its share: at 320 "dietary restrictions." fits the line instead of running 5 px past it.
+                  */
+                  padding-inline: min(22 * var(--usability-unit), 22rem / 16 + 40 * var(--phone-art-growth));
                   &::after {
                     content: none;
                   }
@@ -5373,7 +5377,8 @@
               }
               & aside {
                 padding-block: calc(24 * var(--usability-unit));
-                padding-inline: calc(22 * var(--usability-unit));
+                /* As in the first flow: at 320 "visual hierarchies." fits instead of running 4 px past the line. */
+                padding-inline: min(22 * var(--usability-unit), 22rem / 16 + 40 * var(--phone-art-growth));
                 &::after {
                   content: none;
                 }
