@@ -5482,8 +5482,15 @@
                   margin-block-start: calc(152 * var(--u));
                   padding-block: calc(43.5 * var(--u)) calc(35.5 * var(--u));
                   padding-inline: calc(30 * var(--u)) calc(24 * var(--u));
-                  &::after {
+                  /*
+                    `:not(:last-child)` matches the weight of the rule that drops the squiggle from second-row notes
+                    (`&:not(:last-child):is(.flex-row + .flex-row>*)::after`), which otherwise also removed this
+                    arrow; being later, this one wins. Its head reaches over the screen's edge to the dashed card, as
+                    drawn, so it paints above the screens.
+                  */
+                  &:not(:last-child)::after {
                     content: "";
+                    z-index: 1;
                     inset-block-start: calc(148 * var(--u));
                     inset-inline: calc(278 * var(--u)) auto;
                     inline-size: calc(53 * var(--u));
