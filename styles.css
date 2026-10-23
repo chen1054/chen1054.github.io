@@ -3068,6 +3068,26 @@
         align-items: start;
       }
       /*
+        Phone Tales sets each persona's photo 280 px wide, centred on its 322 px column, 74 px under the heading's top
+        and 43 under the copy before it; the name 15 px under the photo on a 32 px line, the copy straight after it,
+        both 40 px into the column and ending under the photo's edge (fig 2309:49311, 2309:49314, 2309:49325).
+      */
+      @media(width<40rem) {
+        & .persona {
+          &>figure {
+            max-inline-size: calc(280rem / 16);
+            margin-block: calc(12rem / 16) calc(15rem / 16);
+          }
+          &>:is(h4, p) {
+            margin-block: 0;
+            margin-inline: calc(40rem / 16) calc(21rem / 16);
+          }
+          &>h4 {
+            line-height: round(nearest, 2em, 1px);
+          }
+        }
+      }
+      /*
         Tablet and Desktop Tales centre the two personas, 280 and 423 px wide and 54 and 183 px apart, and set each
         name and description from the photo's frame (19 and 22 px in from its tape), the descriptions 240 and 372 px
         wide. They leave 40 and 19 px from the heading's line to the photos, 22 and 30 to the names, none to the
