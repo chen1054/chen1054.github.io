@@ -4166,7 +4166,24 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   at 1279, then 261.8 for the wide file at 1280). Composite against the design render at 4x right of the nav: 29 of
   696,800 pixels differ. Chromium 640/744/1100/1279/1280 on all three pages shows no contact with the nav or the
   headings; Safari 17.5 Home 744 and About 1100 are correct.
-- Next in this queue: M3 About's 30 px shift (to verify), then the remaining `triage.md` items.
+- M3 About's shift: fixed by the same corner commit. About 744 against the About tablet render, right of the nav:
+  0.05 of 45,560 pixels differ; a 3 px shifted control gives 246.
+- MenuMe badge "4": done earlier in `b744c1a` (Inter Medium numerals); triage marked.
+- Tales phone closing logo, `ede6950`: 264 px wide and centred, 58 px under the copy (fig 2332:50901). Chromium
+  390: x 63, 264 by 75.8, gaps 58 and 70 (design 58 and 68); 744 unchanged; 320 fills its 252 px column.
+- Tales phone Key Insights, `5576184`. The latest fig sets each bubble's copy in one size (14 px, title bold),
+  left-aligned on 28 px lines (`fig-parse/node-runs.mts` prints a text node's styled runs); desktop alone sets the
+  title 2 px larger. Phone bubbles measured on the export (`f20/design-cmp/keyins/bounds.py`): outlines 295.5 and
+  278 px wide. The phone rule sets the widths, offsets and insets (`flex: none`: the row's `flex: 1 1 240px` had
+  stretched them to the column), moves Trust's fill 7.5 px out as the export draws it, and holds the pair at the
+  322 px column past 390, centred, so the copy keeps the 390 lines (with the 1em cap and a growing bubble,
+  "stories." re-joined its line and hit the notch from 432 to 456). Bubble-fit checker 320 to 639 by 8 plus
+  390/393/744/1280/1440: 0 of 90 as written (first attempt: 52 flagged); 2 single-pixel flags in forced wrapping
+  with the same line widths, read as noise.
+- Tablet Key Insights titles (in progress): 14 px like the copy, as Tablet Tales sets them (fig 2197:7938).
+- Queued: one iOS 17 Simulator pass over the phone fixes since `cbd6b9b` (Tales logo, Key Insights), then the
+  rest of `triage.md` (Tales persona photos, banner headings, Doodle mockup, citation boxes, impact circles; MenuMe
+  bulb, question circle, arrows; Scotties brand box dash length; M7 copy items).
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
