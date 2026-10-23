@@ -400,8 +400,9 @@
         mask-image: url("assets/portfolio-back-to-top-arrow.svg");
         mask-size: 100% 100%;
       }
+      /* The client (CF113): "鼠标移到这里时,箭头变成和外框一样的黄色" (on hover the arrow turns the ring's gold). */
       &:hover::before {
-        background-color: oklch(from var(--color-portfolio-purple) l 0.259833 h);
+        background-color: var(--color-river-gold);
       }
     }
     @media(width>=40rem) {
