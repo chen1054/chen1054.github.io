@@ -15,6 +15,17 @@
   font-weight: 400;
   font-display: swap;
 }
+/*
+  MenuMe's numbered discs: the designs set them in Apple LiGothic Medium, a macOS font that cannot ship; Inter
+  Medium's digits match its shapes and weight most closely of 1652 fonts compared. Only the ten digits are served.
+*/
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-Medium-digits.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
 @font-face {
   font-family: "Playfair Display";
   src: url("assets/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
@@ -4208,9 +4219,10 @@
               background-color: var(--menume-tint);
               box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
               color: var(--color-page-background);
-              font-family: "Abril Fatface", serif;
-              font-size: calc(40rem / 16 + 5 * var(--home-wide-reference-growth));
-              font-weight: 400;
+              /* Every design draws the digits 30.6 px tall: Inter's are 0.7275 em. */
+              font-family: "Inter", sans-serif;
+              font-size: calc(42rem / 16);
+              font-weight: 500;
               line-height: round(nearest, var(--menume-disc), 1px);
               text-align: center;
             }
@@ -5803,8 +5815,10 @@
                 background-color: var(--menume-tint);
                 box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
                 color: var(--color-page-background);
-                font-family: "Abril Fatface", serif;
-                font-size: calc(28rem / 16 + 12 * var(--home-wide-reference-growth));
+                /* Every design draws the digits 30.6 px tall: Inter's are 0.7275 em. */
+                font-family: "Inter", sans-serif;
+                font-size: calc(42rem / 16);
+                font-weight: 500;
                 line-height: round(nearest, 1em, 1px);
               }
             }
@@ -5850,7 +5864,7 @@
                 &::after {
                   inset-block-end: calc(-30 * var(--card-unit) - 8rem / 16);
                   inset-inline-end: calc(-12.5 * var(--card-unit) - 4rem / 16);
-                  font-size: calc(36 * var(--card-unit));
+                  font-size: calc(42 * var(--card-unit));
                 }
               }
             }
@@ -5869,9 +5883,6 @@
                   grid-column: 4;
                 }
                 padding-block-start: calc(19rem / 16);
-                &::after {
-                  font-size: calc(50rem / 16);
-                }
               }
             }
             /*
