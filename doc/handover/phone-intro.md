@@ -3669,7 +3669,9 @@ fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
   so Safari checks run against the published site. Clearance (`deco-clash/pillars-local/`, the committed code,
   320 to 639; analyze with `uv run --isolated --with numpy --with scipy --with pillow python -I analyze.py <dir>
   6`): under 6 px before 50 of 320 widths, after 0 of 320; the closest is 14.9 px at 320, against the design's own
-  15 to 19; 625 to 639 went from 0 to 1 px to 19 to 20 px. Not re-run: the iOS 17 Simulator (the user's call).
+  15 to 19; 625 to 639 went from 0 to 1 px to 19 to 20 px. Live Chromium (fresh session, `eye/live-phone.log`):
+  all 320 phone widths' lines equal the local run. Not checked: Safari below a 393 layout (the window cannot get
+  narrower) and the iOS 17 Simulator (the user's call).
 
 ### Arrow audit tool
 
