@@ -3291,25 +3291,45 @@
           }
         }
       }
+      /*
+        Phone Tales draws each story's spread and its note 350 px wide at 390, 14 px past the text column on each side,
+        the note 20 px under the spread; the note's copy comes back to the column, 15 px in.
+      */
+      @media(width<40rem) {
+        & .subsection:has(>.note) {
+          &>:is(figure, .note) {
+            margin-inline: calc(-14rem / 16);
+          }
+          &>figure {
+            margin-block-end: calc(20rem / 16);
+          }
+        }
+      }
       & .subsection>.note {
+        /*
+          Every Tales design runs the curriculum notes line after line, with no gap between items. Phone insets the copy
+          16 px at the top, 15 at the sides and 22 at the bottom (the padding plus the transparent 1 px border), the
+          story line 12 px above the notes; Tablet and Desktop pad it 21 and 16 px at the top, 19 and 31 at the sides,
+          and 27 and 20 at the bottom, the story line 33 and 3 px above the notes.
+        */
+        padding-block: calc(15rem / 16) calc(21rem / 16);
+        padding-inline: calc(14rem / 16);
         border-color: transparent;
         border-radius: 0;
         background-color: color-mix(in srgb, var(--color-case-study-note) 80%, transparent);
+        & :is(p, ul, li) {
+          margin-block: 0;
+        }
+        &>p:first-of-type {
+          margin-block-end: calc(12rem / 16);
+        }
         &>p:first-of-type~:is(p, ul) {
           color: var(--color-case-study-accent);
         }
-        /*
-          Tablet and Desktop Tales run the curriculum notes line after line, with no gap between items; the story
-          line sits 33 and 3 px above them. The copy is padded 21 and 16 px at the top, 19 and 31 at the sides, and 27
-          and 20 at the bottom.
-        */
         @media(width>=40rem) {
           padding-block: calc(21rem / 16 - 5 * var(--home-wide-reference-growth))
             calc(27rem / 16 - 7 * var(--home-wide-reference-growth));
           padding-inline: calc(19rem / 16 + 12 * var(--home-wide-reference-growth));
-          & :is(p, ul, li) {
-            margin-block: 0;
-          }
           &>p:first-of-type {
             margin-block-end: calc(33rem / 16 - 30 * var(--home-wide-reference-growth));
           }
