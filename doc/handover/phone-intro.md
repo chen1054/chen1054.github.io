@@ -62,6 +62,18 @@ pot. Injected `<style>` probes are blocked by the page's policy; edit the snapsh
 spaces and hyphens that keep a heading's last word or "e‑commerce" together stay (they prevent stranded words); only
 the story's three-word `budget&#8209;friendly&nbsp;ritual` glue was loosened to a plain hyphen, since it stranded
 "effortless," on an inner line at 322 to 337 px.
+The page policy is `style-src 'self'` on every page (measured), which is why injected `<style>` does nothing; CSSOM
+`element.style` changes still apply.
+The stranded-word and cloud-stretch sweeps missed one regression: freed of its breaks, the Scotties "Core Challenge"
+copy ran into the scalloped cloud outline at phone, 744, 1100 and 1440 (Safari and Chromium). Seen by eye, then
+measured with `f20/badge/cloud-clash.ts` plus `py/cloud_clash.py` (copy ink against the orange outline). Fix: two
+`shape-outside` floats (`p::before` and an empty `.scotties-challenge-edge` span), each half the cloud wide and 262/350
+of it tall, polygons traced from the 390 render's outline less 4 px (`py/shapes.py`, bolt rows excluded since every
+design lays copy over the bolt); a negative top margin starts them at the cloud's top, so one pair serves every width
+and each range only sets `--cloud-copy-top` (40/350, 80/433, 117/550). The phone design's own copy is just as ragged
+(nine lines, "identity." alone); the site now sets ten lines at 390.
+Scotties pillars: the phone board moved 10 units down (55 not 45); clearance under 6 px went from 50 of 320 widths
+to 0 (least 12.5 px at 404, `f20/eye/deco-clash/pillars-nobr2-analysis.txt`).
 
 Layer removal status, 2026-10-23: unwrapped copy of `c2ae82c` (`/home/user/temp/agent/wt-nolayer`, script
 `f20/nolayer/unwrap.ts`) against `wt-nlbase`: Chromium computed styles at 29 widths (320 to 2560, every breakpoint
