@@ -7205,9 +7205,14 @@
                 margin-block-end: calc(15 * var(--u));
                 margin-inline: calc(2 * var(--u));
               }
+              /*
+                The client (CF119): "浅绿色的箭头还没有对准绿色虚线框" (the light green arrow is still not aimed at the
+                green dashed box). The tablet design draws it to the dark box's top edge, 62 px under the sage box's
+                centre; the desktop design aims it at that centre, as here.
+              */
               &:nth-child(3) {
                 --x: -57.6;
-                --y: 125.8;
+                --y: 63.7;
                 --w: 57.6;
                 --ps: 27;
                 --pe: 20;
