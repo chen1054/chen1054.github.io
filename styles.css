@@ -102,6 +102,14 @@
     }
   }
   body {
+    /*
+      The site renders at its designed size whatever WeChat's font setting says (the user's choice, 2026-10-23).
+      WeChat on iOS enlarges a page by writing a percentage text-size-adjust into body's inline style, which grows
+      the text but not the boxes and drawings around it, so copy ran out of the hand-drawn shapes. An important
+      declaration outranks that inline value.
+    */
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
     margin-block: 0;
     margin-inline: 0;
     background-color: var(--color-page-background);

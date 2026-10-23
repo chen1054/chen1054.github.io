@@ -21,6 +21,15 @@ Which Safari checks which width (missed on 2026-10-22, when a phone batch was fi
   built and measured instead and the user had to ask "Don't you already know what the client uses?".
 - Never stand a desktop browser in for the phone (no iframe or resized-window substitutes).
 
+Standing directives from the user, 2026-10-23:
+- "I'm banning cascade layers." The stylesheet must not use `@layer`; removing the existing layers is queued, with
+  a before/after pixel comparison of every page and width, since layer order currently decides which rules win.
+- The site ignores WeChat's font-size setting site-wide (the user chose this over shapes-only or shapes-follow).
+- Verified deviations from the latest design are fixed without asking: asking about them wasted a question (the
+  user: "You shouldn't have burnt this question."). The badge numerals need not be vector drawings.
+- Subagent briefs: create or change no file outside the subagent's own output directory (a reviewer overwrote
+  `f20/stress/crop.py`).
+
 ## Current state
 
 The client requested a landing introduction animation;
