@@ -3543,11 +3543,56 @@ the sage box line).
   `touch-analyse.py`, `overshoot.py`: pixel diff with and without the overlay). At 390 before: sage 10 px past the
   line, orange 5 px short, dark 3 px short; after: -1, 0, +1.
 
-### Found, not yet fixed
+### Desktop growth and arrow lengths
 
-The desktop lo-fi listing composition (1092 up) still grows: at 1104 to 1279 the callouts are 14 to 62 px taller
-than their design boxes and the orange elbow's tip ends 33 to 48 design px below its box. Sweep 3
-(`tips-after2`, 640 to 1920) is measuring 1280 up.
+The desktop lo-fi listing growth (callouts 14 to 62 px taller than their boxes at 1104 to 1279, the orange elbow
+33 to 48 design px low) was fixed in `fb5676f` (callout type scaled below 1440, bounded `<90rem` so 1440 up keeps
+its sizes). `9f141fb` lengthened the desktop heads that stopped short at 1920 (hi-fi `--x`/`--w` -52 to -55, second
+-54 to -60, lo-fi sage -98 to -103, lo-fi orange elbow top -61 to -69 with block size 129.7 to 137.7).
+
+### Arrowhead gap sweep, 2026-10-22 night
+
+The touch audit only flagged stabs; arrowheads that stop short of their dashed line went unmeasured. New
+`arrow-audit/gap-sweep.py` measures every connector's head against its same-coloured line at every probed width:
+the head is the only ink thick enough to hold a 6 px square, the direction comes from the shaft just behind it,
+the tip is the head's farthest pixel. Validated against hand measures with `overshoot.py` at 1092, 1280 and 1920
+(identical values). `gap-sheet.py` and `gap-sheets.ts` build contact sheets of every tip.
+
+Checked by eye (Chromium): CF115 Checkout box encloses Subtotal and Checkout at 393, 744 and 1920; CF116 elbow
+root ends in the Design Iteration border at 393, 728 and 1920, squiggle heads present at 744.
+
+Found and fixed, with the design's own tip positions as the reference (commits: desktop `a37116d`, tablet lo-fi
+`3d07f44`, phone lo-fi `f71573b`, phone hi-fi `f07232f`, tablet hi-fi `9a4c4c0`):
+
+- Desktop hi-fi elbow 4 px short at 1280 to 1920: `--x`/`--w` 46.5 to 50, `--v` 27 to 30.5 (bend in place).
+- Desktop lo-fi dark 3 to 4 px short at 1092 to 1920: `--w` 102 to 105.
+- Desktop lo-fi homepage 2 to 4 px short at 1092 to 1920 (design tip 1.6 px inside the nav box): 172.6 to 175.6,
+  bend kept in place.
+- Tablet lo-fi listing (640 to 1091): the one shared highlights SVG puts the boxes about 4 px right of the tablet
+  design's, so the heads ended short by a fixed number of design units: dark 10, orange 7, sage 2.5 (design tips:
+  dark 1.9 before its rect, orange 1.1 inside, sage 4.8 inside). Dark `--w` 89 to 99.5, orange elbow 67.5 to 75
+  with its bend kept, sage 133.7 to 136.7.
+- Tablet hi-fi (640 to 1279): straight connectors hang from inside the 4 px border while the design measures from
+  the outer edge, so they were 3 to 4 px short at every width; `width<80rem` adds `4rem / 16` to the three
+  straight ones. Sage `--x`/`--w` 57.6 to 59.6 for its remaining 2 units.
+- Phone hi-fi from 545 px: `.portrait-artwork` keeps its 400 px cap, so the screenshot stopped growing while the
+  callouts and connectors kept scaling; at 639 the orange arrow ended on the dark box and the dark one ran into
+  the footer. The phone hi-fi figure now sets `max-inline-size: none`, as the lo-fi ones already did.
+- Phone lo-fi homepage arrow 4 px short at 360 to 480 (design: 3 px into the nav box line); and the homepage,
+  listing dark and listing orange arrows drifted past their lines from 520 (up to 6 px at 639) because their
+  scaled lengths included the unscaled 4 px border. Now `59u + 4px`, `63u + 4px`, `287u + 4px`.
+
+Design-intended, kept: MenuMe phone weekly-specials gold arrow ends on the recipes screen's edge (design tip x 305,
+screen edge 303.2, dashed box edge 295.6). Tablet lo-fi homepage arrow's head points at its callout, not a box.
+
+Verified in Chromium: full Scotties re-sweep `touch-fix3` (26 widths, 360 to 1920), 198 heads measured, all within
+-1 to +3 px of their line's outer edge except the tablet hi-fi elbow (-2 at 640 to 800, then lengthened 36 to 37.5
+with its bend kept; re-check `touch-fix4`) and the desktop lo-fi sage at 1092 only (-2; 0 from 1200). Positive
+control: the same filter flags 107 heads in the pre-fix sweep `touch-all`. A first filter read the wrong column
+and flagged nothing; caught by that control. Phone hi-fi orange at 360 to 393 is misread as pointing down (no
+measure); crops at 360, 375 and 393 show it touching its line. MenuMe had no CSS change.
+
+Next: Safari 17.5 (Sonoma VM) at 728, 1280 and 1920 and the iOS 17 simulator at 393 for these commits.
 
 ### Tooling limits
 
