@@ -2415,8 +2415,8 @@
           }
           /*
             The desktop composition from 1280 px, on its 1086 px column (Desktop/Scotties.pdf): the same three around
-            a 247 px board, each name on its own line; its trails are rasters there, so the tablet trails scale with
-            the board.
+            a 247 px board, each name on its own line. Its trails are rasters of the tablet chevron, scaled 1.692, laid
+            out differently: each trail ends about 21 px from its text.
           */
           @media(width>=80rem) {
             --u: calc(100cqw / 1086);
@@ -2424,11 +2424,17 @@
               inline-size: calc(247 * var(--u));
               margin-block-start: calc(103 * var(--u));
               margin-inline-start: calc(430 * var(--u));
+              /*
+                The client (CF114): "箭头根部与右边的文字距离有点宽" (the trail's root is a bit far from the text on its
+                right). The desktop trails, the tablet chevron set on each desktop raster chevron, from 60 px left
+                of the board and 52 above it.
+              */
               &::after {
-                inset-block-start: calc(-34 * var(--u));
-                inset-inline-start: calc(-73 * var(--u));
-                inline-size: calc(374 * var(--u));
-                block-size: calc(433 * var(--u));
+                inset-block-start: calc(-52 * var(--u));
+                inset-inline-start: calc(-60 * var(--u));
+                inline-size: calc(370 * var(--u));
+                block-size: calc(402 * var(--u));
+                background-image: url("assets/scotties-desktop-core-value-chevron-trails.svg");
               }
             }
             &>.flex-row {
