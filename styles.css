@@ -4430,7 +4430,11 @@
                   margin-inline: 0;
                 }
                 &>article {
-                  max-inline-size: calc(225 * var(--persona-unit));
+                  /*
+                    The scribble keeps the 97 px lane it has beside the text at 390; below 390 the drawing shrinks but
+                    the body text does not, so the lane stays 97 px and the text narrows.
+                  */
+                  max-inline-size: min(225 * var(--persona-unit), 100% - 97rem / 16);
                   margin-block-start: calc(29 * var(--persona-unit));
                   &>* {
                     margin-block: 0;
@@ -4444,8 +4448,10 @@
                     padding-inline: calc(27 * var(--persona-unit));
                     line-height: round(nearest, 19 * var(--persona-unit), 1px);
                   }
+                  /* Below 390 the subtitle shrinks with the photos and scribble, so it stays clear of the loops. */
                   &>p:first-of-type {
                     margin-block-end: calc(5 * var(--persona-unit));
+                    font-size: min(1rem, 16 * var(--persona-unit));
                   }
                 }
                 &:nth-child(even) {
