@@ -3635,7 +3635,13 @@ Ground Beef dashed line's outer edge, its head on the photo. The pre-fix sweep `
 `+6`, head id 2), but nobody read the MenuMe rows: the summary only covered Scotties. Design: Arrow 36 tip x 274.0,
 Rectangle 97 x 272.6 (1.4 px past the edge). The CSS run (61.5 units) equals the design's, but the site's root sits
 right of the design's, so the run is now 58 units with the head at 43 and the line 44.5; the root stays put.
-Re-sweep: `touch-menume-fix` / `gap-menume-fix.txt` (results below once read).
+Re-sweep after `cfc4560` (`touch-menume-fix`, all 26 widths, `gap-menume-fix.txt`): the elbow head measures +2
+at 640 and -1 at 900, 1000 and 1091. At 700 to 800 the analyser lost it: the device GIF changes frame between the
+A and C captures, so about 100,000 px differ there and the head search lands on orange blocks (the "down" +14 to
++29 rows at 360 to 1200 are those blocks, looked at in `mfix-<width>.png`). `elbow-tips.py` and a windowed crop
+beside the first screen (`elbow-fix-a/b/c.png`) show the tip on the dashed line, clear of the photo, at 640, 700,
+728, 744, 800, 900, 1000 and 1091. Safari 17.5, live (`eye/menume-elbow-safari/`): same at 728 and 1000. The
+phone weekly-specials gold arrow still ends on the screen edge as designed (-10 to -15).
 
 Lesson for any sweep: summarize every page's rows with a sign-aware filter (results print as `+4`, so a
 `/^-?[0-9.]+$/` match skips every overshoot); the Scotties summary was rechecked sign-aware and stands (198 heads,
