@@ -5539,7 +5539,12 @@
               &>.flex-row:has(>figure) {
                 position: relative;
                 align-items: start;
-                /* The elbow hangs from the screens, so it leaves the iteration 92 px above its foot however tall. */
+                /*
+                  The elbow hangs from the screens, so it leaves the iteration 92 px above its foot however tall. Its
+                  root starts 10.5 units into the drawing, 2 units inside the iteration's outer edge, so it ends in
+                  the 4 px border at every tablet width (as the desktop one does after CF123); from 7.5 it ran up to
+                  3.9 px into the box, more as the column grew.
+                */
                 &::after {
                   content: "";
                   position: absolute;
