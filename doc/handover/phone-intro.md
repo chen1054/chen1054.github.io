@@ -3917,6 +3917,12 @@ for them.
   tablet root at 744, 1000, 1279; CF124 one head at 744, 1000, 1920; Scotties sitemap inside and centred at 1280,
   1360, 1440; CF125 centred at 393, 430, 520, 625; phone elbow at 393, 430, 560, 600, 625 (Safari wraps the box to
   4 lines already at 625, where the clamp holds the head on the straight edge). Not checked: the iOS 17 Simulator.
+- Post-fix audit (advisor): `arrow-audit/phone104-v2-report/` (local, 320 to 639): no hits on the iteration box;
+  the elbow is still in the A/B diff (its root's 17 image hits present; `hosts.json` tags the box's `::before`).
+  `arrow-audit/post-fix/` (live, MenuMe, the sweep's 31 widths 640 to 2560) against `full-cf123-corner/`
+  (`eye/report-compare.py`): the tablet root's 10 hits (840, 960 to 1279) gone, nothing new, 91 rows unchanged
+  (the ones already judged intended). `full-cf123-corner` postdates `0366b74`, so the desktop root was never in it;
+  the pre-fix control for that was `old-cf123`.
 - Reply draft updated: sections "10 月 23 日这一批" and "23 October" (backup
   `/home/user/temp/agent/f20/reply-draft.before-cf123.md`).
 - Cleanup: unit `xinyanchen-old-cf123` stopped, worktree `arrow-audit/old-cf123` removed, sessions xinyan10 to 25
