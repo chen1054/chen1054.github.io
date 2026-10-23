@@ -3481,7 +3481,18 @@ disconnected from the outside part and the stab went unseen.
 
 `fig-222006/diff-boxes.py` against the previous file: MenuMe Desktop "Rectangle 100" (the Checkout dashed box)
 moved from y 11206 to 11214; Tales Desktop restructured (Group 40 moved and shrank, "image 17" and two
-"Picture2" removed, Key Insights vectors nudged). The Tales change is not investigated yet.
+"Picture2" removed, Key Insights vectors nudged).
+
+Tales, investigated 2026-10-22 late night, fixed in `2e9f145`: the client replaced the raster bubble ("image 17") with
+the two vector bubbles, Group 239398 (play, a translation) and Group 239399 (trust, the same two vectors rotated by
+the group matrix -0.363 -0.932 / 0.932 -0.363). `near.py` boxes for rotated nodes are not frame positions; compose
+with `node-transform.mjs` instead. `fig-222006/tales/bubble-boxes.py` gives the true curve bounds in frame
+coordinates; the bubble files the site already uses match those shapes (play fill 395.9 by 360.7 against 396 by
+361, trust fill 353.8 by 387.7 against 354 by 388). The titles had not moved (within 2.5 px of the new file), but the
+layers sat 5 to 20 px off around them (play 7 to 15 px high, trust 15 to 20 px right and low). Only the desktop
+block (`width>=80rem`) changed: the tablet and phone designs did not, so their insets stay. After: Chromium and
+Safari 17.5 (`eye/safari-bubble-state.ts`) at 1440 and 1920 put every layer within 0.02 px of the design relative to
+its title; Safari window shots in `eye/tales-bubbles-safari/`.
 
 ### Arrow audit tool
 
