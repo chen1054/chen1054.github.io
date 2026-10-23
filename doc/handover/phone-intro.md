@@ -3525,8 +3525,33 @@ MenuMe at 1180 and 1280 is about 400 px shorter than in the earlier pass: that p
 One broken-image "?" appeared, on MenuMe 744 frame 09 (the Personalized Menu lo-fi wireframe). It is the second
 sighting after the Shopping List one at 728. `eye/safari-broken-probe.ts` loaded the page fresh 12 times in
 Safari 17.5 (744 ×4 and 728 ×2, each with forced-eager and with plain scrolling): 25 images per load, 0 broken.
-Read as a passing fetch failure during the capture; nothing to change in the page. Step 2 is running
-(iPhone 15 first).
+Read as a passing fetch failure during the capture; nothing to change in the page.
+
+Step 2, iPhone 15 done (117 frames, every sheet looked at). Home, About, Contact, MenuMe and Scotties: nothing
+wrong. Tales: one finding. In the Key Insights "Bridging the Gap via Play" bubble, the last line
+"engaging, non-threatening stories." runs past the yellow fill into the white notch by the tail
+(`eye/sim-iphone15-r2/tales-for-safer-trails-06.png`).
+
+Cause: `a2f653c` fitted the phone text insets (13% and 21%) to the old bubble art; the client's bubble files
+(`4a1471a`, `8e51b4f`) came later and the phone fit was not re-checked.
+Design: the latest `.fig` (Phone Tales, node 2313:49628, `eye/fig-bubble-boxes.ts`) breaks the copy by hand
+after "non-threatening", so "stories." sits alone. Tablet and desktop have their own insets (`width>=40rem`) and
+pass.
+
+Checker: `eye/bubble-fit/` (`capture.mts`, `analyze.py`). Each bubble is shot twice in Chromium, text shown and
+text transparent. Ink pixels lying on anything other than the bubble's fill colour are flagged. It runs both as
+written and with forced plain wrapping, because iOS before Safari 17.5 has no `text-wrap: balance`.
+Positive control: it flags the Play bubble at 393.
+It also flags the Scotties Core Challenge cloud at 393: "no e-" touches the lightning bolt. The phone `.fig`
+draws that overlap, so it stays.
+
+Next, queued:
+
+- choose the smallest Play end inset that passes at 320 to 639 (`try-ends.mts`);
+- apply it to the Play rule only, as one commit;
+- re-run the checker, then Safari 17.5 and the iOS Simulator.
+
+iPad 10th capture running (unit `xinyanchen-eye-sim-ipad-r2`).
 
 ### Arrow audit tool
 
