@@ -6924,7 +6924,8 @@
                 position: absolute;
                 inset-block-start: 100%;
                 inset-inline-start: calc(44.3 * var(--lofi-unit));
-                block-size: calc(63 * var(--lofi-unit));
+                /* Ends in the dashed line, as the design draws it (measured 3 px short at 63). */
+                block-size: calc(67 * var(--lofi-unit));
                 background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6948,7 +6949,8 @@
                 position: absolute;
                 inset-block-end: 100%;
                 inset-inline-start: calc(36.2 * var(--lofi-unit));
-                block-size: calc(285 * var(--lofi-unit));
+                /* Ends at the dashed line, as the design draws it (measured 5 px short at 285). */
+                block-size: calc(291 * var(--lofi-unit));
                 background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6967,8 +6969,12 @@
               z-index: 1;
               grid-area: 2 / 1 / 4;
               place-self: stretch start;
-              /* Down to the grid callout's inner border edge: its 25 px gap plus its 3 px border. */
-              margin-block: calc(370.2 * var(--lofi-unit)) calc(-25 * var(--lofi-unit) - 3rem / 16);
+              /*
+                The client (CF121, of an iPhone): "箭头刺穿了线框" (the arrow pierces the dashed box's line). The tip
+                now ends in the sage line instead of 10 px past it. Down to the grid callout's inner border edge: its
+                25 px gap plus its 3 px border.
+              */
+              margin-block: calc(379.2 * var(--lofi-unit)) calc(-25 * var(--lofi-unit) - 3rem / 16);
               margin-inline-start: calc(285.3 * var(--lofi-unit));
               background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
               background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
