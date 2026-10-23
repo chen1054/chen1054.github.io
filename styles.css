@@ -5291,14 +5291,15 @@
                   inline-size: calc(142 * var(--usability-unit));
                   margin-block-start: calc(4 * var(--usability-unit));
                   margin-inline-end: calc(-16 * var(--usability-unit));
+                  /* The design's own squiggle (Phone/MenuMe.pdf), its ink 15.75 in and 14.25 under the screen. */
                   &::after {
                     content: "";
                     position: absolute;
-                    inset-block-start: calc(100% + 14 * var(--usability-unit));
-                    inset-inline-start: calc(15 * var(--usability-unit));
-                    inline-size: calc(45 * var(--usability-unit));
-                    block-size: calc(83 * var(--usability-unit));
-                    background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+                    inset-block-start: calc(100% + 14.25 * var(--usability-unit));
+                    inset-inline-start: calc(15.75 * var(--usability-unit));
+                    inline-size: calc(50.5 * var(--usability-unit));
+                    block-size: calc(82.87 * var(--usability-unit));
+                    background: url("assets/menume-usability-phone-squiggle-personalization.svg") center / contain no-repeat;
                   }
                 }
                 &>figure:last-child {
@@ -5365,14 +5366,15 @@
                 }
                 & figure:nth-child(2) {
                   margin-inline-start: calc(37 * var(--usability-unit));
+                  /* The design's own squiggle (Phone/MenuMe.pdf), its ink 131.25 in and 22.88 under the screen. */
                   &::after {
                     content: "";
                     position: absolute;
-                    inset-block-start: calc(100% + 21 * var(--usability-unit));
-                    inset-inline-start: calc(137 * var(--usability-unit));
-                    inline-size: calc(45 * var(--usability-unit));
-                    block-size: calc(83 * var(--usability-unit));
-                    background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+                    inset-block-start: calc(100% + 22.88 * var(--usability-unit));
+                    inset-inline-start: calc(131.25 * var(--usability-unit));
+                    inline-size: calc(59.63 * var(--usability-unit));
+                    block-size: calc(87.5 * var(--usability-unit));
+                    background: url("assets/menume-usability-phone-squiggle-weekly-specials.svg") center / contain no-repeat;
                   }
                 }
                 & figure:nth-child(3) {
