@@ -2825,7 +2825,8 @@
           /*
             The copy scales against each bubble's own width at 744 (325 and 333 px), not the phone's 322, so below
             744 it shrinks exactly with the bubble and keeps the 744 lines (it gained a fifth line that crossed the
-            fill from 640 to 736); from 744 up the 1em caps apply as before.
+            fill from 640 to 736); from 744 up the 1em caps apply as before. Tablet only: desktop keeps the phone
+            reference, which sets its 1280 lines.
           */
           &>.play-speech-bubble {
             inline-size: calc(325 * var(--u));
@@ -2833,11 +2834,13 @@
             &>* {
               margin-inline: 13% 9%;
             }
-            &>h4 {
-              font-size: min(calc(1em + 2rem / 16), calc(16 * 100cqi / 325));
-            }
-            &>p {
-              font-size: min(1em, calc(14 * 100cqi / 325));
+            @media(width<80rem) {
+              &>h4 {
+                font-size: min(calc(1em + 2rem / 16), calc(16 * 100cqi / 325));
+              }
+              &>p {
+                font-size: min(1em, calc(14 * 100cqi / 325));
+              }
             }
           }
           &>.trust-speech-bubble {
@@ -2847,11 +2850,13 @@
             &>* {
               margin-inline: 20% 11%;
             }
-            &>h4 {
-              font-size: min(calc(1em + 2rem / 16), calc(16 * 100cqi / 333));
-            }
-            &>p {
-              font-size: min(1em, calc(14 * 100cqi / 333));
+            @media(width<80rem) {
+              &>h4 {
+                font-size: min(calc(1em + 2rem / 16), calc(16 * 100cqi / 333));
+              }
+              &>p {
+                font-size: min(1em, calc(14 * 100cqi / 333));
+              }
             }
           }
           /*
