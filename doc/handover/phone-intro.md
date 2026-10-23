@@ -3652,8 +3652,23 @@ fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
   "visual layouts.", lands over the trail's upward chevrons. A fixed copy width was rejected (the lead span needs
   245 px at 639 while the body re-breaks above 244.4 px). Trial: `<br class="phone-break">` before "layouts." (the
   phone design ends on "layouts." alone). Safari trial (`eye/pillars-safari-phone-trial/`): 393 and 625 clean,
-  but 480 reads "high-" / "energy visual" / "layouts.", two short lines in a row; checking every width's lines
-  (`eye/excitement-words.ts`, log `eye/excitement-words.log`) before deciding.
+  but 480 reads "high-" / "energy visual" / "layouts.", two short lines in a row. Every width's lines
+  (`eye/excitement-words.ts`, logs `eye/excitement-words*.log`): the plain break leaves "visual" alone at 357 to
+  360 and 498 to 560. Keeping "high-energy visual" together fixes that. Characters were rejected: Playfair has no
+  U+2011 glyph (it would fall back to another font), and a word joiner plus no-break space changed 27 widths from
+  640 up (880 to 900, 1349, 1352; `eye/joiner-*.log`). A `<span>` in that paragraph gets the lead phrase's block
+  display, size, weight and orange (`:is(h1, h2, p)>span` and the pillar `&>p>span` rules; `eye/span-styles.ts`).
+- `dcd0c69` Scotties phone pillars: `niche gear through <span class="keep-together">high-energy
+  visual</span><br class="phone-break"> layouts.`; the wrapper is `all: unset` on the full pillar path (outranks
+  the pillar span rules) plus `white-space: nowrap` below 40rem. Local Chromium before commit: 640 to 1279 and
+  1280 to 2560 step 3 identical to the published lines (0 of 1067 widths differ); 387 to 409 (390, 393) keep
+  today's lines; every phone width ends on "layouts." alone with no lone "visual"; the wrapper's computed style
+  equals its paragraph's apart from display inline and, below 640, nowrap (14 widths). Safari 17.5 live
+  (`eye/pillars-safari-phone-live/`, 393, 480, 500, 560, 625, 744): clear, black Medium copy, 393 and 744 line
+  widths match the earlier shots. The local Safari run failed: nothing forwards 4173 from Linux to m1 (only 4454),
+  so Safari checks run against the published site. Clearance run on the change: unit `xinyanchen-deco-clash-local`,
+  output `deco-clash/pillars-local/` (analyze with `uv run --isolated --with numpy --with scipy --with pillow
+  python -I analyze.py <dir> 6`).
 
 ### Arrow audit tool
 
