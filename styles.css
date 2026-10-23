@@ -6321,12 +6321,13 @@
           display: block;
           color: var(--color-case-study-heading);
         }
+        /* Phone Scotties draws the skater 37 px before and 22 px above the box; wider designs place it themselves. */
         &::before {
           content: "";
           position: absolute;
-          inset-block-start: calc(-40rem / 16 - 20 * var(--home-wide-reference-growth));
-          inset-inline-start: max(calc(-0.9 * (62rem / 16 + 87 * var(--home-wide-reference-growth))), calc((100% - 100cqw) / 2));
-          inline-size: calc(62rem / 16 + 87 * var(--home-wide-reference-growth));
+          inset-block-start: calc(-22rem / 16);
+          inset-inline-start: calc(-37rem / 16);
+          inline-size: calc(62rem / 16);
           aspect-ratio: 149 / 158;
           background: url("assets/scotties-positioning-skater-figure.svg") center / contain no-repeat;
         }
@@ -6338,23 +6339,44 @@
           The client: "这个框离上下标题的间距太窄了，参考原设计。" (the box sits too close to the headings above and
           below; follow the design). Phone Scotties draws the box 74.5 px under the heading's text and 130 px over
           the Research band. The box's margin collapses with the heading's 32 px one, so it carries the whole 72.5
-          (the heading's line box adds 2); the section's 64 px padding gets 66 more below.
+          (the heading's line box adds 2); the section's 64 px padding gets 66 more below. The box is 241 by 309 px
+          from 36 px into the column, its copy centred on 197 px, where plain wrapping gives the drawn lines (any
+          inline padding from 10 to 24 px does). Plain, not balanced, because iOS 17.0 Safari cannot balance, and both
+          engines then agree; the lead phrase on 160 px splits at its comma (138 to 187 px all do).
         */
         @media(width<40rem) {
           margin-block-end: calc(66rem / 16);
           &>.scotties-positioning-note {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            inline-size: calc(241rem / 16);
+            min-block-size: calc(309rem / 16);
             margin-block-start: calc(72.5rem / 16);
+            margin-inline: calc(36rem / 16) 0;
+            padding-block: 0;
+            padding-inline: calc(17rem / 16);
+            text-wrap: wrap;
+            &>p>span {
+              max-inline-size: calc(160rem / 16);
+              margin-inline: auto;
+            }
           }
         }
       }
       .subsection:has(>.scotties-positioning-note)::before {
         content: "";
         position: absolute;
-        inset-block-end: calc(-54rem / 16 - 54 * var(--home-wide-reference-growth));
-        inset-inline-start: calc(50% + 36rem / 16);
-        inline-size: calc(158rem / 16 + 161 * var(--home-wide-reference-growth));
-        /* Starting 36 px past the middle, this ends at the screen's edge (the 20 px gutter) on phones under 390. */
-        max-inline-size: calc(50% - 16rem / 16);
+        /*
+          Phone Scotties draws the splat 175 px wide from the column's middle, 55 px below the box, so it shows at the
+          box's lower right; from the middle, it ends at the column's end on phones under 390. Wider designs place it
+          themselves.
+        */
+        inset-block-end: calc(-55rem / 16);
+        inset-inline-start: 50%;
+        inline-size: calc(175rem / 16);
+        max-inline-size: 50%;
         aspect-ratio: 319 / 274;
         background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
       }
