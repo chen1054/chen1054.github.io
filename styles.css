@@ -2738,7 +2738,8 @@
         gap: calc(51rem / 16);
         margin-block: 2rem;
         &>figure {
-          inline-size: var(--device-inline-size);
+          /* Below 361 px a device keeps 20 px from each window edge instead of reaching past it. */
+          inline-size: min(var(--device-inline-size), 100vw - 40rem / 16);
           max-inline-size: none;
           margin: 0;
         }
@@ -3311,7 +3312,11 @@
         }
         &>.spiral-notepad {
           justify-self: start;
-          inline-size: calc(334rem / 16 + 11 * var(--phone-tablet-reference-growth) + 161 * var(--home-wide-reference-growth));
+          /* Below 374 px the pad shrinks whole, copy included, to keep 20 px from each window edge. */
+          inline-size: min(
+            334rem / 16 + 11 * var(--phone-tablet-reference-growth) + 161 * var(--home-wide-reference-growth),
+            100vw - 40rem / 16
+          );
           max-inline-size: none;
           margin-block-start: calc(21rem / 16 + 12 * var(--phone-tablet-reference-growth) + 6 * var(--home-wide-reference-growth));
           margin-inline-start: calc(-13rem / 16);
@@ -3616,7 +3621,11 @@
           negative margin; the copy starts about 11 px before the overlap ends. On phones the rings centre on the whole
           chevron, as Phone Tales places them.
         */
-        --strip: calc(350rem / 16 + 321 * var(--phone-tablet-reference-growth) + 309 * var(--home-wide-reference-growth));
+        /* Below 390 px the strip keeps the 20 px it leaves at each window edge there, instead of running off-screen. */
+        --strip: min(
+          350rem / 16 + 321 * var(--phone-tablet-reference-growth) + 309 * var(--home-wide-reference-growth),
+          100vw - 40rem / 16
+        );
         /*
           Two chevrons fill a phone row exactly, and sub-pixel rounding could push the second onto its own row; a
           quarter pixel less keeps both on it.
