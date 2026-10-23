@@ -6862,11 +6862,18 @@
         & .subsection:nth-child(3)>.flex-row>.note:first-child,
         & .subsection:nth-child(5)>h3+p {
           position: relative;
-          padding-block: 2.5rem 2rem;
-          padding-inline: 2rem;
-          border: calc(4rem / 16) dashed var(--color-case-study-accent);
-          border-radius: calc(40rem / 16);
-          background-color: color-mix(in srgb, var(--color-case-study-accent) 47%, #fff);
+          padding-block: calc(2.5rem - 1rem / 16) calc(2rem - 1rem / 16);
+          padding-inline: calc(2rem - 1rem / 16);
+          /*
+            Every design strokes these boxes 5 px inside with 20 px dashes and 20 px gaps at a 50 px radius (fig
+            "Rectangle 73" and "Rectangle 74"), as the brand message box; a dashed border cannot set its dash length.
+            The padding gives back the border's extra pixel, so the boxes keep their size.
+          */
+          border: calc(5rem / 16) solid transparent;
+          border-radius: calc(50rem / 16);
+          background:
+            url("assets/scotties-wireframe-note-dashed-outline.svg") border-box,
+            color-mix(in srgb, var(--color-case-study-accent) 47%, #fff) border-box;
           &::before {
             content: "";
             position: absolute;
@@ -7078,9 +7085,12 @@
               grid-area: 1 / 1;
               margin-block-start: calc(1 * var(--u));
               margin-inline-start: calc(6 * var(--u));
-              /* Outranks the intro cloud's own padding, set for the stacked phone layout. */
+              /*
+                Outranks the intro cloud's own padding, set for the stacked phone layout. Its dashed outline is 5 px,
+                not the other callouts' 4 px border.
+              */
               padding-block: calc(20 * var(--u));
-              padding-inline: calc(var(--ps) * var(--u) - 4rem / 16) calc(var(--pe) * var(--u) - 4rem / 16);
+              padding-inline: calc(var(--ps) * var(--u) - 5rem / 16) calc(var(--pe) * var(--u) - 5rem / 16);
             }
             &>.note:last-child {
               --box: 265;
@@ -7298,8 +7308,9 @@
               grid-row: 1;
               justify-self: center;
               inline-size: calc(263 * var(--lofi-unit));
-              padding-block: 2.5rem 2rem;
-              padding-inline: 2rem;
+              /* Less the 5 px dashed outline's extra pixel over a 4 px border, as on the shared rule. */
+              padding-block: calc(2.5rem - 1rem / 16) calc(2rem - 1rem / 16);
+              padding-inline: calc(2rem - 1rem / 16);
             }
             &>.note:last-child {
               grid-row: 2;
@@ -7724,8 +7735,9 @@
                 align-self: start;
                 margin-block: calc(64 * var(--u)) 0;
                 margin-inline: 0;
-                padding-block: calc(46 * var(--u));
-                padding-inline: calc(51 * var(--u)) calc(31.7 * var(--u));
+                /* Less the 5 px dashed outline's extra pixel over the 4 px border these insets were set against. */
+                padding-block: calc(46 * var(--u) - 1rem / 16);
+                padding-inline: calc(51 * var(--u) - 1rem / 16) calc(31.7 * var(--u) - 1rem / 16);
               }
               & .portrait-artwork {
                 grid-area: 2 / 3 / 6;
