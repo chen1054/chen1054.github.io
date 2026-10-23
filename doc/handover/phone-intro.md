@@ -3575,7 +3575,15 @@ at 616; the Safari pass started at 744). All in the band from 640 to just under 
 - Tales Trust bubble, 640 to 728: line starts ("professionals.") sit on the white gap left of the fill.
 - Tales Play bubble, 672 to 736: the end of "non-threatening" reaches the tail notch.
 
-Next: confirm each in Safari 17.5 at those widths; fix each as its own commit; re-run the checker over 320 to 2560.
+Safari 17.5 shows the Scotties one too (`eye/band-safari/scotties-656.png`, `-696.png`). Cause, measured in
+Chromium (`eye/band-measure.ts`): from 744 down to 704 the Scotties cloud shrinks 433 to 405 px while its copy
+stays 14 px; the Tales copy scales against the phone's 322 px reference although the tablet bubbles are 325 and
+333 px at 744, so it shrinks 1 to 3 % slower than its bubble and gains a fifth line. Fixes: `3a2231f` (Scotties
+tablet copy `min(1em, 14 * 100cqw / 433)`), `f61ff83` (Tales tablet h4 and p scale against 325 and 333). The 1em
+caps hold from 744 up, so those widths should not move.
+
+Next: full checker on the live site (unit `xinyanchen-bubble-fit-after2`, `eye/bubble-fit/after2.txt`);
+`compare-runs.ts after after2 744` must report no change from 744 up; then Safari 17.5 at 656, 696 and 704.
 
 ### Arrow audit tool
 
