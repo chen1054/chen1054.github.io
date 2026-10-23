@@ -29,6 +29,24 @@ Standing directives from the user, 2026-10-23:
   user: "You shouldn't have burnt this question."). The badge numerals need not be vector drawings.
 - Subagent briefs: create or change no file outside the subagent's own output directory (a reviewer overwrote
   `f20/stress/crop.py`).
+- "Do not use explicit line breaks." New copy wrapping comes from widths and `text-wrap`, not `<br>` (said when
+  phone breaks were added to the Scotties brand box; they were removed before commit). The existing
+  `phone-break`/`desktop-break` elements predate this; whether they go too is not yet asked.
+- Fix order (the user, 2026-10-23): commit verified design fixes first, then rebuild the layer removal on top.
+
+Verified design fixes landed 2026-10-23: `78bfba1` Tales phone story notes; the Scotties phone brand box (commit
+after `78bfba1`). Both checked in the iOS 17 Simulator; Chromium diff 0 at 640 and up. Known left on the brand box:
+the design's dashes are longer than the browser's `dashed` border (all widths; a reviewer item), and the design
+breaks the lead after "Scotties':" which no width reproduces without a forced break. Pitfall: iOS 17.0 Safari has
+no `text-wrap: balance`, so a balanced layout checked in Chromium can orphan a word there; check wraps greedily too.
+Next: tablet river (Home, Contact), badge "4", tablet corner art, then the reviewer items in
+`/home/user/temp/agent/f20/design-cmp/triage.md`; then rebuild the layer removal on the new HEAD.
+
+Layer removal status, 2026-10-23: unwrapped copy of `c2ae82c` (`/home/user/temp/agent/wt-nolayer`, script
+`f20/nolayer/unwrap.ts`) against `wt-nlbase`: Chromium computed styles at 29 widths (320 to 2560, every breakpoint
+edge), plain, menu open and every hover/focus state on (`:hover`/`:focus`/`:focus-visible` rewritten to classes on
+both sides), and Safari 17.5 at 11 widths with real hover and focus probes: 0 differences so far; positive controls
+(a 1 px gap and a hover-only colour) are reported. Logs `f20/nolayer/{plain,states,safari}.log`.
 
 ## Current state
 
