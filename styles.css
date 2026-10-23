@@ -4144,12 +4144,21 @@
             @media(width>=68.25rem) {
               inline-size: min(var(--bubble-inline), (100% - 2 * (42.4rem / 16 + 5 * var(--home-wide-reference-growth))) / 3);
             }
+            /*
+              The bubble, body and tail, as one closed outline (the client: "Why isn't this one shape?"). It was an
+              outline mask and a separate tail mask: they met only while the box kept the drawing's proportions, and
+              a larger reader font (the client's iPhone set the text a line longer) made the box taller, so the
+              outline kept its shape while the tail moved down and the joins broke. This drawing stretches with the
+              box instead (`preserveAspectRatio="none"`), the tail 243.64 units deep below the body's 211.6.
+            */
             &::before {
               content: "";
               position: absolute;
-              inset: 0;
+              inset-block-start: 0;
+              inset-inline: 0;
+              block-size: calc(100% * 243.64 / 211.6);
               background-color: var(--menume-tint);
-              mask: url("assets/menume-finding-bubble-outline.svg") center / 100% 100% no-repeat;
+              mask: url("assets/menume-finding-bubble.svg") 0 0 / 100% 100% no-repeat;
             }
             &:nth-child(1) {
               --menume-tint: var(--menume-honey);
@@ -4176,16 +4185,6 @@
               font-weight: 400;
               line-height: round(nearest, var(--menume-disc), 1px);
               text-align: center;
-            }
-            &::after {
-              content: "";
-              position: absolute;
-              inset-block-start: 88.85%;
-              inset-inline-start: 21.14%;
-              inline-size: 39.47%;
-              block-size: 26.37%;
-              background-color: var(--menume-tint);
-              mask: url("assets/menume-finding-bubble-tail.svg") center / 100% 100% no-repeat;
             }
           }
           &>.subsection .alternating-personas {
