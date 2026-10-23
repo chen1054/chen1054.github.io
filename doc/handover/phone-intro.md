@@ -3604,6 +3604,29 @@ The client resizes a Mac Safari window ("Window made narrower"), so that band is
 `eye/frames-safari-band.log`); sheets via `eye/safari-sheets-band.ts` into `eye/safari-sheets-band/`; every sheet
 viewed; fixes one commit each.
 
+Band sweep progress (2026-10-23 morning). Viewed, nothing wrong: Home, About, Contact at all four widths; MenuMe
+640, 672, 736 and 704 apart from the personas; Scotties 640 sheets 00 to 18. Checked and intended: MenuMe 640's
+first Usability Finding box sits 19 px left of the text column (the phone design's `margin-inline-start: -19u`),
+and its "End-to-End User Experience Delivery" heading breaks into three lines by the phone-only `<br>`s.
+The Home 640 broken-image "?" (third sighting) did not reproduce: `eye/safari-broken-probe.ts index 640 4`, eight
+fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
+
+- `8a84970` MenuMe tablet personas: below 744 the persona copy held 14 px while its column shrank, so Alicia's
+  copy took a fifth line below 707 (Chromium) and that line, "reduction tools.", crossed the yellow scribble (Safari
+  704 frame `safari-band-r1/menume-704-05.png`). Matthew's took a fourth below 744. The copy now scales with the
+  column below 744 (`min(shared size, 14 * --u)`, line height 2em rounded). Measured with
+  `eye/persona-measure.ts` (trials go in through a constructed stylesheet: the CSP blocks `<style>` injection,
+  so the first trial run silently measured nothing; positive control at 704 confirmed it applied). Live check
+  (`eye/verify-persona-live.ts`, fresh browser session: the first run measured a cached stylesheet): 640 to 743
+  all keep the 744 lines (4, 4, 3); 744, 800, 1024, 1279 identical to before. Safari 17.5 live
+  (`eye/persona-safari-alicia/`, `eye/persona-safari-matthew/`): Alicia four lines at 641 to 744, clear of the
+  scribble; Matthew three.
+- Open: Scotties phone layout at 625 (Safari 640 window, `safari-band-r1/scotties-640-06.png`): the top chevron
+  of the pillars' trail touches "visual layouts.", the Excitement copy's last line. New checker
+  `/home/user/temp/agent/f20/eye/deco-clash/` (`capture.ts`: as is, paragraphs transparent, plus pseudo-elements
+  and images hidden; `analyze.py`: minimum distance from text ink to decoration ink). Smoke test: 625 at 1.0 px,
+  390 at 19, 744 at 16, 1440 at 23. Full run 320 to 639 in unit `xinyanchen-deco-clash`, output `pillars/`.
+
 ### Arrow audit tool
 
 `/home/user/temp/agent/f20/arrow-audit/`: `capture.ts` saves each page full-length twice (as is, and with every
