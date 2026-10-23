@@ -3500,14 +3500,16 @@ inside the footer wave's image rectangle.
 - `7b3b2fa` CF113: hover arrow uses `--color-river-gold`. Safari 17.5, all six pages: arrow rgb(104,85,135) to
   rgb(216,161,80), equal to the ring.
 - `8655c36` CF115: `assets/menume-weekly-specials-high-fidelity-shopping-list-highlights.svg` path gets
-  `translate(0 8)`; the one SVG serves desktop, tablet and phone. Checked by eye later (Chromium, Safari 17.5, iOS 17): see "Arrowhead gap sweep, 2026-10-22 night".
+  `translate(0 8)`; the one SVG serves desktop, tablet and phone. Checked by eye later (Chromium, Safari 17.5,
+  iOS 17); see "Arrowhead gap sweep, 2026-10-22 night".
 - `03a434a` CF116 elbow: tablet block size 217.2u to 212.2u minus the border; phone bottom margin -29.5u to -20u
-  minus the border, so the foot ends in the box border. Checked by eye later (Chromium, Safari 17.5, iOS 17): see "Arrowhead gap sweep, 2026-10-22 night".
+  minus the border, so the foot ends in the box border. Checked by eye later (Chromium, Safari 17.5, iOS 17); see
+  "Arrowhead gap sweep, 2026-10-22 night".
 - `fbf998e` CF116 squiggle: `assets/menume-usability-tablet-squiggle-down.svg` is the design's body plus head,
   composed through the group matrices (`fig-222006/squiggle/compose.py`); the body matches the old asset point for
-  point. Checked by eye later (Chromium, Safari 17.5, iOS 17): see "Arrowhead gap sweep, 2026-10-22 night".
+  point. Tablet only; checked by eye later (Chromium, Safari 17.5); see "Arrowhead gap sweep, 2026-10-22 night".
 
-### CF118 and CF119 measurements (in progress)
+### CF118 and CF119 measurements
 
 Tablet lo-fi listing ("Desktop - 2 1", top 7852, height 404), arrow tips from the screen top: dark 62, orange 122,
 sage 222.5. Dashed boxes: dark 22 to 88, orange 94 to 137, sage 27 to 334.
