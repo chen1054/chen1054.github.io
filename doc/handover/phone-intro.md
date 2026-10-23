@@ -3637,8 +3637,23 @@ fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
   shows the Confidence trail's chevrons against "trusted"; Chromium clearance (`deco-clash/pillars-tablet/`)
   16 px at 744 but 2 to 14 px from 654 to 692. Fix: below 744 (and below desktop) the copy is
   `min(shared, 14 * --u)` and the lead `min(shared, 16 * --u)`. Trial (constructed stylesheet): every width 640 to
-  743 keeps the 744 lines (7/2, 7/1, 8/2); 744, 800, 1024, 1279 identical. Live check running (unit
-  `xinyanchen-verify-pillars`, log `eye/verify-pillars-live.log`, clearance after-run `deco-clash/pillars-tablet-after/`).
+  743 keeps the 744 lines (7/2, 7/1, 8/2); 744, 800, 1024, 1279 identical. Live (`eye/verify-pillars-live.log`,
+  fresh session): the same. Clearance under 6 px (`deco-clash/pillars-tablet-after/`, 640 to 800): before 5 of 68
+  widths, after 0 of 81. Safari 17.5 after (`eye/pillars-safari-after/`): 641 and 672 clear. Safari 744 line
+  widths differed by 1 px from the earlier after-shot, but two shots of the same CSS reproduce the before widths
+  exactly (`eye/spread-a/`, `eye/spread-b/`), so that is run-to-run spread; Safari 744 reads 14 px personas and
+  14/16 px pillars (`eye/spread-persona/`, `eye/spread-c/`): 744 is unchanged.
+- Safari WebDriver recovery: stopping a flock'd Safari run mid-way leaves Safari "already paired with another
+  WebDriver session". Fix: `flock vm-sonoma.lock ssh m1 "ssh -o BatchMode=yes -i ~/.ssh/id_ed25519_vm
+  admin@192.168.64.9 'launchctl kickstart -k gui/501/dev.monochromatic.safaridriver'"`.
+- Scotties phone pillars (open, task 98): full Chromium run 320 to 639 (`deco-clash/pillars/pillars.txt`):
+  clearance under 6 px at 356 (5), 404 to 432 (3 to 4) and 620 to 639 (0 to 1, touching). Cause: the art scales
+  with vw/390 while the 14 px copy does not, so the Excitement copy drops to fewer lines and its long last line,
+  "visual layouts.", lands over the trail's upward chevrons. A fixed copy width was rejected (the lead span needs
+  245 px at 639 while the body re-breaks above 244.4 px). Trial: `<br class="phone-break">` before "layouts." (the
+  phone design ends on "layouts." alone). Safari trial (`eye/pillars-safari-phone-trial/`): 393 and 625 clean,
+  but 480 reads "high-" / "energy visual" / "layouts.", two short lines in a row; checking every width's lines
+  (`eye/excitement-words.ts`, log `eye/excitement-words.log`) before deciding.
 
 ### Arrow audit tool
 
