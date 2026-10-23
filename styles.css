@@ -4346,6 +4346,15 @@
                     font-size: 1rem;
                     line-height: round(nearest, 1.5em, 1px);
                   }
+                  /*
+                    Below the 744 design width the copy shrinks with its column, so it keeps the 744 lines (4, 4 and
+                    3); at 14 px Alicia's ran to a fifth line below 720, and that line crossed the scribble (seen in
+                    Safari at 704). From 744 up the shared size applies as before.
+                  */
+                  &>p+p {
+                    font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
+                    line-height: round(nearest, 2em, 1px);
+                  }
                 }
                 &:nth-child(2) {
                   &>figure {
