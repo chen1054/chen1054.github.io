@@ -2654,7 +2654,9 @@
         /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
         line-height: round(nearest, 30rem / 16 - 2 * var(--phone-tablet-reference-growth) + 4 * var(--home-wide-reference-growth), 1px);
       }
+      /* Phone and Tablet Tales draw the Doodle pill 178.5 and 180 px wide round its 14 px label: 21 px each side. */
       & .prototype-link {
+        padding-inline: calc(21rem / 16);
         font-size: calc(14rem / 16 + 4 * var(--home-wide-reference-growth));
       }
       /*
