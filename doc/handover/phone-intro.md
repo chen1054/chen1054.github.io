@@ -4180,10 +4180,26 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   "stories." re-joined its line and hit the notch from 432 to 456). Bubble-fit checker 320 to 639 by 8 plus
   390/393/744/1280/1440: 0 of 90 as written (first attempt: 52 flagged); 2 single-pixel flags in forced wrapping
   with the same line widths, read as noise.
-- Tablet Key Insights titles (in progress): 14 px like the copy, as Tablet Tales sets them (fig 2197:7938).
-- Queued: one iOS 17 Simulator pass over the phone fixes since `cbd6b9b` (Tales logo, Key Insights), then the
-  rest of `triage.md` (Tales persona photos, banner headings, Doodle mockup, citation boxes, impact circles; MenuMe
-  bulb, question circle, arrows; Scotties brand box dash length; M7 copy items).
+- Tablet Key Insights titles, `324e90b`: 14 px like the copy, as Tablet Tales sets them (fig 2197:7938 and
+  2197:8067); bubble-fit checker 0 of 80 flagged; Safari 744 checked.
+- Tales phone personas, `41dcff5`: photos 280 px wide, copy inset 40 and 21 px, as Phone Tales draws them; two
+  `&nbsp;` glues end the strays ("busy daily routine.", "medical terms."). Boxes within 1 px of the design; orphan
+  probe 0 (9 before the glue).
+- Tales long section titles, `a035e84`: Core Solution, Digital Touchpoint and Campaign titles at 22 px growing to
+  30, held to a 292 px measure at phone; "Campaign & Impact" glued. Measured at 390 and 744.
+- Tales Doodle mockup, `4aa3201`: 290 px wide at phone, 386 from 640 up (was the column); bezel within 2 px of the
+  design at 390 and 744.
+- Citation boxes: already done in `78bfba1`; live x 20, width 350, padding 15/16 match the design.
+- Tales impact strip, `c98860f`: rings 56, 54.5 and 80 px at 390, 744 and 1440 (were 61, 61, 86); phone band 74
+  (was 84; three title lines still fit, paired paragraphs stay level 320 to 639); desktop stems 34 (were 31).
+  Measured with `f20/impact/ring.py` on 2x renders of the design PDFs against 2x Chromium shots: site 56/24/73.5
+  against design 56/23.5/73.5 at 390, 54/25/71.5 against 54.5/23.5/72 at 744, 80/34 against 80/34 at 1440.
+- Lesson: the review sheets (`sheets-v2`) predate several fixes; measure the live site before acting on a triage
+  item (citations were already right).
+- Queued: one iOS 17 Simulator pass over the phone fixes since `cbd6b9b` (Tales logo, Key Insights, personas,
+  section titles, Doodle, impact strip), Safari 17.5 for the tablet and desktop ones (titles, Doodle at 744,
+  impact strip at 744 and 1440), then the rest of `triage.md` (MenuMe bulb, question circle, arrows; Scotties
+  brand box dash length; M7 copy items; Ages heading icon; Launch Doodle Demo button 169 against 178 px).
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
