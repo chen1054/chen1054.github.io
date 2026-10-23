@@ -7026,6 +7026,8 @@
             &>figure {
               grid-area: 3 / 1;
               inline-size: calc(286 * var(--hifi-unit));
+              /* The connectors scale with the screen, so it may not stop at the 400 px artwork cap (from 545 px). */
+              max-inline-size: none;
               margin-block-start: calc(22 * var(--hifi-unit));
               margin-inline: auto;
             }
