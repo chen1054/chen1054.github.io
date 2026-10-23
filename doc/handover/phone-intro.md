@@ -3592,7 +3592,8 @@ Verified in Chromium: full Scotties re-sweep `touch-fix3` (26 widths, 360 to 192
 with its bend kept; re-check `touch-fix4`) and the desktop lo-fi sage at 1092 only (-2; 0 from 1200). Positive
 control: the same filter flags 107 heads in the pre-fix sweep `touch-all`. A first filter read the wrong column
 and flagged nothing; caught by that control. Phone hi-fi orange at 360 to 393 is misread as pointing down (no
-measure); crops at 360, 375 and 393 show it touching its line. MenuMe had no CSS change.
+measure); crops at 360, 375 and 393 show it touching its line. MenuMe had no CSS change in that pass, and its
+results were not summarized; see "Arrow audit close-out" for the MenuMe tablet overshoot this missed.
 
 Re-check `touch-fix4` after the elbow change: every tablet hi-fi head -1 to +1 px at 640, 728, 800, 1000 and 1279.
 
@@ -3615,6 +3616,29 @@ MenuMe and CF114 (no CSS change in the sweep, checked because the client's CF120
   Design Iteration top border (crop `iter2-root.png`), Checkout box encloses Subtotal and Checkout.
 - Design-intended, kept: the opening squiggle's head reaches into the "While cooking at home" box, as the design
   draws it; listed in the client reply as a keep-unless-objected item.
+
+### Arrow audit close-out, 2026-10-22 late night
+
+Missed, then fixed (`cfc4560`): the MenuMe tablet Design Iteration elbow (640 to 1091) ended 4 to 6 px past the
+Ground Beef dashed line's outer edge, its head on the photo. The pre-fix sweep `gap-all.txt` already said so (`+4` to
+`+6`, head id 2), but nobody read the MenuMe rows: the summary only covered Scotties. Design: Arrow 36 tip x 274.0,
+Rectangle 97 x 272.6 (1.4 px past the edge). The CSS run (61.5 units) equals the design's, but the site's root sits
+right of the design's, so the run is now 58 units with the head at 43 and the line 44.5; the root stays put.
+Re-sweep: `touch-menume-fix` / `gap-menume-fix.txt` (results below once read).
+
+Lesson for any sweep: summarize every page's rows with a sign-aware filter (results print as `+4`, so a
+`/^-?[0-9.]+$/` match skips every overshoot); the Scotties summary was rechecked sign-aware and stands (198 heads,
+outliers as recorded).
+
+Other pages, by construction:
+
+- Index, About, Contact: no connectors. The only arrow is the back-to-top button (CF113).
+- Tales: every arrow is drawn inside a diagram image (age tiers, metrics, ecosystem, character studies, the three
+  small illustrations; desktop, tablet and phone variants), so layout cannot move an arrow relative to its target.
+  No asset SVG has live `<text>` (`rg "<text"` over `assets/*.svg` finds none; the same search finds 16 `<path>` in
+  the age-tier diagram), so no font fallback can push a label into an arrow. Styles have no connector rule in the
+  Tales blocks. All 14 diagram SVGs rendered in Chromium (`f20/tales-diagrams/shoot.mts`, sheets `sheet-a/b/c.png`)
+  and the three ecosystem flowcharts looked at at 2x: every arrowhead stops short of its icon or dashed circle.
 
 ### Tooling limits
 
