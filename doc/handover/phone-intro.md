@@ -3666,9 +3666,10 @@ fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
   equals its paragraph's apart from display inline and, below 640, nowrap (14 widths). Safari 17.5 live
   (`eye/pillars-safari-phone-live/`, 393, 480, 500, 560, 625, 744): clear, black Medium copy, 393 and 744 line
   widths match the earlier shots. The local Safari run failed: nothing forwards 4173 from Linux to m1 (only 4454),
-  so Safari checks run against the published site. Clearance run on the change: unit `xinyanchen-deco-clash-local`,
-  output `deco-clash/pillars-local/` (analyze with `uv run --isolated --with numpy --with scipy --with pillow
-  python -I analyze.py <dir> 6`).
+  so Safari checks run against the published site. Clearance (`deco-clash/pillars-local/`, the committed code,
+  320 to 639; analyze with `uv run --isolated --with numpy --with scipy --with pillow python -I analyze.py <dir>
+  6`): under 6 px before 50 of 320 widths, after 0 of 320; the closest is 14.9 px at 320, against the design's own
+  15 to 19; 625 to 639 went from 0 to 1 px to 19 to 20 px. Not re-run: the iOS 17 Simulator (the user's call).
 
 ### Arrow audit tool
 
