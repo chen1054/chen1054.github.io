@@ -6884,8 +6884,27 @@
         }
         & .subsection:nth-child(3)>.flex-row>.note:first-child::before {
           --scotties-note-icon: url("assets/scotties-lo-fi-ice-boot-corner-icon.svg");
-          inset-inline-end: 6%;
+          /*
+            The designs' skate ink, in each layout's design pixels and measured inside the 5 px outline: phone and
+            tablet 77.5 wide, 45.7 from the box's right edge and rising 33 above its top; desktop 87.6, 15.5 and 37.6
+            (Phone, Tablet and Desktop/Scotties.pdf).
+          */
+          /* Not past the 390 design size: the box grows to 639 but the gap to the heading does not. */
+          --skate-unit: min(var(--lofi-unit), 1rem / 16);
+          inline-size: calc(77.5 * var(--skate-unit));
+          inset-inline-end: calc(40.7 * var(--skate-unit));
+          inset-block-start: calc(-38 * var(--skate-unit));
           aspect-ratio: 88 / 71;
+          @media(width>=40rem) {
+            inline-size: calc(77.5 * var(--u));
+            inset-inline-end: calc(40.7 * var(--u));
+            inset-block-start: calc(-38 * var(--u));
+          }
+          @media(width>=68.25rem) {
+            inline-size: calc(87.6 * var(--u));
+            inset-inline-end: calc(10.5 * var(--u));
+            inset-block-start: calc(-42.6 * var(--u));
+          }
         }
         /* The tablet design leaves about 70 px under the headings over the three wireframe pages, 80 over hi-fi's skater. */
         @media(width>=40rem) and (width<80rem) {
