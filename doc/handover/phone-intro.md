@@ -4215,10 +4215,27 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   item (citations were already right).
 - Lesson: never wait on `pgrep --full <pattern>` when the pattern also appears in the waiting command; the wait
   matched its own shell three times this round and sat until its timeout.
-- Queued: one iOS 17 Simulator pass over the phone fixes since `cbd6b9b` (Tales logo, Key Insights, personas,
-  section titles, Doodle, impact strip), Safari 17.5 for the tablet and desktop ones (titles, Doodle at 744,
-  impact strip at 744 and 1440; MenuMe disc and Scotties dashes at 744 and 1440), then the rest of `triage.md`
-  (M7 copy items; Ages heading icon; Launch Doodle Demo button 169 against 178 px).
+- Tales Doodle demo pill, `e6a5586`: 21 px each side of its 14 px label, as Phone and Tablet Tales draw it (178.5
+  and 180 px wide); Chromium 178.8 at 390 and 744 (was 168.8). Desktop keeps its 250 px minimum.
+- Copy items from the triage, kept as written: "behavior" (the pages use American spelling throughout) and "12 years
+  old" (the design's "under 12-year-old" is ungrammatical); both read as design slips.
+- Safari 17.5 batch (`f20/safari-batch/run.ts`, shots `f20/safari-batch/*.png`): Tales 744 impact strip, Key
+  Insights, Core Solution title and Doodle; Tales 1440 impact strip; MenuMe disc and Scotties dashes at 744 and
+  1440. All render as in Chromium.
+- iOS 17.0.1 Simulator pass (`f20/sim17/sim-inject.ts r1023`, shots `sim17-r1023-NN.png`): impact strip, Core
+  Solution, MenuMe disc, bulb and label, both usability squiggles and the Scotties dashes read right. It found
+  "stories." alone on the last line of the Play bubble (Key Insights); Chromium agreed at 320 to 639 and 1280.
+- Tales Play bubble, `fae2f76`: `threatening&nbsp;stories.` now breaks "engaging, non-" / "threatening stories."
+  (Chromium's own break at 1100). Bubble-fit checker 0 of 72 flagged from 320 to 1920, balanced and greedy.
+- Lesson: agent-browser screenshot paths must be absolute even when the capture script runs from the output's
+  parent folder (`capture.mts` failed with "No such file or directory" on a relative out dir).
+- Running: `f20/impact/orphan-sweep.ts` (every visible text block of two or more lines whose last line is one word;
+  positive control `CONTROL=1` brings back "stories." at 320) on all six pages at 57 widths, logs
+  `orphan-a.log` and `orphan-b.log`. The control run alone found about 20 such body paragraphs on Tales at 320,
+  and the iOS 17 frame of the Tales outcomes shows "resources." alone at 393. Plan: glue the last two words
+  where flagged, re-sweep, then Safari and Simulator.
+- Queued after that: re-shoot the Simulator Thank-you block (`r1024`), the Ages heading icon (low), then
+  `triage.md`'s Scotties items, then #114 and the layer removal.
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
