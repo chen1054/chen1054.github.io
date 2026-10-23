@@ -68,10 +68,18 @@ The stranded-word and cloud-stretch sweeps missed one regression: freed of its b
 copy ran into the scalloped cloud outline at phone, 744, 1100 and 1440 (Safari and Chromium). Seen by eye, then
 measured with `f20/badge/cloud-clash.ts` plus `py/cloud_clash.py` (copy ink against the orange outline). Fix: two
 `shape-outside` floats (`p::before` and an empty `.scotties-challenge-edge` span), each half the cloud wide and 262/350
-of it tall, polygons traced from the 390 render's outline less 4 px (`py/shapes.py`, bolt rows excluded since every
-design lays copy over the bolt); a negative top margin starts them at the cloud's top, so one pair serves every width
-and each range only sets `--cloud-copy-top` (40/350, 80/433, 117/550). The phone design's own copy is just as ragged
-(nine lines, "identity." alone); the site now sets ten lines at 390.
+of it tall; a negative top margin starts them at the cloud's top, so one pair serves every width and each range only
+sets `--cloud-copy-top` (40/350, 80/433, 117/550) and `--cloud-copy-inset`.
+The first polygons (`py/shapes.py`, from the 390 render, 8 px samples joined by straight lines) still let phone copy
+touch the bottom-left curl's tip at 320 to 639 (sweep `f20/badge/clash2`, 40 of 201 widths; the control, one float
+hidden, flagged 21 of 21). The tip sits between two samples. Now traced from the artwork alone
+(`cloud-art-4x.png`, which overlays the rendered cloud with 0 px offset at every width checked) as a staircase of 4 px
+bands, each as far in as the outline reaches within it (`py/staircase.py`).
+Free wrapping also filled the whole cloud width on tablet and desktop (5 long lines in the cloud's top half at 1100
+and 1440, against the design's 7 centred lines): the copy keeps the design's side insets (34/433, 65/550) and a line
+length cap from the designs (26 em tablet, 24.5 em desktop), with the floats reaching back out past the insets.
+Hyphenated compounds in that paragraph are non-breaking (they split as "Out- / of-town", "street- / culture").
+The phone design's own copy is just as ragged (nine lines, "identity." alone).
 Scotties pillars: the phone board moved 10 units down (55 not 45); clearance under 6 px went from 50 of 320 widths
 to 0 (least 12.5 px at 404, `f20/eye/deco-clash/pillars-nobr2-analysis.txt`).
 
