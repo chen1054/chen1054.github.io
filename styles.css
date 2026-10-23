@@ -4074,11 +4074,14 @@
           }
           /*
             The bulb's two base bars (y 3262 to 3280 in Desktop/MenuMe.pdf, drawn in all three designs) add 26/216 of
-            its width below the old artwork; the phone gap to the label gives that back (180 px wide there).
+            its width below the old artwork; the phone gap to the label gives that back. Phone MenuMe draws the bulb
+            75 px wide, so the 216-unit drawing is 145 px there.
           */
           &>.subsection>.small-illustration:has(img[src*="dual-loop"]) {
             @media(width<40rem) {
-              margin-block-end: calc(2rem - 180rem / 16 * 26 / 216);
+              max-inline-size: calc(145rem / 16);
+              /* 27.5 px from the bulb's base bar to the label's glyph top, as drawn. */
+              margin-block-end: calc(35.5rem / 16 - 145rem / 16 * 26 / 216);
               /*
                 The client: "灯泡需要居中" (the bulb needs centring), as Phone/MenuMe.pdf centres it with its squiggle
                 off to the right. The bulb's middle is 46 of the drawing's 216 units in, so the drawing moves 62.
@@ -4086,7 +4089,16 @@
               translate: calc(100% * 62 / 216) 0;
             }
           }
-          /* The phone design breaks the framework heading before "Culinary Framework". */
+          /*
+            The phone design breaks the framework heading before "Culinary Framework" and sets it at 16 px on 32 px
+            lines (fig 2365:68709).
+          */
+          &>.subsection:has(>.small-illustration img[src*="dual-loop"])>h3:nth-of-type(2) {
+            @media(width<40rem) {
+              font-size: calc(16rem / 16);
+              line-height: round(nearest, 2em, 1px);
+            }
+          }
           &>.subsection>h3>span {
             @media(width<40rem) {
               display: block;
