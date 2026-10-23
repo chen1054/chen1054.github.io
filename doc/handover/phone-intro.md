@@ -4194,12 +4194,31 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   (was 84; three title lines still fit, paired paragraphs stay level 320 to 639); desktop stems 34 (were 31).
   Measured with `f20/impact/ring.py` on 2x renders of the design PDFs against 2x Chromium shots: site 56/24/73.5
   against design 56/23.5/73.5 at 390, 54/25/71.5 against 54.5/23.5/72 at 744, 80/34 against 80/34 at 1440.
+- MenuMe phone bulb and label, `28c15ee`: the dual-loop drawing 145 px (bulb 75 px as Phone MenuMe draws it, was
+  93), the label 16 px on 32 px lines (fig 2365:68709, was 18 on 28), 27.5 px under the bulb's base bar. Chromium
+  390 on 2x renders: bulb 75 by 88.5 against 75 by 87, label 147.5 px wide on both, gap 28 against 27.5.
+- MenuMe question disc, `9596951`: all three designs place one 138 by 140 bitmap ("image 102") whose teal circle
+  fills about 86 percent of the box, with a hollow outlined "?". Redrawn by hand (no tracing) in
+  `assets/menume-teal-question-mark-disc.svg`: circle r 43 at (50, 48), the mark a white stroke under a narrower
+  teal one. Chromium 390: circle 49 by 48.75 at 267 to 316 and 10.7 to 59.5 in the quote box, against the design
+  49.6 by 49.8 at 266.5 to 316.1 and 10.6 to 60.4.
+- MenuMe phone usability squiggles, `539ebb2`: both were an old auto-traced squiggle (42.5 by 81 px, about two
+  thirds of the design's ink). Each is now cut from Phone/MenuMe.pdf (`pdftocairo -svg`, two filled paths apiece,
+  `f20/arrows/cut_paths.py`), placed by its ink box: `menume-usability-phone-squiggle-personalization.svg` 50.5 by
+  82.9, 15.75 in and 14.25 under its screen; `...-weekly-specials.svg` 59.6 by 87.5, 131.25 in and 22.9 under.
+  Chromium 390: ink 49 by 81, 1070 px² against the design's 50 by 82, 1096.
+- Scotties brand box dashes, `46c273f`: the fig sets "Rectangle 65" to a 5 px inside stroke with dashPattern
+  [20, 20] and radius 50 (`fig-parse/node-stroke.mts` prints stroke fields). A dashed border cannot set dash
+  length, so `assets/scotties-positioning-note-dashed-outline.svg` (a 10 px stroke on the box edge, half clipped)
+  draws it over a transparent 5 px border. Chromium 390: dashes 20, gaps 20; the box is still 241 by 309 at x 56.
 - Lesson: the review sheets (`sheets-v2`) predate several fixes; measure the live site before acting on a triage
   item (citations were already right).
+- Lesson: never wait on `pgrep --full <pattern>` when the pattern also appears in the waiting command; the wait
+  matched its own shell three times this round and sat until its timeout.
 - Queued: one iOS 17 Simulator pass over the phone fixes since `cbd6b9b` (Tales logo, Key Insights, personas,
   section titles, Doodle, impact strip), Safari 17.5 for the tablet and desktop ones (titles, Doodle at 744,
-  impact strip at 744 and 1440), then the rest of `triage.md` (MenuMe bulb, question circle, arrows; Scotties
-  brand box dash length; M7 copy items; Ages heading icon; Launch Doodle Demo button 169 against 178 px).
+  impact strip at 744 and 1440; MenuMe disc and Scotties dashes at 744 and 1440), then the rest of `triage.md`
+  (M7 copy items; Ages heading icon; Launch Doodle Demo button 169 against 178 px).
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
