@@ -3592,7 +3592,13 @@ control: the same filter flags 107 heads in the pre-fix sweep `touch-all`. A fir
 and flagged nothing; caught by that control. Phone hi-fi orange at 360 to 393 is misread as pointing down (no
 measure); crops at 360, 375 and 393 show it touching its line. MenuMe had no CSS change.
 
-Next: Safari 17.5 (Sonoma VM) at 728, 1280 and 1920 and the iOS 17 simulator at 393 for these commits.
+Re-check `touch-fix4` after the elbow change: every tablet hi-fi head -1 to +1 px at 640, 728, 800, 1000 and 1279.
+
+Safari 17.5 (Sonoma VM, live site after `9a4c4c0`, `eye/safari-gaps2.ts`, 36 window shots in
+`eye/gaps2-safari/`): at 728, 1092, 1280 and 1920 every Design Iteration head meets its dashed line, looked at.
+iOS 17.0.1 Simulator, iPhone 15, 393 (`eye/sim-gaps.ts`, `sim-gaps2.ts`, through `inject/server.mjs` on 4187
+reverse-tunnelled to m1; 10 frames in `eye/sim-gaps/`): all eight phone heads meet their lines, looked at.
+Simulator shut down, inject server and tunnel stopped.
 
 ### Tooling limits
 
