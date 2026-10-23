@@ -3846,6 +3846,23 @@ Other pages, by construction:
 at 560 and 639 it picks callout junctions, not tips. `touch-analyse.py` under-reads the dashed line thickness at
 large scales (t 1 to 2 for 3 to 5 px lines), so depth 2 there can still be inside the line.
 
+## Client batch, 2026-10-23 noon
+
+The user answered the "run the simulator check?" question with the folder
+`/var/home/user/xinyanchen-portfolio/Client screenshots 2026OCT231205/`: three new client shots, so the reply waits
+for them.
+
+### The client's instructions, as written (file name, then translation)
+
+- CF123 "箭头根部刺穿了线框@Aquaticat": desktop MenuMe at 1920 by 946, Personalized Menu Flow: the arrow's root
+  pierces the box outline (purple circle on the right edge of the Design Iteration box, where the gold elbow
+  starts). Addressed to Aquaticat.
+- CF124 "这里多了一个箭头。": iPhone (WeChat), MenuMe phone layout: there is an extra arrow here (purple circle at the
+  right edge of the second My Preferences screen, beside its Allergies and Dislikes dashed box: a gold arrowhead
+  with no line).
+- CF125 "这个sitmap是不是无法居中？": iPhone, Scotties phone sitemap: can't this sitemap be centred? (The tree sits
+  at the left with empty space to its right.)
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
