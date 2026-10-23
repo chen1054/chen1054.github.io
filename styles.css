@@ -1323,33 +1323,6 @@
         }
       }
     }
-    /*
-      Breaks only the desktop design draws (Scotties' hero summary and its challenge cloud, MenuMe's story ending
-      clear of the pot).
-    */
-    & .desktop-break {
-      @media(width<80rem) {
-        display: none;
-      }
-    }
-    /*
-      Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud, and its Excitement pillar
-      ending on "layouts." alone; MenuMe's story ending).
-    */
-    & .phone-break {
-      @media(width>=40rem) {
-        display: none;
-      }
-    }
-    /* Breaks only the tablet design draws (MenuMe's story ending clear of the pot). */
-    & .tablet-break {
-      @media(width<40rem) {
-        display: none;
-      }
-      @media(width>=80rem) {
-        display: none;
-      }
-    }
     & .project-summary {
       flex: 1 1 calc(400rem / 16);
       max-inline-size: calc(540rem / 16);
@@ -2121,8 +2094,8 @@
       font-weight: 700;
       text-align: center;
       /*
-        Phone closing quotes take their Phone-frame boxes (Tales 349 px, MenuMe 335, Scotties 348 plus the frame's
-        two forced breaks), centred over the text column, so they wrap as drawn; the 325 px column wrapped them
+        Phone closing quotes take their Phone-frame boxes (Tales 349 px, MenuMe 335, Scotties 348), centred over
+        the text column, so they wrap close to the drawn lines; the 325 px column wrapped them
         otherwise. Below a 375 px screen the box keeps 13 px gutters instead, so the page never scrolls sideways.
       */
       @media(width<40rem) {
@@ -2186,17 +2159,6 @@
         &>span {
           font-size: calc(15rem / 16 + var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
           font-weight: 700;
-        }
-      }
-      /*
-        Phones keep Excitement's "high-energy visual" on one line, so the phone break before "layouts." never leaves
-        "visual" alone or splits "high-energy" at its hyphen. Everywhere else the wrapper reads as the copy around
-        it, not as the lead phrase the pillar rules give a paragraph's spans; the full path outranks those rules.
-      */
-      &>.content .subsection:has(>.small-illustration+.flex-row>article)>.flex-row>article:nth-child(3)>p>.keep-together {
-        all: unset;
-        @media(width<40rem) {
-          white-space: nowrap;
         }
       }
       /* All three designs set the two Visual Strategy subsection headings in Abril Fatface, not Playfair Bold. */
@@ -2545,7 +2507,11 @@
             position: relative;
             inline-size: calc(146 * var(--pillar-unit));
             max-inline-size: none;
-            margin-block: calc(45 * var(--pillar-unit)) 0;
+            /*
+              10 below the design's 45: its trail starts 51 above the board, and Excitement's last line, which wraps
+              freely, can run as far right as the trail's top chevrons.
+            */
+            margin-block: calc(55 * var(--pillar-unit)) 0;
             margin-inline: calc(102 * var(--pillar-unit)) 0;
             &::after {
               content: "";
@@ -3629,12 +3595,6 @@
             padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
             line-height: round(nearest, 1.5em, 1px);
             font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
-            /* Phone and Tablet Tales break each title after its first word; Desktop Tales sets each on one line. */
-            @media(width>=80rem) {
-              &>br {
-                display: none;
-              }
-            }
             background-color: var(--c);
             color: var(--on);
             text-align: center;
@@ -3888,17 +3848,18 @@
             &>p {
               margin-block: 0;
               /*
-                The copy ends on each design's own last line, which stops short of the pot (forced breaks in the
-                markup); text wrapping freely ran its last line, or the one above it, into the pot at most widths
-                under 1380 px. Until 720 px the tablet's last line is still longer than the room the pot leaves, so
-                the phone's split under it stays too.
+                Phones: the pot sits beside the copy's last line only, so that line alone leaves the pot's room: a
+                blank box as wide as the pot after the last word. When the last word and the box don't fit together,
+                the box takes a line of its own and the pot sits under the copy.
               */
-              & .phone-break {
-                @media(width<45rem) {
-                  display: inline;
+              @media(width<40rem) {
+                &::after {
+                  content: "";
+                  display: inline-block;
+                  inline-size: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16 - 20.1rem / 16);
                 }
               }
-              &::after {
+              &::before {
                 content: "";
                 position: absolute;
                 inset-block-end: calc(-41rem / 16 + 11.5 * var(--phone-tablet-reference-growth) - 39.8 * var(--home-wide-reference-growth));
@@ -3918,16 +3879,12 @@
               background: url("assets/menume-inspiration-orange-squiggle.svg") center / contain no-repeat;
             }
             /*
-              The forced breaks give each design's own last lines only near its width (sweeps 640 to 1920, Chromium
-              by 10 and Safari 17.5 by 5): the tablet's from 740 to 912 px, the desktop's from 1390 (Safari; 1360 in
-              Chromium). Elsewhere they leave a short line ("a daily source of" at 710 to 730 and from 916, "into
-              an" up to 1385), so there the copy wraps freely in a gutter as wide as the pot, and no line reaches it.
+              Wider screens draw the pot beside the copy's last two lines; wrapping freely ran them into it, so the
+              copy wraps in a gutter as wide as the pot. On phones that gutter leaves too narrow a column (the
+              paragraph's own rule keeps only its last line clear there).
             */
-            @media(width>=40rem) and (width<46.25rem), (width>=56rem) and (width<87rem) {
+            @media(width>=40rem) {
               padding-inline-end: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16);
-              &>p :is(.phone-break, .tablet-break, .desktop-break) {
-                display: none;
-              }
             }
             &::after {
               content: "";
@@ -6204,15 +6161,13 @@
         &>.scotties-challenge-bubble {
           /*
             The client: "文字超出了框" (the text runs outside the cloud). Phone Scotties sets the copy in its 346.8 px
-            cloud at 14 px on a 22 px pitch, centred, at most 281.8 px wide, its first line 50.7 px from the cloud's
-            top, broken into the design's nine lines (the phone breaks in the markup). The box is wider than the
-            longest line so font differences never add a wrap.
+            cloud at 14 px on a 22 px pitch, centred, in nine lines that follow the outline; here it wraps freely
+            around the cloud's shaped floats from 40 px under the cloud's top (in a 350 px cloud).
           */
           @media(width<40rem) {
+            --cloud-copy-top: calc(40 * 100cqi / 350);
             margin-block-start: calc(65.7rem / 16);
             &>p {
-              margin-block: 14% auto;
-              margin-inline: 5%;
               font-size: calc(14 * 100cqi / 346.8);
               line-height: round(nearest, 22em / 14, 1px);
               text-wrap: wrap;
@@ -6279,21 +6234,19 @@
           }
           /*
             Tablet/Scotties in the .fig: the cloud 433 by 352 from 96 px in, its top 109 under the heading's middle;
-            the copy in a 364 px box 34 in from each side, its first line box 80 under the cloud's top, broken into
-            the same seven lines as the desktop design. Wrapping the copy freely instead ran an eighth line into
-            the outline in Safari and stretched the cloud to fit.
+            the copy in a 364 px box 34 in from each side, its first line box 80 under the cloud's top. The copy
+            wraps freely in that box and between the outline's two shaped floats.
           */
           &>.scotties-challenge-bubble {
-            justify-content: start;
+            /* The cloud is its own container, so these are in its 433rds. */
+            --cloud-copy-top: calc(80 * 100cqw / 433);
+            /* At most 26 em to a line, the design's 364 px box of 14 px copy, where the cloud grows wider. */
+            --cloud-copy-inset: max(calc(34 * 100cqw / 433), calc((100cqw - 26em) / 2));
             inline-size: calc(433 * var(--u));
             max-inline-size: none;
             margin-block-start: calc(95 * var(--u));
             margin-inline: calc(96 * var(--u)) 0;
             text-wrap: wrap;
-            & .desktop-break {
-              display: inline;
-            }
-            /* The cloud is its own container, so these are in its 433rds. */
             &::before {
               inset-block-start: calc(-9 * 100cqw / 433);
             }
@@ -6302,8 +6255,6 @@
               and ran out of the cloud from 640 to 728); from 744 up the 1em cap applies as before.
             */
             &>p {
-              margin-block: calc(80 * 100cqw / 433) 0;
-              margin-inline: calc(34 * 100cqw / 433);
               font-size: min(1em, calc(14 * 100cqw / 433));
               line-height: round(nearest, 2em, 1px);
             }
@@ -6312,9 +6263,39 @@
       }
       .scotties-challenge-bubble {
         position: relative;
+        /* The copy starts where each range puts it, not centred: the shaped floats inside it must start at the
+          cloud's top. */
+        justify-content: start;
         /* Every Scotties frame in the .fig layers the copy over the bolt; positioned after it, the copy paints on top. */
         &>p {
           position: relative;
+          margin-block: var(--cloud-copy-top) 0;
+          margin-inline: var(--cloud-copy-inset, 0px);
+          /*
+            The copy wraps freely between two floats shaped to the outline's inner edge less 4 px, so no line runs
+            into the scallops at any width (the designs break it into lines that follow the outline). Traced from the
+            cloud artwork alone in 4 px bands of a 350 px cloud, each band as far in as the outline reaches anywhere
+            within it, down to 262 px, where the outline closes; every frame draws the same cloud.
+            The floats start at the cloud's top, above the copy, so one pair of shapes fits every copy offset, and
+            reach out past the copy's side insets to the cloud's edges, so the shapes stay where the outline is.
+          */
+          &::before,
+          &>.scotties-challenge-edge {
+            content: "";
+            inline-size: 50cqi;
+            block-size: calc(262 * 100cqi / 350);
+            margin-block-start: calc(-1 * var(--cloud-copy-top));
+          }
+          &::before {
+            float: inline-start;
+            margin-inline-start: calc(-1 * var(--cloud-copy-inset, 0px));
+            shape-outside: border-box polygon(0 0, 100% 0%, 100% 7.63%, 99.47% 7.63%, 99.47% 9.16%, 95.21% 9.16%, 95.21% 10.69%, 91.85% 10.69%, 91.85% 12.21%, 88.95% 12.21%, 88.95% 13.74%, 86.5% 13.74%, 86.5% 15.27%, 84.23% 15.27%, 84.23% 16.79%, 82.23% 16.79%, 82.23% 18.32%, 80.42% 18.32%, 80.42% 19.85%, 78.69% 19.85%, 78.69% 21.37%, 37.4% 21.37%, 37.4% 22.9%, 36.59% 22.9%, 36.59% 24.43%, 35.77% 24.43%, 35.77% 25.95%, 35.14% 25.95%, 35.14% 27.48%, 34.68% 27.48%, 34.68% 29.01%, 34.23% 29.01%, 34.23% 30.53%, 33.96% 30.53%, 33.96% 32.06%, 33.68% 32.06%, 33.68% 33.59%, 33.5% 33.59%, 33.5% 35.11%, 33.41% 35.11%, 33.41% 36.64%, 16.9% 36.64%, 16.9% 38.17%, 15.17% 38.17%, 15.17% 39.69%, 13.72% 39.69%, 13.72% 41.22%, 12.36% 41.22%, 12.36% 42.75%, 20.71% 42.75%, 20.71% 44.27%, 18.98% 44.27%, 18.98% 45.8%, 16.35% 45.8%, 16.35% 47.33%, 14.26% 47.33%, 14.26% 48.85%, 12.45% 48.85%, 12.45% 50.38%, 11% 50.38%, 11% 51.91%, 9.82% 51.91%, 9.82% 53.44%, 9% 53.44%, 9% 54.96%, 8.37% 54.96%, 8.37% 56.49%, 8% 56.49%, 8% 58.02%, 7.82% 58.02%, 7.82% 59.54%, 8% 59.54%, 8% 61.07%, 8.27% 61.07%, 8.27% 62.6%, 8.73% 62.6%, 8.73% 64.12%, 9.45% 64.12%, 9.45% 65.65%, 10.36% 65.65%, 10.36% 67.18%, 11.45% 67.18%, 11.45% 68.7%, 12.81% 68.7%, 12.81% 70.23%, 14.45% 70.23%, 14.45% 71.76%, 16.53% 71.76%, 16.53% 73.28%, 18.89% 73.28%, 18.89% 74.81%, 43.48% 74.81%, 43.48% 76.34%, 43.76% 76.34%, 43.76% 77.86%, 44.03% 77.86%, 44.03% 79.39%, 44.48% 79.39%, 44.48% 80.92%, 45.21% 80.92%, 45.21% 82.44%, 46.12% 82.44%, 46.12% 83.97%, 47.29% 83.97%, 47.29% 85.5%, 48.75% 85.5%, 48.75% 87.02%, 50.47% 87.02%, 50.47% 88.55%, 52.74% 88.55%, 52.74% 90.08%, 55.55% 90.08%, 55.55% 91.6%, 59.27% 91.6%, 59.27% 93.13%, 91.4% 93.13%, 91.4% 94.66%, 89.31% 94.66%, 89.31% 96.18%, 85.5% 96.18%, 85.5% 97.71%, 99.84% 97.71%, 99.84% 99.24%, 100% 99.24%, 100% 100%, 0 100%);
+          }
+          &>.scotties-challenge-edge {
+            float: inline-end;
+            margin-inline-end: calc(-1 * var(--cloud-copy-inset, 0px));
+            shape-outside: border-box polygon(100% 0, 0% 0%, 0% 7.63%, 41.27% 7.63%, 41.27% 9.16%, 32.2% 9.16%, 32.2% 10.69%, 30.75% 10.69%, 30.75% 12.21%, 43.09% 12.21%, 43.09% 13.74%, 49.71% 13.74%, 49.71% 15.27%, 53.7% 15.27%, 53.7% 16.79%, 56.88% 16.79%, 56.88% 18.32%, 59.33% 18.32%, 59.33% 19.85%, 61.24% 19.85%, 61.24% 21.37%, 62.78% 21.37%, 62.78% 22.9%, 63.96% 22.9%, 63.96% 24.43%, 65.05% 24.43%, 65.05% 25.95%, 65.86% 25.95%, 65.86% 27.48%, 66.41% 27.48%, 66.41% 29.01%, 66.77% 29.01%, 66.77% 30.53%, 66.86% 30.53%, 66.86% 32.06%, 63.96% 32.06%, 63.96% 33.59%, 59.15% 33.59%, 59.15% 35.11%, 65.59% 35.11%, 65.59% 36.64%, 65.32% 36.64%, 65.32% 38.17%, 78.39% 38.17%, 78.39% 39.69%, 81.56% 39.69%, 81.56% 41.22%, 84.1% 41.22%, 84.1% 42.75%, 86.1% 42.75%, 86.1% 44.27%, 87.82% 44.27%, 87.82% 45.8%, 89.18% 45.8%, 89.18% 47.33%, 90.36% 47.33%, 90.36% 48.85%, 91.27% 48.85%, 91.27% 50.38%, 91.82% 50.38%, 91.82% 51.91%, 91.91% 51.91%, 91.91% 53.44%, 91.73% 53.44%, 91.73% 54.96%, 91.27% 54.96%, 91.27% 56.49%, 90.64% 56.49%, 90.64% 58.02%, 89.82% 58.02%, 89.82% 59.54%, 88.91% 59.54%, 88.91% 61.07%, 87.73% 61.07%, 87.73% 62.6%, 86.28% 62.6%, 86.28% 64.12%, 84.37% 64.12%, 84.37% 65.65%, 82.29% 65.65%, 82.29% 67.18%, 80.11% 67.18%, 80.11% 70.23%, 62.6% 70.23%, 62.6% 71.76%, 62.41% 71.76%, 62.41% 73.28%, 62.23% 73.28%, 62.23% 74.81%, 62.05% 74.81%, 62.05% 76.34%, 61.78% 76.34%, 61.78% 77.86%, 61.42% 77.86%, 61.42% 79.39%, 60.96% 79.39%, 60.96% 80.92%, 60.42% 80.92%, 60.42% 82.44%, 59.69% 82.44%, 59.69% 83.97%, 58.79% 83.97%, 58.79% 85.5%, 57.79% 85.5%, 57.79% 87.02%, 56.52% 87.02%, 56.52% 88.55%, 54.97% 88.55%, 54.97% 90.08%, 53.25% 90.08%, 53.25% 91.6%, 51.16% 91.6%, 51.16% 93.13%, 48.53% 93.13%, 48.53% 94.66%, 45.26% 94.66%, 45.26% 96.18%, 41.27% 96.18%, 41.27% 97.71%, 36.46% 97.71%, 36.46% 99.24%, 0% 99.24%, 0% 100%, 100% 100%);
+          }
         }
         &::before {
           content: "";
@@ -6395,7 +6376,7 @@
         The desktop design (Desktop/Scotties.pdf, on its 1086 px column): the cloud 550 by 447 px from 268 px in,
         41 under the heading, which sits 143 px under the About copy; the chevrons 188 px wide from 21 px in, 99
         under the heading's top; the skate 101 px wide, 70 from the column's end, 4 above the cloud's foot. The
-        copy keeps the drawn short-long-short lines (forced breaks), 32 px apart, its first glyph 122 under the
+        copy wraps freely, its lines 32 px apart, its first glyph 122 under the
         cloud's top. Brand Message 122 px under the cloud; its box 449 by 288 px from 318 px in, 105 under the
         heading, its copy on 327 px (it wraps as drawn from 308 to 347 px in Chromium and Safari); the skater 149
         px wide, 98 px before and 72 above the box; the splat 318 px wide from 577 px in, 103 below the box; the
@@ -6421,7 +6402,6 @@
             inline-size: calc(101 * var(--u));
           }
           &>.scotties-challenge-bubble {
-            justify-content: start;
             box-sizing: border-box;
             inline-size: calc(550 * var(--u));
             max-inline-size: none;
@@ -6430,9 +6410,10 @@
             margin-inline: calc(268 * var(--u)) 0;
             text-wrap: wrap;
             /* The cloud is its own container, so these are in its 550ths. */
+            --cloud-copy-top: calc(117 * 100cqw / 550);
+            /* At most 24.5 em to a line: the design's longest line is 387 px of 16 px copy. */
+            --cloud-copy-inset: max(calc(65 * 100cqw / 550), calc((100cqw - 24.5em) / 2));
             &>p {
-              margin-block: calc(117 * 100cqw / 550) 0;
-              margin-inline: calc(65 * 100cqw / 550);
               line-height: round(nearest, 2em, 1px);
             }
           }
