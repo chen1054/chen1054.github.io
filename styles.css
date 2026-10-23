@@ -1792,6 +1792,16 @@
         padding-inline: 0;
         list-style: none;
       }
+      /*
+        Phones: the tree sits centred in the column as one block, keeping its indents (the client, CF125:
+        "这个sitmap是不是无法居中？", can't this sitemap be centred?; the phone designs centre the sitemap too).
+      */
+      @media(width<40rem) {
+        &>ul {
+          inline-size: fit-content;
+          margin-inline: auto;
+        }
+      }
       & span {
         position: relative;
         display: block;
