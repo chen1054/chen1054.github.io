@@ -3520,6 +3520,41 @@ Cause at 728: callouts sit in grid rows beside the screen with a minimum height 
 widths their text overflows that height, the callouts grow, and connectors, which hang from their callouts, drift
 down relative to the screen.
 
+### Progress, 2026-10-22 night
+
+Client files CF120 to CF122 are the three phone shots in the .fig: CF120 and CF122 MenuMe phone (the gold elbow
+root through the Design Iteration box, fixed in `03a434a`), CF121 Scotties phone listing (sage arrowhead through
+the sage box line).
+
+- CF114 `9aa0b8f`: desktop (1280 up) uses `assets/scotties-desktop-core-value-chevron-trails.svg`, built by
+  `fig-222006/build-desktop-trails.py`: the tablet chevron (scale 1.692) on each of the 42 chevrons of the desktop
+  rasters (image 144, 145, 146), overlap 0.85 to 0.94. Before: Belonging trail 58 design px from its text (design
+  21.5). After: 22 at 1280 to 1920; all 42 chevrons within 0.78 design px (`arrow-audit/cf114-blobs.py`; the old
+  build fails it: worst 58.65, 15 unmatched).
+- CF118 `b5e2ad7`: tablet callouts grew past their design height and pushed later callouts and connectors down.
+  Lo-fi insets were 20 px where the design has 14 from the outer edge; below the design width the 14 px text
+  wrapped into more lines. Below 1092 (lo-fi) and 1280 (hi-fi) the callout text is now `min(14px + growth, 14u)`
+  with line height `min(28px + growth, 28u)` rounded, letter spacing restated. Tip sweep 640 to 1091 (16 px
+  steps, `arrow-audit/tip-probe.ts`, `tip-analyse.py`): no callout grows; every tip within 5 design px of the
+  design and in its box (before: orange lo-fi +25 at 728, +128 at 640; hi-fi elbow +38 at 728, +248 at 640).
+- CF119 `084ff80`: hi-fi sage `--y` 125.8 to 63.7, aimed at the sage box centre (585.5 from the screen top);
+  the tablet design ends it on the dark box edge (647.5), the desktop design aims at the centre.
+- CF121 `ae7e206`: phone listing arrows measured against their dashed lines (`arrow-audit/touch-probe.ts`,
+  `touch-analyse.py`, `overshoot.py`: pixel diff with and without the overlay). At 390 before: sage 10 px past the
+  line, orange 5 px short, dark 3 px short; after: -1, 0, +1.
+
+### Found, not yet fixed
+
+The desktop lo-fi listing composition (1092 up) still grows: at 1104 to 1279 the callouts are 14 to 62 px taller
+than their design boxes and the orange elbow's tip ends 33 to 48 design px below its box. Sweep 3
+(`tips-after2`, 640 to 1920) is measuring 1280 up.
+
+### Tooling limits
+
+`touch-crops.py` picks the ink point nearest overlay ink farthest from the centroid; for the phone hi-fi connectors
+at 560 and 639 it picks callout junctions, not tips. `touch-analyse.py` under-reads the dashed line thickness at
+large scales (t 1 to 2 for 3 to 5 px lines), so depth 2 there can still be inside the line.
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
