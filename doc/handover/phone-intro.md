@@ -4023,6 +4023,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   `f20/design-cmp/review-*.md`; each finding gets verified here before it counts.
 - Checked so far: the phone Contact gap above Send is the required hCaptcha box (blank on `127.0.0.1` captures); the
   inputs are 48 px tall against about 36 in the design (open, to triage with the review).
+- Capture faults the review exposed (so the sheets were redone): agent-browser `screenshot --full` swapped Home's
+  `<picture>` corner art at 744 to the phone file (a second logo over "Hello", art cut at 622 px), while a viewport
+  screenshot at the same width is correct; and Home's intro animation needs about 6 s. New capture:
+  `f20/shot/fullpage.ts` (real 4000 px viewports, stitched; fixed elements hidden after the first tile) plus
+  `SETTLE=9000`; output `f20/design-cmp/site-v2/`, `sheets-v2/`. The stress run uses it too (unit
+  `xinyanchen-stress2`). Never use `screenshot --full` for evidence on this site.
+- Triage of reviewer findings: `f20/design-cmp/triage.md` (artefact, agreed, design slip, or open, with evidence).
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
