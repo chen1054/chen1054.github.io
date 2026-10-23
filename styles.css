@@ -1717,9 +1717,15 @@
     & .scotties-positioning-note {
       max-inline-size: calc(451rem / 16);
       margin-inline: auto;
-      border: calc(5rem / 16) dashed var(--color-case-study-subheading);
+      /*
+        Every design strokes this box 5 px inside with 20 px dashes and 20 px gaps (fig "Rectangle 65", dashPattern
+        [20, 20]); a dashed border cannot set its dash length. The outline draws a 10 px stroke on the box's edge,
+        whose outer half the box clips, over the border's 5 px of room.
+      */
+      border: calc(5rem / 16) solid transparent;
       border-radius: calc(50rem / 16);
-      background-color: var(--color-case-study-secondary);
+      background: url("assets/scotties-positioning-note-dashed-outline.svg") border-box, var(--color-case-study-secondary)
+        border-box;
       text-align: center;
       text-wrap: balance;
     }
