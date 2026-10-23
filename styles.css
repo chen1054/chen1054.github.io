@@ -5343,7 +5343,12 @@
                 position: relative;
                 align-items: start;
                 margin-block-start: calc(50 * var(--u));
-                /* The elbow hangs from the screens, leaving the iteration 160 px under its top. */
+                /*
+                  The elbow hangs from the screens, leaving the iteration 160 px under its top. Its root starts 7
+                  units into the drawing, 2 units inside the iteration's outer edge, so it ends in the middle of the
+                  4 px border (the client, CF123: "箭头根部刺穿了线框", the root pierced the box); from x 1 it ran
+                  4 px into the box.
+                */
                 &::after {
                   content: "";
                   position: absolute;
