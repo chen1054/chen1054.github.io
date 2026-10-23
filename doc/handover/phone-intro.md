@@ -3626,6 +3626,19 @@ fresh loads, 26 images each, 0 broken; still treated as a passing fetch failure.
   `/home/user/temp/agent/f20/eye/deco-clash/` (`capture.ts`: as is, paragraphs transparent, plus pseudo-elements
   and images hidden; `analyze.py`: minimum distance from text ink to decoration ink). Smoke test: 625 at 1.0 px,
   390 at 19, 744 at 16, 1440 at 23. Full run 320 to 639 in unit `xinyanchen-deco-clash`, output `pillars/`.
+  Checker pitfalls found on the way: element screenshots came back blank (now full 2400 px viewport shots cropped
+  to the element), the fixed phone header covered the element's top (now scrolled 200 px clear), and relative
+  output paths fail in agent-browser (absolute only).
+- Sweep finished: every band sheet viewed. Tales clean at all four widths; Scotties clean apart from the two
+  pillar trails.
+- `8effe96` Scotties tablet pillars: the same cause as the personas. Below 744 the three pillar columns narrow
+  with `--u` but the copy held 14 px, so Belonging gained a line from 736, Confidence from 704, Excitement had nine
+  at 640 (`eye/pillar-measure.ts`), and the trails met the text: Safari 672 (`eye/pillars-safari/scotties-672.png`)
+  shows the Confidence trail's chevrons against "trusted"; Chromium clearance (`deco-clash/pillars-tablet/`)
+  16 px at 744 but 2 to 14 px from 654 to 692. Fix: below 744 (and below desktop) the copy is
+  `min(shared, 14 * --u)` and the lead `min(shared, 16 * --u)`. Trial (constructed stylesheet): every width 640 to
+  743 keeps the 744 lines (7/2, 7/1, 8/2); 744, 800, 1024, 1279 identical. Live check running (unit
+  `xinyanchen-verify-pillars`, log `eye/verify-pillars-live.log`, clearance after-run `deco-clash/pillars-tablet-after/`).
 
 ### Arrow audit tool
 
