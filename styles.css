@@ -6539,9 +6539,17 @@
             &>span::before {
               block-size: calc(67rem / 16);
             }
+            /*
+              The column scales but the boxes do not: below the design's 1086 px column (windows under about 1410
+              px) Profile's pages (32 + 37 + 99 px past its start) ran up to 10.7 px past the column at 1280, past the
+              chevrons' end and off centre. The third section's column gives up that space, keeping the design's 3 px
+              to the column's end; its widest page still fits.
+            */
             &>ul {
               display: grid;
-              grid-template-columns: calc(31800% / 1086) calc(25700% / 1086) calc(33600% / 1086) auto;
+              grid-template-columns:
+                calc(31800% / 1086) calc(25700% / 1086)
+                min(calc(33600% / 1086), calc(100% - 57500% / 1086 - 171rem / 16)) auto;
               justify-content: start;
               align-self: stretch;
               margin-inline-start: calc(400% / 1086);
