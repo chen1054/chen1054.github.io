@@ -44,8 +44,24 @@ after `78bfba1`). Both checked in the iOS 17 Simulator; Chromium diff 0 at 640 a
 the design's dashes are longer than the browser's `dashed` border (all widths; a reviewer item), and the design
 breaks the lead after "Scotties':" which no width reproduces without a forced break. Pitfall: iOS 17.0 Safari has
 no `text-wrap: balance`, so a balanced layout checked in Chromium can orphan a word there; check wraps greedily too.
-Next: tablet river (Home, Contact), badge "4", tablet corner art, then the reviewer items in
+MenuMe numerals (badge "4" item): every design sets both numeral sets (the three finding numbers and the four
+contribution badges) in Apple LiGothic Medium 50 px, the digits 30.3 ("1") to 30.9 ("4") px tall at phone, tablet
+and desktop alike (`f20/badge/py/measure_digits.py` on the PDF exports, which embed the glyphs as Type 3 outlines).
+The site had Abril Fatface at 25.6 to 35.5 px digit height, its "4" a hairline diagonal. Of 1652 local fonts, Inter
+Medium matched the digit shapes best at equal weight (`f20/badge/py/compare_png.py`, sheet `f20/badge/sheet-png2.png`);
+the site now serves its ten digits (`assets/fonts/Inter-Medium-digits.woff2`, 3.5 KB, OFL with no reserved name,
+from the official v4.1 release) at 42 px, 42 card units on phones.
+Next: tablet river (Home, Contact), tablet corner art, then the reviewer items in
 `/home/user/temp/agent/f20/design-cmp/triage.md`; then rebuild the layer removal on the new HEAD.
+
+Line-break removal, 2026-10-23 (candidate `/home/user/temp/agent/wt-br`): the MenuMe story box's pot gutter at every
+width left phones a 150 px column (26 lines at 320, "budget‑friendly" overflowing into the pot). Phones instead keep
+a blank inline-block as wide as the pot after the last word, so only the last line leaves the pot's room. An empty
+inline with padding does not work: Chromium put its padding on a phantom zero-height line and kept the word under the
+pot. Injected `<style>` probes are blocked by the page's policy; edit the snapshot file instead. The 94 non-breaking
+spaces and hyphens that keep a heading's last word or "e‑commerce" together stay (they prevent stranded words); only
+the story's three-word `budget&#8209;friendly&nbsp;ritual` glue was loosened to a plain hyphen, since it stranded
+"effortless," on an inner line at 322 to 337 px.
 
 Layer removal status, 2026-10-23: unwrapped copy of `c2ae82c` (`/home/user/temp/agent/wt-nolayer`, script
 `f20/nolayer/unwrap.ts`) against `wt-nlbase`: Chromium computed styles at 29 widths (320 to 2560, every breakpoint
