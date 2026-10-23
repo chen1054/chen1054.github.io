@@ -1313,7 +1313,10 @@
         display: none;
       }
     }
-    /* Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud; MenuMe's story ending). */
+    /*
+      Breaks only the phone design draws (Scotties' challenge cloud, shaped to the cloud, and its Excitement pillar
+      ending on "layouts." alone; MenuMe's story ending).
+    */
     & .phone-break {
       @media(width>=40rem) {
         display: none;
@@ -2154,6 +2157,17 @@
         &>span {
           font-size: calc(15rem / 16 + var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth));
           font-weight: 700;
+        }
+      }
+      /*
+        Phones keep Excitement's "high-energy visual" on one line, so the phone break before "layouts." never leaves
+        "visual" alone or splits "high-energy" at its hyphen. Everywhere else the wrapper reads as the copy around
+        it, not as the lead phrase the pillar rules give a paragraph's spans; the full path outranks those rules.
+      */
+      &>.content .subsection:has(>.small-illustration+.flex-row>article)>.flex-row>article:nth-child(3)>p>.keep-together {
+        all: unset;
+        @media(width<40rem) {
+          white-space: nowrap;
         }
       }
       /* All three designs set the two Visual Strategy subsection headings in Abril Fatface, not Playfair Bold. */
