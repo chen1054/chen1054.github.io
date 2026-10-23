@@ -5123,6 +5123,42 @@
                   inline-size: calc(234 * var(--usability-unit));
                   margin-block-start: calc(38 * var(--usability-unit));
                   margin-inline-start: calc(39 * var(--usability-unit));
+                  /*
+                    The elbow: from the hi-fi pair's start edge down into this box, a 3 px line and arrowhead, drawn
+                    on the box so the head can follow the box's height. It starts 180.5 units below the pair's top
+                    (the pair is 292 units wide at 1756 by 1828, then its 2rem margin and this box's 38 units) and
+                    45.5 units left of the box; the tip ends in the middle of the 4 px border. The head sits 126
+                    units below the box's top, as at 390, but no lower than the end of the box's straight edge (24
+                    px corner, half the head): the box's text does not scale with the units, so from about 620 the
+                    box is shorter than drawn and the head fell onto its corner, then below it at 639.
+                  */
+                  &::before {
+                    --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    inset-block-start: calc(
+                      (180.5 - 292 * 1828 / 1756 - 38) * var(--usability-unit) - 2rem - 4rem / 16
+                    );
+                    inset-inline-start: calc(-45.5 * var(--usability-unit) - 4rem / 16);
+                    inline-size: calc(45.5 * var(--usability-unit) + 2rem / 16);
+                    block-size: calc(
+                      (292 * 1828 / 1756 + 38 - 180.5 + 8.7) * var(--usability-unit) + 2rem
+                      + min(126 * var(--usability-unit), 100% - 1rem - 8.7 * var(--usability-unit))
+                    );
+                    background-image:
+                      var(--line), var(--line), var(--line), url("assets/menume-usability-connector-arrowhead-right.svg");
+                    background-position:
+                      0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)),
+                      calc(30.5 * var(--usability-unit) + 2rem / 16) 100%;
+                    background-size:
+                      calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                      calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
+                      calc(32 * var(--usability-unit) + 2rem / 16) calc(3 * var(--usability-unit)),
+                      calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
+                    background-repeat: no-repeat;
+                    pointer-events: none;
+                  }
                 }
                 &>figure:first-child {
                   grid-row: 2;
@@ -5147,34 +5183,6 @@
                   margin-block-start: calc(103 * var(--usability-unit));
                   margin-inline-start: calc(16 * var(--usability-unit));
                 }
-              }
-              /*
-                The elbow: from the hi-fi pair's start edge down into the iteration's, a 3 px line and arrowhead. The
-                tip ends in the middle of the iteration's 4 px border (45.5 units plus 2 px from the elbow's start,
-                which is 45.5 units left of the box): the design's 51.5 put it 2 px inside the box at 390 and 3.5 px
-                at 560, as the units grew and the border did not.
-              */
-              &::before {
-                --line: linear-gradient(var(--color-case-study-secondary) 0 0);
-                content: "";
-                z-index: 1;
-                grid-area: 3 / 1 / 4;
-                place-self: stretch start;
-                inline-size: calc(45.5 * var(--usability-unit) + 2rem / 16);
-                margin-block: calc(283.5 * var(--usability-unit)) calc(-172.7 * var(--usability-unit));
-                margin-inline-start: calc(-6.5 * var(--usability-unit));
-                background-image:
-                  var(--line), var(--line), var(--line), url("assets/menume-usability-connector-arrowhead-right.svg");
-                background-position:
-                  0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)),
-                  calc(30.5 * var(--usability-unit) + 2rem / 16) 100%;
-                background-size:
-                  calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
-                  calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
-                  calc(32 * var(--usability-unit) + 2rem / 16) calc(3 * var(--usability-unit)),
-                  calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
-                background-repeat: no-repeat;
-                pointer-events: none;
               }
             }
             /*
