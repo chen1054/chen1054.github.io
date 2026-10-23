@@ -6918,7 +6918,12 @@
                 position: absolute;
                 inset-block-start: 100%;
                 inset-inline-start: calc(112.4 * var(--lofi-unit));
-                block-size: calc(58 * var(--lofi-unit));
+                /*
+                  Ends in the navigation box's top line, as the design draws it 3 px in (4 px short at 58). It hangs
+                  from inside the 4 px border, which does not scale, so the border is added on its own: a scaled 63
+                  overshot the line by 4 to 6 px from 520 px.
+                */
+                block-size: calc(59 * var(--lofi-unit) + 4rem / 16);
                 background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6943,8 +6948,11 @@
                 position: absolute;
                 inset-block-start: 100%;
                 inset-inline-start: calc(44.3 * var(--lofi-unit));
-                /* Ends in the dashed line, as the design draws it (measured 3 px short at 63). */
-                block-size: calc(67 * var(--lofi-unit));
+                /*
+                  Ends in the dashed line, as the design draws it (measured 3 px short at 63), plus the callout's 4 px
+                  border it hangs inside, unscaled (a scaled 67 went 6 px past the line at 639).
+                */
+                block-size: calc(63 * var(--lofi-unit) + 4rem / 16);
                 background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
@@ -6968,8 +6976,11 @@
                 position: absolute;
                 inset-block-end: 100%;
                 inset-inline-start: calc(36.2 * var(--lofi-unit));
-                /* Ends at the dashed line, as the design draws it (measured 5 px short at 285). */
-                block-size: calc(291 * var(--lofi-unit));
+                /*
+                  Ends at the dashed line, as the design draws it (measured 5 px short at 285), plus the callout's 4 px
+                  border it rises inside, unscaled (a scaled 291 went 5 px past the line at 639).
+                */
+                block-size: calc(287 * var(--lofi-unit) + 4rem / 16);
                 background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
                 background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
               }
