@@ -3994,6 +3994,35 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   broken joins exactly as in the client's photos (`f20/oneshape/sim/bubble-4189-*.png`).
 - Known limit: the stretched drawing thickens the horizontal strokes with the box's height ratio. Measured 4 px
   top and sides at ×1 and ×1.12, 5 px top vs 4 px sides at ×1.25 (`f20/oneshape/thick-local.txt`).
+- Safari 17.5 live after deploy (`eye/safari-bubble/`): one outline at 393, 744, 1440. The Linux-side WebDriver
+  tunnel had died with the network drop; restarted as unit `xyc-sonoma-tunnel` (`ssh -N -L 4454:127.0.0.1:4454 m1`).
+
+### Step 4: iOS 17 Simulator on today's phone fixes
+
+`f20/oneshape/sim-fixes.ts`, iPhone 15 (393), working tree as pushed, shots `f20/oneshape/sim/fix-*.png`:
+- CF124: the second preference screen has no stray arrowhead.
+- `a28d9c1`/`8c72034`: the phone elbow runs from the hi-fi screens to the iteration box's left edge; head on the
+  straight edge, not past it.
+- CF125: the Scotties sitemap tree is centred (gaps 205 and 210 device px of 1179).
+- `dcd0c69`: the Excitement pillar ends on "layouts." alone; the chevron trail starts clear of it.
+
+### Step 1 and 3: seam inventory and larger-text stress run (in progress)
+
+- Inventory (Sonnet subagent, code reading only): `f20/seams/inventory.md`, 39 pieced objects, 13 high risk
+  (TA1, TA2, ME2, ME4, ME5, ME7, ME8, ME9, SC1, SC3, SC6, SC7, SC8). ME4 is the bubble, fixed.
+- Stress run: `f20/stress/capture.ts` sets every element in `main` to its computed font size × 1, 1.12, 1.25 (a
+  reader's larger font, the CF1001 cause), at 15 widths 320 to 1920, and crops each high-risk object plus ME3, ME6,
+  SC5, SC11 (unit `xinyanchen-stress`, output `f20/stress/run/`). `grid.py` makes per-object sheets (rows widths,
+  columns factors) for review by eye. Next: review every grid; redraw as one shape or tie to one box what breaks.
+
+### Step 5: design against site at 390 and 744 (in progress)
+
+- `f20/design-cmp/capture.ts` (full-page Chromium shots at 2x plus heading positions) and `sheets.py` (cut design
+  export and site at matched headings, side by side): 231 sheets in `f20/design-cmp/sheets/`, section heights in
+  `sheets.log`. Four Sonnet reviewers are listing every visible difference per page group into
+  `f20/design-cmp/review-*.md`; each finding gets verified here before it counts.
+- Checked so far: the phone Contact gap above Send is the required hCaptcha box (blank on `127.0.0.1` captures); the
+  inputs are 48 px tall against about 36 in the design (open, to triage with the review).
 
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
