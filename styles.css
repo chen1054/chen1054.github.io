@@ -3585,7 +3585,10 @@
       & .impact-cards {
         --tip: calc(24rem / 16 + 10 * var(--home-wide-reference-growth));
         --stem: calc(24rem / 16 + 11 * var(--home-wide-reference-growth));
-        --ring: calc(61rem / 16 + 25 * var(--home-wide-reference-growth));
+        /* The designs' rings measure 56, 54.5 and 80 px across at 390, 744 and 1440. */
+        --ring: calc(
+          56rem / 16 - 1.5 * var(--phone-tablet-reference-growth) + 25.5 * var(--home-wide-reference-growth)
+        );
         --mid: calc((100% - var(--tip)) / 2);
         /*
           One strip of overlapping chevrons, each earlier one drawn over the next, as wide as the designs draw it (350,
@@ -3699,9 +3702,9 @@
             justify-content: center;
             box-sizing: border-box;
             min-block-size: calc(var(--stem) + 72rem / 16);
-            /* Two cards per row: room for the longest title's three lines keeps both paragraphs on one line. */
-            @media(22.5rem<=width<40rem) {
-              min-block-size: calc(var(--stem) + 84rem / 16);
+            /* Phone Tales draws the band 73.5 px tall, which still holds a title's three lines. */
+            @media(width<40rem) {
+              min-block-size: calc(var(--stem) + 74rem / 16);
             }
             margin-block-start: 0;
             padding-block-start: var(--stem);
@@ -3727,7 +3730,7 @@
         }
         /*
           Desktop Tales overlaps its four 276.5 px chevrons by 32.5, 39.5 and 54.5 px, centres the rings 120, 123,
-          138 and 145 px into them on 31 px stems over 69 px title bands, centres the titles 121, 140, 142 and 155 px
+          138 and 145 px into them on 34 px stems over 69 px title bands, centres the titles 121, 140, 142 and 155 px
           in and 5 px below the band's middle, and starts the copy 0, 27, 36 and 59 px in on 244, 210, 218 and 217.5
           px measures at line height 2 (inside the windows where each wraps as drawn: 226.5 to 263, 199 to 222, 209.5
           to 226.5 and 215.5 to 227 px), its first glyph 29 px under the band; the strip 2 px right of centre.
@@ -3736,7 +3739,7 @@
         @media(width>=80rem) {
           --u980: calc(var(--strip) / 980);
           --chevron: calc(276.5 * var(--u980));
-          --stem: calc(31 * var(--u980));
+          --stem: calc(34 * var(--u980));
           margin-inline-start: calc((100% - var(--strip)) / 2 + 2 * var(--u980));
           &>* {
             &>h4 {
