@@ -2402,6 +2402,23 @@
                   display: block;
                 }
               }
+              /*
+                Below the 744 design width the copy shrinks with its column, so it keeps the 744 lines; at 14 px it
+                gained a line from 704 down and the trails ran into it (in Safari at 672 the Confidence trail met
+                "trusted"). From 744 up the shared sizes apply as before; desktop sets its own lines.
+              */
+              @media(width<80rem) {
+                &>p {
+                  font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
+                  line-height: round(nearest, 2em, 1px);
+                  &>span {
+                    font-size: min(
+                      calc(15rem / 16 + var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth)),
+                      calc(16 * var(--u))
+                    );
+                  }
+                }
+              }
             }
             /* Tree order is Confidence, Belonging, Excitement. */
             &>article:nth-child(1) {
