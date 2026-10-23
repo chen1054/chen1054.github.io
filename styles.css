@@ -5148,24 +5148,30 @@
                   margin-inline-start: calc(16 * var(--usability-unit));
                 }
               }
-              /* The elbow: from the hi-fi pair's start edge down into the iteration's, a 3 px line and arrowhead. */
+              /*
+                The elbow: from the hi-fi pair's start edge down into the iteration's, a 3 px line and arrowhead. The
+                tip ends in the middle of the iteration's 4 px border (45.5 units plus 2 px from the elbow's start,
+                which is 45.5 units left of the box): the design's 51.5 put it 2 px inside the box at 390 and 3.5 px
+                at 560, as the units grew and the border did not.
+              */
               &::before {
                 --line: linear-gradient(var(--color-case-study-secondary) 0 0);
                 content: "";
                 z-index: 1;
                 grid-area: 3 / 1 / 4;
                 place-self: stretch start;
-                inline-size: calc(51.5 * var(--usability-unit));
+                inline-size: calc(45.5 * var(--usability-unit) + 2rem / 16);
                 margin-block: calc(283.5 * var(--usability-unit)) calc(-172.7 * var(--usability-unit));
                 margin-inline-start: calc(-6.5 * var(--usability-unit));
                 background-image:
                   var(--line), var(--line), var(--line), url("assets/menume-usability-connector-arrowhead-right.svg");
                 background-position:
-                  0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)), calc(36.5 * var(--usability-unit)) 100%;
+                  0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)),
+                  calc(30.5 * var(--usability-unit) + 2rem / 16) 100%;
                 background-size:
                   calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
                   calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
-                  calc(38 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                  calc(32 * var(--usability-unit) + 2rem / 16) calc(3 * var(--usability-unit)),
                   calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
                 background-repeat: no-repeat;
                 pointer-events: none;
