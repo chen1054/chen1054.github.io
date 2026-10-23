@@ -4034,6 +4034,18 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     desktop design draws.
   - Not defects: the ME4 bubble tail corner (the design's own tail is a separate stroke poking in); the ME5 photo
     frames' doubled outline (baked into the client's photo files).
+- Landed `36e40e7` (merge carrying the fix): the desktop Weekly Specials arrow from Design Iteration to the Ground
+  Beef card (rule from `a16d9ff`) never rendered; `4157a03`'s second-row `content: none` outweighed it. Tip on the
+  dashed line at 1280, 1440, 1920 (Chromium, `f20/stress/probe/me8-head-*.png`). Safari check pending. Still no
+  connector between 1092 and 1279 (queued).
+- Verified design deviations awaiting the user's choice (detail in `f20/design-cmp/triage.md`): Tales phone citation
+  boxes (inner padding about 27 CSS px against 12, extra bullet gaps); Scotties phone brand box (site about 350 by
+  245 against the design's 241 by 307, splat hidden); tablet river (desktop drawing scaled, lines half as thick);
+  MenuMe badge "4" (Abril's hairline 4 against the design's Apple LiGothic); tablet corner art 14 to 17 px taller.
+- Queued inferable fixes: ME2 pot over "ritual" at 320; ME2/ME3 "Culinary Framework" under the boxes at tablet
+  x1.12; ME5 scribble on "Mom" at 320; MenuMe 1279 x1.25 recapture; Scotties stress grids (unit
+  `xinyanchen-stress3`). Lesson: a reviewer subagent overwrote `f20/stress/crop.py`; briefs now say to create or
+  change no file outside its crops directory.
 - Fix direction under test (`4193` in `sim-tsa.ts`): shapes whose copy must fit the drawing opt out of the reader's
   enlargement with `-webkit-text-size-adjust:100%`, versus outlines that follow a taller box. A user decision, since
   it trades the reader's larger text against the drawn fit.
