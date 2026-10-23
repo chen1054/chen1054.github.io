@@ -4014,6 +4014,29 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   reader's larger font, the CF1001 cause), at 15 widths 320 to 1920, and crops each high-risk object plus ME3, ME6,
   SC5, SC11 (unit `xinyanchen-stress`, output `f20/stress/run/`). `grid.py` makes per-object sheets (rows widths,
   columns factors) for review by eye. Next: review every grid; redraw as one shape or tie to one box what breaks.
+- How the client's text got larger (fetched, not recalled): WeChat on iOS writes a percentage
+  `-webkit-text-size-adjust` on `body` when the reader raises WeChat's font size; only rendered text grows, not em or
+  rem widths and padding (juejin.cn/post/7127309064756789261; Wikimedia T222752 records the same body style). In the
+  iOS 17 Simulator, `body{-webkit-text-size-adjust:112%}` on the old two-piece bubble (`4191`) detaches the tail
+  exactly as in CF1001/CF1002 (`f20/oneshape/sim/tsa-112-4191-findings.png`). So the client most likely reads with
+  WeChat's text enlarged, and every drawn shape holding text must survive it. Rig: `f20/oneshape/sim-tsa.ts <pct>`.
+- Rig pitfall: port 4190 is on the Fetch "bad ports" list (ManageSieve); Safari answers "couldn't connect" although
+  curl on m1 gets 200. Use 4192 and up.
+- Findings so far, each checked on a crop (detail and paths: `f20/stress/findings.md`):
+  - TA2 Tales Challenge notepad: from x1.12 at every phone width, and at x1.25 on desktop, the purple outline keeps
+    its x1 size centred in the taller box, so the copy runs through the rings and out the bottom. Probe: the box grows
+    238 to 271 to 333 px at 390 while the drawing does not (`f20/stress/probe/box.log`).
+  - TA1 Tales Key Insights bubbles: the box keeps its height (307 px at 390 at every factor); the copy runs past the
+    round outline at x1.25 on phones and from x1.12 at 640 to 744 and on desktop.
+  - ME2 pot icon on "ritual" at 320 (even at x1); ME2/ME3 "Culinary Framework" label under both boxes at tablet
+    x1.12; ME5 persona scribble through text at 320 (x1) and at larger text to 744.
+  - ME8 desktop (1279 up): no gold arrow from the Design Iteration box to the Ground Beef card, which the latest
+    desktop design draws.
+  - Not defects: the ME4 bubble tail corner (the design's own tail is a separate stroke poking in); the ME5 photo
+    frames' doubled outline (baked into the client's photo files).
+- Fix direction under test (`4193` in `sim-tsa.ts`): shapes whose copy must fit the drawing opt out of the reader's
+  enlargement with `-webkit-text-size-adjust:100%`, versus outlines that follow a taller box. A user decision, since
+  it trades the reader's larger text against the drawn fit.
 
 ### Step 5: design against site at 390 and 744 (in progress)
 
