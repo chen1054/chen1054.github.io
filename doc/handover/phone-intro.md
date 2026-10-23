@@ -3549,9 +3549,16 @@ Next, queued:
 
 - choose the smallest Play end inset that passes at 320 to 639 (`try-ends.mts`);
 - apply it to the Play rule only, as one commit;
-- re-run the checker, then Safari 17.5 and the iOS Simulator.
+- re-run the checker, then Safari 17.5 and the iOS Simulator;
+- re-run the full baseline sweep (`capture.mts` with no width list, into `eye/bubble-fit/live/`), one at a time.
 
-iPad 10th capture running (unit `xinyanchen-eye-sim-ipad-r2`).
+The first inset trial and the baseline sweep both died at 01:05 on 2026-10-23 with agent-browser's
+`Failed to read: Resource temporarily unavailable (os error 11)`. No kernel fork rejections in that window, so it is
+the 30 s read timeout under host load (Monochromatic `doc/troubleshooting/agent-browser-eagain.md`), not a task
+ceiling. `capture.mts` now redoes a failed width from scratch, up to four tries. The trial restarted at 02:11 as unit
+`xinyanchen-bubble-fit-ends2` (log `eye/bubble-fit/ends2.log`), alone, at about 4 s per width.
+
+iPad 10th capture finished (unit `xinyanchen-eye-sim-ipad-r2` inactive); its sheets are not yet built or viewed.
 
 ### Arrow audit tool
 
