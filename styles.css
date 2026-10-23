@@ -492,6 +492,16 @@
           aspect-ratio: 1440 / 495;
         }
       }
+      /*
+        Below the desktop layout the tablet frame's own river (744 by 262, from the gold band's top to the ribbon's
+        foot): its three stripes stay inside the gold band at the left, where the desktop drawing scaled down let one
+        run out across the white.
+      */
+      @media(40rem<=width<80rem) {
+        &>picture>img {
+          aspect-ratio: 744 / 262;
+        }
+      }
     }
     /*
       Each step appears 1 s after the previous one (client, 2026-10-18); the flower 0.3 s after the river finishes
