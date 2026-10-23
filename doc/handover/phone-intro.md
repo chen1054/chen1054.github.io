@@ -32,7 +32,11 @@ Standing directives from the user, 2026-10-23:
 - "Do not use explicit line breaks." New copy wrapping comes from widths and `text-wrap`, not `<br>` (said when
   phone breaks were added to the Scotties brand box; they were removed before commit). The user chose to replace
   all existing ones too (27 `phone-`/`tablet-`/`desktop-break` elements on Scotties, MenuMe and Tales, plus 4 plain
-  `<br>` on Tales), each by a width-based wrap checked against the design and in Safari.
+  `<br>` on Tales). The user, on matching the design's lines: "You don't have to keep them EXACTLY the same. Figma
+  is an inspiration, not an iron board." So the criterion is: no copy into artwork (pot, pillars, cloud outline),
+  no stranded single word, natural wrapping otherwise.
+- Do not ask to continue through the queue: a checkpoint question got "You didn't have to burn this question."
+  End-of-turn questions are only for decisions the user alone can make.
 - Fix order (the user, 2026-10-23): commit verified design fixes first, then rebuild the layer removal on top.
 
 Verified design fixes landed 2026-10-23: `78bfba1` Tales phone story notes; the Scotties phone brand box (commit
