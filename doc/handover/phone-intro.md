@@ -3930,6 +3930,48 @@ for them.
 - `#106` sweep: viewed every raster next to a CSS connector (MenuMe personalization lo-fi and hi-fi, the six
   weekly-specials screens, Scotties lo-fi homepage and listing, Scotties hi-fi homepage): no other baked arrow pieces.
 
+## Client batch, 2026-10-23 12:54, and the systematic pass
+
+### The client's instructions, as written
+
+Folder `../Client screenshots 2026OCT231254/` (iPhone, WeChat in-app browser, MenuMe):
+- "CF1001 Why isn't this one shape?": finding bubbles 1 and 2; each outline visibly breaks where the tail joins.
+- "CF1002 Why isn't this one shape?": bubbles 2 and 3, the same.
+
+### The user, 2026-10-23
+
+- "all this back and forth is harming my reputation. Despite you checking so much, we're still not looking hard
+  enough ... There have been 7 rounds already." Asked whether the advisor would know more.
+- Chose "Systematic pass first": hold the reply; the reply goes out once, after the pass.
+- Is exporting the latest Figma file's phone and tablet frames (2x PNG or PDF) now; folder path to come. "Meanwhile
+  you can still work."
+
+### Diagnosis (advisor, accepted by the user's choice)
+
+- Each round built a precise checker for the previous complaint's category; the client's next find is a new
+  category. Most categories share one cause: a shape the designer drew as one stroke is assembled on the site
+  from two or three pieces (image dashes plus CSS dashes, line plus separate head, outline mask plus tail mask), and
+  every seam shows to the designer.
+- The design-against-site pixel comparison only ever ran at the desktop design (1440); phone and tablet were
+  walked by eye without the design frame beside the site. Five of the last six client finds were phone.
+- The iOS 17 Simulator was asked about instead of run; phone checks go there without asking.
+
+### Plan (queue)
+
+1. Seam inventory from the CSS: every pseudo-element with `mask:` or an SVG background whose host or sibling also
+   draws; per page and layout, decide one SVG path from the fig or keep with a reason. Output
+   `f20/seams/inventory.md`.
+2. The MenuMe finding bubbles: read how the fig draws them; one path, one mask. Known defects in the current two
+   masks: the tail's left end sits about 18 drawing units above the outline's bottom line and 6 units in from its
+   end; the right join meets exactly in the CSS math, yet the client's iPhone shows a gap, so reproduce it in the
+   simulator before reasoning further.
+3. A one-shape checker: connected components of each outline's colour inside its box (number disc hidden) must be
+   one, at every width; then run it over every outline the site draws (clouds, Tales bubbles, elbows, boxes).
+4. iOS 17 Simulator on m1 (one at a time, output on `/Volumes/MacData`) for every phone fix of the day and the pass.
+5. Design-against-site diff at 390 and 744 for all four pages, from the user's exports, side-by-side sheets plus
+   the deterministic ink diff.
+6. Then the reply, once.
+
 [9d97db6-correction]: https://github.com/chen1054/chen1054.github.io/commit/9d97db6ee73b1491efca31a274756919e2a5610d#commitcomment-206148699
 [411935c-correction]: https://github.com/chen1054/chen1054.github.io/commit/411935c76035c5c0a8fac95f514e7fbcbc0492a4#commitcomment-205881788
 [d7fbea3-correction]: https://github.com/chen1054/chen1054.github.io/commit/d7fbea3063932748c75c99c570d98ae6cdde2c24#commitcomment-205881791
