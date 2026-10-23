@@ -1654,6 +1654,14 @@
     }
     & .play-speech-bubble {
       aspect-ratio: 411 / 392;
+      /*
+        Phone: the client's fill narrows toward the tail, so at the shared 21% end inset "stories." ran off the yellow
+        (320 to 424 and 584 to 639 px). 23% keeps every line on the fill, balanced or plainly wrapped, and plain
+        wrapping then ends on "stories." alone, as the phone design does.
+      */
+      &>* {
+        margin-inline: 13% 23%;
+      }
       &::before {
         inset-block-start: calc(-15.38 / 392 * 100%);
         inset-inline-start: calc(7.14 / 411 * 100%);
