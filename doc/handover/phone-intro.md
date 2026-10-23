@@ -3591,7 +3591,15 @@ after2 744`: 436 rows identical, 2 changed, Trust at 1280: the tablet rule also 
 
 Final check after `e5e1c7d` (`after3.txt`, live from 06:50 UTC): Tales 0 crossings at every width from 320 to
 2560, the only flags the 82 phone Scotties bolt overlaps; `compare-runs.ts after after3 744`: 438 identical, 0
-changed. The by-eye re-check is complete; nothing is queued from it.
+changed. Safari 17.5 on the final CSS (`eye/band-safari-final/`): Trust at 704 as before, at 1280 back to its
+pre-`f61ff83` title width (144 px), every line on the fill. Corrective comment posted on `f61ff83` (its message
+says "below 744"; it also re-wrapped Trust at 1280). Reply draft updated with these fixes (backup
+`/home/user/temp/agent/f20/reply-draft.before-bubbles.md`); not sent.
+
+Coverage gap, open: the by-eye passes covered Safari 744 to 1920, iPhone 393 and iPad 820. The band from 640 to
+743 was never looked at by eye on any page; the checker that found these defects covers only the three bubbles.
+The client resizes a Mac Safari window ("Window made narrower"), so that band is reachable. Proposed next: a
+Safari 17.5 by-eye sweep of all six pages from 640 to 743, pending the user's choice.
 
 ### Arrow audit tool
 
