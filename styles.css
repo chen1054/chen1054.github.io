@@ -171,7 +171,8 @@
       display: block;
       inline-size: 100%;
       block-size: auto;
-      @media(width>=40rem) {
+      /* Below the desktop layout the tablet frame's own corner (744 by 134) keeps its shape as the width grows. */
+      @media(width>=80rem) {
         block-size: calc(154rem / 16 + 140 * var(--home-wide-reference-growth));
       }
     }
