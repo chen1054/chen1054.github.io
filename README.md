@@ -32,7 +32,8 @@ Their boxes align with the outer column edges while text remains left-aligned.
 Explicit phone aspect ratios preserve the original frames when resizing back to phone widths.
 Typography, spacing, and illustrations resize fluidly between the Tablet and Desktop reference widths.
 The content and navigation are shared, and responsive behavior adds no JavaScript.
-The original Abril Fatface and Playfair Display fonts are served locally;
+The original Abril Fatface and Playfair Display fonts are served locally,
+as are the ten digits of Inter Medium for MenuMe's numbered discs;
 their licenses accompany the font files in `assets/fonts/`.
 Home, About, and the case studies load no third-party resources.
 Contact loads the approved Web3Forms and hCaptcha scripts and submits a native HTML POST form.
