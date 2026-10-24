@@ -3699,6 +3699,18 @@ h1 {
       box-sizing: border-box;
       inline-size: var(--strip);
       margin-inline: calc((100% - var(--strip)) / 2);
+      /*
+        Below 390 and from 640 to 744 the strip narrows with the screen while its words kept their size, so glued
+        line ends ran past their columns: "Community Reach" under the first chevron's tip at 320, "institutional
+        resources." to within a few px of the screen edge (Safari 17.5). There the titles and copy narrow with the
+        strip, per design px of its 350 (phone) or 671 (tablet), so each card keeps its 390 or 744 line breaks.
+      */
+      @media(width<40rem) {
+        --card-shrink: min(0rem, (100vw - 390rem / 16) / 350);
+      }
+      @media(40rem<=width<46.5rem) {
+        --card-shrink: calc((100vw - 744rem / 16) * 321 / 354 / 671);
+      }
       @media(width>=40rem) {
         --chevron: calc(var(--strip) / 3.55);
         --overlap: calc(var(--strip) * 0.15 / 3.55);
@@ -3713,6 +3725,7 @@ h1 {
         /* The designs set this copy at line height 1.5, against the page's 2. */
         &>p {
           padding-inline: calc(15rem / 16 - 15 * var(--phone-tablet-reference-growth)) var(--tip);
+          font-size: calc(1em + 16 * var(--card-shrink, 0rem));
           line-height: round(nearest, 1.5em, 1px);
         }
         /* Tablet Tales wraps every card's copy at about 148 px, the first card's too. */
@@ -3799,7 +3812,7 @@ h1 {
           /* Clear of the earlier chevron's tip over this one, and of this one's tip; Figma's line height 1.5. */
           padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
           line-height: round(nearest, 1.5em, 1px);
-          font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth));
+          font-size: calc(14rem / 16 + 2 * var(--home-wide-reference-growth) + 14 * var(--card-shrink, 0rem));
           background-color: var(--c);
           color: var(--on);
           text-align: center;
