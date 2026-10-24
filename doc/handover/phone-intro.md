@@ -4425,6 +4425,20 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     queued as unit `xinyanchen-safari-variants5` (`f20/sweep24/variants5.jsonl`, score with
     `node variants-score.ts variants5.jsonl`). Tales "adolescent" and "progressive" need rescoring after the card
     scaling, which changed their line breaks below 390.
+  - Results (2026-10-24 evening): tablet banners after `331a80c` touch the notch in proportion to the 744 design
+    from 640 to 768 (103 to 149 px, was 339 at 640); the 640 "Research" flag is a capture artifact, clear by eye.
+    Tales cards after `d501ff0`: 0 of 32 titles over another shape; overruns left: "institutional resources." 5 to
+    7.6 px into the card's empty tip padding at every phone width (as at 390, fine by eye). MenuMe notes fixed in
+    `179e474`: "real-&#8288;world" without end glue (never splits; last-line "restrictions." at 414, 639, 820,
+    1180, 1280, 1366) and "and&nbsp;ambiguous" (lone word only at 360 and 375). Tales "adolescent" and
+    "progressive" left: below 390 the cards now wrap as at 390, where the narrow columns hold one-word lines
+    throughout ("steadily", "support"), which no single glue removes.
+  - Chromium overlap run complete (162 page-widths, 320 to 2560): one new hit, MenuMe My Core Contributions at
+    1366, the orange "1" badge over "presets." at the end of card 1. Safari check of those cards at 12 widths
+    queued after the tiles (unit `xinyanchen-safari-contrib`, `f20/occlude/contrib/`; `banner-foreign.py` now takes
+    the commonest colour as the band for text without a background).
+  - Fresh Safari tiles after today's fixes, overlay scrollbars: unit `xinyanchen-safari-sweep25`,
+    `f20/sweep25/safari/<width>/<page>/`, widths 390, 320, 744, 639, 1092, 1280, 1440.
   - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
     `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
