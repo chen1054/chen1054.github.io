@@ -4386,6 +4386,29 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `defaults write -g AppleShowScrollBars -string WhenScrolling` in the guest (revert:
     `defaults delete -g AppleShowScrollBars`), then `killall Safari` and the safaridriver kickstart. Checked:
     `innerWidth` equals `clientWidth` at 320 and 390. Since then pass layout widths directly (no +15).
+  - Sideways scrolling, rerun with overlay scrollbars (`f20/occlude/overflow-safari2.log`): none on any page at
+    16 widths 320 to 1920. The earlier Safari overflow was the scrollbar artifact; the classic-scrollbar run is the
+    positive control.
+  - Text under decoration, fixed: `7b18ea8` (Home project copy above the phone side waves), `7415285` (footer text
+    above the footer wave). The overlap detector finds 0 at 320, 340, 360 on all six pages after; the full run found
+    nothing else from 360 to 768 (beyond still running at the time).
+  - Glue, fixed from Safari variant scores (`f20/sweep24/variants-score.ts` over `variants2.jsonl`,
+    `variants3.jsonl`; 26 widths): `89526ba` MenuMe "Flow:&nbsp;Expanding" and "and&nbsp;lightweight", 0 one-word
+    lines at any width. Still open: real-world, ambiguous, Tales cards (`variants4.jsonl` queued).
+  - New class, title text on a white notch or under a neighbouring shape. Detector: `f20/badge/safari-banners.ts`
+    (Safari screenshots plus line boxes) and `f20/occlude/banner-foreign.py` (pixels in a line's middle that are
+    neither text, band, nor a blend). Scotties "Wireframing Execution" (glued into one line against the phone
+    design's two) ran onto the notch at 320 to 540, 390 included; below 390 the titles kept their size while the
+    chevrons kept 26%. Fixed in `59fea15` (glue removed; band type, line and padding shrink with the screen below
+    390). Kept: "Key Learnings & Strategic Reflection" touches the notch at 390 and 744 exactly as the phone and
+    tablet designs draw it. Tales "Scalable Community&nbsp;Reach" runs under the previous arrow's tip at 320.
+  - New class, Chromium only: no self-hosted face has U+2011, and Chromium draws Abril Fatface's from a fallback
+    font (heavier bar; MenuMe "Cross‑Device" heading). Playfair faces and all of Safari draw the font's own hyphen
+    (`f20/occlude/hyphen-safari.log`, equal widths). Candidate: hyphen plus word joiner (U+2060), same width as
+    the plain hyphen and no break in Chromium; Safari check queued (`f20/occlude/wj-safari.log`).
+  - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
+    "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
+    screen edge) and "school&nbsp;distribution." at 320 and 340.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
