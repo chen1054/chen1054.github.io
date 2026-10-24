@@ -4303,7 +4303,26 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   would stretch the art. Details in `f20/design-cmp/triage.md`.
 - Layer removal (#115), Chromium: 0 differences on all six pages at 10 widths, menu closed and open
   (`f20/nolayer/head-plain.log`). Positive control (`wt-nl-ctl`, 1 px more padding on a MenuMe finding): 122
-  differences at 390, so the diff can see a change. States variant running (`xinyanchen-nolayer-states`).
+  differences at 390, so the diff can see a change. States variant (hover, focus, active on every control): 0
+  differences (`f20/nolayer/states.log`). Safari 17.5 run in progress (unit `xinyanchen-nolayer-safari`, log
+  `f20/nolayer/safari-head.log`); the unwrap lands only when it reports 0.
+- Scotties lo-fi skate icon, `b33a123`: 77.5 px wide, 45.7 in from the box's right and 33 above it on phone and
+  tablet; 87.6, 15.5 and 37.6 on desktop. The phone size is capped at 390's, since it grew into the heading at 639.
+- Lo-fi listing wireframe, `a534bf0`, and hi-fi homepage screenshot, `b7bcab3`: a 1 px sage inset outline. Every
+  design strokes both 1 px inside (`fig-parse/image-strokes.mts` lists every stroked image node); the listing
+  file was cropped at its right edge in `aba53f4`, and the hi-fi PNG has no frame of its own.
+- Phone hi-fi chevron trail, `9a8d0b1`: 31 px under the last callout (design 31.5), 25 above the link (25.8).
+- Key Learnings badges, `e7cb96f`: 120 at 390, 144 at 744 (the tablet design), 164 at 1440; icon 56 %.
+- Dotted chevrons, `3b9d075` (Core Challenge) and `8697985` (hi-fi trail): the fig strokes both 3 px with [3, 3]
+  dashes at their drawn size; ours scaled with the art down to 1.3 and 1.8 px and read as faint fine dots. Now a
+  3 px `vector-effect="non-scaling-stroke"` dash. Needs the Safari check (non-scaling stroke in a CSS background
+  SVG).
+- Moodboard frame, `05c575d`: Tablet and Desktop stroke it 5 px inside; the file's own frame (20 of 3924 px)
+  renders 3.2 at the tablet's 624, so a 5 px inset outline from 640 up.
+- Checked, no change: "exact specs." is already glued (`&nbsp;`); the heading icon gap follows the fig (3, 11, 19 px
+  from the text), not the review's 14.
+- Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
+  screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
   mix. Use `truncate:`.
 - Lesson: `rg --replace '$1'` without `--only-matching` keeps the rest of the line, so a PID taken that way is
