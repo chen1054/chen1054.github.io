@@ -6329,6 +6329,17 @@
           }
         }
       }
+      /*
+        Tablet and Desktop Scotties stroke the moodboard 5 px sage inside its box (fig "moodboard_final 1"). The file
+        carries that frame at its own 4x scale, so it thins to about 3 px at 744; from the tablet layout up the
+        stroke is drawn over it at 5. (Phone draws 1 px; the file's frame gives about 1.7 there.)
+      */
+      @media(width>=40rem) {
+        & img[src$="scotties-street-culture-visual-moodboard.webp"] {
+          outline: calc(5rem / 16) solid var(--color-case-study-accent);
+          outline-offset: calc(-5rem / 16);
+        }
+      }
       /* The designs draw the skateboard 23 by 13 px (phone, tablet) and 32 by 17 (desktop), 3, 11 and 19 px from the text. */
       &>.content h3.subheading::before {
         content: "";
