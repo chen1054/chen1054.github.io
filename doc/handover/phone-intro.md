@@ -4481,7 +4481,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - Lesson (missed by eye, 2026-10-24): contact sheets of four 1920-wide tiles shrink desktop text to about a
     third, too small to read line breaks; the Scotties persona drift was on the 1280 and 1440 sheets and only the
     full-size 1920 tiles showed it. Review desktop widths tile by tile at full size, or two tiles per sheet.
-  - Next: the iOS 17 Simulator frames (r3), then the enlarged image views.
+  - Re-review at readable size (`f20/sweep26/`, Safari 1092, 1280, 1366, 1440 on `787ef5a`, two tiles per sheet
+    via `sheets.py <dir> <out> 2 1900`): 1440 case studies all sheets, Home 00 to 01, About 00, Contact 00;
+    1366, 1280 and 1092 the text-dense sheets (personas and pillars, contribution cards and learnings, impact
+    strip, Home projects). No new finding: no one-word line, no overlap. At 1092 Jake's persona wraps "hardware
+    without / overwhelming jargon." and card 1 "15-minute quick- / meal presets." (both two-word lines, kept).
+    Remaining sheets in `f20/sweep26/sheets/` are still to read.
+  - Next: the rest of `f20/sweep26/sheets/`, then the iOS 17 Simulator frames (r3), then the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
