@@ -4401,11 +4401,32 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     design's two) ran onto the notch at 320 to 540, 390 included; below 390 the titles kept their size while the
     chevrons kept 26%. Fixed in `59fea15` (glue removed; band type, line and padding shrink with the screen below
     390). Kept: "Key Learnings & Strategic Reflection" touches the notch at 390 and 744 exactly as the phone and
-    tablet designs draw it. Tales "Scalable Community&nbsp;Reach" runs under the previous arrow's tip at 320.
+    tablet designs draw it. Safari recapture after `59fea15` (`f20/occlude/banners-after/`): Wireframing clear at
+    every width; below 390 each band now matches its 390 look. At 640 "Reflection" still ran 44 px onto the notch
+    (tablet type fixed at 24 px from 640 to 744 while the chevron is 26%): `331a80c` shrinks the band's type, line
+    and padding below 744 the same way. Its Safari recapture (`banners-after2/`, 639 to 768) was queued when this
+    was written. The 640 "Research & User Personas" hit is a capture artifact (line boxes measured before the persona
+    photo loaded and moved the page); recheck it by eye.
+  - Tales "Scalable Community&nbsp;Reach" ran under the previous arrow's tip at 320, and the card copy's glued
+    endings ran past their columns at 320 to 393 and 640 to 700. Variant scores (`variants4.jsonl`) showed ungluing
+    only trades the overrun for one-word lines. Root cause, as with the banners: the impact strip shrinks with the
+    screen below 390 and from 640 to 744 while its words did not. `d501ff0` scales card titles and copy
+    with the strip there (`--card-shrink`); unchanged at 390 to 639 and 744 up. Trade-off accepted: card copy is
+    11.8 px at 320 (was 15), 13.6 at 360, 14.4 at 375; no iOS 17 iPhone is 320 wide. Safari checks queued: units
+    `xinyanchen-safari-cards` (`f20/occlude/cards-after/`, run `banner-foreign.py` on it) and
+    `xinyanchen-safari-textover2` (`textover-safari2.log`, compare with `textover-safari.log`).
   - New class, Chromium only: no self-hosted face has U+2011, and Chromium draws Abril Fatface's from a fallback
     font (heavier bar; MenuMe "Cross‑Device" heading). Playfair faces and all of Safari draw the font's own hyphen
-    (`f20/occlude/hyphen-safari.log`, equal widths). Candidate: hyphen plus word joiner (U+2060), same width as
-    the plain hyphen and no break in Chromium; Safari check queued (`f20/occlude/wj-safari.log`).
+    (`f20/occlude/hyphen-safari.log`, equal widths). Fixed in `ca044fd`, the MenuMe heading, with a hyphen plus word joiner
+    (U+2060): in both engines as wide as the plain hyphen and unbroken (`f20/occlude/wj-probe.js`,
+    `wj-safari.log`). The other no-break hyphens are all in Playfair and render correctly in both; left as is.
+  - Still open in the glue class: MenuMe "real-world" (every variant so far leaves a one-word line somewhere) and
+    "ambiguous" ("and&nbsp;ambiguous" left lone words only at 360 and 375). Round five with word-joiner variants
+    queued as unit `xinyanchen-safari-variants5` (`f20/sweep24/variants5.jsonl`, score with
+    `node variants-score.ts variants5.jsonl`). Tales "adolescent" and "progressive" need rescoring after the card
+    scaling, which changed their line breaks below 390.
+  - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
+    `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
