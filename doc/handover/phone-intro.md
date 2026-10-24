@@ -4475,8 +4475,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     (drawn so).
   - Open, not audited: other measures whose comments say "wraps as drawn" (about 15 in `styles.css`) were fitted
     in Bold or before later weight changes and may have drifted the same way. The user's rule is natural wrapping
-    without stranded words, not line-for-line fidelity, so they matter only where a drift strands a word; the
-    by-eye sweep at eight widths found no other case.
+    without stranded words, not line-for-line fidelity, so they matter only where a drift strands a word. The
+    1092 to 1440 sheet review cannot vouch for this: the persona drift was there at 1280 and 1440 too and the
+    sheets did not show it (next lesson). The 1920 full-size review found no other case.
+  - Lesson (missed by eye, 2026-10-24): contact sheets of four 1920-wide tiles shrink desktop text to about a
+    third, too small to read line breaks; the Scotties persona drift was on the 1280 and 1440 sheets and only the
+    full-size 1920 tiles showed it. Review desktop widths tile by tile at full size, or two tiles per sheet.
   - Next: the iOS 17 Simulator frames (r3), then the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
