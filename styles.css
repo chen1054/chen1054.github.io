@@ -3105,9 +3105,18 @@
         --glyph: url("assets/tales-subheading-sprout-glyph.svg");
         --glyph-size: calc(21rem / 16 + 3 * var(--home-wide-reference-growth));
       }
+      /*
+        Every design draws The Challenge with a filled leaf whose vein tapers inside it, 19 px at 390 and 744 and 27 on
+        Desktop; Desktop draws the channel labels with it too. The path is the designs' own.
+      */
+      & [data-glyph="veined-leaf"] {
+        --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
+        --glyph-size: calc(19rem / 16 + 8 * var(--home-wide-reference-growth));
+      }
       & p[data-glyph] {
         --glyph-size: calc(21.87rem / 16);
         @media(width>=80rem) {
+          --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
           --glyph-size: calc(18rem / 16);
         }
       }
