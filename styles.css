@@ -7906,8 +7906,15 @@
           }
         }
       }
+      /*
+        The designs' badges, measured outside their 3 px stroke: Phone 118 and 124 px, Tablet 144, Desktop 164; the
+        icon about 56 % of the white disc's inside, and the dark disc 10 px left and 2 up of it on the phone, 12 and 3
+        on the tablet (Phone, Tablet and Desktop/Scotties.pdf).
+      */
       :where(#scotties-reflection) .note {
-        --scotties-badge-size: calc(120rem / 16 + 44 * var(--home-wide-reference-growth));
+        --scotties-badge-size: calc(
+          120rem / 16 + 24 * var(--phone-tablet-reference-growth) + 20 * var(--home-wide-reference-growth)
+        );
         position: relative;
         margin-block-start: calc(var(--scotties-badge-size) - 8rem / 16);
         border: calc(3rem / 16) solid var(--color-case-study-subheading);
@@ -7926,8 +7933,9 @@
           aspect-ratio: 1;
           border: calc(3rem / 16) solid var(--color-case-study-subheading);
           border-radius: 50%;
-          box-shadow: calc(-10rem / 16) calc(-8rem / 16) 0 0 var(--color-case-study-subheading);
-          background: var(--scotties-badge-icon) center / 52% no-repeat #fff;
+          box-shadow: calc(-10rem / 16 - 2 * var(--phone-tablet-reference-growth))
+            calc(-2rem / 16 - 1 * var(--phone-tablet-reference-growth)) 0 0 var(--color-case-study-subheading);
+          background: var(--scotties-badge-icon) center / 56% no-repeat #fff;
         }
         &:nth-child(1) {
           --scotties-badge-icon: url("assets/scotties-key-learning-skateboard-badge-icon.svg");
