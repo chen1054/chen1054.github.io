@@ -4330,6 +4330,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
 - Seam scan: `f20/echoes/abut-scan.py` lists same-fill paths whose boxes share an edge. On every SVG asset it flags
   the old Echoes file (40, the control) and only the Tales ecosystem diagram's 14 px QR icon, which shows no seams
   at 12x. Limit: it reads absolute M/L/C paths only; files using H/V or relative commands are skipped.
+- Queue, in order (2026-10-24 morning):
+    1. Safari layer diff (`xinyanchen-nolayer-safari`) to 0, and the Chromium re-run on current HEAD
+       (`wt-nl2-*` worktrees; units `xinyanchen-nolayer2-chromium` and `-states`, logs `f20/nolayer/head2-*.log`).
+    2. Then unwrap the layers in the repo (`f20/nolayer/unwrap.ts`), rewrite the header comment, commit, remove the
+       `wt-nl-*` and `wt-nl2-*` worktrees.
+    3. Safari 17.5 batch of this segment's fixes (`f20/badge/safari-batch.ts`): Scotties dots, frames, moodboard,
+       skate icon, badges, green boxes; Tales leaf; Home Echoes frame.
+    4. iOS 17 Simulator: phone Scotties and Tales fixes, and the open focus-zoom question on the 15 px inputs.
+    5. Reply draft: add this segment's fixes under "What we found and fixed ourselves" (both languages).
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
