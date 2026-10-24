@@ -4486,7 +4486,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     1366, 1280 and 1092 the text-dense sheets (personas and pillars, contribution cards and learnings, impact
     strip, Home projects). No new finding: no one-word line, no overlap. At 1092 Jake's persona wraps "hardware
     without / overwhelming jargon." and card 1 "15-minute quick- / meal presets." (both two-word lines, kept).
-    Remaining sheets in `f20/sweep26/sheets/` are still to read.
+    1092 all sheets read since: one finding, landed (next item). Scotties cloud at 1092 looked tight ("outdated"
+    beside the bolt): Safari pixel check at 29 widths (`f20/occlude/cloud2`) finds no ink under the copy; the
+    first run flagged all 29 because the empty float span's line box reaches into the bolt (drop it before
+    analysing). 640 flagged once more, clear by eye (outline about 6 px from "e-commerce").
+  - Landed: Tales hero "Well-&#8288;Being&nbsp;Plan" (word joiner); Safari split the name "Well- / Being Plan" at
+    1024 to 1200 and 320 to 375. Detector gap: `variants-score.ts` counts a split compound only when its back
+    half stands alone on the line, so it scored this split 0; read the line texts for proper names.
+    Remaining sheets in `f20/sweep26/sheets/`: 1280 and 1366 case-study sheets other than those listed.
   - Next: the rest of `f20/sweep26/sheets/`, then the iOS 17 Simulator frames (r3), then the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
