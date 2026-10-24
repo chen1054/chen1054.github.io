@@ -7862,6 +7862,12 @@
               margin-block-end: calc(16rem / 16 + 15 * var(--phone-tablet-reference-growth));
             }
           }
+          /* Phone Scotties sets the trail 31.5 px under the last callout's ink; it sat about 1 px under. */
+          @media(width<40rem) {
+            &::before {
+              margin-block-start: calc(30.5rem / 16);
+            }
+          }
           @media(width>=80rem) {
             &>.prototype-link:first-child {
               position: relative;
