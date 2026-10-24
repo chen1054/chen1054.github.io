@@ -4430,6 +4430,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
+- Lesson, waiting (2026-10-24, after the user asked "How long do we need to wait? Is there a way for us to wait
+  less?"): `tail --pid="$(systemctl --user show <unit> --property=MainPID --value)"` on a unit that has already
+  finished gets PID 0 and waits out its whole timeout; one wait sat idle on finished Safari jobs. Start jobs with
+  `systemd-run --wait` in a background command instead, so the notification comes when the job ends. Measured run
+  times: 130 Safari banner shots about 3.7 min; the overrun probe plus a variant round about 15 min, mostly a fixed
+  2 to 2.5 s settle after each of 156 page reloads. Next speed-up: load each page once and resize it across widths;
+  screen in Chromium (parallel) and use Safari (one VM, one WebDriver session) only to confirm.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
