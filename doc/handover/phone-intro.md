@@ -4345,8 +4345,8 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   (`f20/sim17/seg24/`): Core Challenge dots, listing frame, veined leaf, all as in Safari.
 - iOS focus zoom, now settled by source: WebKit's `_zoomToFocusRect` (`Source/WebKit/UIProcess/API/ios/
   WKWebViewIOS.mm`) scales to `16 / fontSize` when scaling is allowed. The Contact fields are 15 px on phone and the
-  viewport allows scaling, so a tap zooms the page to about 1.067. Fix (16 px field text on phone) departs from the
-  design's 15 px: the user's call, asked.
+  viewport allows scaling, so a tap zooms the page to about 1.067. Decision, 2026-10-24: the user chose "Keep 15
+  px" over 16 px field text on phones. Do not raise it again or add `maximum-scale` (that blocks pinch zoom).
 - Queue: reply draft, add this segment's fixes under "What we found and fixed ourselves" (both languages).
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
