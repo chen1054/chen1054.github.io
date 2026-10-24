@@ -2333,8 +2333,8 @@ h1 {
       Desktop Scotties starts the User Personas and Core Value headings' text in line with the copy, 53 px into the
       1086 px column, their icons hanging before it; the photos 85 px under the heading's glyph top, the names 42
       under the photos and the copy 41 under the role. Each name and role centres at 172, 544 and 899 px into the
-      column, and the copy starts at 53, 400 and 761 px on 273, 282 and 268.5 px measures (it wraps as drawn from
-      267.5 to 279, 263.5 to 300 and 267.5 to 269.5 px in Chromium and Safari).
+      column, and the copy starts at 53, 400 and 761 px, its lines up to 280, 304 and 274 px long. In Medium, it
+      wraps as drawn from 279.5 to 308, 300.5 to 330 and 270 to 326 px in Chromium, so each measure sits mid-range.
     */
     @media(width>=80rem) {
       & #scotties-research h3 {
@@ -2368,12 +2368,12 @@ h1 {
             margin-inline-end: calc(23rem / 16);
           }
           &>p {
-            inline-size: calc(273rem / 16);
+            inline-size: calc(294rem / 16);
             margin-inline-start: calc(12rem / 16);
           }
         }
         &:nth-child(2)>p {
-          inline-size: calc(282rem / 16);
+          inline-size: calc(315rem / 16);
           margin-inline-start: calc(-1rem / 16);
         }
         &:nth-child(3) {
@@ -2381,7 +2381,7 @@ h1 {
             margin-inline-end: calc(8rem / 16);
           }
           &>p {
-            inline-size: calc(268.5rem / 16);
+            inline-size: calc(298rem / 16);
             margin-inline-start: calc(1rem / 16);
           }
         }
