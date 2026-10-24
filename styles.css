@@ -6113,6 +6113,16 @@ h1 {
               &>p {
                 margin-block: 0;
               }
+              /*
+                The badge reaches 36 px into the copy's last line, which below 1426 px can run that far: a
+                spacer after the last word keeps it clear, and moves to a line of its own only when the line
+                is full.
+              */
+              &>p:last-child::after {
+                content: "";
+                display: inline-block;
+                inline-size: calc(40rem / 16);
+              }
               &::before {
                 inset-block-start: calc(-57rem / 16);
                 inset-inline-start: calc(-72rem / 16);
