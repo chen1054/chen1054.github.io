@@ -2601,9 +2601,18 @@ h1 {
       border-width: 0;
       padding-block: calc(26rem / 16 + 27 * var(--home-wide-reference-growth));
       padding-inline: calc(70rem / 16 + 150 * var(--home-wide-reference-growth) + max(0rem, (100% - 1440rem / 16) / 2));
-      /* On phones the text box is the phone design's 225 px, centred, which keeps it clear of the chevron notch. */
+      /*
+        On phones the text box is the phone design's 225 px, centred, which keeps it clear of the chevron notch.
+        Narrower than 390 the chevrons keep their 26% while the words would keep their size, so "Context", "Reflection"
+        and "Strategy" ran onto the white notch at 320 to 375 (Safari 17.5). There the band's type, line and box
+        shrink with the screen, as the phone art does, so each band looks as it does at 390.
+      */
       @media(width<40rem) {
-        padding-inline: calc((100% - 225rem / 16) / 2);
+        --banner-shrink: min(0rem, var(--phone-art-growth));
+        padding-block: calc(26rem / 16 + 26 * var(--banner-shrink));
+        padding-inline: calc((100% - 225rem / 16 - 225 * var(--banner-shrink)) / 2);
+        font-size: calc(24rem / 16 + 24 * var(--banner-shrink));
+        line-height: calc(34rem / 16 + 34 * var(--banner-shrink));
       }
       &::after {
         content: "";
