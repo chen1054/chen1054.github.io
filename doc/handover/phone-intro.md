@@ -4501,8 +4501,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `xinyanchen-sim-iphone-r3` under `vm-sonoma.lock`, into `f20/eye/sim-iphone15-r3/`; inject server 4187 and
     tunnel unit `xinyanchen-m1-tunnel-4187` restarted). In parallel, the enlarged views screened in Chromium
     (`f20/zoom/zoom-shots.py`, 390, 1440, 1920 by 900, into `f20/zoom/chromium/`).
-  - Next: look at every r3 frame (compare `sim-iphone15-r2/`), then the enlarged views by eye, then Safari 17.5
-    shots of the enlarged views, then the iPad 10th r3 frames.
+  - Enlarged views, Chromium (`f20/zoom/chromium/`, sheets in `f20/zoom/sheets/`): 50 viewers (MenuMe 21,
+    Scotties 11, Tales 18; the navigation popover excluded) at 390 and 1440, all looked at. Outlines carry over
+    (MenuMe moodboard 1 px, Scotties moodboard 5 px, wireframes and Tales poster and ad 1 px). Nothing to fix.
+    By design and kept: bitmaps open at their `width` attribute and vectors at the viewer's full width, so on a
+    phone and for tall vectors on desktop the view is a scrollable crop (`overflow: auto`); every picture and
+    graph is zoomable by a recorded requirement, icons included. The OPH laptop shot's overlapping header text
+    is in the recording itself.
+  - Next: look at every r3 frame (compare `sim-iphone15-r2/`), then Safari 17.5 shots of a sample of enlarged
+    views, then the iPad 10th r3 frames.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
