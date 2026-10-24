@@ -4445,6 +4445,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     320 only: the Home phone descriptions are one `<span>` per design line at full width, so the longest line
     (312 px) leaves 4 px margins at 320 (31 at 375, 24 at 360); narrowing the box would strand words like "for",
     and shrinking the type would make it about 11.5 px. No current iPhone is 320 wide.
+  - By eye, same tiles, 639, 744, 1092, 1280 and 1440, all six pages: one new finding, Tales impact card 02 at
+    1092 ends "physical, in- / backpack / school distribution." (the `school&nbsp;distribution` glue strands
+    "backpack"); variants scored in Safari (`f20/sweep24/variants-spec6.json`, unit
+    `xinyanchen-safari-variants6`, queued behind the contribution check). Kept, by the user's 414 to 639 choice
+    (`568c81b`): at 600 to 639 the Scotties challenge cloud scales with the art, so its copy is 22.2 px beside 15 px
+    body text; nothing overlaps.
   - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
     `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
