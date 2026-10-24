@@ -6331,8 +6331,8 @@
       }
       /*
         Tablet and Desktop Scotties stroke the moodboard 5 px sage inside its box (fig "moodboard_final 1"). The file
-        carries that frame at its own 4x scale, so it thins to about 3 px at 744; from the tablet layout up the
-        stroke is drawn over it at 5. (Phone draws 1 px; the file's frame gives about 1.7 there.)
+        carries that frame 20 of its 3924 px wide, so it renders 5 px at the desktop's 980 but 3.2 at the tablet's
+        624; from the tablet layout up the stroke is drawn over it at 5. (Phone draws 1 px; the file gives 1.8.)
       */
       @media(width>=40rem) {
         & img[src$="scotties-street-culture-visual-moodboard.webp"] {
