@@ -4451,6 +4451,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `xinyanchen-safari-variants6`, queued behind the contribution check). Kept, by the user's 414 to 639 choice
     (`568c81b`): at 600 to 639 the Scotties challenge cloud scales with the art, so its copy is 22.2 px beside 15 px
     body text; nothing overlaps.
+  - Landed `95ca56c`: Tales card 02 `physical,&nbsp;in-&#8288;backpack school&nbsp;distribution`, the only
+    variant with no one-word line, split compound or overrun at 30 Safari widths (`f20/sweep24/variants7`).
+  - Landed `17d922f`: MenuMe contribution badge. Safari pixel check (`f20/occlude/banner-foreign.py` on
+    `.contribution-cards .note>p`) found ink under badge 1 only on desktop (1360 to 1390, "presets."); phone and
+    tablet widths Chromium flagged by line box (400, 568 to 576, 640, 732 to 750) were clear, because line boxes
+    include leading. Fix: a 40 px inline-block after the last paragraph on desktop (the disc reaches 36 px into the
+    copy). Chromium em-box sweep (`f20/badge/disc-sweep-em.py`): cards change height only at 1310 to 1424, 1440 and
+    1920 unchanged; Safari after: 0 of 128 paragraphs at 16 widths from 1280 to 1920. Rejected: the same spacer
+    on phone and tablet, which grew the 744 cards 303 to 331 px for line-box contact with no ink.
   - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
     `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
