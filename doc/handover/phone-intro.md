@@ -4493,7 +4493,10 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - Landed: Tales hero "Well-&#8288;Being&nbsp;Plan" (word joiner); Safari split the name "Well- / Being Plan" at
     1024 to 1200 and 320 to 375. Detector gap: `variants-score.ts` counts a split compound only when its back
     half stands alone on the line, so it scored this split 0; read the line texts for proper names.
-    Remaining sheets in `f20/sweep26/sheets/`: 1280 and 1366 case-study sheets other than those listed.
+    Read since: 1366 Home, About, Contact, MenuMe 00 to 07, Scotties 01 and 07, Tales 00, 03, 08; 1280 MenuMe
+    01, 02, 07, Scotties 01. Nothing new. Kept: 1280 Alicia "automated multi- / portion ... waste- /
+    reduction tools." (two hyphen breaks, no one-word line). Not read at 1280 and 1366: the image-led sheets
+    (Scotties moodboard and wireframes, Tales comics, MenuMe flows), checked at 1092 and 1440.
   - Next: the rest of `f20/sweep26/sheets/`, then the iOS 17 Simulator frames (r3), then the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
