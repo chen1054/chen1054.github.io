@@ -4367,6 +4367,18 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     run in Safari by `f20/badge/safari-strand-scan.ts` (unit `xinyanchen-safari-strand`, queued on the VM lock
     behind the sweep, output `f20/sweep24/safari-strand.jsonl`), filtered by `f20/sweep24/strand-filter.ts`
     (patterns "moved" and "half"). Chromium run: `strand-scan.jsonl`.
+    Safari result (`f20/sweep24/safari-strand-filtered.txt`, 20 widths): lone words or split compounds in MenuMe
+    (real-world, ambiguous, Personalized Menu Flow heading, lightweight) and Tales (in-backpack, adolescent,
+    progressive, Well-Being). Hyphen breaks that leave two words on the next line are normal and kept. "The Core
+    Product: / Double-Sided / One-Pager System" at 320 kept: no arrangement fits fewer lines.
+  - New class, text painted over by decoration (Safari, 320): Home's grey river covers "Men" of MenuMe's
+    description; Contact's footer wave covers "Chen" of "© 2026 Xinyan Chen". Detector `f20/occlude/occlude.py`
+    (Chromium via Python Playwright, `bypass_csp`; four paint-only screenshots per tile). Positive control caught
+    both. Full run: unit `xinyanchen-occlude`, 27 widths, `f20/occlude/all/report.jsonl`.
+  - New class, sideways scrolling in Safari only (Chromium: none at 16 widths, `f20/occlude/overflow-chromium.log`):
+    MenuMe 320/360/375 ("2. Weekly Specials Flow" heading and the note after it, 8/3/1 px), Scotties 320 (Core Value
+    Proposition heading, 1 px), Tales 320 (age timeline figure, 3 px). `f20/occlude/overflow-safari.log`; box
+    chains by `f20/occlude/chain-probe.js` through `f20/badge/safari-probe.ts`.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
