@@ -6958,6 +6958,15 @@
         & .subsection:nth-child(4) .portrait-artwork {
           --scotties-wireframe-highlights: url("assets/scotties-lo-fi-product-listing-highlights.svg");
         }
+        /*
+          Every design frames this wireframe with a 1 px sage stroke inside its box (fig "Desktop - 2 1", strokeAlign
+          INSIDE), as the homepage's picture carries in its pixels. The listing's file was cropped at its right edge
+          when rebuilt (`aba53f4`), keeping only slivers of that frame, so the stroke is drawn over it.
+        */
+        & img[src$="scotties-low-fidelity-product-listing-wireframe.webp"] {
+          outline: calc(1rem / 16) solid var(--color-case-study-accent);
+          outline-offset: calc(-1rem / 16);
+        }
         & .subsection:nth-child(5) .portrait-artwork {
           --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
         }
