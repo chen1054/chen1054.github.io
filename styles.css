@@ -6959,11 +6959,15 @@
           --scotties-wireframe-highlights: url("assets/scotties-lo-fi-product-listing-highlights.svg");
         }
         /*
-          Every design frames this wireframe with a 1 px sage stroke inside its box (fig "Desktop - 2 1", strokeAlign
-          INSIDE), as the homepage's picture carries in its pixels. The listing's file was cropped at its right edge
-          when rebuilt (`aba53f4`), keeping only slivers of that frame, so the stroke is drawn over it.
+          Every design frames these screens with a 1 px sage stroke inside the box (fig "Desktop - 2 1" and "Home 1"
+          or "Home 2", strokeAlign INSIDE), as the lo-fi homepage's picture carries in its pixels. The listing's file
+          was cropped at its right edge when rebuilt (`aba53f4`), keeping only slivers of that frame, and the hi-fi
+          screenshot has none, so the stroke is drawn over them.
         */
-        & img[src$="scotties-low-fidelity-product-listing-wireframe.webp"] {
+        & :is(
+          img[src$="scotties-low-fidelity-product-listing-wireframe.webp"],
+          img[src$="scotties-high-fidelity-community-homepage.png"]
+        ) {
           outline: calc(1rem / 16) solid var(--color-case-study-accent);
           outline-offset: calc(-1rem / 16);
         }
