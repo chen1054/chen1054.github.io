@@ -4330,15 +4330,19 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
 - Seam scan: `f20/echoes/abut-scan.py` lists same-fill paths whose boxes share an edge. On every SVG asset it flags
   the old Echoes file (40, the control) and only the Tales ecosystem diagram's 14 px QR icon, which shows no seams
   at 12x. Limit: it reads absolute M/L/C paths only; files using H/V or relative commands are skipped.
-- Queue, in order (2026-10-24 morning):
-    1. Safari layer diff (`xinyanchen-nolayer-safari`) to 0, and the Chromium re-run on current HEAD
-       (`wt-nl2-*` worktrees; units `xinyanchen-nolayer2-chromium` and `-states`, logs `f20/nolayer/head2-*.log`).
-    2. Then unwrap the layers in the repo (`f20/nolayer/unwrap.ts`), rewrite the header comment, commit, remove the
-       `wt-nl-*` and `wt-nl2-*` worktrees.
-    3. Safari 17.5 batch of this segment's fixes (`f20/badge/safari-batch.ts`): Scotties dots, frames, moodboard,
-       skate icon, badges, green boxes; Tales leaf; Home Echoes frame.
-    4. iOS 17 Simulator: phone Scotties and Tales fixes, and the open focus-zoom question on the 15 px inputs.
-    5. Reply draft: add this segment's fixes under "What we found and fixed ourselves" (both languages).
+- Cascade layers removed, `c6ba439`. Safari 17.5: 54 page-widths, 0 differences (`f20/nolayer/safari-head.log`).
+  Chromium re-run on the content of `417ca00`: 120 plain and open-menu checks and 24 state checks, 0 differences
+  (`head2-plain.log`, `head2-states.log`). The repo's unwrapped file was byte-identical to the tested candidate.
+  Worktrees `wt-nl-*` and `wt-nl2-*` removed.
+- Safari 17.5 batch of this segment's fixes (`f20/badge/batch1/`, layouts 390, 744, 1425): 3 px dots on both dotted
+  chevrons (the non-scaling stroke works in a CSS background SVG), hi-fi and listing frames, moodboard 5 px frame,
+  badges, veined leaf at The Challenge and on desktop Channels, Echoes frame without seams. iOS 17.0.1 Simulator
+  (`f20/sim17/seg24/`): Core Challenge dots, listing frame, veined leaf, all as in Safari.
+- iOS focus zoom, now settled by source: WebKit's `_zoomToFocusRect` (`Source/WebKit/UIProcess/API/ios/
+  WKWebViewIOS.mm`) scales to `16 / fontSize` when scaling is allowed. The Contact fields are 15 px on phone and the
+  viewport allows scaling, so a tap zooms the page to about 1.067. Fix (16 px field text on phone) departs from the
+  design's 15 px: the user's call, asked.
+- Queue: reply draft, add this segment's fixes under "What we found and fixed ourselves" (both languages).
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
