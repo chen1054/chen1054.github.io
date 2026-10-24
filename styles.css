@@ -585,6 +585,17 @@ h1 {
     }
     &>.description {
       display: contents;
+      /*
+        The side waves shrink with phones narrower than 390 while the copy keeps its size and wraps longer, so at 320
+        and 340 a wave rose over "MenuMe is a meal planning app". The copy paints above the waves; where they meet,
+        the wave runs behind it.
+      */
+      @media(width<40rem) {
+        &>* {
+          position: relative;
+          z-index: 1;
+        }
+      }
       &>h2 {
         margin-block: calc(18rem / 16) 0;
         color: var(--color-heading-and-case-study-gold);
