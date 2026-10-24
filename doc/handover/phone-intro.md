@@ -4354,6 +4354,19 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   335, 654, 1107, 1295, 1455 (layouts 390, 744, 1920, 320, 639, 1092, 1280, 1440). Then the iOS 17 Simulator on the
   phone pages, then the enlarged (tap-to-zoom) views, which carry the new 1 px and 5 px outlines but were never
   looked at. Findings go to `f20/sweep24/findings.md`.
+  - 2026-10-24: the WebDriver and page tunnels to m1 had died. Restarted as units `xyc-sonoma-tunnel`
+    (`-L 4454:127.0.0.1:4454 m1`) and `xyc-m1-site-tunnel` (`-R 127.0.0.1:4173:127.0.0.1:4174 m1`, so the guest's
+    `localhost:4173` reaches the no-store server on Linux 4174). Checked: `/status` ready, styles.css served with
+    the no-layer header.
+  - m1 swap at 5 of 6 GB during the sweep: the Simulator pass waits until the VM is idle, never alongside it.
+  - Finding class: the #117 last-word glue (`&nbsp;` before the last word) can move the lone word one line up at
+    other widths, or leave a hyphenated compound's back half alone ("real-" / "world"). Seen in Safari at 390:
+    MenuMe's two Usability Finding boxes ("world", "ambiguous"), Tales Potential for Impact 03 ("adolescent").
+    Safari and Chromium break these lines differently (Chromium shows the same boxes at other widths), so choose
+    glue fixes from Safari measurements only. Detector: `f20/sweep24/strand-scan.js` (rendered lines per block),
+    run in Safari by `f20/badge/safari-strand-scan.ts` (unit `xinyanchen-safari-strand`, queued on the VM lock
+    behind the sweep, output `f20/sweep24/safari-strand.jsonl`), filtered by `f20/sweep24/strand-filter.ts`
+    (patterns "moved" and "half"). Chromium run: `strand-scan.jsonl`.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
