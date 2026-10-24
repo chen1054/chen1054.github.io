@@ -4431,14 +4431,20 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     7.6 px into the card's empty tip padding at every phone width (as at 390, fine by eye). MenuMe notes fixed in
     `179e474`: "real-&#8288;world" without end glue (never splits; last-line "restrictions." at 414, 639, 820,
     1180, 1280, 1366) and "and&nbsp;ambiguous" (lone word only at 360 and 375). Tales "adolescent" and
-    "progressive" left: below 390 the cards now wrap as at 390, where the narrow columns hold one-word lines
-    throughout ("steadily", "support"), which no single glue removes.
+    "progressive" left as is: the narrow two-column cards hold one-word lines at every phone width ("steadily",
+    "support", "preventative" at 390), which no single glue removes. Correction ([d501ff0-correction]): the cards
+    do not keep their 390 breaks below 390, because the copy's side padding (15 and 24 px) does not shrink with the
+    text; at 320 card 03 ends "encounter / adolescent / peer pressures." Nothing overruns or overlaps.
   - Chromium overlap run complete (162 page-widths, 320 to 2560): one new hit, MenuMe My Core Contributions at
     1366, the orange "1" badge over "presets." at the end of card 1. Safari check of those cards at 12 widths
     queued after the tiles (unit `xinyanchen-safari-contrib`, `f20/occlude/contrib/`; `banner-foreign.py` now takes
     the commonest colour as the band for text without a background).
   - Fresh Safari tiles after today's fixes, overlay scrollbars: unit `xinyanchen-safari-sweep25`,
     `f20/sweep25/safari/<width>/<page>/`, widths 390, 320, 744, 639, 1092, 1280, 1440.
+  - By eye, fresh Safari tiles (`f20/sweep25/sheets/`): 390 and 320, all six pages, nothing new to fix. Kept at
+    320 only: the Home phone descriptions are one `<span>` per design line at full width, so the longest line
+    (312 px) leaves 4 px margins at 320 (31 at 375, 24 at 360); narrowing the box would strand words like "for",
+    and shrinking the type would make it about 11.5 px. No current iPhone is 320 wide.
   - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
     `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
@@ -4458,6 +4464,7 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
 - Lesson: `rg --replace '$1'` without `--only-matching` keeps the rest of the line, so a PID taken that way is
   wrong; several bounded waits returned at once this round.
 
+[d501ff0-correction]: https://github.com/chen1054/chen1054.github.io/commit/d501ff0f04a6a0f6fcfe060bc6aad377fe609675#commitcomment-206506496
 [03d2adb-correction]: https://github.com/chen1054/chen1054.github.io/commit/03d2adbf6711ffb16cab0a693a266e74c621e627#commitcomment-206404984
 [c0aa129-correction]: https://github.com/chen1054/chen1054.github.io/commit/c0aa1297ac152a43ee7d6b5a9b6e646f78cd2477#commitcomment-206404986
 
