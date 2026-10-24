@@ -4347,7 +4347,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   WKWebViewIOS.mm`) scales to `16 / fontSize` when scaling is allowed. The Contact fields are 15 px on phone and the
   viewport allows scaling, so a tap zooms the page to about 1.067. Decision, 2026-10-24: the user chose "Keep 15
   px" over 16 px field text on phones. Do not raise it again or add `maximum-scale` (that blocks pinch zoom).
-- Queue: reply draft, add this segment's fixes under "What we found and fixed ourselves" (both languages).
+- Reply draft: this segment's fixes added (both languages).
+- In progress (2026-10-24, after the user asked "You sure the client isn't gonna find more problems?"): a whole-page
+  by-eye sweep after today's commits. Safari 17.5, unit `xinyanchen-safari-sweep24`
+  (`f20/badge/safari-tiles.ts`, tiles in `f20/sweep24/safari/<inner width>/<page>/`), inner widths 405, 759, 1935,
+  335, 654, 1107, 1295, 1455 (layouts 390, 744, 1920, 320, 639, 1092, 1280, 1440). Then the iOS 17 Simulator on the
+  phone pages, then the enlarged (tap-to-zoom) views, which carry the new 1 px and 5 px outlines but were never
+  looked at. Findings go to `f20/sweep24/findings.md`.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
