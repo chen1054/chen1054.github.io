@@ -4379,6 +4379,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     MenuMe 320/360/375 ("2. Weekly Specials Flow" heading and the note after it, 8/3/1 px), Scotties 320 (Core Value
     Proposition heading, 1 px), Tales 320 (age timeline figure, 3 px). `f20/occlude/overflow-safari.log`; box
     chains by `f20/occlude/chain-probe.js` through `f20/badge/safari-probe.ts`.
+  - Lesson, test rig: the Sonoma VM's Safari showed classic scrollbars (virtual mouse, `AppleShowScrollBars`
+    unset), so `100vw` was the layout width plus 15 and every `vw`-based size (`--phone-art-growth`,
+    `--phone-tablet-reference-growth`) was computed for a wider screen than the layout. That made the Tales
+    figures run 3 px off-screen at 320 in the VM only (iPhones overlay their scrollbars). 2026-10-24: set
+    `defaults write -g AppleShowScrollBars -string WhenScrolling` in the guest (revert:
+    `defaults delete -g AppleShowScrollBars`), then `killall Safari` and the safaridriver kickstart. Checked:
+    `innerWidth` equals `clientWidth` at 320 and 390. Since then pass layout widths directly (no +15).
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
