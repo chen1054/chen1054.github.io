@@ -4445,7 +4445,7 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     320 only: the Home phone descriptions are one `<span>` per design line at full width, so the longest line
     (312 px) leaves 4 px margins at 320 (31 at 375, 24 at 360); narrowing the box would strand words like "for",
     and shrinking the type would make it about 11.5 px. No current iPhone is 320 wide.
-  - By eye, same tiles, 639, 744, 1092, 1280 and 1440, all six pages: one new finding, Tales impact card 02 at
+  - By eye, same tiles, 639, 744, 1092, 1280 and 1440 (1920 below), all six pages: one new finding, Tales card 02 at
     1092 ends "physical, in- / backpack / school distribution." (the `school&nbsp;distribution` glue strands
     "backpack"); variants scored in Safari (`f20/sweep24/variants-spec6.json`, unit
     `xinyanchen-safari-variants6`, queued behind the contribution check). Kept, by the user's 414 to 639 choice
@@ -4460,8 +4460,24 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     copy). Chromium em-box sweep (`f20/badge/disc-sweep-em.py`): cards change height only at 1310 to 1424, 1440 and
     1920 unchanged; Safari after: 0 of 128 paragraphs at 16 widths from 1280 to 1920. Rejected: the same spacer
     on phone and tablet, which grew the 744 cards 303 to 331 px for line-box contact with no ink.
-  - Then: the rest of the by-eye review (320 Tales, MenuMe and Scotties; 639, 1092, 1280, 1440 sheets in
-    `f20/sweep24/sheets/`), the iOS 17 Simulator frames (r3), and the enlarged image views.
+    Limit: Chromium's em-box metric still reports 0.5 px of contact at 1352 with the spacer; Safari shows no ink
+    there (`contrib3`). Cost of `95ca56c`: in Safari at 600 the card 02 copy takes 7 lines instead of 6 (Chromium
+    unchanged at 6; the strip height there is set by the tallest card, which Chromium measures unchanged at 666).
+  - 1920 (the client's viewport) was missing from the sweep (the tile run's width list left it out; Safari reaches
+    1920 fine). Captured afterwards (unit `xinyanchen-safari-sweep25-1920`) and reviewed tile by tile at full
+    size, the first 950 px of each page first. One finding, landed `787ef5a`: the desktop Scotties persona copy
+    wrapped unlike the design (Jake to four lines, "and style." alone for Gwen). Its measures (273, 282, 268.5)
+    were fitted before the copy went Medium; Chromium wraps as drawn from 279.5 to 308, 300.5 to 330 and 270 to
+    326 px (`f20/badge/persona-measure.py`), now 294, 315 and 298. Chromium 1280 to 2560 by 8: as drawn
+    everywhere, columns at least 34 px apart, no sideways scroll; Safari at 1280, 1366, 1440, 1600, 1920 and
+    2560: 3, 2 and 3 lines as drawn (`f20/occlude/persona/`). Kept as designed: MenuMe "preference- / driven" in
+    the closing quote and "15- / minute" in card 1 (both drawn so in Desktop/MenuMe.pdf), Tales "ages 4 / to 12"
+    (drawn so).
+  - Open, not audited: other measures whose comments say "wraps as drawn" (about 15 in `styles.css`) were fitted
+    in Bold or before later weight changes and may have drifted the same way. The user's rule is natural wrapping
+    without stranded words, not line-for-line fidelity, so they matter only where a drift strands a word; the
+    by-eye sweep at eight widths found no other case.
+  - Next: the iOS 17 Simulator frames (r3), then the enlarged image views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
