@@ -2614,6 +2614,17 @@ h1 {
         font-size: calc(24rem / 16 + 24 * var(--banner-shrink));
         line-height: calc(34rem / 16 + 34 * var(--banner-shrink));
       }
+      /*
+        The tablet layout does the same below its 744 design: at 640 "Reflection" ran 44 px past the chevron's edge
+        onto the white notch, against the design's 20 at 744.
+      */
+      @media(40rem<=width<46.5rem) {
+        --banner-shrink: calc((100vw - 744rem / 16) / 744);
+        padding-block: calc(26rem / 16 + 26 * var(--banner-shrink));
+        padding-inline: calc(70rem / 16 + 70 * var(--banner-shrink));
+        font-size: calc(24rem / 16 + 24 * var(--banner-shrink));
+        line-height: calc(34rem / 16 + 34 * var(--banner-shrink));
+      }
       &::after {
         content: "";
         position: absolute;
