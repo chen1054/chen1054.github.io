@@ -4333,7 +4333,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
 - Cascade layers removed, `c6ba439`. Safari 17.5: 54 page-widths, 0 differences (`f20/nolayer/safari-head.log`).
   Chromium re-run on the content of `417ca00`: 120 plain and open-menu checks and 24 state checks, 0 differences
   (`head2-plain.log`, `head2-states.log`). The repo's unwrapped file was byte-identical to the tested candidate.
-  Worktrees `wt-nl-*` and `wt-nl2-*` removed.
+  Safari 17.5 on exactly what shipped, `c6ba439~1` against `c6ba439`: 54 page-widths, 0 differences
+  (`f20/nolayer/safari-shipped.log`). Worktrees `wt-nl-*`, `wt-nl2-*` and `wt-nl3-*` removed.
+- Safari 17.5 second and third batches (`f20/badge/batch2/`, `batch3/`): phone type and palette panel, intro strip,
+  lo-fi dashed box and skate icon, hi-fi dashed box, the hi-fi trail end (its dotted chevron, clear of the last
+  callout and above the links) and the brand box, at 390, 744 and 1425. Every Scotties item in the reply draft's
+  design-pass bullet now has a Safari shot.
 - Safari 17.5 batch of this segment's fixes (`f20/badge/batch1/`, layouts 390, 744, 1425): 3 px dots on both dotted
   chevrons (the non-scaling stroke works in a CSS background SVG), hi-fi and listing frames, moodboard 5 px frame,
   badges, veined leaf at The Challenge and on desktop Channels, Echoes frame without seams. iOS 17.0.1 Simulator
