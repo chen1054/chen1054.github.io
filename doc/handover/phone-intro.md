@@ -4321,6 +4321,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   renders 3.2 at the tablet's 624, so a 5 px inset outline from 640 up.
 - Checked, no change: "exact specs." is already glued (`&nbsp;`); the heading icon gap follows the fig (3, 11, 19 px
   from the text), not the review's 14.
+- Tales veined leaf, `9dabcd3`: every design draws The Challenge with a filled leaf whose vein tapers inside it (19,
+  19, 27 px), and Desktop also the Offline and Online Channels labels (17.7). The glyph is the designs' own path,
+  copied from Desktop/Tales; leaves were told apart by box in all three PDFs (`f20/leaf/veined/inventory.py`).
+- Home Echoes poster frame: the gold double frame was the export's 32 fill pieces, so every 45 px join showed as a
+  faint light line (review L1). Redrawn by hand as one 4.8 px stroked path; 4x renders old against new differ only on
+  the old joins and the arcs' edge anti-aliasing (`f20/echoes/frame-diff.png`).
+- Seam scan: `f20/echoes/abut-scan.py` lists same-fill paths whose boxes share an edge. On every SVG asset it flags
+  the old Echoes file (40, the control) and only the Tales ecosystem diagram's 14 px QR icon, which shows no seams
+  at 12x. Limit: it reads absolute M/L/C paths only; files using H/V or relative commands are skipped.
 - Lesson: when one framed image lacks its frame, list every stroked image in the fig before fixing one; the hi-fi
   screenshot and moodboard had the same gap as the listing and were found only by that list.
 - Lesson: systemd's `StandardOutput=file:` does not truncate; a rerun writes over the old log in place and leaves a
