@@ -6444,6 +6444,21 @@ h1 {
       background: url("assets/scotties-subheading-skate-glyph.svg") center / contain no-repeat;
       vertical-align: -0.1em;
     }
+    /*
+      The designs (exports of 2026-10-23) set the Wireframing Execution headings a step under the other
+      subheadings: Sitemap and the two lo-fi pages 16 / 16 / 18 (phone, tablet, desktop), Hi-fi Homepage 18 / 18 / 18.
+      At the shared 22 on desktop the lo-fi and hi-fi headings came within 7 to 8 px of their screens (Safari 1440
+      and 1905; design 15 to 20). Past 1440 Hi-fi Homepage grows with the lo-fi ones, never smaller than them.
+    */
+    & #scotties-wireframing-heading+.section-content {
+      &>h3.subheading,
+      &>.subsection:not(:nth-child(5))>h3.subheading {
+        font-size: calc(16rem / 16 + 2 * var(--home-wide-reference-growth));
+      }
+      &>.subsection:nth-child(5)>h3.subheading {
+        font-size: max(calc(18rem / 16), calc(16rem / 16 + 2 * var(--home-wide-reference-growth)));
+      }
+    }
     .subsection:has(>.scotties-challenge-bubble) {
       position: relative;
       @media(width<40rem) {
