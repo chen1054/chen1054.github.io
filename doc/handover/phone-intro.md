@@ -4630,6 +4630,20 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     user asked for, and fixes tablet with the same rule. The desktop design PDF was consulted for the bolt's
     position; the tablet PDF was not.
   - sweep27 (#127) done: every width read, all four findings fixed and verified in Safari.
+- The user asked again whether the client will find more. Answer given (evidence, not proof): client screenshot
+  counts per round 11, 19, 20 (9 desktop, 10 phone, 1 tablet), 9, 3, 2, so falling but not zero; our re-reviews of
+  covered combinations this segment found 0, the first in-between-width pass found 4, one at the client's own 1920
+  that their rounds and my eye passes missed; client and our findings barely overlap, so capture-recapture cannot
+  bound the remainder; some client items are preferences no QA predicts. Estimate: more likely than not they
+  send something, probably a handful at most. Asked (AskUserQuestion); the user chose "Yes, run the sweep
+  (Recommended)": an art-over-text pixel sweep aimed at the client's views.
+- Art sweep (#130), in progress. Tools in `f20/artsweep/`: `safari-artsweep.ts` (Safari, hides all text through a
+  CSSOM rule and checks it took, decodes all images, screenshots each viewport with every visible text line's box;
+  `CONTROL_CSS` adds rules for positive controls) and `art-pixels.py` (per line box: the commonest colour is the
+  background; pixels within 6 CSS px differing by over 40 are foreign; grouped by page and text, closest crop
+  saved). Plan: positive controls `ctl` (Scotties at 900 and 1905 with the bolt back at 72% and Confidence's cap
+  removed; both must flag) and negative `neg` (same, current CSS) running; then all six pages at 1905, 1920 and
+  every 8 px from 320 to 432 plus 390 and 393; triage every group by eye; fix, commit, verify each real one.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
