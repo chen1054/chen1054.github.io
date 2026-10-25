@@ -4713,9 +4713,17 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     term (layout-neutral; the right-hand wave in the same image stays). The footer comment from `7415285` (text
     painted above the wave) is updated: that fix kept the text drawn over the wave, but the wave still reached the
     glyphs.
-  - Queued on the VM lock: `fix1` (index, contact, menume at 320, 336, 352, 360, 368, 376, 390, 432) and `fix2`
-    (scotties, tales, about at 320 and 352); then `glyph-gap.py` and `column-depth.py` on them, crops by eye at
-    320 and 390 (footer still flush at the page bottom), then the reply draft in both languages.
+  - Verified in Safari 17.5 (`fix1`: index, contact, menume at 320, 336, 352, 360, 368, 376, 390, 432; `fix2`:
+    scotties, tales, about at 320 and 352). `column-depth.py`: Contact "Chen" 7.5 to 8.5 px at 320 to 390 (13 at
+    432); case studies 9.5 to 10 (22.5 at 432, unchanged); Home footer 10 to 10.5; case-study "Made with" 20.5 at
+    320; Home "MenuMe is a meal…" 24 to 30 below the swirl, nothing to its left within 40; the swirl 22.5 to 26.5
+    before "UX" (design 22). `glyph-gap.py` on both: no footer or intro line under 6 px; what remains is the
+    by-design list at unchanged values plus the persona names. By eye: Home intro at 320 and 360 (swirl beside
+    the heading as drawn), Contact credits at 320, and page bottoms of Contact 320 and 390, MenuMe 320 and Home
+    320: footers flush, credits clear. About untouched (6.5 at 320).
+  - Next: the iOS 17.0.1 Simulator at 375 (an iPhone SE 3rd generation added to the agent's device set on
+    `/Volumes/XinyanSimDevices`, under `vm-sonoma.lock`), frames of the Contact, MenuMe and Home footers and the
+    Home intro; then the reply draft in both languages.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
