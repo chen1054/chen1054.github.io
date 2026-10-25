@@ -4601,6 +4601,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     (186, 209, 193 over 14, through `--pillar-744-inline-size`); the font never exceeds 14 units, so the cap never
     widens a box and changes nothing at 744 and below. Re-check `pillars2` queued; watch the bold names, whose
     font grows a little faster than the copy above 744, for an extra wrap.
+  - `cloud5` result for the bolt at 75.5% (`c4a9bf4`), 49 widths 320 to 2560: every width from 656 up clear
+    (`line-chroma.py`), including 1056 to 1184, 1392 to 1440, 1536, 1920 and 2560, which all hit before. At 320,
+    390 and 639 the first box was the empty float, as tall as the cloud and overlapping the copy, so the gap test
+    kept it; `drop-float-line.py` now also drops boxes over twice the median line height, and those widths read
+    clear. 640 still hits the same lines as `cloud2`'s 640, whose line boxes do not match the screenshot; by eye
+    (`occlude/c5-640.png`) the copy is clear. Looked at `c5-1920.png` and `c5-1180.png`: the tip ends clear of
+    "e-commerce" and of every line. Bolt fix verified in Safari.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
