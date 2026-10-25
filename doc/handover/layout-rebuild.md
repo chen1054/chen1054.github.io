@@ -111,6 +111,17 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
   left-aligned block, subtitle cap on phones only, `--preview` page token (Scotties 280). Body is 15 px on phones
   (the earlier triage's decision), so phone pages run longer than main.
 - The user, 2026-10-25: may rest; block on them (AskUserQuestion) only after exhausting every option.
+- Round three (snapshot `f4341d2`, Safari 17.5 at 390, 744, 1440): About and Contact pixel-identical to main at
+  every width (the nav had inherited bold on Contact and Medium on the case studies until `2c03314`). Home's
+  flexbox rows are 138 px (744) and 156 px (1440) shorter than the grid version: grid's `1fr` tracks could not
+  shrink below the illustrations' natural width and squeezed the copy, so "Skating and Skiing / Shop Redesign"
+  and the MenuMe role wrapped one line more than the tablet design; the flexbox halves are equal. At 744 the
+  converted Scotties personas and Tales pillars are pixel-identical to their grid versions. The Tales Play
+  bubble wraps identically on main and the branch (same width, size, insets; "non-" / "threatening" is the
+  hyphen in "non-threatening").
+- `styles.css` removed from the branch (`60227f7`); `site.css` is 7,625 lines (old 8,146): base and shell 910,
+  Home 241, page drawings 6,475 (Scotties 2,383, MenuMe 2,429, Tales 1,272, About and Contact 391). The drawings
+  are the remaining simplification.
 - Checks run against snapshots, never the live branch (the user: "You can use unlimited worktrees"):
   `node /home/user/temp/agent/serve/snapshot.ts [commit]` adds a detached worktree
   `/home/user/temp/agent/wt-snap-<sha>` and prints its origin (`http://localhost:4173/@wt-snap-<sha>`, through the
