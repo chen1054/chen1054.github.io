@@ -384,8 +384,9 @@ h1 {
   line-height: calc(15rem / 16);
   text-align: center;
   /*
-    The footer wave sits after the text and rises into it; at 320 it covered "Chen" of "© 2026 Xinyan Chen". The
-    text paints above the wave, which runs behind it where they meet.
+    The footer wave sits after the text and rises into it. The text paints above the wave; below 390 each page's
+    wave also rises less than its share of the screen (`min(var(--phone-art-growth), 0rem)` terms), because the
+    shrinking wave climbs toward the full-size credits line: at 320 it reached 3 to 5.5 px up into "Chen" (Safari).
   */
   &>p {
     position: relative;
@@ -796,8 +797,9 @@ h1 {
       }
     }
   }
+  /* Below 390, 10 px under "© 2026 Xinyan Chen" as at 390 (2.5 at 320 before). */
   & .footer-wave {
-    margin-block-start: calc(-65rem / 16 - 65 * var(--phone-art-growth));
+    margin-block-start: calc(-65rem / 16 - 65 * var(--phone-art-growth) - 42 * min(var(--phone-art-growth), 0rem));
   }
 }
 .about {
@@ -1168,10 +1170,11 @@ h1 {
   }
   /*
     Phone/Contact.pdf leaves 8.2 px between "© 2026 Xinyan Chen" and the wave below it at 390; pulled up 72 the wave
-    came within 2.5 px (Safari), so it rises 66.
+    came within 2.5 px (Safari), so it rises 66, and below 390 less again to keep that 8 (it reached 3 px into
+    "Chen" at 320).
   */
   & .footer-wave {
-    margin-block-start: calc(-66rem / 16 - 66 * var(--phone-art-growth));
+    margin-block-start: calc(-66rem / 16 - 66 * var(--phone-art-growth) - 36.5 * min(var(--phone-art-growth), 0rem));
     @media(width>=40rem) {
       margin-block-start: calc(-80rem / 16 - 60 * var(--home-wide-reference-growth));
       &>picture>img {
@@ -2145,8 +2148,12 @@ h1 {
   }
   &>.site-footer {
     margin-block-start: calc(110rem / 16);
+    /*
+      Below 390 the wave rises less, so it stays about 10 px under "© 2026 Xinyan Chen" as at 390 (Phone PDFs: 11);
+      at a fixed 65 it reached 5.5 px into "Chen" at 320 (Safari).
+    */
     &>.footer-wave {
-      margin-block-start: calc(-65rem / 16);
+      margin-block-start: calc(-65rem / 16 - 105 * min(var(--phone-art-growth), 0rem));
       &>picture>img {
         filter: brightness(0) invert(calc(217 / 255));
       }
