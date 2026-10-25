@@ -4644,6 +4644,16 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   saved). Plan: positive controls `ctl` (Scotties at 900 and 1905 with the bolt back at 72% and Confidence's cap
   removed; both must flag) and negative `neg` (same, current CSS) running; then all six pages at 1905, 1920 and
   every 8 px from 320 to 432 plus 390 and 393; triage every group by eye; fix, commit, verify each real one.
+  - Calibration on Scotties at 900 and 1905. WebDriver's 30 s script limit cut the image step; now 120 s, and the
+    image wait is capped at 20 s (2 to 3 images per page never complete; to identify). At difference 40 the old
+    bolt flagged (0 px, 1905) but the old Confidence pillar did not (trail #eae4d9 is 38 from white): threshold
+    now 20. Lines cut by the top or bottom of a shot flagged on Safari's grey 1 px screenshot border: skipped,
+    since shots overlap by 150 px. Result: both controls flag (bolt 0 px at 1905, pillar 3.5 px at 900) and
+    vanish under current CSS. Current CSS leaves 5 groups at those widths: two buttons inside their own pills
+    (expected), and three to judge by eye (a wireframe callout's border 4 px from its text at 900, the cloud's
+    bolt tip 4.5 px from a line box corner at 900, "Hi-fi Homepage" 5.5 px above its mockup at 1905). The tool
+    now also saves each view with text shown (`*.text.png`, the hiding rule's properties removed and restored),
+    and crops pair both.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
