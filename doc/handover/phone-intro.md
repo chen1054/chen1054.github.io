@@ -4503,7 +4503,8 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     (`f20/zoom/zoom-shots.py`, 390, 1440, 1920 by 900, into `f20/zoom/chromium/`).
   - Enlarged views, Chromium (`f20/zoom/chromium/`, sheets in `f20/zoom/sheets/`): 54 viewers (MenuMe 21,
     Scotties 11, Tales 22; the navigation popover excluded; first written here as 50 with Tales 18, a miscount
-    corrected from the per-page log counts) at 390 and 1440, all looked at. Outlines carry over
+    corrected from the per-page log counts) at 390 and 1440, all looked at (the 390 Scotties and Tales sheets
+    were first skipped while this line already said "all"; read afterwards, nothing wrong). Outlines carry over
     (MenuMe moodboard 1 px, Scotties moodboard 5 px, wireframes and Tales poster and ad 1 px). Nothing to fix.
     By design and kept: bitmaps open at their `width` attribute and vectors at the viewer's full width, so on a
     phone and for tall vectors on desktop the view is a scrollable crop (`overflow: auto`); every picture and
@@ -4521,7 +4522,11 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - Safari 17.5 enlarged views done: all 54 opened by a real WebDriver click on each trigger
     (`f20/zoom/safari-zoom.ts`, needs the `package.json` with `"type": "module"` beside it) at 1440 and 744:
     108 of 108 opened and loaded; every one looked at (`f20/zoom/safari-sheets/`). Nothing wrong; outlines
-    carry over as in Chromium.
+    carry over as in Chromium. Then at 393 (the client's phone width, unit `xinyanchen-safari-zoom-393`, log
+    `f20/zoom/safari-393.log`): 54 of 54 opened and loaded, every one looked at, nothing wrong.
+  - Reply draft (`../Client screenshots 2026OCT220120/reply-draft.md`, local only): this sweep's four fixes
+    added in both languages (badge, personas, Well-Being, backpack). The GIF ghosting is not in it; whether to
+    raise it is the user's call.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
