@@ -1712,23 +1712,11 @@ img {
     */
     &>.content>.project-divider {
       block-size: calc(15rem / 16);
-      @media(width<80rem) {
-        margin-block-start: calc(
-          79rem / 16 + var(--phone-grow) + 32 * var(--grow)
-        );
-      }
       @media(width>=80rem) {
         block-size: calc(20rem / 16);
       }
       border-width: 0;
       background-size: auto 100%;
-    }
-    & .section-navigation {
-      @media(width<80rem) {
-        margin-block-start: calc(
-          77rem / 16 + 4 * var(--phone-grow) + 57 * var(--grow)
-        );
-      }
     }
   }
   &[data-case-study="scotties"] {
@@ -3498,16 +3486,6 @@ img {
             }
           }
         }
-      }
-      /*
-        The closing quote: 36 px lines, 806 px wide (inside the 801.5 to 812 px where both browsers break it as
-        drawn) and centred 6.5 px right of the column's middle, 124 px under the second box.
-      */
-      :where(#scotties-reflection) .closing-reflection {
-        inline-size: calc(806rem / 16);
-        margin-block-start: calc(118rem / 16);
-        margin-inline-start: calc(100% * 146.5 / 1086);
-        line-height: round(nearest, 2em, 1px);
       }
     }
   }
