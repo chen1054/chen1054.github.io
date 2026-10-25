@@ -4623,6 +4623,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     line counts identical to `pillars`; Confidence one line more at 928 to 992 and 1180 to 1279. By eye
     (`occlude/p3-900.png`, `p3-992.png`, `p3-1180.png`, `p3-1279.png`): natural wraps, no word alone, copy clear
     of the trail. Pillar fix verified in Safari; in the reply draft, both languages.
+  - 2560 case-study bodies then read in full (contact 01, MenuMe 01 to 09, Scotties 01 to 07, Tales 01 to 09):
+    nothing new; the only issue on them is the bolt, captured before `c4a9bf4`.
+  - Why the bolt moved rather than the copy: the alternative was a desktop `shape-margin` on the float so the
+    copy wraps around the bolt where drawn; moving the bolt 3.5% keeps the copy's natural wrapping, which the
+    user asked for, and fixes tablet with the same rule. The desktop design PDF was consulted for the bolt's
+    position; the tablet PDF was not.
   - sweep27 (#127) done: every width read, all four findings fixed and verified in Safari.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
