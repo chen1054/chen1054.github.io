@@ -71,6 +71,9 @@ restarting ssh manually over and over again!" Everything long-lived is a unit fi
   (`/home/user/temp/agent/serve/serve-worktree.ts`), for the user to watch the branch live in Polypane. After each
   change, `polypane -g --reload` reloads Polypane's active tab without taking focus (Polypane docs, "Command line
   options").
+- `xinyanchen-polypane-branch@4211`, `@4212`, `@4213` (template `xinyanchen-polypane-branch@.service`): the same
+  worktree on three more ports, so each Polypane pane can use its own origin and none waits on the browser's
+  6-connection limit per origin (the user, 2026-10-25).
 - `xinyanchen-preview`: 127.0.0.1:4173 on this machine, `mise run preview` in the main tree.
 
 The units run node from `/home/user/.local/share/mise/installs/node/26.12.0/bin/node`; if mise moves node, edit
