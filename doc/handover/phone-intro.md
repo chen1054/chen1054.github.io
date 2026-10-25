@@ -4618,8 +4618,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     832 to 1279 (1180 Confidence 4 to 6, Excitement 5 to 8; the names outgrow the copy, so not even the 744
     lines) and the pillars became tall narrow columns (`occlude/pl-pillars2-1180.png` against
     `pl-pillars-1180.png`). Replaced in `5bbb71e`: only Confidence (the one under 17 px) keeps 1 rem off its
-    end, never below its 744 measure in ems; Belonging and Excitement back to as before. `pillars3` running
-    (gaps plus a line-count diff against `pillars`).
+    end, never below its 744 measure in ems; Belonging and Excitement back to as before. `pillars3` result: every
+    gap 17 px or more at 640 to 1440 (Confidence at least 19, at 992; 900 now 56); Belonging and Excitement
+    line counts identical to `pillars`; Confidence one line more at 928 to 992 and 1180 to 1279. By eye
+    (`occlude/p3-900.png`, `p3-992.png`, `p3-1180.png`, `p3-1279.png`): natural wraps, no word alone, copy clear
+    of the trail. Pillar fix verified in Safari; in the reply draft, both languages.
+  - sweep27 (#127) done: every width read, all four findings fixed and verified in Safari.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
