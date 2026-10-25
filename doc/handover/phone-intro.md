@@ -4611,6 +4611,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     draft's "four things" made count-neutral.
   - `variants10` result: the widget paragraph split "One- / Pagers" at 414, the School Distribution item at 414
     and 430; word-joined, both stay whole at all 36 widths with line counts unchanged (`f58ac21`).
+  - `textfix` by eye (`occlude/tf-*.png`): MenuMe at 390 and 900 ends "(15 min / 380 kcal)." whole; Tales at 860
+    and 900 now breaks "age- / appropriate One-Pagers." at the ordinary hyphen, no word alone. Both in the reply
+    draft, both languages.
+  - `pillars2` result for the 744-em cap (`3521b34`): gaps all at or over the 744 values, but line counts rose at
+    832 to 1279 (1180 Confidence 4 to 6, Excitement 5 to 8; the names outgrow the copy, so not even the 744
+    lines) and the pillars became tall narrow columns (`occlude/pl-pillars2-1180.png` against
+    `pl-pillars-1180.png`). Replaced in `5bbb71e`: only Confidence (the one under 17 px) keeps 1 rem off its
+    end, never below its 744 measure in ems; Belonging and Excitement back to as before. `pillars3` running
+    (gaps plus a line-count diff against `pillars`).
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
