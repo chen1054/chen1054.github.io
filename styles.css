@@ -2439,11 +2439,15 @@ h1 {
               Below the 744 design width the copy shrinks with its column, so it keeps the 744 lines; at 14 px it
               gained a line from 704 down and the trails ran into it (in Safari at 672 the Confidence trail met
               "trusted"). From 744 up the shared sizes apply as before; desktop sets its own lines.
+              Above 744 the column outgrows the copy, so each measure stays at its 744 width in ems (the design's
+              width over 14 px) and keeps the 744 lines; uncapped, Safari pulled "feel assured" onto Confidence's
+              fourth line at 900, ending 4 px from the trail.
             */
             @media(width<80rem) {
               &>p {
                 font-size: min(calc(14rem / 16 + 2 * var(--home-wide-reference-growth)), calc(14 * var(--u)));
                 line-height: round(nearest, 2em, 1px);
+                max-inline-size: calc(var(--pillar-744-inline-size) * 1em / 14);
                 &>span {
                   font-size: min(
                     calc(15rem / 16 + var(--phone-tablet-reference-growth) + 2 * var(--home-wide-reference-growth)),
@@ -2455,6 +2459,7 @@ h1 {
           }
           /* Tree order is Confidence, Belonging, Excitement. */
           &>article:nth-child(1) {
+            --pillar-744-inline-size: 186;
             inline-size: calc(186 * var(--u));
             margin-block-start: calc(155 * var(--u));
             margin-inline-start: calc(6 * var(--u));
@@ -2463,11 +2468,13 @@ h1 {
             }
           }
           &>article:nth-child(2) {
+            --pillar-744-inline-size: 209;
             inline-size: calc(209 * var(--u));
             margin-block-start: calc(296 * var(--u));
             margin-inline-start: calc(369 * var(--u));
           }
           &>article:nth-child(3) {
+            --pillar-744-inline-size: 193;
             inline-size: calc(193 * var(--u));
             margin-block-start: calc(23 * var(--u));
             margin-inline-start: calc(427 * var(--u));
