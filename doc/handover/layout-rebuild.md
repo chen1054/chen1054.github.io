@@ -145,11 +145,10 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
 ## Cutover plan
 
 Pushing `main` publishes https://chen1054.github.io (GitHub Pages serves `main` at `/`), the site the client has
-on their résumé. The user still authorizes the cutover; the bar for asking is the agent's own confidence (the
-user, 2026-10-25: "If you're not confident enough to cutover yourself, that means you haven't done enough work,
-whether implementation or verification", then "The reason I said it that way was to push you to implement and
-verify to a point where you're confident. Not that I'm delegating responsibilities to you."). Ask only once this
-evidence holds on one snapshot and the agent would cut over itself:
+on their résumé. The agent cuts over without asking, once it is confident on the evidence (the user, 2026-10-25:
+"If you're not confident enough to cutover yourself, that means you haven't done enough work, whether
+implementation or verification"; "Cutover doesn't require my approval. I was speaking in a philosophical way.").
+The bar is that this evidence holds on one snapshot:
 
 1.  Every page on the branch passes, on one snapshot: the line dump 320 to 1920 (no stranded word, no overflow,
     detector artefacts named), the client-ask probe (`eval-invariants.js`, main against branch at 390, 1440, 1920,
