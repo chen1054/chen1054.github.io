@@ -175,6 +175,20 @@ The bar is that this evidence holds on one snapshot:
     the live site breaks, `git revert --no-edit <pre-cutover>..HEAD` on main (a new commit; never a force push).
 5.  Then re-verify the client reply draft's "checked in Safari 17.5" claims against the live site.
 
+## Cutover, 2026-10-25
+
+Main fast-forwarded from `441ca4a` (the rollback point: `git revert --no-edit 441ca4a..HEAD` on main) to this
+branch. Evidence on snapshot `e12e8ec` and round four (`53a9245`, text-only glues since), Safari 17.5 unless noted:
+- About and Contact pixel-identical to main at 390, 744, 1100, 1440 and 1905.
+- Home, Scotties, MenuMe and Tales compared side by side with main at every one of those widths; differences are
+  the intended ones: 15 px phone body, Home's flexbox rows (tablet text no longer squeezed), Home's side waves
+  off the copy, the sitemaps kept as the centred one-column tree below 52rem (main wraps "Our / Team" there).
+- All-blocks line dump, 320 to 1920 by 16, all six pages (32,077 blocks): no stranded word (main has 6).
+- Client-ask probe at 390, 1440, 1920, 2400: identical to main except sitemap labels at body size (CF93).
+- Interactions identical to main: phone menu, every client hover (About pill, back-to-top CF113, Tales CF101,
+  Scotties CF105 and CF106, MenuMe), each artwork viewer opening and closing on Escape.
+- iOS 17.0.1 Simulator (Safari 17.0): Home, each case study's reworked sections, About, Contact.
+
 ## Model
 
 Written into the stylesheet header as it is built (`site.css`).
