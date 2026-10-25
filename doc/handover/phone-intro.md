@@ -4525,8 +4525,8 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     carry over as in Chromium. Then at 393 (the client's phone width, unit `xinyanchen-safari-zoom-393`, log
     `f20/zoom/safari-393.log`): 54 of 54 opened and loaded, every one looked at, nothing wrong.
   - Reply draft (`../Client screenshots 2026OCT220120/reply-draft.md`, local only): this sweep's four fixes
-    added in both languages (badge, personas, Well-Being, backpack). The GIF ghosting is not in it; whether to
-    raise it is the user's call.
+    added in both languages (badge, personas, Well-Being, backpack). The GIF ghosting is not in it: asked,
+    the user chose "Leave it out" (2026-10-24). Do not raise it again unless the client asks about it.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
