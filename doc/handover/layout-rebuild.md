@@ -55,8 +55,31 @@ measurements.
 
 ## Model
 
-Written into the stylesheet header as it is built.
+Written into the stylesheet header as it is built (`site.css`).
 
 ## Progress
 
 One entry per page.
+
+### Home (2026-10-25)
+
+`index.html` links `site.css`; every other page still links `styles.css`. The Home rules are 160 lines (the old
+Home block was 380), with no per-project offsets except each project's two drawn phone distances (`--gap`,
+`--rise`, as shares of the width) and its desktop art width (`--art`, a share of its 507 px column).
+
+Checked:
+- Safari 17.5 (VM) at 320, 390, 744, 1100, 1440 and 1905, by eye against the phone, tablet and desktop exports.
+  Fixed on the way: the gap above the name (10 to 22 px wide), art 7 % small (543 px column assumed; it is 507),
+  pills 4 px in from the copy, 5 px gutters at 320, the row gap (0 at 744 to 72 at 1440, as drawn).
+- Line dump 320 to 1920 by 8 (`home4-lines.jsonl`): no stranded word or overflow. The one flag, Matcha's
+  "experience.", is the detector filing "user-friendly" under its first half's line; Safari breaks it as
+  "user-" / "friendly experience.".
+- Intro timing (computed styles, 390 and 1440): name 1 s, summary and pill 2 s, purple 3 s, river 4 s for 1.8 s,
+  flower 6.1 s.
+- iPhone 15 Simulator, iOS 17.0.1, Safari 17.0 (`sim17-homerb-00` to `06`): hero and river on the first screen.
+- Copy on the side waves, phones: pending (`eval-wave-overlap.js`, main against the branch, 320 to 632).
+
+Not exercised: the hover colours (rules carried over unchanged).
+
+Captures and probes: `/home/user/temp/agent/f20/artsweep/` (`home2/`, `home4-lines.jsonl`, `timing.log`), served to
+the VM at `http://localhost:4173/@wt-layout-rebuild/` (the m1 tunnel to this machine's 4174 mux).
