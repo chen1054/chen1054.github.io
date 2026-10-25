@@ -44,6 +44,12 @@ measurements.
 - No explicit line breaks (no `<br>`, no per-line spans, no override that imitates a design break).
 - No `text-wrap: balance` or `pretty`: the Safari floor is 17.0, which has neither.
 - No cascade layers. Full-resolution images, never softened. No stretching. Cream everywhere.
+- No CSS grid (the user's ban; README). 26 grid uses crept into the old sheet after the ban; the rebuild removes
+  them. The user, 2026-10-25: "I banned grids because I believed this site doesn't need it. If you think this site
+  needs it, build a good case for it." No case holds: plain rows and columns are flexbox; a connector is drawn by
+  the element it runs beside (its `::before`, `inset-block` stretched by the fixed gaps to its ends), so its
+  length follows that element's real height in flow; overlapping layers overlap in flow by negative margins, so
+  each keeps its height (never absolute positioning with fixed heights, which lets text out of its box).
 - Body copy is Medium (500) where the designs render it heavier (Home project copy, Scotties body): the user,
   2026-10-25, "the design doesn't match the client's intentions. That needed to be medium."
   The design PDFs use outlined Type3 fonts, so they carry no weight to measure.
