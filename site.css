@@ -381,7 +381,10 @@ img {
     line-height: round(nearest, 2rem + 4 * var(--phone-grow) + 16 * var(--grow), 1px);
   }
   & .designer-name {
-    margin-block-start: calc(11rem / 16 - 1 * var(--grow));
+    margin-block-start: calc(11rem / 16);
+    @media(width>=40rem) {
+      margin-block-start: calc(10rem / 16 + 12 * var(--grow));
+    }
     color: var(--color-gold);
     font-size: calc(2rem + 4 * var(--phone-grow) + 12 * var(--grow));
     line-height: round(nearest, 42rem / 16 + 6 * var(--phone-grow) + 16 * var(--grow), 1px);
@@ -446,7 +449,8 @@ img {
   /*
     A project: stacked on phones, its art beside the text on wide screens. Per project, two drawn distances in px
     of the 390 px phone drawings: --gap from the art above to this illustration, --rise of the gray wave behind the
-    copy's end. Desktop: --art, the illustration's width in the 1440 design, of its 543 px half column.
+    copy's end. Wide: --art, the illustration's width in the 1440 design, of its 507 px column (1086 less the 72 px
+    gap, halved), so it keeps that share of its column at every width.
   */
   & .project {
     --gap: 48;
@@ -518,7 +522,7 @@ img {
         grid-column: 1;
         grid-row: 1;
         justify-self: center;
-        inline-size: min(100%, var(--art) / 543 * 100%);
+        inline-size: min(100%, var(--art) / 507 * 100%);
       }
       &>.description {
         grid-column: 2;
@@ -528,8 +532,9 @@ img {
         &>h2 {
           margin-block-start: 0;
         }
+        /* The pill's 4 px shadow gutter hangs outside the text edge, so its visible edge lines up with the copy. */
         &>.pill {
-          margin-inline: 0;
+          margin-inline: calc(-4rem / 16) 0;
         }
       }
       &:nth-of-type(even) {
