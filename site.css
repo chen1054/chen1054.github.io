@@ -651,6 +651,7 @@ img {
     --case-study-prototype-hover-chroma: 0.123646;
     --case-study-secondary-prototype-hover-chroma: 0.168313;
     --color-case-study-wireframe-frame: #474e32;
+    --preview-desktop: 438;
     --summary-bullet: "•" / "";
     --summary-bullet-indent: 1rem;
   }
@@ -668,6 +669,7 @@ img {
     --summary-bullet: "•" / "";
     --summary-bullet-indent: 1rem;
     --preview: 280;
+    --preview-desktop: 551;
   }
   /* Every case-study design tracks its text at -1.9 %, except the navigation and the prototype links. */
   & .content {
@@ -733,17 +735,22 @@ img {
       inline-size: min(100%, calc(var(--preview, 240) * 1rem / 16 + (438 - var(--preview, 240)) * var(--grow)));
     }
     @media(width>=80rem) {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      /*
+        The summary from about the column's middle (the designs: 555 of 1086), wide enough for each subtitle's one
+        line; the art at its desktop drawing's share of its side (--preview-desktop px: Tales 422, MenuMe 438,
+        Scotties 551).
+      */
+      grid-template-columns: minmax(0, 525fr) minmax(0, 561fr);
       align-items: start;
       justify-items: start;
-      column-gap: calc(48rem / 16);
+      column-gap: 0;
       &>.project-preview {
-        inline-size: 100%;
+        inline-size: min(100%, var(--preview-desktop, 422) / 525 * 100%);
       }
     }
   }
   & .project-summary {
-    max-inline-size: calc(540rem / 16);
+    max-inline-size: calc(561rem / 16);
     &>h1 {
       color: var(--color-case-study-heading);
       font-size: calc(24rem / 16 + 6 * var(--grow));
