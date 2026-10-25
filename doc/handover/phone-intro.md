@@ -4815,6 +4815,33 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `text-wrap: wrap` overrides, which only cancelled it. Safari line dump running: `f20/artsweep/lines.jsonl`
     (`safari-lines.ts`, `eval-lines.js`, 320 to 1920 by 8, Home, Scotties, MenuMe, Tales; flags stranded last
     words and overflow), then shots by eye and the iOS 17.0.1 Simulator.
+  - `lines.jsonl`, Home, 320 to 1920 by 8: no stranded last word (Matcha's flag at 640 to 696 is a break inside
+    "user-friendly", leaving "friendly experience."); summary six lines; poster title breaks after its comma at
+    every width. Overflow flags there are false (the parent `.description` is `display: contents`, 0 wide).
+
+## Pivot: layout rebuild, 2026-10-25
+
+The user: "I have a feeling if I did this myself w/o any kind of AI assistance I would've been done long by now. I
+think something went fundamentally wrong with how you were doing the work." Measured then: `styles.css` 8146
+lines, 239 `@media`, 342 uses of the two growth variables, 356 commits to it since 2026-10-15. Cause: each design
+frame was reproduced per element (offsets, per-card overrides, hand-made line breaks, half-pixel gap analysis),
+and each fix added a special case. The user chose "Rebuild layout": keep HTML content, assets and the client's
+explicit asks; rewrite the stylesheet on a few shared rules. Also said: "I already said Figma is not
+pixel-perfect. At least a few times." and "Keep main branch sorta functional always. The client already put this
+site on their resume and I don't want to impact that. Use other branches if necessary, cutover only when main
+branch is sorta functional."
+
+Rules for the rebuild:
+- Branch `layout-rebuild` in its own worktree; GitHub Pages serves `main` at `/` (measured with `gh api`), so the
+  branch never goes live. Merge to `main` only when every page works.
+- The designs give hierarchy, proportions and a type scale, never per-element measurements.
+- Three layouts (the three design frames); one interpolation between 744 and 1440 for type and measures only.
+  Measures in em. Art anchored to the block it decorates, never offset from the viewport. A small spacing scale.
+  Media queries only at layout boundaries and the user's 414 to 639 hybrid.
+- Client asks and the user's standing rules are the invariants; checks per page: Safari shots by eye at 320,
+  390, 744, 1440, 1905, `safari-lines.ts` for stranded words, the Simulator once per phone-relevant page.
+- Retired: glyph-gap, column-depth, design-gap, zoom crops, per-element design measurement.
+- Handover: one entry per page, not per step.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
