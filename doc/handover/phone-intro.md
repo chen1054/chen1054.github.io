@@ -4751,6 +4751,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     (1280 listing 16); `glyph-gap.py` nothing under 6. By eye at 1905: the listing heading sits between the
     wireframes as drawn. Below 1280 untouched: at 744 and 390 the nearest art is the skateboard glyph (12 and
     4 to 5 px; designs 11 and 3).
+  - The user asked again "Are we really done? Is the client going to find more problems?" (2026-10-25). Answer
+    given: no; each new check class has found something (this round one at 1920), and the 2026-10-24 design pass
+    against the 23 October exports compared at 390 and 744 only, by eye, and missed the wireframe heading sizes
+    there too. Running: a text-size diff, every design text line's size (PDF spans) against Safari's computed
+    size of the text containing it, six pages at 390, 744 and 1440 (`safari-text-styles.ts` into
+    `f20/artsweep/text-styles/`, then `text-size-diff.py`). Verified mismatches get fixed, committed, checked.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
