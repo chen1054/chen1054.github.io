@@ -50,6 +50,12 @@ measurements.
   the element it runs beside (its `::before`, `inset-block` stretched by the fixed gaps to its ends), so its
   length follows that element's real height in flow; overlapping layers overlap in flow by negative margins, so
   each keeps its height (never absolute positioning with fixed heights, which lets text out of its box).
+  The user then allowed grid where it is still the best choice. Kept: the drawings whose connectors span rows or
+  whose layers overlap in one cell (Scotties lo-fi and hi-fi, MenuMe usability flows and dual loop, Tales key
+  insights, Scotties pillars), which already work in grid and carry the client's arrow fixes (CF107, CF108, CF116,
+  CF118, CF119, CF121, CF123); rebuilding them would change nothing visible and risk those fixes. New drawings use
+  the flow techniques. Plain rows and columns (personas, story pillars, sitemap columns, device showcase, problem
+  and contribution cards) move to flexbox.
 - Body copy is Medium (500) where the designs render it heavier (Home project copy, Scotties body): the user,
   2026-10-25, "the design doesn't match the client's intentions. That needed to be medium."
   The design PDFs use outlined Type3 fonts, so they carry no weight to measure.
