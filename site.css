@@ -1348,13 +1348,6 @@ img {
     }
   }
   &[data-case-study="scotties"] {
-    /*
-      The tablet and phone designs set the body copy Medium; the desktop design's Bold is treated as the outlier
-      (the user's decision, 2026-10-19).
-    */
-    &>.content {
-      font-weight: 500;
-    }
     /* The positioning and value-pillar notes stay Medium on every width; their lead phrase is Bold 15, 16 and 18. */
     &>.content :is(.scotties-positioning-note, .small-illustration~.flex-row>article)>p {
       font-weight: 500;
@@ -1368,11 +1361,6 @@ img {
       font-family: "Abril Fatface", serif;
       font-weight: 400;
     }
-    /* The tablet design leaves 75 px of ink between the type panels' heading and their chevron trail. */
-    @media(width>=40rem) and (width<80rem) {
-      &>.content .subsection:has(img[src*="type-specimens"])>h3.subheading {
-        margin-block-end: calc(69rem / 16);
-      }
       /*
         Tablet Scotties draws the type panel 620 px wide, its "Body Text" label at 16 px over 14 px body copy. Grown
         with the column it reached 976 px in a 1280 Safari window, the label about 25 px; like the Tales charts, the
@@ -1383,47 +1371,14 @@ img {
         margin-inline: auto;
       }
     }
-    /*
-      Desktop Scotties: the first heading 218 px under the band's top, the moodboard 64 under the copy's last
-      glyph top; Typography 130 under it, its panel 1082 px wide from 2 px into the 1086 px column and 102 under
-      the heading's glyph top; Brand Identity 126 under the panel, its copy 72 under the heading; the logo from
-      217 px in, 62 under the copy's last glyph top and 183 above the next band's heading.
-    */
+    /* Desktop Scotties draws the type panel across the whole column. */
     @media(width>=80rem) {
-      &>.content>:where(#scotties-visual-strategy)>.section-content {
-        padding-block-start: calc(125rem / 16);
-        &>figure {
-          margin-block-start: calc(37rem / 16);
-        }
-        &>.subsection:has(img[src*="type-specimens"]) {
-          margin-block-start: calc(129rem / 16);
-          &>h3 {
-            margin-block-end: 0;
-          }
-          &>figure {
-            inline-size: calc(108200% / 1086);
-            max-inline-size: none;
-            margin-block-start: calc(71rem / 16);
-            margin-inline: calc(200% / 1086) auto;
-          }
-        }
-        &>.subsection:has(.wordmark) {
-          margin-block-start: calc(126rem / 16);
-          &>h3 {
-            margin-block-end: calc(36rem / 16);
-          }
-          &>.wordmark {
-            margin-block: calc(35rem / 16) calc(11rem / 16);
-            margin-inline: calc(21700% / 1086) auto;
-          }
-        }
+      &>.content .subsection>figure:has(img[src*="type-specimens"]) {
+        max-inline-size: none;
       }
     }
     /* The phone design sets the Scotties column 20 px from each edge (Phone/Scotties.png), where the others use 34. */
     @media(width<40rem) {
-      &>.content .section-content {
-        inline-size: calc(100% - 40rem / 16);
-      }
       /*
         The phone design centres each persona: a 222 px photo with its plate 14 px up and to the start, and the
         name, role and description centred below (Phone/Scotties.pdf).
@@ -1499,64 +1454,6 @@ img {
           margin-block-start: 0;
           @media(width>=64rem) {
             text-align: start;
-          }
-        }
-      }
-    }
-    /*
-      Desktop Scotties starts the User Personas and Core Value headings' text in line with the copy, 53 px into the
-      1086 px column, their icons hanging before it; the photos 85 px under the heading's glyph top, the names 42
-      under the photos and the copy 41 under the role. Each name and role centres at 172, 544 and 899 px into the
-      column, and the copy starts at 53, 400 and 761 px, its lines up to 280, 304 and 274 px long. In Medium, it
-      wraps as drawn from 279.5 to 308, 300.5 to 330 and 270 to 326 px in Chromium, so each measure sits mid-range.
-    */
-    @media(width>=80rem) {
-      & #scotties-research h3 {
-        margin-inline-start: calc(200% / 1086);
-        text-align: start;
-      }
-      & #scotties-research h3:has(+ .flex-row>.persona) {
-        margin-block-end: calc(22rem / 16);
-      }
-      /* Core Value 106 px under the personas' last glyph top, its intro 70 under the heading's glyph top. */
-      &>.content .subsection:has(>.small-illustration+.flex-row>article) {
-        margin-block-start: calc(63rem / 16);
-        &>h3 {
-          margin-block-end: calc(34rem / 16);
-        }
-        /* The pillars' first glyph 87 px under the intro's. */
-        &>p {
-          margin-block-end: calc(34rem / 16);
-        }
-      }
-      &>.content .persona {
-        &>.persona-photograph {
-          margin-block-end: calc(36rem / 16);
-        }
-        &>p {
-          box-sizing: border-box;
-          margin-block-start: calc(7rem / 16);
-        }
-        &:nth-child(1) {
-          &>h4 {
-            margin-inline-end: calc(23rem / 16);
-          }
-          &>p {
-            inline-size: calc(294rem / 16);
-            margin-inline-start: calc(12rem / 16);
-          }
-        }
-        &:nth-child(2)>p {
-          inline-size: calc(315rem / 16);
-          margin-inline-start: calc(-1rem / 16);
-        }
-        &:nth-child(3) {
-          &>h4 {
-            margin-inline-end: calc(8rem / 16);
-          }
-          &>p {
-            inline-size: calc(298rem / 16);
-            margin-inline-start: calc(1rem / 16);
           }
         }
       }
