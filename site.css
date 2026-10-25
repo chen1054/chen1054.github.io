@@ -912,6 +912,17 @@ img {
       min-inline-size: 0;
     }
   }
+  /* Tales' story pillars: a row of narrow columns, centred, their names a step under the card titles. */
+  & .story-pillars {
+    align-items: start;
+    text-align: center;
+    & h4 {
+      font-size: calc(15rem / 16 - var(--phone-grow) + 2 * var(--grow));
+    }
+    &>* {
+      flex-basis: calc(160rem / 16);
+    }
+  }
   & .note {
     box-sizing: border-box;
     padding: 2rem;
