@@ -43,7 +43,11 @@ measurements.
 - No explicit line breaks (no `<br>`, no per-line spans, no override that imitates a design break).
 - No `text-wrap: balance` or `pretty`: the Safari floor is 17.0, which has neither.
 - No cascade layers. Full-resolution images, never softened. No stretching. Cream everywhere.
-- Scotties body text Medium. Safari is the reference browser; Chromium never blocks.
+- Body copy is Medium (500) where the designs render it heavier (Home project copy, Scotties body): the user,
+  2026-10-25, "the design doesn't match the client's intentions. That needed to be medium."
+  The design PDFs use outlined Type3 fonts, so they carry no weight to measure.
+- Navigation and footer text are Playfair Regular in #685587 on every page (client round 2026-10-18).
+- Safari is the reference browser; Chromium never blocks.
 - The 414 to 639 hybrid phone range stays as the user chose it.
 - Ignore WeChat's own text enlargement.
 - Main stays working; this branch merges only when every page works.
