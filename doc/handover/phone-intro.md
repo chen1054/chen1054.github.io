@@ -4752,7 +4752,7 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     wireframes as drawn. Below 1280 untouched: at 744 and 390 the nearest art is the skateboard glyph (12 and
     4 to 5 px; designs 11 and 3).
   - The user asked again "Are we really done? Is the client going to find more problems?" (2026-10-25). Answer
-    given: no; each new check class has found something (this round one at 1920), and the 2026-10-24 design pass
+    given: not provably; each new check class has found something (this round one at 1920), and the 2026-10-24 design pass
     against the 23 October exports compared at 390 and 744 only, by eye, and missed the wireframe heading sizes
     there too. Running: a text-size diff, every design text line's size (PDF spans) against Safari's computed
     size of the text containing it, six pages at 390, 744 and 1440 (`safari-text-styles.ts` into
@@ -4765,8 +4765,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     read the older `.fig` (52 of 70 at 14). A user decision, asked.
   - Tension recorded: the same 2026-10-20 entry kept a Figma inconsistency consistent on purpose (five MenuMe
     subheadings at 16 beside siblings at 18, site 18 for all). `8e71435` instead follows the designs' smaller
-    Wireframing Execution headings; those are smaller in all three designs, but it is the opposite policy, so
-    it goes to the user with the body question.
+    Wireframing Execution headings; those are smaller in all three designs.
+  - Resolved, not a conflict: in the 23 October exports "Key Learnings & Takeaways" is 16 / 16 / 22 (phone,
+    tablet, desktop) beside siblings at 18 / 18 / 22 ("Core Task Flows"): smaller in two frames, equal on
+    desktop, a frame slip kept consistent. The Scotties wireframe headings are smaller in all three frames:
+    intent, followed. Rule used: smaller in every frame is intent; in some frames only is a slip. The phone body
+    question stands alone. Next checks (tasks #131 to #134): block-based re-collection (`text-styles3`) with a
+    positive control, triage of the size groups, phone body by container, the phone footer and swirl fixes at
+    ×1.12 text, unmatched design lines as copy differences.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
