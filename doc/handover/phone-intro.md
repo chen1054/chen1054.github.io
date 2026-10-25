@@ -4660,6 +4660,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     about 4 px from the right border, so text may run into the right padding. `safari-note-padding.ts` (every
     `.note` on the three case studies at 13 widths, text past the content box) running, then `full` (the whole
     art sweep, `full.report`) queued on the lock.
+  - `notepad.log` (455 notes, three case studies, 13 widths): no text past any content box. The listing note
+    "Placed key equipment…" (Scotties, tablet rule `.subsection:nth-child(4)>.flex-row>.note:first-child`) has
+    `--pe: 0`, so end padding 0 and its text runs to the border's inner edge at 640 to 1024 (start gap 14 to 24).
+    Tablet/Scotties.pdf: box x 61 to 278, text x 87 to 256.4, lines "Placed key equipment / categories at the
+    top-left for / riders seeking exact specs." `eb3c495` meant "the Figma text width inside its 4 px border".
+    Fix committed before checking: `--ps: 26; --pe: 21.6`. `notepad2` (lines, height against min-height, gaps at
+    640 to 1092) queued behind `full`; then a by-eye crop. Other zero gaps are expected: the cloud (no border)
+    and MenuMe's two loop labels (no frame).
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
