@@ -743,18 +743,26 @@ img {
       font-size: calc(24rem / 16 + 6 * var(--grow));
       line-height: round(nearest, 34rem / 16 + 6 * var(--grow), 1px);
     }
+    /* The phone designs break the subtitle into two lines of about 16 em; wider, it runs on one. */
     &>h2 {
-      max-inline-size: 16em;
       margin-block: calc(5rem / 16) 1rem;
       margin-inline: auto;
       color: var(--color-case-study-subtitle);
       font-size: calc(18rem / 16 + 4 * var(--grow));
       line-height: round(nearest, 1.5em, 1px);
+      @media(width<40rem) {
+        max-inline-size: 16em;
+      }
     }
-    /* Each fact on its own line, its label bold; bulleted on desktop where the page sets a bullet. */
+    /*
+      The facts read as one block, each entry on its own line with its label bold, left-aligned in a centred box;
+      bulleted on desktop where the page sets a bullet.
+    */
     &>p {
       max-inline-size: 34em;
+      margin-block: 0;
       margin-inline: auto;
+      text-align: start;
       &>strong {
         font-weight: 700;
       }
