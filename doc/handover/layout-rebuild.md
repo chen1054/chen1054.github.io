@@ -53,6 +53,44 @@ measurements.
 - Ignore WeChat's own text enlargement.
 - Main stays working; this branch merges only when every page works.
 
+## Services (persistent; survive Claude Code restarts, dropped SSH and reboots)
+
+The user, 2026-10-25: "record in handover to make whatever you run survive! I don't wanna see you spend time
+restarting ssh manually over and over again!" Everything long-lived is a unit file in `~/.config/systemd/user/`,
+`Restart=always`, enabled at login (`default.target`). Never start these by hand or as `systemd-run` transients
+(those had `Restart=no` and died with every SSH drop); check them with
+`systemctl --user is-active xinyanchen-tunnel-vm-webdriver xinyanchen-tunnel-m1-site xinyanchen-mux xinyanchen-polypane-branch xinyanchen-preview`.
+
+- `xinyanchen-tunnel-vm-webdriver`: this machine's 127.0.0.1:4454 to m1's 4454, Safari 17.5 WebDriver in the
+  Sonoma VM (probe `curl http://127.0.0.1:4454/status`, `ready: true`).
+- `xinyanchen-tunnel-m1-site`: m1's localhost:4173 to this machine's 4174, so VM Safari and the iOS 17 Simulator
+  load `http://localhost:4173/...` (main) and `http://localhost:4173/@wt-layout-rebuild/...` (this branch).
+- `xinyanchen-mux`: 127.0.0.1:4174, `/var/home/user/temp/agent/xinyanchen-build/no-store-server-mux.mjs` (main tree;
+  `/@wt-NAME/` serves `/home/user/temp/agent/wt-NAME`), no-store.
+- `xinyanchen-polypane-branch`: 127.0.0.1:4210, this worktree, no-store
+  (`/home/user/temp/agent/serve/serve-worktree.ts`), for the user to watch the branch live in Polypane. After each
+  change, `polypane -g --reload` reloads Polypane's active tab without taking focus (Polypane docs, "Command line
+  options").
+- `xinyanchen-preview`: 127.0.0.1:4173 on this machine, `mise run preview` in the main tree.
+
+The units run node from `/home/user/.local/share/mise/installs/node/26.12.0/bin/node`; if mise moves node, edit
+the `ExecStart` lines and `systemctl --user daemon-reload`. Replaced on 2026-10-25: the transient `xyc-sonoma-tunnel`,
+`xyc-m1-site-tunnel`, `xinyanchen-no-store` and `xyc-preview` (stopped; same commands).
+
+The Simulator (iPhone 15, iOS 17.0.1, `9CA037B0-574E-4662-A3EF-744BFB6E15E7` in `/Volumes/XinyanSimDevices/devices`)
+stays booted on m1 between runs; it needs booting again only after an m1 reboot (`simctl --set ... boot`, under
+the VM lock). One-off checks (Safari runs, Simulator shots) stay `systemd-run --user --wait --collect` transients
+under `/home/user/temp/agent/vm-sonoma.lock`.
+
+## Next action (as of 2026-10-25 03:10)
+
+1.  Home, copy on the side waves (phones): `eval-wave-overlap.js` (Safari, 320 to 632) finds copy on wave pixels on
+    main too (Tales "young" 336 to 488, "Storytelling" 320 to 384; Matcha "Role:" and "Project" 320 to 376) and,
+    new on the branch, the "MenuMe" heading on the swirl at 320 to 344 (main's per-project `translate` for under 390
+    was dropped). Fix in the shared rule, then rerun the check on both.
+2.  The case-study shell in `site.css`, then Scotties onto it (plan: advisor's three buckets; client asks kept,
+    asset-intrinsic geometry ported as is, design-derived per-element px dropped).
+
 ## Model
 
 Written into the stylesheet header as it is built (`site.css`).
