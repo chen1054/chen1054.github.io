@@ -4668,6 +4668,10 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     Fix committed before checking: `--ps: 26; --pe: 21.6`. `notepad2` (lines, height against min-height, gaps at
     640 to 1092) queued behind `full`; then a by-eye crop. Other zero gaps are expected: the cloud (no border)
     and MenuMe's two loop labels (no frame).
+  - `full` (2026-10-25): about 20 shots a minute (4538 files, three per shot, in 4617 s), last width 432 reached.
+    Its log shows images that never finished loading within the 20 s cap: 9 on Home at 1905 and 1920, 2 on each
+    case study, 1 on About and Contact at 320. Queued after `notepad2`: list those images (selector, visible or
+    not, `loading`) to learn whether the sweep shots miss visible art; if visible, recapture those views.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
