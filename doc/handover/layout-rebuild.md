@@ -63,8 +63,8 @@ One entry per page.
 
 ### Home (2026-10-25)
 
-`index.html` links `site.css`; every other page still links `styles.css`. The Home rules are 160 lines (the old
-Home block was 380), with no per-project offsets except each project's two drawn phone distances (`--gap`,
+`index.html` links `site.css`; every other page still links `styles.css`. The Home rules are 229 lines (the old
+Home block was 382), with no per-project offsets except each project's two drawn phone distances (`--gap`,
 `--rise`, as shares of the width) and its desktop art width (`--art`, a share of its 507 px column).
 
 Checked:
