@@ -4584,6 +4584,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `styles.css` `.scotties-challenge-bubble` gets `@media(width>=40rem) { &::before { inset-inline-start: 75.5% } }`
     (bolt 3.5% of the cloud to the right from tablet up; phones keep 72% and the drawn overlap). Sweep `cloud5`
     (320 to 2560) running. If it fails, fix forward with a new commit.
+  - `variants9` result (`sweep24/summarise9.ts`): MenuMe's "(15 min / 380&nbsp;kcal)" started a line with
+    "380 kcal)." at most phone widths, 940, 960 and 1280, with "min / 380" at 390 and 540, and "/ 380" at 900; all
+    no-break spaces removes every such start at all 36 widths, line counts unchanged (`8d936d4`). Tales
+    "One-&#8288;Pagers." makes "age-appropriate One-Pagers." (156 px) the last line at 860 and 900, where
+    "Pagers." stood alone (46 px); line counts unchanged (`f368360`). Not checked: the other two "One-Pagers" in
+    Tales (source lines near 1253 and 1323). Both still need a by-eye look in Safari after landing.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
