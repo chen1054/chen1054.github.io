@@ -4672,6 +4672,23 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     Its log shows images that never finished loading within the 20 s cap: 9 on Home at 1905 and 1920, 2 on each
     case study, 1 on About and Contact at 320. Queued after `notepad2`: list those images (selector, visible or
     not, `loading`) to learn whether the sweep shots miss visible art; if visible, recapture those views.
+  - `incomplete.log` (`f20/artsweep/safari-incomplete.ts`, 1905 and 320, six pages): every image left incomplete has
+    a 0×0 box and does not render (`checkVisibility` false): Home's wide-layout grey waves, the case studies' phone
+    navigation art at 1905, the closed navigation's logo at 320, and the closed enlarged previews. The sweep shots
+    miss no visible art.
+  - `notepad2.log` and `notelines.log` (Safari): the "Placed key equipment…" note fix holds. End gap 14 to 25 px at
+    640 to 1092, height equal to min-height at every width, lines "Placed key equipment / categories at the
+    top-left for / riders seeking exact specs." as drawn at 640, 672, 744, 900 and 1092 (3 lines at 1024 with
+    other breaks). Crops at 744 and 1024 read by eye: clear of the border. (`notepad2`'s "lines=4" was its top/4
+    bucketing, not a fourth line.)
+  - `full.report` (27341 lines, 64 groups) read by crop. By design or clear: section-heading icons beside their
+    text, persona names on their brush strokes, MenuMe insight badges and frames, Tales circles and chevrons,
+    buttons in their pills. The phone Scotties cloud wraps its text round the bolt (at 392 the bolt's tip about
+    2 to 3 px from "with"); Phone/Scotties.pdf draws the bolt over "no e-", so the site is clearer than the design.
+    Real, deviating from Phone/Home.pdf and Phone/Contact.pdf (both clear there at 390): the footer's grey wave
+    meets the bottom of "Chen" in "© 2026 Xinyan Chen" at 320 (clear at 432), and Home's grey swirl sits behind
+    "MenuMe is a meal…" and "busy…" at 320 (above the paragraph at 376, as drawn). Line boxes include leading,
+    so `glyph-gap.py` (art to text ink, per width) is running to give each one's exact width range.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
