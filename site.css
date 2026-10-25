@@ -508,8 +508,18 @@ img {
         margin-block-start: calc(27rem / 16 + 26 * var(--grow));
       }
     }
+    /*
+      The gray wave rises behind the copy's end. Below 390 it keeps its 390 drawing, centred and clipped by the
+      window: the copy keeps its size there, so a wave shrinking with the screen reached into it (Matcha's role,
+      the MenuMe heading, Tales' "Storytelling" from 320 to 384, measured on the wave's pixels in Safari).
+    */
     &>.side-wave {
-      margin-block-start: calc(var(--rise) / 390 * -100%);
+      inline-size: max(100%, 390rem / 16);
+      margin-block-start: calc(var(--rise) / 390 * -1 * max(100%, 390rem / 16));
+      margin-inline: min(0rem, (100% - 390rem / 16) / 2);
+    }
+    @media(width<40rem) {
+      overflow-x: clip;
     }
     @media(width>=40rem) {
       display: grid;
