@@ -2312,16 +2312,24 @@ img {
             to the column's end; its widest page still fits.
           */
           &>ul {
-            display: grid;
-            grid-template-columns:
-              calc(31800% / 1086) calc(25700% / 1086)
-              min(calc(33600% / 1086), calc(100% - 57500% / 1086 - 171rem / 16)) auto;
             justify-content: start;
             align-self: stretch;
             margin-inline-start: calc(400% / 1086);
             padding-block-start: calc(67rem / 16);
             &>li {
               padding-block-start: calc(34rem / 16);
+              &:nth-child(1) {
+                flex: 0 0 calc(31800% / 1086);
+              }
+              &:nth-child(2) {
+                flex: 0 0 calc(25700% / 1086);
+              }
+              &:nth-child(3) {
+                flex: 0 0 min(calc(33600% / 1086), calc(100% - 57500% / 1086 - 171rem / 16));
+              }
+              &:nth-child(4) {
+                flex: 0 0 auto;
+              }
               &>span::before {
                 inset-block-start: calc(-34rem / 16);
               }
