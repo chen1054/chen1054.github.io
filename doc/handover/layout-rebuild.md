@@ -145,7 +145,9 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
 ## Cutover plan
 
 Pushing `main` publishes https://chen1054.github.io (GitHub Pages serves `main` at `/`), the site the client has
-on their résumé, so cutover waits for the user's go-ahead with this evidence in hand:
+on their résumé. The cutover is the agent's call, not the user's (the user, 2026-10-25: "It depends on you. If
+you're not confident enough to cutover yourself, that means you haven't done enough work, whether implementation
+or verification."). Cut over once this evidence holds on one snapshot:
 
 1.  Every page on the branch passes, on one snapshot: the line dump 320 to 1920 (no stranded word, no overflow,
     detector artefacts named), the client-ask probe (`eval-invariants.js`, main against branch at 390, 1440, 1920,
