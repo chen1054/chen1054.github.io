@@ -4819,6 +4819,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     "user-friendly", leaving "friendly experience."); summary six lines; poster title breaks after its comma at
     every width. Overflow flags there are false (the parent `.description` is `display: contents`, 0 wide).
 
+Main after `351c888`, checked in Safari (`lines.jsonl`, `main-labels.log`): the positioning note's "replicate."
+stood alone at 1104 to 1240 without `balance`, glued in `262ebaa`; the Tales "How might we" bubble ends on
+"stories." as it did before (plain wrapping there already, as the design breaks it). MenuMe lead-ins and card titles
+14 to 18 over 16 px body from 744 to 1440, the Matthew subtitle on one line from 1100; Tales channel labels 16 over
+14 at 640 to 744, body size elsewhere.
+
 ## Pivot: layout rebuild, 2026-10-25
 
 The user: "I have a feeling if I did this myself w/o any kind of AI assistance I would've been done long by now. I
