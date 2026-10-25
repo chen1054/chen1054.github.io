@@ -99,6 +99,16 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
   left-aligned block, subtitle cap on phones only, `--preview` page token (Scotties 280). Body is 15 px on phones
   (the earlier triage's decision), so phone pages run longer than main.
 - The user, 2026-10-25: may rest; block on them (AskUserQuestion) only after exhausting every option.
+- Checks run against snapshots, never the live branch (the user: "You can use unlimited worktrees"):
+  `node /home/user/temp/agent/serve/snapshot.ts [commit]` adds a detached worktree
+  `/home/user/temp/agent/wt-snap-<sha>` and prints its origin (`http://localhost:4173/@wt-snap-<sha>`, through the
+  mux) for `ORIGIN=`; editing goes on in the branch meanwhile. Remove old snapshots with
+  `git -C /home/user/temp/agent/wt-layout-rebuild worktree remove <dir>` once nothing reads them.
+- Every page now links `site.css` (commit `1265421`). Scotties, MenuMe, Tales, About and Contact rules are ported
+  unchanged with variable renames (`/home/user/temp/agent/serve/port-page.py`), then simplified rule by rule
+  against captures of main. Shell gaps found by auditing the old shared section: MenuMe's pill hover (deepens,
+  does not swap), its wireframe frame token, the Tales story-pillars row; all restored. Every scripted edit checks
+  brace balance and undefined variables before committing (one cut had removed a media query's opening line).
 
 ## Next action (as of 2026-10-25 03:10)
 
