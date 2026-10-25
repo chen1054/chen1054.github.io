@@ -597,9 +597,12 @@ img {
     --rise: 373;
     --art: 441;
   }
-  /* The footer wave rises behind the credits: 65 of its 390 drawn px on phones, 9 % of its width wider. */
+  /*
+    The footer wave rises behind the credits: 65 of its 390 drawn px on phones, 9 % of its width wider. Below 390 it
+    rises less than its share, keeping about 10 px under the credits as at 390 (at 320 it touched them).
+  */
   & .footer-wave {
-    margin-block-start: calc(-65 / 390 * 100%);
+    margin-block-start: calc(-65 / 390 * 100% - 42 * min(var(--phone-art-grow), 0rem));
     @media(width>=40rem) {
       margin-block-start: -9%;
     }
@@ -892,12 +895,12 @@ img {
       margin-block: 1em;
     }
   }
+  /* Subheadings keep the body's line box (2 em of the body size), which the designs' gaps were measured on. */
   & h3.subheading {
     margin-block-end: calc(2rem + 8 * var(--grow));
     color: var(--color-case-study-subheading);
     font-size: calc(18rem / 16 + 4 * var(--grow));
     font-weight: 700;
-    line-height: round(nearest, 1.5em, 1px);
     text-align: center;
     /* Over text, a gap of about one line. */
     &:has(+ :is(p, ul, ol)) {
@@ -1140,8 +1143,9 @@ img {
   /* The case-study footer wave is gray; it rises behind the credits as on Home. */
   &>.site-footer {
     margin-block-start: calc(110rem / 16);
+    /* Below 390 it rises less than its share, keeping about 10 px under the credits (it touched them at 320). */
     &>.footer-wave {
-      margin-block-start: calc(-65 / 390 * 100%);
+      margin-block-start: calc(-65rem / 16 - 105 * min(var(--phone-art-grow), 0rem));
       & img {
         filter: brightness(0) invert(calc(217 / 255));
       }
