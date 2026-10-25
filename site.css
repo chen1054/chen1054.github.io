@@ -592,3 +592,494 @@ img {
     }
   }
 }
+
+/*
+  Case studies: one shell for all three. One column (34 px gutters on phones, 65 to 177 px wide, at most 1086 px),
+  one type scale (body 15 px on phones, 14 to 16 px wide, at line height 2), one prose measure and one set of gaps.
+  Page colours are tokens; each page's drawings (bands, dividers, glyphs, compositions) come after the shell.
+*/
+.case-study {
+  --color-case-study-text: #1e1e1e;
+  --color-case-study-accent: #994198;
+  --color-case-study-heading: var(--color-case-study-accent);
+  --color-case-study-subheading: var(--color-case-study-text);
+  --color-case-study-subtitle: var(--color-case-study-accent);
+  --color-case-study-secondary: #f0de83;
+  --color-case-study-note: #f3e499;
+  --color-case-study-corner-base: #d8d8d7;
+  --color-case-study-header-text: var(--color-page-background);
+  --color-case-study-prototype-background: var(--color-case-study-secondary);
+  --color-case-study-prototype-text: var(--color-case-study-accent);
+  --color-case-study-secondary-prototype-background: var(--color-case-study-secondary);
+  --color-case-study-secondary-prototype-text: var(--color-case-study-accent);
+  --case-study-corner-accent-mask: url("assets/case-study-phone-corner-accent-mask.svg");
+  --case-study-corner-base-mask: url("assets/case-study-phone-corner-base-mask.svg");
+  --gutter: calc(34rem / 16);
+  --column: min(100% - 2 * var(--gutter), var(--column-max));
+  @media(width>=40rem) {
+    --gutter: calc(65rem / 16 + 112 * var(--grow));
+    --case-study-corner-accent-mask: url("assets/case-study-wide-corner-accent-mask.svg");
+    --case-study-corner-base-mask: url("assets/case-study-wide-corner-base-mask.svg");
+  }
+  &[data-case-study="menume"] {
+    --color-case-study-accent: #60b5bf;
+    --color-case-study-heading: #f89e3f;
+    --color-case-study-subheading: var(--color-case-study-heading);
+    --color-case-study-secondary: #f5cb5c;
+    --color-case-study-note: var(--color-page-background);
+    --color-case-study-corner-base: #ebe4d9;
+    --color-case-study-prototype-background: var(--color-case-study-accent);
+    --color-case-study-prototype-text: var(--color-page-background);
+    --color-case-study-secondary-prototype-background: var(--color-case-study-heading);
+    --color-case-study-secondary-prototype-text: var(--color-page-background);
+    --summary-bullet: "•" / "";
+  }
+  &[data-case-study="scotties"] {
+    --color-case-study-accent: #bdca9d;
+    --color-case-study-heading: #fc6529;
+    --color-case-study-subheading: #474e32;
+    --color-case-study-subtitle: var(--color-case-study-subheading);
+    --color-case-study-secondary: #eae4d9;
+    --color-case-study-note: var(--color-page-background);
+    --color-case-study-corner-base: #ebe4d9;
+    --color-case-study-header-text: var(--color-case-study-heading);
+    --color-case-study-prototype-text: var(--color-case-study-heading);
+    --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
+    --summary-bullet: "•" / "";
+  }
+  /* Every case-study design tracks its text at -1.9 %, except the navigation and the prototype links. */
+  & .content {
+    padding-block-start: calc(178rem / 16 + 216 * var(--grow));
+    color: var(--color-case-study-text);
+    font-family: "Playfair Display", serif;
+    font-size: calc(15rem / 16);
+    font-weight: 500;
+    line-height: round(nearest, 2em, 1px);
+    letter-spacing: -0.019em;
+    text-align: center;
+    @media(width>=40rem) {
+      font-size: calc(14rem / 16 + 2 * var(--grow));
+    }
+    & :is(#portfolio-primary-navigation, .prototype-link) {
+      letter-spacing: normal;
+    }
+  }
+  & :is(h2, h3, h4, p, ul, ol, figure, blockquote) {
+    margin-block: 0;
+  }
+  & .top-corner-decorations {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    aspect-ratio: 390 / 123;
+    &>span {
+      position: absolute;
+      inset: 0;
+      background-color: var(--color-case-study-accent);
+      mask-image: var(--case-study-corner-accent-mask);
+      mask-size: 100% 100%;
+      &:nth-child(2) {
+        background-color: var(--color-case-study-corner-base);
+        mask-image: var(--case-study-corner-base-mask);
+      }
+    }
+    &>img {
+      position: relative;
+      inline-size: 100%;
+    }
+    @media(width>=40rem) {
+      aspect-ratio: auto;
+      block-size: calc(134rem / 16 + 160 * var(--grow));
+      &>img {
+        display: none;
+      }
+    }
+  }
+  /* The column every block of the page shares. */
+  & :is(.project-introduction, .section-navigation, .section-content) {
+    inline-size: var(--column);
+    margin-inline: auto;
+  }
+
+  /* Hero: the preview over the summary, then side by side on desktops, the summary from the column's middle. */
+  & .project-introduction {
+    display: grid;
+    justify-items: center;
+    gap: calc(18rem / 16 + 30 * var(--grow));
+    &>.project-preview {
+      inline-size: min(100%, calc(240rem / 16 + 198 * var(--grow)));
+    }
+    @media(width>=80rem) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      justify-items: start;
+      column-gap: calc(48rem / 16);
+      &>.project-preview {
+        inline-size: 100%;
+      }
+    }
+  }
+  & .project-summary {
+    max-inline-size: calc(540rem / 16);
+    &>h1 {
+      color: var(--color-case-study-heading);
+      font-size: calc(24rem / 16 + 6 * var(--grow));
+      line-height: round(nearest, 34rem / 16 + 6 * var(--grow), 1px);
+    }
+    &>h2 {
+      max-inline-size: 16em;
+      margin-block: calc(5rem / 16) 1rem;
+      margin-inline: auto;
+      color: var(--color-case-study-subtitle);
+      font-size: calc(18rem / 16 + 4 * var(--grow));
+      line-height: round(nearest, 1.5em, 1px);
+    }
+    /* Each fact on its own line, its label bold; bulleted on desktop where the page sets a bullet. */
+    &>p {
+      max-inline-size: 34em;
+      margin-inline: auto;
+      &>strong {
+        font-weight: 700;
+      }
+      &:last-of-type {
+        margin-block-end: calc(16rem / 16 + 8 * var(--grow));
+      }
+    }
+    &>.flex-row {
+      gap: calc(13rem / 16);
+      &>* {
+        flex: none;
+        margin-inline: 0;
+      }
+    }
+    @media(width>=80rem) {
+      text-align: start;
+      &>:is(h2, p) {
+        margin-inline: 0;
+      }
+      &>h2 {
+        max-inline-size: none;
+      }
+      &>p {
+        position: relative;
+        padding-inline-start: var(--summary-bullet, 0) ;
+        &::before {
+          content: var(--summary-bullet, none);
+          position: absolute;
+          inset-inline-start: calc(3rem / 16);
+        }
+      }
+      &>.flex-row {
+        justify-content: start;
+      }
+    }
+  }
+  & .project-divider {
+    block-size: calc(16rem / 16 + 16 * var(--grow));
+    margin-block-start: calc(48rem / 16 + 112 * var(--grow));
+    background-color: var(--color-case-study-accent);
+    border-block: calc(2rem / 16) dashed var(--color-case-study-secondary);
+  }
+  & .section-navigation {
+    max-inline-size: calc(580rem / 16);
+    margin-block: calc(80rem / 16 + 40 * var(--grow));
+    &>h2 {
+      color: var(--color-case-study-heading);
+      font-family: "Abril Fatface", serif;
+      font-size: calc(24rem / 16 + 6 * var(--grow));
+      font-weight: 400;
+      line-height: round(nearest, 34rem / 16 + 6 * var(--grow), 1px);
+    }
+    /* 32 px rows on phones and tablets, 55 px on desktops, each a 48 px target or more. */
+    &>ul {
+      inline-size: fit-content;
+      margin-block-start: calc(2rem + 26 * var(--grow));
+      margin-inline: auto;
+      padding-inline-start: 1rem;
+      font-size: calc(1rem + 6 * var(--grow));
+      font-weight: 700;
+      text-align: start;
+      &>li>a {
+        display: flex;
+        align-items: center;
+        min-block-size: calc(2rem + 23 * var(--grow));
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          color: var(--color-case-study-heading);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* Sections: a one-line band spanning the window, its heading on the 1440 measure past 1440. */
+  & .section>h2 {
+    padding-block: calc(24rem / 16 + 27 * var(--grow));
+    padding-inline: calc(1rem + max(0rem, (100% - 1440rem / 16) / 2));
+    background-color: var(--color-case-study-accent);
+    border-block: calc(2rem / 16) dashed var(--color-case-study-secondary);
+    color: var(--color-case-study-header-text);
+    font-family: "Abril Fatface", serif;
+    font-size: calc(24rem / 16 + 6 * var(--grow));
+    font-weight: 400;
+    line-height: round(nearest, 34rem / 16 + 6 * var(--grow), 1px);
+  }
+  & .section-content {
+    padding-block: calc(64rem / 16 + 56 * var(--grow));
+    text-align: start;
+    /* Prose keeps a 61 em measure (the desktop designs' 976 px at 16 px), centred in the column. */
+    &>:is(p, ul, ol),
+    &>.subsection>:is(p, ul, ol) {
+      max-inline-size: 61em;
+      margin-inline: auto;
+    }
+  }
+  & .paragraph {
+    margin-block: 1em;
+  }
+  & .note-list {
+    padding-inline-start: 0;
+    /* A string marker keeps the list role for VoiceOver, which list-style: none drops in WebKit. */
+    list-style: "• " inside;
+    &>li {
+      margin-block: 1em;
+    }
+  }
+  & h3.subheading {
+    margin-block-end: calc(2rem + 8 * var(--grow));
+    color: var(--color-case-study-subheading);
+    font-size: calc(18rem / 16 + 4 * var(--grow));
+    font-weight: 700;
+    line-height: round(nearest, 1.5em, 1px);
+    text-align: center;
+    /* Over text, a gap of about one line. */
+    &:has(+ :is(p, ul, ol)) {
+      margin-block-end: calc(1rem + 8 * var(--grow));
+      &+* {
+        margin-block-start: 0;
+      }
+    }
+  }
+  & :is(h4.subheading, .card-title) {
+    margin-block: 1rem;
+    color: var(--color-case-study-subheading);
+    font-size: calc(16rem / 16 + 2 * var(--grow));
+    font-weight: 700;
+  }
+  & .subsection {
+    margin-block-start: calc(70rem / 16 + 60 * var(--grow));
+  }
+  & .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    &>* {
+      flex: 1 1 calc(240rem / 16);
+      min-inline-size: 0;
+    }
+  }
+  & .note {
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: var(--color-case-study-note);
+    border: calc(1rem / 16) solid var(--color-case-study-accent);
+    border-radius: 1rem;
+  }
+  & .persona {
+    max-inline-size: calc(450rem / 16);
+    text-align: start;
+  }
+  & .alternating-personas {
+    max-inline-size: calc(850rem / 16);
+    margin-inline: auto;
+    &>.flex-row {
+      margin-block-start: 3rem;
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  /* Artwork: each role caps its size; every picture opens full size in a popover. */
+  & .zoomable-artwork {
+    max-inline-size: calc(980rem / 16);
+    margin-block: 2rem;
+    margin-inline: auto;
+    &>button:not([popover]) {
+      display: block;
+      inline-size: 100%;
+      min-inline-size: 3rem;
+      min-block-size: 3rem;
+      cursor: zoom-in;
+      & img {
+        inline-size: 100%;
+      }
+    }
+  }
+  & .persona-photograph {
+    max-inline-size: calc(320rem / 16);
+  }
+  & .small-illustration {
+    max-inline-size: calc(180rem / 16 + 60 * var(--grow));
+  }
+  & .wordmark {
+    max-inline-size: calc(658rem / 16);
+  }
+  & .portrait-artwork {
+    max-inline-size: calc(400rem / 16);
+  }
+  & .enlarged-artwork {
+    box-sizing: border-box;
+    inset: 1rem;
+    inline-size: calc(100% - 2rem);
+    block-size: calc(100% - 2rem);
+    max-inline-size: none;
+    max-block-size: none;
+    padding: 1rem;
+    /* Browsers give every popover a solid canvas-text border. */
+    border-width: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    background-color: var(--color-page-background);
+    /* The dialog takes focus on open, so Space and Page Down scroll it; the image is the close button. */
+    &>button {
+      display: block;
+      inline-size: 100%;
+      cursor: zoom-out;
+      &::before {
+        content: "×";
+        position: sticky;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        display: block;
+        inline-size: 3rem;
+        block-size: 3rem;
+        background-color: var(--color-page-background);
+        color: var(--color-body-purple);
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+      & img:not([src$=".png"], [src$=".webp"], [src$=".gif"]) {
+        inline-size: auto;
+        min-inline-size: 100%;
+      }
+      /* Bitmaps open at their width attribute, the size the design shows them at; wider only blurs them. */
+      & img:is([src$=".png"], [src$=".webp"], [src$=".gif"]) {
+        margin-inline: auto;
+      }
+      & .device-with-screen-recording {
+        inline-size: fit-content;
+        margin-inline: auto;
+      }
+    }
+    &::backdrop {
+      background-color: oklch(from var(--color-body-purple) l c h / 75%);
+    }
+  }
+  /*
+    A device mockup with a recording on its screen (the Tales laptop: the recording covers 2960 by 1974 px from
+    355, 68 of the 3669 by 2289 file). With reduced motion the recording is hidden and the still screen shows.
+  */
+  & .device-with-screen-recording {
+    display: block;
+    position: relative;
+    &>img.device-frame {
+      position: relative;
+    }
+  }
+  & :is(.zoomable-artwork, .enlarged-artwork) .device-with-screen-recording>img.screen-recording {
+    position: absolute;
+    inset-block-start: calc(68 / 2289 * 100%);
+    inset-inline-start: calc(355 / 3669 * 100%);
+    inline-size: calc(2960 / 3669 * 100%);
+    block-size: calc(1974 / 2289 * 100%);
+    margin: 0;
+    @media(prefers-reduced-motion:reduce) {
+      display: none;
+    }
+  }
+  /*
+    The Tales phone: the client's recording plays under the see-through frame (screen 1056 by 2348 px from 50, 27
+    of the 1158 by 2421 frame), clipped to the screen's 132 px corners.
+  */
+  & :is(.zoomable-artwork, .enlarged-artwork) .device-with-screen-recording>picture.screen-recording {
+    position: absolute;
+    inset-block-start: calc(27 / 2421 * 100%);
+    inset-inline-start: calc(50 / 1158 * 100%);
+    inline-size: calc(1056 / 1158 * 100%);
+    block-size: calc(2348 / 2421 * 100%);
+    overflow: hidden;
+    border-radius: calc(132 / 1056 * 100%) / calc(132 / 2348 * 100%);
+    &>img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Prototype links: a 31 px pill (42 on desktops, about 250 px wide), with a 48 px target. */
+  & .prototype-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-inline-size: 3rem;
+    max-inline-size: max-content;
+    margin-inline: auto;
+    padding-block: calc(7rem / 16 + 4 * var(--grow));
+    padding-inline: calc(16rem / 16 + 2 * var(--grow));
+    border-radius: 3rem;
+    background-color: var(--color-case-study-prototype-background);
+    box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
+    color: var(--color-case-study-prototype-text);
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    line-height: round(nearest, 17rem / 16 + 3 * var(--grow), 1px);
+    text-align: center;
+    text-decoration: none;
+    @media(width>=80rem) {
+      min-inline-size: calc(3rem + 202 * var(--grow));
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block: calc(50% - 1.5rem);
+      inset-inline: 0;
+    }
+    /* The client, on Tales (CF101) and Scotties (CF105, CF106): text and background swap on hover. */
+    &:hover {
+      background-color: var(--color-case-study-prototype-text);
+      color: var(--color-case-study-prototype-background);
+    }
+  }
+  & .secondary-prototype-link {
+    --color-case-study-prototype-background: var(--color-case-study-secondary-prototype-background);
+    --color-case-study-prototype-text: var(--color-case-study-secondary-prototype-text);
+  }
+  & .closing-reflection {
+    max-inline-size: 30em;
+    margin-block-start: calc(80rem / 16);
+    margin-inline: auto;
+    color: var(--color-case-study-subtitle);
+    font-size: calc(1rem + 2 * var(--grow));
+    font-weight: 700;
+    text-align: center;
+  }
+  /* The case-study footer wave is gray; it rises behind the credits as on Home. */
+  &>.site-footer {
+    margin-block-start: calc(110rem / 16);
+    &>.footer-wave {
+      margin-block-start: calc(-65 / 390 * 100%);
+      & img {
+        filter: brightness(0) invert(calc(217 / 255));
+      }
+      @media(width>=40rem) {
+        margin-block-start: -9.7%;
+      }
+    }
+  }
+}
