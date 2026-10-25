@@ -4733,6 +4733,16 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     longer; the other footers' new terms are zero from 390 up.
   - Reply draft ranges tightened (reviewer): footer touched at 320 to 368 on Contact, 320 to 352 on the case
     studies (1.5 to 3.6 px at 360 to 368); swirl behind the copy at 352 and below (0.5 px at 360).
+  - Scotties wireframe headings (reviewer asked to settle "Hi-fi Homepage" at 1905): Safari ink to screen 7 px
+    (Hi-fi) and 8 (both lo-fi) at 1425, 1440, 1905 and 1920; design 15 to 20 (`design-gap.py`; baseline 19 above
+    the frame). Cause: the 2026-10-23 exports set the Wireframing Execution headings a step under the other
+    subheadings (Sitemap and both lo-fi 16 / 16 / 18 phone, tablet, desktop; Hi-fi 18 / 18 / 18; the rest
+    18 / 18 / 22), while the site used the shared 18 / 18 / 22 (Safari computed sizes, `eval-sub.log`). The older
+    `.fig` reading recorded here as "drawn that way" (heading box ending at y 9279) predates that change. Fix
+    `8e71435`, committed before its check: font sizes scoped to `#scotties-wireframing-heading+.section-content`.
+    Safari check queued: `eval-sub2.log` (sizes at 390, 744, 1440, 1905) and `fix3` (sweep at the same widths),
+    then `glyph-gap.py`, crops, the tablet callout rows (their arrows hang off the rows, not the headings), the
+    reply draft.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
