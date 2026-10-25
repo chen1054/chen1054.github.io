@@ -76,6 +76,11 @@
 }
 :root {
   --phone-grow: clamp(0rem, calc((100vw - 390rem / 16) / 354), calc(1rem / 16));
+  /*
+    Phone drawings composed in px of their 390 frame (the case-study compositions): how far a drawing has outgrown
+    that frame, per drawn px, from -70/390 at 320 to 354/390 at 744.
+  */
+  --phone-art-grow: clamp(-70rem / 16 / 390, (100vw - 390rem / 16) / 390, 354rem / 16 / 390);
   --grow: 0rem;
   --column-max: calc(1086rem / 16);
   /*
