@@ -1455,8 +1455,12 @@ img {
       &>.content .flex-row:has(>.persona) {
         align-items: start;
         gap: calc(27rem / 16) calc(19.5rem / 16 + 55 * var(--grow));
+        /* 285 px columns on tablets; on desktops a 310 px measure, the widest the design draws (Gwen's two lines). */
         &>.persona {
           flex: 0 1 calc(285rem / 16);
+          @media(width>=80rem) {
+            flex-basis: calc(310rem / 16);
+          }
         }
         /* Its side margins fill the line, so Jake has the first row to himself on tablets. */
         &>.persona:first-child {
