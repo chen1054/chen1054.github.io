@@ -676,14 +676,12 @@ img {
     padding-block-start: calc(178rem / 16 + 216 * var(--grow));
     color: var(--color-case-study-text);
     font-family: "Playfair Display", serif;
-    font-size: calc(15rem / 16);
+    /* 15 px at 390 easing to 14 px at 744 (no step at the tablet layout), 16 px at 1440; always line height 2. */
+    font-size: calc(15rem / 16 - var(--phone-grow) + 2 * var(--grow));
     font-weight: 500;
     line-height: round(nearest, 2em, 1px);
     letter-spacing: -0.019em;
     text-align: center;
-    @media(width>=40rem) {
-      font-size: calc(14rem / 16 + 2 * var(--grow));
-    }
     & :is(#portfolio-primary-navigation, .prototype-link) {
       letter-spacing: normal;
     }
@@ -6019,11 +6017,6 @@ img {
     }
   }
   &[data-case-study="tales"] {
-    &>.content {
-      font-size: calc(15rem / 16 - var(--phone-grow) + 2 * var(--grow));
-      /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
-      line-height: round(nearest, 30rem / 16 - 2 * var(--phone-grow) + 4 * var(--grow), 1px);
-    }
     /* Phone and Tablet Tales draw the Doodle pill 178.5 and 180 px wide round its 14 px label: 21 px each side. */
     & .prototype-link {
       padding-inline: calc(21rem / 16);
