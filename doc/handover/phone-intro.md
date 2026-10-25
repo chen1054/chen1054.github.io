@@ -4501,24 +4501,29 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `xinyanchen-sim-iphone-r3` under `vm-sonoma.lock`, into `f20/eye/sim-iphone15-r3/`; inject server 4187 and
     tunnel unit `xinyanchen-m1-tunnel-4187` restarted). In parallel, the enlarged views screened in Chromium
     (`f20/zoom/zoom-shots.py`, 390, 1440, 1920 by 900, into `f20/zoom/chromium/`).
-  - Enlarged views, Chromium (`f20/zoom/chromium/`, sheets in `f20/zoom/sheets/`): 50 viewers (MenuMe 21,
-    Scotties 11, Tales 18; the navigation popover excluded) at 390 and 1440, all looked at. Outlines carry over
+  - Enlarged views, Chromium (`f20/zoom/chromium/`, sheets in `f20/zoom/sheets/`): 54 viewers (MenuMe 21,
+    Scotties 11, Tales 22; the navigation popover excluded; first written here as 50 with Tales 18, a miscount
+    corrected from the per-page log counts) at 390 and 1440, all looked at. Outlines carry over
     (MenuMe moodboard 1 px, Scotties moodboard 5 px, wireframes and Tales poster and ad 1 px). Nothing to fix.
     By design and kept: bitmaps open at their `width` attribute and vectors at the viewer's full width, so on a
     phone and for tall vectors on desktop the view is a scrollable crop (`overflow: auto`); every picture and
-    graph is zoomable by a recorded requirement, icons included. The OPH laptop shot's overlapping header text
-    is in the recording itself.
+    graph is zoomable by a recorded requirement, icons included. The OPH laptop and phone shots sometimes
+    show two header states laid over each other: that is in the client's own GIFs (blobs `33035ba` and
+    `fe3cbc9`, byte-identical to `desktop_demo.gif` and `phone_demo.gif` in their commit `42fdeba`); frame 0
+    is clean, and frames taken mid-scroll in the GIFs themselves show the ghosting (`f20/zoom/gif/*-strip.png`).
+    Nothing in the page to change; re-recording is the client's call.
   - iPhone 15 r3 done: 115 frames (Home 9, About 7, Contact 3, MenuMe 34, Scotties 28, Tales 34), every frame
     looked at in `f20/eye/sim-sheets-iphone15-r3/` (five per sheet, `f20/eye/sim-r3-sheets.py`). Nothing wrong.
     The r2 Bridging-the-Gap bubble finding stays fixed; the Well-Being line holds on one line at 393.
-  - Running: iPad 10th r3 frames (unit `xinyanchen-sim-ipad-r3`, `DF24B12C-43FD-4215-888C-E5AAA3AF49DF`, iPhone
-    shut down first, into `f20/eye/sim-ipad-r3/`). Queued behind it on `vm-sonoma.lock`: Safari 17.5 shots of every
-    enlarged view at 1440 and 744, opened by a real click on each trigger (`f20/zoom/safari-zoom.ts`, unit
-    `xinyanchen-safari-zoom`, into `f20/zoom/safari/`).
   - iPad 10th r3 done: 51 frames at 820 by 1073 (Home 4, About 3, Contact 2, MenuMe 14, Scotties 13, Tales 15),
     every frame looked at three per sheet (`f20/eye/sim-sheets-ipad-r3-3up/`, near 1:1; the five-per-sheet set
     in `sim-sheets-ipad-r3/` is too small for line breaks). Nothing wrong. iPad Simulator shut down; none booted.
-  - Next: look at every Safari enlarged view (`f20/zoom/safari/`).
+  - Safari 17.5 enlarged views done: all 54 opened by a real WebDriver click on each trigger
+    (`f20/zoom/safari-zoom.ts`, needs the `package.json` with `"type": "module"` beside it) at 1440 and 744:
+    108 of 108 opened and loaded; every one looked at (`f20/zoom/safari-sheets/`). Nothing wrong; outlines
+    carry over as in Chromium.
+  - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
+    done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
