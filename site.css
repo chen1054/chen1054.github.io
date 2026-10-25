@@ -1757,15 +1757,6 @@ img {
     }
   }
   &[data-case-study="scotties"] {
-    /*
-      Tablet/Scotties.pdf runs its sections 624 px wide at 744 (from 61 to 685), wider than the shared 614; the
-      desktop column is the same 1086 at 1440.
-    */
-    @media(width>=40rem) {
-      & .section-content {
-        inline-size: calc(100% - 120rem / 16 - 234 * var(--grow));
-      }
-    }
     /* The logo as the designs place it: 291, 450 and 635 px wide (its drawing's box; the ink is 645 at 1440). */
     & .wordmark {
       max-inline-size: calc(
