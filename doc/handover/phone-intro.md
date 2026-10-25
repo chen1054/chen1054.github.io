@@ -4515,7 +4515,10 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     shut down first, into `f20/eye/sim-ipad-r3/`). Queued behind it on `vm-sonoma.lock`: Safari 17.5 shots of every
     enlarged view at 1440 and 744, opened by a real click on each trigger (`f20/zoom/safari-zoom.ts`, unit
     `xinyanchen-safari-zoom`, into `f20/zoom/safari/`).
-  - Next: look at every iPad frame and every Safari enlarged view; shut the iPad Simulator down after.
+  - iPad 10th r3 done: 51 frames at 820 by 1073 (Home 4, About 3, Contact 2, MenuMe 14, Scotties 13, Tales 15),
+    every frame looked at three per sheet (`f20/eye/sim-sheets-ipad-r3-3up/`, near 1:1; the five-per-sheet set
+    in `sim-sheets-ipad-r3/` is too small for line breaks). Nothing wrong. iPad Simulator shut down; none booted.
+  - Next: look at every Safari enlarged view (`f20/zoom/safari/`).
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
