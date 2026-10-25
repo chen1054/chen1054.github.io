@@ -4546,6 +4546,9 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
         "/ 380 kcal)." (the break fell inside "(15 min / 380 kcal)").
     3.  Tales "OPH Dedicated Sub-site", 900: "...download age-appropriate One- / Pagers." leaves "Pagers." alone
         on the last line.
+    4.  Scotties Core Challenge cloud, 1536: the lightning bolt's lower tip lies over the last "e" of
+        "e-commerce" (`f20/sweep27/crop-1536-cloud.png`). The earlier cloud check ("no ink overlap at 29
+        widths") either did not include 1536 or missed it: check its width list before trusting it again.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
