@@ -1090,3 +1090,2506 @@ img {
     }
   }
 }
+
+/*
+  Scotties' drawings, ported from the old styles.css (2026-10-25) unchanged except for variable names: the challenge
+  cloud and its shaped text floats, the positioning note, the persona plates and grid, the core-value pillars and
+  their chevron trails, the sitemap tree and its chevron cluster, the lo-fi and hi-fi wireframe compositions with
+  their connectors, the learning badges, the bands' chevrons and the divider tile. Each keeps the client fixes
+  recorded in its comments (CF74, CF75, CF77, CF78, CF85, CF107, CF108, CF114, CF118, CF119, CF121); the shared
+  sitemap tree and shaped-note bases came with them. Simplified rule by rule as the shell covers them.
+*/
+.case-study {
+  &:is([data-case-study="menume"], [data-case-study="scotties"]) .flex-row:has(>article):not(:has(>figure)) {
+    align-items: start;
+  }
+  & .spiral-notepad,
+  & .play-speech-bubble,
+  & .trust-speech-bubble,
+  & .scotties-challenge-bubble {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-width: 0;
+    border-radius: 0;
+    background-color: transparent;
+    background-size: 100% 100%;
+    /* Scale copy with the artwork's 322px phone layout width. */
+    padding-block: 0;
+    padding-inline: 0;
+    text-align: center;
+    &>* {
+      margin-inline: 13% 21%;
+      line-height: round(nearest, 1.6em, 1px);
+    }
+    &>h4 {
+      margin-block: 0;
+      font-size: min(
+        calc(1em + 2rem / 16),
+        calc(16 * 100cqi / 322)
+      );
+    }
+    &>p {
+      margin-block-start: 1em;
+      margin-block-end: 0;
+      font-size: min(1em, calc(14 * 100cqi / 322));
+    }
+  }
+  & .scotties-challenge-bubble {
+    aspect-ratio: 551 / 449;
+    max-inline-size: calc(551rem / 16);
+    margin-inline: auto;
+    background-image: url("assets/scotties-core-challenge-speech-bubble.svg");
+    &>p {
+      margin-block: 20%;
+      margin-inline: 21%;
+      font-size: min(1em, calc(12 * 100cqi / 322));
+    }
+  }
+  & .scotties-positioning-note {
+    max-inline-size: calc(451rem / 16);
+    margin-inline: auto;
+    /*
+      Every design strokes this box 5 px inside with 20 px dashes and 20 px gaps (fig "Rectangle 65", dashPattern
+      [20, 20]); a dashed border cannot set its dash length. The outline draws a 10 px stroke on the box's edge,
+      whose outer half the box clips, over the border's 5 px of room.
+    */
+    border: calc(5rem / 16) solid transparent;
+    border-radius: calc(50rem / 16);
+    background: url("assets/scotties-positioning-note-dashed-outline.svg") border-box, var(--color-case-study-secondary)
+      border-box;
+    text-align: center;
+  }
+  /* Case study sitemaps: one nested-list tree shared by the Scotties and MenuMe sitemap figures. */
+  &[data-case-study="menume"] {
+    --color-case-study-sitemap-root: #98cfd5;
+    --color-case-study-sitemap-branch: #fab66f;
+    --color-case-study-sitemap-leaf: #efd99d;
+    --color-case-study-sitemap-line: #3f968e;
+    --case-study-sitemap-line-width: calc(1rem / 16);
+    --case-study-sitemap-box-radius: calc(2rem / 16);
+  }
+  &[data-case-study="scotties"] {
+    --color-case-study-sitemap-root: #eb996e;
+    --color-case-study-sitemap-branch: var(--color-case-study-accent);
+    --color-case-study-sitemap-leaf: var(--color-case-study-secondary);
+    --color-case-study-sitemap-line: var(--color-case-study-subheading);
+    --case-study-sitemap-line-width: calc(2rem / 16);
+    --case-study-sitemap-box-radius: calc(10rem / 16);
+  }
+  & .sitemap {
+    --case-study-sitemap-gap: calc(16rem / 16);
+    --case-study-sitemap-trunk: calc(12rem / 16);
+    --case-study-sitemap-indent: calc(16rem / 16);
+    --case-study-sitemap-column-padding: calc(6rem / 16);
+    margin-block: 2rem;
+    margin-inline: 0;
+    /*
+      The client (CF93): "sitemap的字尺寸保持与正文文字一样大吧" (keep the sitemap text the same size as the body
+      text). Bold letters run wider than the body's Medium at one size, so the labels sit at 0.98 of the body
+      text: there a label word measures the body's width by pixel count in Safari 17.5 at 1x and 2x ("Menu
+      Planner" 174 px in both at 790 to 838 px, 2x). Desktop sets its own sizes from 1280 px.
+    */
+    font-size: 0.98em;
+    font-weight: 700;
+    line-height: calc(20rem / 16);
+    & ul {
+      margin-block: 0;
+      margin-inline: 0;
+      padding-block: 0;
+      padding-inline: 0;
+      list-style: none;
+    }
+    /*
+      Phones: the tree sits centred in the column as one block, keeping its indents (the client, CF125:
+      "这个sitmap是不是无法居中？", can't this sitemap be centred?; the phone designs centre the sitemap too).
+    */
+    @media(width<40rem) {
+      &>ul {
+        inline-size: fit-content;
+        margin-inline: auto;
+      }
+    }
+    & span {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      inline-size: fit-content;
+      max-inline-size: 100%;
+      padding-block: calc(8rem / 16);
+      padding-inline: calc(12rem / 16);
+      border-radius: var(--case-study-sitemap-box-radius);
+      background-color: var(--color-case-study-sitemap-leaf);
+      text-align: center;
+    }
+    &>ul>li>span {
+      background-color: var(--color-case-study-sitemap-root);
+    }
+    &>ul>li>ul>li>span {
+      background-color: var(--color-case-study-sitemap-branch);
+    }
+    & ul ul {
+      margin-inline-start: var(--case-study-sitemap-trunk);
+      &>li {
+        position: relative;
+        padding-block-start: var(--case-study-sitemap-gap);
+        padding-inline-start: var(--case-study-sitemap-indent);
+        &:where(:not(:last-child))::before {
+          content: "";
+          position: absolute;
+          inset-block: 0;
+          inset-inline-start: 0;
+          border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+        }
+        &>span::before {
+          content: "";
+          position: absolute;
+          inset-block: calc(-1 * var(--case-study-sitemap-gap)) calc(50% - var(--case-study-sitemap-line-width) / 2);
+          inset-inline-end: 100%;
+          box-sizing: border-box;
+          inline-size: var(--case-study-sitemap-indent);
+          border-block-end: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+        }
+        &:last-child>span::before {
+          border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+        }
+        &>span::after {
+          content: "";
+          position: absolute;
+          inset-block-start: 50%;
+          inset-inline-end: 100%;
+          translate: 0 -50%;
+          border-block: calc(5rem / 16) solid transparent;
+          border-inline-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+        }
+      }
+    }
+  }
+  @media(width>=40rem) {
+    & .sitemap>ul>li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &>span::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 100%;
+        inset-inline-start: 50%;
+        block-size: var(--case-study-sitemap-gap);
+        border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+      }
+      &>ul {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-inline: 0;
+        padding-block-start: var(--case-study-sitemap-gap);
+        &>li {
+          padding-block-start: var(--case-study-sitemap-gap);
+          padding-inline: var(--case-study-sitemap-column-padding);
+          &::before {
+            display: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline: 0;
+            border-block-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+          }
+          &:first-child::after {
+            inset-inline-start: calc(var(--case-study-sitemap-column-padding) + var(--case-study-sitemap-trunk));
+          }
+          &:last-child::after {
+            inset-inline-end: calc(
+              100% - var(--case-study-sitemap-column-padding) - var(--case-study-sitemap-trunk)
+              - var(--case-study-sitemap-line-width)
+            );
+          }
+          &>span::before {
+            inset-block: calc(-1 * var(--case-study-sitemap-gap)) 100%;
+            inset-inline: var(--case-study-sitemap-trunk) auto;
+            inline-size: 0;
+            border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+            border-block-end: 0;
+          }
+          &>span::after {
+            inset-block: auto 100%;
+            inset-inline: calc(var(--case-study-sitemap-trunk) - 5rem / 16 + var(--case-study-sitemap-line-width) / 2) auto;
+            translate: none;
+            border-inline: calc(5rem / 16) solid transparent;
+            border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+            border-block-end: 0;
+          }
+        }
+      }
+    }
+  }
+  &[data-case-study="scotties"] {
+    /*
+      The tablet and phone designs set the body copy Medium; the desktop design's Bold is treated as the outlier
+      (the user's decision, 2026-10-19).
+    */
+    &>.content {
+      font-weight: 500;
+    }
+    /* The positioning and value-pillar notes stay Medium on every width; their lead phrase is Bold 15, 16 and 18. */
+    &>.content :is(.scotties-positioning-note, .small-illustration~.flex-row>article)>p {
+      font-weight: 500;
+      &>span {
+        font-size: calc(15rem / 16 + var(--phone-grow) + 2 * var(--grow));
+        font-weight: 700;
+      }
+    }
+    /* All three designs set the two Visual Strategy subsection headings in Abril Fatface, not Playfair Bold. */
+    &>.content>:where(#scotties-visual-strategy)>.section-content>.subsection>h3 {
+      font-family: "Abril Fatface", serif;
+      font-weight: 400;
+    }
+    /* The tablet design leaves 75 px of ink between the type panels' heading and their chevron trail. */
+    @media(width>=40rem) and (width<80rem) {
+      &>.content .subsection:has(img[src*="type-specimens"])>h3.subheading {
+        margin-block-end: calc(69rem / 16);
+      }
+      /*
+        Tablet Scotties draws the type panel 620 px wide, its "Body Text" label at 16 px over 14 px body copy. Grown
+        with the column it reached 976 px in a 1280 Safari window, the label about 25 px; like the Tales charts, the
+        panel keeps its drawn size in wider columns until the desktop art takes over.
+      */
+      &>.content .subsection>figure:has(img[src*="type-specimens"]) {
+        max-inline-size: calc(620rem / 16);
+        margin-inline: auto;
+      }
+    }
+    /*
+      Desktop Scotties: the first heading 218 px under the band's top, the moodboard 64 under the copy's last
+      glyph top; Typography 130 under it, its panel 1082 px wide from 2 px into the 1086 px column and 102 under
+      the heading's glyph top; Brand Identity 126 under the panel, its copy 72 under the heading; the logo from
+      217 px in, 62 under the copy's last glyph top and 183 above the next band's heading.
+    */
+    @media(width>=80rem) {
+      &>.content>:where(#scotties-visual-strategy)>.section-content {
+        padding-block-start: calc(125rem / 16);
+        &>figure {
+          margin-block-start: calc(37rem / 16);
+        }
+        &>.subsection:has(img[src*="type-specimens"]) {
+          margin-block-start: calc(129rem / 16);
+          &>h3 {
+            margin-block-end: 0;
+          }
+          &>figure {
+            inline-size: calc(108200% / 1086);
+            max-inline-size: none;
+            margin-block-start: calc(71rem / 16);
+            margin-inline: calc(200% / 1086) auto;
+          }
+        }
+        &>.subsection:has(.wordmark) {
+          margin-block-start: calc(126rem / 16);
+          &>h3 {
+            margin-block-end: calc(36rem / 16);
+          }
+          &>.wordmark {
+            margin-block: calc(35rem / 16) calc(11rem / 16);
+            margin-inline: calc(21700% / 1086) auto;
+          }
+        }
+      }
+    }
+    /* The phone design sets the Scotties column 20 px from each edge (Phone/Scotties.png), where the others use 34. */
+    @media(width<40rem) {
+      &>.content .section-content {
+        inline-size: calc(100% - 40rem / 16);
+      }
+      /*
+        The phone design centres each persona: a 222 px photo with its plate 14 px up and to the start, and the
+        name, role and description centred below (Phone/Scotties.pdf).
+      */
+      &>.content .persona {
+        --persona-unit: calc(1rem / 16 + var(--phone-art-grow));
+        /* One persona per row: from 552 px two fit the row's 240 px basis, and their grown photos overflowed it. */
+        flex-basis: 100%;
+        text-align: center;
+        &>.persona-photograph {
+          inline-size: calc(222 * var(--persona-unit));
+          margin-block-end: calc(22 * var(--persona-unit));
+          margin-inline: auto;
+          translate: calc(7 * var(--persona-unit)) 0;
+          &::before {
+            inset: calc(-14 * var(--persona-unit)) calc(14 * var(--persona-unit)) calc(14 * var(--persona-unit))
+              calc(-14 * var(--persona-unit));
+          }
+        }
+        &>h4 {
+          margin-block-end: 0;
+          line-height: round(nearest, 32 * var(--persona-unit), 1px);
+        }
+        &>p {
+          max-inline-size: calc(285 * var(--persona-unit));
+          margin-block-start: 0;
+          margin-inline: auto;
+        }
+      }
+    }
+    /*
+      The tablet design centres Jake alone, then Gwen and Jonathan side by side, the photos 222 by 279 px as on
+      phones, their centres 304.5 px apart, and the text centred in 285 px boxes; the desktop sets all three in a
+      row, photos 245 by 308, 359.5 px apart, the names centred over left-aligned descriptions (Scotties.pdf).
+    */
+    @media(width>=40rem) {
+      &>.content .flex-row:has(>.persona) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, calc(285rem / 16)));
+        justify-content: center;
+        gap: calc(27rem / 16) calc(19.5rem / 16 + 55 * var(--grow));
+        &>.persona:first-child {
+          grid-column: 1 / -1;
+          justify-self: center;
+          inline-size: min(100%, calc(285rem / 16));
+        }
+        @media(width>=64rem) {
+          grid-template-columns: repeat(3, minmax(0, calc(285rem / 16)));
+          &>.persona:first-child {
+            grid-column: auto;
+          }
+        }
+      }
+      &>.content .persona {
+        max-inline-size: none;
+        text-align: center;
+        &>.persona-photograph {
+          inline-size: calc(222rem / 16 + 23 * var(--grow));
+          max-inline-size: none;
+          margin-block-end: calc(22rem / 16);
+          margin-inline: auto;
+          translate: calc(7rem / 16 + 1 * var(--grow)) 0;
+          &::before {
+            inset: calc(-14rem / 16 - 1.5 * var(--grow)) calc(14rem / 16 + 1.5 * var(--grow)) calc(14rem / 16 + 1.5 * var(--grow))
+              calc(-14rem / 16 - 1.5 * var(--grow));
+          }
+        }
+        &>h4 {
+          margin-block-end: 0;
+          line-height: round(nearest, 2em, 1px);
+        }
+        &>p {
+          margin-block-start: 0;
+          @media(width>=64rem) {
+            text-align: start;
+          }
+        }
+      }
+    }
+    /*
+      Desktop Scotties starts the User Personas and Core Value headings' text in line with the copy, 53 px into the
+      1086 px column, their icons hanging before it; the photos 85 px under the heading's glyph top, the names 42
+      under the photos and the copy 41 under the role. Each name and role centres at 172, 544 and 899 px into the
+      column, and the copy starts at 53, 400 and 761 px, its lines up to 280, 304 and 274 px long. In Medium, it
+      wraps as drawn from 279.5 to 308, 300.5 to 330 and 270 to 326 px in Chromium, so each measure sits mid-range.
+    */
+    @media(width>=80rem) {
+      & #scotties-research h3 {
+        margin-inline-start: calc(200% / 1086);
+        text-align: start;
+      }
+      & #scotties-research h3:has(+ .flex-row>.persona) {
+        margin-block-end: calc(22rem / 16);
+      }
+      /* Core Value 106 px under the personas' last glyph top, its intro 70 under the heading's glyph top. */
+      &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+        margin-block-start: calc(63rem / 16);
+        &>h3 {
+          margin-block-end: calc(34rem / 16);
+        }
+        /* The pillars' first glyph 87 px under the intro's. */
+        &>p {
+          margin-block-end: calc(34rem / 16);
+        }
+      }
+      &>.content .persona {
+        &>.persona-photograph {
+          margin-block-end: calc(36rem / 16);
+        }
+        &>p {
+          box-sizing: border-box;
+          margin-block-start: calc(7rem / 16);
+        }
+        &:nth-child(1) {
+          &>h4 {
+            margin-inline-end: calc(23rem / 16);
+          }
+          &>p {
+            inline-size: calc(294rem / 16);
+            margin-inline-start: calc(12rem / 16);
+          }
+        }
+        &:nth-child(2)>p {
+          inline-size: calc(315rem / 16);
+          margin-inline-start: calc(-1rem / 16);
+        }
+        &:nth-child(3) {
+          &>h4 {
+            margin-inline-end: calc(8rem / 16);
+          }
+          &>p {
+            inline-size: calc(298rem / 16);
+            margin-inline-start: calc(1rem / 16);
+          }
+        }
+      }
+    }
+    /*
+      The tablet design sets the three pillars around the skateboard: Excitement top right, Confidence left, and
+      Belonging bottom right, each tied to the board by a pale chevron trail, with Confidence's name running into
+      its text. Lengths are the design's pixels on its 624 px column (Tablet/Scotties.pdf), scaled to the column.
+    */
+    @media(width>=40rem) {
+      &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+        /* A container, so the unit follows the column; the wide growth is then restated against the viewport. */
+        --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+        --u: calc(100cqw / 624);
+        container-type: inline-size;
+        display: grid;
+        &>.small-illustration,
+        &>.flex-row>article {
+          grid-area: 3 / 1;
+          align-self: start;
+          justify-self: start;
+        }
+        &>.small-illustration {
+          position: relative;
+          inline-size: calc(146 * var(--u));
+          max-inline-size: none;
+          margin-block: calc(91 * var(--u)) 0;
+          margin-inline: calc(233 * var(--u)) 0;
+          &::after {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(-20 * var(--u));
+            inset-inline-start: calc(-43 * var(--u));
+            inline-size: calc(221 * var(--u));
+            block-size: calc(256 * var(--u));
+            background: url("assets/scotties-tablet-core-value-chevron-trails.svg") center / 100% 100% no-repeat;
+            pointer-events: none;
+          }
+        }
+        &>.flex-row {
+          display: contents;
+          &>article {
+            margin-block: 0;
+            &::before {
+              content: none;
+            }
+            &>p {
+              margin-block: 0;
+              &>span {
+                display: block;
+              }
+            }
+            /*
+              Below the 744 design width the copy shrinks with its column, so it keeps the 744 lines; at 14 px it
+              gained a line from 704 down and the trails ran into it (in Safari at 672 the Confidence trail met
+              "trusted"). From 744 up the shared sizes apply as before; desktop sets its own lines.
+            */
+            @media(width<80rem) {
+              &>p {
+                font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(14 * var(--u)));
+                line-height: round(nearest, 2em, 1px);
+                &>span {
+                  font-size: min(
+                    calc(15rem / 16 + var(--phone-grow) + 2 * var(--grow)),
+                    calc(16 * var(--u))
+                  );
+                }
+              }
+            }
+          }
+          /* Tree order is Confidence, Belonging, Excitement. */
+          &>article:nth-child(1) {
+            inline-size: calc(186 * var(--u));
+            margin-block-start: calc(155 * var(--u));
+            margin-inline-start: calc(6 * var(--u));
+            /*
+              Its box ends about where its trail starts, so above 744, where the column outgrows the copy, a full
+              line reached the trail (Safari: "...feel assured" 4 px from it at 900). The copy keeps 1 rem off that
+              end, never narrower than its 744 measure in ems, so 744 and below are unchanged.
+            */
+            @media(width<80rem) {
+              &>p {
+                max-inline-size: max(calc(186 * var(--u) - 1rem), calc(186em / 14));
+              }
+            }
+          }
+          &>article:nth-child(2) {
+            inline-size: calc(209 * var(--u));
+            margin-block-start: calc(296 * var(--u));
+            margin-inline-start: calc(369 * var(--u));
+          }
+          &>article:nth-child(3) {
+            inline-size: calc(193 * var(--u));
+            margin-block-start: calc(23 * var(--u));
+            margin-inline-start: calc(427 * var(--u));
+          }
+        }
+        /*
+          The desktop composition from 1280 px, on its 1086 px column (Desktop/Scotties.pdf): the same three around
+          a 247 px board, each name on its own line. Its trails are rasters of the tablet chevron, scaled 1.692, laid
+          out differently: each trail ends about 21 px from its text.
+        */
+        @media(width>=80rem) {
+          --u: calc(100cqw / 1086);
+          &>.small-illustration {
+            inline-size: calc(247 * var(--u));
+            margin-block-start: calc(103 * var(--u));
+            margin-inline-start: calc(430 * var(--u));
+            /*
+              The client (CF114): "箭头根部与右边的文字距离有点宽" (the trail's root is a bit far from the text on its
+              right). The desktop trails, the tablet chevron set on each desktop raster chevron, from 60 px left
+              of the board and 52 above it.
+            */
+            &::after {
+              inset-block-start: calc(-52 * var(--u));
+              inset-inline-start: calc(-60 * var(--u));
+              inline-size: calc(370 * var(--u));
+              block-size: calc(402 * var(--u));
+              background-image: url("assets/scotties-desktop-core-value-chevron-trails.svg");
+            }
+          }
+          &>.flex-row {
+            &>article:nth-child(1) {
+              inline-size: calc(278 * var(--u));
+              margin-block-start: calc(253 * var(--u));
+              margin-inline-start: calc(72 * var(--u));
+            }
+            &>article:nth-child(2) {
+              inline-size: calc(271 * var(--u));
+              margin-block-start: calc(383 * var(--u));
+              margin-inline-start: calc(685 * var(--u));
+            }
+            &>article:nth-child(3) {
+              /* 291 px: Excitement wraps as drawn from 284 to 299 px in Chromium and Safari. */
+              inline-size: calc(291 * var(--u));
+              margin-block-start: calc(23 * var(--u));
+              margin-inline-start: calc(761 * var(--u));
+            }
+          }
+        }
+      }
+    }
+    @media(width<40rem) {
+      /*
+        The phone design loops the three pillars around the skateboard: Excitement first and indented, the
+        skateboard, then Confidence and Belonging side by side, joined by pale chevron trails, each pillar name
+        running into its text (Phone/Scotties.pdf).
+      */
+      &>.content .subsection:has(>.small-illustration+.flex-row>article) {
+        --pillar-unit: calc(1rem / 16 + var(--phone-art-grow));
+        display: grid;
+        &>.small-illustration {
+          grid-row: 4;
+          position: relative;
+          inline-size: calc(146 * var(--pillar-unit));
+          max-inline-size: none;
+          /*
+            10 below the design's 45: its trail starts 51 above the board, and Excitement's last line, which wraps
+            freely, can run as far right as the trail's top chevrons.
+          */
+          margin-block: calc(55 * var(--pillar-unit)) 0;
+          margin-inline: calc(102 * var(--pillar-unit)) 0;
+          &::after {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(-51 * var(--pillar-unit));
+            inset-inline-start: calc(-42 * var(--pillar-unit));
+            inline-size: calc(204 * var(--pillar-unit));
+            block-size: calc(277.4 * var(--pillar-unit));
+            background: url("assets/scotties-phone-core-value-chevron-trails.svg") center / 100% 100% no-repeat;
+            pointer-events: none;
+          }
+        }
+        &>.flex-row {
+          display: contents;
+          &>article {
+            grid-column: 1;
+            align-self: start;
+            margin-block: 0;
+            &::before {
+              content: none;
+            }
+            &>p {
+              margin-block: 0;
+              &>span {
+                display: inline;
+              }
+            }
+          }
+          /* Tree order is Confidence, Belonging, Excitement. */
+          &>article:nth-child(3) {
+            grid-row: 3;
+            inline-size: calc(236 * var(--pillar-unit));
+            margin-block-start: calc(40 * var(--pillar-unit));
+            margin-inline-start: calc(100 * var(--pillar-unit));
+          }
+          &>article:nth-child(1) {
+            grid-row: 5;
+            inline-size: calc(170 * var(--pillar-unit));
+            margin-block-start: calc(28 * var(--pillar-unit));
+          }
+          &>article:nth-child(2) {
+            grid-row: 5;
+            inline-size: calc(165 * var(--pillar-unit));
+            margin-block-start: calc(99 * var(--pillar-unit));
+            margin-inline-start: calc(185 * var(--pillar-unit));
+          }
+        }
+      }
+    }
+    &>.content>.project-introduction>.project-summary {
+      font-weight: 500;
+    }
+    &>.content>.section>h2 {
+      position: relative;
+      border-width: 0;
+      padding-block: calc(26rem / 16 + 27 * var(--grow));
+      padding-inline: calc(70rem / 16 + 150 * var(--grow) + max(0rem, (100% - 1440rem / 16) / 2));
+      /*
+        On phones the text box is the phone design's 225 px, centred, which keeps it clear of the chevron notch.
+        Narrower than 390 the chevrons keep their 26% while the words would keep their size, so "Context", "Reflection"
+        and "Strategy" ran onto the white notch at 320 to 375 (Safari 17.5). There the band's type, line and box
+        shrink with the screen, as the phone art does, so each band looks as it does at 390.
+      */
+      @media(width<40rem) {
+        --banner-shrink: min(0rem, var(--phone-art-grow));
+        padding-block: calc(26rem / 16 + 26 * var(--banner-shrink));
+        padding-inline: calc((100% - 225rem / 16 - 225 * var(--banner-shrink)) / 2);
+        font-size: calc(24rem / 16 + 24 * var(--banner-shrink));
+        line-height: calc(34rem / 16 + 34 * var(--banner-shrink));
+      }
+      /*
+        The tablet layout does the same below its 744 design: at 640 "Reflection" ran 44 px past the chevron's edge
+        onto the white notch, against the design's 20 at 744.
+      */
+      @media(40rem<=width<46.5rem) {
+        --banner-shrink: calc((100vw - 744rem / 16) / 744);
+        padding-block: calc(26rem / 16 + 26 * var(--banner-shrink));
+        padding-inline: calc(70rem / 16 + 70 * var(--banner-shrink));
+        font-size: calc(24rem / 16 + 24 * var(--banner-shrink));
+        line-height: calc(34rem / 16 + 34 * var(--banner-shrink));
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inline-size: calc(80rem / 16 + 252 * var(--grow));
+        background-image: url("assets/scotties-section-directional-chevrons.svg");
+      }
+    }
+    /*
+      Phone and Tablet Scotties draw the strip as 12.67 by 14 px chevrons 14 apart with a 0.5 px pale edge, which
+      is the tile at its own 15 px, 86 and 87 px below the "Mobile" button's text and 76 and 80 above "Jump To
+      Section"; Desktop draws a 22 px raster strip.
+    */
+    &>.content>.project-divider {
+      block-size: calc(15rem / 16);
+      @media(width<80rem) {
+        margin-block-start: calc(
+          79rem / 16 + var(--phone-grow) + 32 * var(--grow)
+        );
+      }
+      @media(width>=80rem) {
+        block-size: calc(20rem / 16);
+      }
+      border-width: 0;
+      background-size: auto 100%;
+    }
+    & .section-navigation {
+      @media(width<80rem) {
+        margin-block-start: calc(
+          77rem / 16 + 4 * var(--phone-grow) + 57 * var(--grow)
+        );
+      }
+    }
+  }
+  &[data-case-study="scotties"] {
+    /*
+      Tablet/Scotties.pdf runs its sections 624 px wide at 744 (from 61 to 685), wider than the shared 614; the
+      desktop column is the same 1086 at 1440.
+    */
+    @media(width>=40rem) {
+      & .section-content {
+        inline-size: calc(100% - 120rem / 16 - 234 * var(--grow));
+      }
+    }
+    /* The logo as the designs place it: 291, 450 and 635 px wide (its drawing's box; the ink is 645 at 1440). */
+    & .wordmark {
+      max-inline-size: calc(
+        291rem / 16 + 159 * var(--phone-grow) + 185 * var(--grow)
+      );
+    }
+    &>.content>.project-divider {
+      background-color: transparent;
+      background-image: url("assets/scotties-hero-divider-chevron-tile.svg");
+    }
+    &>.content>.section>h2 {
+      overflow: clip;
+      isolation: isolate;
+      &::after {
+        z-index: -1;
+        inset-inline: auto 0;
+        inline-size: auto;
+        max-inline-size: 26%;
+        aspect-ratio: 664 / 292;
+        background-size: auto 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+        transform: none;
+      }
+    }
+    /*
+      Up to the 744px tablet design every band keeps its chevrons on the right; wider, even bands use a mirrored
+      left copy instead. The body is the query container, as for the wide growth value.
+    */
+    @container(width>744px) {
+      &>.content>.section:nth-of-type(even)>h2 {
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          inset-block: 0;
+          inset-inline: 0 auto;
+          max-inline-size: 26%;
+          aspect-ratio: 664 / 292;
+          background-image: url("assets/scotties-section-directional-chevrons.svg");
+          background-size: auto 100%;
+          background-position: right;
+          background-repeat: no-repeat;
+          transform: scaleX(-1);
+        }
+        &::after {
+          content: none;
+        }
+      }
+    }
+    /*
+      Tablet and Desktop Scotties stroke the moodboard 5 px sage inside its box (fig "moodboard_final 1"). The file
+      carries that frame 20 of its 3924 px wide, so it renders 5 px at the desktop's 980 but 3.2 at the tablet's
+      624; from the tablet layout up the stroke is drawn over it at 5. (Phone draws 1 px; the file gives 1.8.)
+    */
+    @media(width>=40rem) {
+      & img[src$="scotties-street-culture-visual-moodboard.webp"] {
+        outline: calc(5rem / 16) solid var(--color-case-study-accent);
+        outline-offset: calc(-5rem / 16);
+      }
+    }
+    /* The designs draw the skateboard 23 by 13 px (phone, tablet) and 32 by 17 (desktop), 3, 11 and 19 px from the text. */
+    &>.content h3.subheading::before {
+      content: "";
+      display: inline-block;
+      inline-size: calc(23rem / 16 + 9 * var(--grow));
+      block-size: calc(13rem / 16 + 4 * var(--grow));
+      /* The heading's first letter adds about 3 px of side bearing. */
+      margin-inline-end: calc(8 * var(--phone-grow) + 8 * var(--grow));
+      background: url("assets/scotties-subheading-skate-glyph.svg") center / contain no-repeat;
+      vertical-align: -0.1em;
+    }
+    /*
+      The designs (exports of 2026-10-23) set the Wireframing Execution headings a step under the other
+      subheadings: Sitemap and the two lo-fi pages 16 / 16 / 18 (phone, tablet, desktop), Hi-fi Homepage 18 / 18 / 18.
+      At the shared 22 on desktop the lo-fi and hi-fi headings came within 7 to 8 px of their screens (Safari 1440
+      and 1905; design 15 to 20). Past 1440 Hi-fi Homepage grows with the lo-fi ones, never smaller than them.
+    */
+    & #scotties-wireframing-heading+.section-content {
+      &>h3.subheading,
+      &>.subsection:not(:nth-child(5))>h3.subheading {
+        font-size: calc(16rem / 16 + 2 * var(--grow));
+      }
+      &>.subsection:nth-child(5)>h3.subheading {
+        font-size: max(calc(18rem / 16), calc(16rem / 16 + 2 * var(--grow)));
+      }
+    }
+    .subsection:has(>.scotties-challenge-bubble) {
+      position: relative;
+      @media(width<40rem) {
+        margin-block-end: calc(170rem / 16);
+      }
+      /*
+        The phone design, measured on its pixels from the heading's ink top: the chevrons' ink from 65 px, the cloud
+        from 130 with its text from 183.5 (ours 174) and clear of the bolt, and the skate 37 px in from the column's
+        end, 23 px under the cloud.
+      */
+      &>.scotties-challenge-bubble {
+        /*
+          The client: "文字超出了框" (the text runs outside the cloud). Phone Scotties sets the copy in its 346.8 px
+          cloud at 14 px on a 22 px pitch, centred, in nine lines that follow the outline; here it wraps freely
+          around the cloud's shaped floats from 40 px under the cloud's top (in a 350 px cloud); from 49, as drawn,
+          the last line falls through the cloud's foot.
+        */
+        @media(width<40rem) {
+          --cloud-copy-top: calc(40 * 100cqi / 350);
+          margin-block-start: calc(108.7rem / 16);
+          &>p {
+            font-size: calc(14 * 100cqi / 346.8);
+            line-height: round(nearest, 22em / 14, 1px);
+          }
+          /*
+            Phone/Scotties in the .fig draws the desktop bolt 3.7% taller than its own shape, its lower tip 31.3% of
+            the cloud's width under the cloud's top, ending on the third line's baseline in the gap before "e-".
+            Keeping the shape and pinning that tip there lifts the bolt off "no".
+          */
+          &::before {
+            inset-block-start: -0.84cqw;
+          }
+        }
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      &::before {
+        inset-block-start: calc(60rem / 16 - 24 * var(--phone-grow) + 54 * var(--grow));
+        inset-inline-start: 0;
+        block-size: calc(41.4rem / 16 + 17.6 * var(--phone-grow) + 4 * var(--grow));
+        aspect-ratio: 375 / 126;
+        background-image: url("assets/scotties-challenge-dotted-chevron-arrow.svg");
+      }
+      &::after {
+        inset-block-end: calc(-60rem / 16 + 60 * var(--grow));
+        inset-inline-end: 0;
+        inline-size: calc(73rem / 16 + 28 * var(--grow));
+        aspect-ratio: 1;
+        background-image: url("assets/scotties-challenge-ice-skate.svg");
+      }
+      /* The query wraps the pseudo-element: iOS 17.0 Safari ignores a query nested inside `::after`. */
+      @media(width<40rem) {
+        &::before {
+          inset-block-start: calc(71.5rem / 16);
+        }
+        &::after {
+          inset-block-end: calc(-95rem / 16);
+          inset-inline-end: calc(37rem / 16);
+        }
+      }
+    }
+    /*
+      The tablet design (Tablet/Scotties in the .fig, on its 624 px column): the chevron arrows 56 px tall from 11 px
+      in, their top 53 under the heading's middle (the group is turned 180 degrees, so its box runs back from the
+      reported corner); the cloud straight under them, its text 14 px on a 28 px pitch; the bolt from 9 px above
+      the cloud's top end; the skate 74 px wide, its foot level with the cloud's, 22 px in from the end.
+    */
+    @media(width>=40rem) and (width<80rem) {
+      .subsection:has(>.scotties-challenge-bubble) {
+        --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+        --u: calc(100cqw / 624);
+        container-type: inline-size;
+        &::before {
+          inset-block-start: calc(67 * var(--u));
+          inset-inline-start: calc(11 * var(--u));
+          block-size: calc(56 * var(--u));
+        }
+        &::after {
+          inset-block-end: 0;
+          inset-inline-end: calc(22 * var(--u));
+          inline-size: calc(74 * var(--u));
+        }
+        /*
+          Tablet/Scotties in the .fig: the cloud 433 by 352 from 96 px in, its top 109 under the heading's middle;
+          the copy in a 364 px box 34 in from each side, its first line box 80 under the cloud's top. The copy
+          wraps freely in that box and between the outline's two shaped floats.
+        */
+        &>.scotties-challenge-bubble {
+          /* The cloud is its own container, so these are in its 433rds. */
+          --cloud-copy-top: calc(80 * 100cqw / 433);
+          /* At most 26 em to a line, the design's 364 px box of 14 px copy, where the cloud grows wider. */
+          --cloud-copy-inset: max(calc(34 * 100cqw / 433), calc((100cqw - 26em) / 2));
+          inline-size: calc(433 * var(--u));
+          max-inline-size: none;
+          margin-block-start: calc(95 * var(--u));
+          margin-inline: calc(96 * var(--u)) 0;
+          &::before {
+            inset-block-start: calc(-9 * 100cqw / 433);
+          }
+          /*
+            14 px in the 433 px cloud: below the 744 design width the copy shrinks with the cloud (it held at 14 px
+            and ran out of the cloud from 640 to 728); from 744 up the 1em cap applies as before.
+          */
+          &>p {
+            font-size: min(1em, calc(14 * 100cqw / 433));
+            line-height: round(nearest, 2em, 1px);
+          }
+        }
+      }
+    }
+    .scotties-challenge-bubble {
+      position: relative;
+      /* The copy starts where each range puts it, not centred: the shaped floats inside it must start at the
+        cloud's top. */
+      justify-content: start;
+      /* Every Scotties frame in the .fig layers the copy over the bolt; positioned after it, the copy paints on top. */
+      &>p {
+        position: relative;
+        margin-block: var(--cloud-copy-top) 0;
+        margin-inline: var(--cloud-copy-inset, 0px);
+        /*
+          The copy wraps freely between two floats shaped to the outline's inner edge less 4 px, so no line runs
+          into the scallops at any width (the designs break it into lines that follow the outline). Traced from the
+          cloud artwork alone in 4 px bands of a 350 px cloud, each band as far in as the outline reaches anywhere
+          within it, down to 262 px, where the outline closes; every frame draws the same cloud.
+          The floats start at the cloud's top, above the copy, so one pair of shapes fits every copy offset, and
+          reach out past the copy's side insets to the cloud's edges, so the shapes stay where the outline is.
+        */
+        &::before,
+        &>.scotties-challenge-edge {
+          content: "";
+          inline-size: 50cqi;
+          block-size: calc(262 * 100cqi / 350);
+          margin-block-start: calc(-1 * var(--cloud-copy-top));
+        }
+        &::before {
+          float: inline-start;
+          margin-inline-start: calc(-1 * var(--cloud-copy-inset, 0px));
+          shape-outside: border-box polygon(0 0, 100% 0%, 100% 7.63%, 99.47% 7.63%, 99.47% 9.16%, 95.21% 9.16%, 95.21% 10.69%, 91.85% 10.69%, 91.85% 12.21%, 88.95% 12.21%, 88.95% 13.74%, 86.5% 13.74%, 86.5% 15.27%, 84.23% 15.27%, 84.23% 16.79%, 82.23% 16.79%, 82.23% 18.32%, 80.42% 18.32%, 80.42% 19.85%, 78.69% 19.85%, 78.69% 21.37%, 37.4% 21.37%, 37.4% 22.9%, 36.59% 22.9%, 36.59% 24.43%, 35.77% 24.43%, 35.77% 25.95%, 35.14% 25.95%, 35.14% 27.48%, 34.68% 27.48%, 34.68% 29.01%, 34.23% 29.01%, 34.23% 30.53%, 33.96% 30.53%, 33.96% 32.06%, 33.68% 32.06%, 33.68% 33.59%, 33.5% 33.59%, 33.5% 35.11%, 33.41% 35.11%, 33.41% 36.64%, 16.9% 36.64%, 16.9% 38.17%, 15.17% 38.17%, 15.17% 39.69%, 13.72% 39.69%, 13.72% 41.22%, 12.36% 41.22%, 12.36% 42.75%, 20.71% 42.75%, 20.71% 44.27%, 18.98% 44.27%, 18.98% 45.8%, 16.35% 45.8%, 16.35% 47.33%, 14.26% 47.33%, 14.26% 48.85%, 12.45% 48.85%, 12.45% 50.38%, 11% 50.38%, 11% 51.91%, 9.82% 51.91%, 9.82% 53.44%, 9% 53.44%, 9% 54.96%, 8.37% 54.96%, 8.37% 56.49%, 8% 56.49%, 8% 58.02%, 7.82% 58.02%, 7.82% 59.54%, 8% 59.54%, 8% 61.07%, 8.27% 61.07%, 8.27% 62.6%, 8.73% 62.6%, 8.73% 64.12%, 9.45% 64.12%, 9.45% 65.65%, 10.36% 65.65%, 10.36% 67.18%, 11.45% 67.18%, 11.45% 68.7%, 12.81% 68.7%, 12.81% 70.23%, 14.45% 70.23%, 14.45% 71.76%, 16.53% 71.76%, 16.53% 73.28%, 18.89% 73.28%, 18.89% 74.81%, 43.48% 74.81%, 43.48% 76.34%, 43.76% 76.34%, 43.76% 77.86%, 44.03% 77.86%, 44.03% 79.39%, 44.48% 79.39%, 44.48% 80.92%, 45.21% 80.92%, 45.21% 82.44%, 46.12% 82.44%, 46.12% 83.97%, 47.29% 83.97%, 47.29% 85.5%, 48.75% 85.5%, 48.75% 87.02%, 50.47% 87.02%, 50.47% 88.55%, 52.74% 88.55%, 52.74% 90.08%, 55.55% 90.08%, 55.55% 91.6%, 59.27% 91.6%, 59.27% 93.13%, 91.4% 93.13%, 91.4% 94.66%, 89.31% 94.66%, 89.31% 96.18%, 85.5% 96.18%, 85.5% 97.71%, 99.84% 97.71%, 99.84% 99.24%, 100% 99.24%, 100% 100%, 0 100%);
+        }
+        &>.scotties-challenge-edge {
+          float: inline-end;
+          margin-inline-end: calc(-1 * var(--cloud-copy-inset, 0px));
+          shape-outside: border-box polygon(100% 0, 0% 0%, 0% 7.63%, 41.27% 7.63%, 41.27% 9.16%, 32.2% 9.16%, 32.2% 10.69%, 30.75% 10.69%, 30.75% 12.21%, 43.09% 12.21%, 43.09% 13.74%, 49.71% 13.74%, 49.71% 15.27%, 53.7% 15.27%, 53.7% 16.79%, 56.88% 16.79%, 56.88% 18.32%, 59.33% 18.32%, 59.33% 19.85%, 61.24% 19.85%, 61.24% 21.37%, 62.78% 21.37%, 62.78% 22.9%, 63.96% 22.9%, 63.96% 24.43%, 65.05% 24.43%, 65.05% 25.95%, 65.86% 25.95%, 65.86% 27.48%, 66.41% 27.48%, 66.41% 29.01%, 66.77% 29.01%, 66.77% 30.53%, 66.86% 30.53%, 66.86% 32.06%, 63.96% 32.06%, 63.96% 33.59%, 59.15% 33.59%, 59.15% 35.11%, 65.59% 35.11%, 65.59% 36.64%, 65.32% 36.64%, 65.32% 38.17%, 78.39% 38.17%, 78.39% 39.69%, 81.56% 39.69%, 81.56% 41.22%, 84.1% 41.22%, 84.1% 42.75%, 86.1% 42.75%, 86.1% 44.27%, 87.82% 44.27%, 87.82% 45.8%, 89.18% 45.8%, 89.18% 47.33%, 90.36% 47.33%, 90.36% 48.85%, 91.27% 48.85%, 91.27% 50.38%, 91.82% 50.38%, 91.82% 51.91%, 91.91% 51.91%, 91.91% 53.44%, 91.73% 53.44%, 91.73% 54.96%, 91.27% 54.96%, 91.27% 56.49%, 90.64% 56.49%, 90.64% 58.02%, 89.82% 58.02%, 89.82% 59.54%, 88.91% 59.54%, 88.91% 61.07%, 87.73% 61.07%, 87.73% 62.6%, 86.28% 62.6%, 86.28% 64.12%, 84.37% 64.12%, 84.37% 65.65%, 82.29% 65.65%, 82.29% 67.18%, 80.11% 67.18%, 80.11% 70.23%, 62.6% 70.23%, 62.6% 71.76%, 62.41% 71.76%, 62.41% 73.28%, 62.23% 73.28%, 62.23% 74.81%, 62.05% 74.81%, 62.05% 76.34%, 61.78% 76.34%, 61.78% 77.86%, 61.42% 77.86%, 61.42% 79.39%, 60.96% 79.39%, 60.96% 80.92%, 60.42% 80.92%, 60.42% 82.44%, 59.69% 82.44%, 59.69% 83.97%, 58.79% 83.97%, 58.79% 85.5%, 57.79% 85.5%, 57.79% 87.02%, 56.52% 87.02%, 56.52% 88.55%, 54.97% 88.55%, 54.97% 90.08%, 53.25% 90.08%, 53.25% 91.6%, 51.16% 91.6%, 51.16% 93.13%, 48.53% 93.13%, 48.53% 94.66%, 45.26% 94.66%, 45.26% 96.18%, 41.27% 96.18%, 41.27% 97.71%, 36.46% 97.71%, 36.46% 99.24%, 0% 99.24%, 0% 100%, 100% 100%);
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 72%;
+        inline-size: 25.6%;
+        aspect-ratio: 141 / 177;
+        background: url("assets/scotties-challenge-lightning-bolt.svg") center / contain no-repeat;
+      }
+      @media(width>=40rem) {
+        &::before {
+          inset-inline-start: 75.5%;
+        }
+      }
+    }
+    .scotties-positioning-note {
+      position: relative;
+      &>p>span {
+        display: block;
+        color: var(--color-case-study-heading);
+      }
+      /* Phone Scotties draws the skater 37 px before and 22 px above the box; wider designs place it themselves. */
+      &::before {
+        content: "";
+        position: absolute;
+        inset-block-start: calc(-22rem / 16);
+        inset-inline-start: calc(-37rem / 16);
+        inline-size: calc(62rem / 16);
+        aspect-ratio: 149 / 158;
+        background: url("assets/scotties-positioning-skater-figure.svg") center / contain no-repeat;
+      }
+    }
+    /* The starburst comes before the positioned note in tree order, so the note paints over it. */
+    .subsection:has(>.scotties-positioning-note) {
+      position: relative;
+      /*
+        The client: "这个框离上下标题的间距太窄了，参考原设计。" (the box sits too close to the headings above and
+        below; follow the design). Phone Scotties draws the box 74.5 px under the heading's text and 130 px over
+        the Research band. The box's margin collapses with the heading's 32 px one, so it carries the whole 72.5
+        (the heading's line box adds 2); the section's 64 px padding gets 66 more below. The box is 241 by 309 px
+        from 36 px into the column, its copy centred on 197 px, where plain wrapping gives the drawn lines (any
+        inline padding from 10 to 24 px does); the lead phrase on 160 px splits at its comma (138 to 187 px all do).
+      */
+      @media(width<40rem) {
+        margin-block-end: calc(66rem / 16);
+        &>.scotties-positioning-note {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          box-sizing: border-box;
+          inline-size: calc(241rem / 16);
+          min-block-size: calc(309rem / 16);
+          margin-block-start: calc(72.5rem / 16);
+          margin-inline: calc(36rem / 16) 0;
+          padding-block: 0;
+          padding-inline: calc(17rem / 16);
+          &>p>span {
+            max-inline-size: calc(160rem / 16);
+            margin-inline: auto;
+          }
+        }
+      }
+    }
+    .subsection:has(>.scotties-positioning-note)::before {
+      content: "";
+      position: absolute;
+      /*
+        Phone Scotties draws the splat 175 px wide from the column's middle, 55 px below the box, so it shows at the
+        box's lower right; from the middle, it ends at the column's end on phones under 390. Wider designs place it
+        themselves.
+      */
+      inset-block-end: calc(-55rem / 16);
+      inset-inline-start: 50%;
+      inline-size: calc(175rem / 16);
+      max-inline-size: 50%;
+      aspect-ratio: 319 / 274;
+      background: url("assets/scotties-positioning-starburst.svg") center / contain no-repeat;
+    }
+    /*
+      The desktop design (Desktop/Scotties.pdf, on its 1086 px column): the cloud 550 by 447 px from 268 px in,
+      41 under the heading, which sits 143 px under the About copy; the chevrons 188 px wide from 21 px in, 99
+      under the heading's top; the skate 101 px wide, 70 from the column's end, 4 above the cloud's foot. The
+      copy wraps freely, its lines 32 px apart, its first glyph 122 under the
+      cloud's top. Brand Message 122 px under the cloud; its box 449 by 288 px from 318 px in, 105 under the
+      heading, its copy on 327 px (it wraps as drawn from 308 to 347 px in Chromium and Safari); the skater 149
+      px wide, 98 px before and 72 above the box; the splat 318 px wide from 577 px in, 103 below the box; the
+      next band 323 px under the box.
+    */
+    @media(width>=80rem) {
+      .subsection:has(>.scotties-challenge-bubble) {
+        --grow: calc(1rem / 16);
+        --u: calc(100cqw / 1086);
+        container-type: inline-size;
+        margin-block-start: calc(115rem / 16);
+        &>h3 {
+          margin-block-end: 0;
+        }
+        &::before {
+          inset-block-start: calc(99 * var(--u));
+          inset-inline-start: calc(21 * var(--u));
+          block-size: calc(63 * var(--u));
+        }
+        &::after {
+          inset-block-end: calc(4 * var(--u));
+          inset-inline-end: calc(70 * var(--u));
+          inline-size: calc(101 * var(--u));
+        }
+        &>.scotties-challenge-bubble {
+          box-sizing: border-box;
+          inline-size: calc(550 * var(--u));
+          max-inline-size: none;
+          aspect-ratio: 550 / 447;
+          margin-block-start: calc(41 * var(--u));
+          margin-inline: calc(268 * var(--u)) 0;
+          /* The cloud is its own container, so these are in its 550ths. */
+          --cloud-copy-top: calc(117 * 100cqw / 550);
+          /* At most 24.5 em to a line: the design's longest line is 387 px of 16 px copy. */
+          --cloud-copy-inset: max(calc(65 * 100cqw / 550), calc((100cqw - 24.5em) / 2));
+          &>p {
+            line-height: round(nearest, 2em, 1px);
+          }
+        }
+      }
+      .subsection:has(>.scotties-positioning-note) {
+        --grow: calc(1rem / 16);
+        --u: calc(100cqw / 1086);
+        container-type: inline-size;
+        margin-block: calc(122rem / 16) calc(203rem / 16);
+        &>h3 {
+          margin-block-end: 0;
+        }
+        &::before {
+          inset-block-end: calc(-103 * var(--u));
+          inset-inline-start: calc(577 * var(--u));
+          inline-size: calc(318 * var(--u));
+          max-inline-size: none;
+        }
+        &>.scotties-positioning-note {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          inline-size: calc(449 * var(--u));
+          max-inline-size: none;
+          min-block-size: calc(288 * var(--u));
+          margin-block-start: calc(105 * var(--u));
+          margin-inline: calc(318 * var(--u)) 0;
+          padding-block: 0;
+          padding-inline: calc(56 * var(--u));
+          &>p {
+            margin-block: 0;
+          }
+          &::before {
+            inset-block-start: calc(-72 * var(--u));
+            inset-inline-start: calc(-98 * var(--u));
+            inline-size: calc(149 * var(--u));
+          }
+        }
+      }
+    }
+    /*
+      The tablet design's positioning callout, on its 624 px column: the box 397 by 251 px from 101 px in, its
+      copy centred; the skater 193 px wide over its top-left corner; the splat 260 px wide from 358 px in, 97 px
+      below the box (Tablet/Scotties.pdf).
+    */
+    @media(width>=40rem) and (width<80rem) {
+      .subsection:has(>.scotties-positioning-note) {
+        --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+        --u: calc(100cqw / 624);
+        container-type: inline-size;
+        /*
+          A percentage, not --u: this element is the container, so its own units would read the viewport.
+          113.6 of 624: the box's foot to the next band is 177.6 px in the tablet design.
+        */
+        margin-block-end: calc(11360% / 624);
+        &::before {
+          inset-block-end: calc(-97 * var(--u));
+          inset-inline-start: calc(358 * var(--u));
+          inline-size: calc(260 * var(--u));
+          max-inline-size: none;
+        }
+        &>.scotties-positioning-note {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          box-sizing: border-box;
+          inline-size: calc(397 * var(--u));
+          max-inline-size: none;
+          min-block-size: calc(251 * var(--u));
+          margin-block-start: calc(107 * var(--u));
+          margin-inline: calc(101 * var(--u)) 0;
+          &::before {
+            inset-block-start: calc(-36 * var(--u));
+            inset-inline-start: calc(-55 * var(--u));
+            inline-size: calc(108 * var(--u));
+          }
+        }
+      }
+    }
+    .persona-photograph {
+      position: relative;
+      isolation: isolate;
+      /*
+        Jonathan's photo is 492 by 616 and the other two 490 by 616; at one width it came out 1.1 px shorter and
+        lifted his name. Every Scotties design keeps the three photos one height, so the names sit level.
+      */
+      &>button>img {
+        aspect-ratio: 490 / 616;
+        object-fit: cover;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: -5% 6.5% 19% -6.5%;
+        background-color: var(--scotties-persona-plate);
+      }
+    }
+    .persona {
+      &:nth-child(1) {
+        --scotties-persona-plate: var(--color-case-study-heading);
+      }
+      &:nth-child(2) {
+        --scotties-persona-plate: var(--color-case-study-accent);
+      }
+      &:nth-child(3) {
+        --scotties-persona-plate: var(--color-case-study-subheading);
+      }
+      &>h4>span {
+        display: block;
+        color: var(--color-case-study-heading);
+      }
+    }
+    .small-illustration~.flex-row>article {
+      &>p>span {
+        color: var(--color-case-study-heading);
+      }
+      &::before {
+        content: "";
+        display: block;
+        block-size: calc(56rem / 16);
+        background: url("assets/scotties-core-value-pale-chevron-column.svg") left top / 1rem auto repeat-y;
+      }
+    }
+    .sitemap {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-end: 0;
+        /* 190, 274 and 476 px across the phone, tablet and desktop designs. */
+        inline-size: calc(
+          190rem / 16 + 84 * var(--phone-grow) + 202 * var(--grow)
+        );
+        aspect-ratio: 952 / 158;
+        background: url("assets/scotties-sitemap-chevron-cluster.svg") center / contain no-repeat;
+      }
+      /*
+        The client: "这个图案放在sitmap的正下方吧，也是居中。" (put this pattern directly under the sitemap,
+        centred). On the phone's one-column tree it sat beside the last page; it now follows the tree, 32 px under
+        it like the sitemap's own spacing. The query wraps the pseudo-element: iOS 17.0 Safari ignores a query
+        nested inside `::after`.
+      */
+      @media(width<40rem) {
+        &::after {
+          position: static;
+          display: block;
+          margin-block-start: calc(32rem / 16);
+          margin-inline: auto;
+        }
+      }
+      /*
+        Desktop Scotties draws the sitemap larger: 47 px boxes, 17 px labels padded 26 px (at least 121 px wide,
+        seven boxes at their own drawn widths); the root's stem 67 px down to the bar, the sections 34 px under it
+        and starting 4, 322, 579 and 915 px into the 1086 px column; each section's trunk 32 px in, its pages 37
+        past the trunk, the first 49 px under the section and the rest 96 px apart; the chevrons 4 px in from the
+        column's end and 7 below the last page. The heading 220 px under the band's top, the root 69 under the
+        heading's glyph top, and Lo-fi Homepage 129 under the chevrons.
+      */
+      @media(width>=80rem) {
+        :where(#scotties-wireframing)>.section-content:has(>&) {
+          padding-block-start: calc(125rem / 16);
+        }
+        &+.subsection {
+          margin-block-start: calc(135rem / 16);
+        }
+        --case-study-sitemap-gap: calc(49rem / 16);
+        --case-study-sitemap-trunk: calc(32rem / 16);
+        --case-study-sitemap-indent: calc(37rem / 16);
+        --case-study-sitemap-column-padding: 0px;
+        margin-block-start: calc(39rem / 16);
+        &::after {
+          inset-block-end: calc(-7rem / 16);
+          inset-inline-end: calc(4rem / 16);
+        }
+        font-size: calc(17rem / 16);
+        & span {
+          min-inline-size: calc(121rem / 16);
+          padding-block: calc(13.5rem / 16);
+          padding-inline: calc(26rem / 16);
+        }
+        &>ul>li {
+          &>span::before {
+            block-size: calc(67rem / 16);
+          }
+          /*
+            The column scales but the boxes do not: below the design's 1086 px column (windows under about 1410
+            px) Profile's pages (32 + 37 + 99 px past its start) ran up to 10.7 px past the column at 1280, past the
+            chevrons' end and off centre. The third section's column gives up that space, keeping the design's 3 px
+            to the column's end; its widest page still fits.
+          */
+          &>ul {
+            display: grid;
+            grid-template-columns:
+              calc(31800% / 1086) calc(25700% / 1086)
+              min(calc(33600% / 1086), calc(100% - 57500% / 1086 - 171rem / 16)) auto;
+            justify-content: start;
+            align-self: stretch;
+            margin-inline-start: calc(400% / 1086);
+            padding-block-start: calc(67rem / 16);
+            &>li {
+              padding-block-start: calc(34rem / 16);
+              &>span::before {
+                inset-block-start: calc(-34rem / 16);
+              }
+              &:nth-child(1)>ul>li:nth-child(4)>span,
+              &:nth-child(3)>ul>li:nth-child(2)>span {
+                inline-size: calc(216rem / 16);
+                padding-inline: 0;
+              }
+              &:nth-child(2)>ul>li:first-child>span {
+                inline-size: calc(121rem / 16);
+                padding-inline: 0;
+              }
+              &:nth-child(3)>span {
+                inline-size: calc(256rem / 16);
+              }
+              &:nth-child(4) span {
+                min-inline-size: 0;
+                inline-size: calc(99rem / 16);
+                padding-inline: 0;
+              }
+              &:nth-child(4)>span {
+                inline-size: calc(92rem / 16);
+              }
+            }
+          }
+        }
+      }
+    }
+    :where(#scotties-wireframing) {
+      & .note {
+        border-width: calc(3rem / 16);
+        border-color: var(--color-case-study-accent);
+        border-radius: calc(24rem / 16);
+      }
+      & .subsection:nth-child(3)>.flex-row>.note:last-child,
+      & .subsection:nth-child(4)>.flex-row>.note:nth-child(2),
+      & .subsection:nth-child(5) article>.note:nth-child(2) {
+        border-width: calc(4rem / 16);
+        border-color: var(--color-case-study-heading);
+      }
+      & .subsection:nth-child(4)>.flex-row>.note:first-child,
+      & .subsection:nth-child(5) article>.note:is(:first-child,:last-child) {
+        border-width: calc(4rem / 16);
+        border-color: var(--color-case-study-subheading);
+      }
+      & .subsection:nth-child(3)>.flex-row>.note:first-child,
+      & .subsection:nth-child(5)>h3+p {
+        position: relative;
+        padding-block: calc(2.5rem - 1rem / 16) calc(2rem - 1rem / 16);
+        padding-inline: calc(2rem - 1rem / 16);
+        /*
+          Every design strokes these boxes 5 px inside with 20 px dashes and 20 px gaps at a 50 px radius (fig
+          "Rectangle 73" and "Rectangle 74"), as the brand message box; a dashed border cannot set its dash length.
+          The padding gives back the border's extra pixel, so the boxes keep their size.
+        */
+        border: calc(5rem / 16) solid transparent;
+        border-radius: calc(50rem / 16);
+        background:
+          url("assets/scotties-wireframe-note-dashed-outline.svg") border-box,
+          color-mix(in srgb, var(--color-case-study-accent) 47%, #fff) border-box;
+        &::before {
+          content: "";
+          position: absolute;
+          inset-block-start: calc(-0.6 * (50rem / 16 + 38 * var(--grow)));
+          inline-size: calc(50rem / 16 + 38 * var(--grow));
+          background: var(--scotties-note-icon) center / contain no-repeat;
+        }
+      }
+      & .subsection:nth-child(3)>.flex-row>.note:first-child::before {
+        --scotties-note-icon: url("assets/scotties-lo-fi-ice-boot-corner-icon.svg");
+        /*
+          The designs' skate ink, in each layout's design pixels and measured inside the 5 px outline: phone and
+          tablet 77.5 wide, 45.7 from the box's right edge and rising 33 above its top; desktop 87.6, 15.5 and 37.6
+          (Phone, Tablet and Desktop/Scotties.pdf).
+        */
+        /* Not past the 390 design size: the box grows to 639 but the gap to the heading does not. */
+        --skate-unit: min(var(--lofi-unit), 1rem / 16);
+        inline-size: calc(77.5 * var(--skate-unit));
+        inset-inline-end: calc(40.7 * var(--skate-unit));
+        inset-block-start: calc(-38 * var(--skate-unit));
+        aspect-ratio: 88 / 71;
+        @media(width>=40rem) {
+          inline-size: calc(77.5 * var(--u));
+          inset-inline-end: calc(40.7 * var(--u));
+          inset-block-start: calc(-38 * var(--u));
+        }
+        @media(width>=68.25rem) {
+          inline-size: calc(87.6 * var(--u));
+          inset-inline-end: calc(10.5 * var(--u));
+          inset-block-start: calc(-42.6 * var(--u));
+        }
+      }
+      /* The tablet design leaves about 70 px under the headings over the three wireframe pages, 80 over hi-fi's skater. */
+      @media(width>=40rem) and (width<80rem) {
+        & .subsection:has(.portrait-artwork)>h3.subheading {
+          margin-block-end: calc(69rem / 16);
+        }
+        & .subsection:nth-child(5)>h3.subheading {
+          margin-block-end: calc(79rem / 16);
+        }
+      }
+      /* The hi-fi intro is a boxed note under its skater, not running text: it keeps its wider gap below desktop. */
+      @media(width<80rem) {
+        & .subsection:nth-child(5)>h3 {
+          margin-block-end: 2rem;
+          & + p {
+            margin-block-start: 1rem;
+          }
+        }
+      }
+      /*
+        The client: "这个间距要增加" (this spacing should grow), of the hi-fi box's gaps. Phone Scotties draws the box
+        64.5 px under its heading's text (the heading's line box adds 2) and the first callout 39 px under the box.
+      */
+      @media(width<40rem) {
+        & .subsection:nth-child(5)>h3 {
+          margin-block-end: calc(62.5rem / 16);
+          & + p {
+            margin-block-end: calc(39rem / 16);
+          }
+        }
+      }
+      & .subsection:nth-child(5)>h3+p::before {
+        --scotties-note-icon: url("assets/scotties-hi-fi-skater-corner-icon.svg");
+        inset-inline-start: 5%;
+        aspect-ratio: 90 / 87;
+      }
+      & .portrait-artwork {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          inset-block: 0;
+          inset-inline: -4.2%;
+          background: var(--scotties-wireframe-highlights) 0 0 / 100% 100% no-repeat;
+          pointer-events: none;
+        }
+      }
+      & .subsection:nth-child(3) .portrait-artwork {
+        --scotties-wireframe-highlights: url("assets/scotties-lo-fi-homepage-highlights.svg");
+      }
+      & .subsection:nth-child(4) .portrait-artwork {
+        --scotties-wireframe-highlights: url("assets/scotties-lo-fi-product-listing-highlights.svg");
+      }
+      /*
+        Every design frames these screens with a 1 px sage stroke inside the box (fig "Desktop - 2 1" and "Home 1"
+        or "Home 2", strokeAlign INSIDE), as the lo-fi homepage's picture carries in its pixels. The listing's file
+        was cropped at its right edge when rebuilt (`aba53f4`), keeping only slivers of that frame, and the hi-fi
+        screenshot has none, so the stroke is drawn over them.
+      */
+      & :is(
+        img[src$="scotties-low-fidelity-product-listing-wireframe.webp"],
+        img[src$="scotties-high-fidelity-community-homepage.png"]
+      ) {
+        outline: calc(1rem / 16) solid var(--color-case-study-accent);
+        outline-offset: calc(-1rem / 16);
+      }
+      & .subsection:nth-child(5) .portrait-artwork {
+        --scotties-wireframe-highlights: url("assets/scotties-hi-fi-homepage-highlights.svg");
+      }
+      /*
+        The tablet and desktop designs' lo-fi pages, in each design's proportions (624 or 1085 to 1089 px wide, scaled
+        to the column): the screen beside its callouts, each callout as tall as the design's box with its text
+        centred, and tied to its part of the screen by a 3 px connector ending in an arrowhead. A connector is a
+        mask on its callout: a straight one (`--x`, `--y`, `--w`), mirrored with `scale` when it runs right, or an
+        elbow with its own layers. Lengths are the designs' pixels (Tablet and Desktop/Scotties.pdf).
+      */
+      @media(width>=40rem) {
+        & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
+          /* Being a container would make the type growth measure this row; keep measuring the page. */
+          --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          container-type: inline-size;
+          display: grid;
+          gap: 0;
+          &>* {
+            align-self: start;
+            justify-self: start;
+            margin: 0;
+          }
+          &>figure {
+            justify-self: stretch;
+            inline-size: auto;
+            max-inline-size: none;
+          }
+          &>.note {
+            --x: 0;
+            --y: 0;
+            --w: 0;
+            /* Above the screen, which the desktop filters connector crosses. */
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            inline-size: calc(var(--box) * var(--u));
+            min-block-size: calc(var(--h) * var(--u));
+            /* The designs' text insets are from the box's outer edge, so the 4 px border comes off them. */
+            padding-block: calc(20 * var(--u));
+            padding-inline: calc(var(--ps) * var(--u) - 4rem / 16) calc(var(--pe) * var(--u) - 4rem / 16);
+            /*
+              The client (CF118), of the listing's orange arrow at 728 px: "箭头要往上移一点" (move the arrow up a
+              little). Each callout grew past its design height, pushing the later callouts and their connectors
+              down (25 design px at 728, 128 at 640): 20 px insets left the 114 px box no room for its three lines
+              (the design insets them 14 px from the outer edge), and below the design's width the 14 px text
+              wrapped into more lines in the narrower boxes. The text now scales with the callout there, keeping
+              the design's line breaks.
+            */
+            @media(width<68.25rem) {
+              padding-block: calc(14 * var(--u) - 4rem / 16);
+              font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(14 * var(--u)));
+              line-height: round(nearest, min(28rem / 16 + 4 * var(--grow), 28 * var(--u)), 1px);
+              letter-spacing: -0.019em;
+            }
+            /* The desktop composition's 16 px on 32 px text, scaled the same way below its 1440 px design. */
+            @media(68.25rem<=width<90rem) {
+              font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(16 * var(--u)));
+              line-height: round(nearest, min(28rem / 16 + 4 * var(--grow), 32 * var(--u)), 1px);
+              letter-spacing: -0.019em;
+            }
+            &>p {
+              margin-block: 0;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(var(--y) * var(--u));
+              inset-inline-start: calc(var(--x) * var(--u));
+              inline-size: calc(var(--w) * var(--u));
+              block-size: calc(17.4 * var(--u));
+              background-color: var(--tint);
+              mask:
+                url("assets/scotties-connector-arrowhead-left.svg") 0 50% / calc(15 * var(--u)) calc(17.4 * var(--u))
+                no-repeat,
+                linear-gradient(#000 0 0) 100% 50% / calc(100% - 13.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+              pointer-events: none;
+            }
+          }
+        }
+        /* Runs right, from the callout's end into the screen. */
+        & .subsection:nth-child(4)>.flex-row>.note:is(:first-child, :last-child)::after {
+          inset-inline-start: 100%;
+          scale: -1 1;
+        }
+        /* The homepage's orange connector: from the screen's navigation, down the gap, into the callout. */
+        & .subsection:nth-child(3)>.flex-row>.note:last-child {
+          --tint: var(--color-case-study-heading);
+          &::after {
+            inset-inline-start: calc(100% - 7 * var(--u));
+            inset-block-start: calc(-247.5 * var(--u));
+            inline-size: calc(101 * var(--u));
+            block-size: calc(301.2 * var(--u));
+            /* The arrowhead's tip touches the callout's border from outside (7 px plus the 4 px border out). */
+            mask:
+              url("assets/scotties-connector-arrowhead-left.svg") calc(7 * var(--u) + 4rem / 16) 100% /
+              calc(15 * var(--u)) calc(17.4 * var(--u)) no-repeat,
+              linear-gradient(#000 0 0) calc(20.5 * var(--u) + 4rem / 16) calc(100% - 7.2 * var(--u)) /
+              calc(14 * var(--u) - 4rem / 16) calc(3 * var(--u)) no-repeat,
+              linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(3 * var(--u)) calc(100% - 8.7 * var(--u))
+              no-repeat,
+              linear-gradient(#000 0 0) calc(31.5 * var(--u)) 0 / calc(100% - 31.5 * var(--u)) calc(3 * var(--u))
+              no-repeat;
+          }
+        }
+        /* The listing's filters connector: from the callout's end, up the gap, into the filters. */
+        & .subsection:nth-child(4)>.flex-row>.note:nth-child(2) {
+          --tint: var(--color-case-study-heading);
+          &::after {
+            inset-inline-start: calc(100% - 6.5 * var(--u));
+            inset-block-start: calc(-208.7 * var(--u));
+            /*
+              7.5 longer than the design's run, with the bend kept in place: the shared highlights put the filters
+              box about 4 px right of where the tablet design draws it, and the head ended 7 px short of its line.
+            */
+            inline-size: calc(75 * var(--u));
+            block-size: calc(288.6 * var(--u));
+            scale: -1 1;
+            mask:
+              url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(15 * var(--u)) calc(17.4 * var(--u))
+              no-repeat,
+              linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(7.2 * var(--u)) /
+              calc(28.5 * var(--u)) calc(3 * var(--u)) no-repeat,
+              linear-gradient(#000 0 0) calc(39 * var(--u)) calc(7.2 * var(--u)) /
+              calc(3 * var(--u)) calc(100% - 7.2 * var(--u)) no-repeat,
+              /* Stops at the callout's inner border edge, 6.5 px short of the box's end. */
+              linear-gradient(#000 0 0) calc(39 * var(--u)) 100% / calc(100% - 45.5 * var(--u)) calc(3 * var(--u))
+              no-repeat;
+          }
+        }
+        & .subsection:nth-child(3)>.flex-row {
+          --u: calc(100cqw / 624);
+          grid-template-columns: minmax(0, 265fr) minmax(0, 46fr) minmax(0, 288fr) minmax(0, 25fr);
+          &>figure {
+            grid-area: 1 / 3 / 3;
+          }
+          &>.note:first-child {
+            --box: 253;
+            --h: 214;
+            --ps: 26;
+            --pe: 10;
+            grid-area: 1 / 1;
+            margin-block-start: calc(1 * var(--u));
+            margin-inline-start: calc(6 * var(--u));
+            /*
+              Outranks the intro cloud's own padding, set for the stacked phone layout. Its dashed outline is 5 px,
+              not the other callouts' 4 px border.
+            */
+            padding-block: calc(20 * var(--u));
+            padding-inline: calc(var(--ps) * var(--u) - 5rem / 16) calc(var(--pe) * var(--u) - 5rem / 16);
+          }
+          &>.note:last-child {
+            --box: 265;
+            --h: 199;
+            --ps: 23;
+            --pe: 21;
+            grid-area: 2 / 1;
+            margin-block-start: calc(45 * var(--u));
+          }
+        }
+        & .subsection:nth-child(4)>.flex-row {
+          --u: calc(100cqw / 624);
+          grid-template-columns: minmax(0, 249fr) minmax(0, 63fr) minmax(0, 288fr) minmax(0, 24fr);
+          &>figure {
+            grid-area: 1 / 3 / 4;
+          }
+          &>.note:first-child {
+            --box: 217;
+            --h: 114;
+            /*
+              Tablet/Scotties.pdf: box x 61 to 278, text x 87 to 256.4. With no end inset the text ran to the
+              border's inner edge from 640 to 1024 (Safari) and wrapped wider than drawn.
+            */
+            --ps: 26;
+            --pe: 21.6;
+            --y: 49.3;
+            /* The design's 89 plus 10.5: the shared highlights draw the dark box right of the tablet design's. */
+            --w: 99.5;
+            --tint: var(--color-case-study-subheading);
+            grid-area: 1 / 1;
+            margin-block-start: calc(5 * var(--u));
+          }
+          &>.note:last-child {
+            --box: 249;
+            --h: 160;
+            --ps: 25;
+            --pe: 26;
+            --y: 72.8;
+            /* The design's 133.7 plus 3, for the same shift of the sage box. */
+            --w: 136.7;
+            --tint: var(--color-case-study-accent);
+            grid-area: 2 / 1;
+            margin-block-start: calc(23 * var(--u));
+          }
+          &>.note:nth-child(2) {
+            --box: 248;
+            --h: 151;
+            --ps: 30;
+            --pe: 17;
+            grid-area: 3 / 1;
+            margin-block-start: calc(21 * var(--u));
+          }
+        }
+        /*
+          Desktop Scotties sets the listing 48 px under the homepage's wireframe and the hi-fi homepage 122 under the
+          listing's. The 2026-10-23 export draws each heading's ink about 16, 17 and 17 px above its screen (the
+          lo-fi homepage, the listing, the hi-fi homepage); at 18 px type the site had 11, 11 and 10 (Safari 1440),
+          the listing's ink also 6 px too far under the wireframe above. Each heading rises by that difference
+          (negative margin above, the same added below), so every screen and callout stays where it was.
+        */
+        @media(width>=80rem) {
+          & .subsection:nth-child(3)>h3 {
+            margin-block: calc(-5rem / 16) calc(10rem / 16);
+          }
+          & .subsection:nth-child(4) {
+            margin-block-start: calc(47rem / 16);
+            &>h3 {
+              margin-block: calc(-6rem / 16) calc(11rem / 16);
+            }
+          }
+          & .subsection:nth-child(5) {
+            margin-block-start: calc(121rem / 16);
+            &>h3 {
+              margin-block: calc(-7rem / 16) calc(11rem / 16);
+            }
+          }
+          /* And 132 px from the last prototype link down to the Key Learnings band. */
+          &>.section-content {
+            padding-block-end: calc(136rem / 16);
+          }
+        }
+        /* The desktop design: the homepage's intro left and navigation callout right; the listing's grid callout right. */
+        @media(width>=68.25rem) {
+          & .subsection:nth-child(3)>.flex-row {
+            --u: calc(100cqw / 1085);
+            grid-template-columns:
+              minmax(0, 355fr) minmax(0, 40fr) minmax(0, 288fr) minmax(0, 76fr) minmax(0, 326fr);
+            &>.note:first-child {
+              --box: 355;
+              --h: 241;
+              --ps: 49;
+              --pe: 39;
+              margin-block-start: calc(47 * var(--u));
+              margin-inline-start: 0;
+            }
+            &>.note:last-child {
+              --box: 326;
+              --h: 251;
+              --ps: 43;
+              --pe: 22;
+              grid-area: 1 / 5;
+              margin-block-start: calc(133 * var(--u));
+              /*
+                3 longer than the design's 172.6, with the bend kept in place: the design ends the head 1.6 px inside
+                the navigation box, and at 172.6 it stopped 2 to 4 px short of the dashed line.
+              */
+              &::after {
+                inset-inline-start: calc(-175.6 * var(--u));
+                inset-block-start: calc(-135.4 * var(--u));
+                inline-size: calc(175.6 * var(--u));
+                block-size: calc(224.1 * var(--u));
+                mask:
+                  url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(12.8 * var(--u)) calc(22.4 * var(--u))
+                  no-repeat,
+                  linear-gradient(#000 0 0) calc(11 * var(--u)) calc(9.7 * var(--u)) /
+                  calc(113.5 * var(--u)) calc(3 * var(--u)) no-repeat,
+                  linear-gradient(#000 0 0) calc(121.5 * var(--u)) calc(11.2 * var(--u)) /
+                  calc(3 * var(--u)) calc(100% - 11.2 * var(--u)) no-repeat,
+                  linear-gradient(#000 0 0) 100% 100% / calc(100% - 121.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+              }
+            }
+          }
+          & .subsection:nth-child(4)>.flex-row {
+            --u: calc(100cqw / 1089);
+            grid-template-columns:
+              minmax(0, 335fr) minmax(0, 67fr) minmax(0, 288fr) minmax(0, 97fr) minmax(0, 274fr) minmax(0, 28fr);
+            &>figure {
+              grid-area: 1 / 3 / 3;
+            }
+            &>.note:first-child {
+              --box: 301;
+              --h: 160;
+              --ps: 56;
+              --pe: 47;
+              --y: 51.8;
+              /* 3 longer than the design's 102, so the head ends in the dashed line (3 to 4 px short at 102). */
+              --w: 105;
+              margin-block: calc(-4 * var(--u)) calc(42 * var(--u));
+            }
+            &>.note:nth-child(2) {
+              --box: 283;
+              --h: 199;
+              --ps: 34;
+              --pe: 29;
+              grid-area: 2 / 1;
+              margin-block-start: 0;
+              margin-inline-start: calc(52 * var(--u));
+              &::after {
+                inset-inline-start: calc(100% - 5 * var(--u));
+                /* The tip ends in the filters box's bottom line, as the design draws it (7 px short at -61). */
+                inset-block-start: calc(-69 * var(--u));
+                inline-size: calc(111.7 * var(--u));
+                block-size: calc(137.7 * var(--u));
+                scale: none;
+                mask:
+                  url("assets/scotties-connector-arrowhead-orange-up.svg") calc(94.3 * var(--u)) 0 /
+                  calc(17.4 * var(--u)) calc(15 * var(--u)) no-repeat,
+                  linear-gradient(#000 0 0) calc(101.5 * var(--u)) calc(13.5 * var(--u)) /
+                  calc(3 * var(--u)) calc(100% - 13.5 * var(--u)) no-repeat,
+                  /* Starts at the callout's inner border edge, 5 px into the box. */
+                  linear-gradient(#000 0 0) calc(5 * var(--u)) 100% / calc(99.5 * var(--u)) calc(3 * var(--u))
+                  no-repeat;
+              }
+            }
+            /* Right of the screen, so its connector runs left again. */
+            /* 47.5: the copy wraps as drawn from 183 to 202.5 px in Chromium and Safari. */
+            &>.note:last-child {
+              --box: 274;
+              --h: 238;
+              --ps: 35;
+              --pe: 47.5;
+              /* Ends in the sage line, as the design draws it (4 px short at 98). */
+              --x: -103;
+              --y: 122;
+              --w: 103;
+              grid-area: 1 / 5 / 3;
+              margin-block-start: calc(14 * var(--u));
+              &::after {
+                inset-inline-start: calc(var(--x) * var(--u));
+                scale: none;
+              }
+            }
+          }
+        }
+      }
+      /*
+        The phone design's lo-fi pages: callouts narrower than the column, above and below the screenshot, each
+        tied to its part of the screenshot by a 3 px arrow. Lengths are the design's pixels at 390
+        (Phone/Scotties.pdf); the arrows between fixed gaps are fixed, the one passing a callout spans grid rows.
+      */
+      @media(width<40rem) {
+        & .subsection:is(:nth-child(3), :nth-child(4))>.flex-row {
+          --lofi-unit: calc(1rem / 16 + var(--phone-art-grow));
+          display: grid;
+          gap: 0;
+          &>* {
+            grid-column: 1;
+            justify-self: start;
+            margin-inline: 0;
+          }
+          /* Above the screenshot, which is positioned too, so each arrowhead lands on it. */
+          &>.note {
+            position: relative;
+            z-index: 1;
+            padding-block: calc(18 * var(--lofi-unit));
+            padding-inline: calc(22 * var(--lofi-unit));
+            &>p {
+              margin-block: 0;
+            }
+            &>p+p {
+              margin-block-start: 1em;
+            }
+          }
+          &>.note::after,
+          &::after {
+            --line: linear-gradient(var(--arrow-color) 0 0);
+            inline-size: calc(17.4 * var(--lofi-unit));
+            background-image: var(--line), var(--arrow-head);
+            background-repeat: no-repeat;
+            pointer-events: none;
+          }
+        }
+        & .subsection:nth-child(3)>.flex-row {
+          &>.note:first-child {
+            grid-row: 1;
+            justify-self: center;
+            inline-size: calc(263 * var(--lofi-unit));
+            /* Less the 5 px dashed outline's extra pixel over a 4 px border, as on the shared rule. */
+            padding-block: calc(2.5rem - 1rem / 16) calc(2rem - 1rem / 16);
+            padding-inline: calc(2rem - 1rem / 16);
+          }
+          &>.note:last-child {
+            grid-row: 2;
+            justify-self: center;
+            inline-size: calc(265 * var(--lofi-unit));
+            margin-block-start: calc(39 * var(--lofi-unit));
+            &::after {
+              --arrow-color: var(--color-case-study-heading);
+              --arrow-head: url("assets/scotties-connector-arrowhead-orange-down.svg");
+              content: "";
+              position: absolute;
+              inset-block-start: 100%;
+              inset-inline-start: calc(112.4 * var(--lofi-unit));
+              /*
+                Ends in the navigation box's top line, as the design draws it 3 px in (4 px short at 58). It hangs
+                from inside the 4 px border, which does not scale, so the border is added on its own: a scaled 63
+                overshot the line by 4 to 6 px from 520 px.
+              */
+              block-size: calc(59 * var(--lofi-unit) + 4rem / 16);
+              background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
+              background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+            }
+          }
+          &>figure {
+            grid-row: 3;
+            justify-self: center;
+            inline-size: calc(288 * var(--lofi-unit));
+            max-inline-size: none;
+            margin-block: calc(54 * var(--lofi-unit)) 0;
+          }
+        }
+        & .subsection:nth-child(4)>.flex-row {
+          &>.note:first-child {
+            grid-row: 1;
+            inline-size: calc(217 * var(--lofi-unit));
+            margin-inline-start: calc(21 * var(--lofi-unit));
+            &::after {
+              --arrow-color: var(--color-case-study-subheading);
+              --arrow-head: url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
+              content: "";
+              position: absolute;
+              inset-block-start: 100%;
+              inset-inline-start: calc(44.3 * var(--lofi-unit));
+              /*
+                Ends in the dashed line, as the design draws it (measured 3 px short at 63), plus the callout's 4 px
+                border it hangs inside, unscaled (a scaled 67 went 6 px past the line at 639).
+              */
+              block-size: calc(63 * var(--lofi-unit) + 4rem / 16);
+              background-position: calc(7.1 * var(--lofi-unit)) 0, 0 100%;
+              background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+            }
+          }
+          &>figure {
+            grid-row: 2;
+            inline-size: calc(291 * var(--lofi-unit));
+            max-inline-size: none;
+            margin-block: calc(40 * var(--lofi-unit)) 0;
+            margin-inline-start: calc(30 * var(--lofi-unit));
+          }
+          &>.note:nth-child(2) {
+            grid-row: 3;
+            inline-size: calc(248 * var(--lofi-unit));
+            margin-block-start: calc(14 * var(--lofi-unit));
+            margin-inline-start: calc(21 * var(--lofi-unit));
+            &::after {
+              --arrow-color: var(--color-case-study-heading);
+              --arrow-head: url("assets/scotties-connector-arrowhead-orange-up.svg");
+              content: "";
+              position: absolute;
+              inset-block-end: 100%;
+              inset-inline-start: calc(36.2 * var(--lofi-unit));
+              /*
+                Ends at the dashed line, as the design draws it (measured 5 px short at 285), plus the callout's 4 px
+                border it rises inside, unscaled (a scaled 291 went 5 px past the line at 639).
+              */
+              block-size: calc(287 * var(--lofi-unit) + 4rem / 16);
+              background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
+              background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+            }
+          }
+          &>.note:last-child {
+            grid-row: 4;
+            inline-size: calc(249 * var(--lofi-unit));
+            margin-block-start: calc(25 * var(--lofi-unit));
+            margin-inline-start: calc(94 * var(--lofi-unit));
+          }
+          /* The grid callout's arrow passes the filter callout, so it spans the screen's and that callout's rows. */
+          &::after {
+            --arrow-color: var(--color-case-study-accent);
+            --arrow-head: url("assets/scotties-connector-arrowhead-sage-up.svg");
+            content: "";
+            z-index: 1;
+            grid-area: 2 / 1 / 4;
+            place-self: stretch start;
+            /*
+              The client (CF121, of an iPhone): "箭头刺穿了线框" (the arrow pierces the dashed box's line). The tip
+              now ends in the sage line instead of 10 px past it. Down to the grid callout's inner border edge: its
+              25 px gap plus its 3 px border.
+            */
+            margin-block: calc(379.2 * var(--lofi-unit)) calc(-25 * var(--lofi-unit) - 3rem / 16);
+            margin-inline-start: calc(285.3 * var(--lofi-unit));
+            background-position: calc(7.1 * var(--lofi-unit)) 100%, 0 0;
+            background-size: calc(3 * var(--lofi-unit)) calc(100% - 13.5 * var(--lofi-unit)), 100% auto;
+          }
+        }
+      }
+      /*
+        The phone design's hi-fi page: two callouts above the screenshot and two below, narrower than the column,
+        each tied to its part of the screenshot by a connector. One grid holds the screenshot in row 3 and, through a
+        subgrid, the callouts in rows 1, 2, 4 and 5, so each connector can span the rows between its two ends.
+        Lengths are the design's pixels at 390 (Phone/Scotties.pdf).
+      */
+      @media(width<40rem) {
+        & .subsection:nth-child(5)>.flex-row:has(>article) {
+          --hifi-unit: calc(1rem / 16 + var(--phone-art-grow));
+          display: grid;
+          grid-template-rows: repeat(5, auto);
+          gap: 0;
+          &>figure {
+            grid-area: 3 / 1;
+            inline-size: calc(286 * var(--hifi-unit));
+            /* The connectors scale with the screen, so it may not stop at the 400 px artwork cap (from 545 px). */
+            max-inline-size: none;
+            margin-block-start: calc(22 * var(--hifi-unit));
+            margin-inline: auto;
+          }
+          &>article {
+            display: grid;
+            grid-area: 1 / 1 / 6;
+            grid-template-rows: subgrid;
+            pointer-events: none;
+            &>.note {
+              grid-column: 1;
+              justify-self: start;
+              padding-block: calc(24 * var(--hifi-unit));
+              padding-inline: calc(26 * var(--hifi-unit));
+              pointer-events: auto;
+              &>p {
+                margin-block: 0;
+              }
+            }
+            &>.note:nth-child(1) {
+              grid-row: 1;
+              inline-size: calc(258 * var(--hifi-unit));
+              margin-inline-start: calc(46 * var(--hifi-unit));
+            }
+            &>.note:nth-child(2) {
+              grid-row: 2;
+              inline-size: calc(254 * var(--hifi-unit));
+              margin-block-start: calc(14 * var(--hifi-unit));
+              margin-inline-start: calc(50 * var(--hifi-unit));
+            }
+            /* A 23 px end inset sets the copy about 199.5 px wide at 393, inside the 196.75 to 202.5 px where
+               Chromium and Safari both break it as drawn; the drawn 26 left it on Safari's edge. */
+            &>.note:nth-child(3) {
+              grid-row: 4;
+              inline-size: calc(253 * var(--hifi-unit));
+              margin-block-start: calc(35 * var(--hifi-unit));
+              margin-inline-start: calc(36 * var(--hifi-unit));
+              padding-inline-end: calc(23 * var(--hifi-unit));
+            }
+            &>.note:nth-child(4) {
+              grid-row: 5;
+              inline-size: calc(279 * var(--hifi-unit));
+              margin-block-start: calc(8 * var(--hifi-unit));
+              margin-inline-start: calc(61 * var(--hifi-unit));
+            }
+          }
+          /* Connectors: 3 px lines drawn as background layers, so each can stretch between rows; arrowheads last. */
+          &::before,
+          &::after,
+          &>article::before,
+          &>article::after {
+            content: "";
+            z-index: 1;
+            grid-column: 1;
+            place-self: stretch start;
+            background-repeat: no-repeat;
+            pointer-events: none;
+          }
+          &::before {
+            --line: linear-gradient(var(--color-case-study-subheading) 0 0);
+            grid-row: 1 / 3;
+            /* To the first callout's inner border edge: it starts 46 px in, behind a 4 px border. */
+            inline-size: calc(23.7 * var(--hifi-unit) + 4rem / 16);
+            margin-block: calc(100.9 * var(--hifi-unit)) calc(-41 * var(--hifi-unit));
+            margin-inline-start: calc(22.3 * var(--hifi-unit));
+            background-image: var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-down.svg");
+            background-position: calc(6.9 * var(--hifi-unit)) 0, calc(6.9 * var(--hifi-unit)) 0, 0 100%;
+            background-size:
+              calc(100% - 6.9 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+              calc(3 * var(--hifi-unit)) calc(100% - 13.5 * var(--hifi-unit)),
+              calc(17.3 * var(--hifi-unit)) calc(15 * var(--hifi-unit));
+          }
+          &::after {
+            --line: linear-gradient(var(--color-case-study-heading) 0 0);
+            grid-row: 2 / 4;
+            inline-size: calc(53 * var(--hifi-unit));
+            margin-block: calc(162 * var(--hifi-unit)) calc(586.8 * var(--hifi-unit));
+            margin-inline-start: calc(295 * var(--hifi-unit));
+            background-image:
+              var(--line), var(--line), var(--line), url("assets/scotties-hi-fi-connector-arrowhead-left.svg");
+            /* The top line starts at the second callout's inner border edge (it ends 304 px in, 4 px border). */
+            background-position:
+              calc(9 * var(--hifi-unit) - 4rem / 16) 0, 100% 0,
+              calc(44.5 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)), calc(31 * var(--hifi-unit)) 100%;
+            background-size:
+              calc(100% - 9 * var(--hifi-unit) + 4rem / 16) calc(3 * var(--hifi-unit)),
+              calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
+              calc(8.5 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+              calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit));
+          }
+          &>article::before {
+            --line: linear-gradient(var(--color-case-study-accent) 0 0);
+            grid-row: 3 / 4;
+            inline-size: calc(43 * var(--hifi-unit));
+            margin-block: calc(595.3 * var(--hifi-unit)) calc(-121.5 * var(--hifi-unit));
+            margin-inline-start: calc(1.5 * var(--hifi-unit));
+            background-image:
+              url("assets/scotties-hi-fi-connector-arrowhead-right.svg"), var(--line), var(--line), var(--line);
+            background-position:
+              calc(10.5 * var(--hifi-unit)) 0, 0 calc(7.2 * var(--hifi-unit)), 0 calc(7.2 * var(--hifi-unit)), 0 100%;
+            /* The bottom line stops at the third callout's inner border edge (it starts 36 px in, 3 px border). */
+            background-size:
+              calc(15 * var(--hifi-unit)) calc(17.4 * var(--hifi-unit)),
+              calc(12 * var(--hifi-unit)) calc(3 * var(--hifi-unit)),
+              calc(3 * var(--hifi-unit)) calc(100% - 7.2 * var(--hifi-unit)),
+              calc(34.5 * var(--hifi-unit) + 3rem / 16) calc(3 * var(--hifi-unit));
+          }
+          &>article::after {
+            --line: linear-gradient(var(--color-case-study-subheading) 0 0);
+            grid-row: 3 / 5;
+            inline-size: calc(17.4 * var(--hifi-unit));
+            /* Down to the last callout's inner border edge: its 8 px gap plus its 4 px border. */
+            margin-block: calc(855.5 * var(--hifi-unit)) calc(-8 * var(--hifi-unit) - 4rem / 16);
+            margin-inline-start: calc(299.8 * var(--hifi-unit));
+            background-image: url("assets/scotties-hi-fi-connector-arrowhead-up.svg"), var(--line);
+            background-position: 0 0, calc(7.2 * var(--hifi-unit)) calc(13.5 * var(--hifi-unit));
+            background-size:
+              calc(17.4 * var(--hifi-unit)) calc(15 * var(--hifi-unit)),
+              calc(3 * var(--hifi-unit)) calc(100% - 13.5 * var(--hifi-unit));
+          }
+        }
+      }
+      /*
+        The tablet and desktop designs' hi-fi page, in each design's proportions (620 and 1088 px wide, scaled to the
+        column): the screen with its callouts beside it, each tied to its part of the screen by a 3 px connector
+        ending in an arrowhead; the desktop design moves the intro and the third callout to the screen's left.
+        Lengths are the designs' pixels (Tablet and Desktop/Scotties.pdf).
+      */
+      @media(width>=40rem) {
+        & .subsection:nth-child(5) {
+          --u: var(--hifi-wide-unit);
+          --hifi-wide-unit: calc(100cqw / 620);
+          /* Being a container would make the type growth measure this subsection; keep measuring the page. */
+          --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+          container-type: inline-size;
+          display: grid;
+          grid-template-columns: minmax(0, 12fr) minmax(0, 288fr) minmax(0, 62fr) minmax(0, 258fr);
+          &>:is(h3, p) {
+            grid-column: 1 / -1;
+          }
+          &>.flex-row:has(>article),
+          & article {
+            display: contents;
+          }
+          & .portrait-artwork {
+            grid-area: 3 / 2 / 7;
+            align-self: start;
+            inline-size: auto;
+            max-inline-size: none;
+            margin: 0;
+          }
+          & article>.note {
+            --x: -53;
+            --y: 113.8;
+            --w: 53;
+            --ps: 27;
+            --pe: 12;
+            --h: 219;
+            --tint: var(--color-case-study-subheading);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-column: 4;
+            align-self: start;
+            box-sizing: border-box;
+            /* The design's box height, so the rows keep the design's spacing beside the screen. */
+            min-block-size: calc(var(--h) * var(--u));
+            margin: 0;
+            padding-block: calc(23 * var(--u));
+            padding-inline: calc(var(--ps) * var(--u)) calc(var(--pe) * var(--u));
+            /*
+              Below the tablet design's width the 14 px text wrapped into more lines in the narrower boxes, and each
+              callout grew, pushing the later ones and their connectors down (the last one 38 design px below its
+              box at 728, 248 at 640). The text now scales with the callout there, keeping the design's line
+              breaks, and the design's 23 px inset comes from the box's outer edge, so the border comes off it.
+            */
+            @media(width<80rem) {
+              padding-block: calc(23 * var(--u) - 4rem / 16);
+              font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(14 * var(--u)));
+              line-height: round(nearest, min(28rem / 16 + 4 * var(--grow), 28 * var(--u)), 1px);
+              letter-spacing: -0.019em;
+            }
+            /* The desktop composition's 16 px on 32 px text, scaled the same way below its 1440 px design. */
+            @media(80rem<=width<90rem) {
+              font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(16 * var(--u)));
+              line-height: round(nearest, min(28rem / 16 + 4 * var(--grow), 32 * var(--u)), 1px);
+              letter-spacing: -0.019em;
+            }
+            &>p {
+              margin-block: 0;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(var(--y) * var(--u));
+              inset-inline-start: calc(var(--x) * var(--u));
+              inline-size: calc(var(--w) * var(--u));
+              block-size: calc(17.4 * var(--u));
+              background-color: var(--tint);
+              mask:
+                url("assets/scotties-connector-arrowhead-left.svg") 0 50% / calc(15 * var(--u)) calc(17.4 * var(--u))
+                no-repeat,
+                linear-gradient(#000 0 0) 100% 50% / calc(100% - 13.5 * var(--u)) calc(3 * var(--u)) no-repeat;
+              pointer-events: none;
+            }
+            /*
+              The tablet design measures each straight connector from the box's outer edge, but it hangs from inside
+              the 4 px border, so its head ended 3 to 4 px short of the dashed line at every width.
+            */
+            @media(width<80rem) {
+              &:not(:nth-child(4))::after {
+                inset-inline-start: calc(var(--x) * var(--u) - 4rem / 16);
+                inline-size: calc(var(--w) * var(--u) + 4rem / 16);
+              }
+            }
+            &:nth-child(1) {
+              grid-row: 3;
+              margin-block: calc(12 * var(--u)) calc(15 * var(--u));
+            }
+            &:nth-child(2) {
+              --x: -54.6;
+              --y: 131.7;
+              --w: 54.6;
+              --ps: 22;
+              --pe: 10;
+              --h: 253;
+              --tint: var(--color-case-study-heading);
+              grid-row: 4;
+              margin-block-end: calc(15 * var(--u));
+              margin-inline: calc(2 * var(--u));
+            }
+            /*
+              The client (CF119): "浅绿色的箭头还没有对准绿色虚线框" (the light green arrow is still not aimed at the
+              green dashed box). The tablet design draws it to the dark box's top edge, 62 px under the sage box's
+              centre; the desktop design aims it at that centre, as here.
+            */
+            /* 2 longer than the design's 57.6: aimed at the sage box's centre, its line sits further right. */
+            &:nth-child(3) {
+              --x: -59.6;
+              --y: 63.7;
+              --w: 59.6;
+              --ps: 27;
+              --pe: 20;
+              --h: 278;
+              --tint: var(--color-case-study-accent);
+              grid-row: 5;
+              margin-block-end: calc(8 * var(--u));
+              margin-inline-start: calc(5 * var(--u));
+            }
+            /* The last connector is an elbow: from the callout's edge, up its vertical, then left to the screen. */
+            /* 1.5 longer than the design's 36, bend kept in place, so the head ends in the line (2 px short at 640). */
+            &:nth-child(4) {
+              --x: -37.5;
+              --y: 2.4;
+              --w: 37.5;
+              --h: 282;
+              --elbow: 102.6;
+              --v: 25.5;
+              --ps: 31;
+              --pe: 16;
+              grid-row: 6;
+              margin-inline-start: calc(-21 * var(--u));
+              &::after {
+                block-size: calc(var(--elbow) * var(--u));
+                mask:
+                  url("assets/scotties-connector-arrowhead-left.svg") 0 0 / calc(15 * var(--u)) calc(17.4 * var(--u))
+                  no-repeat,
+                  linear-gradient(#000 0 0) calc(13.5 * var(--u)) calc(7.2 * var(--u)) /
+                  calc((var(--v) - 10.5) * var(--u)) calc(3 * var(--u)) no-repeat,
+                  linear-gradient(#000 0 0) calc(var(--v) * var(--u)) calc(7.2 * var(--u)) /
+                  calc(3 * var(--u)) calc(100% - 7.2 * var(--u)) no-repeat,
+                  linear-gradient(#000 0 0) 100% 100% / calc(100% - var(--v) * var(--u)) calc(3 * var(--u)) no-repeat;
+              }
+            }
+          }
+          /* Under the screen, centred on it, and as wide as the labels need. */
+          &>.flex-row:has(>.prototype-link) {
+            grid-area: 7 / 2;
+            justify-self: center;
+            align-items: center;
+            inline-size: max-content;
+            margin-block-start: calc(36 * var(--u));
+          }
+          /*
+            The desktop composition from 1280 px: narrower, its 16 px text outgrows the scaled boxes and pushes the
+            last callout past the screen (measured from 1092 up), while the tablet one still lands every arrow.
+          */
+          @media(width>=80rem) {
+            --hifi-wide-unit: calc(100cqw / 1088);
+            grid-template-columns:
+              minmax(0, 360fr) minmax(0, 39fr) minmax(0, 288fr) minmax(0, 60fr) minmax(0, 341fr);
+            /*
+              End insets set each copy's measure inside the window where Chromium and Safari both break it as the
+              design does at 1440: the intro 268 to 269.5 px, the callouts 255.4 to 255.65, 200 to 228.5, 225 to
+              231.5 and 240.3 to 241.85.
+            */
+            &>h3+p {
+              grid-area: 2 / 1 / 4 / 2;
+              align-self: start;
+              margin-block: calc(64 * var(--u)) 0;
+              margin-inline: 0;
+              /* Less the 5 px dashed outline's extra pixel over the 4 px border these insets were set against. */
+              padding-block: calc(46 * var(--u) - 1rem / 16);
+              padding-inline: calc(51 * var(--u) - 1rem / 16) calc(31.7 * var(--u) - 1rem / 16);
+            }
+            & .portrait-artwork {
+              grid-area: 2 / 3 / 6;
+            }
+            /*
+              Each arrowhead ends in its dashed line, as the design draws it: at 1920 the dark and orange tips
+              stopped 2 and 5 px short (measured against the overlay's lines).
+            */
+            & article>.note {
+              --x: -55;
+              --y: 91.3;
+              --w: 55;
+              --ps: 33;
+              --pe: 44;
+              --h: 232;
+              grid-column: 5;
+              padding-block: calc(32 * var(--u));
+              &:nth-child(1) {
+                grid-row: 2;
+                margin-block: calc(7 * var(--u)) calc(34 * var(--u));
+              }
+              &:nth-child(2) {
+                --x: -60;
+                --y: 83.6;
+                --w: 60;
+                --ps: 43;
+                --pe: 28;
+                --h: 332;
+                grid-row: 3;
+                inline-size: calc(307 * var(--u));
+                margin-block: 0 calc(36 * var(--u));
+                margin-inline: calc(5 * var(--u)) 0;
+              }
+              /* Left of the screen, so its connector runs the other way. */
+              &:nth-child(3) {
+                --x: 0;
+                --y: 32.3;
+                --w: 61.5;
+                --ps: 42;
+                --pe: 43;
+                --h: 317;
+                grid-area: 3 / 1 / 5 / 2;
+                inline-size: calc(319 * var(--u));
+                margin-block: calc(271 * var(--u)) 0;
+                margin-inline-start: calc(17 * var(--u));
+                &::after {
+                  inset-inline-start: 100%;
+                  scale: -1 1;
+                }
+              }
+              /* 3.5 longer than the design measure, with the bend kept in place, so the head ends in the dashed line. */
+              &:nth-child(4) {
+                --x: -50;
+                --y: 107.3;
+                --w: 50;
+                --h: 354;
+                --elbow: 118.2;
+                --v: 30.5;
+                --ps: 42;
+                --pe: 34.5;
+                grid-row: 4;
+                inline-size: calc(326 * var(--u));
+                margin-block: 0;
+                margin-inline-start: calc(-5 * var(--u));
+              }
+            }
+            &>.flex-row:has(>.prototype-link) {
+              grid-area: 6 / 3;
+            }
+          }
+        }
+      }
+      /*
+        All three designs stack the closing links, Mobile over Desktop, with the chevron trail beside the first on
+        the desktop and on its own line above them, at the column start, on phones and tablets.
+      */
+      & .flex-row:has(>.prototype-link) {
+        flex-direction: column;
+        gap: calc(8rem / 16 + 8 * var(--grow));
+        &>* {
+          flex: none;
+        }
+        &::before,
+        &>.prototype-link:first-child::before {
+          aspect-ratio: 206 / 71;
+          background: url("assets/scotties-hi-fi-chevron-trail.svg") center / contain no-repeat;
+        }
+        @media(width<80rem) {
+          &::before {
+            content: "";
+            align-self: start;
+            inline-size: calc(75rem / 16);
+            /* The tablet design leaves 31 px between the trail and the first link. */
+            margin-block-end: calc(16rem / 16 + 15 * var(--phone-grow));
+          }
+        }
+        /* Phone Scotties sets the trail 31.5 px under the last callout's ink; it sat about 1 px under. */
+        @media(width<40rem) {
+          &::before {
+            margin-block-start: calc(30.5rem / 16);
+          }
+        }
+        @media(width>=80rem) {
+          &>.prototype-link:first-child {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              inset-block-start: 50%;
+              inset-inline-end: calc(100% + 8rem / 16 + 12 * var(--grow));
+              translate: 0 -50%;
+              inline-size: calc(40rem / 16 + 63 * var(--grow));
+            }
+          }
+        }
+      }
+    }
+    /*
+      The tablet design stacks the two learnings, the first box 416 px from 24 px into its 624 px column, the second
+      396 px from 227 px, the boxes 205 px apart under the second badge (Tablet/Scotties.pdf); the desktop sets them
+      side by side.
+    */
+    @media(width>=40rem) and (width<64rem) {
+      :where(#scotties-reflection) .flex-row:has(>.note) {
+        flex-direction: column;
+        align-items: start;
+        row-gap: calc(93rem / 16);
+        &>.note {
+          flex: none;
+          &:nth-child(1) {
+            inline-size: calc(100% * 416 / 624);
+            margin-inline-start: calc(100% * 24 / 624);
+          }
+          &:nth-child(2) {
+            inline-size: calc(100% * 396 / 624);
+            margin-inline-start: calc(100% * 227 / 624);
+          }
+        }
+      }
+    }
+    /*
+      The designs' badges, measured outside their 3 px stroke: Phone 118 and 124 px, Tablet 144, Desktop 164; the
+      icon about 56 % of the white disc's inside, and the dark disc 10 px left and 2 up of it on the phone, 12 and 3
+      on the tablet (Phone, Tablet and Desktop/Scotties.pdf).
+    */
+    :where(#scotties-reflection) .note {
+      --scotties-badge-size: calc(
+        120rem / 16 + 24 * var(--phone-grow) + 20 * var(--grow)
+      );
+      position: relative;
+      margin-block-start: calc(var(--scotties-badge-size) - 8rem / 16);
+      border: calc(3rem / 16) solid var(--color-case-study-subheading);
+      border-radius: calc(20rem / 16);
+      box-shadow: calc(-24rem / 16) calc(-15rem / 16) 0 0 var(--color-case-study-subheading);
+      &>h3 {
+        color: var(--color-case-study-heading);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset-block-end: calc(100% - 8rem / 16);
+        inset-inline-start: 15%;
+        box-sizing: border-box;
+        inline-size: var(--scotties-badge-size);
+        aspect-ratio: 1;
+        border: calc(3rem / 16) solid var(--color-case-study-subheading);
+        border-radius: 50%;
+        box-shadow: calc(-10rem / 16 - 2 * var(--phone-grow))
+          calc(-2rem / 16 - 1 * var(--phone-grow)) 0 0 var(--color-case-study-subheading);
+        background: var(--scotties-badge-icon) center / 56% no-repeat #fff;
+      }
+      &:nth-child(1) {
+        --scotties-badge-icon: url("assets/scotties-key-learning-skateboard-badge-icon.svg");
+      }
+      &:nth-child(2) {
+        --scotties-badge-icon: url("assets/scotties-key-learning-helmet-badge-icon.svg");
+      }
+      /*
+        The client: "框的左边需要留出边距。" (leave a margin left of the box). Phone Scotties draws the box from 34
+        px and its dark backing from 20 px, 14 px left of and 11 px above the box; the backing ran to the screen's edge.
+      */
+      @media(width<40rem) {
+        margin-inline-start: calc(14rem / 16);
+        box-shadow: calc(-14rem / 16) calc(-11rem / 16) 0 0 var(--color-case-study-subheading);
+      }
+    }
+    /*
+      Desktop Scotties draws the learnings as two 483 px boxes side by side: the first 476 px wide from 74 px into
+      the 1086 px column and 280 px under the band, the second 453 px wide 83 px after it and 61 px lower. Each badge
+      sits 92 px in and 15 px over its box, the shadows 21 and 12 px up-left of the boxes and 14 and 3 of the
+      badges. The second box sets its heading 8 px in from its copy and 9 px further above it. The insets set the
+      copy 395 and 379 px wide, inside the 389.5 to 400.5 and 372.5 to 383 px where
+      Chromium and Safari both break it as drawn.
+    */
+    @media(width>=80rem) {
+      :where(#scotties-reflection) .flex-row:has(>.note) {
+        flex-wrap: nowrap;
+        justify-content: start;
+        align-items: start;
+        gap: 0;
+        &>.note {
+          flex: none;
+          box-sizing: border-box;
+          min-block-size: calc(483rem / 16);
+          box-shadow: calc(-21rem / 16) calc(-12rem / 16) 0 0 var(--color-case-study-subheading);
+          &::after {
+            inset-block-end: calc(100% - 12rem / 16);
+            inset-inline-start: calc(89rem / 16);
+            box-shadow: calc(-14rem / 16) calc(-3rem / 16) 0 0 var(--color-case-study-subheading);
+          }
+          &:nth-child(1) {
+            inline-size: calc(100% * 476 / 1086);
+            margin-block-start: calc(160rem / 16);
+            margin-inline-start: calc(100% * 74 / 1086);
+            padding-block-start: calc(29rem / 16);
+            padding-inline: calc(41rem / 16) calc(34rem / 16);
+          }
+          &:nth-child(2) {
+            inline-size: calc(100% * 453 / 1086);
+            margin-block-start: calc(221rem / 16);
+            margin-inline-start: calc(100% * 83 / 1086);
+            padding-block-start: calc(33rem / 16);
+            padding-inline: calc(35rem / 16) calc(33rem / 16);
+            &>h3 {
+              margin-inline-start: calc(8rem / 16);
+            }
+            &>p {
+              margin-block-start: calc(25rem / 16);
+            }
+          }
+        }
+      }
+      /*
+        The closing quote: 36 px lines, 806 px wide (inside the 801.5 to 812 px where both browsers break it as
+        drawn) and centred 6.5 px right of the column's middle, 124 px under the second box.
+      */
+      :where(#scotties-reflection) .closing-reflection {
+        inline-size: calc(806rem / 16);
+        margin-block-start: calc(118rem / 16);
+        margin-inline-start: calc(100% * 146.5 / 1086);
+        line-height: round(nearest, 2em, 1px);
+      }
+    }
+  }
+}
