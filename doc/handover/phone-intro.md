@@ -4757,6 +4757,16 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     there too. Running: a text-size diff, every design text line's size (PDF spans) against Safari's computed
     size of the text containing it, six pages at 390, 744 and 1440 (`safari-text-styles.ts` into
     `f20/artsweep/text-styles/`, then `text-size-diff.py`). Verified mismatches get fixed, committed, checked.
+  - First diff: 2422 design lines, 246 size mismatches, 262 unmatched; most mismatches were matching artefacts
+    (jump-list copies inside a `nav` the collector skipped, short `h1` text matched inside longer lines; both
+    tightened and re-collecting). Real but not a clear deviation: phone body in the latest exports is split,
+    MenuMe 69 lines at 15 and 52 at 14, Scotties 41 at 15 and 47 at 14 (Tales 106 at 15); tablet 14 and desktop
+    16 are uniform and the site matches them. The 2026-10-20 entry "MenuMe and Scotties body stay 14 on phones"
+    read the older `.fig` (52 of 70 at 14). A user decision, asked.
+  - Tension recorded: the same 2026-10-20 entry kept a Figma inconsistency consistent on purpose (five MenuMe
+    subheadings at 16 beside siblings at 18, site 18 for all). `8e71435` instead follows the designs' smaller
+    Wireframing Execution headings; those are smaller in all three designs, but it is the opposite policy, so
+    it goes to the user with the body question.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
