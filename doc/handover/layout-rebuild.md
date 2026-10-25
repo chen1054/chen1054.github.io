@@ -85,6 +85,21 @@ stays booted on m1 between runs; it needs booting again only after an m1 reboot 
 the VM lock). One-off checks (Safari runs, Simulator shots) stay `systemd-run --user --wait --collect` transients
 under `/home/user/temp/agent/vm-sonoma.lock`.
 
+## Decisions since 03:10
+
+- Home, copy on the side waves (phones): main has it too (Tales "young", "Storytelling", Matcha "Role:",
+  "Project"). Narrowing the copy measure (76 % down to 64 % of the width) never cleared every width and cost the
+  310 px measure; rejected. Adopted: below 390 the waves keep their 390 drawing, centred and clipped
+  (`overflow-x: clip`), which clears all but Tales; Tales' wave rises 174 of its drawn 249 (clear at every phone
+  width; 199 still hits). Probe: `eval-wave-rise.js` (variants through the CSSOM: the page's CSP blocks inline
+  `<style>`, which voided the first run; each variant carries a positive control).
+- Case-study shell in `site.css`; Scotties' drawings ported unchanged (2,492 lines, variable renames only, by
+  `/home/user/temp/agent/f20/port-scotties.py`), Scotties links `site.css`. First comparison against main
+  (`scot-cmp/`): drawings intact, connectors still land at 390; shell fixes so far: summary facts as one
+  left-aligned block, subtitle cap on phones only, `--preview` page token (Scotties 280). Body is 15 px on phones
+  (the earlier triage's decision), so phone pages run longer than main.
+- The user, 2026-10-25: may rest; block on them (AskUserQuestion) only after exhausting every option.
+
 ## Next action (as of 2026-10-25 03:10)
 
 1.  Home, copy on the side waves (phones): `eval-wave-overlap.js` (Safari, 320 to 632) finds copy on wave pixels on
