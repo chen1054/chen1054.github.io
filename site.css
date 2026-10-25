@@ -633,6 +633,7 @@ img {
     --color-case-study-secondary-prototype-background: var(--color-case-study-heading);
     --color-case-study-secondary-prototype-text: var(--color-page-background);
     --summary-bullet: "•" / "";
+    --summary-bullet-indent: 1rem;
   }
   &[data-case-study="scotties"] {
     --color-case-study-accent: #bdca9d;
@@ -646,6 +647,7 @@ img {
     --color-case-study-prototype-text: var(--color-case-study-heading);
     --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
     --summary-bullet: "•" / "";
+    --summary-bullet-indent: 1rem;
   }
   /* Every case-study design tracks its text at -1.9 %, except the navigation and the prototype links. */
   & .content {
@@ -762,7 +764,7 @@ img {
       }
       &>p {
         position: relative;
-        padding-inline-start: var(--summary-bullet, 0) ;
+        padding-inline-start: var(--summary-bullet-indent, 0px);
         &::before {
           content: var(--summary-bullet, none);
           position: absolute;
