@@ -4698,6 +4698,23 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     below 390 `--phone-art-growth` shrinks drawn art with the screen while type keeps its 390 size, so fixed-size
     text reaches art drawn around a 390 layout. Everything else ≥ 1.6 and by design (heading icons 1.8 to 5,
     Tales circle 1.6 to 3, the cloud 2.5 to 3.5).
+  - Design gaps at 390 (`design-gap.py`, 4x render; Figma's glyphs are outlines, so ink is the box's colour
+    farthest from its background; values under 3 read as "3 or less"): "© 2026 Xinyan Chen" 8.2 on Contact and
+    Home, 11.0 on the case studies; "Made with VS Code" 19.2; Home "MenuMe is a meal…" 24.3; persona "Daniel" 5.2
+    (site 3.0 at 390, 0.5 at 320), "Matthew" under 3 in the design. The names are left: tight in the design too.
+  - Vertical depth (`column-depth.py`, per ink column; the minimum distance understates depth on a slope):
+    Contact "Chen" 2.5 at 390 to −3 at 320, near linear; case studies 10 at 390 to −5.5 at 320 (flat at 320 to
+    336); Home footer 10 to 2.5. Home swirl, measured against "UX / App Design Project": its top 27.5 above the
+    heading at 390, level at 352, 22.6 below at 320, linear in the art's shrink (278 per unit growth); the
+    heading's left edge moves 0.5 px per px, the swirl's bulge 0.19, so vertical alone leaves the bulge on "UX".
+  - Fixes, each committed before its Safari check: `a65ecd2` Contact wave rises 66 not 72 (design 8 px at 390);
+    `81cc789` below 390 `min(var(--phone-art-growth), 0rem)` terms (Contact −36.5, case studies −105, Home −42)
+    so the waves keep their 390 gap; `b639358` Home swirl image only `translate` 122 left and 278 up times that
+    term (layout-neutral; the right-hand wave in the same image stays). The footer comment from `7415285` (text
+    painted above the wave) is updated: that fix hid nothing, the wave still reached the glyphs.
+  - Queued on the VM lock: `fix1` (index, contact, menume at 320, 336, 352, 360, 368, 376, 390, 432) and `fix2`
+    (scotties, tales, about at 320 and 352); then `glyph-gap.py` and `column-depth.py` on them, crops by eye at
+    320 and 390 (footer still flush at the page bottom), then the reply draft in both languages.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
