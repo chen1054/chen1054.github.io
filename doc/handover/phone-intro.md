@@ -4565,6 +4565,17 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
         ending at 81.7%. The bolt is placed as drawn; the Medium copy fits more per line than the design's Bold.
         Next: map the exact ranges (Safari every 16 px, 640 to 1440), then fix keeping the copy clear of the bolt
         at tablet and desktop (phone keeps the drawn overlap), checked with `line-chroma.py` and by eye.
+    5.  1680 and 2560 read: nothing new. 2560 shows the 1920 layout centred; Home's river and every footer end in
+        straight cuts beyond 1920, as the user chose ("Grow evenly": grow to 1920, centre beyond). Above 1440 the
+        case-study layout is fixed (the cloud check's identical counts at 1440 to 2560 show it), so 1680's full
+        read stands for 2560's case-study bodies; their tops were skimmed.
+  - Queued and running on `vm-sonoma.lock`, in order: `cloud4` (bolt map, 640 to 1440 every 16), `variants9`
+    (`sweep24/variants-spec9.json`: MenuMe "(15&nbsp;min&nbsp;/&nbsp;380&nbsp;kcal)" and "/" glue only; Tales
+    "One-&#8288;Pagers"), `pillars` (Scotties pillar copy to trail gap, 640 to 1440, `occlude/trail-gap.py`, trail
+    #eae4d9 has chroma 17 so `line-chroma.py` cannot see it). Confidence at 900 ends about 3 px from the ">>>>>"
+    trail (`f20/sweep27/crop-900-confidence.png`): above 744 the tablet column grows faster than the copy's font,
+    so lines take more words. Candidate fix: cap each tablet pillar's measure in em at its 744 width (186/14,
+    209/14, 193/14 em), which keeps the 744 lines at every tablet width.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
