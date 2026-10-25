@@ -474,8 +474,8 @@ img {
     &>.description {
       position: relative;
       z-index: 1;
-      /* The 310 px measure of every design, centred on phones. */
-      max-inline-size: calc(310rem / 16 + 200 * var(--grow));
+      /* The 310 px measure of every design, centred on phones, keeping 20 px a side on the narrowest. */
+      max-inline-size: min(calc(100% - 40rem / 16), calc(310rem / 16 + 200 * var(--grow)));
       margin-inline: auto;
       &>h2 {
         margin-block-start: calc(16rem / 16);
