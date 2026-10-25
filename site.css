@@ -1259,10 +1259,11 @@ img {
       list-style: none;
     }
     /*
-      Phones: the tree sits centred in the column as one block, keeping its indents (the client, CF125:
+      Phones and narrow tablets (below 52rem, where the side-by-side tree would wrap its labels): the tree sits
+      centred in the column as one block, keeping its indents (the client, CF125:
       "这个sitmap是不是无法居中？", can't this sitemap be centred?; the phone designs centre the sitemap too).
     */
-    @media(width<40rem) {
+    @media(width<52rem) {
       &>ul {
         inline-size: fit-content;
         margin-inline: auto;
@@ -1323,7 +1324,11 @@ img {
       }
     }
   }
-  @media(width>=40rem) {
+  @media(width>=52rem) {
+    /* Wide enough for the side-by-side tree with every label on one line (measured: Scotties from 784 px, MenuMe 808). */
+    & .sitemap span {
+      white-space: nowrap;
+    }
     & .sitemap>ul>li {
       display: flex;
       flex-direction: column;
@@ -2258,7 +2263,7 @@ img {
         it like the sitemap's own spacing. The query wraps the pseudo-element: iOS 17.0 Safari ignores a query
         nested inside `::after`.
       */
-      @media(width<40rem) {
+      @media(width<52rem) {
         &::after {
           position: static;
           display: block;
@@ -4489,7 +4494,7 @@ img {
       */
       &:where(#menume-information-architecture)>.section-content {
         /* The client, of the phone's one-column tree: "整个居中" (centre the whole thing). */
-        @media(width<40rem) {
+        @media(width<52rem) {
           &>.sitemap {
             inline-size: fit-content;
             margin-inline: auto;
