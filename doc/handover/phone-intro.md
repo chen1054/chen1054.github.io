@@ -4593,6 +4593,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     Queued behind `cloud5` and `pillars` on the VM lock: `variants10` (`sweep24/variants-spec10.json`, the other
     two "One-Pagers", mid-sentence, current and word-joined) and `textfix` (Safari screenshots of the MenuMe
     paragraph at 390, 540, 900, 960, 1280 and the Tales paragraphs at 860 and 900, `occlude/textfix-*`).
+  - `pillars` result. `trail-gap.py` first read 0 almost everywhere: at tolerance 20 the orange names'
+    anti-aliased edges (about 253, 230, 218) matched the trail #eae4d9. Now tolerance 4 and 3 pixels a column;
+    positive control: Confidence at 900 reads 4 px, as the crop shows. Narrow gaps (all Confidence line 3):
+    900 4 px, 928 8.5, 1024 10.5, 992 16; everything else 17 or more (744: 31, 21, 19.5; desktop 21 to 25).
+    Fix committed before checking: each tablet pillar's `p` gets `max-inline-size` of its 744 width in ems
+    (186, 209, 193 over 14, through `--pillar-744-inline-size`); the font never exceeds 14 units, so the cap never
+    widens a box and changes nothing at 744 and below. Re-check `pillars2` queued; watch the bold names, whose
+    font grows a little faster than the copy above 744, for an extra wrap.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
