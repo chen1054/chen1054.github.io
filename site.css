@@ -663,6 +663,7 @@ img {
     --color-case-study-secondary-prototype-text: var(--color-case-study-subheading);
     --summary-bullet: "•" / "";
     --summary-bullet-indent: 1rem;
+    --preview: 280;
   }
   /* Every case-study design tracks its text at -1.9 %, except the navigation and the prototype links. */
   & .content {
@@ -724,7 +725,8 @@ img {
     justify-items: center;
     gap: calc(18rem / 16 + 30 * var(--grow));
     &>.project-preview {
-      inline-size: min(100%, calc(240rem / 16 + 198 * var(--grow)));
+      /* The phone and tablet designs draw it --preview px wide (240, Scotties 280), 438 by 1440. */
+      inline-size: min(100%, calc(var(--preview, 240) * 1rem / 16 + (438 - var(--preview, 240)) * var(--grow)));
     }
     @media(width>=80rem) {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
