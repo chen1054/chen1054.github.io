@@ -4527,6 +4527,14 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
   - Reply draft (`../Client screenshots 2026OCT220120/reply-draft.md`, local only): this sweep's four fixes
     added in both languages (badge, personas, Well-Being, backpack). The GIF ghosting is not in it: asked,
     the user chose "Leave it out" (2026-10-24). Do not raise it again unless the client asks about it.
+- 2026-10-24, after the user asked again "Are we sure the client isn't going to find more problems?": offered
+  four independent further checks (tuned line breaks, landscape, in-between widths, Chrome and Firefox by eye);
+  the user chose only "In-between widths". Not chosen, so not queued: the ~15 "wraps as drawn" measures,
+  landscape, other browsers.
+  - Running: Safari 17.5 whole-page tiles at inner widths 430, 560, 900, 1200, 1536, 1680, 2560 (unit
+    `xinyanchen-safari-sweep27`, `f20/badge/safari-tiles.ts`, into `f20/sweep27/safari/`, log `f20/sweep27.log`
+    prints each page's layout width). Next: sheets (two per sheet at 1200 and wider), every tile looked at,
+    fixes one commit each checked in Safari, reply draft updated with anything the client would see.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
