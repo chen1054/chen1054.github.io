@@ -524,9 +524,9 @@ img {
     @media(width<40rem) {
       overflow-x: clip;
     }
+    /* Wide: art and copy in two equal halves, mirrored on every other row. */
     @media(width>=40rem) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
       /* The tablet design starts the text at the column's middle; the desktop one leaves 72 px between art and text. */
       column-gap: calc(72 * var(--grow));
@@ -537,16 +537,15 @@ img {
       font-size: calc(14rem / 16 + 8 * var(--grow));
       line-height: round(nearest, 19rem / 16 + 10 * var(--grow), 1px);
       text-align: start;
-      &>.illustration {
-        grid-column: 1;
-        grid-row: 1;
-        justify-self: center;
+      &>:is(.illustration, .description) {
+        flex: 1 1 0;
+        min-inline-size: 0;
+      }
+      &>.illustration>img {
         inline-size: min(100%, var(--art) / 507 * 100%);
+        margin-inline: auto;
       }
       &>.description {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: start;
         margin-inline: 0;
         &>h2 {
           margin-block-start: 0;
@@ -557,12 +556,7 @@ img {
         }
       }
       &:nth-of-type(even) {
-        &>.illustration {
-          grid-column: 2;
-        }
-        &>.description {
-          grid-column: 1;
-        }
+        flex-direction: row-reverse;
       }
       &>.side-wave {
         display: none;
@@ -728,8 +722,9 @@ img {
 
   /* Hero: the preview over the summary, then side by side on desktops, the summary from the column's middle. */
   & .project-introduction {
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: calc(18rem / 16 + 30 * var(--grow));
     &>.project-preview {
       /* The phone and tablet designs draw it --preview px wide (240, Scotties 280), 438 by 1440. */
@@ -741,12 +736,20 @@ img {
         line; the art at its desktop drawing's share of its side (--preview-desktop px: Tales 422, MenuMe 438,
         Scotties 551).
       */
-      grid-template-columns: minmax(0, 525fr) minmax(0, 561fr);
+      flex-direction: row;
       align-items: start;
-      justify-items: start;
       column-gap: 0;
       &>.project-preview {
-        inline-size: min(100%, var(--preview-desktop, 422) / 525 * 100%);
+        flex: 0 0 calc(525 / 1086 * 100%);
+        inline-size: auto;
+        margin-inline: 0;
+        &>button:not([popover]) {
+          inline-size: min(100%, var(--preview-desktop, 422) / 525 * 100%);
+        }
+      }
+      &>.project-summary {
+        flex: 1 1 0;
+        min-inline-size: 0;
       }
     }
   }
