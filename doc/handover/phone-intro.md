@@ -4654,6 +4654,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     bolt tip 4.5 px from a line box corner at 900, "Hi-fi Homepage" 5.5 px above its mockup at 1905). The tool
     now also saves each view with text shown (`*.text.png`, the hiding rule's properties removed and restored),
     and crops pair both.
+  - Paired crops read: the cloud at 900 is clear (the flag is the empty corner of a line box); "Hi-fi Homepage"
+    at 1905 sits close above its mockup but nothing crosses it (spacing to compare with the design); the
+    wireframe note "Placed key equipment…" at 900 has about 24 px of text inset on the left but its line ends
+    about 4 px from the right border, so text may run into the right padding. `safari-note-padding.ts` (every
+    `.note` on the three case studies at 13 widths, text past the content box) running, then `full` (the whole
+    art sweep, `full.report`) queued on the lock.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
