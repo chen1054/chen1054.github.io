@@ -142,6 +142,23 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
 2.  The case-study shell in `site.css`, then Scotties onto it (plan: advisor's three buckets; client asks kept,
     asset-intrinsic geometry ported as is, design-derived per-element px dropped).
 
+## Cutover plan
+
+Pushing `main` publishes https://chen1054.github.io (GitHub Pages serves `main` at `/`), the site the client has
+on their résumé, so cutover waits for the user's go-ahead with this evidence in hand:
+
+1.  Every page on the branch passes, on one snapshot: the line dump 320 to 1920 (no stranded word, no overflow,
+    detector artefacts named), the client-ask probe (`eval-invariants.js`, main against branch at 390, 1440, 1920,
+    2400), Safari 17.5 captures at 390, 744, 1440 and 1905 compared with main (About and Contact pixel-identical;
+    every other difference named and intended), and the iOS 17 Simulator at the phone width.
+2.  Merge `main` into the branch first, so the cutover merge is a fast-forward of reviewed content.
+3.  `git -C /var/home/user/xinyanchen-portfolio/portfolio-xinyanchen0124 merge --ff-only layout-rebuild` on main;
+    auto-push publishes. Check the live site (all six pages) in Safari once Pages has built
+    (`gh api repos/chen1054/chen1054.github.io/pages/builds/latest`).
+4.  Rollback: `git revert -m 1` is not available for a fast-forward, so record main's pre-cutover commit and, if
+    the live site breaks, `git revert --no-edit <pre-cutover>..HEAD` on main (a new commit; never a force push).
+5.  Then re-verify the client reply draft's "checked in Safari 17.5" claims against the live site.
+
 ## Model
 
 Written into the stylesheet header as it is built (`site.css`).
