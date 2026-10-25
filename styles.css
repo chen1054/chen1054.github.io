@@ -7301,20 +7301,26 @@ h1 {
           }
         }
         /*
-          Desktop Scotties sets each lo-fi wireframe 36 px under its heading's glyph top and the hi-fi one 35, the
-          listing 48 px under the homepage's wireframe and the hi-fi homepage 122 under the listing's.
+          Desktop Scotties sets the listing 48 px under the homepage's wireframe and the hi-fi homepage 122 under the
+          listing's. The 2026-10-23 export draws each heading's ink about 16, 17 and 17 px above its screen (the
+          lo-fi homepage, the listing, the hi-fi homepage); at 18 px type the site had 11, 11 and 10 (Safari 1440),
+          the listing's ink also 6 px too far under the wireframe above. Each heading rises by that difference
+          (negative margin above, the same added below), so every screen and callout stays where it was.
         */
         @media(width>=80rem) {
-          & .subsection:is(:nth-child(3), :nth-child(4))>h3 {
-            margin-block-end: calc(5rem / 16);
+          & .subsection:nth-child(3)>h3 {
+            margin-block: calc(-5rem / 16) calc(10rem / 16);
           }
           & .subsection:nth-child(4) {
             margin-block-start: calc(47rem / 16);
+            &>h3 {
+              margin-block: calc(-6rem / 16) calc(11rem / 16);
+            }
           }
           & .subsection:nth-child(5) {
             margin-block-start: calc(121rem / 16);
             &>h3 {
-              margin-block-end: calc(4rem / 16);
+              margin-block: calc(-7rem / 16) calc(11rem / 16);
             }
           }
           /* And 132 px from the last prototype link down to the Key Learnings band. */
