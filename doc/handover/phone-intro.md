@@ -4801,6 +4801,20 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     user, 2026-10-25: "I already told you huge refactors are acceptable." Task #135: descriptions, intro, role
     continuations and the poster title wrap naturally; separate items stay separate (Project Type vs Role,
     footer's two lines, greeting vs name). Checked in Safari at 320 to 1920 and in the Simulator.
+  - The user, mid-work: "Safari 17 doesn't support text-wrap:balance" (it arrived in 17.5; the floor is 17), then
+    "I'm not sure why you're taping around broken bases." The base was `:is(h1, h2, p)>span { display: block }`;
+    the tape was the Home 640+ `display: inline` override, `.role-start::before`, the Scotties per-card pillar
+    displays, and the phone measure about to be tuned to imitate the design's lines. Rule for this work: fix the
+    base, delete the overrides it needed; never add an override to imitate a break.
+  - `351c888`: the global rule is gone. Home: summary on an 18.2 em measure (every Home design's longest summary
+    line is 17.9 to 17.95 em), card copy plain text on the 310 px measure the wide layouts already used (now also
+    on phones, centred), roles as two block items (`.role>span`), poster title plain (breaks after its comma
+    at 310), `.greeting` and `.designer-name` explicit blocks. MenuMe "& Fitness Enthusiast" span removed.
+    Scotties pillar names: run-in on phones, own line from 640 (Excitement-only phone and Confidence-only tablet
+    rules removed). `text-wrap: balance` removed (the shaped bubbles, the positioning note) with all eight
+    `text-wrap: wrap` overrides, which only cancelled it. Safari line dump running: `f20/artsweep/lines.jsonl`
+    (`safari-lines.ts`, `eval-lines.js`, 320 to 1920 by 8, Home, Scotties, MenuMe, Tales; flags stranded last
+    words and overflow), then shots by eye and the iOS 17.0.1 Simulator.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
