@@ -4728,6 +4728,11 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     waves, waves close the page. Home intro: the swirl beside "UX / App Design Project", clear of the paragraph.
   - Reply draft (local) updated in both languages: one bullet at the end of the found-and-fixed lists (the note
     insets, the footer waves, the swirl). Not mentioned: the persona names, tight in the design too.
+  - Not swept: Contact at 433 to 639 (the hybrid phone range). By the formula there the wave sits 6 + 6g lower
+    than before `a65ecd2` (6 to about 10 px), so its gap to the credits only grows and the page gets that much
+    longer; the other footers' new terms are zero from 390 up.
+  - Reply draft ranges tightened (reviewer): footer touched at 320 to 368 on Contact, 320 to 352 on the case
+    studies (1.5 to 3.6 px at 360 to 368); swirl behind the copy at 352 and below (0.5 px at 360).
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
