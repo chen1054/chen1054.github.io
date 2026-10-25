@@ -510,7 +510,8 @@ img {
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      column-gap: calc(24rem / 16 + 48 * var(--grow));
+      /* The tablet design starts the text at the column's middle; the desktop one leaves 72 px between art and text. */
+      column-gap: calc(72 * var(--grow));
       inline-size: calc(100% - 100rem / 16 - 254 * var(--grow));
       max-inline-size: var(--column-max);
       margin-block-start: calc(80rem / 16 + 110 * var(--grow));
