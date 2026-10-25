@@ -121,8 +121,17 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
   hyphen in "non-threatening").
 - Client-ask probe (`eval-invariants.js`, snapshot `58adbca`, Safari 17.5 at 390, 1440, 1920, 2400, all six
   pages): identical to main except phone sitemap labels 14.7 px over 15 px body (main 13.72 over 14), which CF93
-  asks for. MenuMe findings bubbles 2 and 3 render about three times too tall in the 390 Safari capture
-  (`round3`) but measure 264 by 212 in Chromium: Safari probe `eval-bubbles.js` queued, unresolved.
+  asks for. MenuMe findings bubbles 2 and 3 render about three times too tall in the stitched 390 Safari
+  captures (`round3`, `mt-branch`) only: Safari measures boxes (264 by 212) and outlines (`::before` 243.6 by
+  263.5, same mask and insets) identical to main, the drawing file is the same, and a direct Safari viewport shot
+  (`cmp/bshot-branch.png`) and the iOS 17 Simulator (`sim17-bub-00`) show them correct. A capture artefact; when a
+  stitched capture disagrees with measurement, take a direct viewport shot before acting on it.
+- Found by round three and fixed: Scotties sections ran 1,540 px wide above 1440 (a ported 624 px tablet column
+  override had lost its 1086 cap); the Scotties phone column is 20 px from each edge (its pillars are drawn on
+  it; a page `--gutter` token now); sitemaps keep the centred one-column tree below 52rem, where the side-by-side
+  tree wrapped labels ("Our / Team") and overflowed. The line detector now splits tokens at hyphens and keeps
+  no-break spaces, so glued endings that break at a hyphen are no longer flagged (control: main's unglued
+  "dietary restrictions." still is).
 - `styles.css` removed from the branch (`60227f7`); `site.css` is 7,625 lines (old 8,146): base and shell 910,
   Home 241, page drawings 6,475 (Scotties 2,383, MenuMe 2,429, Tales 1,272, About and Contact 391). The drawings
   are the remaining simplification.
