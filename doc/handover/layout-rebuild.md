@@ -195,7 +195,12 @@ Contact's captcha (hCaptcha's "localhost detected" warning shows only locally) a
 stitched live capture caught before it loaded (a direct shot of the live page shows it). A fast-forward merge
 makes no commit, so auto-push does not publish it: push `main` explicitly.
 
-Next: re-verify the client reply draft's "checked in Safari 17.5" claims against the live site.
+Reply-draft re-check (`eval-reply-claims.js`, Safari 17.5, live against `441ca4a`) found two regressions in the
+first live build, both fixed and pushed as `591c020` (Pages built; case-study line dump unchanged, no stranded
+word): the footer wave touched "© 2026" at 320 on Home and the case studies (the rebuild scaled its rise with
+the width; the old rule rose less below 390, restored), and the Scotties wireframe headings sat 2 px closer to
+their screens (the shell set subheadings to a 1.5 line height; they keep the body line box again). The draft's
+claims hold as written; its notes record the check.
 
 ## Model
 
