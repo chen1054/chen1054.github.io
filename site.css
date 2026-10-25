@@ -4805,20 +4805,30 @@ img {
             line-height: round(nearest, 2em, 1px);
           }
           &>.flex-row:has(>article) {
-            display: grid;
-            grid-template-columns: calc(16% / 6.14) calc(260% / 6.14) 1fr calc(290% / 6.14);
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: stretch;
             gap: 0;
             margin-block-start: calc(47rem / 16);
             &>article {
-              grid-column: 2;
+              flex: 0 0 calc(260% / 6.14);
+              margin-inline-start: calc(16% / 6.14);
               &:last-child {
-                grid-column: 4;
+                flex-basis: calc(290% / 6.14);
+                margin-inline-start: 0;
               }
             }
             @media(width>=80rem) {
-              grid-template-columns: calc(18300% / 1086) calc(25200% / 1086) calc(19300% / 1086) calc(28200% / 1086);
               justify-content: start;
               margin-block-start: calc(40rem / 16);
+              &>article {
+                flex-basis: calc(25200% / 1086);
+                margin-inline-start: calc(18300% / 1086);
+                &:last-child {
+                  flex-basis: calc(28200% / 1086);
+                  margin-inline-start: calc(19300% / 1086);
+                }
+              }
               /* Glyph tops: 23 px from the icon to its title, 46 from the title to its description. */
               &>article>h4 {
                 margin-block: calc(19rem / 16) calc(13rem / 16);
@@ -5689,18 +5699,20 @@ img {
             }
           }
           @media(40rem<=width<80rem) {
-            display: grid;
-            grid-template-columns: calc(3740% / 614) calc(26000% / 614) calc(4200% / 614) calc(26000% / 614);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: stretch;
             gap: calc(34rem / 16) 0;
             &>aside {
-              grid-column: 2;
+              flex: 0 0 calc(26000% / 614);
               inline-size: auto;
               min-block-size: calc(301rem / 16);
-              margin-inline: 0;
+              margin-inline: calc(3740% / 614) 0;
               /* The design's text box is 214 px; ours keeps its thicker border, so the end padding gives way. */
               padding-inline-end: calc(13.5rem / 16);
               &:nth-child(even) {
-                grid-column: 4;
+                margin-inline-start: calc(4200% / 614);
               }
               padding-block-start: calc(19rem / 16);
             }
@@ -5711,20 +5723,18 @@ img {
             corner, and a 90 px badge 31 past the end and 34 below (Desktop/MenuMe.pdf).
           */
           @media(width>=80rem) {
-            display: grid;
-            grid-template-columns: calc(6700% / 1086) calc(43400% / 1086) calc(6700% / 1086) calc(43400% / 1086);
+            display: flex;
+            flex-wrap: wrap;
             justify-content: start;
+            align-items: stretch;
             gap: calc(96rem / 16) 0;
             &>aside {
               --menume-disc: calc(90rem / 16);
-              grid-column: 2;
+              flex: 0 0 calc(43400% / 1086);
               min-block-size: calc(253rem / 16);
-              margin: 0;
+              margin: 0 0 0 calc(6700% / 1086);
               padding-block: calc(22rem / 16) calc(16rem / 16);
               padding-inline: calc(43rem / 16) calc(23rem / 16);
-              &:nth-child(even) {
-                grid-column: 4;
-              }
               /* The fourth card's copy starts 60 px in and wraps on 341. */
               &:nth-child(4) {
                 padding-inline: calc(56rem / 16) calc(29rem / 16);
