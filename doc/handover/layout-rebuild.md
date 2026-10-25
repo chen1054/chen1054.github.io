@@ -11,7 +11,8 @@ measurements.
 
 ### The client's explicit asks
 
-- Nav: logo and links stick to the left edge with padding, clamped by the content column; desktop nav text 22 px
+- Nav: logo and links stick to the left edge with padding, "clamped by the leftmost side of the river" (35 to 70 px
+  from the window's edge, in line with the river's left end once the river centres); desktop nav text 22 px
   (CF109; the designs drew 25); the top-right stone always sticks to the right edge of the screen (CF111, CF112).
 - River and footer patterns grow to at least cover 1080p (1920), then centre.
 - Phone Home: hero and river higher, so the river shows without scrolling.
