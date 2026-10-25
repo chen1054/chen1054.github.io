@@ -4508,8 +4508,11 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     phone and for tall vectors on desktop the view is a scrollable crop (`overflow: auto`); every picture and
     graph is zoomable by a recorded requirement, icons included. The OPH laptop shot's overlapping header text
     is in the recording itself.
-  - Next: look at every r3 frame (compare `sim-iphone15-r2/`), then Safari 17.5 shots of a sample of enlarged
-    views, then the iPad 10th r3 frames.
+  - iPhone 15 r3 done: 115 frames (Home 9, About 7, Contact 3, MenuMe 34, Scotties 28, Tales 34), every frame
+    looked at in `f20/eye/sim-sheets-iphone15-r3/` (five per sheet, `f20/eye/sim-r3-sheets.py`). Nothing wrong.
+    The r2 Bridging-the-Gap bubble finding stays fixed; the Well-Being line holds on one line at 393.
+  - Next: iPad 10th r3 frames (unit `xinyanchen-sim-ipad-r3`, iPhone shut down first), then Safari 17.5 shots of
+    a sample of enlarged views.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
     "institutional&nbsp;resources." running past its card column at 320 to 393 (at 320 to within a few px of the
     screen edge) and "school&nbsp;distribution." at 320 and 340.
