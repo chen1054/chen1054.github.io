@@ -736,6 +736,15 @@ h1 {
       }
       &>.side-wave {
         margin-block-start: calc(-312rem / 16 - 312 * var(--phone-art-growth));
+        /*
+          Below 390 the shrinking swirl drifted down and the full-size centred copy reached out to it: at 320 it lay
+          behind "MenuMe is a meal…" and "busy…" (Safari; Phone/Home.pdf: 24 px clear at 390). The swirl alone
+          moves back to its 390 place beside "UX / App Design Project", 278 up and, as that line also widens toward
+          it, 122 left (each times the art's shrink), keeping the drawn 22 px before "UX"; the flow is unchanged.
+        */
+        &>img:first-child {
+          translate: calc(122 * min(var(--phone-art-growth), 0rem)) calc(278 * min(var(--phone-art-growth), 0rem));
+        }
       }
     }
     &:where(#scotties-skating-and-skiing-shop-project) {
