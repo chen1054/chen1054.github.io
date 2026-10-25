@@ -1166,8 +1166,12 @@ h1 {
       margin-block-start: calc(24rem / 16 + 168 * var(--home-wide-reference-growth));
     }
   }
+  /*
+    Phone/Contact.pdf leaves 8.2 px between "© 2026 Xinyan Chen" and the wave below it at 390; pulled up 72 the wave
+    came within 2.5 px (Safari), so it rises 66.
+  */
   & .footer-wave {
-    margin-block-start: calc(-72rem / 16 - 72 * var(--phone-art-growth));
+    margin-block-start: calc(-66rem / 16 - 66 * var(--phone-art-growth));
     @media(width>=40rem) {
       margin-block-start: calc(-80rem / 16 - 60 * var(--home-wide-reference-growth));
       &>picture>img {
