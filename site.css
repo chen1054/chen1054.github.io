@@ -1453,19 +1453,16 @@ img {
     */
     @media(width>=40rem) {
       &>.content .flex-row:has(>.persona) {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, calc(285rem / 16)));
-        justify-content: center;
+        align-items: start;
         gap: calc(27rem / 16) calc(19.5rem / 16 + 55 * var(--grow));
-        &>.persona:first-child {
-          grid-column: 1 / -1;
-          justify-self: center;
-          inline-size: min(100%, calc(285rem / 16));
+        &>.persona {
+          flex: 0 1 calc(285rem / 16);
         }
-        @media(width>=64rem) {
-          grid-template-columns: repeat(3, minmax(0, calc(285rem / 16)));
-          &>.persona:first-child {
-            grid-column: auto;
+        /* Its side margins fill the line, so Jake has the first row to himself on tablets. */
+        &>.persona:first-child {
+          margin-inline: calc((100% - min(100%, 285rem / 16)) / 2);
+          @media(width>=64rem) {
+            margin-inline: 0;
           }
         }
       }
