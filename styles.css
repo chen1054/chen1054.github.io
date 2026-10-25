@@ -3174,8 +3174,15 @@ h1 {
       --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
       --glyph-size: calc(19rem / 16 + 8 * var(--home-wide-reference-growth));
     }
+    /*
+      The channel labels: body size on phones (15 in Phone Tales), 16 over the 14 px body in Tablet Tales and the
+      16 of the body on Desktop (exports of 2026-10-23).
+    */
     & p[data-glyph] {
       --glyph-size: calc(21.87rem / 16);
+      @media(width>=40rem) {
+        font-size: max(1em, calc(16rem / 16));
+      }
       @media(width>=80rem) {
         --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
         --glyph-size: calc(18rem / 16);
@@ -3985,6 +3992,15 @@ h1 {
           margin-block: calc(62rem / 16) 0;
         }
       }
+    }
+    /*
+      The delivery list's two bold lead-ins and the contribution card titles: body size on phones and tablets, 18
+      over the 16 px body on Desktop (exports of 2026-10-23; Desktop's "Audience Research & Journey Mapping" alone
+      at 16 beside three titles at 18 is read as a slip).
+    */
+    & #menume-design-system ol.paragraph>li>strong,
+    & :where(#menume-contributions) .contribution-cards>aside>p:first-child {
+      font-size: calc(1em + 2 * var(--home-wide-reference-growth));
     }
     /* The phone and tablet designs stack the two prototype buttons, 13 px apart; the desktop sets them in a row. */
     @container(width<64rem) {
