@@ -923,12 +923,17 @@ img {
       flex-basis: calc(160rem / 16);
     }
   }
+  /* Boxed text: the phone designs set it at 14 px where running prose is 15. */
   & .note {
     box-sizing: border-box;
     padding: 2rem;
     background-color: var(--color-case-study-note);
     border: calc(1rem / 16) solid var(--color-case-study-accent);
     border-radius: 1rem;
+    @media(width<40rem) {
+      font-size: calc(14rem / 16);
+      line-height: round(nearest, 2em, 1px);
+    }
   }
   & .persona {
     max-inline-size: calc(450rem / 16);
