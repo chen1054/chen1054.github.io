@@ -1,0 +1,588 @@
+/*
+  The layout model (the layout rebuild, 2026-10-25; doc/handover/layout-rebuild.md).
+
+  - Three layouts, from the three design frames: phones below 40rem, tablets from 40rem, desktops from 80rem.
+    Between 744 and 1440 px, type and spacing interpolate through --grow: 0 at 744, 1 px per reference pixel at
+    1440 and beyond. From 390 to 744, phone type grows through --phone-grow the same way.
+  - Text sizes and the gaps between pieces of text are px (or em). Art is sized from its column, and an offset
+    between two pieces of art (a wave rising behind an illustration) is a percentage of the column's width, which
+    is what the art's own size follows: art and offset scale together at any width, with no correction below 390.
+  - The designs give hierarchy, proportions and a type scale, not per-element measurements.
+  - No cascade layers: precedence is selector weight, then source order, from element defaults through shared
+    components to page rules.
+  - Line heights that can come out fractional are rounded to whole pixels: Safari lays a fractional line height
+    out at the whole pixel below it, Chromium keeps the fraction.
+*/
+@font-face {
+  font-family: "Abril Fatface";
+  src: url("assets/fonts/AbrilFatface-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+@property --river-fade-progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 8;
+}
+@keyframes layer-fade-in {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes river-reveal-from-left {
+  from {
+    --river-fade-progress: 0;
+    visibility: hidden;
+  }
+  to {
+    --river-fade-progress: 8;
+    visibility: visible;
+  }
+}
+:root {
+  --phone-grow: clamp(0rem, calc((100vw - 390rem / 16) / 354), calc(1rem / 16));
+  --grow: 0rem;
+  --column-max: calc(1086rem / 16);
+  /*
+    The river and the footer waves keep their drawn shape and grow with the window until they cover a 1080p
+    screen (the client: "to at least cover 1080p"; the user chose even growth), then centre.
+  */
+  --river-max: calc(1920rem / 16);
+  --color-page-background: #fff;
+  --color-purple: #685587;
+  --color-body-purple: #463267;
+  --color-gold: #c27f36;
+  --color-river-gold: #d8a150;
+  color-scheme: light;
+  @media(width>=40rem) {
+    --grow: clamp(0rem, calc((100cqw - 744rem / 16) / 696), calc(1rem / 16));
+  }
+}
+body {
+  /*
+    WeChat on iOS enlarges a page by writing a percentage text-size-adjust into body's inline style, which grows
+    the text but not the drawings around it; the user chose to ignore it (2026-10-23).
+  */
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  margin: 0;
+  background-color: var(--color-page-background);
+  @media(width>=40rem) {
+    container-type: inline-size;
+  }
+}
+main {
+  position: relative;
+  color: var(--color-body-purple);
+  text-align: center;
+}
+h1,
+h2,
+h3,
+p {
+  margin-block: 0;
+}
+h1 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+}
+button {
+  padding: 0;
+  border-width: 0;
+  background-color: transparent;
+}
+:where(a, button, input, textarea):focus-visible {
+  outline: calc(2rem / 16) solid var(--color-purple);
+  outline-offset: calc(4rem / 16);
+}
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* The top corner drawing spans the window; its own preserveAspectRatio keeps each corner's art at its edge. */
+.corner-decorations {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  &>img {
+    inline-size: 100%;
+    @media(width>=80rem) {
+      block-size: calc(154rem / 16 + 140 * var(--grow));
+    }
+  }
+}
+.menu-toggle {
+  position: absolute;
+  inset-block-start: calc(17rem / 16);
+  inset-inline-start: calc(14rem / 16);
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: calc(8rem / 16);
+  cursor: pointer;
+  /* Three 35 by 2 px bars, as drawn, 9 and 19 px apart. */
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block-start: calc(14rem / 16);
+    inset-inline-start: calc(6rem / 16);
+    inline-size: calc(35rem / 16);
+    block-size: calc(2rem / 16);
+    border-radius: calc(1rem / 16);
+    background-color: var(--color-purple);
+    box-shadow:
+      0 calc(9rem / 16) var(--color-purple),
+      0 calc(19rem / 16) var(--color-purple);
+  }
+  @media(width>=40rem) {
+    display: none;
+  }
+}
+/* A popover menu on phones; a row of links beside the floral logo on wide screens. */
+#portfolio-primary-navigation {
+  position: fixed;
+  inset: 0 auto auto 0;
+  box-sizing: border-box;
+  inline-size: calc(97rem / 16);
+  block-size: 100dvh;
+  margin: 0;
+  padding: 8rem 0 0;
+  border-width: 0;
+  background-color: var(--color-page-background);
+  color: var(--color-purple);
+  font-family: "Playfair Display", serif;
+  font-size: calc(15rem / 16);
+  line-height: calc(20rem / 16);
+  text-align: start;
+  /* The open menu takes focus itself (the user's choice, 2026-10-22); the panel is not a control. */
+  &:focus {
+    outline: none;
+  }
+  &>a {
+    display: flex;
+    align-items: center;
+    min-inline-size: 3rem;
+    min-block-size: 3rem;
+    margin-block-end: calc(3rem / 16);
+    padding-inline-start: calc(20rem / 16);
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: var(--color-body-purple);
+      text-decoration: underline;
+    }
+    @media(width>=40rem) {
+      margin-block-end: 0;
+      padding-inline-start: 0;
+    }
+  }
+  &>.floral-logo {
+    display: none;
+    @media(width>=40rem) {
+      display: block;
+      inline-size: calc(30rem / 16 + 18 * var(--grow));
+      margin-block-start: calc(5rem / 16 - 5 * var(--grow));
+    }
+  }
+  @media(width>=40rem) {
+    position: absolute;
+    inset-block-start: calc(20rem / 16 + 16 * var(--grow));
+    /*
+      The client: "Get the logo+nav bar to always stick to the left side of the screen with padding, clamped by the
+      leftmost side of the river": at least the designs' 35 to 70 px from the window's edge, and in line with the
+      river's left end once the centred river starts further in.
+    */
+    inset-inline-start: max(35rem / 16 + 35 * var(--grow), (100cqw - var(--river-max)) / 2);
+    display: flex;
+    align-items: start;
+    column-gap: calc(25rem / 16 + 36 * var(--grow));
+    inline-size: max-content;
+    block-size: auto;
+    padding-block: 0;
+    /* The client: "Change the font size of nav to 22 for desktops" (the designs drew 25 at 1440). */
+    font-size: calc(14rem / 16 + 8 * var(--grow));
+    line-height: round(nearest, 20rem / 16 + 14 * var(--grow), 1px);
+    overflow: visible;
+  }
+}
+/*
+  A 136 by 34 px pill on phones and tablets that grows toward each page's desktop size; the link box is 8 px
+  larger each way for the drop shadow, and its block padding keeps a 48 px target.
+*/
+.pill {
+  --pill-color: var(--color-gold);
+  --pill-hover-color: var(--color-purple);
+  --pill-inline-growth: 86;
+  --pill-block-growth: 20;
+  --pill-inline-size: calc(136rem / 16 + var(--pill-inline-growth) * var(--grow));
+  --pill-block-size: calc(34rem / 16 + var(--pill-block-growth) * var(--grow));
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  inline-size: calc(var(--pill-inline-size) + 8rem / 16);
+  block-size: var(--pill-block-size);
+  margin-inline: auto;
+  padding-block-end: calc(max(3rem, var(--pill-block-size) + 8rem / 16) - var(--pill-block-size));
+  color: var(--color-page-background);
+  font-family: "Abril Fatface", serif;
+  font-size: calc(14rem / 16);
+  line-height: round(nearest, 1em, 1px);
+  text-box: trim-both cap alphabetic;
+  text-decoration: none;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block-start: 0;
+    inset-inline-start: calc(4rem / 16);
+    inline-size: var(--pill-inline-size);
+    block-size: var(--pill-block-size);
+    border-radius: 100vmax;
+    background-color: var(--pill-color);
+    box-shadow: 0 calc(var(--pill-block-size) * 4 / 34) calc(var(--pill-block-size) * 4 / 34) rgb(0 0 0 / 25%);
+  }
+  &:hover::before {
+    background-color: var(--pill-hover-color);
+  }
+  @media(width>=40rem) {
+    font-family: "Playfair Display", serif;
+    font-size: calc(14rem / 16 + 8 * var(--grow));
+    font-weight: 700;
+  }
+}
+/* Layered drawings: the first layer sets the size, the rest lie over it. */
+.wave-composition {
+  position: relative;
+  pointer-events: none;
+  &>:is(img, picture) {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    &:first-child {
+      position: relative;
+    }
+  }
+  & picture>img {
+    inline-size: 100%;
+  }
+}
+.site-footer {
+  margin-block-start: calc(86rem / 16);
+  color: var(--color-purple);
+  font-family: "Playfair Display", serif;
+  font-size: calc(11rem / 16);
+  line-height: calc(15rem / 16);
+  text-align: center;
+  /* The wave comes after the text and rises behind it. */
+  &>p {
+    position: relative;
+    z-index: 1;
+  }
+  &>.credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: calc(13rem / 16 + 4 * var(--grow));
+    margin-block-start: calc(8rem / 16 + 8 * var(--grow));
+  }
+  /* In the footer, centred above the thank-you, so it comes into view with the footer. */
+  &>.back-to-top {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    inline-size: 3rem;
+    block-size: 3rem;
+    margin-block-end: calc(1rem + 16 * var(--grow));
+    margin-inline: auto;
+    border: calc(2rem / 16) solid var(--color-river-gold);
+    border-radius: 50%;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: calc(-2rem / 16);
+      background-color: var(--color-purple);
+      mask-image: url("assets/portfolio-back-to-top-arrow.svg");
+      mask-size: 100% 100%;
+    }
+    /* The client (CF113): on hover the arrow turns the ring's gold. */
+    &:hover::before {
+      background-color: var(--color-river-gold);
+    }
+  }
+  &>.footer-wave {
+    @media(width>=40rem) {
+      max-inline-size: var(--river-max);
+      margin-inline: auto;
+    }
+  }
+  @media(width>=40rem) {
+    margin-block-start: calc(150rem / 16 + 131 * var(--grow));
+    font-size: calc(11rem / 16 + 9 * var(--grow));
+    line-height: round(nearest, 15rem / 16 + 12 * var(--grow), 1px);
+  }
+}
+
+/* Home */
+.home {
+  &>main {
+    /* Below the 120 px corner drawing (a share of the width, as the drawing scales), the hero 21 px further. */
+    padding-block-start: calc(21rem / 16 + 120 / 390 * 100%);
+    @media(width>=40rem) {
+      padding-block-start: calc(118rem / 16 + 90 * var(--grow));
+    }
+  }
+  & .greeting,
+  & .designer-name {
+    display: block;
+  }
+  & .greeting {
+    color: var(--color-purple);
+    font-size: calc(24rem / 16 + 4 * var(--phone-grow) + 12 * var(--grow));
+    line-height: round(nearest, 2rem + 4 * var(--phone-grow) + 16 * var(--grow), 1px);
+  }
+  & .designer-name {
+    margin-block-start: calc(11rem / 16 - 1 * var(--grow));
+    color: var(--color-gold);
+    font-size: calc(2rem + 4 * var(--phone-grow) + 12 * var(--grow));
+    line-height: round(nearest, 42rem / 16 + 6 * var(--phone-grow) + 16 * var(--grow), 1px);
+  }
+  /* Every Home design sets the summary on an 18 em measure (its longest line 17.9 to 17.95 em). */
+  & .summary {
+    max-inline-size: min(calc(100% - 40rem / 16), 18.2em);
+    margin-block-start: calc(31rem / 16 + 2 * var(--phone-grow) + 41 * var(--grow));
+    margin-inline: auto;
+    font-family: "Playfair Display", serif;
+    font-size: calc(15rem / 16 + var(--phone-grow) + 6 * var(--grow));
+    font-weight: 700;
+    line-height: round(nearest, 2rem + 8 * var(--grow), 1px);
+  }
+  /* The one purple pill; the client: hover to the name's gold. */
+  & .about-link {
+    --pill-color: var(--color-purple);
+    --pill-hover-color: var(--color-gold);
+    margin-block-start: calc(40rem / 16 + 7 * var(--phone-grow) + 41 * var(--grow));
+  }
+  /* The river rises behind the pill: 48 of its 390 drawn px on phones, 76 of 744 on tablets, 104 of 1440 on desktops. */
+  & .intro-wave {
+    margin-block-start: calc(-48 / 390 * 100%);
+    @media(width>=40rem) {
+      max-inline-size: var(--river-max);
+      margin-block-start: calc(-76 / 744 * 100%);
+      margin-inline: auto;
+    }
+    @media(width>=80rem) {
+      margin-block-start: calc(-104 / 1440 * 100%);
+    }
+  }
+  /* Each step 1 s after the previous (client, 2026-10-18); the flower 0.3 s after the river (CF90). */
+  @media(prefers-reduced-motion:no-preference) {
+    & :is(.greeting, .designer-name, .summary, .about-link, .purple-accent, .floral-accent) {
+      animation: layer-fade-in 450ms ease-out backwards;
+    }
+    & .designer-name {
+      animation-delay: 1s;
+    }
+    & :is(.summary, .about-link) {
+      animation-delay: 2s;
+    }
+    & .purple-accent {
+      animation-delay: 3s;
+    }
+    & .river-reveal {
+      animation: river-reveal-from-left 1800ms linear 4s backwards;
+      mask-image: linear-gradient(
+        to right,
+        rgb(0 0 0 / calc(pow(4, var(--river-fade-progress)) / 100)) 0%,
+        rgb(0 0 0 / calc(pow(2, (5 * var(--river-fade-progress) - 1) / 3) / 100)) calc(100% / 3),
+        rgb(0 0 0 / calc(pow(2, (3 * var(--river-fade-progress) - 1) / 2) / 100)) 50%,
+        rgb(0 0 0 / calc(pow(2, (4 * var(--river-fade-progress) - 2) / 3) / 100)) calc(200% / 3),
+        rgb(0 0 0 / calc(pow(2, var(--river-fade-progress) - 1) / 100)) 100%
+      );
+    }
+    & .floral-accent {
+      animation-delay: 6100ms;
+    }
+  }
+  /*
+    A project: stacked on phones, its art beside the text on wide screens. Per project, two drawn distances in px
+    of the 390 px phone drawings: --gap from the art above to this illustration, --rise of the gray wave behind the
+    copy's end. Desktop: --art, the illustration's width in the 1440 design, of its 543 px half column.
+  */
+  & .project {
+    --gap: 48;
+    --rise: 0;
+    --art: 409;
+    margin-block-start: calc(var(--gap) / 390 * 100%);
+    font-family: "Playfair Display", serif;
+    font-size: calc(14rem / 16);
+    font-weight: 500;
+    line-height: calc(19rem / 16);
+    &>.illustration {
+      display: block;
+      &>img {
+        inline-size: 100%;
+      }
+      @media(width<40rem) {
+        max-inline-size: calc(440rem / 16);
+        margin-inline: auto;
+      }
+    }
+    &>.description {
+      position: relative;
+      z-index: 1;
+      /* The 310 px measure of every design, centred on phones. */
+      max-inline-size: calc(310rem / 16 + 200 * var(--grow));
+      margin-inline: auto;
+      &>h2 {
+        margin-block-start: calc(16rem / 16);
+        color: var(--color-gold);
+        font-family: "Abril Fatface", serif;
+        font-size: calc(28rem / 16 + 20 * var(--grow));
+        font-weight: 400;
+        line-height: round(nearest, 38rem / 16 + 26 * var(--grow), 1px);
+      }
+      &>h3 {
+        margin-block-start: calc(6rem / 16 + 4 * var(--grow));
+        font-size: calc(18rem / 16 + 12 * var(--grow));
+        line-height: round(nearest, 24rem / 16 + 16 * var(--grow), 1px);
+      }
+      &>p {
+        margin-block-start: calc(11rem / 16 + 7 * var(--grow));
+      }
+      /* Project type and role are two items, each wrapping on its own. */
+      &>.role>span {
+        display: block;
+      }
+      &>.pill {
+        --pill-inline-growth: 120;
+        --pill-block-growth: 29;
+        margin-block-start: calc(27rem / 16 + 26 * var(--grow));
+      }
+    }
+    &>.side-wave {
+      margin-block-start: calc(var(--rise) / 390 * -100%);
+    }
+    @media(width>=40rem) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      column-gap: calc(24rem / 16 + 48 * var(--grow));
+      inline-size: calc(100% - 100rem / 16 - 254 * var(--grow));
+      max-inline-size: var(--column-max);
+      margin-block-start: calc(80rem / 16 + 110 * var(--grow));
+      margin-inline: auto;
+      font-size: calc(14rem / 16 + 8 * var(--grow));
+      line-height: round(nearest, 19rem / 16 + 10 * var(--grow), 1px);
+      text-align: start;
+      &>.illustration {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        inline-size: min(100%, var(--art) / 543 * 100%);
+      }
+      &>.description {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: start;
+        margin-inline: 0;
+        &>h2 {
+          margin-block-start: 0;
+        }
+        &>.pill {
+          margin-inline: 0;
+        }
+      }
+      &:nth-of-type(even) {
+        &>.illustration {
+          grid-column: 2;
+        }
+        &>.description {
+          grid-column: 1;
+        }
+      }
+      &>.side-wave {
+        display: none;
+      }
+    }
+  }
+  & #tales-for-safer-trails-project {
+    --gap: 99;
+    --rise: 249;
+    --art: 409;
+    @media(width>=40rem) {
+      margin-block-start: calc(120rem / 16 + 124 * var(--grow));
+    }
+  }
+  & #menume-meal-planning-app-project {
+    --gap: 48;
+    --rise: 312;
+    --art: 476;
+  }
+  & #scotties-skating-and-skiing-shop-project {
+    --gap: -12;
+    --rise: 75;
+    --art: 533;
+  }
+  & #matcha-delight-japanese-bakery-project {
+    --gap: 49;
+    --rise: 167;
+    --art: 510;
+  }
+  & #echoes-of-tradition-surrealist-poster-project {
+    --gap: 38;
+    --rise: 36;
+    --art: 353;
+  }
+  & #youth-in-limbo-photography-project {
+    --gap: 43;
+    --rise: 373;
+    --art: 441;
+  }
+  /* The footer wave rises behind the credits: 65 of its 390 drawn px on phones, 9 % of its width wider. */
+  & .footer-wave {
+    margin-block-start: calc(-65 / 390 * 100%);
+    @media(width>=40rem) {
+      margin-block-start: -9%;
+    }
+  }
+}
