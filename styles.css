@@ -148,9 +148,6 @@ h1 {
   font-family: "Abril Fatface", serif;
   font-weight: 400;
 }
-:is(h1, h2, p)>span {
-  display: block;
-}
 :where(a, button, input, textarea):focus-visible {
   outline-width: calc(2rem / 16);
   outline-style: solid;
@@ -443,6 +440,7 @@ h1 {
   }
   & .greeting {
     position: relative;
+    display: block;
     inset-block-start: calc(1rem / 16);
     padding-inline-start: calc(2rem / 16);
     color: var(--color-portfolio-purple);
@@ -450,6 +448,7 @@ h1 {
     line-height: round(nearest, 2rem + 4 * var(--phone-tablet-reference-growth) + 16 * var(--home-wide-reference-growth), 1px);
   }
   & .designer-name {
+    display: block;
     margin-block-start: calc(11rem / 16);
     color: var(--color-heading-and-case-study-gold);
     font-size: calc(2rem + 4 * var(--phone-tablet-reference-growth) + 12 * var(--home-wide-reference-growth));
@@ -462,7 +461,8 @@ h1 {
     position: relative;
     inset-block-start: calc(1rem / 16);
     inset-inline-start: calc(1rem / 16);
-    max-inline-size: calc(100% - 40rem / 16);
+    /* Every Home design sets the summary on an 18 em measure (its longest line 269 / 15, 287 / 16, 395 / 22 px). */
+    max-inline-size: min(calc(100% - 40rem / 16), 18.2em);
     margin-block-start: calc(31rem / 16);
     margin-block-end: 0;
     margin-inline: auto;
@@ -602,6 +602,11 @@ h1 {
           position: relative;
           z-index: 1;
         }
+        /* The copy keeps the 310 px measure of every design (the wide layouts' column at 744), centred. */
+        &>:is(h2, h3, p) {
+          max-inline-size: calc(310rem / 16);
+          margin-inline: auto;
+        }
       }
       &>h2 {
         margin-block: calc(18rem / 16) 0;
@@ -632,17 +637,14 @@ h1 {
           max-inline-size: calc(310rem / 16 + 200 * var(--home-wide-reference-growth));
           margin-block-start: calc(12rem / 16 + 6 * var(--home-wide-reference-growth));
           line-height: inherit;
-          &>span {
-            display: inline;
-          }
-          &>.role-start::before {
-            display: block;
-            content: "";
-          }
         }
       }
+      /* Project type and role are two items, each wrapping on its own. */
       &>.role {
         margin-block-start: calc(12rem / 16);
+        &>span {
+          display: block;
+        }
         line-height: calc(19rem / 16);
         @media(width>=40rem) {
           margin-block-start: var(--home-wide-role-margin, calc(12rem / 16 + 6 * var(--home-wide-reference-growth)));
@@ -1636,7 +1638,6 @@ h1 {
     padding-block: 0;
     padding-inline: 0;
     text-align: center;
-    text-wrap: balance;
     &>* {
       margin-inline: 13% 21%;
       line-height: round(nearest, 1.6em, 1px);
@@ -1658,8 +1659,6 @@ h1 {
     aspect-ratio: 486 / 346;
     max-inline-size: calc(322rem / 16 + 164 * var(--home-wide-reference-growth));
     text-align: start;
-    /* Plain wrapping, as the designs break it; Safari's pretty wrapping re-breaks the whole paragraph. */
-    text-wrap: wrap;
     &>p {
       margin-block-start: 12%;
       /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
@@ -1754,7 +1753,6 @@ h1 {
     background: url("assets/scotties-positioning-note-dashed-outline.svg") border-box, var(--color-case-study-secondary)
       border-box;
     text-align: center;
-    text-wrap: balance;
   }
   & .persona {
     max-inline-size: calc(450rem / 16);
@@ -2478,9 +2476,6 @@ h1 {
             inline-size: calc(186 * var(--u));
             margin-block-start: calc(155 * var(--u));
             margin-inline-start: calc(6 * var(--u));
-            &>p>span {
-              display: inline;
-            }
             /*
               Its box ends about where its trail starts, so above 744, where the column outgrows the copy, a full
               line reached the trail (Safari: "...feel assured" 4 px from it at 900). The copy keeps 1 rem off that
@@ -2532,9 +2527,6 @@ h1 {
               inline-size: calc(278 * var(--u));
               margin-block-start: calc(253 * var(--u));
               margin-inline-start: calc(72 * var(--u));
-              &>p>span {
-                display: block;
-              }
             }
             &>article:nth-child(2) {
               inline-size: calc(271 * var(--u));
@@ -2599,12 +2591,8 @@ h1 {
             }
           }
           /* Tree order is Confidence, Belonging, Excitement. */
-          /* Only Excitement's name takes its own line, as the design's text breaks after it. */
           &>article:nth-child(3) {
             grid-row: 3;
-            &>p>span {
-              display: block;
-            }
             inline-size: calc(236 * var(--pillar-unit));
             margin-block-start: calc(40 * var(--pillar-unit));
             margin-inline-start: calc(100 * var(--pillar-unit));
@@ -2969,7 +2957,6 @@ h1 {
         margin-inline-end: auto;
         justify-content: start;
         text-align: start;
-        text-wrap: wrap;
         &>* {
           line-height: round(nearest, 2em, 1px);
         }
@@ -3028,8 +3015,6 @@ h1 {
           max-inline-size: none;
           margin: 0;
           text-align: start;
-          /* Plain wrapping: the designs end Institutional Trust on one word, which Safari's pretty avoids. */
-          text-wrap: wrap;
           &>* {
             line-height: round(nearest, 2em, 1px);
           }
@@ -6498,7 +6483,6 @@ h1 {
           &>p {
             font-size: calc(14 * 100cqi / 346.8);
             line-height: round(nearest, 22em / 14, 1px);
-            text-wrap: wrap;
           }
           /*
             Phone/Scotties in the .fig draws the desktop bolt 3.7% taller than its own shape, its lower tip 31.3% of
@@ -6577,7 +6561,6 @@ h1 {
           max-inline-size: none;
           margin-block-start: calc(95 * var(--u));
           margin-inline: calc(96 * var(--u)) 0;
-          text-wrap: wrap;
           &::before {
             inset-block-start: calc(-9 * 100cqw / 433);
           }
@@ -6669,8 +6652,7 @@ h1 {
         the Research band. The box's margin collapses with the heading's 32 px one, so it carries the whole 72.5
         (the heading's line box adds 2); the section's 64 px padding gets 66 more below. The box is 241 by 309 px
         from 36 px into the column, its copy centred on 197 px, where plain wrapping gives the drawn lines (any
-        inline padding from 10 to 24 px does). Plain, not balanced, because iOS 17.0 Safari cannot balance, and both
-        engines then agree; the lead phrase on 160 px splits at its comma (138 to 187 px all do).
+        inline padding from 10 to 24 px does); the lead phrase on 160 px splits at its comma (138 to 187 px all do).
       */
       @media(width<40rem) {
         margin-block-end: calc(66rem / 16);
@@ -6685,7 +6667,6 @@ h1 {
           margin-inline: calc(36rem / 16) 0;
           padding-block: 0;
           padding-inline: calc(17rem / 16);
-          text-wrap: wrap;
           &>p>span {
             max-inline-size: calc(160rem / 16);
             margin-inline: auto;
@@ -6744,7 +6725,6 @@ h1 {
           aspect-ratio: 550 / 447;
           margin-block-start: calc(41 * var(--u));
           margin-inline: calc(268 * var(--u)) 0;
-          text-wrap: wrap;
           /* The cloud is its own container, so these are in its 550ths. */
           --cloud-copy-top: calc(117 * 100cqw / 550);
           /* At most 24.5 em to a line: the design's longest line is 387 px of 16 px copy. */
@@ -6779,7 +6759,6 @@ h1 {
           margin-inline: calc(318 * var(--u)) 0;
           padding-block: 0;
           padding-inline: calc(56 * var(--u));
-          text-wrap: wrap;
           &>p {
             margin-block: 0;
           }
