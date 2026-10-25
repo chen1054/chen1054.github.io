@@ -119,6 +119,10 @@ under `/home/user/temp/agent/vm-sonoma.lock`.
   converted Scotties personas and Tales pillars are pixel-identical to their grid versions. The Tales Play
   bubble wraps identically on main and the branch (same width, size, insets; "non-" / "threatening" is the
   hyphen in "non-threatening").
+- Client-ask probe (`eval-invariants.js`, snapshot `58adbca`, Safari 17.5 at 390, 1440, 1920, 2400, all six
+  pages): identical to main except phone sitemap labels 14.7 px over 15 px body (main 13.72 over 14), which CF93
+  asks for. MenuMe findings bubbles 2 and 3 render about three times too tall in the 390 Safari capture
+  (`round3`) but measure 264 by 212 in Chromium: Safari probe `eval-bubbles.js` queued, unresolved.
 - `styles.css` removed from the branch (`60227f7`); `site.css` is 7,625 lines (old 8,146): base and shell 910,
   Home 241, page drawings 6,475 (Scotties 2,383, MenuMe 2,429, Tales 1,272, About and Contact 391). The drawings
   are the remaining simplification.
