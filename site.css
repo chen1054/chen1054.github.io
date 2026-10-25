@@ -568,7 +568,8 @@ img {
   }
   & #tales-for-safer-trails-project {
     --gap: 99;
-    --rise: 249;
+    /* Drawn 249: its tip met our full-measure copy ("young", "old.") from 328 to 480 in Safari; clear at 174. */
+    --rise: 174;
     --art: 409;
     @media(width>=40rem) {
       margin-block-start: calc(120rem / 16 + 124 * var(--grow));
