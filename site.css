@@ -5962,3 +5962,1277 @@ img {
     }
   }
 }
+
+/* tales: drawings ported from the old styles.css (2026-10-25) unchanged except for variable names. */
+.case-study {
+  & .spiral-notepad {
+    aspect-ratio: 486 / 346;
+    max-inline-size: calc(322rem / 16 + 164 * var(--grow));
+    text-align: start;
+    &>p {
+      margin-block-start: 12%;
+      /* Line pitch grows from 1.6 toward the design's 2 as the pad widens past its 322px phone width. */
+      line-height: round(nearest, 1.6em + 0.039 * clamp(0rem, 100cqi - 322rem / 16, 164rem / 16), 1px);
+    }
+  }
+  /*
+    The client's bubbles: a yellow fill under a purple outline, two files each. These base insets are the layers'
+    place relative to the bubble box in the earlier desktop design (box units: play 411 by 392, trust 413 by 415,
+    the box's own ratio), kept for tablet and phone, whose designs did not change; the Key Insights `width>=80rem`
+    block overrides them from the 2026OCT222006 file. The box, and the text in it, stay where they were; the fills
+    reach past the box as drawn.
+  */
+  & :is(.play-speech-bubble, .trust-speech-bubble) {
+    position: relative;
+    isolation: isolate;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+  }
+  & .play-speech-bubble {
+    aspect-ratio: 411 / 392;
+    /*
+      Phone: the client's fill narrows toward the tail, so at the shared 21% end inset "stories." ran off the yellow
+      (320 to 424 and 584 to 639 px). 23% keeps every line on the fill, balanced or plainly wrapped, and plain
+      wrapping then ends on "stories." alone, as the phone design does.
+    */
+    &>* {
+      margin-inline: 13% 23%;
+    }
+    &::before {
+      inset-block-start: calc(-15.38 / 392 * 100%);
+      inset-inline-start: calc(7.14 / 411 * 100%);
+      inline-size: calc(399.82 / 411 * 100%);
+      block-size: calc(364.49 / 392 * 100%);
+      background-image: url("assets/tales-play-insight-speech-bubble-fill.svg");
+    }
+    &::after {
+      inset-block-start: calc(5.53 / 392 * 100%);
+      inset-inline-start: calc(0.77 / 411 * 100%);
+      inline-size: calc(409.92 / 411 * 100%);
+      block-size: calc(372.57 / 392 * 100%);
+      background-image: url("assets/tales-play-insight-speech-bubble-outline.svg");
+    }
+  }
+  & .trust-speech-bubble {
+    aspect-ratio: 413 / 415;
+    &::before {
+      inset-block-start: calc(29.16 / 415 * 100%);
+      inset-inline-start: calc(57.45 / 413 * 100%);
+      inline-size: calc(362.76 / 413 * 100%);
+      block-size: calc(397.61 / 415 * 100%);
+      background-image: url("assets/tales-trust-insight-speech-bubble-fill.svg");
+    }
+    &::after {
+      inset-block-start: calc(5.61 / 415 * 100%);
+      inset-inline-start: calc(8.8 / 413 * 100%);
+      inline-size: calc(389.31 / 413 * 100%);
+      block-size: calc(409.92 / 415 * 100%);
+      background-image: url("assets/tales-trust-insight-speech-bubble-outline.svg");
+    }
+    &>* {
+      margin-inline: 23% 11%;
+    }
+  }
+  &[data-case-study="tales"] {
+    &>.content {
+      font-size: calc(15rem / 16 - var(--phone-grow) + 2 * var(--grow));
+      /* Every Tales frame sets body text at line height 2: 30, 28 and 32 px. */
+      line-height: round(nearest, 30rem / 16 - 2 * var(--phone-grow) + 4 * var(--grow), 1px);
+    }
+    /* Phone and Tablet Tales draw the Doodle pill 178.5 and 180 px wide round its 14 px label: 21 px each side. */
+    & .prototype-link {
+      padding-inline: calc(21rem / 16);
+      font-size: calc(14rem / 16 + 4 * var(--grow));
+    }
+    /*
+      Phone and Tablet Tales set the three long section titles at 22 px where the short ones keep 24; Desktop sets
+      all at 30 (fig 2319:50217, 2332:52202, 2197:8071, 2209:9268, 2410:78176). Phone wraps them in a 292 px box,
+      centred, breaking "Digital Touchpoint: OPH" from "Resource Hub & Online Tool".
+    */
+    & :is(#tales-core-solution, #tales-digital-touchpoint, #tales-campaign-and-impact)>h2 {
+      font-size: calc(22rem / 16 + 8 * var(--grow));
+      @media(width<40rem) {
+        padding-inline: calc((100% - 292rem / 16) / 2);
+      }
+    }
+    /*
+      The Tablet and Desktop designs start a subheading at the text's edge, its glyph hanging into the margin, when
+      prose follows it; over the personas every design starts it with them: 17 px into the column on phones, at the
+      photos' tape (the column's start) on tablets, and at the descriptions 53 px into it on desktops.
+    */
+    & .subsection:has(>.flex-row>.persona)>h3 {
+      text-align: start;
+      /* The glyph and its gap are 4/3 of the glyph size. */
+      margin-inline-start: calc(
+        17rem / 16 - 18 * var(--phone-grow) + 54 * var(--grow) -
+          var(--glyph-size) * 4 / 3
+      );
+    }
+    @media(width>=40rem) {
+      & h3.subheading:has(+ :is(p, ul)) {
+        text-align: start;
+        margin-inline-start: calc(var(--glyph-size) * -4 / 3);
+      }
+    }
+    /*
+      The logo as the Tales designs place it: on phones 264 px wide, centred, 58 px under the copy's box; on Tablet
+      and Desktop 466 and 657 px wide, its box 44 and 75 px under the last line of the copy before it, which both
+      set at line height 1.5; Desktop Tales sets Core Product 138 px under it.
+    */
+    & .wordmark {
+      max-inline-size: calc(264rem / 16);
+      margin-block-start: calc(58rem / 16);
+    }
+    @media(width>=40rem) {
+      & p:has(+ .wordmark) {
+        line-height: round(nearest, 1.5em, 1px);
+      }
+      & .wordmark {
+        max-inline-size: calc(466rem / 16 + 191 * var(--grow));
+        margin-block-start: calc(44rem / 16 + 31 * var(--grow));
+      }
+    }
+    @media(width>=80rem) {
+      & .wordmark+.subsection {
+        margin-block-start: calc(138rem / 16);
+      }
+    }
+    /*
+      The Doodle tablet as Phone and Tablet Tales draw its bezel, 279.5 and 371.5 px wide (measured on the exports);
+      the image is 322/310 of its bezel, so 290 and 386 px, the 386 Desktop already sets.
+    */
+    & .portrait-artwork:has(img[src*="doodle-editor"]) {
+      max-inline-size: calc(290rem / 16);
+      @media(width>=40rem) {
+        max-inline-size: calc(386rem / 16);
+      }
+    }
+    /* Patchy's card as the designs frame it: 240, 240 and 363 px, which is 249 to 376 px of this canvas. */
+    & figure:has(img[src*="tales-patchy-guardian"]) {
+      max-inline-size: calc(249rem / 16 + 127 * var(--grow));
+    }
+    /*
+      The OPH hub and the social ads, two device images each: stacked and centred on phones, side by side with their
+      bottoms aligned wider (the desktop design starts the hub at the column's edge). Widths and gaps are the
+      designs' pixels at 390, 744 and 1440 (Phone, Tablet and Desktop Tales).
+    */
+    & .device-pair {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(51rem / 16);
+      margin-block: 2rem;
+      &>figure {
+        /* Below 361 px a device keeps 20 px from each window edge instead of reaching past it. */
+        inline-size: min(var(--device-inline-size), 100vw - 40rem / 16);
+        max-inline-size: none;
+        margin: 0;
+      }
+      @media(width>=40rem) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: end;
+      }
+    }
+    & .device-pair:has(img[src*="tales-oph"]) {
+      &>:first-child {
+        --device-inline-size: calc(318rem / 16 + 70 * var(--phone-grow) + 227 * var(--grow));
+      }
+      &>:last-child {
+        --device-inline-size: calc(155rem / 16 - 36 * var(--phone-grow) + 74 * var(--grow));
+      }
+      @media(width>=40rem) {
+        column-gap: calc(36rem / 16 + 41 * var(--grow));
+      }
+      @media(width>=68.25rem) {
+        justify-content: start;
+      }
+    }
+    & .device-pair:has(img[src*="tales-social"]) {
+      &>:first-child {
+        --device-inline-size: calc(321rem / 16 - 8 * var(--phone-grow) + 115 * var(--grow));
+      }
+      &>:last-child {
+        --device-inline-size: calc(201rem / 16 - 39 * var(--phone-grow) + 58 * var(--grow));
+      }
+      @media(width>=40rem) {
+        column-gap: calc(68rem / 16 - 2 * var(--grow));
+      }
+    }
+    /*
+      The age trail on phones: Phone Tales draws it 336 px wide from the text column's start, 14 px past its end;
+      Tablet Tales draws it 610 px wide from 7 px before the column, a size it keeps, centred, in wider columns up
+      to the desktop trail. Only the desktop design prints the footnote its asterisks point to, so narrower windows
+      show it as text under the trail.
+    */
+    & figure:has(img[src*="tales-age-tier-progression"]) {
+      /*
+        The client: the footnote and the next paragraph "属于不同的部分，间距需要增加" (belong to different parts; the
+        gap must grow), on phones and tablets. Desktop Tales sets its footnote 94 px above the paragraph's glyph tops
+        at 20 px text; 56 px here gives about 76 px at the phone's 16 px text and 69 at the tablet's 14.
+      */
+      margin-block-end: calc(56rem / 16);
+      &>figcaption {
+        margin-block-start: 1rem;
+        font-size: calc(13rem / 16);
+        line-height: round(nearest, 1.5em, 1px);
+      }
+      @media(width<40rem) {
+        inline-size: calc(336rem / 16 + 336 * var(--phone-art-grow));
+        max-inline-size: none;
+        margin-inline: 0 auto;
+      }
+      @media(width>=40rem) and (width<80rem) {
+        inline-size: min(610% / 6.14, 610rem / 16);
+        max-inline-size: none;
+        margin-inline: max(-7% / 6.14, 50% - 314rem / 16) auto;
+      }
+      /*
+        Desktop Tales draws the trail 969 px wide from 64 px into the 1086 px column, 113 px under the pillars' last
+        glyph top and 100 above the paragraph's.
+      */
+      @media(width>=80rem) {
+        inline-size: calc(96900% / 1086);
+        max-inline-size: none;
+        margin-block: calc(70rem / 16) calc(99rem / 16);
+        margin-inline: calc(6400% / 1086) auto;
+        &>figcaption {
+          display: none;
+        }
+      }
+    }
+    /* The character cards on phones: Phone Tales stacks them, staggered, 240 px wide, 36 px into the column. */
+    & figure:has(img[src*="tales-milo-and-mia-character-age-studies"]) {
+      @media(width<40rem) {
+        inline-size: calc(240rem / 16 + 240 * var(--phone-art-grow));
+        max-inline-size: none;
+        margin-inline: calc(36rem / 16 + 36 * var(--phone-art-grow)) auto;
+      }
+    }
+    /*
+      The ecosystem map on phones: Phone Tales stacks its two chains 320 px wide from the text column's start.
+      Tablet Tales draws it 522 px wide from 2 px before the column, a size it keeps, centred, in wider columns up to
+      the desktop map.
+    */
+    & figure:has(img[src*="tales-school-poster-and-social"]) {
+      @media(width<40rem) {
+        inline-size: calc(320rem / 16 + 320 * var(--phone-art-grow));
+        max-inline-size: none;
+        margin-inline: 0 auto;
+      }
+      @media(width>=40rem) and (width<80rem) {
+        inline-size: min(522% / 6.14, 522rem / 16);
+        max-inline-size: none;
+        margin-inline: max(-2% / 6.14, 50% - 309rem / 16) auto;
+      }
+    }
+    /* The poster as the designs draw it: 321, 338 and 397 px wide, centred. */
+    & figure:has(img[src*="tales-one-page-poster-campaign"]) {
+      max-inline-size: calc(
+        321rem / 16 + 17 * var(--phone-grow) + 59 * var(--grow)
+      );
+    }
+    /*
+      The metrics chart on phones: Phone Tales sets it 340 px wide, 4 px left of the text column. Tablet Tales draws
+      it 538 px wide from 53 px into the column, a size it keeps in wider columns up to the desktop chart, its pie
+      8 px past the column's centre.
+    */
+    & figure:has(img[src*="tales-campaign-performance-metrics"]) {
+      @media(width<40rem) {
+        inline-size: calc(340rem / 16 + 340 * var(--phone-art-grow));
+        max-inline-size: none;
+        margin-inline: calc(-4rem / 16) auto;
+      }
+      @media(width>=40rem) and (width<80rem) {
+        inline-size: min(538% / 6.14, 538rem / 16);
+        max-inline-size: none;
+        margin-inline: max(53% / 6.14, 50% - 254rem / 16) auto;
+      }
+    }
+    /* Every Tales design hangs the one-pager and channel lists about 22 px in, the items without gaps. */
+    /*
+      Key Insights on phones, as Phone Tales draws them on its 322 px column (outlines measured on the export: Play
+      295.5 px wide from the column start, Trust 278 px from 27.5 px in): boxes of 296.28 and 294.92 px, Trust 21.22
+      px in. The copy is one size, title bold, left-aligned at line height 2, its top 40.5 and 87.5 px under each
+      box's top and its start 64.1 and 69.8 px in (fig nodes 2313:49628, 2319:49860). Play's measure stops short of
+      "stories." so that word does not run into the tail's notch, as the design breaks it; Trust's (200 px of the
+      drawn 206.5) breaks after "must", as drawn, where the full box let "align" reach the outline. Play starts 24
+      px lower than the row and Trust ends 85 px above the next band, as drawn. Trust's fill starts 7.5 px further
+      out than the base inset, where the phone export draws it, so its white gap by the tail clears the last line.
+      Past 390 px the pair keeps the design's 322 px column, centred: the copy then scales only with its bubble and
+      keeps the 390 lines at every phone width (with a 1em cap and a wider bubble it re-wrapped into the notch).
+    */
+    @media(width<40rem) {
+      & .flex-row:has(>.play-speech-bubble) {
+        max-inline-size: calc(322rem / 16);
+        margin-inline: auto;
+      }
+      & :is(.play-speech-bubble, .trust-speech-bubble) {
+        /* Their own widths, not the row's grow-to-fill basis, and placed from the start, not centred. */
+        flex: none;
+        margin-inline-end: auto;
+        justify-content: start;
+        text-align: start;
+        &>* {
+          line-height: round(nearest, 2em, 1px);
+        }
+        &>p {
+          margin-block-start: 0;
+        }
+      }
+      & .play-speech-bubble {
+        inline-size: calc(29628% / 322);
+        margin-block-start: calc(24rem / 16);
+        &>* {
+          margin-inline: calc(6410% / 296.28) calc(3220% / 296.28);
+        }
+        &>:is(h4, p) {
+          font-size: min(1em, calc(14 * 100cqi / 296.28));
+        }
+        &>h4 {
+          margin-block-start: calc(40.5 * 100cqi / 296.28);
+        }
+      }
+      & .trust-speech-bubble {
+        inline-size: calc(29492% / 322);
+        margin-inline-start: calc(2122% / 322);
+        margin-block-end: calc(21rem / 16);
+        &>* {
+          margin-inline: calc(6980% / 294.92) calc(2512% / 294.92);
+        }
+        &>:is(h4, p) {
+          font-size: min(1em, calc(14 * 100cqi / 294.92));
+        }
+        &>h4 {
+          margin-block-start: calc(87.5 * 100cqi / 294.92);
+        }
+        &::before {
+          inset-inline-start: calc(46.6 / 413 * 100%);
+        }
+      }
+    }
+    /*
+      Key Insights: both wide designs overlap the two bubbles, Play first and Trust lower and to the end, their text
+      left-aligned at line height 2. Tablet (on its 614 px column): Play 325 px wide at the column start, Trust 333
+      px from 281 px in, 260 px lower; desktop (on 1086 px): 403 and 399 px wide at 83 and 595 px, 145 px apart.
+    */
+    @media(width>=40rem) {
+      & .flex-row:has(>.play-speech-bubble) {
+        --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+        --u: calc(100cqw / 614);
+        container-type: inline-size;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        &>.note {
+          grid-area: 1 / 1;
+          align-self: start;
+          justify-self: start;
+          max-inline-size: none;
+          margin: 0;
+          text-align: start;
+          &>* {
+            line-height: round(nearest, 2em, 1px);
+          }
+          &>p {
+            margin-block-start: 0;
+          }
+        }
+        /*
+          The copy scales against each bubble's own width at 744 (325 and 333 px), not the phone's 322, so below
+          744 it shrinks exactly with the bubble and keeps the 744 lines (it gained a fifth line that crossed the
+          fill from 640 to 736); from 744 up the 1em caps apply as before. Tablet only: desktop keeps the phone
+          reference, which sets its 1280 lines. Tablet Tales sets the title in the copy's size, bold (fig nodes
+          2197:7938, 2197:8067); only Desktop Tales sets it 2 px larger.
+        */
+        &>.play-speech-bubble {
+          inline-size: calc(325 * var(--u));
+          margin-block-start: calc(52 * var(--u));
+          &>* {
+            margin-inline: 13% 9%;
+          }
+          @media(width<80rem) {
+            &>:is(h4, p) {
+              font-size: min(1em, calc(14 * 100cqi / 325));
+            }
+          }
+        }
+        &>.trust-speech-bubble {
+          inline-size: calc(333 * var(--u));
+          margin-block-start: calc(312 * var(--u));
+          margin-inline-start: calc(281 * var(--u));
+          &>* {
+            margin-inline: 20% 11%;
+          }
+          @media(width<80rem) {
+            &>:is(h4, p) {
+              font-size: min(1em, calc(14 * 100cqi / 333));
+            }
+          }
+        }
+        /*
+          Desktop Tales: the copy on 254 and 247 px measures (it wraps as drawn from 241 to 267.5 and 236.5 to
+          256.5 px), the next band 140 px under the second bubble's fill. The 2026OCT222006 .fig redraws the two
+          bubbles as vectors (Group 239398 and 239399): each layer below sits where that file draws it relative to
+          its title (true curve bounds through the group matrices, `fig-222006/tales/bubble-boxes.py`), in the
+          box's own units (play 411 by 392, trust 413 by 415). The text did not move; the outlines now sit 67 and
+          106.5 px above the titles.
+        */
+        @media(width>=80rem) {
+          --u: calc(100cqw / 1086);
+          &>.play-speech-bubble {
+            inline-size: calc(403 * var(--u));
+            margin-block-start: calc(17 * var(--u));
+            margin-inline-start: calc(83 * var(--u));
+            padding-block-end: calc(20 * var(--u));
+            &>* {
+              margin-inline: 16% 21%;
+            }
+            &::before {
+              inset-block-start: calc(-6.39 / 392 * 100%);
+              inset-inline-start: calc(-1.04 / 411 * 100%);
+              inline-size: calc(403.8 / 411 * 100%);
+              block-size: calc(367.86 / 392 * 100%);
+            }
+            &::after {
+              inset-block-start: calc(17.16 / 392 * 100%);
+              inset-inline-start: calc(-9.05 / 411 * 100%);
+              inline-size: calc(414.05 / 411 * 100%);
+              block-size: calc(375.78 / 392 * 100%);
+            }
+          }
+          &>.trust-speech-bubble {
+            inline-size: calc(399 * var(--u));
+            margin-block: calc(146 * var(--u)) calc(21 * var(--u));
+            margin-inline-start: calc(595 * var(--u));
+            padding-block-start: calc(6 * var(--u));
+            &>* {
+              margin-inline: 26% 12%;
+            }
+            &::before {
+              inset-block-start: calc(15.31 / 415 * 100%);
+              inset-inline-start: calc(37.9 / 413 * 100%);
+              inline-size: calc(366.25 / 413 * 100%);
+              block-size: calc(401.33 / 415 * 100%);
+            }
+            &::after {
+              inset-block-start: calc(-1.12 / 415 * 100%);
+              inset-inline-start: calc(-6.44 / 413 * 100%);
+              inline-size: calc(390.46 / 413 * 100%);
+              block-size: calc(411.57 / 415 * 100%);
+            }
+          }
+        }
+      }
+    }
+    & ul.paragraph {
+      padding-inline-start: calc(22rem / 16);
+    }
+    & .project-summary>p>strong {
+      font-weight: 800;
+      @media(width<40rem) {
+        display: block;
+      }
+    }
+    &>.content>.project-divider,
+    &>.content>.section>h2 {
+      border-block-color: transparent;
+      background-image: url("assets/tales-section-band-gold-dash-row.svg");
+      background-origin: border-box;
+      background-position: center calc(7rem / 16 + 5 * var(--grow));
+      background-repeat: repeat-x;
+      background-size: calc(24rem / 16 + 36 * var(--grow)) calc(5rem / 16 + 5 * var(--grow));
+    }
+    &>.content>.project-divider {
+      background-position-y: center;
+    }
+    & :where(h3.subheading),
+    & [data-glyph] {
+      --glyph: url("assets/tales-subheading-two-leaf-glyph.svg");
+      --glyph-size: calc(24rem / 16 + 11 * var(--grow));
+    }
+    /*
+      The designs draw every leaf 21.75 px tall at 390 and 744, and Desktop Tales its heading leaves 26.5 px, all
+      with a 3 px stroke; the drawing keeps that stroke as it grows.
+    */
+    & [data-glyph="leaf"] {
+      --glyph: url("assets/tales-subheading-single-leaf-glyph.svg");
+      --glyph-size: calc(21.87rem / 16 + 5.56 * var(--grow));
+    }
+    /* Desktop Tales draws the persona leaves 29 px tall. */
+    & .persona>h4[data-glyph] {
+      --glyph-size: calc(21.87rem / 16 + 8.47 * var(--grow));
+    }
+    & [data-glyph="sprout"] {
+      --glyph: url("assets/tales-subheading-sprout-glyph.svg");
+      --glyph-size: calc(21rem / 16 + 3 * var(--grow));
+    }
+    /*
+      Every design draws The Challenge with a filled leaf whose vein tapers inside it, 19 px at 390 and 744 and 27 on
+      Desktop; Desktop draws the channel labels with it too. The path is the designs' own.
+    */
+    & [data-glyph="veined-leaf"] {
+      --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
+      --glyph-size: calc(19rem / 16 + 8 * var(--grow));
+    }
+    /*
+      The channel labels: body size on phones (15 in Phone Tales), 16 over the 14 px body in Tablet Tales and the
+      16 of the body on Desktop (exports of 2026-10-23).
+    */
+    & p[data-glyph] {
+      --glyph-size: calc(21.87rem / 16);
+      @media(width>=40rem) {
+        font-size: max(1em, calc(16rem / 16));
+      }
+      @media(width>=80rem) {
+        --glyph: url("assets/tales-subheading-veined-leaf-glyph.svg");
+        --glyph-size: calc(18rem / 16);
+      }
+    }
+    & :is(h3.subheading, [data-glyph])::before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      inline-size: var(--glyph-size);
+      block-size: var(--glyph-size);
+      margin-block: calc((1lh - var(--glyph-size)) / 2);
+      margin-inline-end: calc(var(--glyph-size) / 3);
+      background: var(--glyph) center / contain no-repeat;
+    }
+    & .persona>h4 {
+      color: var(--color-case-study-accent);
+    }
+    /* Equal column tops: the shorter persona's copy no longer drops to centre against the taller one. */
+    & .flex-row:has(>.persona) {
+      align-items: start;
+    }
+    /*
+      Phone Tales sets each persona's photo 280 px wide, centred on its 322 px column, 74 px under the heading's top
+      and 43 under the copy before it; the name 15 px under the photo on a 32 px line, the copy straight after it,
+      both 40 px into the column and ending under the photo's edge (fig 2309:49311, 2309:49314, 2309:49325).
+    */
+    @media(width<40rem) {
+      & .persona {
+        &>figure {
+          max-inline-size: calc(280rem / 16);
+          margin-block: calc(12rem / 16) calc(15rem / 16);
+        }
+        &>:is(h4, p) {
+          margin-block: 0;
+          margin-inline: calc(40rem / 16) calc(21rem / 16);
+        }
+        &>h4 {
+          line-height: round(nearest, 2em, 1px);
+        }
+      }
+    }
+    /*
+      Tablet and Desktop Tales centre the two personas, 280 and 423 px wide and 54 and 183 px apart, and set each
+      name and description from the photo's frame (19 and 22 px in from its tape), the descriptions 240 and 372 px
+      wide. They leave 40 and 19 px from the heading's line to the photos, 22 and 30 to the names, none to the
+      descriptions, and 72 and 120 from those to the band. Below 744 px the pair keeps the tablet's proportions of
+      its 614 px column.
+    */
+    @media(width>=40rem) {
+      & .flex-row:has(>.persona) {
+        justify-content: center;
+        gap: calc(min(54% / 6.14, 54rem / 16) + 129 * var(--grow));
+        &>.persona {
+          flex: 0 0 calc(min(280% / 6.14, 280rem / 16) + 143 * var(--grow));
+          max-inline-size: none;
+          &>figure {
+            max-inline-size: none;
+            margin-block: calc(8rem / 16 - 21 * var(--grow))
+              calc(22rem / 16 + 8 * var(--grow));
+          }
+          &>:is(h4, p) {
+            margin-block: 0;
+            margin-inline: calc(13.1rem / 16 + 2.1%) 0;
+          }
+          &>p {
+            margin-block-end: calc(8rem / 16 - 8 * var(--grow));
+            margin-inline-end: calc(5.3rem / 16 + 5.6%);
+          }
+        }
+      }
+    }
+    /*
+      The pillar icons at the designs' sizes: Desktop Tales draws them at their own 157, 204 and 164 px, Phone and
+      Tablet at 0.73 of that. Titles centre over left-aligned copy in every design.
+    */
+    & .story-pillars {
+      &>* {
+        text-align: start;
+        &>h4 {
+          text-align: center;
+        }
+      }
+      &>:nth-child(1) {
+        --pillar-icon: 157;
+      }
+      &>:nth-child(2) {
+        --pillar-icon: 204;
+      }
+      &>:nth-child(3) {
+        --pillar-icon: 164;
+      }
+      & .small-illustration {
+        --pillar-scale: calc(0.73rem / 16 + 0.27 * var(--grow));
+        inline-size: calc(var(--pillar-icon) * var(--pillar-scale));
+        max-inline-size: none;
+        margin-inline: auto;
+        /*
+          From the width where two pillars share a row: equal boxes as tall as the tallest icon, the icons centred
+          in them as the desktop design centres them, keep the titles on one line.
+        */
+        @media(width>=26.25rem) {
+          display: grid;
+          align-content: center;
+          block-size: calc(154 * var(--pillar-scale));
+        }
+      }
+      /*
+        Tablet Tales sets the first pillar alone, centred and 292 px wide, over the other two in columns 64 px apart
+        across the 614 px column; the third pillar's copy wraps at 256 px. From ink to ink: intro to
+        icon 78, icon to title 32 (30 in the second row), title to copy 31, copy to the second row's icons 49.
+      */
+      @media(width>=40rem) and (width<80rem) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 calc(64% / 6.14);
+        & .small-illustration {
+          margin-block: calc(20rem / 16) calc(14rem / 16);
+        }
+        & h4 {
+          margin-block: 0;
+        }
+        & p {
+          margin-block: calc(3rem / 16) calc(16rem / 16);
+        }
+        &>:nth-child(1) {
+          grid-column: 1 / -1;
+          justify-self: center;
+          inline-size: calc(292% / 6.14);
+          &>.small-illustration {
+            margin-block: calc(54rem / 16) calc(23rem / 16);
+          }
+        }
+        &>:nth-child(3)>p {
+          margin-inline-end: calc(20% / 2.75);
+        }
+      }
+      /*
+        Desktop Tales starts the pillars' copy 53, 421 and 783 px into the 1086 px column, centres each icon and
+        title 135, 124 and 124 px past that, and runs the copy on 304.5, 282 and 259 px measures (inside the 303 to
+        306, 263.5 to 300.5 and 243.5 to 274.5 px windows where it wraps as drawn), so the copy overhangs its box.
+        Icon centres 218 px under the intro's glyph top, titles 111 under them, copy 37 under the titles.
+      */
+      @media(width>=80rem) {
+        display: grid;
+        grid-template-columns:
+          calc(5300% / 1086) calc(27000% / 1086) calc(9800% / 1086) calc(24800% / 1086) calc(11400% / 1086)
+          calc(24800% / 1086);
+        justify-content: start;
+        gap: 0;
+        margin-block-start: calc(79rem / 16);
+        &>* {
+          grid-column: 2;
+          /* The title's margin collapses into the icon's. */
+          &>.small-illustration {
+            margin-block-end: calc(28rem / 16);
+          }
+          &>p {
+            margin-block-start: calc(-11rem / 16);
+            margin-inline-end: calc(-34.5rem / 16);
+          }
+        }
+        &>:nth-child(2) {
+          grid-column: 4;
+          &>p {
+            margin-inline-end: calc(-34rem / 16);
+          }
+        }
+        &>:nth-child(3) {
+          grid-column: 6;
+          &>p {
+            margin-inline-end: calc(-11rem / 16);
+          }
+        }
+      }
+      /* Stacked, the Phone design's gaps from ink to ink: icon to title 31, title to copy 32, copy to icon 47. */
+      @media(width<26.25rem) {
+        row-gap: 0;
+        & .small-illustration {
+          margin-block: calc(22rem / 16) calc(19rem / 16);
+        }
+        & h4 {
+          margin-block: 0 calc(2rem / 16);
+        }
+        & p {
+          margin-block-start: 0;
+        }
+      }
+    }
+    /*
+      The quote wraps to the design's text box: 320 px on Phone Tales (five lines, "conversations as a routine /
+      part of daily parenting for"), 608 px on Tablet Tales ("... daily parenting for / children").
+    */
+    & :where(#tales-how-might-we)>h2 {
+      --quote-measure: calc(320rem / 16);
+      padding-inline: max(1rem, calc((100% - var(--quote-measure)) / 2));
+      line-height: round(nearest, 48rem / 16 + 12 * var(--grow), 1px);
+      /* 1066 px at 1440 breaks before "of daily", as Desktop Tales does (1050.5 to 1082.5 px in our face). */
+      @media(width>=40rem) {
+        --quote-measure: calc(608rem / 16 + 458 * var(--grow));
+      }
+    }
+    /*
+      The Challenge: every design puts the heading over the notepad, the worried figure first. Phones stack figure,
+      heading and pad; wider, the figure stands left of the heading and pad. Lengths are the designs' pixels at 390,
+      744 and 1440 (Phone, Tablet and Desktop Tales), measured to the figure's drawing, which the designs frame in a
+      larger square.
+    */
+    & .flex-row:has(>.spiral-notepad) {
+      display: grid;
+      justify-content: center;
+      justify-items: center;
+      gap: 0;
+      &>figure {
+        inline-size: calc(142rem / 16 + 94 * var(--grow));
+        max-inline-size: none;
+        margin: 0;
+      }
+      /* The glyph hangs into the margin, so the heading's text starts where the design's does. */
+      &>h3 {
+        justify-self: start;
+        margin-block: calc(32rem / 16) 0;
+        margin-inline: calc(-17rem / 16) 0;
+      }
+      &>.spiral-notepad {
+        justify-self: start;
+        /* Below 374 px the pad shrinks whole, copy included, to keep 20 px from each window edge. */
+        inline-size: min(
+          334rem / 16 + 11 * var(--phone-grow) + 161 * var(--grow),
+          100vw - 40rem / 16
+        );
+        max-inline-size: none;
+        margin-block-start: calc(21rem / 16 + 12 * var(--phone-grow) + 6 * var(--grow));
+        margin-inline-start: calc(-13rem / 16);
+      }
+      @media(width>=40rem) {
+        grid-template-columns: auto auto;
+        justify-content: start;
+        align-items: start;
+        column-gap: calc(40rem / 16 + 6 * var(--grow));
+        margin-inline-start: calc(34rem / 16 - 10 * var(--grow));
+        &>figure {
+          grid-area: 1 / 1 / 3;
+        }
+        &>h3 {
+          grid-area: 1 / 2;
+          margin-block-start: calc(14rem / 16 + 51 * var(--grow));
+          margin-inline-start: calc(4rem / 16 + 1 * var(--grow));
+        }
+        /*
+          The pad's last 24 px of growth (height 346/486 of it) draw past the box: the copy, not the pad, sets the gap.
+          Tablet Tales in the .fig draws the outline 345 px wide inside a 360.6 px group with the yellow backing, as
+          desktop does at 478 of 504; the pad is the group, so its outline is 345 here, not 328.
+        */
+        &>.spiral-notepad {
+          grid-area: 2 / 2;
+          inline-size: calc((334rem / 16 + 11 * var(--phone-grow)) * 360.6 / 345 + 145.4 * var(--grow));
+          margin-block-end: calc(-24 * 346 / 486 * var(--grow));
+          margin-inline-start: 0;
+        }
+      }
+    }
+    /*
+      Desktop Tales sets text 42 px under a heading's glyph top, and a paragraph after a list on the list's line
+      pitch.
+    */
+    @media(width>=80rem) {
+      /* Its text in line with the copy, 53 px into the 1086 px column, the icon hanging before it. */
+      & :is(.section-content, .subsection)>h3:has(+ :is(p, ul)) {
+        margin-block-end: calc(6rem / 16);
+        margin-inline-start: calc(5300% / 1086 - var(--glyph-size) * 4 / 3);
+      }
+      & .subsection>ul:has(+ p) {
+        margin-block-end: 0;
+        &+p {
+          margin-block-start: 0;
+        }
+      }
+    }
+    /* Desktop Tales: the figure 60 px under the band, and Dual-Persona Framing 236 under the pad's last glyph top. */
+    & .section-content:has(>.flex-row>.spiral-notepad) {
+      @media(width>=80rem) {
+        padding-block-start: calc(59rem / 16);
+        &>.subsection {
+          margin-block-start: calc(144rem / 16);
+        }
+      }
+    }
+    & .spiral-notepad {
+      background-image:
+        url("assets/tales-challenge-spiral-notepad-background.svg"),
+        linear-gradient(var(--color-case-study-note), var(--color-case-study-note));
+      background-position: 0 0, 100% 100%;
+      background-repeat: no-repeat;
+      background-size: 95.1% 95%, 94.3% 86.5%;
+      /* Keep the copy inside the outline, which is now 5 percent smaller on the right and bottom. */
+      padding-block-end: 7%;
+      &>* {
+        margin-inline: 11%;
+      }
+      /*
+        Tablet and Desktop Tales start the copy an eighth of the pad in at line height 2, its lines breaking where a
+        290 and a 353 px measure break them (279 to 316 and 347 to 359 px fit the drawn breaks). Its first line
+        starts 58.6 and 87.3 px down the 360.6 and 506 px pads; the copy stays at the tablet's 14 px per 360.6 px of
+        pad, so it keeps those breaks inside the outline where the body text is still a little larger, just past 640.
+      */
+      @media(width>=40rem) {
+        --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+        justify-content: start;
+        padding-block-end: 0;
+        &>p {
+          margin-block-start: calc(19.74% - 12.6rem / 16);
+          font-size: min(1em, calc(14 * 100cqi / 360.6));
+        }
+        &>* {
+          margin-inline: 12.5% calc(25.6rem / 16 + 64 * var(--grow));
+          line-height: round(nearest, 2em, 1px);
+        }
+      }
+    }
+    /*
+      Phone Tales draws each story's spread and its note 350 px wide at 390, 14 px past the text column on each side,
+      the note 20 px under the spread; the note's copy comes back to the column, 15 px in.
+    */
+    @media(width<40rem) {
+      & .subsection:has(>.note) {
+        &>:is(figure, .note) {
+          margin-inline: calc(-14rem / 16);
+        }
+        &>figure {
+          margin-block-end: calc(20rem / 16);
+        }
+      }
+    }
+    & .subsection>.note {
+      /*
+        Every Tales design runs the curriculum notes line after line, with no gap between items. Phone insets the copy
+        16 px at the top, 15 at the sides and 22 at the bottom (the padding plus the transparent 1 px border), the
+        story line 12 px above the notes; Tablet and Desktop pad it 21 and 16 px at the top, 19 and 31 at the sides,
+        and 27 and 20 at the bottom, the story line 33 and 3 px above the notes.
+      */
+      padding-block: calc(15rem / 16) calc(21rem / 16);
+      padding-inline: calc(14rem / 16);
+      border-color: transparent;
+      border-radius: 0;
+      background-color: color-mix(in srgb, var(--color-case-study-note) 80%, transparent);
+      & :is(p, ul, li) {
+        margin-block: 0;
+      }
+      &>p:first-of-type {
+        margin-block-end: calc(12rem / 16);
+      }
+      &>p:first-of-type~:is(p, ul) {
+        color: var(--color-case-study-accent);
+      }
+      @media(width>=40rem) {
+        padding-block: calc(21rem / 16 - 5 * var(--grow))
+          calc(27rem / 16 - 7 * var(--grow));
+        padding-inline: calc(19rem / 16 + 12 * var(--grow));
+        &>p:first-of-type {
+          margin-block-end: calc(33rem / 16 - 30 * var(--grow));
+        }
+      }
+    }
+    /*
+      Desktop Tales opens the Digital Touchpoint and Campaign sections with one line of copy 124 px under the band
+      and 5 px into the 1086 px column, at line height 1.5 like the channel lists after it, whose labels sit 38 px
+      under the line before them with their icons hanging; the next heading's glyph 86 px under the last line. The
+      OPH devices start 47 px in, 57 under the copy; the Doodle Editor 120 under them, its copy 85 px in and 45
+      under the heading, the tablet 386 px wide and 64 under it, the demo link 44 under that and 135 above the next
+      band.
+    */
+    @media(width>=80rem) {
+      & :where(#tales-digital-touchpoint, #tales-campaign-and-impact)>.section-content {
+        &>:is(p, ul) {
+          margin-block: 0;
+          line-height: round(nearest, 1.5em, 1px);
+        }
+        &>p:first-child {
+          margin-block-start: calc(3rem / 16);
+          margin-inline: calc(500% / 1086) 0;
+        }
+        &>p[data-glyph] {
+          margin-block-start: calc(14rem / 16);
+          margin-inline-start: calc(5300% / 1086 - 27rem / 16);
+        }
+        &>:is(p, ul)+.subsection {
+          margin-block-start: calc(62rem / 16);
+        }
+      }
+      & .subsection>p+.device-pair:not(:has(img[src*="tales-social"])) {
+        margin-block-start: calc(57rem / 16);
+        margin-inline-start: calc(4700% / 1086);
+      }
+      & .subsection:has(>.device-pair)+.subsection:has(>.portrait-artwork) {
+        margin-block-start: calc(120rem / 16);
+        &>h3 {
+          margin-block-end: calc(9rem / 16);
+        }
+        &>p {
+          margin-inline: calc(8500% / 1086) calc(2500% / 1086);
+        }
+        &>.portrait-artwork {
+          max-inline-size: calc(386rem / 16);
+          margin-block-start: calc(64rem / 16);
+        }
+        &>.prototype-link {
+          margin-block: calc(44rem / 16) calc(21rem / 16);
+        }
+      }
+    }
+    /*
+      Desktop Tales draws the campaign's figures at their own sizes and spaces them by hand: the ecosystem map 766
+      px wide from 113 px into the 1086 px column and 37 under its heading; Poster 114 under the map, its poster 39
+      under the heading; Social Media Ads 90 under the poster, the two ads 39 under the heading with their tops
+      aligned, from 179 px in; Performance Metrics 121 under them, the chart 949 px wide from 100 px in and 37
+      under the heading; Potential for Impact 119 under the chart.
+    */
+    @media(width>=80rem) {
+      & .subsection:is(
+        :has(img[src*="tales-school-poster-and-social"]),
+        :has(img[src*="tales-one-page-poster-campaign"]),
+        :has(img[src*="tales-social"]),
+        :has(img[src*="tales-campaign-performance-metrics"])
+      )>h3 {
+        margin-block-end: 0;
+      }
+      & figure:has(img[src*="tales-school-poster-and-social"]) {
+        inline-size: calc(76600% / 1086);
+        max-inline-size: none;
+        margin-block-start: calc(37rem / 16);
+        margin-inline: calc(11300% / 1086) auto;
+      }
+      & .subsection:has(img[src*="tales-one-page-poster-campaign"]) {
+        margin-block-start: calc(114rem / 16);
+        &>figure {
+          margin-block-start: calc(39rem / 16);
+        }
+      }
+      & .subsection:has(img[src*="tales-social"]) {
+        margin-block-start: calc(90rem / 16);
+        &>.device-pair {
+          align-items: start;
+          justify-content: start;
+          margin-block-start: calc(39rem / 16);
+          margin-inline-start: calc(17900% / 1086);
+        }
+      }
+      & .subsection:has(img[src*="tales-campaign-performance-metrics"]) {
+        margin-block-start: calc(121rem / 16);
+        &>figure {
+          inline-size: calc(94900% / 1086);
+          max-inline-size: none;
+          margin-block-start: calc(37rem / 16);
+          margin-inline: calc(10000% / 1086) auto;
+        }
+        &+.subsection {
+          margin-block-start: calc(119rem / 16);
+        }
+      }
+      /*
+        The closing quote on an 880 px measure, centred (it wraps as drawn from 852 to 923 px), its lines 36 px
+        apart and 138 px under the impact copy.
+      */
+      & .closing-reflection {
+        margin-block-start: calc(89rem / 16);
+        padding-inline: calc(10300% / 1086);
+        &>p {
+          line-height: round(nearest, 2em, 1px);
+        }
+      }
+    }
+    /*
+      Desktop Tales spaces the characters and stories by hand: Main Characters 78 px under the One-Pager copy, its
+      cards 37 under the heading and 1002 px wide from 67 px into the 1086 px column; Guardian 89 under them, Patchy
+      23 under its heading; then each story 119 or 71 px under what comes before, its spread 39 under the heading,
+      and its note, as wide as the spread, 20 under it; the last note 130 above the next band.
+    */
+    @media(width>=80rem) {
+      & .subsection:has(img[src*="milo-and-mia-character"]) {
+        margin-block-start: calc(78rem / 16);
+        &>h3 {
+          margin-block-end: 0;
+        }
+        &>figure {
+          inline-size: calc(100200% / 1086);
+          max-inline-size: none;
+          margin-block-start: calc(37rem / 16);
+          margin-inline: calc(6700% / 1086) auto;
+        }
+      }
+      & .subsection:has(img[src*="patchy-guardian"]) {
+        margin-block-start: calc(89rem / 16);
+        &>h3 {
+          margin-block-end: 0;
+        }
+        &>figure {
+          margin-block-start: calc(23rem / 16);
+        }
+      }
+      & .subsection:has(>.note) {
+        margin-block-start: calc(71rem / 16);
+        &>h3 {
+          margin-block-end: 0;
+        }
+        &>figure {
+          margin-block: calc(39rem / 16) calc(20rem / 16);
+          margin-inline: calc(5500% / 1086) calc(5100% / 1086);
+        }
+        &>.note {
+          margin-inline: calc(5500% / 1086) calc(5100% / 1086);
+        }
+        &:last-child {
+          margin-block-end: calc(10rem / 16);
+        }
+      }
+      & .subsection:has(img[src*="patchy-guardian"])+.subsection {
+        margin-block-start: calc(119rem / 16);
+      }
+    }
+    & .impact-cards {
+      --tip: calc(24rem / 16 + 10 * var(--grow));
+      --stem: calc(24rem / 16 + 11 * var(--grow));
+      /* The designs' rings measure 56, 54.5 and 80 px across at 390, 744 and 1440. */
+      --ring: calc(
+        56rem / 16 - 1.5 * var(--phone-grow) + 25.5 * var(--grow)
+      );
+      --mid: calc((100% - var(--tip)) / 2);
+      /*
+        One strip of overlapping chevrons, each earlier one drawn over the next, as wide as the designs draw it (350,
+        671 and 980 px at 390, 744 and 1440): two per row on phones overlapping by 0.196 of a chevron, four in a row
+        wider by 0.15. Each chevron is the strip's width over (count - overlaps), each overlap pulled back by a
+        negative margin; the copy starts about 11 px before the overlap ends. On phones the rings centre on the whole
+        chevron, as Phone Tales places them.
+      */
+      /* Below 390 px the strip keeps the 20 px it leaves at each window edge there, instead of running off-screen. */
+      --strip: min(
+        350rem / 16 + 321 * var(--phone-grow) + 309 * var(--grow),
+        100vw - 40rem / 16
+      );
+      /*
+        Two chevrons fill a phone row exactly, and sub-pixel rounding could push the second onto its own row; a
+        quarter pixel less keeps both on it.
+      */
+      --chevron: calc(var(--strip) / 1.804 - 1px / 4);
+      --overlap: calc(var(--strip) * 0.196 / 1.804);
+      --mid: 50%;
+      counter-reset: impact;
+      align-items: flex-start;
+      column-gap: 0;
+      box-sizing: border-box;
+      inline-size: var(--strip);
+      margin-inline: calc((100% - var(--strip)) / 2);
+      /*
+        Below 390 and from 640 to 744 the strip narrows with the screen while its words kept their size, so glued
+        line ends ran past their columns: "Community Reach" under the first chevron's tip at 320, "institutional
+        resources." to within a few px of the screen edge (Safari 17.5). There the titles and copy narrow with the
+        strip, per design px of its 350 (phone) or 671 (tablet), so each card keeps its 390 or 744 line breaks.
+      */
+      @media(width<40rem) {
+        --card-shrink: min(0rem, (100vw - 390rem / 16) / 350);
+      }
+      @media(40rem<=width<46.5rem) {
+        --card-shrink: calc((100vw - 744rem / 16) * 321 / 354 / 671);
+      }
+      @media(width>=40rem) {
+        --chevron: calc(var(--strip) / 3.55);
+        --overlap: calc(var(--strip) * 0.15 / 3.55);
+        --mid: calc((100% - var(--tip)) / 2);
+        /* The four chevrons fill the strip exactly, so sub-pixel rounding could otherwise wrap the last one. */
+        flex-wrap: nowrap;
+      }
+      &>* {
+        position: relative;
+        flex: 0 0 var(--chevron);
+        counter-increment: impact;
+        /* The designs set this copy at line height 1.5, against the page's 2. */
+        &>p {
+          padding-inline: calc(15rem / 16 - 15 * var(--phone-grow)) var(--tip);
+          font-size: calc(1em + 16 * var(--card-shrink, 0rem));
+          line-height: round(nearest, 1.5em, 1px);
+        }
+        /* Tablet Tales wraps every card's copy at about 148 px, the first card's too. */
+        @media(width>=40rem) and (width<80rem) {
+          &:first-child>p {
+            padding-inline-end: calc(var(--tip) + 17rem / 16 - 17 * var(--grow));
+          }
+        }
+        &:nth-child(1) {
+          z-index: 4;
+        }
+        &:nth-child(2) {
+          z-index: 3;
+        }
+        &:nth-child(3) {
+          z-index: 2;
+        }
+        &:nth-child(4) {
+          z-index: 1;
+        }
+        /* Every chevron after the first in its row: two per row on phones, four wider. */
+        &:nth-child(even) {
+          --title-start: var(--overlap);
+          margin-inline-start: calc(-1 * var(--overlap));
+          &>p {
+            padding-inline-start: calc(var(--overlap) - 11rem / 16);
+          }
+        }
+        @media(width>=40rem) {
+          &:nth-child(3) {
+            --title-start: var(--overlap);
+            margin-inline-start: calc(-1 * var(--overlap));
+            &>p {
+              padding-inline-start: calc(var(--overlap) - 11rem / 16);
+            }
+          }
+        }
+        &:nth-child(1) {
+          --c: var(--color-case-study-accent);
+        }
+        &:nth-child(2) {
+          --c: var(--color-case-study-secondary);
+        }
+        &:nth-child(3) {
+          --c: #6682dd;
+        }
+        &:nth-child(4) {
+          --c: var(--color-case-study-note);
+        }
+        &:nth-child(odd) {
+          --on: #fff;
+          --num: var(--c);
+        }
+        &:nth-child(even) {
+          --on: #263238;
+          --num: var(--on);
+        }
+        &::before {
+          content: counter(impact, decimal-leading-zero);
+          display: block;
+          box-sizing: border-box;
+          inline-size: var(--ring);
+          block-size: var(--ring);
+          margin-inline-start: calc(var(--mid) - var(--ring) / 2);
+          border: calc(3rem / 16) solid var(--c);
+          border-radius: 50%;
+          color: var(--num);
+          font-size: calc(var(--ring) * 0.45);
+          line-height: round(nearest, var(--ring) - 6rem / 16, 1px);
+          text-align: center;
+        }
+        &>h4 {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          min-block-size: calc(var(--stem) + 72rem / 16);
+          /* Phone Tales draws the band 73.5 px tall, which still holds a title's three lines. */
+          @media(width<40rem) {
+            min-block-size: calc(var(--stem) + 74rem / 16);
+          }
+          margin-block-start: 0;
+          padding-block-start: var(--stem);
+          /* Clear of the earlier chevron's tip over this one, and of this one's tip; Figma's line height 1.5. */
+          padding-inline: var(--title-start, calc(16rem / 16)) calc(var(--tip) + 4rem / 16);
+          line-height: round(nearest, 1.5em, 1px);
+          font-size: calc(14rem / 16 + 2 * var(--grow) + 14 * var(--card-shrink, 0rem));
+          background-color: var(--c);
+          color: var(--on);
+          text-align: center;
+          clip-path: polygon(
+            calc(var(--mid) - 1.5rem / 16) 0,
+            calc(var(--mid) + 1.5rem / 16) 0,
+            calc(var(--mid) + 1.5rem / 16) var(--stem),
+            calc(100% - var(--tip)) var(--stem),
+            100% calc((100% + var(--stem)) / 2),
+            calc(100% - var(--tip)) 100%,
+            0 100%,
+            0 var(--stem),
+            calc(var(--mid) - 1.5rem / 16) var(--stem)
+          );
+        }
+      }
+      /*
+        Desktop Tales overlaps its four 276.5 px chevrons by 32.5, 39.5 and 54.5 px, centres the rings 120, 123,
+        138 and 145 px into them on 34 px stems over 69 px title bands, centres the titles 121, 140, 142 and 155 px
+        in and 5 px below the band's middle, and starts the copy 0, 27, 36 and 59 px in on 244, 210, 218 and 217.5
+        px measures at line height 2 (inside the windows where each wraps as drawn: 226.5 to 263, 199 to 222, 209.5
+        to 226.5 and 215.5 to 227 px), its first glyph 29 px under the band; the strip 2 px right of centre.
+        Lengths are in the strip's 980ths, so they narrow with it.
+      */
+      @media(width>=80rem) {
+        --u980: calc(var(--strip) / 980);
+        --chevron: calc(276.5 * var(--u980));
+        --stem: calc(34 * var(--u980));
+        margin-inline-start: calc((100% - var(--strip)) / 2 + 2 * var(--u980));
+        &>* {
+          &>h4 {
+            min-block-size: calc(var(--stem) + 69 * var(--u980));
+            padding-block-start: calc(var(--stem) + 10 * var(--u980));
+            padding-inline-end: calc(var(--tip) + 4rem / 16);
+          }
+        }
+        &>:nth-child(1) {
+          --mid: calc(120 * var(--u980));
+          --title-start: calc(3.5 * var(--u980));
+        }
+        &>:nth-child(2) {
+          --mid: calc(123 * var(--u980));
+          --title-start: calc(41.5 * var(--u980));
+          margin-inline-start: calc(-32.5 * var(--u980));
+        }
+        &>:nth-child(3) {
+          --mid: calc(138 * var(--u980));
+          --title-start: calc(45.5 * var(--u980));
+          margin-inline-start: calc(-39.5 * var(--u980));
+        }
+        /* The last title runs into the tip, as drawn, so it fits one line. */
+        &>:nth-child(4) {
+          --mid: calc(145 * var(--u980));
+          --title-start: calc(63.5 * var(--u980));
+          margin-inline-start: calc(-54.5 * var(--u980));
+          &>h4 {
+            padding-inline-end: calc(30 * var(--u980));
+          }
+        }
+        &>:nth-child(n)>p {
+          margin-block-start: calc(24rem / 16);
+          line-height: round(nearest, 2em, 1px);
+        }
+        &>:nth-child(1)>p {
+          padding-inline: 0 calc(32.5 * var(--u980));
+        }
+        &>:nth-child(2)>p {
+          padding-inline: calc(27 * var(--u980)) calc(39.5 * var(--u980));
+        }
+        &>:nth-child(3)>p {
+          padding-inline: calc(36 * var(--u980)) calc(22.5 * var(--u980));
+        }
+        &>:nth-child(4)>p {
+          padding-inline: calc(59 * var(--u980)) 0;
+        }
+      }
+    }
+  }
+}
