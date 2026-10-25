@@ -3490,3 +3490,2475 @@ img {
     }
   }
 }
+
+/* menume: drawings ported from the old styles.css (2026-10-25) unchanged except for variable names. */
+.case-study {
+  &[data-case-study="menume"] .flex-row:has(>aside):not(:has(>figure)) {
+    align-items: stretch;
+  }
+  &[data-case-study="menume"] {
+    &>.content>.project-divider {
+      background-color: transparent;
+      border-width: 0;
+    }
+    /* Phone MenuMe draws its one-line band 91 px, the squiggle clear below the text; tablet 86, desktop 146. */
+    &>.content>.section>h2 {
+      position: relative;
+      border-width: 0;
+      padding-block:
+        calc(26rem / 16 + 27 * var(--grow))
+        calc(31rem / 16 - 5 * var(--phone-grow) + 27 * var(--grow));
+      &::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+      }
+    }
+  }
+  &[data-case-study="menume"] {
+    /*
+      Tablet/MenuMe.pdf sets its subheadings 41 to 43 px (baseline to baseline) above the text under them, 8 more
+      than the shared spacing measured on Scotties; the persona introduction sits 61 under its heading, and the
+      Problem introduction (16 px text) 42.
+    */
+    @media(40rem<=width<80rem) {
+      & h3.subheading:has(+ :is(p, ul, ol)) {
+        margin-block-end: 1rem;
+        &:has(+ p + .alternating-personas) {
+          margin-block-end: calc(35rem / 16);
+        }
+        &:has(+ p + .flex-row>article) {
+          margin-block-end: calc(13rem / 16);
+        }
+      }
+      /*
+        The design-system section, by ink at 744: the first heading 180 px under the band, the token list run on
+        from its introduction at the same 28 px pitch, the moodboard 48 under the list and 81 above the next
+        heading, the devices 77 under the delivery list, the buttons 32 under the devices and 16 apart, and 78
+        from the buttons to the next band.
+      */
+      & #menume-design-system>.section-content {
+        padding-block-start: calc(74rem / 16);
+        &>p:has(+ ul) {
+          margin-block-end: 0;
+        }
+        &>p + ul {
+          margin-block-start: 0;
+        }
+        &>.zoomable-artwork {
+          margin-block-start: calc(41rem / 16);
+        }
+        &>.subsection {
+          margin-block-start: calc(72rem / 16);
+        }
+        & .device-showcase {
+          row-gap: calc(26rem / 16);
+          margin-block: calc(35rem / 16) calc(18rem / 16);
+          &>.flex-row {
+            gap: 1rem;
+          }
+        }
+      }
+    }
+    /*
+      Desktop MenuMe: 227 px from the band's glyph top to the first heading's, the token list run on as above, the
+      devices 89 under the delivery list's last glyph top, and 120 from the buttons to the next band.
+    */
+    @media(width>=80rem) {
+      & #menume-design-system>.section-content {
+        padding-block-start: calc(132rem / 16);
+        &>p:has(+ ul) {
+          margin-block-end: 0;
+        }
+        &>p + ul {
+          margin-block-start: 0;
+        }
+        & .device-showcase {
+          margin-block: calc(62rem / 16) 0;
+        }
+      }
+    }
+    /*
+      The delivery list's two bold lead-ins and the contribution card titles: body size on phones and tablets, 18
+      over the 16 px body on Desktop (exports of 2026-10-23; Desktop's "Audience Research & Journey Mapping" alone
+      at 16 beside three titles at 18 is read as a slip).
+    */
+    & #menume-design-system ol.paragraph>li>strong,
+    & :where(#menume-contributions) .contribution-cards>aside>p:first-child {
+      font-size: calc(1em + 2 * var(--grow));
+    }
+    /* The phone and tablet designs stack the two prototype buttons, 13 px apart; the desktop sets them in a row. */
+    @container(width<64rem) {
+      & .content>header>.project-summary>.flex-row {
+        flex-direction: column;
+        align-items: center;
+        gap: calc(13rem / 16);
+        &>* {
+          flex: none;
+        }
+      }
+    }
+    --menume-honey: #f7d781;
+    --menume-drip: calc(48rem / 16 + 24 * var(--grow));
+    --menume-disc: calc(56rem / 16 + 34 * var(--grow));
+    --menume-arrow: calc(30rem / 16 + 50 * var(--grow));
+    &>.content>.project-divider {
+      block-size: calc(26rem / 16 + 23 * var(--grow));
+      @media(width<80rem) {
+        margin-block-start: calc(35rem / 16 + 148 * var(--grow));
+      }
+      background-image: url("assets/menume-gold-squiggle-one-period.svg");
+      background-size: calc(291rem / 16 + 216 * var(--grow)) 100%;
+    }
+    &>.content>.section {
+      &>h2::after {
+        inset-block-end: calc(3rem / 16 + 3 * var(--grow));
+        block-size: calc(26rem / 16 + 7 * var(--grow));
+        background-image: url("assets/menume-gold-squiggle-one-period.svg");
+        background-size: calc(291rem / 16 + 96 * var(--grow)) 100%;
+      }
+      &>.section-content {
+        &>h3:not(.menume-inspiration-quote),
+        &>.subsection>h3 {
+          &::before {
+            content: "";
+            display: inline-block;
+            inline-size: calc(26rem / 16 + 14 * var(--grow));
+            block-size: calc(24rem / 16 + 13 * var(--grow));
+            margin-block: -1em;
+            margin-inline-end: calc(8rem / 16 + 4 * var(--grow));
+            vertical-align: middle;
+            background: url("assets/menume-orange-steaming-bowl-glyph.svg") center / contain no-repeat;
+          }
+        }
+      }
+      &:where(#menume-overview)>.section-content {
+        &>.menume-inspiration-quote {
+          --menume-drip-color: var(--menume-honey);
+          position: relative;
+          box-sizing: border-box;
+          --menume-disc: calc(57.7rem / 16 + 10.5 * var(--phone-grow) + 45.2 * var(--grow));
+          inline-size: min(calc(100% - var(--menume-disc) / 2), calc(291.5rem / 16 + 53.3 * var(--phone-grow) + 227.2 * var(--grow)));
+          margin-block-end: calc(90rem / 16 - 1.6 * var(--phone-grow) + 46.1 * var(--grow));
+          margin-inline-start: calc(58 * var(--grow));
+          padding-block: calc(23rem / 16 + 5.5 * var(--phone-grow) + 24 * var(--grow));
+          padding-inline: 1rem calc(var(--menume-disc) / 2);
+          border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
+          background-color: var(--menume-honey);
+          color: #000;
+          font-family: "Abril Fatface", serif;
+          font-size: calc(18rem / 16 + 2 * var(--phone-grow) + 8 * var(--grow));
+          font-weight: 400;
+          line-height: round(nearest, 2em, 1px);
+          text-align: center;
+          /*
+            Desktop/MenuMe.pdf: the box 94 px under the paragraph's glyph top, its line's glyph top 71 px into it and
+            centred 270 px in, and the story card 163 px above the next heading's glyph top.
+          */
+          @media(width>=80rem) {
+            margin-block-start: calc(67rem / 16);
+            padding-block: calc(61.5rem / 16) calc(43.5rem / 16);
+            padding-inline-start: 2rem;
+            &+aside {
+              margin-block-end: calc(158rem / 16);
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(var(--menume-disc) * 0.13);
+            inset-inline-end: calc(var(--menume-disc) / -2);
+            inline-size: var(--menume-disc);
+            block-size: var(--menume-disc);
+            background: url("assets/menume-teal-question-mark-disc.svg") center / contain no-repeat;
+            filter: drop-shadow(0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%));
+          }
+        }
+        /*
+          The story box, as all three designs draw it: offset toward the column's end under the quote, a thin honey
+          border with a soft honey shadow 6 px down, the orange squiggle from the quote's drip over its top corner,
+          the pot inside its bottom corner, and an orange brush stroke over that corner (the Phone, Tablet and Desktop MenuMe.pdf).
+        */
+        &>aside {
+          --menume-story-inset: calc(35.5rem / 16 + 121 * var(--phone-grow) + 187 * var(--grow));
+          --menume-pot-size: calc(44rem / 16 + 10 * var(--phone-grow) + 10.8 * var(--grow));
+          --menume-pot-end: calc(37.5rem / 16 - 10.7 * var(--phone-grow) + 15.8 * var(--grow));
+          position: relative;
+          box-sizing: border-box;
+          /* Never past the column's end, so the brush stroke over its corner stays on narrow phones' screens. */
+          inline-size: min(100% - var(--menume-story-inset), calc(265rem / 16 + 167.3 * var(--phone-grow) + 187.7 * var(--grow)));
+          margin-inline-start: var(--menume-story-inset);
+          padding-block: calc(21rem / 16 + 11 * var(--phone-grow) - 2 * var(--grow)) calc(44rem / 16 - 8 * var(--phone-grow) - 11 * var(--grow));
+          padding-inline: calc(18.9rem / 16 + 14 * var(--phone-grow) + 20 * var(--grow)) calc(20.1rem / 16 + 19.4 * var(--phone-grow) + 11.6 * var(--grow));
+          border-color: var(--menume-honey);
+          border-width: calc(1.5rem / 16);
+          border-radius: 0;
+          box-shadow: 0 calc(6rem / 16) calc(4rem / 16) var(--menume-honey);
+          &>p {
+            margin-block: 0;
+            /*
+              Phones: the pot sits beside the copy's last line only, so that line alone leaves the pot's room: a
+              blank box as wide as the pot after the last word. When the last word and the box don't fit together,
+              the box takes a line of its own and the pot sits under the copy.
+            */
+            @media(width<40rem) {
+              &::after {
+                content: "";
+                display: inline-block;
+                inline-size: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16 - 20.1rem / 16);
+              }
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              inset-block-end: calc(-41rem / 16 + 11.5 * var(--phone-grow) - 39.8 * var(--grow));
+              inset-inline-end: calc(-28.5rem / 16 - 1.9 * var(--phone-grow) - 46 * var(--grow));
+              inline-size: calc(79.8rem / 16 - 5.7 * var(--phone-grow) + 77.6 * var(--grow));
+              block-size: calc(73.5rem / 16 + 3.3 * var(--phone-grow) + 42.5 * var(--grow));
+              background: url("assets/menume-inspiration-orange-brush-stroke.svg") center / 100% 100% no-repeat;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: calc(-61.6rem / 16 - 1.2 * var(--phone-grow) - 36 * var(--grow));
+            inset-inline-start: calc(-2.3rem / 16 - 12.6 * var(--phone-grow) - 45 * var(--grow));
+            inline-size: calc(55.7rem / 16 + 4.7 * var(--phone-grow) + 34.8 * var(--grow));
+            aspect-ratio: 557 / 843;
+            background: url("assets/menume-inspiration-orange-squiggle.svg") center / contain no-repeat;
+          }
+          /*
+            Wider screens draw the pot beside the copy's last two lines; wrapping freely ran them into it, so the
+            copy wraps in a gutter as wide as the pot. On phones that gutter leaves too narrow a column (the
+            paragraph's own rule keeps only its last line clear there).
+          */
+          @media(width>=40rem) {
+            padding-inline-end: calc(var(--menume-pot-end) + var(--menume-pot-size) + 10rem / 16);
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            inset-block-end: calc(18.8rem / 16 + 4.7 * var(--phone-grow) - 6.9 * var(--grow));
+            inset-inline-end: var(--menume-pot-end);
+            inline-size: var(--menume-pot-size);
+            aspect-ratio: 1;
+            background: url("assets/menume-teal-cooking-pot-icon.svg") center / contain no-repeat;
+          }
+        }
+        &>.subsection>h3:nth-of-type(2)::before {
+          content: none;
+        }
+        &>.subsection .flex-row>aside {
+          --menume-drip-color: var(--color-case-study-heading);
+          --menume-box-border: calc(3rem / 16);
+          position: relative;
+          margin-block-end: calc(var(--menume-drip) * 0.75);
+          border-color: var(--color-case-study-heading);
+          border-width: var(--menume-box-border);
+          border-radius: 0;
+          &>h4 {
+            color: var(--color-case-study-accent);
+          }
+          /*
+            The phone design centres each heading above a 225 px box (Phone/MenuMe.pdf): the border moves to a
+            pseudo-element around the text's row, and the drip still hangs from the box.
+          */
+          @media(width<40rem) {
+            --menume-box-border: 0px;
+            --dual-loop-unit: calc(1rem / 16 + var(--phone-art-grow));
+            --menume-drip: calc(34 * var(--dual-loop-unit));
+            display: grid;
+            isolation: isolate;
+            flex: none;
+            inline-size: calc(225 * var(--dual-loop-unit));
+            margin-block-end: calc(33 * var(--dual-loop-unit));
+            margin-inline: auto;
+            padding: 0;
+            border-width: 0;
+            &::before {
+              content: "";
+              z-index: -1;
+              grid-area: 2 / 1;
+              border: calc(3rem / 16) solid var(--color-case-study-heading);
+            }
+            /* A grid row of its own: Safari placed the absolutely positioned drip 8 px narrower than the box. */
+            &::after {
+              position: static;
+              grid-area: 3 / 1;
+              margin-block-start: calc(var(--menume-drip) / -4);
+            }
+            /* The design breaks before the parenthesis. */
+            &>h4 {
+              grid-area: 1 / 1;
+              margin-block: 0 calc(10 * var(--dual-loop-unit));
+              text-align: center;
+              &>span {
+                display: block;
+              }
+            }
+            &>p {
+              grid-area: 2 / 1;
+              margin-block: 0;
+              padding-block: calc(22 * var(--dual-loop-unit));
+              padding-inline: calc(16 * var(--dual-loop-unit));
+            }
+          }
+        }
+        /*
+          The bulb's two base bars (y 3262 to 3280 in Desktop/MenuMe.pdf, drawn in all three designs) add 26/216 of
+          its width below the old artwork; the phone gap to the label gives that back. Phone MenuMe draws the bulb
+          75 px wide, so the 216-unit drawing is 145 px there.
+        */
+        &>.subsection>.small-illustration:has(img[src*="dual-loop"]) {
+          @media(width<40rem) {
+            max-inline-size: calc(145rem / 16);
+            /* 27.5 px from the bulb's base bar to the label's glyph top, as drawn. */
+            margin-block-end: calc(35.5rem / 16 - 145rem / 16 * 26 / 216);
+            /*
+              The client: "灯泡需要居中" (the bulb needs centring), as Phone/MenuMe.pdf centres it with its squiggle
+              off to the right. The bulb's middle is 46 of the drawing's 216 units in, so the drawing moves 62.
+            */
+            translate: calc(100% * 62 / 216) 0;
+          }
+        }
+        /*
+          The phone design breaks the framework heading before "Culinary Framework" and sets it at 16 px on 32 px
+          lines (fig 2365:68709).
+        */
+        &>.subsection:has(>.small-illustration img[src*="dual-loop"])>h3:nth-of-type(2) {
+          @media(width<40rem) {
+            font-size: calc(16rem / 16);
+            line-height: round(nearest, 2em, 1px);
+          }
+        }
+        &>.subsection>h3>span {
+          @media(width<40rem) {
+            display: block;
+          }
+        }
+        /*
+          Tablet MenuMe sets the dual loop three across on its 614 px column: each loop's two-line title centred
+          over a 225 and a 229 px box at the column's edges, the bulb (144 px, its squiggle reaching over the second
+          title) and the two-line framework label between them, the label 35 px under the bulb and the titles 84 px
+          under its top, and 81 px from the drips to the next band. Each box's copy starts 25 px in and 16 px down, at line height 2, over a 34 px drip, and
+          wraps at the drawn breaks (186.5 px fits the first box's 183.5 to 189.6 px window in our face).
+          Desktop MenuMe keeps the arrangement on its 1086 px column with its own numbers (in `@media(width>=80rem)`).
+        */
+        @media(width>=40rem) {
+          &>.subsection:has(>.small-illustration img[src*="dual-loop"]) {
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            --u: calc(100cqw / 614);
+            container-type: inline-size;
+            &>.small-illustration {
+              inline-size: calc(144 * var(--u));
+              max-inline-size: none;
+              margin-block-end: 0;
+              margin-inline: calc(276 * var(--u)) auto;
+            }
+            &>h3:nth-of-type(2) {
+              margin-block: calc((35 - 144 * 26 / 216) * var(--u)) 0;
+              font-size: calc(16 * var(--u));
+              line-height: round(nearest, 2em, 1px);
+              &>span {
+                display: block;
+              }
+            }
+            &>.flex-row:last-child {
+              display: grid;
+              grid-template-columns: calc(225 * var(--u)) 1fr calc(229 * var(--u));
+              gap: 0;
+              margin-block: calc(-147 * var(--u)) calc(17 * var(--u));
+              &>aside {
+                --menume-box-border: 0px;
+                --menume-drip: calc(34 * var(--u));
+                display: grid;
+                /* Equal boxes where the copy wraps into unequal lines. */
+                grid-template-rows: auto 1fr auto;
+                isolation: isolate;
+                margin: 0;
+                padding: 0;
+                border-width: 0;
+                &:last-child {
+                  grid-column: 3;
+                }
+                &::before {
+                  content: "";
+                  z-index: -1;
+                  grid-area: 2 / 1;
+                  border: calc(3rem / 16) solid var(--color-case-study-heading);
+                }
+                &::after {
+                  position: static;
+                  grid-area: 3 / 1;
+                  margin-block-start: calc(var(--menume-drip) / -4);
+                }
+                &>h4 {
+                  grid-area: 1 / 1;
+                  margin-block: 0 calc(7 * var(--u));
+                  font-size: calc(16 * var(--u));
+                  line-height: round(nearest, 1.5em, 1px);
+                  text-align: center;
+                  &>span {
+                    display: block;
+                  }
+                }
+                &>p {
+                  grid-area: 2 / 1;
+                  margin-block: 0;
+                  padding-block: calc(16 * var(--u)) calc(19 * var(--u));
+                  padding-inline: calc(25 * var(--u)) calc(13.5 * var(--u));
+                }
+              }
+            }
+            /*
+              Desktop/MenuMe.pdf: a 301 and a 358 px box from 106 and 677 px into the column, each titled on one
+              line 3 px in from its edge, the bulb (exported from this design, 216 px) 495 px in, its 18 px label
+              at line height 2 centred 534 px in (under the bulb, not its squiggle), and 121 px from the drips to the
+              next band.
+            */
+            @media(width>=80rem) {
+              --u: calc(100cqw / 1086);
+              /* 46 px from the last problem line's glyph top to the bulb's top. */
+              &>.small-illustration {
+                inline-size: calc(216 * var(--u));
+                margin-block-start: calc(3 * var(--u));
+                margin-inline: calc(495 * var(--u)) auto;
+              }
+              &>h3:nth-of-type(2) {
+                inline-size: calc(216 * var(--u));
+                /* 18 px from the bulb's base to the label's glyph top. */
+                margin-block-start: calc(11 * var(--u));
+                margin-inline-start: calc(426 * var(--u));
+                font-size: calc(18 * var(--u));
+              }
+              &>.flex-row:last-child {
+                grid-template-columns: calc(301 * var(--u)) 1fr calc(358 * var(--u));
+                margin-block: calc(-134 * var(--u)) calc(11 * var(--u));
+                margin-inline: calc(106 * var(--u)) calc(51 * var(--u));
+                &>aside {
+                  --menume-drip: calc(45 * var(--u));
+                  &>h4 {
+                    margin-block-end: calc(9 * var(--u));
+                    padding-inline-start: calc(3 * var(--u));
+                    font-size: calc(18 * var(--u));
+                    text-align: start;
+                    &>span {
+                      display: inline;
+                    }
+                  }
+                  &>p {
+                    padding-block: calc(15 * var(--u)) calc(24 * var(--u));
+                    padding-inline: calc(30 * var(--u));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &:where(#menume-research)>.section-content {
+        /*
+          The findings, as all three designs draw them: the designer's hand-drawn bubble (263.5 by 211.6 px, 295.6
+          wide on desktop) with a looping tail, exported from Phone/MenuMe.pdf and tinted by mask, a 70 px number
+          disc (79 on desktop); one column on phones, one over two on tablets, three in a row on desktops.
+        */
+        &>.flex-row {
+          --bubble-inline: calc(263.5rem / 16 + 32.1 * var(--grow));
+          --menume-disc: calc(70.3rem / 16 + 8.7 * var(--grow));
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: calc(119rem / 16 + 3.5 * var(--phone-grow) - 3.6 * var(--grow)) calc(42.4rem / 16 + 5 * var(--grow));
+          margin-block: calc(var(--menume-disc) / 2 + 2rem) calc(56rem / 16 + 2rem);
+          /* Desktop MenuMe: 146 px from the tails to the persona heading's glyph top. */
+          @media(width>=80rem) {
+            margin-block-end: calc(177rem / 16);
+          }
+          @media(width<40rem) {
+            flex-direction: column;
+            align-items: center;
+          }
+          @media(40rem<=width<68.25rem) {
+            &>:first-child {
+              margin-inline: calc((100% - var(--bubble-inline)) / 2);
+            }
+          }
+        }
+        &>.flex-row>aside {
+          position: relative;
+          box-sizing: border-box;
+          flex: none;
+          inline-size: min(100%, var(--bubble-inline));
+          aspect-ratio: 2635 / 2116;
+          margin: 0;
+          padding-block: calc(35rem / 16 + 4 * var(--grow)) calc(36rem / 16 + 2 * var(--grow));
+          padding-inline: calc(27rem / 16 + 3.3 * var(--grow)) calc(14.5rem / 16 - 2.2 * var(--grow));
+          border-width: 0;
+          border-radius: 0;
+          &>p {
+            margin-block: 0;
+          }
+          @media(width>=68.25rem) {
+            inline-size: min(var(--bubble-inline), (100% - 2 * (42.4rem / 16 + 5 * var(--grow))) / 3);
+          }
+          /*
+            The bubble, body and tail, as one closed outline (the client: "Why isn't this one shape?"). It was an
+            outline mask and a separate tail mask: they met only while the box kept the drawing's proportions, and
+            a larger reader font (the client's iPhone set the text a line longer) made the box taller, so the
+            outline kept its shape while the tail moved down and the joins broke. This drawing stretches with the
+            box instead (`preserveAspectRatio="none"`), the tail 243.64 units deep below the body's 211.6.
+          */
+          &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline: 0;
+            block-size: calc(100% * 243.64 / 211.6);
+            background-color: var(--menume-tint);
+            mask: url("assets/menume-finding-bubble.svg") 0 0 / 100% 100% no-repeat;
+          }
+          &:nth-child(1) {
+            --menume-tint: var(--menume-honey);
+          }
+          &:nth-child(2) {
+            --menume-tint: var(--color-case-study-accent);
+          }
+          &:nth-child(3) {
+            --menume-tint: var(--color-case-study-heading);
+          }
+          &>.menume-finding-number {
+            position: absolute;
+            inset-block-start: calc(var(--menume-disc) / -2);
+            inset-inline-end: 13.5%;
+            z-index: 1;
+            inline-size: var(--menume-disc);
+            margin-block: 0;
+            border-radius: 50%;
+            background-color: var(--menume-tint);
+            box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
+            color: var(--color-page-background);
+            /* Every design draws the digits 30.6 px tall: Inter's are 0.7275 em. */
+            font-family: "Inter", sans-serif;
+            font-size: calc(42rem / 16);
+            font-weight: 500;
+            line-height: round(nearest, var(--menume-disc), 1px);
+            text-align: center;
+          }
+        }
+        &>.subsection .alternating-personas {
+          isolation: isolate;
+          @media(width>=40rem) {
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            --u: calc(100cqw / 614);
+            container-type: inline-size;
+          }
+          /* Desktop MenuMe: 182 px from the last photo's foot to the next band's glyph top. */
+          @media(width>=80rem) {
+            --u: calc(100cqw / 1086);
+            max-inline-size: none;
+            /* A percentage, not --u: this element is the container, so cqw here would read the viewport. */
+            margin-block-end: calc(1000% / 1086);
+          }
+          &>.flex-row {
+            position: relative;
+            &::before,
+            &:not(:last-child)::after {
+              position: absolute;
+              z-index: -1;
+              background: center / 100% 100% no-repeat;
+            }
+            &:not(:last-child)::after {
+              content: "";
+              inset-block-start: 62%;
+              inset-inline-start: 6%;
+              inline-size: 62%;
+              aspect-ratio: 491 / 320;
+              background-image: url("assets/menume-gold-persona-scribble.svg");
+            }
+            &:nth-child(even)::after {
+              scale: -1 1;
+              inset-inline: auto 6%;
+            }
+            &>article {
+              &>h4 {
+                inline-size: fit-content;
+                min-inline-size: calc(120rem / 16 + 48 * var(--grow));
+                padding-block: calc(8rem / 16 + 4 * var(--grow));
+                padding-inline: calc(24rem / 16);
+                font-size: calc(18rem / 16 + 6 * var(--grow));
+                text-align: center;
+                color: var(--color-case-study-accent);
+                position: relative;
+                isolation: isolate;
+                /*
+                  The designs draw the brush as wide as the plate, at its own proportions, centred on the name
+                  (MenuMe in the .fig: 108.6 by 34.6 under Alicia and 119.5 by 37.3 under Matthew on phones, 167.9
+                  by 53.6 under Alicia on desktops). As the plate's background it kept its proportions inside the
+                  box and shrank to the box's height, leaving "Matthew" past both ends; drawn behind the name it
+                  can stand taller than the box without moving anything.
+                */
+                &::before {
+                  content: "";
+                  position: absolute;
+                  z-index: -1;
+                  inset-block-start: 50%;
+                  inset-inline: 0;
+                  aspect-ratio: 1019 / 333;
+                  translate: 0 -50%;
+                  background: url("assets/menume-yellow-brush-name-plate.svg") center / 100% 100% no-repeat;
+                }
+              }
+              &>p:first-of-type {
+                color: var(--color-case-study-accent);
+                font-size: calc(1rem + 2 * var(--grow));
+                font-weight: 700;
+                /* The phone and tablet designs break the longest role before its second part; the desktop does not. */
+                &>span {
+                  @media(width>=80rem) {
+                    display: inline;
+                  }
+                }
+              }
+            }
+            /*
+              The phone design: half-width photos on alternating sides, each text block beside the open side, and
+              the scribble in four pieces (vectors from Phone/MenuMe.pdf) running down that side from photo to photo.
+              Lengths are the design's pixels at 390.
+            */
+            @media(width<40rem) {
+              --persona-unit: calc(1rem / 16 + var(--phone-art-grow));
+              --persona-photo-block-size: calc(190 * 748 / 586 * var(--persona-unit));
+              display: block;
+              &>figure {
+                inline-size: calc(190 * var(--persona-unit));
+                margin-inline: 0;
+              }
+              &>article {
+                /*
+                  The scribble keeps the 97 px lane it has beside the text at 390; below 390 the drawing shrinks but
+                  the body text does not, so the lane stays 97 px and the text narrows.
+                */
+                max-inline-size: min(225 * var(--persona-unit), 100% - 97rem / 16);
+                margin-block-start: calc(29 * var(--persona-unit));
+                &>* {
+                  margin-block: 0;
+                }
+                /* Ink gaps from the design (13 and 18), less the subtitle's and body's half-leading. */
+                /* The design's plates: 108 wide for the short names, just past the column edge. */
+                &>h4 {
+                  min-inline-size: calc(54 * var(--persona-unit));
+                  margin-block-end: calc(7 * var(--persona-unit));
+                  margin-inline-start: calc(-5 * var(--persona-unit));
+                  padding-inline: calc(27 * var(--persona-unit));
+                  line-height: round(nearest, 19 * var(--persona-unit), 1px);
+                }
+                /* Below 390 the subtitle shrinks with the photos and scribble, so it stays clear of the loops. */
+                &>p:first-of-type {
+                  margin-block-end: calc(5 * var(--persona-unit));
+                  font-size: min(1rem, 16 * var(--persona-unit));
+                }
+              }
+              &:nth-child(even) {
+                &>figure,
+                &>article {
+                  margin-inline-start: auto;
+                }
+                &>article {
+                  text-align: end;
+                  &>h4 {
+                    margin-inline: auto calc(-3 * var(--persona-unit));
+                  }
+                }
+              }
+              &:first-child::before {
+                content: "";
+                inset-block-start: calc(-8.5 * var(--persona-unit));
+                inset-inline-end: calc(-9.5 * var(--persona-unit));
+                inline-size: calc(298.7 * var(--persona-unit));
+                aspect-ratio: 298.7 / 249.9;
+                background-image: url("assets/menume-phone-persona-scribble-lead-in.svg");
+              }
+              &:first-child::after {
+                inset-block: calc(var(--persona-photo-block-size) - 49 * var(--persona-unit))
+                  calc(-3rem - 44.7 * var(--persona-unit));
+                inset-inline: auto calc(5.1 * var(--persona-unit));
+                inline-size: calc(176.1 * var(--persona-unit));
+                aspect-ratio: auto;
+                background-image: url("assets/menume-phone-persona-scribble-first-to-second.svg");
+              }
+              &:nth-child(2)::after {
+                inset-block: calc(var(--persona-photo-block-size) - 58.9 * var(--persona-unit))
+                  calc(-3rem - 27.1 * var(--persona-unit));
+                inset-inline: calc(3.3 * var(--persona-unit)) auto;
+                inline-size: calc(201.5 * var(--persona-unit));
+                aspect-ratio: auto;
+                scale: none;
+                background-image: url("assets/menume-phone-persona-scribble-second-to-third.svg");
+              }
+              &:last-child::before {
+                content: "";
+                inset-block-start: calc(20.7 * var(--persona-unit));
+                inset-inline-end: calc(-6.8 * var(--persona-unit));
+                inline-size: calc(307.6 * var(--persona-unit));
+                aspect-ratio: 307.6 / 242.8;
+                background-image: url("assets/menume-phone-persona-scribble-trail-out.svg");
+              }
+            }
+            /*
+              The tablet design: 190 px photos on alternating sides at 62, 386 and 72 px into its 614 px column,
+              each text block beside the open side (235, 236 and 280 px wide, the second set to its end) 60, 63 and
+              70 px under the photo's top, the rows 46 and 63 px apart, and its own four scribble pieces (vectors
+              from Tablet/MenuMe.pdf) running from photo to photo. The plates are the phone's 108 by 35 px.
+            */
+            @media(width>=40rem) and (width<80rem) {
+              /* From the row's own start, which the even rows reverse. */
+              justify-content: flex-start;
+              align-items: start;
+              gap: 0;
+              margin-block-start: calc(46 * var(--u));
+              &:first-child {
+                margin-block-start: calc(22 * var(--u));
+              }
+              &:last-child {
+                margin-block-start: calc(63 * var(--u));
+              }
+              &>figure {
+                flex: none;
+                inline-size: calc(190 * var(--u));
+                max-inline-size: none;
+                margin: 0 0 0 calc(62 * var(--u));
+              }
+              &>article {
+                flex: none;
+                inline-size: calc(235 * var(--u));
+                margin-block-start: calc(60 * var(--u));
+                margin-inline-start: calc(54 * var(--u));
+                &>* {
+                  margin-block: 0;
+                }
+                &>h4 {
+                  min-inline-size: calc(54rem / 16);
+                  margin-block-end: calc(7rem / 16);
+                  margin-inline-start: calc(-13 * var(--u));
+                  padding-block: calc(8rem / 16);
+                  padding-inline: calc(27rem / 16);
+                  font-size: calc(18rem / 16);
+                  line-height: calc(19rem / 16);
+                }
+                &>p:first-of-type {
+                  margin-block-end: calc(6rem / 16);
+                  font-size: 1rem;
+                  line-height: round(nearest, 1.5em, 1px);
+                }
+                /*
+                  Below the 744 design width the copy shrinks with its column, so it keeps the 744 lines (4, 4 and
+                  3); at 14 px Alicia's ran to a fifth line below 720, and that line crossed the scribble (seen in
+                  Safari at 704). From 744 up the shared size applies as before.
+                */
+                &>p+p {
+                  font-size: min(calc(14rem / 16 + 2 * var(--grow)), calc(14 * var(--u)));
+                  line-height: round(nearest, 2em, 1px);
+                }
+              }
+              &:nth-child(2) {
+                &>figure {
+                  margin-inline: 0 calc(38 * var(--u));
+                }
+                &>article {
+                  inline-size: calc(236 * var(--u));
+                  margin-block-start: calc(63 * var(--u));
+                  margin-inline: 0 calc(81 * var(--u));
+                  text-align: end;
+                  &>h4 {
+                    margin-inline: auto calc(-5 * var(--u));
+                  }
+                }
+              }
+              &:nth-child(3) {
+                &>figure {
+                  margin-inline-start: calc(72 * var(--u));
+                }
+                &>article {
+                  inline-size: calc(280 * var(--u));
+                  margin-block-start: calc(70 * var(--u));
+                  margin-inline-start: calc(46 * var(--u));
+                }
+              }
+              &::before,
+              &::after {
+                content: none;
+                scale: none;
+              }
+              &:first-child::before {
+                content: "";
+                inset-block-start: calc(87 * var(--u));
+                inset-inline-start: calc(-1 * var(--u));
+                inline-size: calc(245 * var(--u));
+                aspect-ratio: 245 / 131;
+                background-image: url("assets/menume-tablet-persona-scribble-lead-in.svg");
+              }
+              &:first-child::after {
+                content: "";
+                inset-block-start: calc(187 * var(--u));
+                inset-inline: calc(199 * var(--u)) auto;
+                inline-size: calc(318 * var(--u));
+                aspect-ratio: 318 / 208;
+                background-image: url("assets/menume-tablet-persona-scribble-first-to-second.svg");
+              }
+              &:nth-child(2)::after {
+                content: "";
+                scale: none;
+                inset-block-start: calc(147 * var(--u));
+                inset-inline: calc(150 * var(--u)) auto;
+                inline-size: calc(329 * var(--u));
+                aspect-ratio: 329 / 258;
+                background-image: url("assets/menume-tablet-persona-scribble-second-to-third.svg");
+              }
+              &:last-child::before {
+                content: "";
+                inset-block-start: calc(63 * var(--u));
+                inset-inline-start: 0;
+                inline-size: calc(251 * var(--u));
+                aspect-ratio: 251 / 150;
+                background-image: url("assets/menume-tablet-persona-scribble-trail-out.svg");
+              }
+            }
+            /*
+              The desktop design: 294 px photos at 170, 656 (136 from the end) and 117 px into its 1086 px column,
+              each row starting where the last photo ends; the copy meets an edge 543 px in (the first and third
+              start there, the second ends there), 340, 360 and 370 px wide, its plate 115, 82 and 130 px under the
+              photo's top; 168 by 53 px plates; and its own four scribble pieces (vectors from Desktop/MenuMe.pdf).
+            */
+            @media(width>=80rem) {
+              justify-content: flex-start;
+              align-items: start;
+              gap: 0;
+              margin-block-start: 0;
+              &:first-child {
+                margin-block-start: calc(51 * var(--u));
+              }
+              &:last-child {
+                margin-block-start: calc(-2 * var(--u));
+              }
+              &>figure {
+                flex: none;
+                inline-size: calc(294 * var(--u));
+                max-inline-size: none;
+                margin: 0 0 0 calc(170 * var(--u));
+              }
+              &>article {
+                flex: none;
+                inline-size: calc(340 * var(--u));
+                margin-block-start: calc(115 * var(--u));
+                margin-inline-start: calc(79 * var(--u));
+                &>* {
+                  margin-block: 0;
+                }
+                /* The design sets each name low on its plate: 17 px from the plate's top to the name's glyph top. */
+                &>h4 {
+                  min-inline-size: calc(77rem / 16);
+                  margin-block-end: calc(12rem / 16);
+                  margin-inline-start: calc(-24 * var(--u));
+                  padding-block: calc(19rem / 16) calc(5rem / 16);
+                  padding-inline: calc(45.5rem / 16);
+                  line-height: calc(29rem / 16);
+                }
+                &>p:first-of-type {
+                  margin-block-end: calc(3rem / 16);
+                  line-height: round(nearest, 1.5em, 1px);
+                }
+              }
+              &:nth-child(2) {
+                &>figure {
+                  margin-inline: 0 calc(136 * var(--u));
+                }
+                &>article {
+                  inline-size: calc(360 * var(--u));
+                  margin-block-start: calc(82 * var(--u));
+                  margin-inline: 0 calc(114 * var(--u));
+                  text-align: end;
+                  &>h4 {
+                    margin-inline: auto calc(-23 * var(--u));
+                  }
+                }
+              }
+              &:nth-child(3) {
+                &>figure {
+                  margin-inline-start: calc(117 * var(--u));
+                }
+                &>article {
+                  inline-size: calc(370 * var(--u));
+                  margin-block-start: calc(130 * var(--u));
+                  margin-inline-start: calc(132 * var(--u));
+                  /* Its plate is drawn 4 px taller, with its role 10 px further down. */
+                  &>h4 {
+                    margin-block-end: calc(22rem / 16);
+                  }
+                }
+              }
+              &::before,
+              &::after {
+                content: none;
+                scale: none;
+              }
+              &:first-child::before {
+                content: "";
+                inset-block-start: calc(71 * var(--u));
+                inset-inline-start: calc(39 * var(--u));
+                inline-size: calc(394 * var(--u));
+                aspect-ratio: 394 / 174;
+                background-image: url("assets/menume-desktop-persona-scribble-lead-in.svg");
+              }
+              &:first-child::after {
+                content: "";
+                inset-block-start: calc(239 * var(--u));
+                inset-inline: calc(438 * var(--u)) auto;
+                inline-size: calc(492 * var(--u));
+                aspect-ratio: 492 / 320;
+                background-image: url("assets/menume-desktop-persona-scribble-first-to-second.svg");
+              }
+              &:nth-child(2)::after {
+                content: "";
+                scale: none;
+                inset-block-start: calc(144 * var(--u));
+                inset-inline: calc(263 * var(--u)) auto;
+                inline-size: calc(506 * var(--u));
+                aspect-ratio: 506 / 397;
+                background-image: url("assets/menume-desktop-persona-scribble-second-to-third.svg");
+              }
+              &:last-child::before {
+                content: "";
+                inset-block-start: calc(117 * var(--u));
+                inset-inline-start: calc(7 * var(--u));
+                inline-size: calc(384 * var(--u));
+                aspect-ratio: 384 / 230;
+                background-image: url("assets/menume-desktop-persona-scribble-trail-out.svg");
+              }
+            }
+          }
+        }
+      }
+      &:where(#menume-information-architecture)>.section-content>.subsection {
+        &>h4,
+        &:nth-of-type(n+2)>h3 {
+          color: var(--color-case-study-accent);
+        }
+        &:nth-of-type(n+2)>h3::before {
+          content: none;
+        }
+        /*
+          Every design numbers the three task flows and centres their headings, the first at 18 px and the other
+          two at 16 (18 on the desktop). The tablet gaps are Tablet/MenuMe.png's ink gaps at 744: 51 from the
+          introduction to the first heading, 27 and 29 from a heading to its copy, 48 from the copy to the diagram
+          and about 52 from a diagram to the next heading.
+        */
+        &>h4,
+        &:nth-of-type(n+2)>h3 {
+          text-align: center;
+        }
+        &>h4 {
+          font-size: calc(18rem / 16);
+        }
+        &:nth-of-type(n+2)>h3 {
+          font-size: calc(1rem + 2 * var(--grow));
+        }
+        @media(width>=40rem) and (width<80rem) {
+          &:nth-of-type(n+2) {
+            margin-block-start: calc(44rem / 16);
+          }
+          &>h4 {
+            margin-block: calc(34rem / 16) calc(14rem / 16);
+          }
+          &:nth-of-type(n+2)>h3 {
+            margin-block-end: calc(17rem / 16);
+          }
+          &>.zoomable-artwork {
+            margin-block-start: calc(40rem / 16);
+          }
+          /* 83 from the last diagram to the next section's band. */
+          &:last-child>.zoomable-artwork {
+            margin-block-end: calc(18rem / 16);
+          }
+        }
+        /*
+          The desktop gaps, from Desktop/MenuMe.png's glyph tops and diagram ink at 1440: 92 from the introduction
+          to the first heading, 64 from a heading to its copy, about 66 from the copy to its diagram, 79 from a
+          diagram to the next heading and 132 from the last diagram to the band.
+        */
+        @media(width>=80rem) {
+          &:nth-of-type(n+2) {
+            margin-block-start: calc(72rem / 16);
+          }
+          &>h4 {
+            margin-block: calc(61rem / 16) calc(31rem / 16);
+          }
+          &>.zoomable-artwork {
+            margin-block-start: calc(38rem / 16);
+          }
+          &:last-child>.zoomable-artwork {
+            margin-block-end: calc(12rem / 16);
+          }
+        }
+      }
+      /*
+        Desktop MenuMe: 149 px from the band to the sitemap heading's glyph top, 94 from the copy to the sitemap
+        and 127 from it to the next heading.
+      */
+      &:where(#menume-information-architecture)>.section-content {
+        /* The client, of the phone's one-column tree: "整个居中" (centre the whole thing). */
+        @media(width<40rem) {
+          &>.sitemap {
+            inline-size: fit-content;
+            margin-inline: auto;
+          }
+        }
+        @media(width>=80rem) {
+          padding-block-start: calc(148rem / 16);
+          &>.sitemap {
+            margin-block: calc(68rem / 16) 0;
+          }
+          &>.subsection:first-of-type {
+            margin-block-start: calc(128rem / 16);
+          }
+        }
+      }
+      /*
+        From 1024 px, where the row fits our 14 px labels, the sitemap sets each section's pages side by side under
+        it on a bus of their own, as the screenshot in every MenuMe design arranges them; narrower they stack under
+        their section (at 744 the row would need 696 px of the 614 px column). From 1280 px the desktop tree follows.
+      */
+      @media(width>=64rem) and (width<80rem) {
+        & .sitemap>ul>li>ul>li>ul {
+          position: relative;
+          display: flex;
+          align-items: flex-start;
+          margin-inline-start: 0;
+          padding-block-start: var(--case-study-sitemap-gap);
+          &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-start: var(--case-study-sitemap-trunk);
+            block-size: var(--case-study-sitemap-gap);
+            border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+          }
+          &>li {
+            padding-inline: 0 calc(2 * var(--case-study-sitemap-column-padding));
+            &::before {
+              display: none;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: 0;
+              inset-inline: 0;
+              border-block-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+            }
+            &:first-child::after {
+              inset-inline-start: var(--case-study-sitemap-trunk);
+            }
+            &:last-child::after {
+              inset-inline-end: calc(100% - var(--case-study-sitemap-trunk) - var(--case-study-sitemap-line-width));
+            }
+            &>span::before {
+              inset-block: calc(-1 * var(--case-study-sitemap-gap)) 100%;
+              inset-inline: var(--case-study-sitemap-trunk) auto;
+              inline-size: 0;
+              border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+              border-block-end: 0;
+            }
+            &>span::after {
+              inset-block: auto 100%;
+              inset-inline: calc(var(--case-study-sitemap-trunk) - 5rem / 16 + var(--case-study-sitemap-line-width) / 2) auto;
+              translate: none;
+              border-inline: calc(5rem / 16) solid transparent;
+              border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+              border-block-end: 0;
+            }
+          }
+        }
+      }
+      /*
+        Desktop MenuMe draws the sitemap as a centred top-down tree (a FigJam raster in Desktop/MenuMe.pdf): labels
+        with an 8 to 9 px cap height, which ours reach at 13 px, in boxes 37 px tall and at least 113 wide; levels
+        87 px apart, each line meeting its boxes' middles and each chain running straight down. The sections take
+        307, 206, 206 and 258 px of the 977 px tree. Menu Planner sits 150 px into its column over Weekly special
+        and Diet Preferences, 37 px apart. Profile & Settings is 65 px tall over Profile and Settings, 7 px in, 25
+        apart and 39 px under it. Bars run 24 px under their parent (19 under Profile & Settings). Select from
+        fridge needs 131 px for our label where the drawing has 114, and stays centred on its chain.
+      */
+      @media(width>=80rem) {
+        & .sitemap {
+          font-size: calc(13rem / 16);
+          & li::before,
+          & li::after,
+          & span::before,
+          & span::after,
+          & ul::before,
+          & ul::after {
+            content: none;
+          }
+          & span {
+            min-inline-size: calc(113rem / 16);
+            padding-block: calc(8.5rem / 16);
+          }
+          & ul ul {
+            --sitemap-in: calc(50rem / 16);
+            display: flex;
+            align-items: flex-start;
+            margin-inline: 0;
+            padding-block-start: calc(50rem / 16);
+            &>li {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 0;
+              /* The incoming line from the bar or the parent, then its arrowhead, both on the box's middle. */
+              &>span::before,
+              &>span::after {
+                content: "";
+                position: absolute;
+                inset-block: auto 100%;
+                inset-inline: 50% auto;
+                translate: -50% 0;
+              }
+              &>span::before {
+                inline-size: 0;
+                block-size: var(--sitemap-in);
+                border-block-end: 0;
+                border-inline-start: var(--case-study-sitemap-line-width) solid var(--color-case-study-sitemap-line);
+              }
+              &>span::after {
+                border-inline: calc(5rem / 16) solid transparent;
+                border-block-start: calc(8rem / 16) solid var(--color-case-study-sitemap-line);
+                border-block-end: 0;
+              }
+            }
+          }
+          /*
+            The three bars: the parent's drop (`--drop` from the list's start, `--bar-y` long), then the bar from
+            `--bar` on. Unweighted, so each list's own rule sets them.
+          */
+          & ul:where(.sitemap>ul>li>ul, .sitemap>ul>li>ul>li:is(:first-child, :last-child)>ul) {
+            --bar-y: calc(24rem / 16);
+            position: relative;
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: 0;
+              border-color: var(--color-case-study-sitemap-line);
+              border-style: solid;
+              border-width: 0;
+            }
+            &::before {
+              inset-inline-start: var(--drop);
+              block-size: var(--bar-y);
+              border-inline-start-width: var(--case-study-sitemap-line-width);
+            }
+            &::after {
+              inset-block-start: var(--bar-y);
+              inset-inline-start: var(--bar);
+              inline-size: var(--bar-size);
+              border-block-start-width: var(--case-study-sitemap-line-width);
+            }
+          }
+          &>ul>li {
+            &>span {
+              min-inline-size: calc(114rem / 16);
+            }
+            &>ul {
+              --sitemap-in: calc(25rem / 16);
+              --drop: 50%;
+              --bar: calc(206.5rem / 16);
+              --bar-size: calc(575.5rem / 16);
+              display: grid;
+              grid-template-columns: calc(307rem / 16) calc(206rem / 16) calc(206rem / 16) auto;
+              &>li {
+                align-items: start;
+              }
+              &>li:nth-child(1) {
+                &>span {
+                  margin-inline-start: calc(150rem / 16);
+                }
+                &>ul {
+                  --sitemap-in: calc(25rem / 16);
+                  --drop: calc(206.5rem / 16);
+                  --bar: calc(56.5rem / 16);
+                  --bar-size: calc(168.5rem / 16);
+                  column-gap: calc(37rem / 16);
+                  &>li:nth-child(2)>span {
+                    min-inline-size: calc(150rem / 16);
+                  }
+                }
+              }
+              &>li:nth-child(2) {
+                justify-self: start;
+                align-items: center;
+                &>span {
+                  min-inline-size: calc(162rem / 16);
+                }
+              }
+              &>li:nth-child(3)>span {
+                min-inline-size: calc(163rem / 16);
+              }
+              &>li:nth-child(4) {
+                &>span {
+                  min-inline-size: calc(126rem / 16);
+                  padding-block: calc(22.5rem / 16);
+                }
+                &>ul {
+                  --sitemap-in: calc(20rem / 16);
+                  --bar-y: calc(19rem / 16);
+                  --drop: calc(56rem / 16);
+                  --bar: calc(56rem / 16);
+                  --bar-size: calc(138.5rem / 16);
+                  column-gap: calc(25rem / 16);
+                  margin-inline-start: calc(7rem / 16);
+                  padding-block-start: calc(39rem / 16);
+                }
+              }
+            }
+          }
+        }
+      }
+      /*
+        The end-to-end showcase: the desktop design draws the phone and tablet screens side by side (209 and 600
+        px, 25 apart) with both buttons in a row under them; the phone design puts each button under its device.
+        The client asked for each button centred under its own device (2026-10-19, "分别中间对齐"), at every width.
+      */
+      /* Both designs hang the token and delivery lists 22 px in, the delivery bullets in line with its numbers. */
+      & :is(ul, ol).paragraph {
+        padding-inline-start: calc(22rem / 16);
+        & ul {
+          padding-inline-start: 0;
+          list-style-type: disc;
+        }
+      }
+      & .device-showcase {
+        --showcase-unit: calc(1rem / 16 + var(--phone-art-grow));
+        display: grid;
+        grid-template-columns: minmax(0, 209fr) minmax(0, 600fr);
+        align-items: end;
+        gap: calc(40rem / 16) calc(25rem / 16);
+        max-inline-size: calc(834rem / 16);
+        margin-block: 2rem;
+        margin-inline: auto;
+        &>figure {
+          max-inline-size: none;
+          margin: 0;
+        }
+        &>.flex-row {
+          display: contents;
+        }
+        /* A button may outgrow the phone's column; it stays one line, centred on the device. */
+        & .prototype-link {
+          justify-self: center;
+          margin-inline: 0;
+          white-space: nowrap;
+        }
+        @media(width<40rem) {
+          grid-template-columns: minmax(0, 1fr);
+          row-gap: 0;
+          &>figure:first-child {
+            grid-row: 1;
+            justify-self: center;
+            inline-size: calc(153 * var(--showcase-unit));
+          }
+          & .prototype-link:first-child {
+            grid-row: 2;
+            margin-block-start: calc(32 * var(--showcase-unit));
+          }
+          &>figure:nth-child(2) {
+            grid-row: 3;
+            margin-block-start: calc(50 * var(--showcase-unit));
+          }
+          & .prototype-link:last-child {
+            grid-row: 4;
+            margin-block-start: calc(27 * var(--showcase-unit));
+          }
+        }
+      }
+      /*
+        The Problem & Solution items: centred, with a smaller icon (102, 115 and 152 px wide in the Phone, Tablet and
+        Desktop designs) and a teal title; the tablet and desktop designs align each description to its start.
+      */
+      & .subsection:has(img[src*="mental-overload"])>.flex-row>article {
+        text-align: center;
+        &>.small-illustration {
+          inline-size: calc(
+            102rem / 16 + 13 * var(--phone-grow) + 37 * var(--grow)
+          );
+          margin-block: 0;
+          margin-inline: auto;
+        }
+        &>h4 {
+          margin-block: calc(8rem / 16) 0;
+          color: var(--color-case-study-accent);
+        }
+        &>p {
+          margin-block-start: 0;
+          @media(width>=40rem) {
+            text-align: start;
+          }
+        }
+      }
+      /*
+        Tablet MenuMe leads with the problem at 16 px, line height 2, and sets the two items 47 px under it in
+        columns of 260 and 290 px, from 16 px into its 614 px column and at the column's end.
+        Desktop MenuMe centres each icon and title 309 and 769 px into its 1086 px column (columns of 252 and 282
+        px from 183 and 628), with each description starting at its column's start and wrapping at the drawn
+        breaks in 300 and 340 px.
+      */
+      @media(width>=40rem) {
+        & .subsection:has(img[src*="mental-overload"]) {
+          &>p {
+            font-size: 1rem;
+            line-height: round(nearest, 2em, 1px);
+          }
+          &>.flex-row:has(>article) {
+            display: grid;
+            grid-template-columns: calc(16% / 6.14) calc(260% / 6.14) 1fr calc(290% / 6.14);
+            gap: 0;
+            margin-block-start: calc(47rem / 16);
+            &>article {
+              grid-column: 2;
+              &:last-child {
+                grid-column: 4;
+              }
+            }
+            @media(width>=80rem) {
+              grid-template-columns: calc(18300% / 1086) calc(25200% / 1086) calc(19300% / 1086) calc(28200% / 1086);
+              justify-content: start;
+              margin-block-start: calc(40rem / 16);
+              /* Glyph tops: 23 px from the icon to its title, 46 from the title to its description. */
+              &>article>h4 {
+                margin-block: calc(19rem / 16) calc(13rem / 16);
+                white-space: nowrap;
+              }
+              &>article>p {
+                inline-size: calc(300rem / 16);
+              }
+              &>article:last-child>p {
+                inline-size: calc(340rem / 16);
+              }
+            }
+          }
+        }
+      }
+      &:where(#menume-usability)>.section-content {
+        /* Desktop MenuMe: 122 px from the band to the introduction's glyph top, 64 from it to the first flow's. */
+        @media(width>=80rem) {
+          padding-block-start: calc(101rem / 16);
+          &>.subsection:first-of-type {
+            margin-block-start: calc(33rem / 16);
+          }
+        }
+        &>.subsection {
+          /*
+            Every design numbers the two flows, at 16 px (18 on the desktop); the phone's two lines 32 apart and
+            35 above the first card.
+          */
+          &>h3 {
+            font-size: calc(1rem + 2 * var(--grow));
+            @media(width<40rem) {
+              margin-block-end: calc(35rem / 16);
+              /* Narrow enough to break the second heading after "Balancing", as drawn. */
+              padding-inline: calc(20rem / 16);
+              line-height: round(nearest, 2em, 1px);
+            }
+          }
+          &>h3::before {
+            content: none;
+          }
+          &>.flex-row:has(>aside) {
+            margin-block-end: calc(50 * var(--grow));
+          }
+          &>.flex-row>aside {
+            position: relative;
+            border-width: calc(4rem / 16);
+            border-radius: calc(24rem / 16);
+            &::after {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(100% + 2rem / 16);
+              inset-inline-end: 12%;
+              inline-size: calc(var(--menume-arrow) * 0.54);
+              block-size: var(--menume-arrow);
+              background: url("assets/menume-orange-squiggle-arrow-tall.svg") center / contain no-repeat;
+            }
+            /* The iteration: second in its row, or first in the second row where each note leads its screens. */
+            &:is(:last-child, .flex-row + .flex-row>*) {
+              border-color: var(--color-case-study-secondary);
+              &::after {
+                background-image: url("assets/menume-orange-squiggle-arrow-short.svg");
+              }
+            }
+            &:not(:last-child):is(.flex-row + .flex-row>*)::after {
+              content: none;
+            }
+          }
+          /*
+            The Weekly Specials flow: each note shares a row with its three screens, as the desktop design draws it
+            (note 288 wide, centred against screens 211 wide, 16 apart, at 1440).
+          */
+          &>.flex-row:has(>.screen-set) {
+            align-items: center;
+            &>aside {
+              flex: 288 1 0;
+            }
+            &>.screen-set {
+              display: flex;
+              flex: 665 1 0;
+              align-items: start;
+              gap: calc(8rem / 16 + 8 * var(--grow));
+              &>figure {
+                flex: 1 1 0;
+                min-inline-size: 0;
+              }
+            }
+          }
+        }
+        & .zoomable-artwork {
+          position: relative;
+          /*
+            The design's highlights, drawn over each weekly-special screen plus a 2 px margin (the last overhangs its
+            screen). The personalization screens' picture, rendered from the design, already carries its own.
+          */
+          &:has(img[src*="weekly-specials-high"])::after {
+            content: "";
+            position: absolute;
+            inset: calc(-200% / 457) calc(-200% / 211.2);
+            background-size: 100% 100%;
+            pointer-events: none;
+          }
+          /* The design frames each screen in a 1 px line, olive round the wireframes and teal round the UI. */
+          &>button>img[src*="weekly-specials-low"] {
+            box-shadow: 0 0 0 calc(1rem / 16) var(--color-case-study-wireframe-frame);
+          }
+          &>button>img[src*="weekly-specials-high"] {
+            box-shadow: 0 0 0 calc(1rem / 16) var(--color-case-study-accent);
+          }
+          &:has(img[src$="high-fidelity-weekly-special.png"])::after {
+            background-image: url("assets/menume-weekly-specials-high-fidelity-weekly-special-highlights.svg");
+          }
+          &:has(img[src$="high-fidelity-authentic-recipes.png"])::after {
+            background-image: url("assets/menume-weekly-specials-high-fidelity-authentic-recipes-highlights.svg");
+          }
+          &:has(img[src$="high-fidelity-shopping-list.png"])::after {
+            background-image: url("assets/menume-weekly-specials-high-fidelity-shopping-list-highlights.svg");
+          }
+        }
+        /*
+          The phone design's first flow: the finding beside the lo-fi screen, an orange squiggle down to the hi-fi
+          pair, and a yellow elbow from the pair into the iteration, which comes last. The two rows give up their
+          boxes so all four parts share one grid. Lengths are the design's pixels at 390 (Phone/MenuMe.pdf).
+        */
+        @media(width<40rem) {
+          &>.subsection:has(img[src*="personalization-low"]) {
+            --usability-unit: calc(1rem / 16 + var(--phone-art-grow));
+            display: grid;
+            &>.flex-row {
+              display: contents;
+              &>* {
+                grid-column: 1;
+                align-self: start;
+              }
+              &>aside {
+                padding-block: calc(24 * var(--usability-unit));
+                /*
+                  Below 390 the box narrows with the art but its text does not, so the side padding gives up more
+                  than its share: at 320 "dietary restrictions." fits the line instead of running 5 px past it.
+                */
+                padding-inline: min(22 * var(--usability-unit), 22rem / 16 + 40 * var(--phone-art-grow));
+                &::after {
+                  content: none;
+                }
+                &>p {
+                  margin-block: 0;
+                }
+              }
+              &>aside:first-child {
+                grid-row: 2;
+                justify-self: start;
+                inline-size: calc(194 * var(--usability-unit));
+                margin-inline-start: calc(-19 * var(--usability-unit));
+              }
+              &>aside:last-child {
+                grid-row: 4;
+                justify-self: start;
+                inline-size: calc(234 * var(--usability-unit));
+                margin-block-start: calc(38 * var(--usability-unit));
+                margin-inline-start: calc(39 * var(--usability-unit));
+                /*
+                  The elbow: from the hi-fi pair's start edge down into this box, a 3 px line and arrowhead, drawn
+                  on the box so the head can follow the box's height. It starts 180.5 units below the pair's top
+                  (the pair is 292 units wide at 1756 by 1828, then its 2rem margin and this box's 38 units) and
+                  45.5 units left of the box; the tip ends in the middle of the 4 px border. The head sits 126
+                  units below the box's top, as at 390, but no lower than the end of the box's straight edge (24
+                  px corner, half the head): the box's text does not scale with the units, so from about 620 the
+                  box is shorter than drawn and the head fell onto its corner, then below it at 639.
+                */
+                &::before {
+                  --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  inset-block-start: calc(
+                    (180.5 - 292 * 1828 / 1756 - 38) * var(--usability-unit) - 2rem - 4rem / 16
+                  );
+                  inset-inline-start: calc(-45.5 * var(--usability-unit) - 4rem / 16);
+                  inline-size: calc(45.5 * var(--usability-unit) + 2rem / 16);
+                  block-size: calc(
+                    (292 * 1828 / 1756 + 38 - 180.5 + 8.7) * var(--usability-unit) + 2rem
+                    + min(126 * var(--usability-unit), 100% - 1rem - 8.7 * var(--usability-unit))
+                  );
+                  background-image:
+                    var(--line), var(--line), var(--line), url("assets/menume-usability-connector-arrowhead-right.svg");
+                  background-position:
+                    0 0, 0 0, 0 calc(100% - 7.2 * var(--usability-unit)),
+                    calc(30.5 * var(--usability-unit) + 2rem / 16) 100%;
+                  background-size:
+                    calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                    calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit)),
+                    calc(32 * var(--usability-unit) + 2rem / 16) calc(3 * var(--usability-unit)),
+                    calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit));
+                  background-repeat: no-repeat;
+                  pointer-events: none;
+                }
+              }
+              &>figure:first-child {
+                grid-row: 2;
+                justify-self: end;
+                inline-size: calc(142 * var(--usability-unit));
+                margin-block-start: calc(4 * var(--usability-unit));
+                margin-inline-end: calc(-16 * var(--usability-unit));
+                /* The design's own squiggle (Phone/MenuMe.pdf), its ink 15.75 in and 14.25 under the screen. */
+                &::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(100% + 14.25 * var(--usability-unit));
+                  inset-inline-start: calc(15.75 * var(--usability-unit));
+                  inline-size: calc(50.5 * var(--usability-unit));
+                  block-size: calc(82.87 * var(--usability-unit));
+                  background: url("assets/menume-usability-phone-squiggle-personalization.svg") center / contain no-repeat;
+                }
+              }
+              &>figure:last-child {
+                grid-row: 3;
+                justify-self: start;
+                inline-size: calc(292 * var(--usability-unit));
+                margin-block-start: calc(103 * var(--usability-unit));
+                margin-inline-start: calc(16 * var(--usability-unit));
+              }
+            }
+          }
+          /*
+            The phone design's second flow: the finding beside the first lo-fi screen, the other two below, a
+            squiggle down to the hi-fi screens in two rows, the iteration beside the third, and a yellow elbow from
+            the second screen down into the iteration.
+          */
+          &>.subsection:has(img[src*="weekly-specials-low"]) {
+            --usability-unit: calc(1rem / 16 + var(--phone-art-grow));
+            display: grid;
+            /* 74 from the iteration to the next section's band, with the section's 64 px padding. */
+            margin-block-end: calc(10 * var(--usability-unit));
+            &>.flex-row,
+            &>.flex-row>.screen-set {
+              display: contents;
+            }
+            & aside,
+            & figure {
+              grid-column: 1;
+              align-self: start;
+              justify-self: start;
+              flex: none;
+              margin-inline: 0;
+            }
+            /* The design's gaps are all above each screen; its screens are 131 and 132 px inside 1 px frames. */
+            & figure {
+              margin-block-end: 0;
+            }
+            & aside {
+              padding-block: calc(24 * var(--usability-unit));
+              /* As in the first flow: at 320 "visual hierarchies." fits instead of running 4 px past the line. */
+              padding-inline: min(22 * var(--usability-unit), 22rem / 16 + 40 * var(--phone-art-grow));
+              &::after {
+                content: none;
+              }
+              &>p {
+                margin-block: 0;
+              }
+            }
+            &>.flex-row:first-of-type {
+              &>aside {
+                grid-row: 2;
+                inline-size: calc(184 * var(--usability-unit));
+                margin-inline-start: calc(-4 * var(--usability-unit));
+              }
+              & figure:nth-child(1) {
+                grid-row: 2;
+                inline-size: calc(131 * var(--usability-unit));
+                margin-block-start: calc(6 * var(--usability-unit));
+                margin-inline-start: calc(190 * var(--usability-unit));
+              }
+              & figure:nth-child(n+2) {
+                grid-row: 3;
+                inline-size: calc(132 * var(--usability-unit));
+                margin-block-start: calc(20 * var(--usability-unit));
+              }
+              & figure:nth-child(2) {
+                margin-inline-start: calc(37 * var(--usability-unit));
+                /* The design's own squiggle (Phone/MenuMe.pdf), its ink 131.25 in and 22.88 under the screen. */
+                &::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(100% + 22.88 * var(--usability-unit));
+                  inset-inline-start: calc(131.25 * var(--usability-unit));
+                  inline-size: calc(59.63 * var(--usability-unit));
+                  block-size: calc(87.5 * var(--usability-unit));
+                  background: url("assets/menume-usability-phone-squiggle-weekly-specials.svg") center / contain no-repeat;
+                }
+              }
+              & figure:nth-child(3) {
+                margin-inline-start: calc(188 * var(--usability-unit));
+              }
+            }
+            &>.flex-row:last-of-type {
+              &>aside {
+                grid-row: 5;
+                inline-size: calc(215 * var(--usability-unit));
+                margin-block-start: calc(20 * var(--usability-unit));
+                margin-inline-start: calc(127 * var(--usability-unit));
+                /* The design's text box inside the 4 px border, so the copy wraps line for line as drawn. */
+                padding-block: calc(16.4 * var(--usability-unit)) calc(17.6 * var(--usability-unit));
+                padding-inline: calc(26 * var(--usability-unit)) calc(20.5 * var(--usability-unit));
+              }
+              & figure {
+                inline-size: calc(132 * var(--usability-unit));
+              }
+              & figure:nth-child(-n+2) {
+                grid-row: 4;
+                margin-block-start: calc(134 * var(--usability-unit));
+              }
+              & figure:nth-child(1) {
+                margin-inline-start: calc(-14 * var(--usability-unit));
+              }
+              & figure:nth-child(2) {
+                margin-inline-start: calc(137 * var(--usability-unit));
+              }
+              & figure:nth-child(3) {
+                grid-row: 5;
+                margin-block-start: calc(32 * var(--usability-unit));
+                margin-inline-start: calc(-15 * var(--usability-unit));
+              }
+            }
+            &::before {
+              --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+              content: "";
+              z-index: 1;
+              grid-area: 4 / 1 / 5;
+              place-self: stretch start;
+              inline-size: calc(39.5 * var(--usability-unit));
+              /*
+                The foot reaches into the iteration's row by the iteration's 20 unit top margin plus half its 4 px
+                border, so it ends in the border as the design draws it, not inside the box (the client, CF116,
+                on phone too).
+              */
+              margin-block: calc(254.3 * var(--usability-unit)) calc(-20 * var(--usability-unit) - 2rem / 16);
+              margin-inline-start: calc(271 * var(--usability-unit));
+              background-image: url("assets/menume-usability-connector-arrowhead-left.svg"), var(--line), var(--line);
+              background-position:
+                0 0, calc(13.5 * var(--usability-unit)) calc(7.2 * var(--usability-unit)),
+                calc(36.5 * var(--usability-unit)) calc(7.2 * var(--usability-unit));
+              background-size:
+                calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit)),
+                calc(26 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit));
+              background-repeat: no-repeat;
+              pointer-events: none;
+            }
+          }
+        }
+        /*
+          The desktop design's flows (Desktop/MenuMe.pdf, lengths in its 1086 px column from x 177). The first: the
+          finding (378 px) and the iteration (400) 132 apart at 81 px in, an orange squiggle between them, the lo-fi
+          screen (213) and the hi-fi pair (440) 50 below with another squiggle between those, and a yellow elbow
+          from the iteration's end edge into the second hi-fi screen. The second: the finding (288) beside the
+          three lo-fi screens (211 px images, 15 and 16 apart, from 368 px in), the iteration (284) beside the
+          three hi-fi screens 131 below, squiggles down from the finding and the second screen, and a yellow arrow
+          from the iteration into the first hi-fi screen. The vectors are the design's own; each note's padding
+          makes its copy wrap line for line as drawn.
+        */
+        @media(width>=80rem) {
+          &>.subsection:has(img[src*="personalization-low"]) {
+            --u: calc(100cqw / 1086);
+            /* Being a container would make the type growth measure this flow; keep measuring the page. */
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            container-type: inline-size;
+            &>.flex-row {
+              justify-content: flex-start;
+              gap: 0;
+              margin-block: 0;
+              &>* {
+                flex: none;
+                margin-block: 0;
+                margin-inline-end: 0;
+              }
+            }
+            &>.flex-row>aside {
+              min-block-size: calc(229 * var(--u));
+              padding-block: calc(34.5 * var(--u)) calc(26.5 * var(--u));
+              &>p {
+                margin-block: 0;
+              }
+              &::after {
+                inset-block-start: calc(76 * var(--u));
+                inset-inline: calc(416 * var(--u)) auto;
+                inline-size: calc(65 * var(--u));
+                block-size: calc(92 * var(--u));
+                background-image: url("assets/menume-usability-desktop-squiggle-between-notes.svg");
+              }
+              &:first-child {
+                inline-size: calc(378 * var(--u));
+                margin-inline-start: calc(81 * var(--u));
+                padding-inline: calc(41 * var(--u)) calc(32 * var(--u));
+              }
+              &:last-child {
+                inline-size: calc(400 * var(--u));
+                margin-inline-start: calc(132 * var(--u));
+                padding-inline: calc(39 * var(--u)) calc(43 * var(--u));
+                &::after {
+                  content: none;
+                }
+              }
+            }
+            &>.flex-row:has(>figure) {
+              position: relative;
+              align-items: start;
+              margin-block-start: calc(50 * var(--u));
+              /*
+                The elbow hangs from the screens, leaving the iteration 160 px under its top. Its root starts 7
+                units into the drawing, 2 units inside the iteration's outer edge, so it ends in the middle of the
+                4 px border (the client, CF123: "箭头根部刺穿了线框", the root pierced the box); from x 1 it ran
+                4 px into the box.
+              */
+              &::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                inset-block-start: calc(-120 * var(--u));
+                inset-inline-start: calc(982 * var(--u));
+                inline-size: calc(54 * var(--u));
+                block-size: calc(215 * var(--u));
+                background: url("assets/menume-usability-desktop-connector-elbow.svg") center / 100% 100% no-repeat;
+                pointer-events: none;
+              }
+              &>figure:first-child {
+                inline-size: calc(213 * var(--u));
+                max-inline-size: none;
+                margin-inline-start: calc(156 * var(--u));
+                &::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(191 * var(--u));
+                  inset-inline-start: calc(279 * var(--u));
+                  inline-size: calc(82 * var(--u));
+                  block-size: calc(116 * var(--u));
+                  background: url("assets/menume-usability-desktop-squiggle-between-screens.svg") center / 100% 100%
+                    no-repeat;
+                }
+              }
+              &>figure:last-child {
+                inline-size: calc(440 * var(--u));
+                margin-inline-start: calc(192 * var(--u));
+              }
+            }
+          }
+          &>.subsection:has(img[src*="weekly-specials-low"]) {
+            --u: calc(100cqw / 1086);
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            container-type: inline-size;
+            display: grid;
+            grid-template-columns:
+              minmax(0, 47fr) minmax(0, 288fr) minmax(0, 33fr) minmax(0, 211fr) minmax(0, 15fr) minmax(0, 211fr)
+              minmax(0, 16fr) minmax(0, 211fr) minmax(0, 54fr);
+            &>:not(.flex-row) {
+              grid-column: 1 / -1;
+            }
+            &>.flex-row,
+            &>.flex-row>.screen-set {
+              display: contents;
+            }
+            & aside,
+            & figure {
+              grid-column: 2;
+              align-self: start;
+              justify-self: start;
+              flex: none;
+              margin: 0;
+            }
+            & figure {
+              inline-size: 100%;
+              &:nth-child(1) {
+                grid-column: 4;
+              }
+              &:nth-child(2) {
+                grid-column: 6;
+              }
+              &:nth-child(3) {
+                grid-column: 8;
+              }
+            }
+            & aside>p {
+              margin-block: 0;
+            }
+            &>.flex-row:first-of-type {
+              & figure {
+                grid-row: 2;
+              }
+              &>aside {
+                grid-row: 2;
+                inline-size: calc(288 * var(--u));
+                margin-block-start: calc(163 * var(--u));
+                padding-block: calc(45.5 * var(--u)) calc(37.5 * var(--u));
+                padding-inline: calc(38 * var(--u)) calc(10 * var(--u));
+                &::after {
+                  inset-block-start: calc(100% + 76 * var(--u));
+                  inset-inline: calc(125 * var(--u)) auto;
+                  inline-size: calc(72 * var(--u));
+                  block-size: calc(135 * var(--u));
+                  background-image: url("assets/menume-usability-desktop-squiggle-under-finding.svg");
+                }
+              }
+              & figure:nth-child(2)::after {
+                content: "";
+                position: absolute;
+                inset-block-start: calc(100% + 31 * var(--u));
+                inset-inline-start: calc(47 * var(--u));
+                inline-size: calc(55 * var(--u));
+                block-size: calc(105 * var(--u));
+                background: url("assets/menume-usability-desktop-squiggle-under-screens.svg") center / 100% 100%
+                  no-repeat;
+              }
+            }
+            &>.flex-row:last-of-type {
+              & figure {
+                grid-row: 3;
+                margin-block-start: calc(131 * var(--u));
+              }
+              &>aside {
+                grid-row: 3;
+                inline-size: calc(284 * var(--u));
+                margin-block-start: calc(152 * var(--u));
+                padding-block: calc(43.5 * var(--u)) calc(35.5 * var(--u));
+                padding-inline: calc(30 * var(--u)) calc(24 * var(--u));
+                /*
+                  `:not(:last-child)` matches the weight of the rule that drops the squiggle from second-row notes
+                  (`&:not(:last-child):is(.flex-row + .flex-row>*)::after`), which otherwise also removed this
+                  arrow; being later, this one wins. Its head reaches over the screen's edge to the dashed card, as
+                  drawn, so it paints above the screens.
+                */
+                &:not(:last-child)::after {
+                  content: "";
+                  z-index: 1;
+                  inset-block-start: calc(148 * var(--u));
+                  inset-inline: calc(278 * var(--u)) auto;
+                  inline-size: calc(53 * var(--u));
+                  block-size: calc(20 * var(--u));
+                  background-image: url("assets/menume-usability-desktop-connector-arrow.svg");
+                }
+              }
+            }
+          }
+        }
+        /*
+          The tablet design's first flow (Tablet/MenuMe.pdf at 744, lengths in its 614 px column from x 70): the
+          finding (221 px) and the iteration (234 px) 82 apart with an orange squiggle between them, the lo-fi
+          screen (142 px) and the hi-fi pair (292 px) 58 below with the same squiggle between those, and a yellow
+          elbow from the iteration's end edge into the second hi-fi screen; 34 above the heading and 103 under the
+          screens. The vectors are the design's own. It holds until the desktop layout: from 1092 px the plain row
+          drew the lo-fi screen 400 px wide and 862 tall beside 234 px hi-fi screens.
+        */
+        @media(40rem<=width<80rem) {
+          &>.subsection:has(img[src*="personalization-low"]) {
+            --u: calc(100cqw / 614);
+            /* Being a container would make the type growth measure this flow; keep measuring the page. */
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            container-type: inline-size;
+            /* Its own margin cannot use its own container unit; a share of the column is the same length. */
+            margin-block-start: calc(3400% / 614);
+            &>h3 {
+              margin-block-end: calc(17 * var(--u));
+            }
+            &>.flex-row {
+              justify-content: flex-start;
+              gap: 0;
+              margin-block: 0;
+              &>* {
+                flex: none;
+                margin-block: 0;
+                margin-inline-end: 0;
+              }
+            }
+            &>.flex-row>aside {
+              padding-block: calc(18 * var(--u)) calc(13 * var(--u));
+              &>p {
+                margin-block: 0;
+              }
+              &::after {
+                inset-block-start: calc(107 * var(--u));
+                inset-inline: calc(236 * var(--u)) auto;
+                inline-size: calc(55 * var(--u));
+                block-size: calc(77 * var(--u));
+                background-image: url("assets/menume-usability-tablet-squiggle-across.svg");
+              }
+              &:first-child {
+                inline-size: calc(221 * var(--u));
+                margin-inline-start: calc(16 * var(--u));
+                padding-inline: calc(26 * var(--u)) calc(20 * var(--u));
+              }
+              &:last-child {
+                inline-size: calc(234 * var(--u));
+                margin-inline-start: calc(82 * var(--u));
+                padding-inline: calc(26 * var(--u)) calc(19 * var(--u));
+                &::after {
+                  content: none;
+                }
+              }
+            }
+            &>.flex-row:has(>figure) {
+              position: relative;
+              align-items: start;
+              /*
+                The elbow hangs from the screens, so it leaves the iteration 92 px above its foot however tall. Its
+                root starts 10.5 units into the drawing, 2 units inside the iteration's outer edge, so it ends in
+                the 4 px border at every tablet width (as the desktop one does after CF123); from 7.5 it ran up to
+                3.9 px into the box, more as the column grew.
+              */
+              &::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                inset-block-start: calc(-151.8 * var(--u));
+                inset-inline-start: calc(540.5 * var(--u));
+                inline-size: calc(60.8 * var(--u));
+                block-size: calc(240.4 * var(--u));
+                background: url("assets/menume-usability-tablet-connector-elbow.svg") center / 100% 100% no-repeat;
+                pointer-events: none;
+              }
+              /* With the next flow's 70 px margin, which this container does not collapse with. */
+              margin-block: calc(58 * var(--u)) calc(33 * var(--u));
+              &>figure:first-child {
+                inline-size: calc(142 * var(--u));
+                max-inline-size: none;
+                margin-inline-start: calc(20 * var(--u));
+                &::after {
+                  content: "";
+                  position: absolute;
+                  inset-block-start: calc(122 * var(--u));
+                  inset-inline-start: calc(165 * var(--u));
+                  inline-size: calc(55 * var(--u));
+                  block-size: calc(77 * var(--u));
+                  background: url("assets/menume-usability-tablet-squiggle-across.svg") center / 100% 100% no-repeat;
+                }
+              }
+              &>figure:last-child {
+                inline-size: calc(292 * var(--u));
+                margin-inline-start: calc(94 * var(--u));
+              }
+            }
+          }
+        }
+        /*
+          The tablet design's second flow (620 px wide at 744, scaled to the column): the finding beside the three
+          lo-fi screens, squiggles down from the finding and from the second screen to the hi-fi screens, and the
+          iteration under them, joined to the first hi-fi screen by a yellow elbow. It holds until the desktop
+          layout: from 1092 px the plain row put the iteration beside the hi-fi screens with no squiggle or arrow.
+        */
+        @media(40rem<=width<80rem) {
+          &>.subsection:has(img[src*="weekly-specials-low"]) {
+            --usability-unit: calc(100cqw / 620);
+            /* Being a container would make the type growth measure this flow; keep measuring the page. */
+            --grow: clamp(0rem, calc((100vw - 744rem / 16) / 696), calc(1rem / 16));
+            container-type: inline-size;
+            display: grid;
+            /* 75 from the iteration to the next section's band, with the section's 64 px padding. */
+            margin-block-end: calc(1100% / 620);
+            grid-template-columns:
+              minmax(0, 184fr) minmax(0, 17fr) minmax(0, 134fr) minmax(0, 9fr) minmax(0, 134fr) minmax(0, 7fr)
+              minmax(0, 135fr);
+            &>:not(.flex-row) {
+              grid-column: 1 / -1;
+            }
+            &>h3 {
+              margin-block-end: calc(41 * var(--usability-unit));
+            }
+            &>.flex-row,
+            &>.flex-row>.screen-set {
+              display: contents;
+            }
+            & aside,
+            & figure {
+              align-self: start;
+              flex: none;
+              margin: 0;
+            }
+            /* The columns are the design's 1 px frames; each screen sits inside its own. */
+            & figure {
+              margin: calc(1 * var(--usability-unit));
+              &:nth-child(1) {
+                grid-column: 3;
+              }
+              &:nth-child(2) {
+                grid-column: 5;
+              }
+              &:nth-child(3) {
+                grid-column: 7;
+              }
+            }
+            & aside>p {
+              margin-block: 0;
+            }
+            &>.flex-row:first-of-type {
+              & figure {
+                grid-row: 2;
+              }
+              &>aside {
+                grid-area: 2 / 1;
+                margin-block-start: calc(57 * var(--usability-unit));
+                /* The design's text box inside the 4 px border, so the copy wraps line for line as drawn. */
+                padding-block: calc(21.4 * var(--usability-unit)) calc(27.6 * var(--usability-unit));
+                padding-inline: calc(25 * var(--usability-unit)) calc(7.5 * var(--usability-unit));
+                &::after {
+                  inset-block-start: calc(100% + 32 * var(--usability-unit));
+                  inset-inline-start: calc(83.6 * var(--usability-unit));
+                  inline-size: calc(61.4 * var(--usability-unit));
+                  block-size: calc(114 * var(--usability-unit));
+                  background-image: url("assets/menume-usability-tablet-squiggle-down-left.svg");
+                }
+              }
+              /*
+                The design draws this squiggle as a body plus a separate arrowhead; the artwork now carries both
+                (the client, CF116: "这个箭头的末端没有显示", the arrow's end was missing), its box grown by the head
+                so the body stays put.
+              */
+              & figure:nth-child(2)::after {
+                content: "";
+                position: absolute;
+                inset-block-start: calc(100% + 6.07 * var(--usability-unit));
+                inset-inline-start: calc(25.28 * var(--usability-unit));
+                inline-size: calc(48.42 * var(--usability-unit));
+                block-size: calc(95.1 * var(--usability-unit));
+                background: url("assets/menume-usability-tablet-squiggle-down.svg") center / contain no-repeat;
+              }
+            }
+            &>.flex-row:last-of-type {
+              & figure {
+                grid-row: 3;
+                margin-block-start: calc(92 * var(--usability-unit));
+              }
+              &>aside {
+                --line: linear-gradient(var(--color-case-study-secondary) 0 0);
+                grid-area: 4 / 1 / 5 / 6;
+                justify-self: start;
+                inline-size: calc(430 * var(--usability-unit));
+                margin-block-start: calc(25 * var(--usability-unit));
+                padding-block: calc(20.4 * var(--usability-unit)) calc(18.6 * var(--usability-unit));
+                padding-inline: calc(26 * var(--usability-unit)) calc(10.2 * var(--usability-unit));
+                &::after {
+                  content: none;
+                }
+                /*
+                  Offsets are from the padding edge, inside the 4 px border. The design stops the elbow at the box's
+                  edge (the client, CF116: "箭头的根部刺穿了文字框", the root pierced the text box), so its foot
+                  ends in the middle of the border instead of 5 px inside the box.
+                */
+                &::before {
+                  content: "";
+                  position: absolute;
+                  z-index: 1;
+                  inset-block-start: calc(-212.2 * var(--usability-unit));
+                  inset-inline-start: calc(147.5 * var(--usability-unit));
+                  /*
+                    The design's tip is 1.4 px past the Ground Beef dashed line's outer edge (Arrow 36 tip x 274.0,
+                    Rectangle 97 x 272.6). With the design's full 61.5 run the head landed 4 to 6 px past it, onto
+                    the photo, at 640 to 1091, so the run is 3.5 units shorter and the root stays put.
+                  */
+                  inline-size: calc(58 * var(--usability-unit));
+                  block-size: calc(212.2 * var(--usability-unit) - 2rem / 16);
+                  background-image: url("assets/menume-usability-connector-arrowhead-right.svg"), var(--line), var(--line);
+                  background-position:
+                    calc(43 * var(--usability-unit)) 0, 0 calc(7.2 * var(--usability-unit)),
+                    0 calc(7.2 * var(--usability-unit));
+                  background-size:
+                    calc(15 * var(--usability-unit)) calc(17.4 * var(--usability-unit)),
+                    calc(44.5 * var(--usability-unit)) calc(3 * var(--usability-unit)),
+                    calc(3 * var(--usability-unit)) calc(100% - 7.2 * var(--usability-unit));
+                  background-repeat: no-repeat;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      &:where(#menume-contributions)>.section-content {
+        &>.contribution-cards {
+          counter-reset: menume-card;
+          &>aside {
+            --menume-tint: var(--color-case-study-heading);
+            counter-increment: menume-card;
+            position: relative;
+            border-color: var(--menume-tint);
+            border-width: calc(4rem / 16);
+            border-block-end-width: calc(8rem / 16);
+            border-radius: 0;
+            &:nth-child(2) {
+              --menume-tint: var(--menume-honey);
+            }
+            &:nth-child(3) {
+              --menume-tint: var(--color-case-study-accent);
+            }
+            &>p:first-child {
+              font-weight: 700;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              inset-block-start: calc(-30rem / 16);
+              inset-inline-start: calc(-26rem / 16);
+              inline-size: calc(96rem / 16);
+              block-size: calc(51rem / 16);
+              background: url("assets/menume-contribution-brush-tape.svg") center / contain no-repeat;
+            }
+            &::after {
+              content: counter(menume-card);
+              content: counter(menume-card) / "";
+              position: absolute;
+              inset-block-end: calc(var(--menume-disc) / -3);
+              inset-inline-end: calc(var(--menume-disc) / -3);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              inline-size: var(--menume-disc);
+              block-size: var(--menume-disc);
+              border-radius: 50%;
+              background-color: var(--menume-tint);
+              box-shadow: 0 calc(4rem / 16) calc(4rem / 16) rgb(0 0 0 / 25%);
+              color: var(--color-page-background);
+              /* Every design draws the digits 30.6 px tall: Inter's are 0.7275 em. */
+              font-family: "Inter", sans-serif;
+              font-size: calc(42rem / 16);
+              font-weight: 500;
+              line-height: round(nearest, 1em, 1px);
+            }
+          }
+          /*
+            The phone and tablet designs draw the same card: 260 px wide, the title right above the text, a 64 px
+            badge 12 px past the end and 30 below, and the brush tape over the top corner (Phone/MenuMe.pdf).
+            The phone alternates them, the odd ones 23 px into the column and the even ones at its end, 103 px
+            apart; the tablet sets them two across, 37 px into its 614 px column from x 70 and 42 apart, the rows
+            335 px from top to top, with 50 px numerals (Tablet/MenuMe.pdf).
+          */
+          @media(width<40rem) {
+            flex-direction: column;
+            align-items: start;
+            gap: calc(103 * var(--card-unit));
+            &>aside {
+              margin-inline: calc(23 * var(--card-unit)) 0;
+              &:nth-child(even) {
+                margin-inline-start: auto;
+              }
+            }
+          }
+          @media(width<80rem) {
+            --card-unit: calc(1rem / 16 + var(--phone-art-grow));
+            @media(width>=40rem) {
+              --card-unit: calc(1rem / 16);
+            }
+            &>aside {
+              --menume-disc: calc(64 * var(--card-unit));
+              flex: none;
+              inline-size: calc(260 * var(--card-unit));
+              margin-block: 0;
+              padding-block: calc(16 * var(--card-unit)) calc(20 * var(--card-unit));
+              padding-inline: calc(24 * var(--card-unit));
+              &>p {
+                margin-block: 0;
+              }
+              &::before {
+                inset-block-start: calc(-34 * var(--card-unit));
+                inset-inline-start: calc(-43 * var(--card-unit));
+                inline-size: calc(92 * var(--card-unit));
+                block-size: calc(70 * var(--card-unit));
+              }
+              &::after {
+                inset-block-end: calc(-30 * var(--card-unit) - 8rem / 16);
+                inset-inline-end: calc(-12.5 * var(--card-unit) - 4rem / 16);
+                font-size: calc(42 * var(--card-unit));
+              }
+            }
+          }
+          @media(40rem<=width<80rem) {
+            display: grid;
+            grid-template-columns: calc(3740% / 614) calc(26000% / 614) calc(4200% / 614) calc(26000% / 614);
+            gap: calc(34rem / 16) 0;
+            &>aside {
+              grid-column: 2;
+              inline-size: auto;
+              min-block-size: calc(301rem / 16);
+              margin-inline: 0;
+              /* The design's text box is 214 px; ours keeps its thicker border, so the end padding gives way. */
+              padding-inline-end: calc(13.5rem / 16);
+              &:nth-child(even) {
+                grid-column: 4;
+              }
+              padding-block-start: calc(19rem / 16);
+            }
+          }
+          /*
+            The desktop design sets the cards two by two: 434 by 253 px, 67 px into its 1086 px column and 67
+            apart, the rows 96 apart, each card's copy on a 360 px measure, its tape 72 px before and 57 above the
+            corner, and a 90 px badge 31 past the end and 34 below (Desktop/MenuMe.pdf).
+          */
+          @media(width>=80rem) {
+            display: grid;
+            grid-template-columns: calc(6700% / 1086) calc(43400% / 1086) calc(6700% / 1086) calc(43400% / 1086);
+            justify-content: start;
+            gap: calc(96rem / 16) 0;
+            &>aside {
+              --menume-disc: calc(90rem / 16);
+              grid-column: 2;
+              min-block-size: calc(253rem / 16);
+              margin: 0;
+              padding-block: calc(22rem / 16) calc(16rem / 16);
+              padding-inline: calc(43rem / 16) calc(23rem / 16);
+              &:nth-child(even) {
+                grid-column: 4;
+              }
+              /* The fourth card's copy starts 60 px in and wraps on 341. */
+              &:nth-child(4) {
+                padding-inline: calc(56rem / 16) calc(29rem / 16);
+              }
+              &>p {
+                margin-block: 0;
+              }
+              /*
+                The badge reaches 36 px into the copy's last line, which below 1426 px can run that far: a
+                spacer after the last word keeps it clear, and moves to a line of its own only when the line
+                is full.
+              */
+              &>p:last-child::after {
+                content: "";
+                display: inline-block;
+                inline-size: calc(40rem / 16);
+              }
+              &::before {
+                inset-block-start: calc(-57rem / 16);
+                inset-inline-start: calc(-72rem / 16);
+                inline-size: calc(152rem / 16);
+                block-size: calc(118rem / 16);
+              }
+              &::after {
+                inset-block-end: calc(-34rem / 16);
+                inset-inline-end: calc(-31rem / 16);
+                font-size: calc(50rem / 16);
+              }
+            }
+          }
+        }
+        /*
+          The tablet design: the section heading 156 px under the band and the cards' tops 77 under its baseline,
+          and Key Learnings 124 under the second row; that heading is 16 px on the phone and tablet, 22 on the
+          desktop.
+        */
+        @media(40rem<=width<80rem) {
+          padding-block-start: calc(49rem / 16);
+          &>h3 {
+            margin-block-end: calc(70rem / 16);
+          }
+          &>.subsection {
+            margin-block-start: calc(96.5rem / 16);
+            &>h3 {
+              margin-block-end: calc(37rem / 16);
+            }
+          }
+          /* 158 from the second learning's box to the closing quote's first baseline. */
+          &>.closing-reflection {
+            margin-block-start: calc(138rem / 16);
+          }
+        }
+        /*
+          The desktop design: the cards' tops 149 px under the heading's glyph top, Key Learnings 161 under the
+          second row, and its first learning heading 149 under it.
+        */
+        @media(width>=80rem) {
+          &>h3 {
+            margin-block-end: calc(116rem / 16);
+          }
+          &>.subsection {
+            margin-block-start: calc(160rem / 16);
+            &>h3 {
+              margin-block-end: calc(112rem / 16);
+            }
+          }
+          /*
+            The closing quote on a 1000 px measure (it wraps as drawn from 981 to 1032 px), its lines 36 apart and
+            140 under the drips (its margin collapses with the last learning's).
+          */
+          &>.closing-reflection {
+            margin-block-start: calc(213rem / 16);
+            margin-inline: calc(4300% / 1086);
+            line-height: round(nearest, 2em, 1px);
+          }
+        }
+        &>.subsection>h3 {
+          font-size: calc(1rem + 6 * var(--grow));
+        }
+        &>.subsection {
+          &>h4 {
+            color: var(--color-case-study-accent);
+            &::before {
+              content: "";
+              display: inline-block;
+              inline-size: calc(20rem / 16 + 8 * var(--grow));
+              block-size: calc(20rem / 16 + 8 * var(--grow));
+              margin-inline-end: calc(8rem / 16);
+              vertical-align: middle;
+              background: url("assets/menume-teal-lightbulb-icon.svg") center / contain no-repeat;
+            }
+            &:nth-of-type(2)::before {
+              background-image: url("assets/menume-teal-network-icon.svg");
+            }
+          }
+          &>aside {
+            --menume-drip-color: var(--menume-honey);
+            position: relative;
+            margin-block-end: calc(var(--menume-drip) * 0.75);
+            border-width: 0;
+            border-radius: calc(24rem / 16) calc(24rem / 16) 0 0;
+            background-color: var(--menume-honey);
+            /*
+              The designs draw the copy above the drip, which starts a quarter of its depth inside the box; the
+              tablet copy's last line sits in that band (Tablet/MenuMe in the .fig: drip from 12012, copy to 12024).
+            */
+            &>p {
+              position: relative;
+              z-index: 1;
+            }
+          }
+          /*
+            The tablet and desktop designs stagger the two learnings: each box 83.5% of the column, the second at
+            its end, each heading starting in line with its box's text.
+          */
+          @media(width>=40rem) {
+            &>:is(h4, aside) {
+              box-sizing: border-box;
+              inline-size: 83.5%;
+              &:nth-of-type(2) {
+                margin-inline-start: auto;
+              }
+            }
+            &>h4 {
+              padding-inline-start: 2rem;
+            }
+            /* The drip clears the next heading by 49 px at 744 and 80 at 1440. */
+            &>aside {
+              margin-block-end: calc(var(--menume-drip) * 0.75 + 33rem / 16 + 31 * var(--grow));
+            }
+          }
+          /*
+            The tablet design puts each heading's icon at its box's edge and its text in line with the box's copy,
+            the copy 20 px under the box's top on a 458 px measure, and drips 83 px deep (Tablet/MenuMe.pdf).
+          */
+          @media(40rem<=width<80rem) {
+            &>h4 {
+              margin-block-end: calc(22rem / 16);
+              padding-inline-start: calc(4rem / 16);
+            }
+            &>aside {
+              --menume-drip: calc(83rem / 16);
+              margin-block-end: calc(var(--menume-drip) * 0.75 + 43rem / 16);
+              padding-block: calc(20rem / 16) calc(11rem / 16);
+              padding-inline: 2rem calc(22.5rem / 16);
+              &>p {
+                margin-block: 0;
+              }
+            }
+          }
+          /*
+            The desktop design: an 818 and an 828 px box from 52 and 204 px into the 1086 px column, each heading's
+            icon at its box's edge and its text in line with the copy, 44 and 49 px into the box, the copy on 736
+            and 745 px measures 40 px under the box's top, and drips about 69 px deep.
+          */
+          @media(width>=80rem) {
+            &>:is(h4, aside) {
+              margin-inline-start: calc(5200% / 1086);
+            }
+            &>:is(h4, aside):nth-of-type(1) {
+              inline-size: calc(81800% / 1086);
+            }
+            &>:is(h4, aside):nth-of-type(2) {
+              inline-size: calc(82800% / 1086);
+              margin-inline-start: calc(20400% / 1086);
+            }
+            &>h4 {
+              margin-block-end: calc(37rem / 16);
+              padding-inline-start: 0;
+              &::before {
+                margin-inline-end: calc(16rem / 16);
+              }
+            }
+            &>aside {
+              --menume-drip: calc(92rem / 16);
+              margin-block-end: calc(var(--menume-drip) * 0.75 + 73rem / 16);
+              padding-block: calc(35rem / 16) calc(26rem / 16);
+              padding-inline: calc(44rem / 16) calc(38rem / 16);
+              &:nth-of-type(2) {
+                padding-inline: calc(49rem / 16) calc(40rem / 16);
+              }
+              &>p {
+                margin-block: 0;
+              }
+            }
+          }
+          /* The phone design centres the headings over full-width boxes with a 60 px drip (Phone/MenuMe.pdf). */
+          @media(width<40rem) {
+            --learning-unit: calc(1rem / 16 + var(--phone-art-grow));
+            &>h4 {
+              margin-block: 0 calc(24 * var(--learning-unit));
+              text-align: center;
+            }
+            &>aside {
+              --menume-drip: calc(60 * var(--learning-unit));
+              margin-block-end: calc(var(--menume-drip) * 0.75 + 100 * var(--learning-unit));
+              padding-block: calc(20 * var(--learning-unit));
+              padding-inline: calc(23 * var(--learning-unit));
+            }
+          }
+        }
+        &>.closing-reflection {
+          color: #000;
+        }
+      }
+    }
+    &>.content :is(
+      .menume-inspiration-quote,
+      :where(#menume-overview) .flex-row>aside,
+      :where(#menume-contributions) .subsection>aside
+    )::after {
+      content: "";
+      position: absolute;
+      inset-block-start: calc(100% - var(--menume-drip) / 4 + var(--menume-box-border, 0px));
+      inset-inline: calc(-1 * var(--menume-box-border, 0px));
+      block-size: var(--menume-drip);
+      background-color: var(--menume-drip-color);
+      /*
+        The designs' own drip path (Phone/MenuMe.pdf), stretched to each box as every design stretches it; the box
+        overlaps only its solid top quarter, so the gaps between drips show the page.
+      */
+      mask: url("assets/menume-honey-drip.svg") 0 0 / 100% 100% no-repeat;
+    }
+  }
+}
