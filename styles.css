@@ -6576,6 +6576,11 @@ h1 {
         aspect-ratio: 141 / 177;
         background: url("assets/scotties-challenge-lightning-bolt.svg") center / contain no-repeat;
       }
+      @media(width>=40rem) {
+        &::before {
+          inset-inline-start: 75.5%;
+        }
+      }
     }
     .scotties-positioning-note {
       position: relative;
