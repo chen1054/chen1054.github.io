@@ -4740,9 +4740,17 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     18 / 18 / 22), while the site used the shared 18 / 18 / 22 (Safari computed sizes, `eval-sub.log`). The older
     `.fig` reading recorded here as "drawn that way" (heading box ending at y 9279) predates that change. Fix
     `8e71435`, committed before its check: font sizes scoped to `#scotties-wireframing-heading+.section-content`.
-    Safari check queued: `eval-sub2.log` (sizes at 390, 744, 1440, 1905) and `fix3` (sweep at the same widths),
-    then `glyph-gap.py`, crops, the tablet callout rows (their arrows hang off the rows, not the headings), the
-    reply draft.
+    Safari: `eval-sub2.log` sizes now Sitemap and lo-fi 16 / 16 / 18 / 18 and Hi-fi 18 at 390, 744, 1440, 1905;
+    line boxes unchanged (28, 32), so nothing moved. That alone took the desktop ink gaps only to 11, 11, 10
+    (`fix3`). `heading-ink.py` (ink top and bottom, art under the ink's columns) against the design render: ink
+    height equal (17.5 against 17); design ink to screen about 15.8 (lo-fi homepage, its 13.5 minimum is to an
+    orange arrow), 17, 17; the listing's ink was also 6.3 px too far under the wireframe above (56.5 against
+    50.2), so the headings were low, not the screens high. `667ed54`: each desktop heading rises 5, 6, 7 px
+    by a negative margin above and the same added below. `boxes2.log`: screens and the hi-fi paragraph at the
+    same y as before (9256.3, 9795.3, 10359, 10422.8). `fix4` (1280, 1440, 1905): ink to screen 16, 17, 17
+    (1280 listing 16); `glyph-gap.py` nothing under 6. By eye at 1905: the listing heading sits between the
+    wireframes as drawn. Below 1280 untouched: at 744 and 390 the nearest art is the skateboard glyph (12 and
+    4 to 5 px; designs 11 and 3).
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
