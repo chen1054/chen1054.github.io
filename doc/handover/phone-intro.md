@@ -4535,6 +4535,13 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `xinyanchen-safari-sweep27`, `f20/badge/safari-tiles.ts`, into `f20/sweep27/safari/`, log `f20/sweep27.log`
     prints each page's layout width). Next: sheets (two per sheet at 1200 and wider), every tile looked at,
     fixes one commit each checked in Safari, reply draft updated with anything the client would see.
+  - Captured: 7 widths by 6 pages, layout widths as asked; sheets in `f20/sweep27/sheets/` (`make-sheets.ts`).
+    Read so far: 430 and 560 all, 900 Home, About, Contact, MenuMe, Scotties. Findings so far, not yet fixed:
+    1.  Scotties pillars, 900 (tablet layout): the Confidence line "digitally so customers feel assured" ends
+        against the chevron trail's ">>>>>" (`f20/sweep27/crop-900-pillars.png`). Same kind as the 640 to 743
+        fix. Width range unknown yet.
+    2.  MenuMe "Design Iteration" box beside the Weekly Specials hi-fi screens, 900: a line starts
+        "/ 380 kcal)." (the break fell inside "(15 min / 380 kcal)").
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
