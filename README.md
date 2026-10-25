@@ -9,7 +9,9 @@ For Contact's captcha, use `http://portfolio.localhost:4173/contact.html`;
 hCaptcha warns on the plain `localhost` hostname.
 
 The text is HTML.
-All pages share `styles.css`.
+All pages share `site.css`, whose header states the layout model:
+three layouts from the three design frames (phones, tablets from 40rem, desktops from 80rem),
+one type scale and one column shared by every page, and each page's drawings after that shell.
 Artwork is extracted from the supplied PDF; buttons are CSS pills drawn at the supplied geometry.
 Each decorative wave component is its own SVG asset and HTML image.
 Picture sources select the supplied phone or wide artwork.
@@ -20,13 +22,18 @@ The user reviewed and approved this animation.
 Reduced-motion visitors see the complete static introduction immediately.
 The client's original floral logo supplies the local SVG favicon,
 32-pixel ICO fallback, and 180-pixel Apple touch icon on every page.
-The main breakpoint is 40rem: it switches to inline navigation and alternating flexbox project columns.
-Four small, documented exceptions sit in `styles.css`:
-a 26.25rem step for the Tales story-pillar icon boxes,
-a 22.5rem to 40rem range for the Tales impact cards,
-a 64rem container query for the case-study headings,
+The layout boundaries are 40rem (inline navigation, alternating flexbox project columns)
+and 80rem (the desktop compositions).
+The other queries in `site.css` belong to single drawings, each documented where it sits:
+26.25rem for two Tales story pillars to a row,
+46.5rem for the Scotties band text below the tablet design's width,
+64rem for the three Scotties personas in a row and MenuMe's prototype buttons side by side,
+68.25rem and 90rem for the Scotties wireframe compositions,
 and a container query above 744px (the tablet design's width) that moves every other Scotties band's chevrons to the left.
-CSS grids are prohibited.
+CSS grid is used only where a drawing needs it:
+connectors that span the rows between callouts, layers that overlap in one cell,
+and fixed tracks whose items shrink to their content;
+everything else is flexbox (`doc/handover/layout-rebuild.md`).
 Named SVG views trim blank export margins on wide screens without duplicating artwork.
 Their boxes align with the outer column edges while text remains left-aligned.
 Explicit phone aspect ratios preserve the original frames when resizing back to phone widths.
@@ -62,8 +69,8 @@ photographs are local PNG files extracted from the supplied artwork.
 One shared CSS rule gives gallery photographs their rounded corners and gold `box-shadow`.
 “View My CV” opens the locally hosted résumé PDF.
 The case studies reuse the navigation, footer, back-to-top link, and existing breakpoint.
-Their hero columns wrap naturally with flexbox.
-A 64rem container query switches their centered headings to left alignment on Desktop.
+Their hero stacks the preview over the summary, and from 80rem sets them side by side,
+the summary left-aligned from about the column's middle.
 Their text remains live HTML and their photographs and interface screenshots are local PNGs.
 Original vector artwork retains its SVG geometry;
 shared masks recolor the matching corner decorations.
