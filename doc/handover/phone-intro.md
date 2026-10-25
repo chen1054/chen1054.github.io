@@ -4576,6 +4576,12 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     trail (`f20/sweep27/crop-900-confidence.png`): above 744 the tablet column grows faster than the copy's font,
     so lines take more words. Candidate fix: cap each tablet pillar's measure in em at its 744 width (186/14,
     209/14, 193/14 em), which keeps the 744 lines at every tablet width.
+  - `cloud4` result (current CSS, `line-chroma.py`): desktop 1392 and up (9 to 13 px over "e-commerce"),
+    1280 to 1376 clear; tablet 1056 to 1060 (line 0) and 1104 to 1184 (line 2), 5 to 15 px, iPad landscape 1180
+    included; 640 clear (the `cloud2` 640 hits were a capture artifact). Trial in the working tree, NOT committed:
+    `styles.css` `.scotties-challenge-bubble` gets `@media(width>=40rem) { &::before { inset-inline-start: 75.5% } }`
+    (bolt 3.5% of the cloud to the right from tablet up; phones keep 72% and the drawn overlap). Sweep `cloud5`
+    (320 to 2560) running. If it fails, revert that block before anything else is committed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
