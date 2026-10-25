@@ -4773,6 +4773,34 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     question stands alone. Next checks (tasks #131 to #134): block-based re-collection (`text-styles3`) with a
     positive control, triage of the size groups, phone body by container, the phone footer and swirl fixes at
     ×1.12 text, unmatched design lines as copy differences.
+  - Dropped: the ×1.12 recheck. That enlargement was WeChat's `-webkit-text-size-adjust` (`f20/oneshape/sim-tsa.ts`),
+    and the user said "Ignore WeChat text size site-wide".
+  - Block-based diff (`text-size3.report`; collector groups text nodes by block, matcher takes the size of the
+    matched characters): 192 mismatches, 326 unmatched; control (390 and 744 designs against 1440 site data) 1522,
+    so it sees size differences. Triage, rule: a size is a slip only when it differs from same-role text in the
+    same frame; otherwise each frame is followed.
+    - False pairings with text the site draws in images: Tales age-tier labels and character-card ages (SVG/PNG),
+      the small "Social Media Ads" and "OPH Website" ecosystem labels, the Scotties specimen panel (outlined SVG).
+    - Tales impact chevron labels: each drawn twice; the visible copy is the 14 px one (tablet "Community Reach"
+      115 px wide drawn, 115.4 for the 14 px copy, 131.9 for the 16), so 14 / 14 / 16 as the site has.
+    - Desktop nav 25 in the designs, 22 by the client's CF109: kept. "Key Learnings & Takeaways" 16 / 16 / 22 and
+      "32, Agency Professional" 18 beside 16s: slips, kept consistent.
+    - Fixed (commit after `667ed54`, "label size fixes"): MenuMe Desktop delivery lead-ins and contribution titles
+      18 over 16 body (`calc(1em + 2 * growth)`); Tales tablet channel labels 16 over 14 (`max(1em, 16px)` from 640).
+      Safari check queued.
+    - Unmatched lines: PDF extraction artefacts ("W eekly", "FlowsUsability"), image text, run-together spacing
+      in the designs, the Tales citations awaiting the client, the shop name without apostrophe (decided, line
+      1575). Home's project lines were collector artefacts: text nodes joined without spaces.
+  - Phone body, 23 October exports: MenuMe prose is 15 throughout, 14 only inside drawn containers (problem
+    cards, feature boxes, usability notes, prototype buttons); Scotties prose 15 down to the wireframing section,
+    14 after it (a slip against its own first half and Tales' 15). Decision (latest fig is ground truth; the
+    2026-10-20 "stay 14" read the older fig): MenuMe and Scotties phone prose to 15, containers as drawn. Queued
+    after the Home work.
+  - Missed by the 2026-10-23 break sweep: `styles.css:151` makes every `h1`, `h2`, `p` > `span` a block, and
+    `index.html` hand-wraps 16 elements in 58 such spans (project descriptions, roles, intro, poster title). The
+    user, 2026-10-25: "I already told you huge refactors are acceptable." Task #135: descriptions, intro, role
+    continuations and the poster title wrap naturally; separate items stay separate (Project Type vs Role,
+    footer's two lines, greeting vs name). Checked in Safari at 320 to 1920 and in the Simulator.
   - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
     inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
