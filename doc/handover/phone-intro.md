@@ -4607,7 +4607,10 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     kept it; `drop-float-line.py` now also drops boxes over twice the median line height, and those widths read
     clear. 640 still hits the same lines as `cloud2`'s 640, whose line boxes do not match the screenshot; by eye
     (`occlude/c5-640.png`) the copy is clear. Looked at `c5-1920.png` and `c5-1180.png`: the tip ends clear of
-    "e-commerce" and of every line. Bolt fix verified in Safari.
+    "e-commerce" and of every line. Bolt fix verified in Safari. Added to the reply draft in both languages; the
+    draft's "four things" made count-neutral.
+  - `variants10` result: the widget paragraph split "One- / Pagers" at 414, the School Distribution item at 414
+    and 430; word-joined, both stay whole at all 36 widths with line counts unchanged (`f58ac21`).
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
