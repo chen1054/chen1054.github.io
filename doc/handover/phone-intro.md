@@ -4547,8 +4547,24 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     3.  Tales "OPH Dedicated Sub-site", 900: "...download age-appropriate One- / Pagers." leaves "Pagers." alone
         on the last line.
     4.  Scotties Core Challenge cloud, 1536: the lightning bolt's lower tip lies over the last "e" of
-        "e-commerce" (`f20/sweep27/crop-1536-cloud.png`). The earlier cloud check ("no ink overlap at 29
-        widths") either did not include 1536 or missed it: check its width list before trusting it again.
+        "e-commerce" (`f20/sweep27/crop-1536-cloud.png`; 4x zoom from the Safari capture,
+        `f20/occlude/cloud3-1536-zoom.png`: the green triangle runs through "rce"). The earlier cloud check ("no ink
+        overlap at 29 widths", `cloud2`) skipped 1536 (1440 then 1600) and is blind to this bolt anyway:
+        `banner-foreign.py` calls a pixel foreign only beyond 60 RGB units from the text-to-band line, and the
+        bolt's pale green #BDCA9D lies about 33 from the black-to-white line, so it passes as anti-aliasing. A rerun
+        at 20 widths 1440 to 2560 (`cloud3`, after `drop-float-line.py`) reported 0 while the overlap is plain.
+        Do not trust `banner-foreign.py` for low-saturation art; a chroma check replaces it for this.
+        `f20/occlude/line-chroma.py <dir>` (coloured pixels, max minus min channel over 24, inside each line box;
+        positive control: 1536 flags) on `cloud3` (1440 to 2560): every width hits, 77 px in the last 10 px of
+        line 1 ("...e-commerce"); above 1440 the desktop layout is fixed, so the client's 1920 shows it. On `cloud2`
+        (320 to 1920): 1400 and up hit (1280 to 1366 clear); tablet 1060, 1120, 1160 hit 5 to 13 px, by eye the
+        bolt touching "outdated" (1060) and the tip touching the "d" of "and" (1160), so iPad landscape (1180,
+        tablet layout) is exposed; 640's hits are a capture whose line rects do not match its screenshot (clean by
+        eye). Desktop design (`Desktop/Scotties-desktop.pdf`): bolt left point 71.6% of the cloud, tip 79.1%
+        across and 31.8% of the width down, the nearest line ending at 76.4%; ours: 72%, tip about 79.8%, line 1
+        ending at 81.7%. The bolt is placed as drawn; the Medium copy fits more per line than the design's Bold.
+        Next: map the exact ranges (Safari every 16 px, 640 to 1440), then fix keeping the copy clear of the bolt
+        at tablet and desktop (phone keeps the drawn overlap), checked with `line-chroma.py` and by eye.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
