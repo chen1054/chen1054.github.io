@@ -7231,8 +7231,12 @@ h1 {
           &>.note:first-child {
             --box: 217;
             --h: 114;
-            --ps: 22;
-            --pe: 0;
+            /*
+              Tablet/Scotties.pdf: box x 61 to 278, text x 87 to 256.4. With no end inset the text ran to the
+              border's inner edge from 640 to 1024 (Safari) and wrapped wider than drawn.
+            */
+            --ps: 26;
+            --pe: 21.6;
             --y: 49.3;
             /* The design's 89 plus 10.5: the shared highlights draw the dark box right of the tablet design's. */
             --w: 99.5;
