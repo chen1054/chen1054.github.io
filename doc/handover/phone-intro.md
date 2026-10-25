@@ -4590,6 +4590,9 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     "One-&#8288;Pagers." makes "age-appropriate One-Pagers." (156 px) the last line at 860 and 900, where
     "Pagers." stood alone (46 px); line counts unchanged (`f368360`). Not checked: the other two "One-Pagers" in
     Tales (source lines near 1253 and 1323). Both still need a by-eye look in Safari after landing.
+    Queued behind `cloud5` and `pillars` on the VM lock: `variants10` (`sweep24/variants-spec10.json`, the other
+    two "One-Pagers", mid-sentence, current and word-joined) and `textfix` (Safari screenshots of the MenuMe
+    paragraph at 390, 540, 900, 960, 1280 and the Tales paragraphs at 860 and 900, `occlude/textfix-*`).
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
