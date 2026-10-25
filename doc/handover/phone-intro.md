@@ -4689,6 +4689,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     meets the bottom of "Chen" in "© 2026 Xinyan Chen" at 320 (clear at 432), and Home's grey swirl sits behind
     "MenuMe is a meal…" and "busy…" at 320 (above the paragraph at 376, as drawn). Line boxes include leading,
     so `glyph-gap.py` (art to text ink, per width) is running to give each one's exact width range.
+  - `glyphgap.report` (`glyph-gap.py` in six parallel units via `glyph-gap-parallel.ts`, 7.1 min; ink = shown
+    minus hidden shot, art = hidden shot off the line's commonest colour by > 20, distance in CSS px, 0 = art under
+    ink). Art under text: "© 2026 Xinyan Chen" on Contact and the three case studies at 320 to 368 (Contact still
+    only 2.2 at 390, 5.8 at 432); Home "MenuMe is a meal…" at 320 to 352 (0.5 at 360) and "busy…" at 320 to 336.
+    Close: case-study "Made with VS Code" 1.1 at 320; MenuMe persona "Daniel" 0.5 and "Matthew" 1.0 at 320 (inside
+    their brush strokes; by eye the "l" of Daniel nearly meets a notch); Home footer 2.5 at 320. Cause shared:
+    below 390 `--phone-art-growth` shrinks drawn art with the screen while type keeps its 390 size, so fixed-size
+    text reaches art drawn around a 390 layout. Everything else ≥ 1.6 and by design (heading icons 1.8 to 5,
+    Tales circle 1.6 to 3, the cloud 2.5 to 3.5).
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
