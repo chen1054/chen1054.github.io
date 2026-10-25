@@ -648,6 +648,9 @@ img {
     --color-case-study-prototype-text: var(--color-page-background);
     --color-case-study-secondary-prototype-background: var(--color-case-study-heading);
     --color-case-study-secondary-prototype-text: var(--color-page-background);
+    --case-study-prototype-hover-chroma: 0.123646;
+    --case-study-secondary-prototype-hover-chroma: 0.168313;
+    --color-case-study-wireframe-frame: #474e32;
     --summary-bullet: "•" / "";
     --summary-bullet-indent: 1rem;
   }
@@ -1083,10 +1086,16 @@ img {
       background-color: var(--color-case-study-prototype-text);
       color: var(--color-case-study-prototype-background);
     }
+    /* MenuMe's pills keep their colours and deepen on hover. */
+    .case-study[data-case-study="menume"] &:hover {
+      background-color: oklch(from var(--color-case-study-prototype-background) l var(--case-study-prototype-hover-chroma) h);
+      color: var(--color-case-study-prototype-text);
+    }
   }
   & .secondary-prototype-link {
     --color-case-study-prototype-background: var(--color-case-study-secondary-prototype-background);
     --color-case-study-prototype-text: var(--color-case-study-secondary-prototype-text);
+    --case-study-prototype-hover-chroma: var(--case-study-secondary-prototype-hover-chroma);
   }
   & .closing-reflection {
     max-inline-size: 30em;
