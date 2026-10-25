@@ -4721,9 +4721,15 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     by-design list at unchanged values plus the persona names. By eye: Home intro at 320 and 360 (swirl beside
     the heading as drawn), Contact credits at 320, and page bottoms of Contact 320 and 390, MenuMe 320 and Home
     320: footers flush, credits clear. About untouched (6.5 at 320).
-  - Next: the iOS 17.0.1 Simulator at 375 (an iPhone SE 3rd generation added to the agent's device set on
-    `/Volumes/XinyanSimDevices`, under `vm-sonoma.lock`), frames of the Contact, MenuMe and Home footers and the
-    Home intro; then the reply draft in both languages.
+  - iOS 17.0.1 Simulator at 375: an iPhone SE (3rd generation) device `19732DEB-7552-49D3-8F5F-120D5D5162E8`,
+    named "iPhone SE 3 iOS 17.0.1", added to the agent's set on `/Volumes/XinyanSimDevices` (the default set's SE
+    sits on m1's internal SSD). `f20/oneshape/sim-se.ts` under `vm-sonoma.lock` boots it, frames from inject 4187,
+    shuts it down; shots in `f20/oneshape/sim-se/`. Contact, MenuMe and Home footers: credits clear above the
+    waves, waves close the page. Home intro: the swirl beside "UX / App Design Project", clear of the paragraph.
+  - Reply draft (local) updated in both languages: one bullet at the end of the found-and-fixed lists (the note
+    insets, the footer waves, the swirl). Not mentioned: the persona names, tight in the design too.
+  - Left as is: MenuMe persona "Daniel" (design 5.2 px to its stroke edge, site 3.0 at 390 and 0.5 at 320, by eye
+    inside its stroke) and "Matthew" (under 3 in the design); same shrink-below-390 cause, not changed.
   - Sweep status: #118 (desktop re-review), #119 (iPhone 15 and iPad 10th Simulator r3) and #120 (enlarged views)
     done. No new finding beyond the Well-Being fix. Next: report to the user.
   - The Safari text-overrun probe (`f20/occlude/text-over-probe.js`, `textover-safari.log`) also lists Tales
