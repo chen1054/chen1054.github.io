@@ -4711,7 +4711,8 @@ page; tablet "Contract" is the fig's own name for Contact), with the original zi
     `81cc789` below 390 `min(var(--phone-art-growth), 0rem)` terms (Contact −36.5, case studies −105, Home −42)
     so the waves keep their 390 gap; `b639358` Home swirl image only `translate` 122 left and 278 up times that
     term (layout-neutral; the right-hand wave in the same image stays). The footer comment from `7415285` (text
-    painted above the wave) is updated: that fix hid nothing, the wave still reached the glyphs.
+    painted above the wave) is updated: that fix kept the text drawn over the wave, but the wave still reached the
+    glyphs.
   - Queued on the VM lock: `fix1` (index, contact, menume at 320, 336, 352, 360, 368, 376, 390, 432) and `fix2`
     (scotties, tales, about at 320 and 352); then `glyph-gap.py` and `column-depth.py` on them, crops by eye at
     320 and 390 (footer still flush at the page bottom), then the reply draft in both languages.
