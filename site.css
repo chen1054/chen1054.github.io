@@ -667,6 +667,10 @@ img {
     --summary-bullet-indent: 1rem;
     --preview: 280;
     --preview-desktop: 551;
+    /* The phone design sets the Scotties column 20 px from each edge (the others 34); its pillars are drawn on it. */
+    @media(width<40rem) {
+      --gutter: calc(20rem / 16);
+    }
   }
   /* Every case-study design tracks its text at -1.9 %, except the navigation and the prototype links. */
   & .content {
