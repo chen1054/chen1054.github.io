@@ -189,6 +189,14 @@ branch. Evidence on snapshot `e12e8ec` and round four (`53a9245`, text-only glue
   Scotties CF105 and CF106, MenuMe), each artwork viewer opening and closing on Escape.
 - iOS 17.0.1 Simulator (Safari 17.0): Home, each case study's reworked sections, About, Contact.
 
+Pushed `441ca4a..a436a5c`; Pages built `a436a5c`. Live check (https://chen1054.github.io, Safari 17.5 at 390 and
+1440, all six pages, against snapshot `e12e8ec`): every page links `site.css` and renders pixel-identical, except
+Contact's captcha (hCaptcha's "localhost detected" warning shows only locally) and one Tales laptop frame that the
+stitched live capture caught before it loaded (a direct shot of the live page shows it). A fast-forward merge
+makes no commit, so auto-push does not publish it: push `main` explicitly.
+
+Next: re-verify the client reply draft's "checked in Safari 17.5" claims against the live site.
+
 ## Model
 
 Written into the stylesheet header as it is built (`site.css`).
