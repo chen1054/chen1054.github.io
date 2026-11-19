@@ -541,9 +541,13 @@ img {
         flex: 1 1 0;
         min-inline-size: 0;
       }
+      /*
+        Each image starts at its half's left edge, as drawn on tablet and desktop; centred, Tales sat 49 px and Echoes
+        77 px in from it at 1440.
+      */
       &>.illustration>img {
         inline-size: min(100%, var(--art) / 507 * 100%);
-        margin-inline: auto;
+        margin-inline: 0 auto;
       }
       &>.description {
         margin-inline: 0;
@@ -1131,14 +1135,43 @@ img {
     --color-case-study-prototype-text: var(--color-case-study-secondary-prototype-text);
     --case-study-prototype-hover-chroma: var(--case-study-secondary-prototype-hover-chroma);
   }
+  /*
+    The closing quote takes its drawn box, as before the 2026-10-25 shell: on phones the Phone-frame box (Tales 349 px,
+    MenuMe 335, Scotties 348) centred over the column, keeping 13 px gutters below a 375 px screen; on tablets the
+    column (599 to 618 px of the tablet design's 614 px column); on desktops each page's measure (MenuMe 1000, Tales
+    880, Scotties 806). The shell had capped it at 30em, which held every quote to 480 or 540 px and four lines over
+    those boxes and left MenuMe's off centre; before the shell they wrapped as drawn.
+  */
   & .closing-reflection {
-    max-inline-size: 30em;
     margin-block-start: calc(80rem / 16);
     margin-inline: auto;
     color: var(--color-case-study-subtitle);
     font-size: calc(1rem + 2 * var(--grow));
     font-weight: 700;
     text-align: center;
+    @media(width<40rem) {
+      --closing-reflection-box: calc(349rem / 16);
+      --closing-reflection-inline-size: min(var(--closing-reflection-box), 100vw - calc(26rem / 16));
+      inline-size: var(--closing-reflection-inline-size);
+      margin-inline: calc((100% - var(--closing-reflection-inline-size)) / 2);
+      .case-study[data-case-study="menume"] & {
+        --closing-reflection-box: calc(335rem / 16);
+      }
+      .case-study[data-case-study="scotties"] & {
+        --closing-reflection-box: calc(348rem / 16);
+      }
+    }
+    /*
+      Scotties: 806 px wide (inside the 801.5 to 812 px where both browsers break it as drawn), centred 6.5 px right
+      of the column's middle, with 36 px lines.
+    */
+    .case-study[data-case-study="scotties"] & {
+      @media(width>=80rem) {
+        inline-size: calc(806rem / 16);
+        margin-inline: calc(100% * 146.5 / 1086) 0;
+        line-height: round(nearest, 2em, 1px);
+      }
+    }
   }
   /* The case-study footer wave is gray; it rises behind the credits as on Home. */
   &>.site-footer {
@@ -1717,6 +1750,15 @@ img {
     }
     &>.content>.project-introduction>.project-summary {
       font-weight: 500;
+      /*
+        On phones the facts sit 34 px from each edge, as drawn (35 in the 390 px phone frame) and as before the
+        2026-10-25 shell; the page's 20 px gutter is for the drawings below, and the shell had set the facts on it.
+      */
+      @media(width<40rem) {
+        &>p {
+          margin-inline: calc(14rem / 16);
+        }
+      }
     }
     &>.content>.section>h2 {
       position: relative;
