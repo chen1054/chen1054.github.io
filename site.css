@@ -1136,8 +1136,10 @@ img {
     --case-study-prototype-hover-chroma: var(--case-study-secondary-prototype-hover-chroma);
   }
   /*
-    The closing quote flows in the column like the rest of the copy: it shares the column's left and right edges at
-    every width and wraps naturally, centred. A blockquote's own 40 px side margins would otherwise inset it.
+    The closing quote lines up with the content just above it: the column where that content fills it, otherwise the
+    same box, written with that content's own rules (Tales: the impact strip; MenuMe on desktop: the two learning
+    boxes, 52 to 1032 of 1086; Scotties on desktop: the two learning boxes, 74 to 1086 of 1086). Its text wraps
+    naturally, centred. A blockquote's own 40 px side margins would otherwise inset it.
   */
   & .closing-reflection {
     margin-block-start: calc(80rem / 16);
@@ -1146,6 +1148,18 @@ img {
     font-size: calc(1rem + 2 * var(--grow));
     font-weight: 700;
     text-align: center;
+    .case-study[data-case-study="tales"] & {
+      inline-size: var(--strip);
+      margin-inline: calc((100% - var(--strip)) / 2);
+    }
+    @media(width>=80rem) {
+      .case-study[data-case-study="menume"] & {
+        margin-inline: calc(5200% / 1086) calc(5400% / 1086);
+      }
+      .case-study[data-case-study="scotties"] & {
+        margin-inline: calc(100% * 74 / 1086) 0;
+      }
+    }
   }
   /* The case-study footer wave is gray; it rises behind the credits as on Home. */
   &>.site-footer {
@@ -7017,6 +7031,16 @@ img {
         margin-block-start: calc(119rem / 16);
       }
     }
+    /*
+      The impact strip's width, shared with the closing quote under it. Below 390 px the strip keeps the 20 px it leaves
+      at each window edge there, instead of running off-screen.
+    */
+    & #tales-campaign-and-impact>.section-content {
+      --strip: min(
+        350rem / 16 + 321 * var(--phone-grow) + 309 * var(--grow),
+        100vw - 40rem / 16
+      );
+    }
     & .impact-cards {
       --tip: calc(24rem / 16 + 10 * var(--grow));
       --stem: calc(24rem / 16 + 11 * var(--grow));
@@ -7032,11 +7056,9 @@ img {
         negative margin; the copy starts about 11 px before the overlap ends. On phones the rings centre on the whole
         chevron, as Phone Tales places them.
       */
-      /* Below 390 px the strip keeps the 20 px it leaves at each window edge there, instead of running off-screen. */
-      --strip: min(
-        350rem / 16 + 321 * var(--phone-grow) + 309 * var(--grow),
-        100vw - 40rem / 16
-      );
+      /*
+        The strip's width, --strip, is set on the section's content box so the closing quote below can line up with it.
+      */
       /*
         Two chevrons fill a phone row exactly, and sub-pixel rounding could push the second onto its own row; a
         quarter pixel less keeps both on it.
